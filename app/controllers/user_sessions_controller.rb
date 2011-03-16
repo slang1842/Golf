@@ -1,7 +1,9 @@
 class UserSessionsController < ApplicationController
   #before_filter :require_no_user => [:new, :create]
   #before_filter :require_user => :destroy
-
+  
+  skip_before_filter :require_user => [:new, :create]
+  
   def new
     @user_session = UserSession.new
   end

@@ -10,3 +10,4 @@ class CreateClubs < ActiveRecord::Migration
     drop_table :clubs
   end
 end
+

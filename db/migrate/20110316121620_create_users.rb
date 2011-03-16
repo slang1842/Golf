@@ -1,14 +1,28 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
-      #t.string    :login,               :null => true
+     
       t.string    :email,               :null => false
       t.string    :crypted_password,    :null => false
       t.string    :password_salt,       :null => false
       t.string    :persistence_token,   :null => false
-      #t.string    :single_access_token, :null => false                # optional, see Authlogic::Session::Params
-      #t.string    :perishable_token,    :null => false                # optional, see Authlogic::Session::Perishability
-
+   
+      t.string    :user_type            # user, admin or super_admin
+      t.integer   :admin                #club id, or false
+      
+      t.string    :first_name
+      t.string    :last_name
+      t.string    :nick
+      t.string    :sex
+      t.date      :birth
+      t.string    :country
+      t.integer   :home_club
+      t.integer   :hcp
+      t.boolean   :right_handed
+      t.string    :measurement
+      t.integer   :start_place
+      t.string    :profile_image  
+      
       # magic fields (all optional, see Authlogic::Session::MagicColumns)
       t.integer   :login_count,         :null => false, :default => 0
       t.integer   :failed_login_count,  :null => false, :default => 0

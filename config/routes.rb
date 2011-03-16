@@ -1,22 +1,35 @@
 Golf::Application.routes.draw do
+  get "users/register"
   get "welcome/index"
-
-  resources :clubs
-
   get "home/index"
-
   get "user_sessions/new"
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
   resources :user_sessions
+  resources :clubs
+  resources :users
   
-  root :to => "clubs#index"
-
-  match '/clubs' => "club#index"
+  root :to => "clubs#index", :as => :clubs
+  
+  #========================================================================
+  #welcome
+  match '/welcome' => "welcome#index"
+  #========================================================================
+  #login
   match '/login' => "user_sessions#new",      :as => :login
   match '/logout' => "user_sessions#destroy", :as => :logout
-   match '/welcome' => "welcome#index"
+  #========================================================================
+  #clubs
+  match '/clubs' => "club#index"
+  #========================================================================
+  #user profiles
+  match '/users/new' => "users#new", :as => :user_register
+  match '/users/profile' => "users#edit", :as => :user_edit
+  
+  
+  
+  
+  
+  
  # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

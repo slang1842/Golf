@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110315141627) do
+ActiveRecord::Schema.define(:version => 20110316121620) do
 
   create_table "clubs", :force => true do |t|
     t.datetime "created_at"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(:version => 20110315141627) do
     t.string   "crypted_password",                  :null => false
     t.string   "password_salt",                     :null => false
     t.string   "persistence_token",                 :null => false
+    t.string   "user_type"
+    t.integer  "admin"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "nick"
+    t.string   "sex"
+    t.date     "birth"
+    t.string   "country"
+    t.integer  "home_club"
+    t.integer  "hcp"
+    t.boolean  "right_handed"
+    t.string   "measurement"
+    t.integer  "start_place"
+    t.string   "profile_image"
     t.integer  "login_count",        :default => 0, :null => false
     t.integer  "failed_login_count", :default => 0, :null => false
     t.datetime "last_request_at"
