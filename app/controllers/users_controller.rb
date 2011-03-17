@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   
   
     
-
+  
    
   def show
     @user = User.find(params[:id])
@@ -31,6 +31,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    #@country = Countrie
+    #@golfclubs = GolfClub
+    
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save

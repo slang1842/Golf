@@ -38,36 +38,40 @@
   
   <%= f.label t "form.sex" %>
   <%= f.select(:sex, FORM_SEX) %><br /><br />
-  
+
   <%= f.label t "form.birth" %>
   <%= date_select('range', 'start_date', :order => [:day, :month, :year])%><br /><br />
     
+  
   <%= f.label t "form.country" %>
-  <%= f.text_field :country %>DROPDOWN<br /><br />
-  
-  
-  <%= f.label t "form.home_club" %>
-  <%= f.text_field :home_club %>DROPDOWN<br /><br />
+  <%= f.select(:country_id, Country.all.map {|country| country.name} ) %><br /><br />
   
   
   <%= f.label t "form.hcp" %>
-  <%= f.text_field :hcp %>integers only<br /><br />
-  
+  <%= f.select(:hcp, (0..36)) %><br /><br />
+    
   
   <%= f.label t "form.right_handed" %>
-  <%= f.text_field :right_handed %>Dropdown<br /><br />
-  
+  <%= f.select(:right_handed, RIGHT_HANDED) %><br /><br />
   
   <%= f.label t "form.measurement" %>
-  <%= f.text_field :measurement %>dropdown<br /><br />
+  <%= f.select(:measurement, MEASUREMENT) %><br /><br />
   
+  <br />
+  <%= f.label t "form.home_club" %>
+  <%= f.select(:golf_club_id, GolfClub.all.map {|golf_club| golf_club.club_name} ) %><br /><br />
   
   <%= f.label t "form.start_place" %>
-  <%= f.text_field :start_place %>dropdown<br /><br />
+  <%= f.select(:start_place_color, START_PLACE_COLORS) %><br /><br />
   
   
+  
+  <br />
+  <u>Vel vaig:</u><br />
+  <br />mainit paroli<br />
+ 
   <%= f.label t "form.profile_image" %>
- upload image<br /><br />
+  <br /> <br />
  
   
   
@@ -78,4 +82,8 @@
   
   
   
+  
 <% end %>
+
+
+<img src="/images/images/Golfs_speletaja_profils_v01.jpg" />

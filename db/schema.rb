@@ -10,34 +10,53 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110316121620) do
+ActiveRecord::Schema.define(:version => 20110317143934) do
 
   create_table "clubs", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "golf_clubs", :force => true do |t|
+    t.integer "club_owner"
+    t.string  "club_name"
+    t.string  "country"
+    t.string  "region"
+    t.string  "green_fee"
+    t.string  "city"
+    t.string  "web_page"
+    t.string  "start_place_by_level_low"
+    t.integer "start_place_by_level_medium"
+    t.integer "start_place_by_level_high"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "email",                             :null => false
-    t.string   "crypted_password",                  :null => false
-    t.string   "password_salt",                     :null => false
-    t.string   "persistence_token",                 :null => false
-    t.string   "user_type"
-    t.integer  "admin"
+    t.string   "email",                                   :null => false
+    t.string   "crypted_password",                        :null => false
+    t.string   "password_salt",                           :null => false
+    t.string   "persistence_token",                       :null => false
+    t.string   "user_type",          :default => "user"
+    t.integer  "admin",              :default => 0
     t.string   "first_name"
     t.string   "last_name"
     t.string   "nick"
     t.string   "sex"
     t.date     "birth"
-    t.string   "country"
-    t.integer  "home_club"
+    t.integer  "country_id"
+    t.integer  "golf_club_id"
     t.integer  "hcp"
     t.boolean  "right_handed"
     t.string   "measurement"
-    t.integer  "start_place"
-    t.string   "profile_image"
-    t.integer  "login_count",        :default => 0, :null => false
-    t.integer  "failed_login_count", :default => 0, :null => false
+    t.integer  "start_place_color"
+    t.string   "profile_image",      :default => "False"
+    t.integer  "login_count",        :default => 0,       :null => false
+    t.integer  "failed_login_count", :default => 0,       :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"

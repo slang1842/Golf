@@ -7,3 +7,6 @@
 # Golf::Application.config.session_store :active_record_store
 
 FORM_SEX = { "female" => "f", "male" => "m" }
+RIGHT_HANDED = { "Righthander" => "True", "Lefthander" => "False" }
+MEASUREMENT = { "Meters" => "meters", "Foots" => "foots" }
+START_PLACE_COLORS = { "Red" => "1", "Green" => "2", "Black" => "3", "Yellow" => "4" }

@@ -2,35 +2,35 @@ class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
      
-      t.string    :email,               :null => false
-      t.string    :crypted_password,    :null => false
-      t.string    :password_salt,       :null => false
-      t.string    :persistence_token,   :null => false
+      t.string        :email,                :null => false
+      t.string        :crypted_password,     :null => false
+      t.string        :password_salt,        :null => false
+      t.string        :persistence_token,    :null => false
    
-      t.string    :user_type            :default => "user"   # user or admin
-      t.integer   :admin                :default => "false"  # club id, or false
+      t.string        :user_type,            :default => "user"   # user or admin
+      t.integer       :admin,                :default => "False"  # club id, or False
       
-      t.string    :first_name
-      t.string    :last_name
-      t.string    :nick
-      t.string    :sex
-      t.date      :birth
-      t.string    :country
-      t.integer   :home_club
-      t.integer   :hcp
-      t.boolean   :right_handed
-      t.string    :measurement
-      t.integer   :start_place
-      t.string    :profile_image  
+      t.string        :first_name#,           :null => false
+      t.string        :last_name#,            :null => false
+      t.string        :nick#,                 :null => false
+      t.string        :sex#,                  :null => false
+      t.date          :birth#,                :null => false
+      t.references    :country#,              :null => false
+      t.references    :golf_club#,            :null => false
+      t.integer       :hcp#,                  :null => false
+      t.boolean       :right_handed#,         :null => false
+      t.string        :measurement#,          :null => false      #Metri, Pēdas
+      t.integer        :start_place_color#,   :null => false      #1,2,3
+      t.string        :profile_image,        :default => "False"
       
       # magic fields (all optional, see Authlogic::Session::MagicColumns)
-      t.integer   :login_count,         :null => false, :default => 0
-      t.integer   :failed_login_count,  :null => false, :default => 0
-      t.datetime  :last_request_at
-      t.datetime  :current_login_at
-      t.datetime  :last_login_at
-      t.string    :current_login_ip
-      t.string    :last_login_ip
+      t.integer       :login_count,          :null => false, :default => 0
+      t.integer       :failed_login_count,   :null => false, :default => 0
+      t.datetime      :last_request_at
+      t.datetime      :current_login_at
+      t.datetime      :last_login_at
+      t.string        :current_login_ip
+      t.string        :last_login_ip
       t.timestamps
     end
 
