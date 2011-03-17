@@ -1,17 +1,81 @@
 <%= form_for(@user) do |f| %>
+  
+  
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
+      <h2><%= pluralize(@user.errors.count, "error")%> <%= t :user_create_fail %></h2>
       <ul>
-      <% @user.errors.full_messages.each do |msg| %>
+        <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div>
+  
+  
+  <%= f.label t "form.email" %>
+  <%= f.text_field :email %><br /><br />
+  
+  <%= f.label t "form.password" %>
+  <%= f.password_field :password %><br /><br />
+  
+  <%= f.label t "form.password_confirmation" %>
+  <%= f.password_field :password_confirmation %><br /><br />
+  
+  <%= f.label t "form.first_name" %>
+  <%= f.text_field :first_name %><br /><br />
+  
+  <%= f.label t "form.last_name" %>
+  <%= f.text_field :last_name %><br /><br />
+  
+  <%= f.label t "form.nick" %>
+  <%= f.text_field :nick %><br /><br />
+  
+  
+  
+  <%= f.label t "form.sex" %>
+  <%= f.select(:sex, FORM_SEX) %><br /><br />
+  
+  <%= f.label t "form.birth" %>
+  <%= date_select('range', 'start_date', :order => [:day, :month, :year])%><br /><br />
+    
+  <%= f.label t "form.country" %>
+  <%= f.text_field :country %>DROPDOWN<br /><br />
+  
+  
+  <%= f.label t "form.home_club" %>
+  <%= f.text_field :home_club %>DROPDOWN<br /><br />
+  
+  
+  <%= f.label t "form.hcp" %>
+  <%= f.text_field :hcp %>integers only<br /><br />
+  
+  
+  <%= f.label t "form.right_handed" %>
+  <%= f.text_field :right_handed %>Dropdown<br /><br />
+  
+  
+  <%= f.label t "form.measurement" %>
+  <%= f.text_field :measurement %>dropdown<br /><br />
+  
+  
+  <%= f.label t "form.start_place" %>
+  <%= f.text_field :start_place %>dropdown<br /><br />
+  
+  
+  <%= f.label t "form.profile_image" %>
+ upload image<br /><br />
+ 
+  
+  
+  
+    <br /><br /><%= f.submit t "form.create_user_submit" %>
+    <br /><br /><%= f.submit t "form.edit_user_submit" %>
   </div>
+  
+  
+  
 <% end %>

@@ -10,7 +10,7 @@ lv:
 
     day_names: [svētdiena, pirmdiena, otrdiena, trešdiena, ceturtdiena, piektdiena, sestdiena]
     abbr_day_names: [Sv., P., O., T., C., Pk., S.]
-    month_names: [~, janvārī, februārī, martā, aprīlī, maijā, jūnijā, jūlijā, augustā, septembrī, oktobrī, novembrī, decembrī]
+    month_names: [~, janvāris, februāris, marts, aprīlis, maijs, jūnijs, jūlijs, augusts, septembris, oktobris, novembris, decembris]
     abbr_month_names: [~, Janv, Febr, Marts, Apr, Maijs, Jūn, Jūl, Aug, Sept, Okt, Nov, Dec]
     order: [ :year, :month, :day ]
 
@@ -135,3 +135,24 @@ lv:
     login_ok: "Ielogošanās veiksmīga"
     login_fail: "Ielogošanās neveiksmīga"
     logout: "Iziet"
+    user_create_fail: "Lietotāju neizdevās izveidot. Tam iemesls varētu būt:"
+    create_user_submit: "Izveidot"
+    edit_user_submit: "Saglabāt izmaiņas"
+    email: "E-pasts"
+    password: "Parole"
+    password_confirmation: "Parole vēlreiz"
+    first_name: "Vārds"
+    last_name: "Uzvārds"
+    nick: "Kā tevi sauc draugi"
+    sex: "Dzimums"
+    birth: "Dzimšanas datums"
+    country: "Valsts"
+    home_club: "Mājas klubs"
+    hcp: "HCP"
+    right_handed: "Rocība"
+    measurement: "Mērvienība"
+    start_place: "Starta vieta"
+    profile_image: "Augšuplādēt bildi"
+    f: "Sieviete"
+    m: "Vīrietis"
+ 

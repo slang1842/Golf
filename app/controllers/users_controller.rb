@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   
   
+    
+
    
   def show
     @user = User.find(params[:id])
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
 
    def new
     @user = User.new
-    respond_to do |format|
+      respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user }
     end
@@ -25,11 +27,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @sex = User.sex
   end
 
   def create
     @user = User.new(params[:user])
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }
