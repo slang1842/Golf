@@ -1,18 +1,11 @@
 class UsersController < ApplicationController
- # GET /users
-  # GET /users.xml
-  #skip_before_filter :require_user, :only=> [:new, :create]
+   
   
-  before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update]
-  before_filter :require_admin, :only => [:index]
+  before_filter :require_no_user, :only => [:new, :create]
   
   
-  #before_filter :require_admin, only => []
-  
-
-  # GET /users/1
-  # GET /users/1.xml
+   
   def show
     @user = User.find(params[:id])
 
@@ -24,20 +17,16 @@ class UsersController < ApplicationController
 
    def new
     @user = User.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user }
     end
   end
 
-
   def edit
     @user = User.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.xml
   def create
     @user = User.new(params[:user])
 
@@ -53,7 +42,6 @@ class UsersController < ApplicationController
   end
 
   def update
-  
     if requare_owner(params[:id])
     redirect_to users_path
     else

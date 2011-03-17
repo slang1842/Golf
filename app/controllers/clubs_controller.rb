@@ -5,7 +5,7 @@ class ClubsController < GolfMainController
   # before_filter :require_no_user
   
   
-  #before_filter :require_user, :except => :register
+  before_filter :require_user
   
 
   

@@ -47,24 +47,6 @@ class ApplicationController < ActionController::Base
       session[:return_to] = nil
     end
     
-    def require_admin
-      if current_user
-        if current_user
-          unless current_user.user_type = "admin"
-            return false
-          end
-        end
-      end
-    end
-    
-    def require_super_admin
-      if current_user
-        unless current_user.user_type = "super_admin"
-          return false
-        end
-      end
-    end
-    
     def requare_owner
       if current_user
         if current_user(:id) != params[:id]
