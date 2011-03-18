@@ -1,5 +1,13 @@
-main lapa ar login formu <br /><br /><br />
+main lapa ar login formu <br /><br />
 
+<% flash.each do |key, msg| %>
+    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+    <%= content_tag :script, :type => "text/javascript" do -%>
+        setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+    <% end %>
+<% end %>
+
+<br /><br />
 <%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>
 
 <%= link_to "sāc tagad!", user_register_url %>

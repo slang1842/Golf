@@ -12,7 +12,7 @@ Golf::Application.routes.draw do
   
   #========================================================================
   #welcome
-  match '/welcome' => "welcome#index"
+  match '/welcome' => "welcome#index",        :as => :welcome
   #========================================================================
   #login
   match '/login' => "user_sessions#new",      :as => :login
