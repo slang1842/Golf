@@ -23,7 +23,7 @@ Golf::Application.routes.draw do
   #========================================================================
   #user profiles
   match '/users/new' => "users#new", :as => :user_register
-  match '/users/profile' => "users#edit", :as => :user_edit
+  #match '/users/profile' => "users#edit", :as => :user_edit
   #match 'users/' => "users#edit"#, :as :get_id
   
   

@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
    
   
-  before_filter :require_user, :only => :edit
+  #before_filter :require_user, :only => 
   before_filter :require_no_user, :only => [:new, :create]
-   before_filter :requare_owner, :only => :update
+  before_filter :require_owner, :only => [:update, :edit]
   
   
     

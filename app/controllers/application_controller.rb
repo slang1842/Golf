@@ -47,12 +47,14 @@ class ApplicationController < ActionController::Base
       session[:return_to] = nil
     end
     
-    def requare_owner
-      if current_user
-        if current_user != params[:id]
+    def require_owner
+      #if current_user
+      puts "<============== Params id: #{params[:id]} == current user id #{current_user.id} ? ==================>"
+      unless params[:id].to_i == current_user.id 
+          redirect_to clubs_path
           return false
-        end
       end
+      #end
     end
   
   
