@@ -156,7 +156,11 @@ lv:
     profile_image: "Izvēlēties profila attēlu"
     f: "Sieviete"
     m: "Vīrietis"
-
+    measurement_m: "Metri"
+    measurement_f: "Pēdas"
+    righthander: "Labrocis"
+    lefthander: "Kreilis"
+    
   notices:
     user_created: "Lietotājs ir veiksmīgi izveidots. Tagad vari ienākt saitā."
     

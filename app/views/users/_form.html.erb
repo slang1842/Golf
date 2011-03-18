@@ -37,7 +37,7 @@
   
   
   <%= f.label t "form.sex" %>
-  <%= f.select(:sex, User.SEX_TO_DB) %><br /><br />
+  <%= f.select(:sex, FORM_SEX) %><br /><br />
 
   <%= f.label t "form.birth" %>
   <%= date_select('range', 'start_date', :order => [:day, :month, :year])%><br /><br />
