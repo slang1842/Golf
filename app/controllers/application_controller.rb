@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
     
     def requare_owner
       if current_user
-        if current_user(:id) != params[:id]
+        if current_user != params[:id]
           return false
         end
       end

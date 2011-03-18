@@ -7,6 +7,9 @@ class ClubsController < GolfMainController
   
   before_filter :require_user
   
+  def index
+    @get_type = :get_type
+  end
 
   
   
