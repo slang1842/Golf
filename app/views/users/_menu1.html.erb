@@ -1,0 +1,37 @@
+
+==========================================================================================
+<br />This is header menu
+<br /><br />
+<table border="1">
+
+<tr>
+  <td>image here</td>
+  <td><%= current_user.first_name %></td>
+</tr>
+<tr>
+  <td></td>
+  <td><%= current_user.last_name %></td>
+</tr>
+<tr>
+  <td></td>
+  <td>HCP: <%= current_user.hcp%></td>
+</tr>
+<tr>
+  <td></td>
+  <td>Klubs "<%= current_user.golf_club.club_name %>"</td>
+</tr>
+</table>
+<br />
+<%= link_to t("form.logout"), logout_path %>
+
+
+<br />
+<%= link_to "Labot profilu", edit_user_path(current_user) %>
+<br /><br /><br />
+
+
+
+<%= link_to "Sākums", clubs_path %>
+
+<br /><br />
+==========================================================================================

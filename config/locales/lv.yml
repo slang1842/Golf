@@ -141,6 +141,8 @@ lv:
     email: "E-pasts"
     password: "Parole"
     password_confirmation: "Parole vēlreiz"
+    password_new: "Jaunā parole"
+    password_confirmation_new: "Jaunā parole vēlreiz"
     password_change: "Mainīt paroli"
     first_name: "Vārds"
     last_name: "Uzvārds"
