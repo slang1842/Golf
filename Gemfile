@@ -32,3 +32,7 @@ gem "jquery-rails", "~>0.2"
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+platforms :ruby do
+	gem "ruby-mysql", :require => "mysql", :group => [:development, :test]
+end
