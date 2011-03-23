@@ -7,8 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string        :password_salt,        :null => false
       t.string        :persistence_token,    :null => false
    
-      t.string        :user_type,            :default => "user"
-      t.integer       :admin,                :default => 0  # club id, or False
+      t.boolean        :admin,            	  :default => false # user, admin
+      #t.integer       :admin,                :default => 0  # club id, or 0, if no club
       
       t.string        :first_name#,           :null => false
       t.string        :last_name#,            :null => false
@@ -20,7 +20,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer       :hcp#,                  :null => false
       t.boolean       :right_handed#,         :null => false
       t.string        :measurement#,          :null => false      #Metri, Pēdas
-      t.integer        :start_place_color#,   :null => false      #1,2,3
+      t.integer       :start_place_color#,   :null => false      #1,2,3
       t.string        :profile_image,        :default => "False"
       
       # magic fields (all optional, see Authlogic::Session::MagicColumns)

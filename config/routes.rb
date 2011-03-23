@@ -1,28 +1,35 @@
 Golf::Application.routes.draw do
+  resources :golf_clubs
+
   get "users/register"
   get "welcome/index"
   get "home/index"
   get "user_sessions/new"
 
   resources :user_sessions
-  resources :clubs
+  resources :golf_clubs
   resources :users
   
-  root :to => "clubs#index", :as => :clubs
+  
   
   #========================================================================
   #welcome
-  match '/welcome' => "welcome#index",        :as => :welcome
+  root :to => "welcome#welcome",              :as => :welcome
+  match '/welcome' => "welcome#index",        :as => :loged_in
+  
   #========================================================================
   #login
   match '/login' => "user_sessions#new",      :as => :login
   match '/logout' => "user_sessions#destroy", :as => :logout
+  
   #========================================================================
   #clubs
-  match '/clubs' => "club#index"
+  match '/clubs' => "golf_clubs#index",		    :as => :clubs
+  match '/clubs/new' => "golf_clubs#new",		  :as => :clubs_new
+  
   #========================================================================
   #user profiles
-  match '/users/new' => "users#new", :as => :user_register
+  match '/users/new' => "users#new",          :as => :user_register
   #match '/users/profile' => "users#edit", :as => :user_edit
   #match 'users/' => "users#edit"#, :as :get_id
   

@@ -10,12 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110317143934) do
-
-  create_table "clubs", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110322075749) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -24,16 +19,18 @@ ActiveRecord::Schema.define(:version => 20110317143934) do
   end
 
   create_table "golf_clubs", :force => true do |t|
-    t.integer "club_owner"
-    t.string  "club_name"
-    t.string  "country"
-    t.string  "region"
-    t.string  "green_fee"
-    t.string  "city"
-    t.string  "web_page"
-    t.string  "start_place_by_level_low"
-    t.integer "start_place_by_level_medium"
-    t.integer "start_place_by_level_high"
+    t.integer  "user_id"
+    t.string   "name"
+    t.integer  "country_id"
+    t.string   "region"
+    t.string   "green_fee"
+    t.string   "city"
+    t.string   "web_page"
+    t.string   "start_place_by_level_low"
+    t.string   "start_place_by_level_medium"
+    t.string   "start_place_by_level_high"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -41,8 +38,7 @@ ActiveRecord::Schema.define(:version => 20110317143934) do
     t.string   "crypted_password",                        :null => false
     t.string   "password_salt",                           :null => false
     t.string   "persistence_token",                       :null => false
-    t.string   "user_type",          :default => "user"
-    t.integer  "admin",              :default => 0
+    t.boolean  "admin",              :default => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "nick"

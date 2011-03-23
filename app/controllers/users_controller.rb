@@ -6,9 +6,7 @@ class UsersController < ApplicationController
   before_filter :require_owner, :only => [:update, :edit]
   
   
-    
-  
-   
+
   #def show
   #  @user = User.find(params[:id])
   #
@@ -37,7 +35,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(welcome_path, :notice => "ss") } #t "notices.user_created") }
+        format.html { redirect_to(welcome_path)} #t "notices.user_created") }
         #format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

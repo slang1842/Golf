@@ -1,17 +1,4 @@
-main lapa ar login formu <br /><br />
+<%= render :partial => 'share/header_menu' %>
 
-<% flash.each do |key, msg| %>
-    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-    <%= content_tag :script, :type => "text/javascript" do -%>
-        setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
-    <% end %>
-<% end %>
-
-<br /><br />
-<%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>
-
-<%= link_to "sāc tagad!", user_register_url %>
-
-<br /><br />
-<img src="/images/images/Golfs_sakums_neregistrejies_v02.jpg" />
-
+<br /><br /><br />
+<img src="/images/images/Golfs_sakuma_lapa_registrejiesv01.jpg" />

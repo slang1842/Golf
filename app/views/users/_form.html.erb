@@ -1,11 +1,12 @@
 
 
-<%= render :partial => 'users/menu1' %>
-
+<% if current_user %>
+<%= render :partial => 'share/header_menu' %>
+<% else %>
+<% end %>
 
 <br /><br />
-<h1>Editing user</h1>
-<br />
+
 <%= form_for(@user) do |f| %>
   
   
@@ -63,7 +64,7 @@
   
   <br />
   <%= f.label t "form.home_club" %>
-  <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :club_name, :prompt => true) %><br /><br />
+  <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :name, :prompt => true) %><br /><br />
   
   <%= f.label t "form.start_place" %>
   <%= f.select(:start_place_color, START_PLACE_COLORS) %><br /><br />
@@ -76,28 +77,25 @@
   <h3><%= f.label t "form.profile_image" %> </h3>
   <br /> <br />
  
-  <% if current_user %>
-  
-    <br />
-    
-    <%= f.label t "form.password_new" %><br />
+ 
+ 
+ 
+ 
+ <%= f.label t "form.password_new" %><br />
     <%= f.password_field :password %><br /><br />
     
     <%= f.label t "form.password_confirmation_new"%><br />
     <%= f.password_field :password_confirmation %><br /><br />
     
+    
+  <% if current_user %>
     <%= f.submit t "form.edit_user_submit" %><br /><br />
   <% else %>
     <br />
-    
-    
-    <%= f.label t "form.password" %><br />
-    <%= f.password_field :password %><br /><br />
-    
-     <%= f.label t "form.password_confirmation" %>
-    <%= f.password_field :password_confirmation %><br /><br />
-    
-    <%= f.submit t "form.create_user_submit" %><br /><br />
+    Atstaj tukšu, lai nemainītu
+       
+    <br />
+      <%= f.submit t "form.create_user_submit" %><br /><br />
   <% end %>
   
   

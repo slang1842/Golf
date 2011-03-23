@@ -18,7 +18,7 @@
 </tr>
 <tr>
   <td></td>
-  <td>Klubs "<%= current_user.golf_club.club_name %>"</td>
+  <td>Klubs "<%= current_user.golf_club.name %>"</td>
 </tr>
 </table>
 <br />
@@ -31,7 +31,12 @@
 
 
 
-<%= link_to "Sākums", clubs_path %>
+<%= link_to "Sākums", loged_in_path %>
+
+<% if current_user.admin  %>
+    <%= link_to "Klubs", clubs_path %>
+<% end %>
+
 
 <br /><br />
 ==========================================================================================

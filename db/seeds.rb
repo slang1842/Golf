@@ -6,32 +6,17 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-
-
-#Add users
-User.create(
-  :email => 'admin@admin.com',
-  :password => 'admin',
-  :password_confirmation => 'admin',
-  :user_type => 'admin',
-  :admin => '1'
-)
-
-User.create(
-  :email => 'user@user.com',
-  :password => 'user',
-  :password_confirmation => 'user'
-)
-
-
 #Add Countrys
-Country.create(:name => 'Latvia')
-Country.create(:name => 'Italy')
+
+#Countries.create(:name => 'Latvia')
+#Countries.create(:name => 'Italy')
+
 
 #Add Club
-GolfClub.create(:club_owner => 'admin',
-  :club_name => 'Viesturi',
-  :country => 'Latvia',
+club = GolfClub.create(
+  #:owner => 'admin',
+  :name => 'Viesturi',
+  #:country => 'Latvia',
   :region => 'Rīga',
   :city => 'Rīga',
   :web_page => 'www.viesturi.lv',
@@ -40,6 +25,30 @@ GolfClub.create(:club_owner => 'admin',
   :start_place_by_level_high => '4')
 
 
+
+
+#Add users
+User.create(
+  :email => 'admin@admin.com',
+  :password => 'admin',
+  :password_confirmation => 'admin',
+  #:user_type => 'admin',
+  :admin => '1',
+  :first_name => 'Edgars',
+  :last_name => 'Liepa',
+  :golf_club => club,
+  :hcp => 23
+)
+
+User.create(
+  :email => 'user@user.com',
+  :password => 'user',
+  :password_confirmation => 'user',
+  :first_name => 'Edgars',
+  :last_name => 'Liepa',
+  :golf_club => club,
+  :hcp => 23
+)
 
 
 

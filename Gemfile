@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem "authlogic"
 gem "rails3-generators"
 gem "jquery-rails", "~>0.2"
+gem "mysql", :require => "mysql", :group => [:development, :test]
 
 # Use unicorn as the web server
 # gem 'unicorn'
