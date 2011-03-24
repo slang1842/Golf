@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   
   
   def is_club_admin_or_owner(club)
-    return ((admin && golf_club.id == club.id) || id == club.user_id)?
+    return ((admin && golf_club.id == club.id) || id == club.user_id)
   end
 
 
