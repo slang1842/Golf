@@ -1,4 +1,6 @@
 Golf::Application.routes.draw do
+  resources :fields
+
   resources :golf_clubs
 
   get "users/register"

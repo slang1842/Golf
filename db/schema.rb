@@ -10,10 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110322075749) do
+ActiveRecord::Schema.define(:version => 20110324135556) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fields", :force => true do |t|
+    t.integer  "golf_club_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +35,37 @@ ActiveRecord::Schema.define(:version => 20110322075749) do
     t.string   "start_place_by_level_low"
     t.string   "start_place_by_level_medium"
     t.string   "start_place_by_level_high"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "green_fees", :force => true do |t|
+    t.integer  "field_id"
+    t.string   "title"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hit_places", :force => true do |t|
+    t.integer  "field_id"
+    t.integer  "place"
+    t.integer  "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "holes", :force => true do |t|
+    t.integer  "field_id"
+    t.integer  "par"
+    t.integer  "hcp"
+    t.integer  "white"
+    t.integer  "blue"
+    t.integer  "red"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
