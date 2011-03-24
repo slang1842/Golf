@@ -17,7 +17,8 @@
   </div>
   <div class="field">
     <%= f.label t "form.country" %>
-  <%= f.select(country_id, Country.all.map {|country| country.name} ) %><br /><br />
+
+ <%= f.select(:country_id, Country.all.map {|country| country.name} ) %><br /><br />
   
   </div>
   <div class="field">

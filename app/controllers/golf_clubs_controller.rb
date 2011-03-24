@@ -1,6 +1,18 @@
 class GolfClubsController < ApplicationController
-  # GET /golf_clubs
-  # GET /golf_clubs.xml
+  before_filter :require_no_user => :new
+
+  def new
+    @golf_club = GolfClub.new
+    
+    @countries = [@golf_club.country_id, @golf_country.name] 
+    
+    respond_to do |format|
+    format.html # new.html.erb
+    format.xml  { render :xml => @golf_club }
+    end
+  end
+  
+  
   def index
     @golf_clubs = GolfClub.all
 
@@ -10,8 +22,6 @@ class GolfClubsController < ApplicationController
     end
   end
 
-  # GET /golf_clubs/1
-  # GET /golf_clubs/1.xml
   def show
     @golf_club = GolfClub.find(params[:id])
 
@@ -21,25 +31,13 @@ class GolfClubsController < ApplicationController
     end
   end
 
-  # GET /golf_clubs/new
-  # GET /golf_clubs/new.xml
-  def new
-    @golf_club = GolfClub.new
+  
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @golf_club }
-    end
-  end
-
-  # GET /golf_clubs/1/edit
-  def edit
+ def edit
     @golf_club = GolfClub.find(params[:id])
   end
 
-  # POST /golf_clubs
-  # POST /golf_clubs.xml
-  def create
+ def create
     @golf_club = GolfClub.new(params[:golf_club])
 
     respond_to do |format|
@@ -53,8 +51,6 @@ class GolfClubsController < ApplicationController
     end
   end
 
-  # PUT /golf_clubs/1
-  # PUT /golf_clubs/1.xml
   def update
     @golf_club = GolfClub.find(params[:id])
 
@@ -69,8 +65,6 @@ class GolfClubsController < ApplicationController
     end
   end
 
-  # DELETE /golf_clubs/1
-  # DELETE /golf_clubs/1.xml
   def destroy
     @golf_club = GolfClub.find(params[:id])
     @golf_club.destroy

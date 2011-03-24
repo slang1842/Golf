@@ -1,13 +1,5 @@
 class User < ActiveRecord::Base
   belongs_to :golf_club
- 
-    #def is_club_admin_or_owner(club)
-    #  if ((admin && golf_club.id == club.id) || id == club.user_id)
-    #    return true
-    #  else
-    #    return false
-    #  end
-    #end
     
   acts_as_authentic do |c| 
     c.login_field = :email 
@@ -19,8 +11,10 @@ class User < ActiveRecord::Base
   RIGHT_HANDED_TO_DB = { "Labrocis" => true, "Kreilis" => false }
   RIGHT_HANDED_FROM_DB ={ true => "Labrocis", false => "Kreilis" }
   
-  #MEASUREMENT_TO_DB = { (t "form.measurement_m") => "Meters", "form.measurement_f") => "Foots" }
-  #MEASUREMENT_FROM_DB{ "Meters" => "form.measurement_m", "Foots" => t "form.measurement_m" }
   
-  
+  def is_club_admin_or_owner(club)
+    return ((admin && golf_club.id == club.id) || id == club.user_id)?
+  end
+
+
 end

@@ -8,8 +8,8 @@
 
 #Add Countrys
 
-#Countries.create(:name => 'Latvia')
-#Countries.create(:name => 'Italy')
+Country.create(:name => 'Latvia')
+Country.create(:name => 'Italy')
 
 
 #Add Club
@@ -33,7 +33,7 @@ User.create(
   :password => 'admin',
   :password_confirmation => 'admin',
   #:user_type => 'admin',
-  :admin => '1',
+  :admin => true,
   :first_name => 'Edgars',
   :last_name => 'Liepa',
   :golf_club => club,

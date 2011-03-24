@@ -24,18 +24,14 @@ Golf::Application.routes.draw do
   
   #========================================================================
   #clubs
-  match '/clubs' => "golf_clubs#index",		    :as => :clubs
-  match '/clubs/new' => "golf_clubs#new",		  :as => :clubs_new
+  match '/clubs' => "golf_clubs#index",		             :as => :clubs
+  match '/clubs/new' => "golf_clubs#new",		           :as => :clubs_new
+  match '/clubs/add' => "golf_club#login_or_register", :as => :login_or_register
   
   #========================================================================
   #user profiles
   match '/users/new' => "users#new",          :as => :user_register
-  #match '/users/profile' => "users#edit", :as => :user_edit
-  #match 'users/' => "users#edit"#, :as :get_id
-  
-  
-  
-  
+ 
   
  # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:
