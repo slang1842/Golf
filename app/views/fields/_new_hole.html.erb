@@ -1,0 +1,12 @@
+<% hole ||= Hole.new %>
+<%= f.fields_for 'holes_attributes[]', hole do |h| %>
+<%= h.hidden_field :id %>
+<div class="field">
+  <%= h.label :par %><br />
+  <%= h.text_field :par %>
+</div>
+<div class="field">
+  <%= h.label :hcp %><br />
+  <%= h.text_field :hcp %>
+</div>
+<% end %>

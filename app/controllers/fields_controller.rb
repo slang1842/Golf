@@ -41,7 +41,8 @@ class FieldsController < ApplicationController
   # POST /fields.xml
   def create
     @field = Field.new(params[:field])
-
+    @field.golf_club_id = 1;
+    
     respond_to do |format|
       if @field.save
         format.html { redirect_to(@field, :notice => 'Field was successfully created.') }

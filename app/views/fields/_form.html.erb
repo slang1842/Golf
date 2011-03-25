@@ -11,11 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :golf_club %><br />
-    <%= f.text_field :golf_club %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+	  <div id="holes">
+	    <% @field.holes.each do |hole| %>
+
+	     <%= render :partial => '/fields/new_hole', :locals => {:hole => hole, :f => f} %>
+
+	    <% end %>
+	  </div>
+	  <%= link_to_function 'add new', "jQuery('#holes').append(#{render(:partial => '/fields/new_hole', :locals => {:f => f}).to_json})" %>
+
+
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
 <% end %>
+
