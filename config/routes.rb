@@ -12,7 +12,9 @@ Golf::Application.routes.draw do
   resources :golf_clubs
   resources :users
   
-  
+  #========================================================================
+  #fields
+  match "new_hole/:field_id" => "fields#new_hole", :as => :new_hole 
   
   #========================================================================
   #welcome

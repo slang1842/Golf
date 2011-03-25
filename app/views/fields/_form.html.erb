@@ -11,16 +11,28 @@
     </div>
   <% end %>
 
-
+<fieldset>
+	<legend>Bedrītes</legend>
 	  <div id="holes">
 	    <% @field.holes.each do |hole| %>
 
-	     <%= render :partial => '/fields/new_hole', :locals => {:hole => hole, :f => f} %>
+	     <%= render :partial => '/fields/new_hole', :locals => {:hole => hole, :f => f, :hole_attributes_name => @hole_attributes_name} %>
 
 	    <% end %>
 	  </div>
-	  <%= link_to_function 'add new', "jQuery('#holes').append(#{render(:partial => '/fields/new_hole', :locals => {:f => f}).to_json})" %>
+	  <%= link_to_function 'add new', "jQuery('#holes').append(#{render(:partial => '/fields/new_hole', :locals => {:f => f, :hole_attributes_name => @new_hole_attributes_name}).to_json})" %>
+  
+</fieldset>
 
+<fieldset>
+	<legend>Izsitiena vietas</legend>
+	
+</fieldset>
+
+<fieldset>
+	<legend>Green Fee</legend>
+	
+</fieldset>
 
 	  <div class="actions">
 	    <%= f.submit %>

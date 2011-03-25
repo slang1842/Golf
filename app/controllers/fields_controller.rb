@@ -1,6 +1,5 @@
 class FieldsController < ApplicationController
-  # GET /fields
-  # GET /fields.xml
+
   def index
     @fields = Field.all
 
@@ -10,35 +9,36 @@ class FieldsController < ApplicationController
     end
   end
 
-  # GET /fields/1
-  # GET /fields/1.xml
   def show
     @field = Field.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.xml  { render :xml => @field }
     end
   end
 
-  # GET /fields/new
-  # GET /fields/new.xml
   def new
     @field = Field.new
-
+    @new_hole_attributes_name = "holes_attributes[]"
+    
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.xml  { render :xml => @field }
     end
   end
 
-  # GET /fields/1/edit
   def edit
     @field = Field.find(params[:id])
+    @hole_attributes_name = "holes_attributes[]"
+    @new_hole_attributes_name = "new_holes_attributes[]"
+  
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @field }
+    end
   end
 
-  # POST /fields
-  # POST /fields.xml
   def create
     @field = Field.new(params[:field])
     @field.golf_club_id = 1;
@@ -54,11 +54,11 @@ class FieldsController < ApplicationController
     end
   end
 
-  # PUT /fields/1
-  # PUT /fields/1.xml
   def update
     @field = Field.find(params[:id])
 
+    params[:field] = merge_hash(params[:field], "holes_attributes", "new_holes_attributes")
+   
     respond_to do |format|
       if @field.update_attributes(params[:field])
         format.html { redirect_to(@field, :notice => 'Field was successfully updated.') }
@@ -68,10 +68,21 @@ class FieldsController < ApplicationController
         format.xml  { render :xml => @field.errors, :status => :unprocessable_entity }
       end
     end
+    
   end
 
-  # DELETE /fields/1
-  # DELETE /fields/1.xml
+  def merge_hash field, holes_attributes_name, new_holes_attributes_name
+    if field.include?(new_holes_attributes_name)
+      max = field[holes_attributes_name].keys.max.to_i
+      field[new_holes_attributes_name].each do |new_holes_attributes|
+        max = max + 1
+        field[holes_attributes_name][max] = new_holes_attributes
+      end
+      field.delete(new_holes_attributes_name)
+    end
+    field
+  end
+
   def destroy
     @field = Field.find(params[:id])
     @field.destroy
