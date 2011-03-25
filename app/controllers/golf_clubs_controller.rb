@@ -15,7 +15,10 @@ class GolfClubsController < ApplicationController
   
   def index
     @golf_clubs = GolfClub.all
-    
+    @contries = Country.all
+	@contrie = Country.find(current_user)
+	
+	
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @golf_clubs }

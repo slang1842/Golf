@@ -10,6 +10,11 @@ Mans klubs<br /><br />
    
 <% end %>
 
+<select value="<%= @contrie.name %>">
+	<% @contries.each do |f| %>
+		<option <% if @contrie.name == f.name %>selected="selected"<% end %> ><%= f.name %></option>
+	<% end %>
+</select>
 
 <%= link_to "Pievienot klubu", clubs_new_path %>
 

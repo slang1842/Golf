@@ -6,6 +6,9 @@ class GolfClub < ActiveRecord::Base
 		end
 	end
 	
+
+	
+	
 	def club_accepted
 		if club.accepted
 			return true

@@ -40,16 +40,6 @@ User.create(
   :hcp => 23
 )
 
-User.create(
-  :email => 'user@user.com',
-  :password => 'user',
-  :password_confirmation => 'user',
-  :first_name => 'Edgars',
-  :last_name => 'Liepa',
-  :golf_club => club,
-  :hcp => 23
-)
-
 
 
 
