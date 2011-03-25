@@ -16,13 +16,13 @@ Country.create(:name => 'Italy')
 club = GolfClub.create(
   #:owner => 'admin',
   :name => 'Viesturi',
-  #:country => 'Latvia',
+  #:country => 1,
   :region => 'Rīga',
   :city => 'Rīga',
   :web_page => 'www.viesturi.lv',
-  :start_place_by_level_low => '1',
-  :start_place_by_level_medium => '2',
-  :start_place_by_level_high => '4')
+  :start_place_by_level_low => 1,
+  :start_place_by_level_medium => 2,
+  :start_place_by_level_high => 4)
 
 
 

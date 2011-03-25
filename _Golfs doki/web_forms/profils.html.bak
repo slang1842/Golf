@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h2>Spēlētaja profils</h2>
+<form id="form1" name="form1" method="post" action="">
+  <table width="640" border="0">
+    <tr>
+      <td align="right"><strong>Vārds</strong></td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" /></td>
+      <td align="right"><strong>HCP</strong></td>
+      <td><input name="textfield4" type="text" id="textfield4" size="10" /></td>
+    </tr>
+    <tr>
+      <td align="right"><strong>Uzvārds</strong></td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" /></td>
+      <td align="right"><strong>Rocība</strong></td>
+      <td><select name="select" id="select2">
+        <option>Standarta</option>
+        <option>Kreilis</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td align="right"><strong>Nick forumam</strong></td>
+      <td><input type="text" name="textfield3" id="textfield3" /></td>
+      <td align="right"><strong>Mervienības</strong></td>
+      <td><input type="radio" name="radio" id="radio" value="radio" />
+      <label for="radio">metri</label></td>
+    </tr>
+    <tr>
+      <td align="right"><strong>Dzimums</strong></td>
+      <td><input type="radio" name="radio" id="radio3" value="radio" />
+        <label for="radio3">vīrietis
+          <input type="radio" name="radio" id="radio4" value="radio" />
+          sieviete</label></td>
+      <td align="right">&nbsp;</td>
+      <td><input type="radio" name="radio" id="radio2" value="radio" />
+      <label for="radio2">jardi</label></td>
+    </tr>
+    <tr>
+      <td align="right"><strong>Dzimšanas dati</strong></td>
+      <td><label for="select"></label>
+        <select name="select7" id="select">
+          <option>dd</option>
+        </select>
+        <select name="select7" id="select9">
+          <option>mm</option>
+        </select>
+        <select name="select7" id="select10">
+          <option>gggg</option>
+        </select></td>
+      <td align="right">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="right"><strong>Valsts</strong></td>
+      <td><label for="select4"></label>
+        <select name="select7" id="select4">
+          <option>Latvija</option>
+        </select></td>
+      <td align="right">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="right"><strong>Klubs</strong></td>
+      <td><select name="select7" id="select7">
+        <option>Viesturi</option>
+      </select></td>
+      <td align="right"><strong>Starta vieta</strong></td>
+      <td><select name="select7" id="select8">
+        <option></option>
+      </select></td>
+    </tr>
+    <tr>
+      <td align="right"><strong>Epasts</strong></td>
+      <td><input type="text" name="textfield5" id="textfield8" /></td>
+      <td align="right">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="right"><strong>Parole</strong></td>
+      <td><input type="text" name="textfield5" id="textfield7" /></td>
+      <td align="right"><strong>Profils</strong></td>
+      <td><input type="radio" name="radio" id="radio" value="radio" />
+        <label for="radio">privāts</label></td>
+    </tr>
+    <tr>
+      <td align="right"><strong>Parole atkārtoti</strong></td>
+      <td><input type="text" name="textfield5" id="textfield6" /></td>
+      <td align="right">&nbsp;</td>
+      <td><input type="radio" name="radio" id="radio2" value="radio" />
+        <label for="radio2">publisks</label></td>
+    </tr>
+    <tr>
+      <td align="right">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td align="right">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="right">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td align="right">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <p>
+    <input type="submit" name="button" id="button" value="IZVEIDOT PROFILU" />
+  </p>
+</form>
+</body>
+</html>

@@ -1,42 +1,7 @@
-Golf::Application.routes.draw do
-  resources :golf_clubs
+Project::Application.routes.draw do
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
 
-  get "users/register"
-  get "welcome/index"
-  get "home/index"
-  get "user_sessions/new"
-
-  resources :user_sessions
-  resources :golf_clubs
-  resources :users
-  
-  
-  
-  #========================================================================
-  #welcome
-  root :to => "welcome#welcome",              :as => :welcome
-  match '/welcome' => "welcome#index",        :as => :loged_in
-  
-  #========================================================================
-  #login
-  match '/login' => "user_sessions#new",      :as => :login
-  match '/logout' => "user_sessions#destroy", :as => :logout
-  
-  #========================================================================
-  #clubs
-  match '/clubs' => "golf_clubs#index",		             :as => :clubs
-  match '/clubs/new' => "golf_clubs#new",		           :as => :clubs_new
-  match '/clubs/add' => "golf_clubs#login_or_register", :as => :login_or_register
-  #match '/clubs/add' => "golf_club#login_or_register", :as => :login_or_register
-  
-  #match '/clubs/register => "golf_club
-  
-  #========================================================================
-  #user profiles
-  match '/users/new' => "users#new",          :as => :user_register
- 
-  
- # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

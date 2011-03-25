@@ -1,16 +1,17 @@
 class CreateGolfClubs < ActiveRecord::Migration
   def self.up
     create_table :golf_clubs do |t|
-      t.references   :user
-      t.string       :name
-      t.references   :country
-      t.string 		 :region
-      t.string		 :green_fee
-      t.string		 :city
-      t.string 		 :web_page
-      t.string		 :start_place_by_level_low
-      t.string 		 :start_place_by_level_medium
-      t.string		 :start_place_by_level_high
+      t.references   :user#,                        :null => false
+      t.string       :name,                        :null => false
+      t.references   :country#,                     :null => false
+      t.string 		   :region,                      :null => false
+      t.string		   :green_fee
+      t.string		   :city,                        :null => false
+      t.string 		   :web_page,                    :null => false
+      t.string		   :start_place_by_level_low
+      t.string 		   :start_place_by_level_medium
+      t.string		   :start_place_by_level_high
+      t.string       :accepted,                    :default => false
 
       t.timestamps
     end

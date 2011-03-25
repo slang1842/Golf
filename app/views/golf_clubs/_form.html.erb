@@ -2,7 +2,6 @@
   <% if @golf_club.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@golf_club.errors.count, "error") %> prohibited this golf_club from being saved:</h2>
-
       <ul>
       <% @golf_club.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -25,10 +24,7 @@
     <%= f.label :region %><br />
     <%= f.text_field :region %>
   </div>
-  <div class="field">
-    <%= f.label :green_fee %><br />
-    <%= f.text_field :green_fee %>
-  </div>
+  
   <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city %>
