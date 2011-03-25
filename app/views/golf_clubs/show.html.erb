@@ -1,55 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
-  <%= @golf_club.user %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @golf_club.name %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= @golf_club.country %>
-</p>
-
-<p>
-  <b>Region:</b>
-  <%= @golf_club.region %>
-</p>
-
-<p>
-  <b>Green fee:</b>
-  <%= @golf_club.green_fee %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @golf_club.city %>
-</p>
-
-<p>
-  <b>Web page:</b>
-  <%= @golf_club.web_page %>
-</p>
-
-<p>
-  <b>Start place by level low:</b>
-  <%= @golf_club.start_place_by_level_low %>
-</p>
-
-<p>
-  <b>Start place by level medium:</b>
-  <%= @golf_club.start_place_by_level_medium %>
-</p>
-
-<p>
-  <b>Start place by level high:</b>
-  <%= @golf_club.start_place_by_level_high %>
-</p>
 
 
-<%= link_to 'Edit', edit_golf_club_path(@golf_club) %> |
-<%= link_to 'Back', golf_clubs_path %>
+
+<% if :is_owner %>
+	is owner, 
+
+		<% if :club_accepted %>
+			is accepted
+		<% else %>
+			not accepted
+		<% end %>
+<% else %>
+	not owner
+		<% if :club_accepted %>
+			is accepted
+		<% else %>
+			not accepted
+		<% end %>
+<% end %>
+

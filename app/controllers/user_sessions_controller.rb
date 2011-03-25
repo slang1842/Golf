@@ -1,6 +1,18 @@
 class UserSessionsController < ApplicationController
- skip_before_filter :require_user => [:new, :create]
+  skip_before_filter :require_user, :only => [:new, :create]
+  before_filter :require_no_user, :only => [:index]
   
+ 	
+	def index
+	    store_location
+			@golf_club = GolfClub.new
+			respond_to do |format|
+				format.html
+				format.xml  { render :xml => @golf_club }
+			end      
+		#end
+	end
+	
   def new
     @user_session = UserSession.new
   end
@@ -24,6 +36,7 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     flash[:notice] = "Logout successful!"
-    redirect_back_or_default welcome_url
+    #redirect_back_or_default welcome_url
+	redirect_to welcome_url
   end
 end

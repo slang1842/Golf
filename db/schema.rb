@@ -20,16 +20,16 @@ ActiveRecord::Schema.define(:version => 20110322075749) do
 
   create_table "golf_clubs", :force => true do |t|
     t.integer  "user_id"
-    t.string   "name",                                         :null => false
-    t.integer  "country_id"
-    t.string   "region",                                       :null => false
+    t.string   "name",                                           :null => false
+    t.integer  "countries_id"
+    t.string   "region",                                         :null => false
     t.string   "green_fee"
-    t.string   "city",                                         :null => false
-    t.string   "web_page",                                     :null => false
+    t.string   "city",                                           :null => false
+    t.string   "web_page",                                       :null => false
     t.string   "start_place_by_level_low"
     t.string   "start_place_by_level_medium"
     t.string   "start_place_by_level_high"
-    t.string   "accepted",                    :default => "0"
+    t.boolean  "accepted",                    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

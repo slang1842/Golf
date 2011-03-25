@@ -9,14 +9,13 @@ Golf::Application.routes.draw do
   resources :user_sessions
   resources :golf_clubs
   resources :users
-  
-  
-  
+    
   #========================================================================
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
   match '/welcome' => "welcome#index",        :as => :loged_in
   
+  match '/register' => "user_sessions#index", :as => :login_or_register
   #========================================================================
   #login
   match '/login' => "user_sessions#new",      :as => :login
@@ -24,13 +23,10 @@ Golf::Application.routes.draw do
   
   #========================================================================
   #clubs
-  match '/clubs' => "golf_clubs#index",		             :as => :clubs
+  
   match '/clubs/new' => "golf_clubs#new",		           :as => :clubs_new
-  match '/clubs/add' => "golf_clubs#login_or_register", :as => :login_or_register
-  #match '/clubs/add' => "golf_club#login_or_register", :as => :login_or_register
   
-  #match '/clubs/register => "golf_club
-  
+  match '/clubs' => "golf_clubs#index",		             :as => :clubs
   #========================================================================
   #user profiles
   match '/users/new' => "users#new",          :as => :user_register

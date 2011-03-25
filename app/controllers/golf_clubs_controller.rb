@@ -1,18 +1,12 @@
 class GolfClubsController < ApplicationController
-  before_filter :require_no_user => :new
+  before_filter :require_no_user, :only => [:login_or_register]
+  before_filter :require_user, :except => [:login_or_register]
+  before_filter :require_no_club, :only => [:new, :create]
 
-  def login_or_register
-    @golf_club = GolfClub.new
-      respond_to do |format|
-        format.html
-        format.xml  { render :xml => @golf_club }
-      end      
-  end
-  
-  
+ 
   def new
     @golf_club = GolfClub.new
-    respond_to do |format|
+	respond_to do |format|
       format.html
       format.xml  { render :xml => @golf_club }
     end
@@ -29,14 +23,21 @@ class GolfClubsController < ApplicationController
   end
 
   
-  def show
-    @golf_club = GolfClub.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @golf_club }
-    end
-  end
+	def show
+	@golf_club = GolfClub.find(params[:id])
+		unless @golf_club.check_club_status
+			redirect_back_or_default clubs_path
+		else
+			
+			
+			respond_to do |format|
+			format.html
+			format.xml  { render :xml => @golf_club }
+			end
+		
+		end
+	end
+
   
 
  def edit
@@ -46,7 +47,8 @@ class GolfClubsController < ApplicationController
   
  def create
     @golf_club = GolfClub.new(params[:golf_club])
-   
+	#@golf_club
+	
     respond_to do |format|
       if @golf_club.save
         format.html { redirect_to(@golf_club, :notice => 'Golf club was successfully created.') }
