@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  field: 
+  title: MyString
+  price: 1
+
+two:
+  field: 
+  title: MyString
+  price: 1

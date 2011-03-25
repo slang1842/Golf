@@ -1,0 +1,41 @@
+<%= form_for(@field) do |f| %>
+  <% if @field.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@field.errors.count, "error") %> prohibited this field from being saved:</h2>
+
+      <ul>
+      <% @field.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<fieldset>
+	<legend>Bedrītes</legend>
+	  <div id="holes">
+	    <% @field.holes.each do |hole| %>
+
+	     <%= render :partial => '/fields/new_hole', :locals => {:hole => hole, :f => f, :hole_attributes_name => @hole_attributes_name} %>
+
+	    <% end %>
+	  </div>
+	  <%= link_to_function 'add new', "jQuery('#holes').append(#{render(:partial => '/fields/new_hole', :locals => {:f => f, :hole_attributes_name => @new_hole_attributes_name}).to_json})" %>
+  
+</fieldset>
+
+<fieldset>
+	<legend>Izsitiena vietas</legend>
+	
+</fieldset>
+
+<fieldset>
+	<legend>Green Fee</legend>
+	
+</fieldset>
+
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+<% end %>
+

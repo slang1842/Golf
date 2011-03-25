@@ -1,4 +1,6 @@
 Golf::Application.routes.draw do
+  resources :fields
+
   resources :golf_clubs
 
   get "users/register"
@@ -9,7 +11,11 @@ Golf::Application.routes.draw do
   resources :user_sessions
   resources :golf_clubs
   resources :users
-    
+  
+  #========================================================================
+  #fields
+  match "new_hole/:field_id" => "fields#new_hole", :as => :new_hole 
+
   #========================================================================
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
