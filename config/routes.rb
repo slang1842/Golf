@@ -36,7 +36,7 @@ Golf::Application.routes.draw do
   #========================================================================
   #user profiles
   match '/users/new' => "users#new",          :as => :user_register
- 
+  match '/profile/' => "users#edit",          :as => :user_profile
   
  # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:

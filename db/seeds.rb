@@ -25,8 +25,6 @@ club = GolfClub.create(
   :start_place_by_level_high => 4)
 
 
-
-
 #Add users
 User.create(
   :email => 'admin@admin.com',
@@ -39,6 +37,22 @@ User.create(
   :golf_club => club,
   :hcp => 23
 )
+
+=begin
+#Add users
+User.create(
+  :email => 'user@user.com',
+  :password => 'user',
+  :password_confirmation => 'user',
+  #:user_type => 'admin',
+  :admin => false,
+  :first_name => 'Edgars2',
+  :last_name => 'Liepa2',
+  :golf_club => club,
+  :hcp => 22
+)
+=end
+
 
 
 

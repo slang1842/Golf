@@ -1,12 +1,15 @@
 class GolfClubsController < ApplicationController
   before_filter :require_no_user, :only => [:login_or_register]
   before_filter :require_user, :except => [:login_or_register]
-  before_filter :require_no_club, :only => [:new, :create]
+  #before_filter :require_no_club, :only => [:new, :create]
 
- 
+  
+  
+  
   def new
+    countries
     @golf_club = GolfClub.new
-	respond_to do |format|
+    respond_to do |format|
       format.html
       format.xml  { render :xml => @golf_club }
     end
@@ -14,9 +17,8 @@ class GolfClubsController < ApplicationController
   
   
   def index
-    @golf_clubs = GolfClub.all
-    @contries = Country.all
-	@contrie = Country.find(current_user)
+    countries
+    @contrie = Country.find(current_user)
 	
 	
     respond_to do |format|
@@ -50,11 +52,11 @@ class GolfClubsController < ApplicationController
   
  def create
     @golf_club = GolfClub.new(params[:golf_club])
-	#@golf_club
-	
+    @golf_club.user = current_user
+    
     respond_to do |format|
       if @golf_club.save
-        format.html { redirect_to(@golf_club, :notice => 'Golf club was successfully created.') }
+        format.html { redirect_to(clubs_path, :notice => "Golf club #{@golf_club.name} was successfully created.") }
         format.xml  { render :xml => @golf_club, :status => :created, :location => @golf_club }
       else
         format.html { render :action => "new" }
@@ -88,4 +90,33 @@ class GolfClubsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  def countries
+    @contries = Country.all
+    @country = Country.find(current_user)
+  end
+  
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

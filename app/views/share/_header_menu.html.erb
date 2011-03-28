@@ -18,7 +18,15 @@
 </tr>
 <tr>
   <td></td>
-  <td>Klubs "<%= current_user.golf_club.name %>"</td>
+  <td>
+  
+  <% if @check_my_club %>
+    ir
+  <% else %>
+    No Home Club
+  <% end %>
+  
+  </td>
 </tr>
 </table>
 <br />

@@ -1,7 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user_session, :current_user
+  #before_filter :header
   
+  
+  def header
+    my_golf_club = current_user#.name
+    
+    unless my_golf_club == nil
+      @my_club = "Home Club '" && my_golf_club && "'"
+    else
+    @my_club = "No home club"  
+    end
+  end
+  
+=begin
   def require_no_club
 		@golf_club = GolfClub
 		unless current_user == @golf_club
@@ -15,6 +28,7 @@ class ApplicationController < ActionController::Base
 		
 		end
 	end
+=end
   
   def store_location
     session[:return_to] = request.request_uri

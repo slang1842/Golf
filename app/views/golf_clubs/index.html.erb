@@ -2,21 +2,21 @@
 
 <%= render :partial => 'share/header_menu' %><br /><br /><br />
 
-Mans klubs<br /><br />
-
 <% flash.each do |key, msg| %>
     <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
    
    
 <% end %>
 
-<select value="<%= @contrie.name %>">
-	<% @contries.each do |f| %>
-		<option <% if @contrie.name == f.name %>selected="selected"<% end %> ><%= f.name %></option>
-	<% end %>
-</select>
 
-<%= link_to "Pievienot klubu", clubs_new_path %>
+<% if @check_my_club %>
+ir
+<% else %>
+Tew nav majas kluba<br />
+
+<%= link_to "Pievienot klubu",
+ clubs_new_path %>
+<% end %>
 
 
 

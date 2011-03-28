@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_owner, :only => [:update, :edit]
-  
+  skip_before_filter :header, :only => [:login_or_register, :new, :create]
   
   def login_or_register
     
@@ -24,8 +24,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(welcome_path)}
-             else
+        format.html { redirect_to(user_profile_path)}
+      else
         format.html { render :action => "new" }
       end
     end

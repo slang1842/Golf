@@ -166,6 +166,8 @@ lv:
   notices:
     user_created: "Lietotājs ir veiksmīgi izveidots. Tagad vari ienākt saitā."
     
+  select:
+    prompt: "Please select2"
     
     
     

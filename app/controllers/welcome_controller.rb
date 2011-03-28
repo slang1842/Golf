@@ -2,6 +2,8 @@ class WelcomeController < ApplicationController
 
 before_filter :require_user, :only => :index
 before_filter :require_no_user, :only => :welcome
+skip_before_filter :header
+
 
   def index
 	

@@ -12,7 +12,7 @@
   
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error")%> <%= t :user_create_fail %></h2>
+      <h2><%= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></h2>
       <ul>
         <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -63,8 +63,10 @@
   <%= f.select(:measurement, MEASUREMENT) %><br /><br />
   
   <br />
+  
   <%= f.label t "form.home_club" %>
-  <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :name, :prompt => true) %><br /><br />
+  
+  <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :name, :prompt => t(:notices_no_club)) %><br /><br />
   
   <%= f.label t "form.start_place" %>
   <%= f.select(:start_place_color, START_PLACE_COLORS) %><br /><br />
