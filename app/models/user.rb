@@ -12,8 +12,10 @@ class User < ActiveRecord::Base
   #RIGHT_HANDED_FROM_DB ={ true => "Labrocis", false => "Kreilis" }
   
   
-  def is_club_admin_or_owner(club)
-    return ((admin && golf_club.id == club.id) || id == club.user_id)
+ 
+  
+  def get_administrate_golf_club
+    return self.admin ? self.golf_club : false;
   end
 
 end

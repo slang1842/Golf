@@ -80,20 +80,23 @@ class GolfClubsController < ApplicationController
     @country = Country.find(current_user)
   end
   
-=begin
-  def is_club_admin_or_owner
-    unless is_owner(current_user) or is_admin(current_user) != false
-    
-    
-    / ssssssssss /
-    
-    end
-    #unless current_user && current_user.is_club_admin_or_owner
-    #  redirect_to clubs_path
-    #end
-  end
-=end
 
+  def is_club_admin_or_owner
+    return current_user.golf_club == golf_club
+  end
+
+
+  
+=begin
+
+  def is_club_admin_or_owner(club)
+    if ((admin or golf_club.id == club.id) || id == club.user_id)
+    return true
+    end
+  end
+  
+
+=end
   def check_club
     
     unless current_user.golf_club == nil
