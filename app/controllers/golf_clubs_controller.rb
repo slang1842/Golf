@@ -1,7 +1,7 @@
 class GolfClubsController < ApplicationController
   before_filter :require_user
   before_filter :check_club, :only => [:main, :index]
- #before_filter :is_club_admin_or_owner, :only => [:index, :edit]
+  before_filter :is_club_admin, :only => [:index, :edit]
   
   def new
     countries
@@ -81,8 +81,8 @@ class GolfClubsController < ApplicationController
   end
   
 
-  def is_club_admin_or_owner
-    return current_user.golf_club == golf_club
+  def is_club_admin
+    @get_administrate_golf_club = get_administrate_golf_club
   end
 
 
