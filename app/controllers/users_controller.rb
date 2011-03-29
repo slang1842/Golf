@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   skip_before_filter :header, :only => [:login_or_register, :new, :create]
   
   def login_or_register
-    
-  
   end
  
    def new

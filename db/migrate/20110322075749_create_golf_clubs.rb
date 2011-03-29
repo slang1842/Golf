@@ -5,13 +5,12 @@ class CreateGolfClubs < ActiveRecord::Migration
       t.string       :name,                        :null => false
       t.references   :countries#,                     :null => false
       t.string 		   :region,                      :null => false
-      t.string		   :green_fee
       t.string		   :city,                        :null => false
       t.string 		   :web_page,                    :null => false
       t.string		   :start_place_by_level_low
       t.string 		   :start_place_by_level_medium
       t.string		   :start_place_by_level_high
-      t.boolean       :accepted,                    :default => false
+      t.boolean      :accepted,                    :default => false
 
       t.timestamps
     end

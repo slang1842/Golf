@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(:version => 20110324135556) do
     t.string   "name",                                           :null => false
     t.integer  "countries_id"
     t.string   "region",                                         :null => false
-    t.string   "green_fee"
     t.string   "city",                                           :null => false
     t.string   "web_page",                                       :null => false
     t.string   "start_place_by_level_low"

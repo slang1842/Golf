@@ -1,10 +1,7 @@
 class GolfClubsController < ApplicationController
-  before_filter :require_no_user, :only => [:login_or_register]
-  before_filter :require_user, :except => [:login_or_register]
-  #before_filter :require_no_club, :only => [:new, :create]
-
-  
-  
+  before_filter :require_user
+  before_filter :check_club, :only => [:main, :index]
+ #before_filter :is_club_admin_or_owner, :only => [:index, :edit]
   
   def new
     countries
@@ -15,16 +12,9 @@ class GolfClubsController < ApplicationController
     end
   end
   
-  
   def index
     countries
-    @contrie = Country.find(current_user)
-	
-	
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @golf_clubs }
-    end
+    @country = Country.find(current_user)
   end
 
   
@@ -32,21 +22,14 @@ class GolfClubsController < ApplicationController
 	@golf_club = GolfClub.find(params[:id])
 		unless @golf_club.check_club_status
 			redirect_back_or_default clubs_path
-		else
-			
-			
-			respond_to do |format|
-			format.html
-			format.xml  { render :xml => @golf_club }
-			end
-		
+		else		
 		end
 	end
 
   
 
  def edit
-    @golf_club = GolfClub.find(params[:id])
+    @golf_club = GolfClub.find(current_user)
   end
 
   
@@ -97,6 +80,36 @@ class GolfClubsController < ApplicationController
     @country = Country.find(current_user)
   end
   
+=begin
+  def is_club_admin_or_owner
+    unless is_owner(current_user) or is_admin(current_user) != false
+    
+    
+    / ssssssssss /
+    
+    end
+    #unless current_user && current_user.is_club_admin_or_owner
+    #  redirect_to clubs_path
+    #end
+  end
+=end
+
+  def check_club
+    
+    unless current_user.golf_club == nil
+      unless current_user.golf_club.accepted == false or golf_club.user_id == current_user
+        #accepted    
+        redirect_to loged_in_path
+      else
+        #unaccepted
+        flash.now[:notice] = "Your club has not been accepted"
+      end
+    else
+      #no club
+      redirect_to loged_in_path
+    end
+
+  end
 end
 
 

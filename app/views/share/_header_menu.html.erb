@@ -20,11 +20,7 @@
   <td></td>
   <td>
   
-  <% if @check_my_club %>
-    ir
-  <% else %>
-    No Home Club
-  <% end %>
+<%= current_user.golf_club.presence || "No Home Club" %>
   
   </td>
 </tr>

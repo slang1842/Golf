@@ -1,15 +1,15 @@
 
 
 
-<h2>Izveidot jaunu klubu</h2>
 <% flash.each do |key, msg| %>
     <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
     <%= content_tag :script, :type => "text/javascript" do -%>
         setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
     <% end %>
 <% end %>
+
 <br />
-You need to login to view this page<br />
+<br />
 <br /><br />
 Login<br />
 <%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>

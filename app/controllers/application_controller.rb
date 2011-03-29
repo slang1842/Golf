@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
   #before_filter :header
   
-  
+=begin
   def header
     my_golf_club = current_user#.name
     
@@ -14,14 +14,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
-=begin
+
   def require_no_club
 		@golf_club = GolfClub
 		unless current_user == @golf_club
 		puts "======================================="
 		puts "NAVVVVVVV"
 		redirect_to clubs_path
-		flash[:notice] = "You have already created club. You can create only one club"
+		flash.now[:notice] = "You have already created club. You can create only one club"
 		else
 		puts "======================================="
 		puts "IRAAAAAAA"
@@ -30,15 +30,11 @@ class ApplicationController < ActionController::Base
 	end
 =end
   
-  def store_location
-    session[:return_to] = request.request_uri
-  end
+
   
   private
-  def is_club_admin_or_owner
-    unless current_user && current_user.is_club_admin_or_owner
-      redirect_to clubs_path
-    end
+   def store_location
+    session[:return_to] = request.fullpath
   end
  
  
@@ -60,7 +56,7 @@ class ApplicationController < ActionController::Base
     logger.debug "ApplicationController::require_user"
     unless current_user
       store_location
-      flash[:notice] = "You must be logged in to access this page"
+      flash.now[:notice] = "You must be logged in to access this page"
       redirect_to login_or_register_path
       return false
     end
@@ -70,7 +66,7 @@ class ApplicationController < ActionController::Base
     logger.debug "ApplicationController::require_no_user"
     if current_user
       store_location
-      flash[:notice] = "You must be logged out to access this page"
+      flash.now[:notice] = "You must be logged out to access this page"
       redirect_to loged_in_path
       return false
     end
@@ -87,7 +83,8 @@ class ApplicationController < ActionController::Base
   end
   
   def require_owner
-    unless params[:id].to_i == current_user.id 
+    unless params[:id].to_i == current_user.id
+        store_location
         redirect_to clubs_path
         return false
     end

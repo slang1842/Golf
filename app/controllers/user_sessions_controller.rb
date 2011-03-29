@@ -28,7 +28,7 @@ class UserSessionsController < ApplicationController
       flash[:notice] = t "form.login_ok"
       redirect_back_or_default loged_in_path
     else
-      redirect_to welcome_path
+      redirect_back #redirect_to welcome_path
       flash[:notice] = t "form.login_fail"
     end
   end
@@ -36,7 +36,7 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     flash[:notice] = "Logout successful!"
-    #redirect_back_or_default welcome_url
-	redirect_to welcome_url
+    redirect_to welcome_url
+    #redirect_to welcome_url
   end
 end
