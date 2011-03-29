@@ -4,13 +4,11 @@ class UserSessionsController < ApplicationController
   
  	
 	def index
-	    store_location
-			@golf_club = GolfClub.new
-			respond_to do |format|
-				format.html
-				format.xml  { render :xml => @golf_club }
-			end      
-		#end
+    @golf_club = GolfClub.new
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @golf_club }
+    end
 	end
 	
   def new
