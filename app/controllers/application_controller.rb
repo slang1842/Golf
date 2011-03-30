@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     def store_location
       session[:return_to] = request.fullpath
     end
-      
+    
     def current_user_session
       logger.debug "ApplicationController::current_user_session"
       return @current_user_session if defined?(@current_user_session)

@@ -14,7 +14,9 @@ Golf::Application.routes.draw do
   
   #========================================================================
   #fields
-  
+  match '/fields' => "fields#index",          :as => :fields
+  match '/fields/new' => "fields#new",          :as => :fields_new
+  match '/fields/edit' => "fields#edit",          :as => :fields_edit
   #========================================================================
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
