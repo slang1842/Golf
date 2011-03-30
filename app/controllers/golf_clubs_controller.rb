@@ -1,6 +1,7 @@
 class GolfClubsController < ApplicationController
-  before_filter :require_user
-   
+  before_filter :require_admin, :except => [:create, :new]
+  before_filter :require_user, :only => [:create, :new]
+  
   def new
     countries
     @golf_club = GolfClub.new
@@ -12,16 +13,16 @@ class GolfClubsController < ApplicationController
   
   def index
     countries
-    @country = Country.find(current_user)
+    #@country = Country.find(current_user)
   end
   
-	def show
-	@golf_club = GolfClub.find(params[:id])
-		unless @golf_club.check_club_status
-			redirect_back_or_default clubs_path
-		else		
-		end
-	end
+	#def show
+	#@golf_club = GolfClub.find(params[:id])
+	#	unless @golf_club.check_club_status
+	#		redirect_back_or_default clubs_path
+	#	else		
+	#	end
+	#end
 
  def edit
     @golf_club = GolfClub.find(current_user)
@@ -46,19 +47,15 @@ class GolfClubsController < ApplicationController
   
   def update
     @golf_club = GolfClub.find(params[:id])
-  
-    respond_to do |format|
       if @golf_club.update_attributes(params[:golf_club])
-        format.html { redirect_to(@golf_club, :notice => 'Golf club was successfully updated.') }
-        format.xml  { head :ok }
+        redirect_to(clubs_path, :notice => 'Golf club was successfully updated.')
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @golf_club.errors, :status => :unprocessable_entity }
+        redirect_to(clubs_path, :notice => 'Golf club was not successfully updated.')
+      
       end
-    end
   end
   
-
+/
   def destroy
     @golf_club = GolfClub.find(params[:id])
     @golf_club.destroy
@@ -68,13 +65,13 @@ class GolfClubsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+  /
   
   
   private
   def countries
     @contries = Country.all
-    @country = Country.find(current_user)
+    #@country = Country.find(current_user.country.id)
   end
   
 

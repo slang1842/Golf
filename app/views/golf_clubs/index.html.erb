@@ -9,15 +9,20 @@
     <% end %>
 <% end %>
 
-<% if current_user && current_user.golf_club.accepted == "no" %>
-  
-  Administrator did not accepted your club
-  
-<% elsif current_user && current_user.golf_club.accepted == "yes" %>
-   <%= render :partial => 'golf_clubs/club_menu' %><br /><br /><br />
-<% else %>
 
-  Club has not been accepted yet.
-  
+<% if current_user.admin %>
+
+    <% if current_user.golf_club && current_user.golf_club.accepted == "no" %>
+    
+    Administrator did not accepted your club
+    <% elsif current_user.golf_club && current_user.golf_club.accepted == "yes" %>
+    <%= render :partial => 'golf_clubs/club_menu' %><br /><br /><br />
+
+    <% else %>
+    
+    Club has not been accepted yet.
+    <% end %>
+<% else %>
+    You dont have home club
 <% end %>
 

@@ -1,5 +1,6 @@
 class GolfClub < ActiveRecord::Base
   belongs_to :user
+  belongs_to :country
   
 	
   #def is_owner(user_id)

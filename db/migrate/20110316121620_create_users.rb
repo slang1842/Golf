@@ -10,17 +10,17 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean        :admin,            	  :default => false # true, false
       #t.integer       :admin,                :default => 0  # club id, or 0, if no club
       
-      t.string        :first_name#,           :null => false
-      t.string        :last_name#,            :null => false
-      t.string        :nick#,                 :null => false
-      t.string        :sex#,                  :null => false
-      t.date          :birth#,                :null => false
-      t.references    :country#,              :null => false
-      t.references    :golf_club#,            :null => false
-      t.integer       :hcp#,                  :null => false
-      t.boolean       :right_handed#,         :null => false
-      t.string        :measurement#,          :null => false      #Metri, Pēdas
-      t.integer       :start_place_color#,   :null => false      #1,2,3
+      t.string        :first_name,           :null => false
+      t.string        :last_name,            :null => false
+      t.string        :nick,                 :null => false
+      t.string        :sex,                  :null => false
+      t.date          :birth,                :null => false
+      t.references    :country,              :null => false
+      t.references    :golf_club,            :null => false
+      t.integer       :hcp,                  :null => false
+      t.boolean       :right_handed,         :null => false
+      t.string        :measurement,          :null => false      #Metri, Pēdas
+      t.integer       :start_place_color,    :null => false      #1,2,3
       t.string        :profile_image,        :default => "False"
       
       # magic fields (all optional, see Authlogic::Session::MagicColumns)
