@@ -1,4 +1,6 @@
 Golf::Application.routes.draw do
+  resources :hints
+
   resources :fields
 
   resources :golf_clubs
