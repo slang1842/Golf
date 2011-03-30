@@ -11,9 +11,6 @@ class User < ActiveRecord::Base
   #RIGHT_HANDED_TO_DB = { "Labrocis" => true, "Kreilis" => false }
   #RIGHT_HANDED_FROM_DB ={ true => "Labrocis", false => "Kreilis" }
   
-  
- 
-  
   def get_administrate_golf_club
     return self.admin ? self.golf_club : false;
   end

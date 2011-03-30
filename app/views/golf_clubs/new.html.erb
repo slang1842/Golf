@@ -1,3 +1,4 @@
+
 <%= form_for(@golf_club) do |f| %>
   <% if @golf_club.errors.any? %>
     <div id="error_explanation">
@@ -16,6 +17,7 @@
   </div>
   <div class="field">
     <%= f.label t "form.country" %>
+    <%= f.collection_select :country_id, Country.all, :id, :name %>
 
   </div>
   
@@ -32,18 +34,7 @@
     <%= f.label :web_page %><br />
     <%= f.text_field :web_page %>
   </div>
-  <div class="field">
-    <%= f.label :start_place_by_level_low %><br />
-    <%= f.text_field :start_place_by_level_low %>
-  </div>
-  <div class="field">
-    <%= f.label :start_place_by_level_medium %><br />
-    <%= f.text_field :start_place_by_level_medium %>
-  </div>
-  <div class="field">
-    <%= f.label :start_place_by_level_high %><br />
-    <%= f.text_field :start_place_by_level_high %>
-  </div>
+ 
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,8 +1,6 @@
 Golf::Application.routes.draw do
   resources :hints
-
   resources :fields
-
   resources :golf_clubs
 
   get "users/register"
@@ -16,8 +14,7 @@ Golf::Application.routes.draw do
   
   #========================================================================
   #fields
-  match "new_hole/:field_id" => "fields#new_hole", :as => :new_hole 
-
+  
   #========================================================================
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
@@ -41,6 +38,7 @@ Golf::Application.routes.draw do
   match '/user/new' => "users#new",          :as => :user_register
   match '/profile/' => "users#edit",          :as => :user_profile
   
+    
  # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

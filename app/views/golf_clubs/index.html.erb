@@ -2,8 +2,6 @@
 
 <%= render :partial => 'share/header_menu' %><br /><br /><br />
 
-==============<br /><br />
-
 <% flash.each do |key, msg| %>
     <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
     <%= content_tag :script, :type => "text/javascript" do -%>
@@ -11,13 +9,15 @@
     <% end %>
 <% end %>
 
-==============<br /><br />
+<% if current_user && current_user.golf_club.accepted == "no" %>
+  
+  Administrator did not accepted your club
+  
+<% elsif current_user && current_user.golf_club.accepted == "yes" %>
+   <%= render :partial => 'golf_clubs/club_menu' %><br /><br /><br />
+<% else %>
 
-<% case @check_club %>
-  <% when "unaccepted" %>
-    klub unaccepted
-  <% when "no club" %>
-    kluba izvade
+  Club has not been accepted yet.
+  
 <% end %>
 
-<br />==============<br /><br />

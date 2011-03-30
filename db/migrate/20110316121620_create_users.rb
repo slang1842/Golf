@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string        :password_salt,        :null => false
       t.string        :persistence_token,    :null => false
    
-      t.boolean        :admin,            	  :default => false # user, admin
+      t.boolean        :admin,            	  :default => false # true, false
       #t.integer       :admin,                :default => 0  # club id, or 0, if no club
       
       t.string        :first_name#,           :null => false

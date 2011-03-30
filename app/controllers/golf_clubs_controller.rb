@@ -1,8 +1,6 @@
 class GolfClubsController < ApplicationController
   before_filter :require_user
-  before_filter :check_club, :only => [:main, :index]
-  before_filter :is_club_admin, :only => [:index, :edit]
-  
+   
   def new
     countries
     @golf_club = GolfClub.new
@@ -16,7 +14,6 @@ class GolfClubsController < ApplicationController
     countries
     @country = Country.find(current_user)
   end
-
   
 	def show
 	@golf_club = GolfClub.find(params[:id])
@@ -25,8 +22,6 @@ class GolfClubsController < ApplicationController
 		else		
 		end
 	end
-
-  
 
  def edit
     @golf_club = GolfClub.find(current_user)
@@ -74,6 +69,8 @@ class GolfClubsController < ApplicationController
     end
   end
   
+  
+  
   private
   def countries
     @contries = Country.all
@@ -81,9 +78,7 @@ class GolfClubsController < ApplicationController
   end
   
 
-  def is_club_admin
-    @get_administrate_golf_club = get_administrate_golf_club
-  end
+  
 
 
   
@@ -96,7 +91,7 @@ class GolfClubsController < ApplicationController
   end
   
 
-=end
+
   def check_club
     
     unless current_user.golf_club == nil
@@ -113,6 +108,7 @@ class GolfClubsController < ApplicationController
     end
 
   end
+=end
 end
 
 

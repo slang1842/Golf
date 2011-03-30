@@ -1,57 +1,24 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user_session, :current_user
-  #before_filter :header
-  
-=begin
-  def header
-    my_golf_club = current_user#.name
-    
-    unless my_golf_club == nil
-      @my_club = "Home Club '" && my_golf_club && "'"
-    else
-    @my_club = "No home club"  
-    end
-  end
-  
-
-  def require_no_club
-		@golf_club = GolfClub
-		unless current_user == @golf_club
-		puts "======================================="
-		puts "NAVVVVVVV"
-		redirect_to clubs_path
-		flash.now[:notice] = "You have already created club. You can create only one club"
-		else
-		puts "======================================="
-		puts "IRAAAAAAA"
-		
-		end
-	end
-=end
-  
-
   
   private
   
     def store_location
       session[:return_to] = request.fullpath
     end
-   
-   
+      
     def current_user_session
       logger.debug "ApplicationController::current_user_session"
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find
     end
 
-    
-    def current_user
+        def current_user
       logger.debug "ApplicationController::current_user"
       return @current_user if defined?(@current_user)
       @current_user = current_user_session && current_user_session.user
     end
-
     
     def require_user
       logger.debug "ApplicationController::require_user"

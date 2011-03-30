@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110324135556) do
+ActiveRecord::Schema.define(:version => 20110330070032) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -26,15 +26,16 @@ ActiveRecord::Schema.define(:version => 20110324135556) do
 
   create_table "golf_clubs", :force => true do |t|
     t.integer  "user_id"
-    t.string   "name",                                           :null => false
-    t.integer  "countries_id"
-    t.string   "region",                                         :null => false
-    t.string   "city",                                           :null => false
-    t.string   "web_page",                                       :null => false
+    t.string   "name",                                               :null => false
+    t.integer  "country_id"
+    t.string   "region",                                             :null => false
+    t.string   "city",                                               :null => false
+    t.string   "web_page",                                           :null => false
     t.string   "start_place_by_level_low"
     t.string   "start_place_by_level_medium"
     t.string   "start_place_by_level_high"
-    t.boolean  "accepted",                    :default => false
+    t.string   "accepted",                    :default => "unknown"
+    t.boolean  "active",                      :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +44,13 @@ ActiveRecord::Schema.define(:version => 20110324135556) do
     t.integer  "field_id"
     t.string   "title"
     t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hints", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
