@@ -40,6 +40,8 @@ Golf::Application.routes.draw do
   match '/user/new' => "users#new",          :as => :user_register
   match '/profile/' => "users#edit",          :as => :user_profile
   
+  match '/admin' => "admin#index",          :as => :admin
+  
     
  # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:
