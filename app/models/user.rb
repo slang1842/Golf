@@ -14,5 +14,9 @@ class User < ActiveRecord::Base
   def get_administrate_golf_club
     return self.admin ? self.golf_club : false;
   end
+  
+  has_attached_file :image, 
+              :url => "/user/:attachment/:id_:style.:extension",
+              :path => ":rails_root/public/user/:attachment/:id_:style.:extension"
 
 end

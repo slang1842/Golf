@@ -23,6 +23,12 @@ class CreateUsers < ActiveRecord::Migration
       t.integer       :start_place_color#,    :null => false      #1,2,3
       t.string        :profile_image#,        :default => "False"
       
+      #image
+      t.string :image_file_name
+      t.string :image_content_type
+      t.integer :image_file_size
+      t.datetime :image_updated_at
+      
       # magic fields (all optional, see Authlogic::Session::MagicColumns)
       t.integer       :login_count,          :null => false, :default => 0
       t.integer       :failed_login_count,   :null => false, :default => 0
