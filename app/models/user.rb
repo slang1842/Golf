@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
     return self.admin ? self.golf_club : false;
   end
   
-  has_attached_file :image, 
+    
+  has_attached_file :image, :default_url => '/images/anonymous_icon.png',
               :url => "/user/:attachment/:id_:style.:extension",
               :path => ":rails_root/public/user/:attachment/:id_:style.:extension"
-
 end

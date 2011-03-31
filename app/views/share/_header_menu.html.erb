@@ -2,10 +2,11 @@
 ==========================================================================================
 <br />This is header menu
 <br /><br />
+
 <table border="1">
 
 <tr>
-  <td>image here</td>
+  <td><%= image_tag(current_user.image.url, :size => '53x53') %></td>
   <td><%= current_user.first_name %></td>
 </tr>
 <tr>

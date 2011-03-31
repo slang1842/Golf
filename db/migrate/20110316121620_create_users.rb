@@ -21,7 +21,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean       :right_handed#,         :null => false
       t.string        :measurement#,          :null => false      #Metri, Pēdas
       t.integer       :start_place_color#,    :null => false      #1,2,3
-      t.string        :profile_image#,        :default => "False"
+      #t.string        :profile_image#,        :default => "False"
       
       #image
       t.string :image_file_name
