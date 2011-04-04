@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UserController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   #before_filter :require_owner, :only => [:update, :edit]
   skip_before_filter :header, :only => [:login_or_register, :new, :create]
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       if @user.save
        redirect_to welcome_path
       else
-        #render :action => "new"
+       render :action => "new"
       end
   end
 
@@ -28,9 +28,8 @@ class UsersController < ApplicationController
       if @user.update_attributes(params[:user])
         redirect_to welcome_path
       else
-        #format.html { render :action => "edit" }
-        #format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
     end
   end
-  end
-
+end

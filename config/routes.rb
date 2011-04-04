@@ -1,8 +1,7 @@
 Golf::Application.routes.draw do
   resources :hints
   resources :user_sessions
-  resource :users  #, :path => 'users'
-  #resource :user
+  resource :user, :controller => "user"
   
   resource :golf_clubs, :path => 'club' do
     resources :fields

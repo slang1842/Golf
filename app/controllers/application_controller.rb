@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
       @current_user = current_user_session && current_user_session.user
     end
     
-    def require_user
+     def require_user
       logger.debug "ApplicationController::require_user"
       unless current_user
         store_location
@@ -36,8 +36,6 @@ class ApplicationController < ActionController::Base
           flash.now[:notice] = "You have no access this page"
           redirect_to welcome_path
         end
-      else
-          flash.now[:notice] = "You must be logged in to access this page"
       end
     end
     

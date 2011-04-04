@@ -1,6 +1,6 @@
 class GolfClubsController < ApplicationController
   before_filter :require_admin, :except => [:create, :new]
-  before_filter :require_no_user, :only => [:create, :new]
+  before_filter :require_user, :only => [:create, :new]
   
   def new
     countries
@@ -35,7 +35,7 @@ class GolfClubsController < ApplicationController
     
     respond_to do |format|
       if @golf_club.save
-        format.html { redirect_to(clubs_path, :notice => "Golf club #{@golf_club.name} was successfully created.") }
+        format.html { redirect_to(loged_in_path, :notice => "Golf club #{@golf_club.name} was successfully created. Administrator will accept it.") }
         format.xml  { render :xml => @golf_club, :status => :created, :location => @golf_club }
       else
         format.html { render :action => "new" }
