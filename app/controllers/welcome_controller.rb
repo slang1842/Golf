@@ -6,11 +6,12 @@ skip_before_filter :header
 
 
   def index
-	
+    store_location
     render( :layout => 'layouts/application' )
   end
 	
 	def welcome
+    store_location
 		render( :layout => 'layouts/welcome' )
 	end
 end

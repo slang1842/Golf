@@ -23,10 +23,10 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_back
+      redirect_back_or_default(welcome_path)
       flash[:notice] = t "form.login_ok"
     else
-      redirect_back #redirect_to welcome_path
+      redirect_back_or_default(welcome_path)
       flash[:notice] = t "form.login_fail"
     end
   end

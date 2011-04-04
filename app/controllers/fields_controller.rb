@@ -1,14 +1,5 @@
 class FieldsController < ApplicationController
   /
-  def index
-    @fields = Field.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @fields }
-    end
-  end
-/
   def show
     @field = Field.find(params[:id])
 
@@ -17,7 +8,7 @@ class FieldsController < ApplicationController
       format.xml  { render :xml => @field }
     end
   end
-
+/
   def new
     @golf_club = current_user.golf_club
     @field = @golf_club.fields.new
@@ -25,11 +16,6 @@ class FieldsController < ApplicationController
     @new_hit_place_attributes_name = "hit_places_attributes[]"
     @new_green_fee_attributes_name = "green_fees_attributes[]"
     
-    
-    /respond_to do |format|
-      format.html
-      format.xml  { render :xml => @field }
-    end/
   end
 
   def edit
@@ -56,7 +42,6 @@ class FieldsController < ApplicationController
       if @field.save
         
         format.html { redirect_back_or_default(golf_club_path) }
-        /format.xml  { render :xml => @field, :status => :created, :location => @field }/
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @field.errors, :status => :unprocessable_entity }

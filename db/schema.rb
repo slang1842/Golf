@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110401123916) do
 
   create_table "fields", :force => true do |t|
     t.integer  "golf_club_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
