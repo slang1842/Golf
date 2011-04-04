@@ -3,7 +3,7 @@ Golf::Application.routes.draw do
   resources :user_sessions
   resource :user, :controller => "user"
   
-  resource :golf_clubs, :path => 'club' do
+  resource :golf_club, :controller => "golf_club", :path => 'club' do
     resources :fields
   end
   

@@ -11,13 +11,13 @@
 <% fields.each do |field| %>
   <tr>
     <td><%= field.golf_club %></td>
-    <td><%= link_to 'Show', field %></td>
-    <td><%= link_to 'Edit', edit_field_path(field) %></td>
-    <td><%= link_to 'Destroy', field, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', [:golf_club, field] %></td>
+    <td><%= link_to 'Edit', edit_golf_club_field_path(field) %></td>
+    <td><%= link_to 'Destroy', [:golf_club, field], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Field', fields_new_path %>
+<%= link_to 'New Field', new_golf_club_field_path %>

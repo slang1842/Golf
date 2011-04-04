@@ -45,8 +45,8 @@ ID: <%= current_user.id %>
 
 <%= link_to "Sākums", loged_in_path %>
 
-<% if current_user && current_user.get_administrate_golf_club %>
-    <%= link_to "Klubs", golf_clubs_path %>
+<% if current_user.get_administrate_golf_club  %>
+    <%= link_to "Klubs", golf_club_path %>
 <% end %>
 
 

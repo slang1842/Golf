@@ -1,0 +1,16 @@
+
+<%= render :partial => 'share/header_menu' %>
+<br /><br />
+
+		<% if current_user.golf_club.accepted == "yes" %>
+      <%if current_user.golf_club.active? %>
+        viss ok, radit kubu
+      <% else %>
+        You must complete club registration, for club to be active. You can do that <%= link_to "here", edit_golf_club_path %>
+      <% end %>
+      
+		<% elsif current_user.golf_club.accepted == "no" %>
+			your club has not beed accepted
+    <% else %>
+      Administrator has not yet accepted your club
+		<% end %>

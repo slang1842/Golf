@@ -1,6 +1,6 @@
 
 
-<%= render :partial => 'share/header_menu' %><br /><br /><br />
+<%= render :partial => 'share/header_menu' %>
 
 <% flash.each do |key, msg| %>
     <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
@@ -15,14 +15,14 @@
     <% if current_user.golf_club && current_user.golf_club.accepted == "no" %>
     
     Administrator did not accepted your club
+    
     <% elsif current_user.golf_club && current_user.golf_club.accepted == "yes" %>
+    
     <%= render :partial => 'golf_clubs/club_menu' %><br /><br /><br />
 
     <% else %>
     
     Club has not been accepted yet.
     <% end %>
-<% else %>
-    You dont have home club
 <% end %>
 

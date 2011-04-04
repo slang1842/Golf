@@ -39,7 +39,7 @@ class Admin::GolfClubsController < ApplicationController
   def update
     @golf_club = GolfClub.find(params[:id])
     GolfClub.update (params[:id], {:accepted=>'1'} )
-    redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')
+    redirect_to(admin_golf_club_path, :notice => 'Golf club was successfully updated.')
   end
   
 /

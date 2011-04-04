@@ -1,5 +1,5 @@
 class FieldsController < ApplicationController
-
+  /
   def index
     @fields = Field.all
 
@@ -8,7 +8,7 @@ class FieldsController < ApplicationController
       format.xml  { render :xml => @fields }
     end
   end
-
+/
   def show
     @field = Field.find(params[:id])
 
@@ -19,15 +19,17 @@ class FieldsController < ApplicationController
   end
 
   def new
-    @field = Field.new
+    @golf_club = current_user.golf_club
+    @field = @golf_club.fields.new
     @new_hole_attributes_name = "holes_attributes[]"
     @new_hit_place_attributes_name = "hit_places_attributes[]"
     @new_green_fee_attributes_name = "green_fees_attributes[]"
     
-    respond_to do |format|
+    
+    /respond_to do |format|
       format.html
       format.xml  { render :xml => @field }
-    end
+    end/
   end
 
   def edit
@@ -47,13 +49,14 @@ class FieldsController < ApplicationController
   end
 
   def create
-    @field = Field.new(params[:field])
-    @field.golf_club_id = 1;
+    @golf_club = current_user.golf_club
+    @field = @golf_club.fields.new(params[:field])
     
     respond_to do |format|
       if @field.save
-        format.html { redirect_to(@field, :notice => 'Field was successfully created.') }
-        format.xml  { render :xml => @field, :status => :created, :location => @field }
+        
+        format.html { redirect_back_or_default(golf_club_path) }
+        /format.xml  { render :xml => @field, :status => :created, :location => @field }/
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @field.errors, :status => :unprocessable_entity }
@@ -70,7 +73,7 @@ class FieldsController < ApplicationController
        
     respond_to do |format|
       if @field.update_attributes(params[:field])
-        format.html { redirect_to(@field, :notice => 'Field was successfully updated.') }
+        format.html { redirect_back_or_default(golf_club_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -97,7 +100,7 @@ class FieldsController < ApplicationController
     @field.destroy
 
     respond_to do |format|
-      format.html { redirect_to(fields_url) }
+      format.html { redirect_to(edit_golf_club_path) }
       format.xml  { head :ok }
     end
   end

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user_session, :current_user
   
+  
   private
   
     def store_location
@@ -51,6 +52,7 @@ class ApplicationController < ActionController::Base
 
     def redirect_back
       redirect_to(session[:return_to])
+      session[:return_to] = nil
     end
     
     def redirect_back_or_default(default)
@@ -58,15 +60,13 @@ class ApplicationController < ActionController::Base
       session[:return_to] = nil
     end
     
-    def require_owner
+   / def require_owner
       unless params[:id].to_i == current_user.id
           store_location
           redirect_to welcome_path
           return false
       end
-    end
+    end/
     
-    
-  
   
 end

@@ -10,7 +10,7 @@ class CreateGolfClubs < ActiveRecord::Migration
       t.string		   :start_place_by_level_low
       t.string 		   :start_place_by_level_medium
       t.string		   :start_place_by_level_high
-      t.string      :accepted,                    :default => "unknown" # unknown, no, yes
+      t.string       :accepted,                    :default => "unknown" # unknown, no, yes
       t.boolean      :active,                      :default => false
 
       t.timestamps

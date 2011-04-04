@@ -1,11 +1,9 @@
-<%= render :partial => 'share/header_menu' %><br /><br /><br />
+<%= render :partial => 'share/header_menu' %>
+<br /><br />
 
-
-<%= form_for(@golf_club) do |f| %>
+<%= form_for(@golf_club, :url => golf_club_path ) do |f| %>
   <% if @golf_club.errors.any? %>
-   
-
-   <div id="error_explanation">
+    <div id="error_explanation">
       <h2><%= pluralize(@golf_club.errors.count, "error") %> prohibited this golf_club from being saved:</h2>
       <ul>
       <% @golf_club.errors.full_messages.each do |msg| %>
@@ -23,8 +21,8 @@
     <%= f.label t "form.country" %>
     <%= f.collection_select :country_id, Country.all, :id, :name %>
 
-     
   </div>
+  
   <div class="field">
     <%= f.label :region %><br />
     <%= f.text_field :region %>
@@ -38,38 +36,8 @@
     <%= f.label :web_page %><br />
     <%= f.text_field :web_page %>
   </div>
-  <div class="field">
-    <%= f.label :start_place_by_level_low %><br />
-    <%= f.text_field :start_place_by_level_low %>
-  </div>
-  <div class="field">
-    <%= f.label :start_place_by_level_medium %><br />
-    <%= f.text_field :start_place_by_level_medium %>
-  </div>
-  <div class="field">
-    <%= f.label :start_place_by_level_high %><br />
-    <%= f.text_field :start_place_by_level_high %>
-  </div>
+ 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
-<br />
-<br />
-
-<%= render :partial => 'fields/list', :locals => {:fields => @golf_club.fields } %><br /><br /><br />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
