@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
       @current_user_session = UserSession.find
     end
 
-        def current_user
+    def current_user
       logger.debug "ApplicationController::current_user"
       return @current_user if defined?(@current_user)
       @current_user = current_user_session && current_user_session.user
@@ -31,8 +31,13 @@ class ApplicationController < ActionController::Base
     end
     
     def require_admin
-      unless current_user.admin
-        redirect_to welcome_path
+      if require_user
+        unless current_user.admin
+          flash.now[:notice] = "You have no access this page"
+          redirect_to welcome_path
+        end
+      else
+          flash.now[:notice] = "You must be logged in to access this page"
       end
     end
     
@@ -58,7 +63,7 @@ class ApplicationController < ActionController::Base
     def require_owner
       unless params[:id].to_i == current_user.id
           store_location
-          redirect_to clubs_path
+          redirect_to welcome_path
           return false
       end
     end

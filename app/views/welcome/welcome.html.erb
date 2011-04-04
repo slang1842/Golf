@@ -10,9 +10,9 @@ main lapa ar login formu <br /><br />
 <br /><br />
 <%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>
 
-<%= link_to "sāc tagad!", user_register_path %>
+<%= link_to "sāc tagad!", new_users_path %>
 
-<%= link_to "Pievieno savu klubu", clubs_new_path %>
+<%= link_to "Pievieno savu klubu", new_golf_clubs_path %>
 
 
 

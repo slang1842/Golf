@@ -4,11 +4,9 @@
 <%= render :partial => 'share/header_menu' %>
 <% else %>
 <% end %>
-
 <br /><br />
 
-<%= form_for(@user, :html => { :multipart => true } ) do |f| %>
-  
+<% form_for(@user, :html => { :multipart => true } ) do |f| %>
   
   <% if @user.errors.any? %>
     <div id="error_explanation">

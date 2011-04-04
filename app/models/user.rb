@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :golf_club
+ belongs_to :golf_club
     
   acts_as_authentic do |c| 
     c.login_field = :email 

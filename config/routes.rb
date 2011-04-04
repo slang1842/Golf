@@ -1,22 +1,24 @@
 Golf::Application.routes.draw do
   resources :hints
-  resources :fields
-  resources :golf_clubs
-
-  get "users/register"
+  resources :user_sessions
+  resource :users  #, :path => 'users'
+  #resource :user
+  
+  resource :golf_clubs, :path => 'club' do
+    resources :fields
+  end
+  
+  #get "users/register"
   get "welcome/index"
   get "home/index"
   get "user_sessions/new"
-
-  resources :user_sessions
-  resources :golf_clubs
-  resources :users
   
   #========================================================================
   #fields
-  match '/fields' => "fields#index",          :as => :fields
-  match '/fields/new' => "fields#new",          :as => :fields_new
-  match '/fields/edit' => "fields#edit",          :as => :fields_edit
+  #match '/users/new' => "users#create"
+  #match '/fields' => "fields#index",          :as => :fields
+  #match '/fields/new' => "fields#new",          :as => :fields_new
+  #match '/fields/edit' => "fields#edit",          :as => :fields_edit
   #========================================================================
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
@@ -29,16 +31,9 @@ Golf::Application.routes.draw do
   match '/logout' => "user_sessions#destroy", :as => :logout
   
   #========================================================================
-  #clubs
-  #match '/club' => "golf_clubs#main",		             :as => :club_main
-  match '/club' => "golf_clubs#index",		           :as => :clubs
-  
-  match '/club/new' => "golf_clubs#new",		         :as => :clubs_new
-  match '/club/edit' => "golf_clubs#edit",		       :as => :clubs_edit
-  #========================================================================
   #user profiles
-  match '/user/new' => "users#new",          :as => :user_register
-  match '/profile/' => "users#edit",          :as => :user_profile
+  #match '/users/new' => "users#new",          :as => :user_register
+  #match '/profile/' => "users#edit",          :as => :user_profile
   
   match '/admin' => "admin#index",          :as => :admin
   

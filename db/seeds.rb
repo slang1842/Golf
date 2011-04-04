@@ -10,7 +10,7 @@
 
 lv = Country.create(:name => 'Latvia')
 it = Country.create(:name => 'Italy')
-
+/
 #Add Club - viesturi
 club = GolfClub.create(
   #:owner => 'admin',
@@ -78,7 +78,7 @@ User.create(
   :hcp => 22
 )
 
-
+/
 
 
 

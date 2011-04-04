@@ -1,6 +1,6 @@
 class GolfClubsController < ApplicationController
   before_filter :require_admin, :except => [:create, :new]
-  before_filter :require_user, :only => [:create, :new]
+  before_filter :require_no_user, :only => [:create, :new]
   
   def new
     countries
@@ -11,7 +11,7 @@ class GolfClubsController < ApplicationController
     end
   end
   
-  def index
+  def show #index
     countries
     #@country = Country.find(current_user)
   end
