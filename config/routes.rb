@@ -37,6 +37,11 @@ Golf::Application.routes.draw do
   
   match '/admin' => "admin#index",          :as => :admin
   
+  namespace "admin" do 
+    resources :golf_clubs
+  end
+  
+  resources :admin
     
  # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:
