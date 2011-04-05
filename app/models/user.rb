@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :golf_club
-  has_and_belongs_to_many :sticks
+  has_many :users_sticks
+  has_many :sticks, :through => :users_sticks
   
   acts_as_authentic do |c| 
     c.login_field = :email

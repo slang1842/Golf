@@ -6,10 +6,9 @@
 <br /><br />
 
 
-<% @sticks.each do |f| %>
-  <%= f.label :stick_type %>
+<% @user_sticks.each do |f| %>
+      <%= f.stick.stick_type %>
+      <%= f.collection_select stick.stick_id, 
+      
 <% end %>
 
-<% form_for(@user) do |t| %>
-  <%= t.collection_select :stick_id, @sticks.all, :id, :stick_type %>
-<% end %>

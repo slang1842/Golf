@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110405075045) do
+ActiveRecord::Schema.define(:version => 20110405114829) do
 
   create_table "balls", :force => true do |t|
     t.string   "ball_manufacturer"
@@ -96,13 +96,6 @@ ActiveRecord::Schema.define(:version => 20110405075045) do
     t.datetime "updated_at"
   end
 
-  create_table "sticks_users", :id => false, :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "stick_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "email",                                 :null => false
     t.string   "crypted_password",                      :null => false
@@ -137,5 +130,16 @@ ActiveRecord::Schema.define(:version => 20110405075045) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token", :unique => true
+
+  create_table "users_sticks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "stick_id"
+    t.string   "distance"
+    t.string   "degrees"
+    t.string   "shaft"
+    t.string   "shaft_strength"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

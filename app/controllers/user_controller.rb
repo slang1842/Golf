@@ -6,9 +6,9 @@ class UserController < ApplicationController
   
   
   def bag
-    @sticks = current_user.sticks
+    @user_sticks = current_user.users_sticks
     @user = current_user
-     
+    
      
      
   end

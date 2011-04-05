@@ -18,3 +18,9 @@ Stick.create (:stick_type => 'PUTER',
 Stick.create (:stick_type => 'ORIONIONIN',
                 :distance => '100',
                 :degrees => '32')
+
+UsersStick.create (:user_id => 1,
+                     :stick_id => 1,
+                     :distance => 100,
+                     :degrees => 35,
+                     :shaft_strength => "strong")
