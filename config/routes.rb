@@ -12,6 +12,7 @@ Golf::Application.routes.draw do
   get "home/index"
   get "user_sessions/new"
   
+  match 'user/bag' => "user#bag",            :as => :user_bag
   #========================================================================
   #fields
   #match '/users/new' => "users#create"

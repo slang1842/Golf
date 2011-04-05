@@ -1,0 +1,15 @@
+
+<% if current_user %>
+<%= render :partial => 'share/header_menu' %>
+<% else %>
+<% end %>
+<br /><br />
+
+
+<% @sticks.each do |f| %>
+  <%= f.label :stick_type %>
+<% end %>
+
+<% form_for(@user) do |t| %>
+  <%= t.collection_select :stick_id, @sticks.all, :id, :stick_type %>
+<% end %>

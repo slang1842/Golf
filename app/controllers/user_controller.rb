@@ -2,6 +2,16 @@ class UserController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   #before_filter :require_owner, :only => [:update, :edit]
   skip_before_filter :header, :only => [:login_or_register, :new, :create]
+  before_filter :require_user, :only => [:bag, :edit, :update]
+  
+  
+  def bag
+    @sticks = current_user.sticks
+    @user = current_user
+     
+     
+     
+  end
   
   def login_or_register
   end

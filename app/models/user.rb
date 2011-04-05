@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
- belongs_to :golf_club
-    
+  belongs_to :golf_club
+  has_and_belongs_to_many :sticks
+  
   acts_as_authentic do |c| 
-    c.login_field = :email 
+    c.login_field = :email
   end
   
   SEX_TO_DB = { "female" => "f", "male" => "m" }

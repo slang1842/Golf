@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110401123916) do
+ActiveRecord::Schema.define(:version => 20110405075045) do
+
+  create_table "balls", :force => true do |t|
+    t.string   "ball_manufacturer"
+    t.string   "ball_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -75,6 +82,23 @@ ActiveRecord::Schema.define(:version => 20110401123916) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sticks", :force => true do |t|
+    t.string   "stick_type"
+    t.integer  "distance"
+    t.integer  "degrees"
+    t.string   "shaft"
+    t.string   "shaft_strength"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sticks_users", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "stick_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
