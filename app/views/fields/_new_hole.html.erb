@@ -1,23 +1,27 @@
-<% hole ||= Hole.new %>
-<%= f.fields_for hole_attributes_name, hole do |h| %>
-<%= h.hidden_field :id unless hole.new_record? %>
-<div class="field">
-  <%= h.label :par %>
-  <%= h.text_field :par %>
+  <% hole ||= Hole.new %>
+  <%= f.fields_for hole_attributes_name, hole do |h| %>
+  <%= h.hidden_field :id unless hole.new_record? %>
+  <div class="field">
 
-  <%= h.label :hcp %>
-  <%= h.text_field :hcp %>
 
-  <%= h.label :white %>
-  <%= h.text_field :white %>
 
-  <%= h.label :blue %>
-  <%= h.text_field :blue %>
 
-  <%= h.label :red %>
-  <%= h.text_field :red %>
+    <%= h.label :par %>
+    <%= h.text_field :par   %>
 
-  <%= h.label :image, "Attēls" %>
-  <%= h.file_field :image %>
-</div>
-<% end %>
+    <%= h.label :hcp %>
+    <%= h.text_field :hcp %>
+
+    <%= h.label :white %>
+    <%= h.text_field :white %>
+
+    <%= h.label :blue %>
+    <%= h.text_field :blue %>
+
+    <%= h.label :red %>
+    <%= h.text_field :red %>
+
+    <%= h.label :image, "Attēls" %>
+    <%= h.file_field :image %>
+  </div>
+  <% end %>

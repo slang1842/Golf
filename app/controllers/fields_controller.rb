@@ -15,7 +15,6 @@ class FieldsController < ApplicationController
     @new_hole_attributes_name = "holes_attributes[]"
     @new_hit_place_attributes_name = "hit_places_attributes[]"
     @new_green_fee_attributes_name = "green_fees_attributes[]"
-    
   end
 
   def edit
@@ -66,18 +65,6 @@ class FieldsController < ApplicationController
       end
     end
     
-  end
-
-  def merge_hash field, holes_attributes_name, new_holes_attributes_name
-    if field.include?(new_holes_attributes_name)
-      max = field[holes_attributes_name].keys.max.to_i
-      field[new_holes_attributes_name].each do |new_holes_attributes|
-        max = max + 1
-        field[holes_attributes_name][max] = new_holes_attributes
-      end
-      field.delete(new_holes_attributes_name)
-    end
-    field
   end
 
   def destroy

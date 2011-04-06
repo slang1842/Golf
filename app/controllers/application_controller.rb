@@ -68,5 +68,17 @@ class ApplicationController < ActionController::Base
       end
     end/
     
+    
+      def merge_hash field, attributes_name, new_attributes_name
+        if field.include?(new_attributes_name)
+          max = field[attributes_name].keys.max.to_i
+          field[new_attributes_name].each do |new_attributes|
+            max = max + 1
+            field[attributes_name][max] = new_attributes
+          end
+          field.delete(new_attributes_name)
+        end
+        field
+      end
   
 end

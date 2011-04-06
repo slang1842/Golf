@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   belongs_to :golf_club
-  has_many :users_sticks
+  has_many :users_sticks, :dependent => :destroy
+  accepts_nested_attributes_for :users_sticks, :allow_destroy => true
+  
+  # TODO: join to form
   has_many :sticks, :through => :users_sticks
   
   acts_as_authentic do |c| 

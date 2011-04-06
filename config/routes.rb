@@ -1,7 +1,12 @@
 Golf::Application.routes.draw do
   resources :hints
   resources :user_sessions
-  resource :user, :controller => "user"
+  resource :user, :controller => "user" do
+    member do
+      get 'bag'
+      post 'bag_update'
+    end
+  end
   
   resource :golf_club, :controller => "golf_club", :path => 'club' do
     resources :fields
@@ -12,7 +17,8 @@ Golf::Application.routes.draw do
   get "home/index"
   get "user_sessions/new"
   
-  match 'user/bag' => "user#bag",            :as => :user_bag
+  # match 'user/bag' => "user#bag",            :as => :user_bag
+    
   #========================================================================
   #fields
   #match '/users/new' => "users#create"

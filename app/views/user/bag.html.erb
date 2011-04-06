@@ -1,14 +1,31 @@
 
 <% if current_user %>
-<%= render :partial => 'share/header_menu' %>
-<% else %>
+  <%= render :partial => 'share/header_menu' %>
+  <% else %>
 <% end %>
 <br /><br />
 
 
-<% @user_sticks.each do |f| %>
-      <%= f.stick.stick_type %>
-      <%= f.collection_select stick.stick_id, 
+<%= form_for @user do |f| %>
+  
+    <div id="sticks">
+      <h3>Sticks</h3>
+
       
+        <% @users_sticks.each do |users_stick| %>
+
+          <%= render :partial => 'user/new_stick', :locals => {:users_stick => users_stick, :f => f, :stick_attributes_name => @stick_attributes_name} %>
+        
+        <% end %>
+      
+      
+        
+    </div>
+    
+    <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/new_stick', :locals => {:f => f, :stick_attributes_name => @stick_attributes_name, :users_stick => @user.users_sticks.new}).to_json})" %>
+
+      <%= f.submit %>
+    
 <% end %>
 
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
