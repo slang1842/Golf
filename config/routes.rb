@@ -50,6 +50,7 @@ Golf::Application.routes.draw do
   
   namespace "admin" do 
     resources :golf_clubs
+    resources :sticks
   end
   
   resources :admin
