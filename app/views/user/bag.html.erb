@@ -6,7 +6,7 @@
 <br /><br />
 
 
-<%= form_for @user do |f| %>
+<%= form_for @user, :url => bag_update_user_path do |f|  %>
   
     <div id="sticks">
       <h3>Sticks</h3>
@@ -18,12 +18,13 @@
         
         <% end %>
       
-      
+       <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => '/user/new_stick', :locals => {:f => f, :stick_attributes_name => @new_stick_attributes_name}).to_json})" %>
+
         
     </div>
     
-    <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/new_stick', :locals => {:f => f, :stick_attributes_name => @stick_attributes_name, :users_stick => @user.users_sticks.new}).to_json})" %>
-
+    
+   
       <%= f.submit %>
     
 <% end %>

@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20110405114829) do
     t.boolean  "right_handed"
     t.string   "measurement"
     t.integer  "start_place_color"
+    t.boolean  "is_super_admin",     :default => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

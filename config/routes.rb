@@ -8,6 +8,11 @@ Golf::Application.routes.draw do
     end
   end
   
+  match "user/bag" => "user#bag"
+  match "user/bag_update" => "user#bag_update"
+  
+  
+  
   resource :golf_club, :controller => "golf_club", :path => 'club' do
     resources :fields
   end

@@ -1,5 +1,7 @@
+  <% users_stick ||= UsersStick.new %>
 <%= f.fields_for stick_attributes_name, users_stick do |h| %>
 <%= h.hidden_field :id unless users_stick.new_record? %>
+
 
   <fieldset>
       <legend></legend>

@@ -7,24 +7,24 @@ class UserController < ApplicationController
   
   def bag
     @users_sticks = current_user.users_sticks
-    @user = current_user   
+    @user = User.find(current_user) #current_user   
     @stick_attributes_name = "users_sticks_attributes[]"
-    @new_user_sticks_attributes_name = (@users_sticks.count > 0) ? "new_users_sticks_attributes[]" : @stick_attributes_name
+    @new_stick_attributes_name = "new_stick_attributes_name[]" 
   
     store_location
   end
 
   
   def bag_update
-      params[:user_sticks] = merge_hash(params[:user_sticks], "stick_attributes", "new_stick_attributes")
+      params[:user] = merge_hash(params[:user], "stick_attributes_name", "new_stick_attributes_name")
             
       respond_to do |format|
-        if @field.update_attributes(params[:user_sticks])
+        if @user.update_attributes(params[:user])
           format.html { redirect_to bag_user_path }
           format.xml  { head :ok }
         else
           format.html { render :action => "bag" }
-          format.xml  { render :xml => @field.errors, :status => :unprocessable_entity }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
         end
     end  
   end                                      
