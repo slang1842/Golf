@@ -8,15 +8,17 @@ class UserController < ApplicationController
   def bag
     @users_sticks = current_user.users_sticks
     @user = User.find(current_user) #current_user   
-    @stick_attributes_name = "users_sticks_attributes[]"
-    @new_stick_attributes_name = "new_stick_attributes_name[]" 
+    @sticks_attributes = "users_sticks_attributes[]"
+    @new_sticks_attributes = (@user.users_sticks.count > 0) ? "new_sticks_attributes[]" : @sticks_attributes
   
     store_location
   end
 
   
   def bag_update
-      params[:user] = merge_hash(params[:user], "stick_attributes_name", "new_stick_attributes_name")
+      @user = current_user
+      params[:user] = merge_hash(params[:user], "users_sticks_attributes", "new_sticks_attributes")
+      
             
       respond_to do |format|
         if @user.update_attributes(params[:user])

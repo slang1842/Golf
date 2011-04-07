@@ -14,11 +14,11 @@
       
         <% @users_sticks.each do |users_stick| %>
 
-          <%= render :partial => 'user/new_stick', :locals => {:users_stick => users_stick, :f => f, :stick_attributes_name => @stick_attributes_name} %>
+          <%= render :partial => 'user/new_stick', :locals => {:users_stick => users_stick, :f => f, :users_sticks_attributes => @sticks_attributes} %>
         
         <% end %>
       
-       <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => '/user/new_stick', :locals => {:f => f, :stick_attributes_name => @new_stick_attributes_name}).to_json})" %>
+       <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => '/user/new_stick', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes}).to_json})" %>
 
         
     </div>
