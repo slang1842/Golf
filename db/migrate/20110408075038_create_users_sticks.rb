@@ -2,7 +2,7 @@ class CreateUsersSticks < ActiveRecord::Migration
   def self.up
     create_table :users_sticks do |t|
       t.references  :user
-      t.references  :stick
+      t.references  :Stick
       t.string      :distance
       t.string      :degrees
       t.string      :shaft

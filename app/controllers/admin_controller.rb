@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
   USER_NAME, PASSWORD = "admin", "golfmaster"
 
-  before_filter :authenticate_http
+  
   
   def index
     

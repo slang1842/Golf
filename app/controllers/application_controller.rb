@@ -69,16 +69,16 @@ class ApplicationController < ActionController::Base
     end/
     
     
-      def merge_hash field, attributes_name, new_attributes_name
-        if field.include?(new_attributes_name)
-          max = field[attributes_name].keys.max.to_i
-          field[new_attributes_name].each do |new_attributes|
+      def merge_hash params, attributes_name, new_attributes_name
+        if params.include?(new_attributes_name)
+          max = params[attributes_name].keys.max.to_i
+          params[new_attributes_name].each do |new_attributes|
             max = max + 1
-            field[attributes_name][max] = new_attributes
+            params[attributes_name][max] = new_attributes
           end
-          field.delete(new_attributes_name)
+          params.delete(new_attributes_name)
         end
-        field
+        return params
       end
   
 end

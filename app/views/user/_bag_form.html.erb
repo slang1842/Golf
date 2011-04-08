@@ -1,0 +1,27 @@
+<div id="<%= "users_stick_#{users_stick.id}" unless users_stick.new_record? %>">
+  <%= f.fields_for users_sticks_attributes, users_stick do |h| %>
+    <%= h.hidden_field :id unless users_stick.new_record? %>
+
+    <fieldset>
+        <legend></legend>
+       
+        <%= h.label :distance %>
+        <%= h.text_field :distance %><br />
+
+        <%= h.label :degrees %>
+        <%= h.text_field :degrees %><br />
+
+        <%= h.label :shaft %>
+        <%= h.text_field :shaft %><br />
+
+        <%= h.label :shaft_strength %>
+        <%= h.text_field :shaft_strength %><br />
+        
+        <% if users_stick.new_record? %>
+          <a href="" OnClick="$(this).parent().remove(); return false;" >cancel</a>
+        <% else %>
+          <%= link_to 'Destroy', users_stick, :confirm => 'Are you sure?', :remote => true, :method => :delete %>
+        <% end %>
+      </fieldset>
+  <% end %>
+</div>

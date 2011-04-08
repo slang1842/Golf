@@ -19,7 +19,7 @@
         	<div id="menu">
         		<ul class="navigation">
         			<li><%= link_to "Sākums", admin_golf_clubs_path %></li>
-        			<li><%= link_to "Nūjas", admin_sticks_path %></li>
+        			<li><%= link_to "Nūjas", '' %></li>
         			<li><%= link_to "Lietotāji",'' %></li>
         			<li><%= link_to "Padomi", '' %></li>
         		</ul>

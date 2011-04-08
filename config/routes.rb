@@ -1,30 +1,33 @@
 Golf::Application.routes.draw do
+  resources :users_sticks
+
   resources :hints
   resources :user_sessions
   resource :user, :controller => "user" do
-    member do
-      get 'bag'
-      post 'bag_update'
+    collection do
+      get "bag"
+      post "update_bag"
+      put "update_bag"
     end
   end
   
+  resources :users_sticks
+  resources :balls
+  
+  #match 'user/bag' => "users_sticks#bag",               :as => :bag
+  #match "users/bag" => "users_sticks#bag_destroy",      :as => :bag_destroy
+  #match "user/bag_update" => "users_sticks#bag_update", :as => :bag_update
+    
   resource :golf_club, :controller => "golf_club", :path => 'club' do
     resources :fields
   end
   
-  #get "users/register"
   get "welcome/index"
   get "home/index"
   get "user_sessions/new"
   
-  # match 'user/bag' => "user#bag",            :as => :user_bag
-    
-  #========================================================================
-  #fields
-  #match '/users/new' => "users#create"
-  #match '/fields' => "fields#index",          :as => :fields
-  #match '/fields/new' => "fields#new",          :as => :fields_new
-  #match '/fields/edit' => "fields#edit",          :as => :fields_edit
+  
+  
   #========================================================================
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
@@ -45,6 +48,7 @@ Golf::Application.routes.draw do
   
   namespace "admin" do 
     resources :golf_clubs
+    resources :sticks
   end
   
   resources :admin

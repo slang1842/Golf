@@ -22,16 +22,3 @@ Stick.create (:stick_type => 'ORIONIONIN',
               :degrees => 35,
               :shaft => "metal",
               :shaft_strength => "strong")
-
-UsersStick.create (:user_id => 1,
-                   :stick_id => 1,
-                   :distance => 100,
-                   :degrees => 35,
-                   :shaft_strength => "strong")
-             
-
-UsersStick.create (:user_id => 1,
-                   :stick_id => 1,
-                   :distance => 120,
-                   :degrees => 25,
-                   :shaft_strength => "middle")
