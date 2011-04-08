@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(:version => 20110408075038) do
 
   create_table "balls", :force => true do |t|
+    t.integer  "user_id"
     t.string   "ball_manufacturer"
     t.string   "ball_type"
     t.datetime "created_at"

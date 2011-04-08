@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   belongs_to :golf_club
   has_many :users_sticks, :dependent => :destroy
   has_many :sticks, :through => :users_sticks
+  has_many :balls
   accepts_nested_attributes_for :users_sticks, :allow_destroy => true
+  accepts_nested_attributes_for :balls, :allow_destroy => true
   
   
   

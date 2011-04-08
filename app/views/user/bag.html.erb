@@ -8,7 +8,6 @@
 
 <%= form_for @user, :url => update_bag_user_path do |f|  %>
 
-  
     <div id="sticks">
       <h3>Sticks</h3>
 
@@ -23,8 +22,26 @@
 
         <br /><br />
    
-      <%= f.submit %>
-    
+     
+  <br /><br />
+  <h3>Balls</h3>
+    <div id="balls">
+      <% @balls.each do |ball| %>
+        <%= render :partial => 'user/ball_form', :locals => {:ball => ball,  :f => f, :balls_attributes => @balls_attributes} %>
+      <% end %>
+</div>
+ <%= link_to_function 'add new', "jQuery('#balls').append(#{render(:partial => 'user/ball_form', :locals => {:f => f, :balls_attributes => @new_balls_attributes, :ball => Ball.new}).to_json})" %>
+
+ 
+ <br /><br />
+      <%= f.submit %>  
 <% end %>
 
+
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+
+

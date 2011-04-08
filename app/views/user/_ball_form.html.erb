@@ -1,0 +1,21 @@
+<div id="<%= "ball_#{ball.id}" unless ball.new_record? %>">
+  <%= f.fields_for balls_attributes, ball do |h| %>
+    <%= h.hidden_field :id unless ball.new_record? %>
+
+    <fieldset>
+        <legend></legend>
+       
+        <%= h.label :ball_manufacturer %>
+        <%= h.text_field :ball_manufacturer %><br />
+
+        <%= h.label :ball_type %>
+        <%= h.text_field :ball_type %><br />
+        
+        <% if ball.new_record? %>
+          <a href="" OnClick="$(this).parent().remove(); return false;" >cancel</a>
+        <% else %>
+          <%= link_to 'Destroy', ball, :confirm => 'Are you sure?', :remote => true, :method => :delete %>
+        <% end %>
+      </fieldset>
+  <% end %>
+</div>
