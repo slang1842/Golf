@@ -50,7 +50,7 @@ class UserController < ApplicationController
   def update_bag
       @user = current_user
       
-      params[:user] = merge_hash(params[:user], "users_sticks_attributes", "new_users_sticks_attributes") if params[:user][:new_users_sticks_attributes]
+      params[:user] = merge_hash(params[:user], "users_sticks_attributes", "new_users_sticks_attributes")
 
       respond_to do |format|
         if @user.update_attributes(params[:user])

@@ -71,6 +71,7 @@ class ApplicationController < ActionController::Base
     
       def merge_hash params, attributes_name, new_attributes_name
         if params.include?(new_attributes_name)
+          params[attributes_name] = {} unless params[attributes_name]
           max = params[attributes_name].keys.max.to_i
           params[new_attributes_name].each do |new_attributes|
             max = max + 1

@@ -1,0 +1,25 @@
+  <% users_stick ||= UsersStick.new %>
+<%= f.fields_for users_sticks_attributes, users_stick do |h| %>
+<%= h.hidden_field :id unless users_stick.new_record? %>
+
+
+  <fieldset>
+      <legend></legend>
+     
+      <%= h.label :distance %>
+      <%= h.text_field :distance %><br />
+
+      <%= h.label :degrees %>
+      <%= h.text_field :degrees %><br />
+
+      <%= h.label :shaft %>
+      <%= h.text_field :shaft %><br />
+
+      <%= h.label :shaft_strength %>
+      <%= h.text_field :shaft_strength %><br />
+
+        
+    </fieldset>
+    <br />
+
+<% end %>
