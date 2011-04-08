@@ -14,6 +14,10 @@ class UserController < ApplicationController
     store_location
   end
 
+  def bag_destroy(params)
+    del = current_user.users_sticks(params)
+    del.destroy
+  end
   
   def bag_update
       @user = current_user

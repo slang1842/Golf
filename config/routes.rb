@@ -10,7 +10,7 @@ Golf::Application.routes.draw do
   
   match "user/bag" => "user#bag"
   match "user/bag_update" => "user#bag_update"
-  
+  match "user/bag/:id" => "user#bag_destroy",          :as => :id
   
   
   resource :golf_club, :controller => "golf_club", :path => 'club' do

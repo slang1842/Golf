@@ -18,12 +18,12 @@
         
         <% end %>
       
-       <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => '/user/new_stick', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes}).to_json})" %>
-
-        
+       
     </div>
     
-    
+    <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => '/user/new_stick', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes}).to_json})" %>
+      <%= link_to "cancel", bag_user_path %>
+        <br /><br />
    
       <%= f.submit %>
     
