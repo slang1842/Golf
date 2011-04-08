@@ -1,0 +1,57 @@
+<%= form_for([:golf_club, @field], :html => {:multipart => true}) do |f| %>
+  <% if @field.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@field.errors.count, "error") %> prohibited this field from being saved:</h2>
+
+      <ul>
+      <% @field.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<fieldset>
+	<legend>Bedrītes</legend>
+	  <div id="holes">
+	    <% @field.holes.each do |hole| %>
+
+	     <%= render :partial => '/fields/new_hole', :locals => {:hole => hole, :f => f, :hole_attributes_name => @hole_attributes_name} %>
+
+	    <% end %>
+	  </div>
+	  <%= link_to_function 'add new', "jQuery('#holes').append(#{render(:partial => '/fields/new_hole', :locals => {:f => f, :hole_attributes_name => @new_hole_attributes_name}).to_json})" %>
+  
+</fieldset>
+
+<fieldset>
+	<legend>Izsitiena vietas</legend>
+	  <div id="hit_places">
+	    <% @field.hit_places.each do |hit_place| %>
+
+	     <%= render :partial => '/fields/new_hit_place', :locals => {:hit_place => hit_place, :f => f, :hit_place_attributes_name => @hit_place_attributes_name} %>
+
+	    <% end %>
+	  </div>
+	  <%= link_to_function 'add new', "jQuery('#hit_places').append(#{render(:partial => '/fields/new_hit_place', :locals => {:f => f, :hit_place_attributes_name => @new_hit_place_attributes_name}).to_json})" %>
+	
+</fieldset>
+
+<fieldset>
+	<legend>Green Fee</legend>
+	  <div id="green_fees">
+	    <% @field.green_fees.each do |green_fee| %>
+
+	     <%= render :partial => '/fields/new_green_fee', :locals => {:green_fee => green_fee, :f => f, :green_fee_attributes_name => @green_fee_attributes_name} %>
+
+	    <% end %>
+	  </div>
+	  <%= link_to_function 'add new', "jQuery('#green_fees').append(#{render(:partial => '/fields/new_green_fee', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name}).to_json})" %>
+	
+</fieldset>
+
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+<% end %>
+

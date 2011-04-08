@@ -1,0 +1,26 @@
+<h1>Listing inactive golf clubs -> to accept , review it</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Region</th>
+	 <th>GreenFee</th>
+	 <th>To Do</th>
+  </tr>
+
+<% @clubs.each do |club| %>
+  <tr>
+    <td><%= club.name %></td>
+	<td><%= club.green_fee %></td>
+	<td><%= club.city %></td>
+    <td><%= link_to 'Edit', edit_admin_golf_club_path(club.id) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+
+
+
