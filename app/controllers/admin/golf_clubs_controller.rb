@@ -32,8 +32,6 @@ class Admin::GolfClubsController < ApplicationController
    
   end
 
-  
-
 
   
   def update

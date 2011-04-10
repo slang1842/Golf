@@ -1,0 +1,26 @@
+<h1>Listing inactive golf clubs -> to accept , review it</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Surname</th>
+	 <th>Email</th>
+	 <th>To Do</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.first_name %></td>
+	<td><%= user.last_name %></td>
+	<td><%= user.email %></td>
+    <td><%= link_to 'Block', edit_admin_user_path(user.id) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+
+
+
