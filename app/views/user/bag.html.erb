@@ -18,7 +18,7 @@
         <% end %>
     </div>
     
-    <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/bag_form', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json})" %>
+    <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json})" %>
 
         <br /><br />
    
