@@ -1,4 +1,4 @@
 class UsersStick < ActiveRecord::Base
   belongs_to :user
-  has_many :sticks
+  belongs_to :stick
 end
