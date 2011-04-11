@@ -3,13 +3,31 @@
     <%= h.hidden_field :id unless users_stick.new_record? %>
 
     <fieldset>
-        <legend></legend>
-       
-        <%= f.label :stick_type%>
-        <%= h.collection_select :stick_id, Stick.all, :id, :stick_type, :include_blank => 'Select stick' %>
+        <legend></legend>   
+        <script>
+          function aaaa
+          {
+          alert('aaa')
+          }
+          
+          function fill_form(a) {
+            
+            
+            $.getJSON('/sticks/' + a.id + '.json', function(data) {
+              var items = [];
+
+              $.each(data, function(key, val) {
+              alert(key + ': ' + val)
+              };
+              
+            }
+          }
+        </script>
+        <%= f.label :stick_type %>
+        <%= h.collection_select :stick_id, Stick.all, :id, :stick_type, { :prompt => "Select Stick"}, { :onchange=> "aaaa()"} %>
         <br />
      
-     
+  
         <%= h.label :distance %>
         <%= h.text_field :distance %><br />
 

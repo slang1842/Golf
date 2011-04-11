@@ -34,10 +34,14 @@ class UserController < ApplicationController
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
     end                                    
   end   
-
+  
+   
   #============================================
    def bag
-    # bag 
+    # bag
+    @user_sticks_id = :get_value
+    
+    
     @users_sticks = current_user.users_sticks
     @user = User.find(current_user) #current_user   
     @sticks_attributes = "users_sticks_attributes[]"

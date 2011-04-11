@@ -13,12 +13,14 @@ Golf::Application.routes.draw do
   
   resources :users_sticks
   resources :balls
-  
+  resources :sticks
   #match 'user/bag' => "users_sticks#bag",               :as => :bag
   #match "users/bag" => "users_sticks#bag_destroy",      :as => :bag_destroy
   #match "user/bag_update" => "users_sticks#bag_update", :as => :bag_update
     
-
+ 
+ 
+  
   resource :golf_club, :controller => "golf_club", :path => 'club' do
     resources :fields
   end
