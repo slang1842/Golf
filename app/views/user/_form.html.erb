@@ -40,9 +40,30 @@
   <%= f.label t "form.sex" %>
   <%= f.select(:sex, FORM_SEX) %><br /><br />
 
+
+<br /><br /><br />
+
   <%= f.label t "form.birth" %>
-  <%= date_select('range', 'start_date', :order => [:day, :month, :year])%><br /><br />
-    
+  
+  
+  <script>
+    $(function()
+      {
+        $( "#datepicker" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd.mm.yy'
+                // SEIT VEL JAPIEVIENO START_DATE UN END_DATE
+        });
+      });
+	</script>
+  
+  
+  <%= f.text_field :birth, :id=> "datepicker" %>
+  
+  
+  
+  <br /><br /><br /><br />
   
   <%= f.label t "form.country" %>
   <%= f.collection_select :country_id, Country.all, :id, :name %>
