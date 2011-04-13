@@ -1,5 +1,6 @@
 class UsersSticksController < ApplicationController
-
+  respond_to :json
+  
   def destroy
     @users_stick = UsersStick.find(params[:id])
     @user_stick_id = @users_stick.id
@@ -12,9 +13,8 @@ class UsersSticksController < ApplicationController
   end
   
   def show
-   respond_to do |format|
-      format.js
-    end
+     @sticks = Sticks.find(params[:id])
+     Respond_with @sticks  
   end
   
 end

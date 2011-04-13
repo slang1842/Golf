@@ -2,12 +2,12 @@
   <%= f.fields_for users_sticks_attributes, users_stick do |h| %>
     <%= h.hidden_field :id unless users_stick.new_record? %>
 
-    <fieldset>  
- 
+    <fieldset>
+                
         <%= f.label :stick_type %>
         <%= h.collection_select :stick_id, Stick.all, :id, :stick_type, { :prompt => "Select Stick"}, { :onchange => "fill_sticks_form(this)"} %>
         <br />
-
+        
         <%= h.label :distance %>
         <%= h.text_field :distance, :class => 'distance' %><br />
 

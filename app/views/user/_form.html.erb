@@ -52,16 +52,14 @@
         $( "#datepicker" ).datepicker({
                 changeMonth: true,
                 changeYear: true,
-                dateFormat: 'dd.mm.yy'
-                // SEIT VEL JAPIEVIENO START_DATE UN END_DATE
+                dateFormat: 'dd-mm-yy',
+                yearRange: '1900:2011'
         });
       });
 	</script>
   
   
   <%= f.text_field :birth, :id=> "datepicker" %>
-  
-  
   
   <br /><br /><br /><br />
   

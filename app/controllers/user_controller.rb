@@ -41,7 +41,6 @@ class UserController < ApplicationController
     # bag
     @user_sticks_id = :get_value
     
-    
     @users_sticks = current_user.users_sticks
     @user = User.find(current_user) #current_user   
     @sticks_attributes = "users_sticks_attributes[]"
