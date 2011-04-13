@@ -1,10 +1,18 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user_session, :current_user
-  
-  
+  before_filter :is_blocked
+ 
   private
-  
+    def is_blocked
+      if current_user.is_blocked
+        redirect_to logout_path
+        flash.now[:notice] = "Your account has been blocked."
+        return true
+      end
+      return false
+    end
+    
     def store_location
       session[:return_to] = request.fullpath
     end
@@ -81,5 +89,5 @@ class ApplicationController < ActionController::Base
         end
         return params
       end
-  
+
 end

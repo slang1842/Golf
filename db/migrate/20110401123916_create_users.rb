@@ -22,6 +22,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string        :measurement#,          :null => false      #Metri, Pēdas
       t.integer       :start_place_color#,    :null => false      #1,2,3
       t.boolean       :is_super_admin,        :default => false
+      t.boolean       :is_blocked,            :default => false
       
       #image
       t.string :image_file_name
