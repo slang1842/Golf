@@ -1,0 +1,23 @@
+<%= form_for(@game) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+        <%= f.label :field %>
+        <%= f.collection_select( :field_id, Field.all, :id, :name, :prompt => "Select Field") %>
+        <%= link_to "New field", new_golf_club_field_path %>
+        <br />
+        <%= f.label :green_quality %>
+        <%= f.collection_select(  :prompt => "Select") %>
+        <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

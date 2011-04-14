@@ -12,6 +12,13 @@
   <% end %>
 
 <fieldset>
+  <legend>Name</legend>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br /><br />
+  </fieldset>
+
+
+<fieldset>
 	<legend>Bedrītes</legend>
 	  <div id="holes">
 	    <% @field.holes.each do |hole| %>

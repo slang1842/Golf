@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110408075038) do
+ActiveRecord::Schema.define(:version => 20110414125341) do
 
   create_table "balls", :force => true do |t|
     t.integer  "user_id"
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(:version => 20110408075038) do
   create_table "fields", :force => true do |t|
     t.integer  "golf_club_id"
     t.string   "name",         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "games", :force => true do |t|
+    t.string   "field_quality"
+    t.string   "temperature"
+    t.string   "weather"
+    t.time     "date"
+    t.string   "game_format"
+    t.integer  "user_id"
+    t.integer  "field_id"
+    t.string   "game_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,6 +81,29 @@ ActiveRecord::Schema.define(:version => 20110408075038) do
     t.integer  "field_id"
     t.integer  "place",      :null => false
     t.integer  "color",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hits", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "user_id"
+    t.integer  "hole_id"
+    t.integer  "user_stick_id"
+    t.boolean  "real_hit"
+    t.integer  "hits"
+    t.integer  "puts"
+    t.string   "follow_up"
+    t.string   "stance"
+    t.integer  "hardness"
+    t.string   "motion"
+    t.string   "hit_type"
+    t.string   "luck_factor"
+    t.string   "comment"
+    t.integer  "distance_to_hole_land"
+    t.integer  "distance_to_hole_hit"
+    t.integer  "distance_to_hole_left"
+    t.integer  "hole_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

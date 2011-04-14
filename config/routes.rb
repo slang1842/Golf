@@ -1,4 +1,8 @@
 Golf::Application.routes.draw do
+  resources :hits
+
+  resources :games
+
   resources :users_sticks
 
   resources :hints
