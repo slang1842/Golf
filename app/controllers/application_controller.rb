@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user_session, :current_user
-  before_filter :is_blocked
+  before_filter :is_blocked, :only => :current_user
  
   private
     def is_blocked

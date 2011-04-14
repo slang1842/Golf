@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(:version => 20110408075038) do
   end
 
   create_table "countries", :force => true do |t|
-    t.string   "name"
+    t.string   "name",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "fields", :force => true do |t|
     t.integer  "golf_club_id"
-    t.string   "name"
+    t.string   "name",         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,34 +51,34 @@ ActiveRecord::Schema.define(:version => 20110408075038) do
 
   create_table "green_fees", :force => true do |t|
     t.integer  "field_id"
-    t.string   "title"
-    t.integer  "price"
+    t.string   "title",      :null => false
+    t.integer  "price",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "hints", :force => true do |t|
     t.integer  "user_id"
-    t.string   "text"
+    t.string   "text",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "hit_places", :force => true do |t|
     t.integer  "field_id"
-    t.integer  "place"
-    t.integer  "color"
+    t.integer  "place",      :null => false
+    t.integer  "color",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "holes", :force => true do |t|
     t.integer  "field_id"
-    t.integer  "par"
-    t.integer  "hcp"
-    t.integer  "white"
-    t.integer  "blue"
-    t.integer  "red"
+    t.integer  "par",                :null => false
+    t.integer  "hcp",                :null => false
+    t.integer  "white",              :null => false
+    t.integer  "blue",               :null => false
+    t.integer  "red",                :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -88,11 +88,11 @@ ActiveRecord::Schema.define(:version => 20110408075038) do
   end
 
   create_table "sticks", :force => true do |t|
-    t.string   "stick_type"
-    t.integer  "distance"
-    t.integer  "degrees"
-    t.string   "shaft"
-    t.string   "shaft_strength"
+    t.string   "stick_type",     :null => false
+    t.integer  "distance",       :null => false
+    t.integer  "degrees",        :null => false
+    t.string   "shaft",          :null => false
+    t.string   "shaft_strength", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -103,18 +103,19 @@ ActiveRecord::Schema.define(:version => 20110408075038) do
     t.string   "password_salt",                         :null => false
     t.string   "persistence_token",                     :null => false
     t.boolean  "admin",              :default => false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "nick"
-    t.string   "sex"
-    t.date     "birth"
-    t.integer  "country_id"
-    t.integer  "golf_club_id"
-    t.integer  "hcp"
-    t.boolean  "right_handed"
-    t.string   "measurement"
-    t.integer  "start_place_color"
     t.boolean  "is_super_admin",     :default => false
+    t.boolean  "is_blocked",         :default => false
+    t.string   "first_name",                            :null => false
+    t.string   "last_name",                             :null => false
+    t.string   "nick",                                  :null => false
+    t.string   "sex",                                   :null => false
+    t.date     "birth",                                 :null => false
+    t.integer  "country_id",                            :null => false
+    t.integer  "golf_club_id"
+    t.integer  "hcp",                                   :null => false
+    t.boolean  "right_handed",                          :null => false
+    t.string   "measurement",                           :null => false
+    t.integer  "start_place_color",                     :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -135,11 +136,11 @@ ActiveRecord::Schema.define(:version => 20110408075038) do
 
   create_table "users_sticks", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "Stick_id"
-    t.string   "distance"
-    t.string   "degrees"
-    t.string   "shaft"
-    t.string   "shaft_strength"
+    t.integer  "stick_id"
+    t.string   "distance",       :null => false
+    t.string   "degrees",        :null => false
+    t.string   "shaft",          :null => false
+    t.string   "shaft_strength", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

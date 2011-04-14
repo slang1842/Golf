@@ -6,23 +6,23 @@ class CreateUsers < ActiveRecord::Migration
       t.string        :crypted_password,     :null => false
       t.string        :password_salt,        :null => false
       t.string        :persistence_token,    :null => false
-   
-      t.boolean        :admin,            	  :default => false # true, false
-      #t.integer       :admin,                :default => 0  # club id, or 0, if no club
       
-      t.string        :first_name#,           :null => false
-      t.string        :last_name#,            :null => false
-      t.string        :nick#,                 :null => false
-      t.string        :sex#,                  :null => false
-      t.date          :birth#,                :null => false
-      t.references    :country#,              :null => false
-      t.references    :golf_club#,            :null => false
-      t.integer       :hcp#,                  :null => false
-      t.boolean       :right_handed#,         :null => false
-      t.string        :measurement#,          :null => false      #Metri, Pēdas
-      t.integer       :start_place_color#,    :null => false      #1,2,3
-      t.boolean       :is_super_admin,        :default => false
-      t.boolean       :is_blocked,            :default => false
+      t.boolean       :admin,            	   :default => false # true, false 
+      t.boolean       :is_super_admin,       :default => false
+      t.boolean       :is_blocked,           :default => false
+      
+      t.string        :first_name,           :null => false
+      t.string        :last_name,            :null => false
+      t.string        :nick,                 :null => false
+      t.string        :sex,                  :null => false
+      t.date          :birth,                :null => false
+      t.references    :country,              :null => false
+      t.references    :golf_club
+      t.integer       :hcp,                  :null => false
+      t.boolean       :right_handed,         :null => false
+      t.string        :measurement,          :null => false      #Metri, Pēdas
+      t.integer       :start_place_color,    :null => false      #1,2,3
+      
       
       #image
       t.string :image_file_name

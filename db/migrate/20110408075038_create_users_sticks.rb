@@ -3,10 +3,10 @@ class CreateUsersSticks < ActiveRecord::Migration
     create_table :users_sticks do |t|
       t.references  :user
       t.references  :stick
-      t.string      :distance
-      t.string      :degrees
-      t.string      :shaft
-      t.string      :shaft_strength
+      t.string      :distance,          :null => false
+      t.string      :degrees,           :null => false
+      t.string      :shaft,             :null => false
+      t.string      :shaft_strength,    :null => false
       
       t.timestamps
     end

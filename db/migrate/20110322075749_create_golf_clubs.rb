@@ -1,9 +1,9 @@
 class CreateGolfClubs < ActiveRecord::Migration
   def self.up
     create_table :golf_clubs do |t|
-      t.references   :user#,                        :null => false
+      t.references   :user
       t.string       :name,                        :null => false
-      t.references   :country#,                     :null => false
+      t.references   :country
       t.string 		   :region,                      :null => false
       t.string		   :city,                        :null => false
       t.string 		   :web_page,                    :null => false

@@ -1,11 +1,11 @@
 class CreateSticks < ActiveRecord::Migration
   def self.up
     create_table :sticks do |t|
-      t.string      :stick_type
-      t.integer     :distance
-      t.integer     :degrees
-      t.string      :shaft
-      t.string      :shaft_strength
+      t.string      :stick_type,        :null => false
+      t.integer     :distance,          :null => false
+      t.integer     :degrees,           :null => false
+      t.string      :shaft,             :null => false
+      t.string      :shaft_strength,    :null => false
       t.timestamps
     end
   end

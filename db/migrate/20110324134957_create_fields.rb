@@ -2,7 +2,7 @@ class CreateFields < ActiveRecord::Migration
   def self.up
     create_table :fields do |t|
       t.references :golf_club
-      t.string     :name
+      t.string     :name,        :null => false
 
       t.timestamps
     end

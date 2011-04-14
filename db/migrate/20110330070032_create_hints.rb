@@ -2,7 +2,7 @@ class CreateHints < ActiveRecord::Migration
   def self.up
     create_table :hints do |t|
       t.references :user
-      t.string     :text
+      t.string     :text,    :null => false
 
       t.timestamps
     end

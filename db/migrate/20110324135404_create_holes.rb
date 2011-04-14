@@ -2,11 +2,11 @@ class CreateHoles < ActiveRecord::Migration
   def self.up
     create_table :holes do |t|
       t.references :field
-      t.integer :par
-      t.integer :hcp
-      t.integer :white
-      t.integer :blue
-      t.integer :red
+      t.integer :par,                  :null => false
+      t.integer :hcp,                  :null => false
+      t.integer :white,                :null => false
+      t.integer :blue,                 :null => false
+      t.integer :red,                  :null => false
 
       t.string :image_file_name
       t.string :image_content_type
