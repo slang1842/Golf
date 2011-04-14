@@ -2,6 +2,7 @@ class CreateGames < ActiveRecord::Migration
   def self.up
     create_table :games do |t|
       t.string :field_quality
+      t.string :green_quality
       t.string :temperature
       t.string :weather
       t.time :date

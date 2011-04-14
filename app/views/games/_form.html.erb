@@ -11,12 +11,19 @@
     </div>
   <% end %>
         <%= f.label :field %>
-        <%= f.collection_select( :field_id, Field.all, :id, :name, :prompt => "Select Field") %>
+        <%= f.collection_select( :field_id, Field.all, :id, :name, :prompt => "Select Field" ) %>
         <%= link_to "New field", new_golf_club_field_path %>
         <br />
         <%= f.label :green_quality %>
-        <%= f.collection_select(  :prompt => "Select") %>
+        <%= f.select( :green_quality, GREEN_QUALITY, :prompt => "Select") %>
         <br />
+        <%= f.label :field_quality %>
+        <%= f.select( :field_quality, FIELD_QUALITY, :prompt => "Select") %>
+        <br />
+        <%= f.label :temperature %>
+        <%= f.select( :temperature, TEMPERATURE, :prompt => "Select") %>
+        <br />
+   
   <div class="actions">
     <%= f.submit %>
   </div>
