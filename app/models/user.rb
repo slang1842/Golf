@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :balls, :allow_destroy => true
   
   validates_presence_of :first_name, :last_name, :nick, :birth
-  
+  validates_uniqueness_of :email
   
   acts_as_authentic do |c| 
     c.login_field = :email
