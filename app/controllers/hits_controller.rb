@@ -1,4 +1,5 @@
 class HitsController < ApplicationController
+  before_filter :require_user
   # GET /hits
   # GET /hits.xml
   def index
@@ -68,7 +69,7 @@ class HitsController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /hits/1
   # DELETE /hits/1.xml
   def destroy
@@ -80,4 +81,6 @@ class HitsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+ 
 end

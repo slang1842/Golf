@@ -42,7 +42,8 @@ ActiveRecord::Schema.define(:version => 20110414125341) do
     t.string   "game_format"
     t.integer  "user_id"
     t.integer  "field_id"
-    t.string   "game_type"
+    t.integer  "game_type"
+    t.integer  "start_place_colors"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

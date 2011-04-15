@@ -32,9 +32,8 @@ Golf::Application.routes.draw do
   get "welcome/index"
   get "home/index"
   get "user_sessions/new"
-  
-  
-  
+       
+    
   #========================================================================
   #welcome
   root :to => "welcome#welcome",              :as => :welcome

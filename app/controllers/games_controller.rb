@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_filter :require_user
+
   # GET /games
   # GET /games.xml
   def index
@@ -25,6 +26,7 @@ class GamesController < ApplicationController
   # GET /games/new
   # GET /games/new.xml
   def new
+    @user = current_user
     @game = Game.new
 
     respond_to do |format|
@@ -35,6 +37,7 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
+    @user = current_user
     @game = Game.find(params[:id])
   end
 
@@ -45,7 +48,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to(@game, :notice => 'Game was successfully created.') }
+        format.html { redirect_to(hits_path, :notice => 'Game was successfully created.') }
         format.xml  { render :xml => @game, :status => :created, :location => @game }
       else
         format.html { render :action => "new" }

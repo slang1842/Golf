@@ -219,3 +219,5 @@
     righthander: "Right handed"
     lefthander: "Light handed"
     update_sucessful: "Profile was successfully updated"
+    temperature: "temperature preference"
+    date: "Date"
