@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110414125341) do
 
   create_table "games", :force => true do |t|
     t.string   "field_quality"
+    t.string   "green_quality"
     t.string   "temperature"
     t.string   "weather"
     t.time     "date"

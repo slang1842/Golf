@@ -22,6 +22,7 @@ Stick.create (:stick_type => 'ORIONIONIN',
               :degrees => 35,
               :shaft => "metal",
               :shaft_strength => "strong")
+<<<<<<< HEAD
               
               
 User.create (:email => "user@user.com",
@@ -50,3 +51,5 @@ User.create (:email => "user@user.com",
             
             
             
+=======
+>>>>>>> b61c8a7b4df553ed346f700101a9f3058664beb7

@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_filter :require_user
   # GET /games
   # GET /games.xml
   def index
