@@ -62,7 +62,12 @@
   <%= f.label t "form.measurement" %>
   <%= f.select(:measurement, MEASUREMENT) %><br /><br />
   
-  <br />  
+  <br /> 
+  
+  <%= f.label t "form.temperature" %>
+  <%= f.select(:temp_preference, TEMPERATURE) %><br /><br />
+  
+  <br /> 
   <%= f.label t "form.home_club" %>
   <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :name, :prompt => t(:notices_no_club)) %><br /><br />
   

@@ -147,12 +147,13 @@ ActiveRecord::Schema.define(:version => 20110414125341) do
     t.string   "nick",                                  :null => false
     t.string   "sex",                                   :null => false
     t.date     "birth",                                 :null => false
-    t.integer  "country_id",                            :null => false
+    t.integer  "country_id"
     t.integer  "golf_club_id"
     t.integer  "hcp",                                   :null => false
     t.boolean  "right_handed",                          :null => false
     t.string   "measurement",                           :null => false
     t.integer  "start_place_color",                     :null => false
+    t.string   "temp_preference",                       :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

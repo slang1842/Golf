@@ -16,7 +16,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string        :nick,                 :null => false
       t.string        :sex,                  :null => false
       t.date          :birth,                :null => false
-      t.references    :country,              :null => false
+      t.references    :country#,              :null => false
       t.references    :golf_club
       t.integer       :hcp,                  :null => false
       t.boolean       :right_handed,         :null => false

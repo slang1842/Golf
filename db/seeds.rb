@@ -22,7 +22,7 @@ Stick.create (:stick_type => 'ORIONIONIN',
               :degrees => 35,
               :shaft => "metal",
               :shaft_strength => "strong")
-<<<<<<< HEAD
+
               
               
 User.create (:email => "user@user.com",
@@ -36,13 +36,14 @@ User.create (:email => "user@user.com",
              :last_name => "user surname",
              :nick => "user nick",
              :sex => "f",
-             :birth => "",
-             :country => "",
+             :birth => "25-06-1990",
+             # :country => 1,
              :golf_club => nil,
              :hcp => "22",
              :right_handed => true,
              :measurement => "meters",
-             :start_place_color => 1)
+             :start_place_color => 1,
+             :temp_preference => "celsium")
             
             
             
@@ -50,6 +51,3 @@ User.create (:email => "user@user.com",
             
             
             
-            
-=======
->>>>>>> b61c8a7b4df553ed346f700101a9f3058664beb7
