@@ -6,7 +6,9 @@ class CreateHits < ActiveRecord::Migration
       t.references :hole
       t.references :user_stick
       t.boolean :real_hit
+      t.integer :user_stick_id
       t.integer :hits
+      t.integer :hit_number
       t.integer :puts
       t.string :follow_up
       t.string :stance

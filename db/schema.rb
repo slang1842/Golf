@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20110414125341) do
     t.integer  "user_stick_id"
     t.boolean  "real_hit"
     t.integer  "hits"
+    t.integer  "hit_number"
     t.integer  "puts"
     t.string   "follow_up"
     t.string   "stance"
