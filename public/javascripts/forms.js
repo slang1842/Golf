@@ -1,5 +1,6 @@
 $(document).ready(function(){
   datapicker();
+  timepicker();
 });
 
 function fill_sticks_form(a) {
@@ -12,11 +13,28 @@ function fill_sticks_form(a) {
   });
 };
 
+
+
+
 function datapicker() {
   $( "#datepicker" ).datepicker({
           changeMonth: true,
           changeYear: true,
           dateFormat: 'dd-mm-yy',
           yearRange: '1900:2011'
+  });
+}
+
+function timepicker(){
+  $('#timepicker').datetimepicker({
+    currentText: 'Now',
+    closeText: 'Done',
+    ampm: false,
+    timeFormat: 'hh:mm tt',
+    timeOnlyTitle: 'Choose Time',
+    timeText: 'Time',
+    hourText: 'Hour',
+    minuteText: 'Minute',
+    secondText: 'Second'
   });
 }

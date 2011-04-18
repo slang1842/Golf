@@ -9,7 +9,8 @@ class CreateGames < ActiveRecord::Migration
       t.string :game_format
       t.references :user
       t.references :field
-      t.string :game_type
+      t.integer :game_type
+      t.integer :start_place_colors
       t.timestamps
     end
   end

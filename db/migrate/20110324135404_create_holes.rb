@@ -7,6 +7,7 @@ class CreateHoles < ActiveRecord::Migration
       t.integer :white,                :null => false
       t.integer :blue,                 :null => false
       t.integer :red,                  :null => false
+      t.integer :hole_number,          :null => false
 
       t.string :image_file_name
       t.string :image_content_type

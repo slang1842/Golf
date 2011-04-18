@@ -21,7 +21,7 @@ class FieldsController < ApplicationController
     @field = Field.find(params[:id])
     
     @hole_attributes_name = "holes_attributes[]"
-    @new_hole_attributes_name = (@field.holes.count > 0) ? "new_holes_attributes[]" : @hole_attributes_name</ApplicationController>//,
+    @new_hole_attributes_name = (@field.holes.count > 0) ? "new_holes_attributes[]" : @hole_attributes_name
     @hit_place_attributes_name = "hit_places_attributes[]"
     @new_hit_place_attributes_name = (@field.hit_places.count > 0) ?  "new_hit_places_attributes[]" : @hit_place_attributes_name
     @green_fee_attributes_name = "green_fees_attributes[]"

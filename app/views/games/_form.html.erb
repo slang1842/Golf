@@ -11,6 +11,7 @@
     </div>
   <% end %>
         <%= f.label :field %>
+        
         <%= f.collection_select( :field_id, Field.all, :id, :name, :prompt => "Select Field" ) %>
         <%= link_to "New field", new_golf_club_field_path %>
         <br />
@@ -21,9 +22,22 @@
         <%= f.select( :field_quality, FIELD_QUALITY, :prompt => "Select") %>
         <br />
         <%= f.label :temperature %>
-        <%= f.select( :temperature, TEMPERATURE, :prompt => "Select") %>
+        <%= f.select( :temperature, (-20..40), :prompt => "Select") %> <%= f.label(@user.temp_preference, TEMPERATURE) %>
         <br />
-   
+        <%= f.label :weather %>
+        <%= f.select( :weather, WEATHER, :prompt => "Select") %> 
+        <br />
+        <%= f.label :game_format %>
+        <%= f.select( :game_format, GAME_FORMAT, :prompt => "Select") %> 
+        <br />
+        <%= f.label t "form.date" %>  
+        <%= f.text_field :date, :id => "timepicker" %>
+        <br />
+        <%= f.label :game_type %>  
+        <%= f.select :game_type, GAME_TYPE, :prompt => "Select" %>
+        <br />
+        <%= f.label :start_place_colors %>
+        <%= f.select( :start_place_colors, START_PLACE_COLORS, :prompt => "Select") %>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,7 +1,9 @@
 class HitsController < ApplicationController
+  before_filter :require_user
   # GET /hits
   # GET /hits.xml
   def index
+    @holes = game.field.scope_by_filter params[:game_type]
     @hits = Hit.all
 
     respond_to do |format|
@@ -68,7 +70,7 @@ class HitsController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /hits/1
   # DELETE /hits/1.xml
   def destroy
@@ -80,4 +82,6 @@ class HitsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+ 
 end

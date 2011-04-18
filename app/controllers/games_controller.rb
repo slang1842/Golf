@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_filter :require_user
+
   # GET /games
   # GET /games.xml
   def index
@@ -10,10 +11,7 @@ class GamesController < ApplicationController
       format.xml  { render :xml => @games }
     end
   end
-
-  # GET /games/1
-  # GET /games/1.xml
-  def show
+   def show
     @game = Game.find(params[:id])
 
     respond_to do |format|
@@ -25,6 +23,7 @@ class GamesController < ApplicationController
   # GET /games/new
   # GET /games/new.xml
   def new
+    @user = current_user
     @game = Game.new
 
     respond_to do |format|
@@ -35,6 +34,7 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
+    @user = current_user
     @game = Game.find(params[:id])
   end
 
@@ -45,7 +45,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to(@game, :notice => 'Game was successfully created.') }
+        format.html { redirect_to(game_index_path(@game.id), :notice => 'Game was successfully created.') }
         format.xml  { render :xml => @game, :status => :created, :location => @game }
       else
         format.html { render :action => "new" }
@@ -79,6 +79,28 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(games_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def game_index
+    @game = Game.find(params[:id])
+    game_type = @game.game_type
+    hole_num = (1..18)
+    @holes = Hole.where(:field_id => @game.field_id)
+    if game_type == 1 
+      hole_num = (1..9)
+    end
+    if game_type == 2 
+      hole_num = (10..18)
+    end
+    if game_type == 3 
+      hole_num = (1..18)
+    end
+    
+    @holes_filtered = @holes.where(:hole_number => hole_num)
+    respond_to do |format|
+      format.html game_index.html.erb
+      
     end
   end
 end
