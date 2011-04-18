@@ -3,6 +3,7 @@ class HitsController < ApplicationController
   # GET /hits
   # GET /hits.xml
   def index
+    @holes = game.field.scope_by_filter params[:game_type]
     @hits = Hit.all
 
     respond_to do |format|

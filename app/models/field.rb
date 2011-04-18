@@ -8,5 +8,5 @@ class Field < ActiveRecord::Base
   accepts_nested_attributes_for :hit_places, :allow_destroy => true
   
   validates_presence_of :golf_club
-  
+ 
 end

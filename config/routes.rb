@@ -22,7 +22,7 @@ Golf::Application.routes.draw do
   #match "users/bag" => "users_sticks#bag_destroy",      :as => :bag_destroy
   #match "user/bag_update" => "users_sticks#bag_update", :as => :bag_update
     
- 
+  match '/game_edit/:id' => "games#game_index", :as => 'game_index'
  
   
   resource :golf_club, :controller => "golf_club", :path => 'club' do
