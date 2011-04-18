@@ -44,10 +44,33 @@ User.create (:email => "user@user.com",
              :measurement => "meters",
              :start_place_color => 1,
              :temp_preference => "celsium")
-            
-            
-            
-            
-            
-            
-            
+
+Stick.create (:stick_type => "PUTTER",
+              :distance => "210",
+              :degrees => "34",
+              :shaft => "wood",
+              :shaft_strength => "strong")
+              
+              
+Stick.create (:stick_type => "DRIVER",
+              :distance => "160",
+              :degrees => "14",
+              :shaft => "metal",
+              :shaft_strength => "very strong")
+              
+Stick.create (:stick_type => "WOODBOW",
+              :distance => "410",
+              :degrees => "45",
+              :shaft => "wood",
+              :shaft_strength => "medium strong")
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              

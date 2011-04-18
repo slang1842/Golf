@@ -1,12 +1,15 @@
 Golf::Application.routes.draw do
+  resources :statistics
   resources :hits
-
-  resources :games
-
   resources :users_sticks
-
+  resources :balls
+  resources :sticks
+  resources :games
+  resources :users_sticks
   resources :hints
   resources :user_sessions
+  resources :admin
+  
   resource :user, :controller => "user" do
     collection do
       get "bag"
@@ -14,16 +17,6 @@ Golf::Application.routes.draw do
       put "update_bag"
     end
   end
-  
-  resources :users_sticks
-  resources :balls
-  resources :sticks
-  #match 'user/bag' => "users_sticks#bag",               :as => :bag
-  #match "users/bag" => "users_sticks#bag_destroy",      :as => :bag_destroy
-  #match "user/bag_update" => "users_sticks#bag_update", :as => :bag_update
-    
- 
- 
   
   resource :golf_club, :controller => "golf_club", :path => 'club' do
     resources :fields
@@ -33,8 +26,9 @@ Golf::Application.routes.draw do
   get "home/index"
   get "user_sessions/new"
   
-  
-  
+  #game
+  #========================================================================
+  match '/game_edit/:id' => "games#game_index", :as => 'game_index' 
   #========================================================================
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
@@ -48,9 +42,6 @@ Golf::Application.routes.draw do
   
   #========================================================================
   #user profiles
-  #match '/users/new' => "users#new",          :as => :user_register
-  #match '/profile/' => "users#edit",          :as => :user_profile
-  
   match '/admin' => "admin#index",          :as => :admin
   
   namespace "admin" do 
@@ -60,7 +51,7 @@ Golf::Application.routes.draw do
     resources :hints
   end
   
-  resources :admin
+  
     
  # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:
