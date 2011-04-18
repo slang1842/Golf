@@ -1,5 +1,8 @@
 <%= render :partial => 'share/header_menu' %>
-
-<% @holes each do |f|%>
-<%= f.hole_number %>
+<br />
+<% @holes_filtered.each do |f|%>
+<%  if f.hole_number == @active_hole %>
+    <b><%= f.hole_number %></b>
+    else <%= f.hole_number %>
+    <% end %>
 <% end %>
