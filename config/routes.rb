@@ -9,6 +9,7 @@ Golf::Application.routes.draw do
   resources :hints
   resources :user_sessions
   resources :admin
+  resource  :statistics
   
   resource :user, :controller => "user" do
     collection do
@@ -26,6 +27,9 @@ Golf::Application.routes.draw do
   get "home/index"
   get "user_sessions/new"
   
+  #statistics
+  #========================================================================
+  match '/statistics/' => "statistics#index"
   #game
   #========================================================================
   match '/game_edit/:id' => "games#game_index", :as => 'game_index' 
