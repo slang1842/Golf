@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :nick, :birth
   validates_uniqueness_of :email
   
+  validates_presence_of :ball_manufacturer, :ball_type, :on => :bag
+  validates_presence_of :stick_type, :distance, :degrees, :shaft, :shaft_strength, :on => :bag
+  
   acts_as_authentic do |c| 
     c.login_field = :email
   end
