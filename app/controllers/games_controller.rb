@@ -86,9 +86,12 @@ class GamesController < ApplicationController
     @active_hole = params[:active]
     @active_hole = @active_hole.to_i - 1
     @form = params[:form_id]
-    respond_to do |format|
-      format.js
+    @hit = Hit.where(:game_id => @game.id, :hole_number => @active_hole, :hit_number => 1)
+     if defined?(@hit).nil? then 
+       @hit = self.new( params[:game_id => @game.id, :hole_number => @active_hole, :hit_number => 1])
      end
+    
+    
     end
   
   
@@ -96,6 +99,10 @@ class GamesController < ApplicationController
     hole_filter
     @active_hole = params[:active].to_i + 1
     @form = params[:form_id]
+    @hit = Hit.where(:game_id => @game.id, :hole_number => @active_hole, :hit_number => 1)
+     if defined?(@hit).nil? then 
+       @hit = self.new( params[:game_id => @game.id, :hole_number => @active_hole, :hit_number => 1])
+     end
   end
     
     
@@ -129,12 +136,19 @@ class GamesController < ApplicationController
 
   end
   def results
-    
+    hole_filter
+    @active_hole = params[:active]
+    @game = Game.find(params[:id])
+    @hit = Hit.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
   def plan
     hole_filter
     @active_hole = params[:active]
-     @game = Game.find(params[:id])
+    @game = Game.find(params[:id])
     @hit = Hit.new
     respond_to do |format|
       format.js
@@ -142,7 +156,14 @@ class GamesController < ApplicationController
     end
   end
   def details
-    
+    hole_filter
+    @active_hole = params[:active]
+    @game = Game.find(params[:id])
+    @hit = Hit.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
   def hole_filter
      @game = Game.find(params[:id])
@@ -163,5 +184,29 @@ class GamesController < ApplicationController
         @end_hole = 18   
       end
     @holes_filtered = @holes.where(:hole_number => hole_num)
+  end
+ 
+  def hit_next
+    @active_hole = params[:active_hole]
+    @game = Game.where(:id => params[:game_id])
+    @form_id = params[:form_id].to_str
+    @active_hit = params[:hit].to_i + 1
+    @hit = Hit.where(:game_id => @game.id, :hole_number => @active_hole, :hit_number => @active_hit)
+     if defined?(@hit).nil? then 
+       @hit = self.new( params[:game_id => @game.id, :hole_number => @active_hole, :hit_number => @active_hit])
+     end
+  end
+  def hit_prev
+    @active_hole = params[:active_hole]
+    @game = Game.where(:id => params[:game_id])
+    @form_id = params[:form_id].to_str
+    @active_hit = params[:hit].to_i - 1
+    if @active_hit < 1
+      @active_hit = @active_hit + 1
+    end
+    @hit = Hit.where(:game_id => @game.id, :hole_number => @active_hole, :hit_number => @active_hit)
+     if defined?(@hit).nil? then 
+       @hit = self.new( params[:game_id => @game.id, :hole_number => @active_hole, :hit_number => @active_hit])
+     end
   end
 end
