@@ -1,0 +1,19 @@
+
+<b>plan_form</b>
+<%= form_for(hit, :remote => true) do |f| %>
+  
+  <% if hit.errors.any?  %>
+    
+      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+      <ul>
+      <% hit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+   
+  <% end %>
+  
+       <%=f.label :stance%>
+       <%=f.text_field :stance%>
+ 
+ <%end%>

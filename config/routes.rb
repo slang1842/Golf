@@ -37,11 +37,11 @@ Golf::Application.routes.draw do
   #game
   #========================================================================
   match '/game_edit/:id' => "games#game_index", :as => 'game_index' 
-  match '/prev/:active/:id' => "games#prev", :as => 'hole_prev'
-  match '/next/:active/:id' => "games#next", :as => 'hole_next'
+  match '/prev/:active/:id/:form_id' => "games#prev", :as => 'hole_prev'
+  match '/next/:active/:id/:form_id' => "games#next", :as => 'hole_next'
   match '/details/:id' => "games#details", :as => 'details'
-  match '/plan/:id' => "games#plan", :as => 'plan'
-  match '/details/:id' => "games#results", :as => 'results'
+  match '/plan/:id/:active' => "games#plan", :as => 'plan'
+  match '/results/:id' => "games#results", :as => 'results'
   
   #========================================================================
   #welcome

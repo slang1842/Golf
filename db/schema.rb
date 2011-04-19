@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20110419064354) do
     t.string   "motion_was"
     t.string   "direction"
     t.string   "misdirection"
+    t.integer  "pair_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

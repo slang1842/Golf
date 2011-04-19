@@ -18,4 +18,5 @@ class Hole < ActiveRecord::Base
      # self.all
     #end
   #end
+  
 end
