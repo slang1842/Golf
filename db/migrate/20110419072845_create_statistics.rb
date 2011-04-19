@@ -3,6 +3,7 @@ class CreateStatistics < ActiveRecord::Migration
     create_table :statistics do |t|
        t.references :user
        t.references :stick
+       
        t.string     :place_teebox
        t.string     :place_eairway
        t.string     :place_next_fairway
