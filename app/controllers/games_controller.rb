@@ -1,8 +1,7 @@
 class GamesController < ApplicationController
   before_filter :require_user
 
-  # GET /games
-  # GET /games.xml
+  
   def index
     @games = Game.all
 
@@ -20,8 +19,7 @@ class GamesController < ApplicationController
     end
   end
 
-  # GET /games/new
-  # GET /games/new.xml
+  
   def new
     @user = current_user
     @game = Game.new
@@ -32,14 +30,13 @@ class GamesController < ApplicationController
     end
   end
 
-  # GET /games/1/edit
+  
   def edit
     @user = current_user
     @game = Game.find(params[:id])
   end
 
-  # POST /games
-  # POST /games.xml
+  
   def create
     @game = Game.new(params[:game])
 
@@ -88,7 +85,7 @@ class GamesController < ApplicationController
     hole_filter
     @active_hole = params[:active]
     @active_hole = @active_hole.to_i - 1
-   
+    @form = params[:form_id]
     respond_to do |format|
       format.js
      end
@@ -98,31 +95,11 @@ class GamesController < ApplicationController
   def next    
     hole_filter
     @active_hole = params[:active].to_i + 1
+    @form = params[:form_id]
   end
     
-  def hole_filter
-     @game = Game.find(params[:id])
-    game_type = @game.game_type
-    @holes = Hole.where(:field_id => @game.field_id)
-    case game_type
-      when 1
-        hole_num = 1..9  
-        @start_hole = 1
-        @end_hole = 9
-      when 2
-        hole_num = 10..18 
-        @start_hole = 10 
-        @end_hole = 18
-      when 3
-        hole_num = 1..18
-        @start_hole = 1
-        @end_hole = 18   
-      end
-    @holes_filtered = @holes.where(:hole_number => hole_num)
-  end
- 
     
-  def game_index
+    def game_index
     @hit = Hit.new
     @game = Game.find(params[:id])
     game_type = @game.game_type
@@ -145,6 +122,7 @@ class GamesController < ApplicationController
         @end_hole = 18   
       end
     @holes_filtered = @holes.where(:hole_number => hole_num)
+    
  respond_to do |format|
       format.html 
     end
@@ -155,6 +133,7 @@ class GamesController < ApplicationController
   end
   def plan
     hole_filter
+    @active_hole = params[:active]
      @game = Game.find(params[:id])
     @hit = Hit.new
     respond_to do |format|
@@ -164,5 +143,25 @@ class GamesController < ApplicationController
   end
   def details
     
+  end
+  def hole_filter
+     @game = Game.find(params[:id])
+    game_type = @game.game_type
+    @holes = Hole.where(:field_id => @game.field_id)
+    case game_type
+      when 1
+        hole_num = 1..9  
+        @start_hole = 1
+        @end_hole = 9
+      when 2
+        hole_num = 10..18 
+        @start_hole = 10 
+        @end_hole = 18
+      when 3
+        hole_num = 1..18
+        @start_hole = 1
+        @end_hole = 18   
+      end
+    @holes_filtered = @holes.where(:hole_number => hole_num)
   end
 end
