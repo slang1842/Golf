@@ -42,13 +42,13 @@ Hit.create (:user_id => 1,
             :user_stick_id => 2,
             :real_hit => true,
             :stance => "stavus",
-            :distance_to_hole_hit => 180)
+            :distance_to_hole => 180)
               
 Hit.create (:user_id => 1,
             :user_stick_id => 1,
             :real_hit => false,
             :stance => "stavus",
-            :distance_to_hole_hit => 210)
+            :distance_to_hole => 210)
               
               
               

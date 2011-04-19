@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110414125341) do
+ActiveRecord::Schema.define(:version => 20110419064354) do
 
   create_table "balls", :force => true do |t|
     t.integer  "user_id"
@@ -125,6 +125,44 @@ ActiveRecord::Schema.define(:version => 20110414125341) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statistics", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "stick_id"
+    t.string   "place_teebox"
+    t.string   "place_eairway"
+    t.string   "place_next_fairway"
+    t.string   "place_semi_raf"
+    t.string   "place_raf"
+    t.string   "place_for_green"
+    t.string   "place_green"
+    t.string   "place_fairway_sand"
+    t.string   "place_green_sand"
+    t.string   "place_wood"
+    t.string   "place_from_water"
+    t.string   "stance_normal"
+    t.string   "stance_right_leg_lower"
+    t.string   "stance_left_leg_lower"
+    t.string   "stance_ball_lower"
+    t.string   "stance_ball_higher"
+    t.string   "direction_straigth"
+    t.string   "direction_fade"
+    t.string   "direction_drow"
+    t.string   "direction_slice"
+    t.string   "direction_hook"
+    t.string   "temperature_cold"
+    t.string   "temperature_normal"
+    t.string   "temperature_hot"
+    t.string   "weather_normal"
+    t.string   "weather_wind"
+    t.string   "weather_rain"
+    t.string   "weather_rain_and_wind"
+    t.string   "trajectory_normal"
+    t.string   "trajectory_high"
+    t.string   "trajectory_low"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
