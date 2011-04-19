@@ -1,0 +1,24 @@
+<%= form_for(hit, :remote => true) do |f| %>
+  
+  <% if hit.errors.any?  %>
+    
+      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+      <ul>
+      <% hit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+   
+  <% end %>
+  
+        <%= f.collection_select( :user_stick_id, UsersStick.all, :id, :stick_type, :prompt => "Select Stick") %>
+        <%= f.label  :distance %>
+        <%= f.text_field :distance_to_hole_land %><br />
+        <%= f.label :hits %>
+        <%= f.select (:hits, PLANNED_LAND_PLACES, :prompt => "Select")%>
+        <%= f.hidden_field :real_hit, :value => false%> 
+     
+     
+    <%= f.hidden_field :hole_count, :value => @active_hole %>
+ 
+ <%end%>

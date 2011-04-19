@@ -1,0 +1,10 @@
+<% if current_user %>
+  <%= render :partial => 'share/header_menu' %>
+  <% else %>
+<% end %>
+<br /><br />
+<h1>New game</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', games_path %>

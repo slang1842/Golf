@@ -6,19 +6,25 @@ class CreateHits < ActiveRecord::Migration
       t.references :hole
       t.references :user_stick
       t.boolean :real_hit
-      t.integer :hits
-      t.integer :puts
-      t.string :follow_up
+      #t.integer :user_stick_id
+      #t.integer :hits
+      t.integer :hit_number  #
+      t.integer :place_from
+      t.integer :land_place
       t.string :stance
-      t.integer :hardness
-      t.string :motion
-      t.string :hit_type
-      t.string :luck_factor
+      t.string :trajectory
+      t.string :put_or_hit
+      t.boolean :luck_factor
       t.string :comment
-      t.integer :distance_to_hole_land
-      t.integer :distance_to_hole_hit
-      t.integer :distance_to_hole_left
-      t.integer :hole_count
+      t.integer :following_action
+      t.integer :distance_to_hole
+      t.integer :hit_distance
+      t.integer :wind
+      t.string :hit_was # under, miss normal top
+      t.string :motion_was # under, miss normal top
+      t.string :direction
+      t.string :misdirection
+      
       t.timestamps
     end
   end

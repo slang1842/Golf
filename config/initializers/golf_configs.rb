@@ -16,4 +16,4 @@ FIELD_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 WEATHER = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 GAME_FORMAT = { "Training" => "t", "DM" => "d", "Tournament" => "tn"}
 GAME_TYPE = { "1-9" => 1, "10-18" => 2, "1-18" => 3}
-#GAME_HOLE = { (1..9) => 1, (10..18) => 2, (1..18) => 3}
+PLANNED_LAND_PLACES = { "Fairway" => 1, "Green" => 2, "Hole" => 3}

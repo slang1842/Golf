@@ -82,25 +82,87 @@ class GamesController < ApplicationController
     end
   end
   
+
+  
+  def prev   
+    hole_filter
+    @active_hole = params[:active]
+    @active_hole = @active_hole.to_i - 1
+   
+    respond_to do |format|
+      format.js
+     end
+    end
+  
+  
+  def next    
+    hole_filter
+    @active_hole = params[:active].to_i + 1
+  end
+    
+  def hole_filter
+     @game = Game.find(params[:id])
+    game_type = @game.game_type
+    @holes = Hole.where(:field_id => @game.field_id)
+    case game_type
+      when 1
+        hole_num = 1..9  
+        @start_hole = 1
+        @end_hole = 9
+      when 2
+        hole_num = 10..18 
+        @start_hole = 10 
+        @end_hole = 18
+      when 3
+        hole_num = 1..18
+        @start_hole = 1
+        @end_hole = 18   
+      end
+    @holes_filtered = @holes.where(:hole_number => hole_num)
+  end
+ 
+    
   def game_index
+    @hit = Hit.new
     @game = Game.find(params[:id])
     game_type = @game.game_type
-    hole_num = (1..18)
     @holes = Hole.where(:field_id => @game.field_id)
-    if game_type == 1 
-      hole_num = (1..9)
-    end
-    if game_type == 2 
-      hole_num = (10..18)
-    end
-    if game_type == 3 
-      hole_num = (1..18)
-    end
-    
+    case game_type
+      when 1
+        hole_num = 1..9  
+        @active_hole = 1
+        @start_hole = 1
+        @end_hole = 9
+      when 2
+        hole_num = 10..18 
+        @active_hole = 10
+        @start_hole = 10 
+        @end_hole = 18
+      when 3
+        hole_num = 1..18
+        @active_hole = 1
+        @start_hole = 1
+        @end_hole = 18   
+      end
     @holes_filtered = @holes.where(:hole_number => hole_num)
-    respond_to do |format|
-      format.html game_index.html.erb
-      
+ respond_to do |format|
+      format.html 
     end
+
+  end
+  def results
+    
+  end
+  def plan
+    hole_filter
+     @game = Game.find(params[:id])
+    @hit = Hit.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
+  def details
+    
   end
 end
