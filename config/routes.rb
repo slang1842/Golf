@@ -11,6 +11,10 @@ Golf::Application.routes.draw do
   resources :admin
   resource  :statistics
   
+  #statistics
+  #================
+  match '/s' => "statistic#calculate_statistics",   :as => "s"
+  
   resource :user, :controller => "user" do
     collection do
       get "bag"
