@@ -39,19 +39,20 @@ Stick.create (:stick_type => "WOODBOW",
               :shaft_strength => "medium strong")
               
 Hit.create (:user_id => 1,
-            :user_stick_id => 2,
-            :real_hit => true,
+            :real_hit => false,
             :stance => "stavus",
             :distance_to_hole => 180)
               
 Hit.create (:user_id => 1,
-            :user_stick_id => 1,
-            :real_hit => false,
+            :real_hit => true,
             :stance => "stavus",
             :distance_to_hole => 210)
               
-              
-              
+PairHit.create (
+            #:pair_id => 1,
+            :user_id => 1,
+            :hit_planed => 1,
+            :hit_real => 2)              
               
               
               

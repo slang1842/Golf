@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419072845) do
+ActiveRecord::Schema.define(:version => 20110419125159) do
 
   create_table "balls", :force => true do |t|
     t.integer  "user_id"
@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(:version => 20110419072845) do
     t.integer  "game_id"
     t.integer  "user_id"
     t.integer  "hole_id"
-    t.integer  "user_stick_id"
     t.boolean  "real_hit"
     t.integer  "hit_number"
     t.integer  "place_from"
@@ -109,7 +108,6 @@ ActiveRecord::Schema.define(:version => 20110419072845) do
     t.string   "motion_was"
     t.string   "direction"
     t.string   "misdirection"
-    t.integer  "pair_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -126,6 +124,14 @@ ActiveRecord::Schema.define(:version => 20110419072845) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pair_hits", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "hit_planed"
+    t.integer  "hit_real"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
