@@ -1,1 +1,2 @@
 page['form'].submit ()
+page[''].html render(:template => 'games/index')

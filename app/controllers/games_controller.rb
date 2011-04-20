@@ -1,8 +1,9 @@
 class GamesController < ApplicationController
   before_filter :require_user
 
+  
   def save
-    redirect_to game_index_path
+    
   end
   def index
     @games = Game.where(:user_id => current_user.id)
@@ -44,7 +45,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to(game_index_path(@game.id), :notice => 'Game was successfully created.') }
+        format.html { redirect_to(game_edit_path(@game.id), :notice => 'Game was successfully created.') }
         format.xml  { render :xml => @game, :status => :created, :location => @game }
       else
         format.html { render :action => "new" }
