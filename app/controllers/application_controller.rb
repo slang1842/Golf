@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user_session, :current_user
   before_filter :is_blocked, :only => :current_user
- 
+  before_filter :require_no_super_admin, :only => :current_user
+  
   private
     def is_blocked
       if current_user.is_blocked
@@ -38,6 +39,25 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+    
+    def require_super_admin
+      if require_user
+        unless current_user.is_super_admin
+          #flash.now[:notice] = "You have no access this page"
+          redirect_to welcome_path
+        end
+      end
+    end
+    
+    def require_no_super_admin
+      if require_user
+        if current_user.is_super_admin
+          #flash.now[:notice] = "You have no access this page"
+          redirect_to admin_path
+        end
+      end
+    end
+    
     
     def require_admin
       if require_user

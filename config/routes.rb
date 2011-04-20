@@ -8,12 +8,15 @@ Golf::Application.routes.draw do
   resources :users_sticks
   resources :hints
   resources :user_sessions
-  resources :admin
-  resource  :statistics
+  resource :admin
+  
+  resources  :statistics do
+    resources :PairHit
+  end
   
   #statistics
   #================
-  match '/s' => "statistic#calculate_statistics",   :as => "s"
+  match '/s' => "statistic#statistics",   :as => "s"
   
   resource :user, :controller => "user" do
     collection do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419064354) do
+ActiveRecord::Schema.define(:version => 20110419125159) do
 
   create_table "balls", :force => true do |t|
     t.integer  "user_id"
@@ -87,6 +87,33 @@ ActiveRecord::Schema.define(:version => 20110419064354) do
     t.datetime "updated_at"
   end
 
+  create_table "hits", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "user_id"
+    t.integer  "hole_id"
+    t.string   "real_hit"
+    t.integer  "hole_number"
+    t.integer  "hit_number"
+    t.integer  "place_from"
+    t.integer  "land_place"
+    t.string   "stance"
+    t.string   "trajectory"
+    t.string   "put_or_hit"
+    t.boolean  "luck_factor"
+    t.string   "comment"
+    t.integer  "following_action"
+    t.integer  "distance_to_hole"
+    t.integer  "hit_distance"
+    t.integer  "wind"
+    t.string   "hit_was"
+    t.string   "motion_was"
+    t.string   "direction"
+    t.string   "misdirection"
+    t.integer  "pair_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "holes", :force => true do |t|
     t.integer  "field_id"
     t.integer  "par",                :null => false
@@ -99,6 +126,14 @@ ActiveRecord::Schema.define(:version => 20110419064354) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pair_hits", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "hit_planed"
+    t.integer  "hit_real"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
