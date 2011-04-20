@@ -20,9 +20,9 @@ class CreateHits < ActiveRecord::Migration
       t.integer :following_action
       t.integer :distance_to_hole
       t.integer :hit_distance
-      t.integer :wind
-      t.string :hit_was # under, miss normal top
-      t.string :motion_was # under, miss normal top
+      t.integer :wind # from_back, from_front, from_left, from_right
+      t.string :hit_was # under, miss, normal, top
+      t.string :motion_was # under, miss, normal, top
       t.string :direction
       t.string :misdirection
       t.integer :pair_id

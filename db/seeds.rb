@@ -54,6 +54,89 @@ PairHit.create (
             :hit_planed => 1,
             :hit_real => 2)              
               
+Hit.create (:game_id => 1,
+            :user_id => 1,
+            :hole_id => 1,
+            :real_hit => "pr",
+            :hole_number => 1,
+            :hit_number => 1,
+            :place_from => "green sand",
+            :land_place => "teebox",
+            :stance => "Right leg lower",
+            :trajectory => "low",
+            :put_or_hit => false,
+            :wind => "from_left",
+            :hit_was => "under",
+            :motion_was => "top",
+            :direction => "taisni")
+
+Hit.create (:game_id => 1,
+            :user_id => 1,
+            :hole_id => 1,
+            :real_hit => "pr",
+            :hole_number => 1,
+            :hit_number => 1,
+            :place_from => "green sand",
+            :land_place => "teebox",
+            :stance => "Right leg lower",
+            :trajectory => "low",
+            :put_or_hit => false,
+            :wind => "crosswind",
+            :hit_was => "under",
+            :motion_was => "top",
+            :direction => "taisni")
+              
+              
+            
+Hit.create (:game_id => 3,
+            :user_id => 2,
+            :hole_id => 1,
+            :real_hit => "pr",
+            :hole_number => 1,
+            :hit_number => 2,
+            :place_from => "green sand",
+            :land_place => "teebox",
+            :stance => "Right leg lower",
+            :trajectory => "low",
+            :put_or_hit => false,
+            :wind => "from_left",
+            :hit_was => "under",
+            :motion_was => "top",
+            :direction => "taisni")
+
+Hit.create (:game_id => 3,
+            :user_id => 2,
+            :hole_id => 1,
+            :real_hit => "pr",
+            :hole_number => 1,
+            :hit_number => 2,
+            :place_from => "green sand",
+            :land_place => "teebox",
+            :stance => "Right leg lower",
+            :trajectory => "low",
+            :put_or_hit => false,
+            :wind => "crosswind",
+            :hit_was => "under",
+            :motion_was => "top",
+            :direction => "taisni")
+              
+              
+GolfClub.create (:user_id => 1,
+                 :name => "OZO",
+                 :country_id => 1,
+                 :region => "Rīgas raj",
+                 :city => "Rīga",
+                 :web_page => "www.ozo.lv",
+                 :accepted => "unknown",
+                 :active => false)
+              
+              
+              
+              
+              
+              
+              
+              
               
               
               

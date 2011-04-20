@@ -6,7 +6,7 @@ class StatisticController < ApplicationController
   
   
   @users = User.all
-  #@hits = PairHit.all
+  @hits = PairHit.all
   #@sticks = Stick.all
   @new_statistic = Statistic.new
 
@@ -15,25 +15,20 @@ class StatisticController < ApplicationController
     #@new_statistic.user_id = user.id
     puts ""
     puts ""
-    puts "========="
-    puts "user id: "
-    puts  user.id
-    
-      
+    puts "user id: #{ user.id } "
+          
       
       #each STICK
       user.users_sticks.each do |user_sticks|
         #@new_statistic.stick_id = user_sticks.stick.id
-        puts "user stick: "
-        puts user_sticks.stick.id
-        puts "-------"
+        puts " user stick id:  #{user_sticks.stick.id}"
 
         
-          #@hits2 = @hits.find(:all, :conditions => {:user_id => user.id, :stick_id => users_sticks.id})
+          @hits2 = PairHit.where(:user_id => user.id)
           #@hits()
           # each HITS
-          @hits.each do |hits|
-          
+          @hits2.each do |hits|
+            puts "  hits id: #{ hits.id } "
           
           end
         
