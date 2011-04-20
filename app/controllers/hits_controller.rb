@@ -70,7 +70,19 @@ class HitsController < ApplicationController
       end
     end
   end
-  
+  def hit_update
+  @hit = Hit.find(params[:id])
+
+    respond_to do |format|
+      if @hit.update_attributes(params[:hit])
+        format.html { redirect_to(@hit, :notice => 'Hit was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @hit.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
   # DELETE /hits/1
   # DELETE /hits/1.xml
   def destroy
