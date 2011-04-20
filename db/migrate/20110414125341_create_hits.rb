@@ -25,7 +25,7 @@ class CreateHits < ActiveRecord::Migration
       t.string :motion_was # under, miss normal top
       t.string :direction
       t.string :misdirection
-      t.integer :pair_id
+      
       
       t.timestamps
     end
