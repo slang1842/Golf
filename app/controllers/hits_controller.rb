@@ -3,7 +3,6 @@ class HitsController < ApplicationController
   # GET /hits
   # GET /hits.xml
   def index
-    @holes = game.field.scope_by_filter params[:game_type]
     @hits = Hit.all
 
     respond_to do |format|
@@ -60,16 +59,9 @@ class HitsController < ApplicationController
   def update
     @hit = Hit.find(params[:id])
 
-    respond_to do |format|
-      if @hit.update_attributes(params[:hit])
-        format.html { redirect_to(@hit, :notice => 'Hit was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @hit.errors, :status => :unprocessable_entity }
-      end
-    end
+    @hit.update_attributes(params[:hit])
   end
+  
   def hit_update
   @hit = Hit.find(params[:id])
 

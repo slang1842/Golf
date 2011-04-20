@@ -1,12 +1,14 @@
 class GamesController < ApplicationController
   before_filter :require_user
 
-  
+  def save
+    redirect_to game_index_path
+  end
   def index
-    @games = Game.all
+    @games = Game.where(:user_id => current_user.id)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.xml  { render :xml => @games }
     end
   end
@@ -83,17 +85,33 @@ class GamesController < ApplicationController
   
   def prev   
     hole_filter
+    @game = Game.find(params[:id])
+    @hit_type = params[:hit_type]
     @active_hole = params[:active]
     @active_hole = @active_hole.to_i - 1
     @form = params[:form_id]
+    conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => 1, 
+               :real_hit => @hit_type}
+     
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
     #@hit = Hit.find_or_create_by_game_id_and_hole_number(@game.id, @active_hole)
     end
   
   
   def next    
     hole_filter
+    @game = Game.find(params[:id])
+    @hit_type = params[:hit_type]
     @active_hole = params[:active].to_i + 1
     @form = params[:form_id]
+    conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => 1, 
+               :real_hit => @hit_type}
+     
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
     #@hit = Hit.find_or_create_by_game_id_and_hole_number(@game.id, @active_hole)
     end
     
@@ -131,7 +149,13 @@ class GamesController < ApplicationController
     hole_filter
     @active_hole = params[:active]
     @game = Game.find(params[:id])
-    @hit = Hit.new
+    conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => 1, 
+               :real_hit => 'r'}
+     
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     @hit_type = 'r'
     respond_to do |format|
       format.js
       format.html
@@ -141,7 +165,13 @@ class GamesController < ApplicationController
     hole_filter
     @active_hole = params[:active]
     @game = Game.find(params[:id])
-    @hit = Hit.new
+    conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => 1, 
+               :real_hit => 'p'}
+     
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     @hit_type = 'p'
     respond_to do |format|
       format.js
       format.html
@@ -181,13 +211,11 @@ class GamesController < ApplicationController
   def hit_next
     @hit_type = params[:hit_type].to_str
     @active_hole = params[:active_hole]
-    @game = Game.where(:id => params[:game_id])
+    @game_id = params[:id]
+    @game = Game.find_by_id(@game_id)
     @form_id = params[:form_id].to_str
     @active_hit = params[:hit].to_i + 1
-    #@hit = Hit.find_or_create_by_game_id_and_hole_number_and_hit_number_and_real_hit(@game.id, @active_hole, @active_hit, @hit_type)
-     #_and_hole_number_and_hit_number_and_real_hit
-     #, @active_hole, @active_hit, @hit_type
-     conditions = { :game_id => @game.id, 
+         conditions = { :game_id => @game.id, 
                :hole_number => @active_hole,
                :hit_number => @active_hit, 
                :real_hit => @hit_type}
@@ -197,12 +225,18 @@ class GamesController < ApplicationController
   def hit_prev
     @hit_type = params[:hit_type]
     @active_hole = params[:active_hole]
-    @game = Game.where(:id => params[:game_id])
+    @game_id = params[:id].to_i
+    @game = Game.find_by_id(@game_id)
     @form_id = params[:form_id].to_str
     @active_hit = params[:hit].to_i - 1
     if @active_hit < 1
       @active_hit = @active_hit + 1
     end
-    @hit = Hit.find_or_create_by_game_id_and_hole_number_and_hit_number_and_real_hit(@game.id, @active_hole, @active_hit, @hit_type)
+     conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => @active_hit, 
+               :real_hit => @hit_type}
+     
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
   end
 end

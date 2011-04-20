@@ -9,6 +9,11 @@
 
 <% @hits.each do |hit| %>
   <tr>
+    game id <%= hit.game_id%>
+    hole num<%= hit.hole_number%>
+    hit num <%= hit.hit_number%>
+    hit type<%= hit.real_hit%>
+    hit distance<%= hit.hit_distance%><br />
     <td><%= link_to 'Show', hit %></td>
     <td><%= link_to 'Edit', edit_hit_path(hit) %></td>
     <td><%= link_to 'Destroy', hit, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -18,4 +23,4 @@
 
 <br />
 
-<%= link_to 'New Hit', new_hit_path %>
+
