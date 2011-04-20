@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419072845) do
+ActiveRecord::Schema.define(:version => 20110419064354) do
 
   create_table "balls", :force => true do |t|
     t.integer  "user_id"
@@ -91,8 +91,7 @@ ActiveRecord::Schema.define(:version => 20110419072845) do
     t.integer  "game_id"
     t.integer  "user_id"
     t.integer  "hole_id"
-    t.integer  "user_stick_id"
-    t.boolean  "real_hit"
+    t.string   "real_hit"
     t.integer  "hit_number"
     t.integer  "place_from"
     t.integer  "land_place"
