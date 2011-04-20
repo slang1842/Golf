@@ -6,6 +6,7 @@ class CreateHits < ActiveRecord::Migration
       t.references :hole
       #t.references :user_stick
       t.string :real_hit
+      t.integer :hole_number
       #t.integer :user_stick_id
       #t.integer :hits
       t.integer :hit_number  #

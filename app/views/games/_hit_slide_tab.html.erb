@@ -1,3 +1,3 @@
-<%= link_to 'Next Hit', hit_next_path(active_hit, form_id, game_id, active_hole), :remote => :true%>
+<%= link_to 'Next Hit', hit_next_path(active_hit, form_id, game_id, active_hole, hit_type), :remote => :true%>
 <%=active_hit%>
-<%= link_to 'Previous Hit', hit_prev_path(active_hit, form_id, game_id, active_hole), :remote => :true%>
+<%= link_to 'Previous Hit', hit_prev_path(active_hit, form_id, game_id, active_hole, hit_type), :remote => :true%>

@@ -86,12 +86,7 @@ class GamesController < ApplicationController
     @active_hole = params[:active]
     @active_hole = @active_hole.to_i - 1
     @form = params[:form_id]
-    @hit = Hit.where(:game_id => @game.id, :hole_number => @active_hole, :hit_number => 1)
-     if defined?(@hit).nil? then 
-       @hit = self.new( params[:game_id => @game.id, :hole_number => @active_hole, :hit_number => 1])
-     end
-    
-    
+    #@hit = Hit.find_or_create_by_game_id_and_hole_number(@game.id, @active_hole)
     end
   
   
@@ -99,11 +94,8 @@ class GamesController < ApplicationController
     hole_filter
     @active_hole = params[:active].to_i + 1
     @form = params[:form_id]
-    @hit = Hit.where(:game_id => @game.id, :hole_number => @active_hole, :hit_number => 1)
-     if defined?(@hit).nil? then 
-       @hit = self.new( params[:game_id => @game.id, :hole_number => @active_hole, :hit_number => 1])
-     end
-  end
+    #@hit = Hit.find_or_create_by_game_id_and_hole_number(@game.id, @active_hole)
+    end
     
     
     def game_index
@@ -187,16 +179,23 @@ class GamesController < ApplicationController
   end
  
   def hit_next
+    @hit_type = params[:hit_type].to_str
     @active_hole = params[:active_hole]
     @game = Game.where(:id => params[:game_id])
     @form_id = params[:form_id].to_str
     @active_hit = params[:hit].to_i + 1
-    @hit = Hit.where(:game_id => @game.id, :hole_number => @active_hole, :hit_number => @active_hit)
-     if defined?(@hit).nil? then 
-       @hit = self.new( params[:game_id => @game.id, :hole_number => @active_hole, :hit_number => @active_hit])
-     end
+    #@hit = Hit.find_or_create_by_game_id_and_hole_number_and_hit_number_and_real_hit(@game.id, @active_hole, @active_hit, @hit_type)
+     #_and_hole_number_and_hit_number_and_real_hit
+     #, @active_hole, @active_hit, @hit_type
+     conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => @active_hit, 
+               :real_hit => @hit_type}
+     
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
   end
   def hit_prev
+    @hit_type = params[:hit_type]
     @active_hole = params[:active_hole]
     @game = Game.where(:id => params[:game_id])
     @form_id = params[:form_id].to_str
@@ -204,9 +203,6 @@ class GamesController < ApplicationController
     if @active_hit < 1
       @active_hit = @active_hit + 1
     end
-    @hit = Hit.where(:game_id => @game.id, :hole_number => @active_hole, :hit_number => @active_hit)
-     if defined?(@hit).nil? then 
-       @hit = self.new( params[:game_id => @game.id, :hole_number => @active_hole, :hit_number => @active_hit])
-     end
+    @hit = Hit.find_or_create_by_game_id_and_hole_number_and_hit_number_and_real_hit(@game.id, @active_hole, @active_hit, @hit_type)
   end
 end
