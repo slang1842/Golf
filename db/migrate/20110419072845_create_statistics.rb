@@ -4,6 +4,8 @@ class CreateStatistics < ActiveRecord::Migration
        t.references :user
        t.references :stick
        
+       # N = in all statistic meens No Value
+       
        t.string     :place_teebox
        t.string     :place_eairway
        t.string     :place_next_fairway
