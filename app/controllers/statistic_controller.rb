@@ -3,45 +3,40 @@ class StatisticController < ApplicationController
   
   
   def statistics
-  
-  
-  @users = User.all
-  @hits = PairHit.all
-  #@sticks = Stick.all
-  @new_statistic = Statistic.new
-
-  #each USER
-  @users.each do |user|
-    #@new_statistic.user_id = user.id
-    puts ""
-    puts ""
-    puts "user id: #{ user.id } "
-          
-      
-      #each STICK
-      user.users_sticks.each do |user_sticks|
-        #@new_statistic.stick_id = user_sticks.stick.id
-        puts " user stick id:  #{user_sticks.stick.id}"
-
+    @users = User.all
         
-          @hits2 = PairHit.where(:user_id => user.id)
-          #@hits()
-          # each HITS
-          @hits2.each do |hits|
-            puts "  hits id: #{ hits.id } "
-          
-          end
+    puts "======================"
+    
+    #users
+    @users.each do |user|
+      puts ""
+      puts "user id: #{user.id}"
+      puts "user name: #{user.first_name}"
+      puts ""
+      #users sticks
+      user.users_sticks.each do |user_stick|
+        puts " - user stick id: #{user_stick.id}"
+        puts " - user stick type: #{user_stick.stick.stick_type}"
+        puts ""
         
-      
-      
+        #pair hits
+        @pair_hits = PairHit.where(hit_planed = user_stick.stick.id)
+        
+        @pair_hits.each do |pair_hit|
+        
+        @hits_planed = user.hits.where(id = pair_hit.hit_planed)
+        @hits_real = user.hits.where(id = pair_hit.hit_real)
+        
+        
+        #meklet katru hit ar hit_planed un hit_real id un reikinat
+        
+        end
       end
+    end
+    
   end
   
   
   
   
-      
-   
-  end
-
 end
