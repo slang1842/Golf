@@ -1,4 +1,7 @@
-page['form'].submit ()
-page['#holes_tab'].html render(:partial => 'games/hole_tab', :locals => {:active_hole => @active_hole, :form_id => @form, :game_id => @game.id, :hit_type => @hit_type})
-page['#hits_tab'].html render (:partial => 'games/' + @form, :locals => {:active_hole => @active_hole, :game => @game, :hit => @hit})
+
+@count.each do |i|
+page['#form.i'].submit ()
+end
+page['#holes_tab'].html render(:partial => 'games/hole_tab', :locals => {:active_hole => @active_hole, :form_id => @form, :game_id => @game.id, :hit_type => @hit_type, :count => @count})
+page['#hits_tab'].html render (:partial => 'games/' + @form, :locals => {:active_hole => @active_hole, :game => @game, :hit => @hit, :id => @game.id})
 

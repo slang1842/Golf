@@ -3,9 +3,17 @@ class GamesController < ApplicationController
 
   
   def save
-    
+    @games = Game.where(:user_id => current_user.id)
+
+    respond_to do |format|
+      format.html
+      format.js 
+      format.xml  { render :xml => @games }
+    end
   end
+ 
   def index
+   
     @games = Game.where(:user_id => current_user.id)
 
     respond_to do |format|
@@ -86,6 +94,7 @@ class GamesController < ApplicationController
   
   def prev   
     hole_filter
+    @count = params[:count]
     @game = Game.find(params[:id])
     @hit_type = params[:hit_type]
     @active_hole = params[:active]
@@ -103,6 +112,7 @@ class GamesController < ApplicationController
   
   def next    
     hole_filter
+    @count = params[:count]
     @game = Game.find(params[:id])
     @hit_type = params[:hit_type]
     @active_hole = params[:active].to_i + 1
@@ -148,14 +158,30 @@ class GamesController < ApplicationController
   end
   def results
     hole_filter
+    @count = params[:count].to_i
+    @put = params[:puts].to_i
     @active_hole = params[:active]
     @game = Game.find(params[:id])
-    conditions = { :game_id => @game.id, 
+    @game_id = params[:id]
+    b = @count - @put
+    a = (1..b)
+    a.each do |i|
+     conditions = { :game_id => @game.id, 
                :hole_number => @active_hole,
-               :hit_number => 1, 
+               :hit_number => i, 
                :real_hit => 'r'}
-     
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     end
+     a = ((b+1)..@count)
+     a.each do |i|
+     conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => i, 
+               :real_hit => 'r',
+               :stick_type => 'PUTTER'}
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     end
+     @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r',:hit_number => 1..@count)     
      @hit_type = 'r'
     respond_to do |format|
       format.js
@@ -208,7 +234,12 @@ class GamesController < ApplicationController
       end
     @holes_filtered = @holes.where(:hole_number => hole_num)
   end
- 
+ def result_render
+   hole_filter
+   @active_hole = params[:active]
+   @game_id = params[:id]
+   end
+   
   def hit_next
     @hit_type = params[:hit_type].to_str
     @active_hole = params[:active_hole]
@@ -239,5 +270,21 @@ class GamesController < ApplicationController
                :real_hit => @hit_type}
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-  end
+     end
+   def preva
+     hole_filter
+     @game = Game.find(params[:id])
+     @game_id = params[:id]
+     @active_hole = params[:active]
+     @active_hole = @active_hole.to_i - 1
+     if @active_hole = 0
+       @active_hole = 1
+     end
+   end
+   def nexta
+     hole_filter
+     @game = Game.find(params[:id])
+     @game_id = params[:id]
+     @active_hole = params[:active].to_i + 1
+    end
 end

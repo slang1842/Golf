@@ -4,7 +4,9 @@ class CreateHits < ActiveRecord::Migration
       t.references :game
       t.references :user
       t.references :hole
-      #t.references :user_stick
+      t.references :stick 
+      t.references :users_stick
+      t.string :stick_type
       t.string :real_hit # r = real, p = planed, rp = real pair, pp = planed pair
       t.integer :hole_number
       #t.integer :user_stick_id
