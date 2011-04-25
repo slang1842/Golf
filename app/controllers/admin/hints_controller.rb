@@ -1,4 +1,5 @@
 class Admin::HintsController < ApplicationController
+  before_filter :require_super_admin
   layout "admin"
 
 

@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  USER_NAME, PASSWORD = "admin", "golfmaster"
+  before_filter :require_super_admin
 
   
   

@@ -8,7 +8,7 @@ Golf::Application.routes.draw do
   resources :users_sticks
   resources :hints
   resources :user_sessions
-  resource :admin
+ 
   
   resources  :statistics do
     resources :PairHit
@@ -74,6 +74,7 @@ Golf::Application.routes.draw do
     resources :sticks
     resources :users
     resources :hints
+    resources :countries
   end
   
   

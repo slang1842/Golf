@@ -1,8 +1,16 @@
 class Admin::SticksController < ApplicationController
-  
+  before_filter :require_super_admin
   layout "admin"
   
   def index
+    @sticks = Stick.find(:all)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @sticks }
+    end
+  end
+  
+  def show
     @sticks = Stick.find(:all)
     respond_to do |format|
       format.html # index.html.erb
