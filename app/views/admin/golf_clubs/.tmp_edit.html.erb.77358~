@@ -1,7 +1,7 @@
 <br />
 
+<h1>Golf club <%= @golf_club.name%></h1>
 
-<%= @golf_club.name%>
 
 
 <%= form_for [:admin, @golf_club] do |f| %>
@@ -53,11 +53,12 @@
     <%= f.label :start_place_by_level_high %>
      <%= @golf_club.start_place_by_level_high%>
   </div>
+   <%= f.label "Statuss:" %> <%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %>
   <div class="actions">
     <%= f.submit "Accept"%>
   </div>
   <br />
-  <%= link_to 'Decline', admin_golf_club_path %>
+  
 <% end %>
 
 <br />

@@ -4,15 +4,15 @@
   <tr>
     <th>Name</th>
     <th>Region</th>
-	 <th>GreenFee</th>
+	<th>Status</th>
 	 <th>To Do</th>
   </tr>
 
 <% @clubs.each do |club| %>
   <tr>
     <td><%= club.name %></td>
-	<td><%= club.green_fee %></td>
 	<td><%= club.city %></td>
+	<td><%= club.accepted %></td>
     <td><%= link_to 'Edit', edit_admin_golf_club_path(club.id) %></td>
   </tr>
 <% end %>

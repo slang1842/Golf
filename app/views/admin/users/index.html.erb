@@ -1,4 +1,4 @@
-<h1>Listing inactive golf clubs -> to accept , review it</h1>
+<h1>Listing Users</h1>
 
 <table>
   <tr>
@@ -13,7 +13,16 @@
     <td><%= user.first_name %></td>
 	<td><%= user.last_name %></td>
 	<td><%= user.email %></td>
-    <td><%= link_to 'Block', edit_admin_user_path(user.id) %></td>
+	<td>
+	<%= if user.is_blocked 
+        link_to 'Allow', edit_admin_user_path(user.id) 
+   	else 
+       link_to 'Block', edit_admin_user_path(user.id) 
+    end 
+	%>
+	</td>
+   
+	 
   </tr>
 <% end %>
 </table>

@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_filter :require_super_admin
   layout "admin"
 
 
@@ -16,10 +17,17 @@ class Admin::UsersController < ApplicationController
 
 
   
-  def update
+  def edit
+    logger.debug params[:id]
     @user = User.find(params[:id])
-    User.update (params[:id], {:accepted=>'1'} )
-    redirect_to(admin_golf_club_path, :notice => 'Golf club was successfully updated.')
+    
+    if @user.is_blocked
+      User.update(params[:id], {:is_blocked=>'0'} )
+    else
+      User.update(params[:id], {:is_blocked=>'1'} )
+    end
+    
+    redirect_to(admin_users_path, :notice => 'User updated.')
   end
   
 

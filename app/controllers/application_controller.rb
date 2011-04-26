@@ -41,6 +41,7 @@ class ApplicationController < ActionController::Base
     end
     
     def require_super_admin
+      logger.debug "ApplicationController::require_super_admin"
       if require_user
         unless current_user.is_super_admin
           #flash.now[:notice] = "You have no access this page"

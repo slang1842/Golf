@@ -1,11 +1,12 @@
 class Admin::GolfClubsController < ApplicationController
+  before_filter :require_super_admin
   layout "admin"
 
 
   
   def index
     
-    @clubs = GolfClub.find(:all, :conditions => "accepted = '0'")
+    @clubs = GolfClub.find(:all, :conditions => "accepted != 'yes'")
     
      respond_to do |format|
       format.html # index.html.erb
@@ -28,7 +29,7 @@ class Admin::GolfClubsController < ApplicationController
  def edit
    countries
     @golf_club = GolfClub.find(params[:id])
-    @country = Country.find(@golf_club.countries_id)
+    @country = Country.find(@golf_club.country_id)
    
   end
 
@@ -36,8 +37,8 @@ class Admin::GolfClubsController < ApplicationController
   
   def update
     @golf_club = GolfClub.find(params[:id])
-    GolfClub.update (params[:id], {:accepted=>'1'} )
-    redirect_to(admin_golf_club_path, :notice => 'Golf club was successfully updated.')
+    GolfClub.update (params[:id], {:accepted=>params[:status]} )
+    redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')
   end
   
 /
