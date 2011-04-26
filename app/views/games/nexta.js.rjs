@@ -1,0 +1,4 @@
+
+page['#holes_tab'].html render(:partial => 'games/hole_tab_start', :locals => {:active_hole => @active_hole, :game_id => @game.id})
+page['#hits_tab'].html render (:partial => 'games/m', :locals => {:game => @game, :active_hole => @active_hole})
+

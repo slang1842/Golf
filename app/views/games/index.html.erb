@@ -1,4 +1,4 @@
-<h1>Listing games</h1>
+<%= render :partial => 'share/header_menu' %>
 
 <table>
   <tr>
@@ -7,7 +7,7 @@
     <th></th>
   </tr>
 
-<% @games.each do |game| %>
+<% games.each do |game| %>
   <tr>
     <td><%= link_to 'Show', game %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>

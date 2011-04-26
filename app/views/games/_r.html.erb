@@ -1,6 +1,10 @@
-<div id="hit_slider">
-<%= render :partial => 'games/hit_slide_tab', :locals => {:active_hit => 1, :form_id => 'r_form', :game_id => @game.id, :active_hole => @active_hole, :hit_type => 'r'}%>
-</div>
+
 <div id="form">
-  <%= render :partial => 'games/p_form', :locals => {:active_hit => 1, :game => @game, :hole => @active_hole, :hit => @hit, :hit_type => 'r'}%>
+  <%= form_tag('/results', :method => 'post', :remote => true) do %>
+  Strokes : <%=text_field_tag :count%>
+  Puts : <%=text_field_tag :puts%>
+  <%= hidden_field_tag :id, id%>
+  <%= hidden_field_tag :active, active_hole%>
+  <%=submit_tag%>
+  <%end%>
 </div>

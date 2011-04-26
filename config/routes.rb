@@ -40,16 +40,20 @@ Golf::Application.routes.draw do
   #game
   #========================================================================
   match '/game_edit/:id' => "games#game_index", :as => 'game_edit' 
-  match '/prev/:active/:id/:form_id/:hit_type' => "games#prev", :as => 'hole_prev'
-  match '/next/:active/:id/:form_id/:hit_type' => "games#next", :as => 'hole_next'
+  match '/prev/:active/:id/:form_id/:hit_type/:count' => "games#prev", :as => 'hole_prev'
+  match '/next/:active/:id/:form_id/:hit_type/:count' => "games#next", :as => 'hole_next'
+  match '/preva/:active/:id' => "games#preva", :as => 'preva'
+  match '/nexta/:active/:id' => "games#nexta", :as => 'nexta'
   match '/details/:id/:active' => "games#details", :as => 'details'
   match '/plan/:id/:active' => "games#plan", :as => 'plan'
-  match '/results/:id/:active' => "games#results", :as => 'results'
+  match '/results' => 'games#results', :as => 'game_results'
   match '/hit_next/:hit/:form_id/:id/:active_hole/:hit_type' => "games#hit_next", :as => 'hit_next'
   match '/hit_prev/:hit/:form_id/:id/:active_hole/:hit_type' => "games#hit_prev", :as => 'hit_prev'
   match '/hits/:game_id' => "hits#index", :as => 'hits_index'
   match '/save_game' => 'games#save', :as => 'save_game'
+  match '/save_games/:count' => 'games#save_many', :as => 'save_games'
   match '/game_index' => 'games#index', :as => 'game_index'
+  match '/result_render/:id/:active'=> 'games#result_render', :as => 'results_render'
   #========================================================================
   #welcome
   root :to => "welcome#welcome",              :as => :welcome

@@ -1,3 +1,3 @@
 <%= link_to 'Game Plan', plan_path(game.id, active_hole), :remote => :true%>
-<%= link_to 'Game Results', results_path(game.id, active_hole), :remote => :true %>
+<%= link_to 'Game Results', results_render_path(game.id, active_hole), :remote => :true %>
 <%= link_to 'Results in Details', details_path(game.id, active_hole), :remote => :true%>

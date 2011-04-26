@@ -1,2 +1,2 @@
 page['form'].submit ()
-page[''].html render(:template => 'games/index')
+page['body'].html render(:template => 'games/index', :locals => {:games => @games})

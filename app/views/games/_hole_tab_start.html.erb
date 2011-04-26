@@ -7,9 +7,9 @@
     <%end%>
     <%=active_hole%> 
     <% if active_hole != @start_hole%>
-        <%#= link_to 'Previous', hole_prev_path(active_hole, @game.id, form_id, '' ), :remote => true %>
+        <%= link_to 'Previous', preva_path(active_hole, game_id), :remote => true %>
 <% end %>
 <% if active_hole != @end_hole%>
-        <%#= link_to 'Next', hole_next_path(active_hole, @game.id, form_id, ''), :remote => true %>
+        <%= link_to 'Next', nexta_path(active_hole, game_id), :remote => true %>
 <% end %>
     
