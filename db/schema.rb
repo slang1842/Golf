@@ -134,9 +134,10 @@ ActiveRecord::Schema.define(:version => 20110419125159) do
   end
 
   create_table "pair_hits", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "hit_planed"
-    t.integer  "hit_real"
+    t.integer  "hit_planed_id"
+    t.integer  "hit_real_id"
+    t.integer  "sticks_id"
+    t.integer  "users_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

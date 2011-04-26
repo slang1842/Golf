@@ -38,25 +38,10 @@ Stick.create (:stick_type => "WOODBOW",
               :shaft => "wood",
               :shaft_strength => "medium strong")
               
-Hit.create (:user_id => 1,
-            :real_hit => false,
-            :stance => "stavus",
-            :distance_to_hole => 180)
-              
-Hit.create (:user_id => 1,
-            :real_hit => true,
-            :stance => "stavus",
-            :distance_to_hole => 210)
-              
-PairHit.create (
-            #:pair_id => 1,
-            :user_id => 1,
-            :hit_planed => 1,
-            :hit_real => 2)              
-              
 Hit.create (:game_id => 1,
             :user_id => 1,
             :hole_id => 1,
+            :stick_id => 1,
             :real_hit => "pp",
             :hole_number => 1,
             :hit_number => 1,
@@ -74,6 +59,7 @@ Hit.create (:game_id => 1,
 Hit.create (:game_id => 1,
             :user_id => 1,
             :hole_id => 1,
+            :stick_id => 1,
             :real_hit => "rp",
             :hole_number => 1,
             :hit_number => 1,
@@ -90,9 +76,10 @@ Hit.create (:game_id => 1,
               
               
             
-Hit.create (:game_id => 3,
+Hit.create (:game_id => 2,
             :user_id => 2,
-            :hole_id => 1,
+            :hole_id => 2,
+            :stick_id => 2,
             :real_hit => "rp",
             :hole_number => 1,
             :hit_number => 2,
@@ -107,9 +94,10 @@ Hit.create (:game_id => 3,
             :motion_was => "top",
             :direction => "taisni")
 
-Hit.create (:game_id => 3,
+Hit.create (:game_id => 2,
             :user_id => 2,
-            :hole_id => 1,
+            :hole_id => 2,
+            :stick_id => 2,
             :real_hit => "pp",
             :hole_number => 1,
             :hit_number => 2,
@@ -124,7 +112,16 @@ Hit.create (:game_id => 3,
             :motion_was => "top",
             :direction => "taisni")
               
-              
+PairHit.create (:users_id => 1,
+                :hit_planed_id => 1,
+                :hit_real_id => 2,
+                :sticks_id => 1) 
+
+PairHit.create (:users_id => 2,
+                :hit_planed_id => 3,
+                :hit_real_id => 4,
+                :sticks_id => 2)             
+            
 GolfClub.create (:user_id => 1,
                  :name => "OZO",
                  :country_id => 1,

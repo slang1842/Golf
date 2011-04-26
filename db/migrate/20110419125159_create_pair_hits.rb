@@ -2,10 +2,10 @@ class CreatePairHits < ActiveRecord::Migration
   def self.up
     create_table :pair_hits do |t|
       #t.integer         :pair_id
-      t.references      :user
       t.references      :hit_planed
       t.references      :hit_real
-      
+      t.references      :sticks
+      t.references      :users
       t.timestamps
     end
   end

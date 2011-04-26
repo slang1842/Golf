@@ -3,64 +3,54 @@ class StatisticController < ApplicationController
   
   
   def statistics
-    @users = User.all
-        
+    @users = User.all    
+
     puts "======================"
     
-    #users
+    # user
     @users.each do |user|
-      puts ""
-      puts "user id: #{user.id}"
-      puts "user name: #{user.first_name}"
-      puts ""
-      /
-      #users sticks
+      puts "* user: #{ user.email } "
+        
+        # user stick
         user.users_sticks.each do |user_stick|
-          puts " - user stick id: {user_stick.id}"
-          puts " - user stick type: {user_stick.stick.stick_type}"
-          puts ""
-          /
-          #pair hits
-          #@PH = PairHit.where(user_id = user.id)
+          puts "  - stick: #{ user_stick.stick.stick_type } "
+            
           
-          #@PH.each do |PH|
-          
-          #  @P = PH.hit_planed
-          #  @R = PH.hit_real
-          #  result = 0
-          #  how_many = 0
-          #end
+           x = PairHit.find(sticks_id = user_stick.id? && user_id = user.id?)
+           
+           puts "      PairHit.id = #{x.id}"
+           puts "      PairHit.sticks_id = #{x.sticks_id}"
+           puts "      PairHit.hit_planed_id = #{x.hit_planed.id}"
+           puts "      PairHit.hit_real_id = #{x.hit_real.id}"
           
           
-          #dabut visus parisus ar place_from = x (teebox, green)
-          #@get_place_from = Hit.get_place_from("Teebox")
           
-          @get_place_from = Hit.get_place_from("Teebox")
+            /
+            PairHit.find(sticks_id = user_stick.id).each do |x|
+              puts "        hit id: {x.id}"
+            end
           
-          @get_place_from.each do |x|
-            puts x.hit_distance
+          
           end
+          / 
+           
+          / 
+          if @pair_hits != nil
+            @pair_hits.each do |pair_hit|
+              puts "     pair hit id: { pair_hit.id }"
+            end
+          end
+          /
+        end # user stick
         
-        puts ""
-        puts "----------------------"
-        
-        
-        
-          
-          #@place_teebox = calculate_current_statistics(P, R)
-          
-        
-        end
-        
-        
-        #statisticas reikinasana
-        #calculate_current_statistics
-        
-        #meklet katru hit ar hit_planed un hit_real id un reikinat
-        
-        
-      
-    end
+    puts ""
+    
+    end # user
+    
+    puts ""
+    puts ""
+    puts "======================"
+  end
     
 
-  end
+end
