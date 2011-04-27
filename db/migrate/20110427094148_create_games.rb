@@ -12,6 +12,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :game_type
       t.integer :start_place_colors
       t.timestamps
+      t.timestamps
     end
   end
 
