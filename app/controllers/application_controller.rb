@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :require_no_super_admin, :only => :current_user
   
   private
-    
-    
     def is_blocked
       if current_user.is_blocked
         redirect_to logout_path
