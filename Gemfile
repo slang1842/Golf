@@ -6,7 +6,7 @@ gem 'rails', '3.0.5'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem "authlogic"
+gem "authlogic",   "2.1.6"
 gem "rails3-generators"
 gem "jquery-rails", "~>0.2"
 gem "mysql", :require => "mysql", :group => [:development, :test]

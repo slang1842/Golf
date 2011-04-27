@@ -2,7 +2,7 @@ class Statistic < ActiveRecord::Base
   has_many  :users
   has_many  :hits
   
-  scope :get_place_from, lambda { |place| where('place_from = ?', place) }
+  #scope :get_place_from, lambda { |place| where('place_from = ?', place) }
   
   def calculate_current_statistics(P, R) # P = planed, R = Real
     if P = 0

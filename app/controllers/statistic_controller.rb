@@ -9,38 +9,21 @@ class StatisticController < ApplicationController
     
     # user
     @users.each do |user|
-      puts "* user: #{ user.email } "
+      puts "* user: #{ user.email } (id: )  "
         
         # user stick
         user.users_sticks.each do |user_stick|
-          puts "  - stick: #{ user_stick.stick.stick_type } "
-            
+          puts "  - stick: #{ user_stick.stick.stick_type } (id: #{user_stick.stick.id}) "
           
-           x = PairHit.find(sticks_id = user_stick.id? && user_id = user.id?)
-           
-           puts "      PairHit.id = #{x.id}"
-           puts "      PairHit.sticks_id = #{x.sticks_id}"
-           puts "      PairHit.hit_planed_id = #{x.hit_planed.id}"
-           puts "      PairHit.hit_real_id = #{x.hit_real.id}"
+          #@PairHits = user_stick.pair_hit
+          @PairHits = user_stick.pair_hits.all
           
           
-          
-            /
-            PairHit.find(sticks_id = user_stick.id).each do |x|
-              puts "        hit id: {x.id}"
-            end
-          
-          
+          @PairHits.each do |pair_hit|
+          #puts "      pair hit id: #{ pair_hit.id }"
           end
-          / 
-           
-          / 
-          if @pair_hits != nil
-            @pair_hits.each do |pair_hit|
-              puts "     pair hit id: { pair_hit.id }"
-            end
-          end
-          /
+
+
         end # user stick
         
     puts ""

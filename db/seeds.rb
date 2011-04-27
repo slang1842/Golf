@@ -115,12 +115,12 @@ Hit.create (:game_id => 2,
 PairHit.create (:users_id => 1,
                 :hit_planed_id => 1,
                 :hit_real_id => 2,
-                :sticks_id => 1) 
+                :users_stick_id => 1) 
 
 PairHit.create (:users_id => 2,
                 :hit_planed_id => 3,
                 :hit_real_id => 4,
-                :sticks_id => 2)             
+                :users_stick_id => 2)             
             
 GolfClub.create (:user_id => 1,
                  :name => "OZO",

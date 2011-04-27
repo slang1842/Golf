@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(:version => 20110419125159) do
   create_table "pair_hits", :force => true do |t|
     t.integer  "hit_planed_id"
     t.integer  "hit_real_id"
-    t.integer  "sticks_id"
+    t.integer  "users_stick_id"
     t.integer  "users_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -231,6 +231,7 @@ ActiveRecord::Schema.define(:version => 20110419125159) do
   create_table "users_sticks", :force => true do |t|
     t.integer  "user_id"
     t.integer  "stick_id"
+    t.integer  "pair_hit_id"
     t.string   "distance",       :null => false
     t.string   "degrees",        :null => false
     t.string   "shaft",          :null => false
