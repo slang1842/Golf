@@ -15,8 +15,9 @@
         <%= f.label :field %>
         
         <%= f.collection_select( :field_id,  Field.all, :id, :name, :prompt => "Select Field" ) %>
-        <%= link_to "New field", new_golf_club_field_path %>
-        <br />
+        <% if current_user.admin %>
+         <%= link_to "New field", new_golf_club_field_path %>
+         <%  end  %>
         <%= f.label :green_quality %>
         <%= f.select( :green_quality, GREEN_QUALITY, :prompt => "Select") %>
         <br />

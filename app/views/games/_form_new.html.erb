@@ -15,9 +15,9 @@
         <%= f.label :field %>
         
         <%= f.collection_select( :field_id,  Field.all, :id, :name, :prompt => "Select Field" ) %>
-        <% if current_user is_admin %>
+        <% if current_user.admin %>
          <%= link_to "New field", new_golf_club_field_path %>
-         <% end %>
+         <%  end  %>
         <br />
         
         <%= f.label :game_format %>
