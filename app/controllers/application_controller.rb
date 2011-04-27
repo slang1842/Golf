@@ -5,21 +5,16 @@ class ApplicationController < ActionController::Base
   before_filter :require_no_super_admin, :only => :current_user
   
   private
-    def is_club_admin
-      if current_user.golf_club != nill && current_user.admin
-        return true
-      else
-        return false
-      end
-    end
+    
     
     def is_blocked
       if current_user.is_blocked
         redirect_to logout_path
         flash.now[:notice] = "Your account has been blocked."
         return true
-      end
+      else
       return false
+      end
     end
     
     def store_location
