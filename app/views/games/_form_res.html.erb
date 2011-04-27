@@ -10,12 +10,14 @@
       </ul>
     </div>
   <% end %>
+        
         <%= f.hidden_field :user_id, :value => current_user.id%>
         <%= f.label :field %>
         
-        <%= f.collection_select( :field_id, Field.all, :id, :name, :prompt => "Select Field" ) %>
-        <%= link_to "New field", new_golf_club_field_path %>
-        <br />
+        <%= f.collection_select( :field_id,  Field.all, :id, :name, :prompt => "Select Field" ) %>
+        <% if current_user.admin %>
+         <%= link_to "New field", new_golf_club_field_path %>
+         <%  end  %>
         <%= f.label :green_quality %>
         <%= f.select( :green_quality, GREEN_QUALITY, :prompt => "Select") %>
         <br />
@@ -40,6 +42,6 @@
         <%= f.label :start_place_colors %>
         <%= f.select( :start_place_colors, START_PLACE_COLORS, :prompt => "Select") %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit('res') %>
   </div>
 <% end %>

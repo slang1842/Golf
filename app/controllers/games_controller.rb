@@ -34,7 +34,7 @@ class GamesController < ApplicationController
   def new
     @user = current_user
     @game = Game.new
-
+    @form_type = params[:form_type]
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @game }
@@ -50,10 +50,10 @@ class GamesController < ApplicationController
   
   def create
     @game = Game.new(params[:game])
-
+    @form_type = params[:form_type]
     respond_to do |format|
       if @game.save
-        format.html { redirect_to(game_edit_path(@game.id), :notice => 'Game was successfully created.') }
+        format.html { redirect_to(game_edit_path(@game.id, params[:commit]), :notice => 'Game was successfully created.') }
         format.xml  { render :xml => @game, :status => :created, :location => @game }
       else
         format.html { render :action => "new" }
@@ -150,11 +150,14 @@ class GamesController < ApplicationController
         @end_hole = 18   
       end
     @holes_filtered = @holes.where(:hole_number => hole_num)
-    
+    @form_type = params[:form_type]
+   if @form_type == 'new'
+     redirect_to plan_path(@game.id,@active_hole), :remote => :true
+   else
  respond_to do |format|
       format.html 
     end
-
+    end
   end
   def results
     hole_filter
@@ -199,9 +202,10 @@ class GamesController < ApplicationController
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
      @hit_type = 'p'
+     
     respond_to do |format|
       format.js
-      format.html
+      format.html  
     end
   end
   def details
