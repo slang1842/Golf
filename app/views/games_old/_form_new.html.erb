@@ -18,18 +18,8 @@
         <% if current_user.admin %>
          <%= link_to "New field", new_golf_club_field_path %>
          <%  end  %>
-        <%= f.label :green_quality %>
-        <%= f.select( :green_quality, GREEN_QUALITY, :prompt => "Select") %>
         <br />
-        <%= f.label :field_quality %>
-        <%= f.select( :field_quality, FIELD_QUALITY, :prompt => "Select") %>
-        <br />
-        <%= f.label :temperature %>
-        <%= f.select( :temperature, (-20..40), :prompt => "Select") %> <%= f.label(current_user.temp_preference, TEMPERATURE) %>
-        <br />
-        <%= f.label :weather %>
-        <%= f.select( :weather, WEATHER, :prompt => "Select") %> 
-        <br />
+        
         <%= f.label :game_format %>
         <%= f.select( :game_format, GAME_FORMAT, :prompt => "Select") %> 
         <br />
@@ -42,6 +32,6 @@
         <%= f.label :start_place_colors %>
         <%= f.select( :start_place_colors, START_PLACE_COLORS, :prompt => "Select") %>
   <div class="actions">
-    <%= f.submit('res') %>
+    <%= f.submit('new') %>
   </div>
 <% end %>
