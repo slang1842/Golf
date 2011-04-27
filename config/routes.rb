@@ -39,7 +39,7 @@ Golf::Application.routes.draw do
   match '/statistics/' => "statistics#index", :as => "statistics"
   #game
   #========================================================================
-  match '/game_edit/:id' => "games#game_index", :as => 'game_edit' 
+  match '/game_edit/:id/:form_type' => "games#game_index", :as => 'game_edit' 
   match '/prev/:active/:id/:form_id/:hit_type/:count' => "games#prev", :as => 'hole_prev'
   match '/next/:active/:id/:form_id/:hit_type/:count' => "games#next", :as => 'hole_next'
   match '/preva/:active/:id' => "games#preva", :as => 'preva'
@@ -54,6 +54,7 @@ Golf::Application.routes.draw do
   match '/save_games/:count' => 'games#save_many', :as => 'save_games'
   match '/game_index' => 'games#index', :as => 'game_index'
   match '/result_render/:id/:active'=> 'games#result_render', :as => 'results_render'
+  match '/game_new/:form_type' => 'games#new', :as => 'new_game'
   #========================================================================
   #welcome
   root :to => "welcome#welcome",              :as => :welcome

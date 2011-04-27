@@ -4,8 +4,10 @@
 <%=form_for(hit, :remote => true) do |f|%>
 <%= f.hidden_field :game_id, :value => game.id %>
 <%= f.hidden_field :real_hit, :value => 'r' %>
-<%#= f.label :user_stick_id %>
-<%#= f.collection_select( :user_stick_id, Users_stick.where(:user_id => game.user_id), :stick_type, :prompt => "Select Stick" ) %> 
+<%= f.label :stick_type %>
+<%#= f.collection_select :stick_type, current_user.users_sticks.all, :sticks_stick_type,{ :prompt => "Select"}  %> 
+<%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type%>
+
 <%= f.label :hit_distance %>
 <%= f.text_field :hit_distance %> 
 <%= f.label :land_place %>
