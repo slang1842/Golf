@@ -104,7 +104,6 @@ class Statistic < ActiveRecord::Base
             #direction ===================================================
              
             #temperature ==================================================
-            #temperature = pair_hit.hit_planed.game.temperature
             temperature = Game.find(pair_hit.hit_planed.game_id).temperature
             
             if temperature == "Cold"
@@ -117,6 +116,22 @@ class Statistic < ActiveRecord::Base
               puts "          - N"
             end
             #temperature ===================================================
+            
+             #weather ==================================================
+            weather = Game.find(pair_hit.hit_planed.game_id).weather
+            
+            if weather == "Normal"
+              puts "          - Normal"
+            elsif weather == "Wind"
+              puts "          - Wind"
+            elsif weather == "Rain"
+              puts "          - Rain"
+            elsif weather == "Wind and Rain"
+              puts "          - Wind and Rain"
+            else
+              puts "          - N"
+            end
+            #weather ===================================================
              
              
              

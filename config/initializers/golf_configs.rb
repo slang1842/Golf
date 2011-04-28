@@ -13,8 +13,8 @@ TEMPERATURE = { "Celsium" => "celsium", "Fahrenheit" => "fahrenheit"}
 START_PLACE_COLORS = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4 }
 GREEN_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 FIELD_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
-WEATHER = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
+WEATHER = { "Normal" => 1, "Wind" => 2, "Rain" =>3, "Wind and Rain" => 4}
 GAME_FORMAT = { "Training" => "t", "DM" => "d", "Tournament" => "tn"}
 GAME_TYPE = { "1-9" => 1, "10-18" => 2, "1-18" => 3}
 PLANNED_LAND_PLACES = { "Fairway" => 1, "Green" => 2, "Hole" => 3}
-STATISTICS_TEMPERATURE ["Hot" => 1,"Normal" => 2,"Cold" => 3]
+STATISTICS_TEMPERATURE = {"Hot" => 1,"Normal" => 2,"Cold" => 3}
