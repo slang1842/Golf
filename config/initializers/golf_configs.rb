@@ -17,3 +17,4 @@ WEATHER = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 GAME_FORMAT = { "Training" => "t", "DM" => "d", "Tournament" => "tn"}
 GAME_TYPE = { "1-9" => 1, "10-18" => 2, "1-18" => 3}
 PLANNED_LAND_PLACES = { "Fairway" => 1, "Green" => 2, "Hole" => 3}
+STATISTICS_PLACE_FROM = ["Teebox", "feairway", "Next fairway", "Semi raf", "Raf", "For green", "Green", "Fairway sand", "Green sand", "Wood", "From water"]

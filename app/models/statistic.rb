@@ -23,7 +23,7 @@ class Statistic < ActiveRecord::Base
     
     # user
     @users.each do |user|
-      puts "* user: #{ user.email } (id: )  "
+      puts "* user: #{ user.email } (id: #{user.id} )  "
         
         # user stick
         user.users_sticks.each do |user_stick|
@@ -38,19 +38,21 @@ class Statistic < ActiveRecord::Base
             
             
             #place
-            @place_from = pair_hit.hit_planed.place_from
+            place_from = pair_hit.hit_planed.place_from
             
-            
-              if @place_from != nil
-                PLACE_FROM_VALUES.each do |p_f|
-                if @place_from = p_f
-                  puts "       --- #{@place_from} "
+            if place_from == nil
+               puts "          - N"
+              else
+                STATISTICS_PLACE_FROM.each do |p_f|
                   
-                else
-                  @place_from = "       --- N"
+                  #puts p_f
+                  if place_from == p_f
+                    puts "          - #{place_from} "
+                  end
                 end
               end
-            end
+           puts ""
+           
             /
             if @place_from == "teebox"
               puts "        --- teebox"
