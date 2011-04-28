@@ -1,0 +1,3 @@
+page['form'].submit ()
+page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {})
+page['#hit_edit_tab'].html render(:partial => 'games/' + @form_id, :locals => {})

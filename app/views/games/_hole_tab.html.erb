@@ -1,14 +1,14 @@
-<% @holes_filtered.each do |f|%>
-<%  if f.hole_number == @active_hole %>
+<% holes_filtered.each do |f|%>
+<%  if f.hole_number == active_hole %>
     <b><%= f.hole_number %></b>
     <% else %>
     <%= f.hole_number %> 
     <% end %>
     <%end%>
     <%=active_hole%> 
-    <% if active_hole != @start_hole%>
+    <% if active_hole != start_hole%>
         <%= link_to 'Previous', hole_switch_path( game_id, active_hole, 'prev', form_id), :remote => true %>
 <% end %>
-<% if active_hole != @end_hole%>
+<% if active_hole != end_hole%>
         <%= link_to 'Next', hole_switch_path( game_id, active_hole, 'next', form_id), :remote => true %>
 <% end %>

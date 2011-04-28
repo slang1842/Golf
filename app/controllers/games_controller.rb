@@ -34,16 +34,11 @@ class GamesController < ApplicationController
   end
 
    def create
+      
     @game = Game.new(params[:game])
-
-    respond_to do |format|
-      if @game.save
-        format.html { render '/games/hit_edit', :locals => {:game => @game, :active_hole => 1, :active_hit => 1, :form_id => params[:commit]} }        
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @game.errors, :status => :unprocessable_entity }
-      end
-    end
+    @game.save
+    @path = '/game_' + params[:commit].to_s + '/' + @game.id.to_s + '/1'
+     redirect_to @path
   end
 
  
@@ -117,5 +112,59 @@ class GamesController < ApplicationController
       @active_hit = @active_hit - 1
     end
     
+    end
+    def plan
+    game_holes    
+    @active_hole = params[:active_hole]
+    conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => 1, 
+               :real_hit => 'p'}
+     
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     @hit_type = 'p'
+     @form_id = 'plan'
+      respond_to do |format|
+        format.js
+        render '/games/hit_edit'
+      end
+    end
+    
+    def res
+      game_holes    
+      @active_hole = params[:active_hole]
+      render '/games/res_menu', :locals => {:game_id => params[:game_id], :active_hole => 1}
+    end
+    
+    def results
+      game_holes
+      @active_hole = params[:active_hole]
+      conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => 1, 
+               :real_hit => 'r'}
+     
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     @hit_type = 'r'
+      respond_to do |format|
+        format.js
+        render '/games/hit_edit'
+      end
+    end
+    def details
+      game_holes
+      @active_hole = params[:active_hole]
+   
+    conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => 1, 
+               :real_hit => 'r'}
+     
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     @hit_type = 'r'
+      respond_to do |format|
+        format.js
+        render '/games/hit_edit'
+      end
     end
 end
