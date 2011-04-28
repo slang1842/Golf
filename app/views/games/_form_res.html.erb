@@ -25,7 +25,7 @@
         <%= f.select( :field_quality, FIELD_QUALITY, :prompt => "Select") %>
         <br />
         <%= f.label :temperature %>
-        <%= f.select( :temperature, (-20..40), :prompt => "Select") %> <%= f.label(current_user.temp_preference, TEMPERATURE) %>
+        <%= f.select( :temperature, STATISTICS_TEMPERATURE, :prompt => "Select") %> 
         <br />
         <%= f.label :weather %>
         <%= f.select( :weather, WEATHER, :prompt => "Select") %> 
