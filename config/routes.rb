@@ -61,6 +61,10 @@ Golf::Application.routes.draw do
   #game
   match '/hole_switch/:game_id/:active_hole/:direction/:form_id' => 'games#hole_switch', :as => 'hole_switch'
   match '/game_new/:form_id' => 'games#new', :as => 'new_game'
+  match '/game_plan/:game_id/:active_hole' => 'games#plan', :as => 'plan'
+  match '/game_res/:game_id/:active_hole' => 'games#res', :as => 'res'
+  match '/game_results/:game_id/:active_hole' => 'games#results', :as => 'results'
+  match '/game_details/:game_id/:active_hole' => 'games#details', :as => 'details'
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
   match '/welcome' => "welcome#index",        :as => :loged_in
