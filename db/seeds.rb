@@ -130,8 +130,16 @@ GolfClub.create (:user_id => 1,
                  :web_page => "www.ozo.lv",
                  :accepted => "unknown",
                  :active => false)
-              
-              
+
+Game.create (:id => 1,
+             :field_quality => "field_quality",
+             :green_quality => "green_quality",
+             :temperature => "20")
+             
+Game.create (:id => 2,
+             :field_quality => "field_quality",
+             :green_quality => "green_quality",
+             :temperature => "15")
               
               
               

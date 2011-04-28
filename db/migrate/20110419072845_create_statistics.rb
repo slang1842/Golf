@@ -7,7 +7,7 @@ class CreateStatistics < ActiveRecord::Migration
        # N = in all statistic meens No Value
        
        t.string     :place_teebox
-       t.string     :place_eairway
+       t.string     :place_feairway
        t.string     :place_next_fairway
        t.string     :place_semi_raf
        t.string     :place_raf

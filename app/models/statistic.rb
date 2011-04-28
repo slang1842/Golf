@@ -23,7 +23,7 @@ class Statistic < ActiveRecord::Base
     
     # user
     @users.each do |user|
-      puts "* user: #{ user.email } (id: )  "
+      puts "* user: #{ user.email } (id: #{user.id} )  "
         
         # user stick
         user.users_sticks.each do |user_stick|
@@ -37,83 +37,91 @@ class Statistic < ActiveRecord::Base
             puts "        pair hit real hit id: #{ pair_hit.hit_real.id }"
             
             
-            #place
-            @place_from = pair_hit.hit_planed.place_from
+            #place ===================================================
+            place_from = pair_hit.hit_planed.place_from
             
-            
-              if @place_from != nil
-                PLACE_FROM_VALUES.each do |p_f|
-                if @place_from = p_f
-                  puts "       --- #{@place_from} "
-                  
-                else
-                  @place_from = "       --- N"
-                end
-              end
-            end
-            /
-            if @place_from == "teebox"
-              puts "        --- teebox"
-              
-            elsif @place_from == "eairway"
-              puts "        --- eairway"
-            elsif @place_from == "next fairway"
-              puts "        --- next fairway"
-            elsif @place_from == "semi raf"
-              puts "        --- semi raf"
-            elsif @place_from == "raf"
-              puts "        --- raf"
-            elsif @place_from == "for green"
-              puts "        --- for green"
-              
-            elsif @place_from == "green"
-              puts "        --- green"
-            elsif @place_from == "fairway sand"
-              puts "        --- fairway sand"
-            elsif @place_from == "green sand"
-              puts "        --- green sand"
-            elsif @place_from == "wood"
-              puts "        --- wood"
-            elsif @place_from == "from water"
-              puts "        --- from water"
+            if place_from == "Teebox"
+              puts "          - Teebox"
+            elsif place_from == "feairway"
+              puts "          - feairway"
+            elsif place_from == "Next fairway"
+              puts "          - Next fairway"
+            elsif place_from == "Semi raf"
+              puts "          - Semi raf"
+            elsif place_from == "Raf"
+              puts "          - Raf"
+            elsif place_from == "For green"
+              puts "          - For green"
+            elsif place_from == "Green"
+              puts "          - Green"
+            elsif place_from == "Fairway sand"
+              puts "          - Fairway sand"
+            elsif place_from == "Green sand"
+              puts "          - Green sand"
+            elsif place_from == "Wood"
+              puts "          - Wood"
+            elsif place_from == "From water"
+              puts "          - From water"
             else
-              puts "        --- N"
+              puts "          - N"
             end
+            #place ===================================================
+             
+            #stance ===================================================
+            stance = pair_hit.hit_planed.stance
             
-            
-            @place_from = case pair_hit.hit_planed.place_from
-              when "teebox" then 
-              when "eairway" then
-              when "next fairway" then 
-              when "semi raf" then 
-              when "raf" then 
-              when "for green" then 
-              when "green" then 
-              when "fairway sand" then 
-              when "green sand" then 
-              when "wood" then 
-              when "from water" then 
+            if stance == "Normal"
+              puts "          - Normal"
+            elsif stance == "Right leg lower"
+              puts "          - Right leg lower"
+            elsif stance == "Left leg lower"
+              puts "          - Left leg lower"
+            elsif stance == "Ball lower"
+              puts "          - Ball lower"
+            elsif stance == "Ball higher"
+              puts "          - Ball higher"
+            else
+              puts "          - N"
             end
-            /
+            #place ===================================================
+             
+            #direction ==================================================
+            direction = pair_hit.hit_planed.direction
             
+            if direction == "Straigth"
+              puts "          - Straigth"
+            elsif direction == "Fade"
+              puts "          - Fade"
+            elsif direction == "Drow"
+              puts "          - Drow"
+            elsif direction == "Slice"
+              puts "          - Slice"
+            elsif direction == "Hook"
+              puts "          - Hook"
+            else
+              puts "          - N"
+            end
+            #direction ===================================================
+             
+            #temperature ==================================================
+            #temperature = pair_hit.hit_planed.game.temperature
+            temperature = Game.find(pair_hit.hit_planed.game_id).temperature
             
-            #statistic ===================================================
-           
-            /
-            @place_eairway = calculate_current_statistics(pair_hit.hit_planed.hit_distance.where(place_from = "eairway"), pair_hit.hit_real.hit_distance.where(place_from = "eairway"))
-            @place_next_fairway = calculate_current_statistics(pair_hit.hit_planed.hit_distance.where(place_from = "next fairway"), pair_hit.hit_real.hit_distance.where(place_from = "next fairway"))
-            @place_semi_raf = calculate_current_statistics(pair_hit.hit_planed.hit_distance.where(place_from = "semi raf"), pair_hit.hit_real.hit_distance.where(place_from = "semi raf"))
-            @place_raf = calculate_current_statistics(pair_hit.hit_planed.hit_distance.where(place_from = "raf"), pair_hit.hit_real.hit_distance.where(place_from = "raf"))
-            @place_for_green = calculate_current_statistics(pair_hit.hit_planed.hit_distance.where(place_from = "for green"), pair_hit.hit_real.hit_distance.where(place_from = "for green"))
-            @place_green = calculate_current_statistics(pair_hit.hit_planed.hit_distance.where(place_from = "green"), pair_hit.hit_real.hit_distance.where(place_from = "green"))
-            @place_fairway_sand = calculate_current_statistics(pair_hit.hit_planed.hit_distance.where(place_from = "fairway sand"), pair_hit.hit_real.hit_distance.where(place_from = "fairway sand"))
-            @place_green_sand = calculate_current_statistics(pair_hit.hit_planed.hit_distance.where(place_from = "green sand"), pair_hit.hit_real.hit_distance.where(place_from = "green sand"))
-            @place_wood = calculate_current_statistics(pair_hit.hit_planed.hit_distance.where(place_from = "wood"), pair_hit.hit_real.hit_distance.where(place_from = "wood"))
-            @place_from_water = calculate_current_statistics(pair_hit.hit_planed.hit_distance.where(place_from = "from water"), pair_hit.hit_real.hit_distance.where(place_from = "from water"))
-            /
-            #statistic ===================================================
-            
-            
+            if temperature == "Cold"
+              puts "          - Cold"
+            elsif temperature == "Normal"
+              puts "          - Normal"
+            elsif temperature == "Hot"
+              puts "          - Hot"
+            else
+              puts "          - N"
+            end
+            #temperature ===================================================
+             
+             
+             
+             
+                      
           end
 
         end # user stick

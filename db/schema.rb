@@ -146,7 +146,7 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "user_id"
     t.integer  "stick_id"
     t.string   "place_teebox"
-    t.string   "place_eairway"
+    t.string   "place_feairway"
     t.string   "place_next_fairway"
     t.string   "place_semi_raf"
     t.string   "place_raf"
