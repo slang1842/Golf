@@ -172,7 +172,7 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.string   "weather_normal"
     t.string   "weather_wind"
     t.string   "weather_rain"
-    t.string   "weather_rain_and_wind"
+    t.string   "weather_wind_and_rain"
     t.string   "trajectory_normal"
     t.string   "trajectory_high"
     t.string   "trajectory_low"

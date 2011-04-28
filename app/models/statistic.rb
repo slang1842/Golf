@@ -40,27 +40,27 @@ class Statistic < ActiveRecord::Base
             #place ===================================================
             place_from = pair_hit.hit_planed.place_from
             
-            if place_from == "Teebox"
+            if place_from == 1
               puts "          - Teebox"
-            elsif place_from == "feairway"
+            elsif place_from == 2
               puts "          - feairway"
-            elsif place_from == "Next fairway"
+            elsif place_from == 3
               puts "          - Next fairway"
-            elsif place_from == "Semi raf"
+            elsif place_from == 4
               puts "          - Semi raf"
-            elsif place_from == "Raf"
+            elsif place_from == 5
               puts "          - Raf"
-            elsif place_from == "For green"
+            elsif place_from == 6
               puts "          - For green"
-            elsif place_from == "Green"
+            elsif place_from == 7
               puts "          - Green"
-            elsif place_from == "Fairway sand"
+            elsif place_from == 8
               puts "          - Fairway sand"
-            elsif place_from == "Green sand"
+            elsif place_from == 9
               puts "          - Green sand"
-            elsif place_from == "Wood"
+            elsif place_from == 10
               puts "          - Wood"
-            elsif place_from == "From water"
+            elsif place_from == 11
               puts "          - From water"
             else
               puts "          - N"
@@ -70,15 +70,15 @@ class Statistic < ActiveRecord::Base
             #stance ===================================================
             stance = pair_hit.hit_planed.stance
             
-            if stance == "Normal"
+            if stance == 1
               puts "          - Normal"
-            elsif stance == "Right leg lower"
+            elsif stance == 2
               puts "          - Right leg lower"
-            elsif stance == "Left leg lower"
+            elsif stance == 3
               puts "          - Left leg lower"
-            elsif stance == "Ball lower"
+            elsif stance == 4
               puts "          - Ball lower"
-            elsif stance == "Ball higher"
+            elsif stance == 
               puts "          - Ball higher"
             else
               puts "          - N"
@@ -88,15 +88,15 @@ class Statistic < ActiveRecord::Base
             #direction ==================================================
             direction = pair_hit.hit_planed.direction
             
-            if direction == "Straigth"
+            if direction == 1
               puts "          - Straigth"
-            elsif direction == "Fade"
+            elsif direction == 2
               puts "          - Fade"
-            elsif direction == "Drow"
+            elsif direction == 3
               puts "          - Drow"
-            elsif direction == "Slice"
+            elsif direction == 4
               puts "          - Slice"
-            elsif direction == "Hook"
+            elsif direction == 5
               puts "          - Hook"
             else
               puts "          - N"
@@ -106,11 +106,11 @@ class Statistic < ActiveRecord::Base
             #temperature ==================================================
             temperature = Game.find(pair_hit.hit_planed.game_id).temperature
             
-            if temperature == "Cold"
+            if temperature == 3
               puts "          - Cold"
-            elsif temperature == "Normal"
+            elsif temperature == 2
               puts "          - Normal"
-            elsif temperature == "Hot"
+            elsif temperature == 1
               puts "          - Hot"
             else
               puts "          - N"
@@ -120,19 +120,32 @@ class Statistic < ActiveRecord::Base
              #weather ==================================================
             weather = Game.find(pair_hit.hit_planed.game_id).weather
             
-            if weather == "Normal"
+            if weather == 1
               puts "          - Normal"
-            elsif weather == "Wind"
+            elsif weather == 2
               puts "          - Wind"
-            elsif weather == "Rain"
+            elsif weather == 3
               puts "          - Rain"
-            elsif weather == "Wind and Rain"
+            elsif weather == 4
               puts "          - Wind and Rain"
             else
               puts "          - N"
             end
             #weather ===================================================
              
+             #trajectory ==================================================
+            trajectory = pair_hit.hit_planed.trajectory
+            
+            if trajectory == "Normal"
+              puts "          - Normal"
+            elsif trajectory == "High"
+              puts "          - High"
+            elsif trajectory == "Low"
+              puts "          - Low"
+            else
+              puts "          - N"
+            end
+            #trajectory ===================================================
              
              
              

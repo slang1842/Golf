@@ -43,6 +43,10 @@ class CreateStatistics < ActiveRecord::Migration
        t.string     :trajectory_high
        t.string     :trajectory_low
        
+       t.string     :wind_from_behind #From behind
+       t.string     :wind_from_front  #From front
+       t.string     :wind_from_left   #From left
+       t.string     :wind_from_right  #From right
       t.timestamps
     end
   end
