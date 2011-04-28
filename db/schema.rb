@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.string   "real_hit"
     t.integer  "hole_number"
     t.integer  "hit_number"
-    t.integer  "place_from"
+    t.string   "place_from"
     t.integer  "land_place"
     t.string   "stance"
     t.string   "trajectory"

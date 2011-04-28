@@ -12,7 +12,7 @@ class CreateHits < ActiveRecord::Migration
       #t.integer :user_stick_id
       #t.integer :hits
       t.integer :hit_number
-      t.integer :place_from # starta vieta
+      t.string :place_from # starta vieta
       t.integer :land_place # vieta kur trapija
       t.string :stance
       t.string :trajectory
@@ -20,7 +20,7 @@ class CreateHits < ActiveRecord::Migration
       t.boolean :luck_factor
       t.string :comment
       t.integer :following_action
-      t.integer :distance_to_hole #cik bija lidz distancei
+      t.integer :distance_to_hole #cik bija lidz bedritei
       t.integer :hit_distance
       t.integer :wind # from_back, from_front, from_left, from_right
       t.string :hit_was # under, miss, normal, top
