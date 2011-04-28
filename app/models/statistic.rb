@@ -78,7 +78,7 @@ class Statistic < ActiveRecord::Base
               puts "          - Left leg lower"
             elsif stance == 4
               puts "          - Ball lower"
-            elsif stance == 
+            elsif stance == 5
               puts "          - Ball higher"
             else
               puts "          - N"
@@ -136,11 +136,11 @@ class Statistic < ActiveRecord::Base
              #trajectory ==================================================
             trajectory = pair_hit.hit_planed.trajectory
             
-            if trajectory == "Normal"
+            if trajectory == 1
               puts "          - Normal"
-            elsif trajectory == "High"
+            elsif trajectory == 2
               puts "          - High"
-            elsif trajectory == "Low"
+            elsif trajectory == 3
               puts "          - Low"
             else
               puts "          - N"
