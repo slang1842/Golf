@@ -5,7 +5,7 @@
     <%= f.hole_number %> 
     <% end %>
     <%end%>
-    <%=active_hole%> 
+    
     <% if active_hole != start_hole%>
         <%= link_to 'Previous', hole_switch_path( game_id, active_hole, 'prev', form_id), :remote => true %>
 <% end %>

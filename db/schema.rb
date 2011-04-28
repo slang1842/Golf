@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
   create_table "games", :force => true do |t|
     t.string   "field_quality"
     t.string   "green_quality"
-    t.integer  "temperature"
-    t.integer  "weather"
+    t.string   "temperature"
+    t.string   "weather"
     t.time     "date"
     t.string   "game_format"
     t.integer  "user_id"
@@ -99,8 +99,8 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "hit_number"
     t.integer  "place_from"
     t.integer  "land_place"
-    t.integer  "stance"
-    t.integer  "trajectory"
+    t.string   "stance"
+    t.string   "trajectory"
     t.string   "put_or_hit"
     t.boolean  "luck_factor"
     t.string   "comment"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
   create_table "pair_hits", :force => true do |t|
     t.integer  "hit_planed_id"
     t.integer  "hit_real_id"
-    t.integer  "users_stick_id"
+    t.integer  "user_sticks_id"
     t.integer  "users_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -146,7 +146,7 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "user_id"
     t.integer  "stick_id"
     t.string   "place_teebox"
-    t.string   "place_feairway"
+    t.string   "place_eairway"
     t.string   "place_next_fairway"
     t.string   "place_semi_raf"
     t.string   "place_raf"
@@ -172,14 +172,10 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.string   "weather_normal"
     t.string   "weather_wind"
     t.string   "weather_rain"
-    t.string   "weather_wind_and_rain"
+    t.string   "weather_rain_and_wind"
     t.string   "trajectory_normal"
     t.string   "trajectory_high"
     t.string   "trajectory_low"
-    t.string   "wind_from_behind"
-    t.string   "wind_from_front"
-    t.string   "wind_from_left"
-    t.string   "wind_from_right"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -235,7 +231,6 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
   create_table "users_sticks", :force => true do |t|
     t.integer  "user_id"
     t.integer  "stick_id"
-    t.integer  "pair_hit_id"
     t.string   "distance",       :null => false
     t.string   "degrees",        :null => false
     t.string   "shaft",          :null => false

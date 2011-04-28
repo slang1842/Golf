@@ -1,0 +1,9 @@
+<div id="form">
+  <%= form_tag('/results', :method => 'post', :remote => true) do %>
+  Strokes : <%=text_field_tag :count%>
+  Puts : <%=text_field_tag :puts%>
+  <%= hidden_field_tag :id, id%>
+  <%= hidden_field_tag :active, active_hole%>
+  <%=submit_tag%>
+  <%end%>
+</div>

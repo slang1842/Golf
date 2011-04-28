@@ -1,0 +1,12 @@
+<div id="form">
+<%=form_for(game, :remote => true) do |f|%>
+<%=f.fields_for :hits each do |h| %>
+<%=h.label :user_stick_id %>
+<%=h.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 
+<%= h.label :hit_distance %>
+<%= h.text_field :hit_distance %> 
+<%= h.label :land_place %>
+<%= h.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
+<% end %> 
+
+</div>

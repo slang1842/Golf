@@ -1,0 +1,8 @@
+<% if active_hit != 1 %>
+<%= link_to 'Previous Hit', hit_switch_path(game_id, active_hole, 'prev', active_hit, form_id), :remote => :true%>
+<%=active_hit%>
+<%= link_to 'Next Hit', hit_switch_path(game_id, active_hole, 'next', active_hit, form_id), :remote => :true%>
+<% else %>
+<%=active_hit%>
+<%= link_to 'Next Hit', hit_switch_path(game_id, active_hole, 'next', active_hit, form_id), :remote => :true%>
+<% end %>

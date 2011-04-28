@@ -37,10 +37,11 @@ class GamesController < ApplicationController
       
     @game = Game.new(params[:game])
     @game.save
-    @path = '/game_' + params[:commit].to_s + '/' + @game.id.to_s + '/1'
+    
+    @path = '/game_' + params[:commit].to_s + '/' + @game.id.to_s + '/1' + '/1'
      redirect_to @path
-  end
-
+    
+end
  
   def update
     @game = Game.find(params[:id])
@@ -93,16 +94,21 @@ class GamesController < ApplicationController
   end
   def hole_switch
     game_holes
+    @direction = params[:direction].to_s
+    @active_hole = params[:active_hole].to_i
     @form_id = params[:form_id].to_s
-    if @direction == 'next' && @active_hole != @end_hole
-      @active_hole = @active_hole + 1
-    elsif  @direction == 'prev' && @active_hole != @start_hole
-      @active_hole = @active_hole - 1
-    end
-      
+    @form_id = params[:form_id].to_s
+     if @direction == 'next' && @active_hole != @end_hole
+        @active_hole = @active_hole + 1
+     elsif  @direction == 'prev' && @active_hole != @start_hole
+        @active_hole = @active_hole - 1
+     end
+    @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/' + '1'
+    redirect_to @path, :remote => :true
   end
   def hit_switch
     game_holes
+    @active_hole = params[:active_hole]
     @direction = params[:direction].to_s
     @form_id = params[:form_id].to_s
     @active_hit = params[:active_hit].to_i
@@ -112,21 +118,25 @@ class GamesController < ApplicationController
       @active_hit = @active_hit - 1
     end
     
+    @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/' + @active_hit.to_s
+    redirect_to @path, :remote => :true
     end
     def plan
-    game_holes    
-    @active_hole = params[:active_hole]
-    conditions = { :game_id => @game.id, 
+    game_holes
+      @active_hit = params[:active_hit].to_i
+      @active_hole = params[:active_hole].to_i
+      if @active_hole < @start_hole
+        @active_hole = @start_hole
+      end
+      conditions = { :game_id => @game.id, 
                :hole_number => @active_hole,
-               :hit_number => 1, 
+               :hit_number => @active_hit, 
                :real_hit => 'p'}
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-     @hit_type = 'p'
      @form_id = 'plan'
-      respond_to do |format|
-        format.js
-        render '/games/hit_edit'
+     if @active_hole == @start_hole && @active_hit == 1  
+      render '/games/hit_edit'
       end
     end
     
@@ -138,33 +148,38 @@ class GamesController < ApplicationController
     
     def results
       game_holes
-      @active_hole = params[:active_hole]
+      @active_hit = params[:active_hit].to_i
+      @active_hole = params[:active_hole].to_i
+      if @active_hole < @start_hole
+        @active_hole = @start_hole
+      end
       conditions = { :game_id => @game.id, 
                :hole_number => @active_hole,
-               :hit_number => 1, 
+               :hit_number => @active_hit, 
                :real_hit => 'r'}
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-     @hit_type = 'r'
-      respond_to do |format|
-        format.js
-        render '/games/hit_edit'
+     @form_id = 'results'
+     if @active_hole == @start_hole && @active_hit == 1  
+      render '/games/hit_edit'
       end
     end
     def details
       game_holes
       @active_hole = params[:active_hole]
-   
+      @active_hit = params[:active_hit]
     conditions = { :game_id => @game.id, 
                :hole_number => @active_hole,
-               :hit_number => 1, 
+               :hit_number => @active_hit, 
                :real_hit => 'r'}
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
      @hit_type = 'r'
-      respond_to do |format|
-        format.js
-        render '/games/hit_edit'
-      end
+     @form_id = 'details'
+      
+       
     end
+    def results_render
+    end
+    
 end
