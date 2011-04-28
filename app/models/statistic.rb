@@ -45,7 +45,6 @@ class Statistic < ActiveRecord::Base
               else
                 STATISTICS_PLACE_FROM.each do |p_f|
                   
-                  #puts p_f
                   if place_from == p_f
                     puts "          - #{place_from} "
                   end
