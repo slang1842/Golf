@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "wind"
     t.string   "hit_was"
     t.string   "motion_was"
-    t.string   "direction"
+    t.integer  "direction"
     t.string   "misdirection"
     t.integer  "pair_id"
     t.datetime "created_at"
