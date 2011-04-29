@@ -92,6 +92,7 @@ end
     @form_type = params[:form_type]
    
   end
+  
   def hole_switch
     game_holes
     @direction = params[:direction].to_s
@@ -103,9 +104,10 @@ end
      elsif  @direction == 'prev' && @active_hole != @start_hole
         @active_hole = @active_hole - 1
      end
-    @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/' + '1'
+    @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/1/0/0'
     redirect_to @path, :remote => :true
   end
+  
   def hit_switch
     game_holes
     @active_hole = params[:active_hole]
@@ -120,8 +122,9 @@ end
     
     @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/' + @active_hit.to_s
     redirect_to @path, :remote => :true
-    end
-    def plan
+   end
+    
+   def plan
     game_holes
       @active_hit = params[:active_hit].to_i
       @active_hole = params[:active_hole].to_i
@@ -131,7 +134,8 @@ end
       conditions = { :game_id => @game.id, 
                :hole_number => @active_hole,
                :hit_number => @active_hit, 
-               :real_hit => 'p'}
+               :real_hit => 'p',
+               :user_id => current_user.id}
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
      @form_id = 'plan'
@@ -150,20 +154,52 @@ end
       game_holes
       @active_hit = params[:active_hit].to_i
       @active_hole = params[:active_hole].to_i
+      @hitcount = params[:hits].to_i
+      if @hitcount == nil
+        @hitcount = 0
+      end
+      @puts = params[:puts].to_i
+       @form_id = 'results'
       if @active_hole < @start_hole
         @active_hole = @start_hole
       end
-      conditions = { :game_id => @game.id, 
+      
+      if @hitcount != 0
+        @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
+        @hits.each do |f|
+          f.destroy
+        end
+      b = @hitcount - @puts
+    a = (1..b)
+    a.each do |i|
+     conditions = { :game_id => @game.id, 
                :hole_number => @active_hole,
-               :hit_number => @active_hit, 
+               :hit_number => i, 
                :real_hit => 'r'}
-     
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-     @form_id = 'results'
-     if @active_hole == @start_hole && @active_hit == 1  
-      render '/games/hit_edit'
+     end
+     a = ((b+1)..@hitcount)
+     a.each do |i|
+     conditions = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => i, 
+               :real_hit => 'r',
+               :stick_type => 'PUTTER'}
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     end
+     @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r',:hit_number => 1..@hitcount)    
+    else
+      @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
+     
       end
+      if @active_hole == @start_hole 
+      render '/games/hit_edit_results'
+      end 
     end
+    
+    
+    
+    
     def details
       game_holes
       @active_hole = params[:active_hole]
@@ -171,19 +207,37 @@ end
                conditions1 = { :game_id => @game.id, 
                :hole_number => @active_hole,
                :hit_number => @active_hit, 
-               :real_hit => 'rp'}
+               :real_hit => 'rp',
+               :user_id => current_user.id}
                conditions2 = { :game_id => @game.id, 
                :hole_number => @active_hole,
                :hit_number => @active_hit, 
-               :real_hit => 'pp'}
+               :real_hit => 'pp',
+               :user_id => current_user.id}
      
      @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
      @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
+               conditions3 = { :hit_planed_id => @hit_planned.id,
+                               :hit_real_id => @hit_real.id}
+     @pair_hit = PairHit.find(:first, :conditions => conditions3) || PairHit.create(conditions3)
+     @hit_real.pair_id = @pair_hit.id
+     @hit_planned.pair_id = @pair_hit.id
      @form_id = 'details'
-      
-       
+     if @active_hole == @start_hole && @active_hit == 1  
+     render '/games/hit_edit_details'
+     end
     end
-    def results_render
+    
+    
+    def results_starter
+      @hits = params[:hits]
+      @puts = params[:puts]
+      if @hits == nil 
+        @path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/0/0'
+      else
+      @path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/' + @hits.to_s + '/'+ @puts.to_s
+      end   
+    redirect_to @path, :remote => :true
     end
     
 end
