@@ -54,7 +54,9 @@ Hit.create (:game_id => 1,
             :wind => 3,
             :hit_was => "under",
             :motion_was => "top",
-            :direction => 3)
+            :direction => 3,
+            :pair_id => 1)
+            
 
 Hit.create (:game_id => 1,
             :user_id => 1,
@@ -72,7 +74,8 @@ Hit.create (:game_id => 1,
             :wind => "From front",
             :hit_was => "under",
             :motion_was => "top",
-            :direction => 3)
+            :direction => 3,
+            :pair_id => 1)
               
               
             
@@ -92,7 +95,8 @@ Hit.create (:game_id => 2,
             :wind => "From behind",
             :hit_was => "under",
             :motion_was => "top",
-            :direction => 2)
+            :direction => 2,
+            :pair_id => 2)
 
 Hit.create (:game_id => 2,
             :user_id => 2,
@@ -110,7 +114,8 @@ Hit.create (:game_id => 2,
             :wind => 4,
             :hit_was => "under",
             :motion_was => "top",
-            :direction => 2)
+            :direction => 2,
+            :pair_id => 2)
               
 PairHit.create (:users_id => 1,
                 :hit_planed_id => 1,
