@@ -27,7 +27,11 @@ class Statistic < ActiveRecord::Base
         user.users_sticks.each do |user_stick|
           puts "  - stick: #{ user_stick.stick.stick_type } (id: #{user_stick.stick.id}) "
           
+          
           @PairHits = user_stick.pair_hits.all
+          
+          
+          
             @PairHits.each do |pair_hit|
               puts "      pair hit id: #{ pair_hit.id }"
             
@@ -46,6 +50,10 @@ class Statistic < ActiveRecord::Base
               puts "        pair hit planed hit id: #{ @HP.id }"
               puts "        pair hit real hit id: #{ @HR.id }"
             
+            puts " xxxx #{PairHit.count}"
+            
+            
+            
             
             
             #place ===================================================
@@ -53,54 +61,54 @@ class Statistic < ActiveRecord::Base
             if place_from == 1
               puts "          - Teebox"
               puts @HP.hit_distance
-              puts @HP.hit_distance
+              puts @HR.hit_distance
               
             elsif place_from == 2
               puts "          - feairway"
               puts @HP.hit_distance
-              puts @HP.hit_distance
+              puts @HR.hit_distance
               
             elsif place_from == 3
               puts "          - Next fairway"
               puts @HP.hit_distance
-              puts @HP.hit_distance
+              puts @HR.hit_distance
               
             elsif place_from == 4
               puts "          - Semi raf"
               puts @HP.hit_distance
-              puts @HP.hit_distance
+              puts @HR.hit_distance
               
             elsif place_from == 5
               puts "          - Raf"
               puts @HP.hit_distance
-              puts @HP.hit_distance
+              puts @HR.hit_distance
               
             elsif place_from == 6
               puts "          - For green"
               puts @HP.hit_distance
-              puts @HP.hit_distance
+              puts @HR.hit_distance
               
             elsif place_from == 7
               puts "          - Green"
               puts @HP.hit_distance
-              puts @HP.hit_distance
+              puts @HR.hit_distance
               
             elsif place_from == 8
               puts "          - Fairway sand"
               puts @HP.hit_distance
-              puts @HP.hit_distance
+              puts @HR.hit_distance
               
             elsif place_from == 9
               puts "          - Green sand"
               puts @HP.hit_distance
-              puts @HP.hit_distance
+              puts @HR.hit_distance
               
             elsif place_from == 10
               puts "          - Wood"
             elsif place_from == 11
               puts "          - From water"
               puts @HP.hit_distance
-              puts @HP.hit_distance
+              puts @HR.hit_distance
               
             else
               puts "          - N"
