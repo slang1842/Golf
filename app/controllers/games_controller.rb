@@ -168,13 +168,17 @@ end
       game_holes
       @active_hole = params[:active_hole]
       @active_hit = params[:active_hit]
-    conditions = { :game_id => @game.id, 
+               conditions1 = { :game_id => @game.id, 
                :hole_number => @active_hole,
                :hit_number => @active_hit, 
-               :real_hit => 'r'}
+               :real_hit => 'rp'}
+               conditions2 = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => @active_hit, 
+               :real_hit => 'pp'}
      
-     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-     @hit_type = 'r'
+     @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
+     @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
      @form_id = 'details'
       
        
