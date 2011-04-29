@@ -26,30 +26,34 @@ class Statistic < ActiveRecord::Base
       user.users_sticks.each do |user_stick|
       puts "  user stick id:#{user_stick.id}"
       
-      #-----------------------------
+      
       ph_count = PairHit.count
       
         # for i in 1..ph_count.to_i STARTS
         for i in 1..ph_count.to_i
-          puts "   i: #{i}"
+          #puts "   i: #{i}"
           
               #each pair hit starts
-              @get_pair_hit = Hit.where(:pair_id => i)
-
+              @get_pair_hit = Hit.where(:pair_id => i, :stick_id => user_stick.id)
               @get_pair_hit.each do |get_hit|
                 
                 puts "     get_pair_hit #{get_hit.id}"
+                #-----------------------------
                 
+                
+                
+                
+                
+                
+                
+                
+                
+                #-----------------------------
               #each pair hit ends
               end
           
         # for i in 1..ph_count.to_i ENDS
         end
-      
-      
-      
-      
-      #-----------------------------
       
       #user sticks ends
       end
