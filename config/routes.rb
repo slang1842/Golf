@@ -1,7 +1,7 @@
 Golf::Application.routes.draw do
   resources :games
 
-  resources :statistics
+  resources :statistic
   resources :hits
   resources :users_sticks
   resources :balls
@@ -11,6 +11,7 @@ Golf::Application.routes.draw do
   resources :hints
   resources :user_sessions
   resources :pair_hits
+  resources :user_stats
   
   resources  :statistics do
     resources :PairHit
