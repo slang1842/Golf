@@ -4,7 +4,7 @@ class Statistic < ActiveRecord::Base
   
   #scope :get_place_from, lambda { |place| where('place_from = ?', place) }
   
-  def calculate_current_statistics(p, r) # P = planed, R = Real
+  def self.calculate_current_statistics(p, r) # P = planed, R = Real
     if p == 0
       return "N"
     else
@@ -16,51 +16,67 @@ class Statistic < ActiveRecord::Base
   
   
   def self.calculate_statistics
-    @users = User.all
-    
-    #users starts
-    @users.each do |user|
-    puts " user id: #{user.id}"
-    
-      #user sticks starts
-      user.users_sticks.each do |user_stick|
-      puts "  user stick id:#{user_stick.id}"
-      
-      
-      ph_count = PairHit.count
-      
-        # for i in 1..ph_count.to_i STARTS
-        for i in 1..ph_count.to_i
-          #puts "   i: #{i}"
+   
+     
+  #==============================================
+  #==============================================
+  3.times { puts "============================================xx" }
+  @users = User.all 
+  @users.each do |user|
+    puts ""
+    puts "user_id #{user.id}"
+    puts ""
+    user.users_sticks.each do |user_stick|
+        puts " stick_id #{user_stick.id}"
+        
+        
+        # teebox ==========================================
+       
+        #global variables
+        @all_hits = Hit.where(:user_id => user.id, :stick_id => user_stick.id, :place_from => 1)
+       
+        #array of all results
+        @result_arr = []
+        
+        #count pairs
+        #for i in 1..@all_count / 2 do
+        #@PID = PairHit.where(:users_id => user.id, :users_stick.stick_id => user_stick.id)
+        @PID = user_stick.pair_hits.all
+        
+        @PID.each do |each_pair|
+        
+          #get current loop pair
+          #each_pair.each do |p|
           
-              #each pair hit starts
-              @get_pair_hit = Hit.where(:pair_id => i, :stick_id => user_stick.id)
-              @get_pair_hit.each do |get_hit|
-                
-                puts "     get_pair_hit #{get_hit.id}"
-                #-----------------------------
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                #-----------------------------
-              #each pair hit ends
-              end
+          puts "  planotais sitiena id: #{each_pair.hit_planed.id }"
+          puts "  reala sitiena id: #{each_pair.hit_real.id }"
           
-        # for i in 1..ph_count.to_i ENDS
+          /
+          
+            puts "   pair id: {p.id}"
+            
+            if p.real_hit == "rp"
+            @P = p
+            puts "    planotais pairhit id { @P.id }"
+            elsif p.real_hit == "pp"
+            @R = p
+            puts "    realais pairhit id { @R.id }"
+            end
+          /
+          end
+          puts "------"
         end
-      
-      #user sticks ends
-      end
-    
-    
-    #users ends
+        
+        
+        # teebox ==========================================
     end
-    
+      
   end
+  puts ""
+  
+  3.times { puts "============================================xx" }
+  #==============================================
+  #==============================================
+    
+  #end
 end
