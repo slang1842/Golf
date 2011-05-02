@@ -47,7 +47,7 @@ class Statistic < ActiveRecord::Base
         
           #get current loop pair
           #each_pair.each do |p|
-          
+          puts "  -----"
           puts "  planotais sitiena id: #{each_pair.hit_planed.id }"
           puts "  reala sitiena id: #{each_pair.hit_real.id }"
           
