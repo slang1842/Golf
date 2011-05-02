@@ -1,0 +1,9 @@
+<div id="form">
+  <%= form_tag('/results_starter', :method => 'post', :remote => true) do %>
+  Strokes : <%=text_field_tag :hits%>
+  Puts : <%=text_field_tag :puts%>
+  <%= hidden_field_tag :game_id, game_id%>
+  <%= hidden_field_tag :active_hole, active_hole%>
+  <%=submit_tag%>
+  <%end%>
+</div>

@@ -1,12 +1,14 @@
-<div id="form">
-<%=form_for(game, :remote => true) do |f|%>
-<%=f.fields_for :hits each do |h| %>
-<%=h.label :user_stick_id %>
-<%=h.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 
-<%= h.label :hit_distance %>
-<%= h.text_field :hit_distance %> 
-<%= h.label :land_place %>
-<%= h.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
+<% hits.each do |h|%>
+<div id="form" class"hit">
+<%=form_for(h, :remote => true) do |f|%>
+
+<%= f.label :user_stick_id %>
+<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 
+<%= f.label :hit_distance %>
+<%= f.text_field :hit_distance %> 
+<%= f.label :land_place %>
+<%= f.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
 <% end %> 
 
 </div>
+<% end %>

@@ -1,7 +1,7 @@
 Golf::Application.routes.draw do
   resources :games
 
-  resources :statistics
+  resources :statistic
   resources :hits
   resources :users_sticks
   resources :balls
@@ -10,7 +10,8 @@ Golf::Application.routes.draw do
   resources :users_sticks
   resources :hints
   resources :user_sessions
- 
+  resources :pair_hits
+  resources :user_stats
   
   resources  :statistics do
     resources :PairHit
@@ -59,14 +60,16 @@ Golf::Application.routes.draw do
   # match '/game_new/:form_type' => 'games#new', :as => 'new_game'
   # #========================================================================
   #game
-  match '/hole_switch/:game_id/:active_hole/:direction/:form_id' => 'games#hole_switch', :as => 'hole_switch'
+  match '/hole_switch/:game_id/:active_hole/:direction/:form_id/:hits/:puts' => 'games#hole_switch', :as => 'hole_switch'
   match '/hit_switch/:game_id/:active_hole/:direction/:active_hit/:form_id' => 'games#hit_switch', :as => 'hit_switch'
   match '/game_new/:form_id' => 'games#new', :as => 'new_game'
   match '/game_plan/:game_id/:active_hole/:active_hit' => 'games#plan', :as => 'plan'
+  match '/game_plan/:game_id/:active_hole/:active_hit/0/0' => 'games#plan', :as => 'plan'
   match '/game_res/:game_id/:active_hole/:active_hit' => 'games#res', :as => 'res'
-  match '/game_results/' => 'games#results', :as => 'results'
+  match '/game_results/:game_id/:active_hole/:form_id/:hits/:puts' => 'games#results', :as => 'results'
+  match '/game_details/:game_id/:active_hole/:active_hit/:hits/:puts' => 'games#details', :as => 'details'
   match '/game_details/:game_id/:active_hole/:active_hit' => 'games#details', :as => 'details'
-  match '/game_results/:game_id/:active_hole/' => 'games#results_render', :as => 'results_render'
+  match '/results_starter/' => 'games#results_starter'
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
   match '/welcome' => "welcome#index",        :as => :loged_in

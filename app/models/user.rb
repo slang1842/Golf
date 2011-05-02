@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :sticks, :through => :users_sticks
   has_many :balls
   has_many :hits
+  has_many :pair_hits
   
   accepts_nested_attributes_for :users_sticks, :allow_destroy => true
   accepts_nested_attributes_for :balls, :allow_destroy => true
