@@ -56,10 +56,64 @@ def self.calculate_statistics
             end
           end
          
-         if @result_arr.size != 0
-         puts (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
-         puts "   ---"
-         end
+         
+          case place_from_num 
+            when 1
+              if @result_arr.size != 0
+                puts "    place from: Teebox: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 2
+              if @result_arr.size != 0
+                puts "    place from: Feairway: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 3
+              if @result_arr.size != 0
+                puts "    place from: Next fairway: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 4
+              if @result_arr.size != 0
+                puts "    place from: Semi raf: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 5
+              if @result_arr.size != 0
+                puts "    place from: Raf: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 6
+              if @result_arr.size != 0
+                puts "    place from: For green: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 7
+              if @result_arr.size != 0
+                puts "    place from: Green: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 8
+              if @result_arr.size != 0
+                puts "    place from: Fairway sand: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 9
+              if @result_arr.size != 0
+                puts "    place from: Green sand: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 11
+              if @result_arr.size != 0
+                puts "    place from: Wood: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 11
+              if @result_arr.size != 0
+                puts "    place from: From water: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+          end
         end
         # ==========================================
         
