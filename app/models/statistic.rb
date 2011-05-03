@@ -6,6 +6,17 @@ class Statistic < ActiveRecord::Base
   
   #scope :get_place_from, lambda { |place| where('place_from = ?', place) }
   
+  def self.get_average_from_array(arr)
+    @result
+    
+    arr.each do |arre|
+      @result = @result + arre
+    end
+    
+    @restult = @result.to_f / arr.size
+    return @result
+  end
+  
   def self.calculate_current_statistics(p, r) # p = planed, r = Real
       #@result = ((1 - ((r.to_f - p.to_f).abs / p.to_f)).round(2) * 100).to_i
       @result = ((1 - ((r.to_f - p.to_f).abs / p.to_f)).round(2) * 100).to_i
@@ -38,15 +49,17 @@ def self.calculate_statistics
           @all_pairs = PairHit.where(:users_id => user.id)
           
           @result_arr = []
-              
+        
           @all_pairs.each do |each_pair|
             if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick.id
                @result_arr.push(calculate_current_statistics(each_pair.hit_planed.hit_distance, each_pair.hit_real.hit_distance))
             end
           end
-          
-          puts @result_arr
          
+         if @result_arr.size != 0
+         puts (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+         puts "   ---"
+         end
         end
         # ==========================================
         
