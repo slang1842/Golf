@@ -37,12 +37,40 @@ Stick.create (:stick_type => "WOODBOW",
               :degrees => "45",
               :shaft => "wood",
               :shaft_strength => "medium strong")
+             
+
+PairHit.create (:users_id => 1,
+                :hit_planed_id => 7,
+                :hit_real_id => 8,
+                :users_stick_id => 3)                
+            
+GolfClub.create (:user_id => 1,
+                 :name => "OZO",
+                 :country_id => 1,
+                 :region => "Rīgas raj",
+                 :city => "Rīga",
+                 :web_page => "www.ozo.lv",
+                 :accepted => "unknown",
+                 :active => false)
+
+Game.create (:id => 1,
+             :field_quality => "field_quality",
+             :green_quality => "green_quality",
+             :temperature => 3,
+             :weather => 2)
+             
+Game.create (:id => 2,
+             :field_quality => "field_quality",
+             :green_quality => "green_quality",
+             :temperature => 2,
+             :weather => 3)
               
+               
 Hit.create (:game_id => 1,
             :user_id => 1,
             :hole_id => 1,
             :stick_id => 1,
-            :real_hit => "rp",
+            :real_hit => "pp",
             :hole_number => 1,
             :hit_number => 1,
             :hit_distance => 200,
@@ -65,7 +93,7 @@ Hit.create (:game_id => 1,
             :real_hit => "rp",
             :hole_number => 1,
             :hit_number => 1,
-            :hit_distance => 300,
+            :hit_distance => 100,
             :place_from => 1,
             :land_place => 2,
             :stance => 1,
@@ -80,10 +108,10 @@ Hit.create (:game_id => 1,
               
             
 Hit.create (:game_id => 2,
-            :user_id => 1,
+            :user_id => 2,
             :hole_id => 2,
             :stick_id => 1,
-            :real_hit => "rp",
+            :real_hit => "pp",
             :hole_number => 1,
             :hit_number => 2,
             :hit_distance => 400,
@@ -99,13 +127,13 @@ Hit.create (:game_id => 2,
             :pair_id => 2)
 
 Hit.create (:game_id => 2,
-            :user_id => 1,
+            :user_id => 2,
             :hole_id => 2,
             :stick_id => 1,
-            :real_hit => "pp",
+            :real_hit => "rp",
             :hole_number => 1,
             :hit_number => 2,
-            :hit_distance => 520,
+            :hit_distance => 400,
             :place_from => 1,
             :land_place => 3,
             :stance => 4,
@@ -124,7 +152,7 @@ Hit.create (:game_id => 2,
             :real_hit => "pp",
             :hole_number => 1,
             :hit_number => 2,
-            :hit_distance => 320,
+            :hit_distance => 310,
             :place_from => 1,
             :land_place => 3,
             :stance => 4,
@@ -140,10 +168,10 @@ Hit.create (:game_id => 2,
             :user_id => 1,
             :hole_id => 2,
             :stick_id => 1,
-            :real_hit => "pp",
+            :real_hit => "rp",
             :hole_number => 1,
             :hit_number => 2,
-            :hit_distance => 520,
+            :hit_distance => 10,
             :place_from => 1,
             :land_place => 3,
             :stance => 4,
@@ -162,7 +190,7 @@ Hit.create (:game_id => 2,
             :real_hit => "pp",
             :hole_number => 1,
             :hit_number => 2,
-            :hit_distance => 520,
+            :hit_distance => 100,
             :place_from => 1,
             :land_place => 3,
             :stance => 4,
@@ -181,7 +209,7 @@ Hit.create (:game_id => 2,
             :real_hit => "rp",
             :hole_number => 1,
             :hit_number => 2,
-            :hit_distance => 510,
+            :hit_distance => 200,
             :place_from => 1,
             :land_place => 3,
             :stance => 4,
@@ -206,30 +234,12 @@ PairHit.create (:users_id => 2,
 PairHit.create (:users_id => 1,
                 :hit_planed_id => 5,
                 :hit_real_id => 6,
-                :users_stick_id => 2)                 
-            
-GolfClub.create (:user_id => 1,
-                 :name => "OZO",
-                 :country_id => 1,
-                 :region => "Rīgas raj",
-                 :city => "Rīga",
-                 :web_page => "www.ozo.lv",
-                 :accepted => "unknown",
-                 :active => false)
-
-Game.create (:id => 1,
-             :field_quality => "field_quality",
-             :green_quality => "green_quality",
-             :temperature => 3,
-             :weather => 2)
-             
-Game.create (:id => 2,
-             :field_quality => "field_quality",
-             :green_quality => "green_quality",
-             :temperature => 2,
-             :weather => 3)
-              
-              
+                :users_stick_id => 3)
+                
+PairHit.create (:users_id => 1,
+                :hit_planed_id => 7,
+                :hit_real_id => 8,
+                :users_stick_id => 2)
               
               
               
