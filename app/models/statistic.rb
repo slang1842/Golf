@@ -161,6 +161,121 @@ def self.calculate_statistics
         # ==========================================
         
         
+        #CALCULATE DIRECTION
+        # ==========================================
+        for direction_num in 1..5 do
+          @all_pairs = PairHit.where(:users_id => user.id)
+          
+          @result_arr = []
+        
+          @all_pairs.each do |each_pair|
+            if each_pair.hit_planed.direction == direction_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+               @result_arr.push(calculate_current_statistics(each_pair.hit_planed.hit_distance, each_pair.hit_real.hit_distance))
+            end
+          end
+
+          case direction_num 
+            when 1
+              if @result_arr.size != 0
+                puts "    direction: Straigth: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 2
+              if @result_arr.size != 0
+                puts "    direction: Fade: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 3
+              if @result_arr.size != 0
+                puts "    direction: Drow: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 4
+              if @result_arr.size != 0
+                puts "    direction: Slice: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 5
+              if @result_arr.size != 0
+                puts "    direction: Hook: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+          end
+        end
+        # ==========================================
+        
+        
+        #CALCULATE TEMPERATURE
+        # ==========================================
+        for temperature_num in 1..3 do
+          @all_pairs = PairHit.where(:users_id => user.id)
+          
+          @result_arr = []
+        
+          @all_pairs.each do |each_pair|
+            if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+               @result_arr.push(calculate_current_statistics(each_pair.hit_planed.hit_distance, each_pair.hit_real.hit_distance))
+            end
+          end
+
+          case temperature_num 
+            when 1
+              if @result_arr.size != 0
+                puts "    temperature: Hot: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 2
+              if @result_arr.size != 0
+                puts "    temperature: Normal: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 3
+              if @result_arr.size != 0
+                puts "    temperature: Cold: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+          end
+        end
+        # ==========================================
+        
+        
+        #CALCULATE WEATHER
+        # ==========================================
+        for weather_num in 1..4 do
+          @all_pairs = PairHit.where(:users_id => user.id)
+          
+          @result_arr = []
+        
+          @all_pairs.each do |each_pair|
+            if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+               @result_arr.push(calculate_current_statistics(each_pair.hit_planed.hit_distance, each_pair.hit_real.hit_distance))
+            end
+          end
+
+          case weather_num 
+            when 1
+              if @result_arr.size != 0
+                puts "    weather: Normal: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 2
+              if @result_arr.size != 0
+                puts "    weather: Wind: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 3
+              if @result_arr.size != 0
+                puts "    weather: Rain: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 4
+              if @result_arr.size != 0
+                puts "    weather: Wind and Rain: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+          end
+        end
+        # ==========================================
       end
     end
   puts ""
