@@ -276,6 +276,79 @@ def self.calculate_statistics
           end
         end
         # ==========================================
+        
+        #CALCULATE TRAJECTORY
+        # ==========================================
+        for trajectory_num in 1..3 do
+          @all_pairs = PairHit.where(:users_id => user.id)
+          
+          @result_arr = []
+        
+          @all_pairs.each do |each_pair|
+            if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+               @result_arr.push(calculate_current_statistics(each_pair.hit_planed.hit_distance, each_pair.hit_real.hit_distance))
+            end
+          end
+
+          case trajectory_num 
+            when 1
+              if @result_arr.size != 0
+                puts "    trajectory: Normal: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 2
+              if @result_arr.size != 0
+                puts "    trajectory: High: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 3
+              if @result_arr.size != 0
+                puts "    trajectory: Low: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+          end
+        end
+        # ==========================================
+        
+        
+        #CALCULATE WIND
+        # ==========================================
+        for wind_num in 1..4 do
+          @all_pairs = PairHit.where(:users_id => user.id)
+          
+          @result_arr = []
+        
+          @all_pairs.each do |each_pair|
+            if each_pair.hit_planed.wind == wind_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+               @result_arr.push(calculate_current_statistics(each_pair.hit_planed.hit_distance, each_pair.hit_real.hit_distance))
+            end
+          end
+
+          case wind_num 
+            when 1
+              if @result_arr.size != 0
+                puts "    wind: From behind: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 2
+              if @result_arr.size != 0
+                puts "    wind: From front: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 3
+              if @result_arr.size != 0
+                puts "    wind: From right: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+            when 4
+              if @result_arr.size != 0
+                puts "    wind: From behind: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
+                puts "   ---"
+              end
+          end
+        end
+        # ==========================================
+        
       end
     end
   puts ""
