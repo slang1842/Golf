@@ -12,8 +12,8 @@
   <%= javascript_include_tag "timepicker-addon" %>
   
   <%= stylesheet_link_tag "stylesheet" %>
-  <%= stylesheet_link_tag "themes/base/jquery.ui.all" %>
-  <%= stylesheet_link_tag "themes/base/jquery.ui.selectmenu" %>
+  <%= stylesheet_link_tag "jquery.ui.all" %>
+  <%= stylesheet_link_tag "jquery.ui.selectmenu" %>
   <%= javascript_include_tag "toggle" %>
   <%= javascript_include_tag "jquery-1.4.4" %>
   <%= javascript_include_tag "ui/jquery.ui.widget" %>
