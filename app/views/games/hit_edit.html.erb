@@ -10,6 +10,6 @@
 </div>
 
 <div id="hit_edit_tab">
-  <%=render :partial => 'games/hit_form_'+@form_id, :locals => { :active_hole => @active_hole, :active_hit => @active_hit, :game_id => @game.id, :hit => @hit  }%>
+  <%=render :partial => 'games/hit_form_'+@form_id, :locals => { :active_hole => @active_hole, :active_hit => @active_hit, :game_id => @game.id, :hit => @hit, :hit_real => @hit_real, :hit_planned => @hit_planned  }%>
 </div>
 <%= link_to 'Done', game_index_path, :remote => true%>

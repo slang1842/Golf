@@ -5,9 +5,11 @@
   <%=render :partial => 'games/hole_tab', :locals => {:holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :game_id => @game.id, :active_hole => @start_hole, :form_id => @form_id, :hits => @hitcount, :puts => @puts}%>
 </div>
 <div id="hit_count_tab">
-<%= render :partial => 'games/results_starter', :locals => {:game_id => @game.id, :active_hole => 1} %>
+<%= render :partial => 'games/results_starter', :locals => {:game_id => @game.id, :active_hole => @active_hole} %>
 </div>
 <div id="hit_edit_tab">
-  <%= render :partial => 'games/hit_form_results', :locals => {:hits => @hits}%>
+  <% if @hits != nil %> 
+   <%= render :partial => 'games/hit_form_results', :locals => {:hits => @hits}%>
+   <%end%>  
 </div>
 <%= link_to "Done", game_index_path, :remote => true%>

@@ -141,8 +141,8 @@ end
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
      @form_id = 'plan'
-     if @active_hole == @start_hole && @active_hit == 1  
-     render '/games/hit_edit'
+      if @active_hole == @start_hole && @active_hit == 1 && @hit.hit_distance == nil 
+        render '/games/hit_edit'
       end
     end
     
@@ -153,10 +153,12 @@ end
     end
     
     def results
+      @form_id = 'results'
       game_holes
       @active_hit = params[:active_hit].to_i
       @active_hole = params[:active_hole].to_i
       @hitcount = params[:hits].to_i
+       
       if @hitcount == nil
         @hitcount = 0
       end
@@ -167,37 +169,38 @@ end
       end
       
       if @hitcount != 0
-        @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
-        @hits.each   do |f|
-          f.destroy
-        end
-      b = @hitcount - @puts
-    a = (1..b)
-    a.each do |i|
-     conditions = { :game_id => @game.id, 
-               :hole_number => @active_hole,
-               :hit_number => i, 
-               :real_hit => 'r'}
-     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-     end
-     a = ((b+1)..@hitcount)
-     a.each do |i|
-     conditions = { :game_id => @game.id, 
-               :hole_number => @active_hole,
-               :hit_number => i, 
-               :real_hit => 'r',
-               :stick_type => 'PUTTER'}
-     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-     end
-     @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r',:hit_number => 1..@hitcount)    
+           @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
+           @hits.each   do |f|
+            f.destroy
+            end
+           b = @hitcount - @puts
+            a = (1..b)
+                 a.each do |i|
+                conditions = { :game_id => @game.id, 
+                              :hole_number => @active_hole,
+                              :hit_number => i, 
+                              :real_hit => 'r'}
+            @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+            end
+            
+          a = ((b+1)..@hitcount)
+          a.each do |i|
+              conditions = { :game_id => @game.id, 
+                             :hole_number => @active_hole,
+                             :hit_number => i, 
+                             :real_hit => 'r',
+                             :stick_type => 'PUTTER'}
+              @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+              end
+
+       @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r') 
+       
     else
       @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
-     
-      end
-     
-      if @active_hole == @start_hole 
-      render '/games/hit_edit_results'
-      end 
+    end
+    if params[:hits] == 'new'
+         render '/games/hit_edit_results'
+       end
     end
     
     
@@ -226,18 +229,18 @@ end
      @hit_real.pair_id = @pair_hit.id
      @hit_planned.pair_id = @pair_hit.id
      @form_id = 'details'
-     #if @active_hole == @start_hole && @active_hit == 1  
-    # render '/games/hit_edit_details'
-    # end
+     if params[:hits] == 'new'
+         render '/games/hit_edit'
+       end
     end
     
     
     def results_starter
-      @hits = params[:hits].to_i
+      @hitcount = params[:hits].to_i
       @puts = params[:puts].to_i
-      if @hits > 0
+      if @hitcount > 0 
        
-              @path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/' + @hits.to_s + '/'+ @puts.to_s
+              @path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/' + @hitcount.to_s + '/'+ @puts.to_s
               #@path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/0/0'
               redirect_to @path, :remote => :true
       

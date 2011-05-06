@@ -1,0 +1,352 @@
+# Logfile created on Fri May 06 16:26:09 +0300 2011 by logger.rb/22285
+
+
+Started GET "/game_results/112/10/results/new/0" for 127.0.0.1 at Fri May 06 16:26:11 +0300 2011
+
+
+Started GET "/hole_switch/112/10/next/results/0/0" for 127.0.0.1 at Fri May 06 16:26:22 +0300 2011
+
+
+Started GET "/game_results/112/11/1/0/0" for 127.0.0.1 at Fri May 06 16:26:23 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:23 +0300 2011
+
+
+Started POST "/hits/1204" for 127.0.0.1 at Fri May 06 16:26:24 +0300 2011
+
+
+Started POST "/hits/1203" for 127.0.0.1 at Fri May 06 16:26:24 +0300 2011
+
+
+Started GET "/hole_switch/112/11/next/results/0/0" for 127.0.0.1 at Fri May 06 16:26:25 +0300 2011
+
+
+Started GET "/game_results/112/12/1/0/0" for 127.0.0.1 at Fri May 06 16:26:25 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:26 +0300 2011
+
+
+Started POST "/hits/1208" for 127.0.0.1 at Fri May 06 16:26:27 +0300 2011
+
+
+Started POST "/hits/1207" for 127.0.0.1 at Fri May 06 16:26:27 +0300 2011
+
+
+Started GET "/hole_switch/112/12/next/results/0/0" for 127.0.0.1 at Fri May 06 16:26:28 +0300 2011
+
+
+Started GET "/game_results/112/13/1/0/0" for 127.0.0.1 at Fri May 06 16:26:28 +0300 2011
+
+
+Started POST "/hits/1212" for 127.0.0.1 at Fri May 06 16:26:29 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:29 +0300 2011
+
+
+Started POST "/hits/1211" for 127.0.0.1 at Fri May 06 16:26:30 +0300 2011
+
+
+Started GET "/hole_switch/112/13/next/results/0/0" for 127.0.0.1 at Fri May 06 16:26:30 +0300 2011
+
+
+Started GET "/game_results/112/14/1/0/0" for 127.0.0.1 at Fri May 06 16:26:31 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:32 +0300 2011
+
+
+Started POST "/hits/1215" for 127.0.0.1 at Fri May 06 16:26:32 +0300 2011
+
+
+Started POST "/hits/1216" for 127.0.0.1 at Fri May 06 16:26:33 +0300 2011
+
+
+Started GET "/hole_switch/112/14/next/results/0/0" for 127.0.0.1 at Fri May 06 16:26:33 +0300 2011
+
+
+Started GET "/game_results/112/15/1/0/0" for 127.0.0.1 at Fri May 06 16:26:33 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:34 +0300 2011
+
+
+Started POST "/hits/1218" for 127.0.0.1 at Fri May 06 16:26:35 +0300 2011
+
+
+Started GET "/hole_switch/112/15/next/results/0/0" for 127.0.0.1 at Fri May 06 16:26:36 +0300 2011
+
+
+Started GET "/game_results/112/16/1/0/0" for 127.0.0.1 at Fri May 06 16:26:37 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:37 +0300 2011
+
+
+Started POST "/hits/1220" for 127.0.0.1 at Fri May 06 16:26:38 +0300 2011
+
+
+Started GET "/hole_switch/112/16/next/results/0/0" for 127.0.0.1 at Fri May 06 16:26:39 +0300 2011
+
+
+Started GET "/game_results/112/17/1/0/0" for 127.0.0.1 at Fri May 06 16:26:39 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:40 +0300 2011
+
+
+Started POST "/hits/1222" for 127.0.0.1 at Fri May 06 16:26:41 +0300 2011
+
+
+Started GET "/hole_switch/112/17/next/results/0/0" for 127.0.0.1 at Fri May 06 16:26:41 +0300 2011
+
+
+Started GET "/game_results/112/18/1/0/0" for 127.0.0.1 at Fri May 06 16:26:42 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:43 +0300 2011
+
+
+Started POST "/hits/1224" for 127.0.0.1 at Fri May 06 16:26:43 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:49 +0300 2011
+
+
+Started GET "/game_results/112/18/results/1/1" for 127.0.0.1 at Fri May 06 16:26:49 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:50 +0300 2011
+
+
+Started GET "/game_results/112/18/results/1/1" for 127.0.0.1 at Fri May 06 16:26:51 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:26:52 +0300 2011
+
+
+Started POST "/hits/1225" for 127.0.0.1 at Fri May 06 16:26:52 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find Hit with ID=1225):
+  app/controllers/hits_controller.rb:60:in `update'
+
+
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Fri May 06 16:32:04 +0300 2011
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 06 16:32:12 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 06 16:32:17 +0300 2011
+
+
+Started GET "/game_res/113/1/1" for 127.0.0.1 at Fri May 06 16:32:18 +0300 2011
+
+
+Started GET "/game_results/113/10/results/new/0" for 127.0.0.1 at Fri May 06 16:32:21 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:32:39 +0300 2011
+
+
+Started GET "/game_results/113/10/results/2/1" for 127.0.0.1 at Fri May 06 16:32:40 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:32:41 +0300 2011
+
+
+Started GET "/game_results/113/10/results/2/1" for 127.0.0.1 at Fri May 06 16:32:41 +0300 2011
+
+
+Started POST "/hits/1228" for 127.0.0.1 at Fri May 06 16:32:43 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find Hit with ID=1228):
+  app/controllers/hits_controller.rb:60:in `update'
+
+
+
+
+Started POST "/hits/1227" for 127.0.0.1 at Fri May 06 16:32:43 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find Hit with ID=1227):
+  app/controllers/hits_controller.rb:60:in `update'
+
+
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 16:32:44 +0300 2011
+
+
+Started GET "/game_results/113/10/results/new/0" for 127.0.0.1 at Fri May 06 17:12:30 +0300 2011
+
+
+Started GET "/hole_switch/113/10/next/results/0/0" for 127.0.0.1 at Fri May 06 17:14:19 +0300 2011
+
+
+Started GET "/game_results/113/11/1/0/0" for 127.0.0.1 at Fri May 06 17:14:19 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:14:20 +0300 2011
+
+
+Started POST "/hits/1229" for 127.0.0.1 at Fri May 06 17:14:20 +0300 2011
+
+
+Started POST "/hits/1230" for 127.0.0.1 at Fri May 06 17:14:21 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:14:30 +0300 2011
+
+
+Started GET "/game_results/113/11/results/1/0" for 127.0.0.1 at Fri May 06 17:14:30 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:14:31 +0300 2011
+
+
+Started GET "/game_results/113/11/results/1/0" for 127.0.0.1 at Fri May 06 17:14:31 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:14:32 +0300 2011
+
+
+Started POST "/hits/1231" for 127.0.0.1 at Fri May 06 17:14:33 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find Hit with ID=1231):
+  app/controllers/hits_controller.rb:60:in `update'
+
+
+
+
+Started GET "/hole_switch/113/11/next/results/0/0" for 127.0.0.1 at Fri May 06 17:17:26 +0300 2011
+
+
+Started GET "/game_results/113/12/1/0/0" for 127.0.0.1 at Fri May 06 17:17:31 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:17:32 +0300 2011
+
+
+Started POST "/hits/1232" for 127.0.0.1 at Fri May 06 17:17:32 +0300 2011
+
+
+Started GET "/hole_switch/113/12/next/results/0/0" for 127.0.0.1 at Fri May 06 17:17:43 +0300 2011
+
+
+Started GET "/game_results/113/13/1/0/0" for 127.0.0.1 at Fri May 06 17:17:43 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:17:44 +0300 2011
+
+
+Started GET "/game_results/113/12/results/1/0" for 127.0.0.1 at Fri May 06 17:17:44 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:17:45 +0300 2011
+
+
+Started GET "/game_results/113/10/results/new/0" for 127.0.0.1 at Fri May 06 17:17:52 +0300 2011
+
+
+Started GET "/hole_switch/113/10/next/results/0/0" for 127.0.0.1 at Fri May 06 17:17:55 +0300 2011
+
+
+Started GET "/game_results/113/11/1/0/0" for 127.0.0.1 at Fri May 06 17:17:55 +0300 2011
+
+
+Started POST "/hits/1230" for 127.0.0.1 at Fri May 06 17:17:56 +0300 2011
+
+
+Started POST "/hits/1229" for 127.0.0.1 at Fri May 06 17:17:57 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:17:57 +0300 2011
+
+
+Started GET "/hole_switch/113/11/next/results/0/0" for 127.0.0.1 at Fri May 06 17:17:58 +0300 2011
+
+
+Started GET "/game_results/113/12/1/0/0" for 127.0.0.1 at Fri May 06 17:17:58 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:17:59 +0300 2011
+
+
+Started POST "/hits/1232" for 127.0.0.1 at Fri May 06 17:17:59 +0300 2011
+
+
+Started GET "/hole_switch/113/12/next/results/0/0" for 127.0.0.1 at Fri May 06 17:18:00 +0300 2011
+
+
+Started GET "/game_results/113/13/1/0/0" for 127.0.0.1 at Fri May 06 17:18:01 +0300 2011
+
+
+Started POST "/hits/1233" for 127.0.0.1 at Fri May 06 17:18:02 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:18:02 +0300 2011
+
+
+Started GET "/hole_switch/113/13/next/results/0/0" for 127.0.0.1 at Fri May 06 17:19:58 +0300 2011
+
+
+Started GET "/game_results/113/14/1/0/0" for 127.0.0.1 at Fri May 06 17:19:58 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:19:59 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:21:11 +0300 2011
+
+
+Started GET "/game_results/113/14/results/1/0" for 127.0.0.1 at Fri May 06 17:21:11 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:21:12 +0300 2011
+
+
+Started GET "/game_results/113/14/results/1/0" for 127.0.0.1 at Fri May 06 17:21:13 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:21:14 +0300 2011
+
+
+Started POST "/hits/1234" for 127.0.0.1 at Fri May 06 17:21:14 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find Hit with ID=1234):
+  app/controllers/hits_controller.rb:60:in `update'
+
+
+
+
+Started GET "/hole_switch/113/14/next/results/0/0" for 127.0.0.1 at Fri May 06 17:23:10 +0300 2011
+
+
+Started GET "/game_results/113/15/1/0/0" for 127.0.0.1 at Fri May 06 17:23:11 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 06 17:23:15 +0300 2011
+
+
+Started GET "/game_results/113/15/results/2/1" for 127.0.0.1 at Fri May 06 17:23:15 +0300 2011
+
+
+Started GET "/hole_switch/113/15/next/results/0/0" for 127.0.0.1 at Fri May 06 17:23:27 +0300 2011
+
+
+Started GET "/game_results/113/16/1/0/0" for 127.0.0.1 at Fri May 06 17:23:28 +0300 2011
+
+
+Started GET "/hole_switch/113/16/prev/results/0/0" for 127.0.0.1 at Fri May 06 17:23:31 +0300 2011
+
+
+Started GET "/game_results/113/15/1/0/0" for 127.0.0.1 at Fri May 06 17:23:32 +0300 2011
