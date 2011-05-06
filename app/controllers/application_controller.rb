@@ -2,16 +2,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user_session, :current_user
   before_filter :is_blocked, :only => :current_user
-  before_filter :require_no_super_admin, :only => :current_user
+  before_filter :require_no_super_admin
+  before_filter :is_blocked
   
   private
     def is_blocked
-      if current_user.is_blocked
-        redirect_to logout_path
-        flash.now[:notice] = "Your account has been blocked."
-        return true
-      else
-      return false
+      if current_user
+        if current_user.is_blocked
+          redirect_to logout_path
+          return true
+        else
+          return false
+        end
       end
     end
     
@@ -20,19 +22,16 @@ class ApplicationController < ActionController::Base
     end
     
     def current_user_session
-      logger.debug "ApplicationController::current_user_session"
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find
     end
 
     def current_user
-      logger.debug "ApplicationController::current_user"
       return @current_user if defined?(@current_user)
       @current_user = current_user_session && current_user_session.user
     end
     
      def require_user
-      logger.debug "ApplicationController::require_user"
       unless current_user
         store_location
         flash.now[:notice] = "You must be logged in to access this page"
@@ -42,20 +41,20 @@ class ApplicationController < ActionController::Base
     end
     
     def require_super_admin
-      logger.debug "ApplicationController::require_super_admin"
-      if require_user
+      if current_user
         unless current_user.is_super_admin
-          #flash.now[:notice] = "You have no access this page"
           redirect_to welcome_path
         end
+      else
+        redirect_to welcome_url
       end
     end
     
     def require_no_super_admin
-      if require_user
+      if current_user
         if current_user.is_super_admin
-          #flash.now[:notice] = "You have no access this page"
-          redirect_to admin_path
+          current_user_session.destroy
+          redirect_to welcome_url
         end
       end
     end

@@ -1,30 +1,29 @@
 <h1>Listing sticks</h1>
 
-<table>
-  <tr>
-    <th>Stick Type</th>
-    <th>Distance</th>
-	 <th>Degrees</th>
-	 <th>Shaft</th>
-	 <th>Shaft Strenght</th>
-	 <th>To Do</th>
-  </tr>
+<div class="table_listing"
+  <b>
+  <div class="row">
+    <div class="item">Stick Type</div>
+    <div class="item">Distance</div>
+    <div class="item">Degrees</div>
+    <div class="item">Shaft</div>
+    <div class="item">Shaft Strenght</div>
+    <div class="item">To Do</div>
+  </div>
+  </b>
+  <% @sticks.each do |stick| %>
+    <div class="row">
+      <div class="item"><%= stick.stick_type %></div>
+      <div class="item"><%= stick.distance %></div>
+      <div class="item"><%= stick.degrees %></div>
+      <div class="item"><%= stick.shaft %></div>
+      <div class="item"><%= stick.shaft_strength %></div>
+      <div class="item"><%= link_to 'Edit', edit_admin_stick_path(stick.id) %></div>
+    </div>
+  <% end %>
+    
+  <%= link_to 'New Stick', new_admin_stick_path %>
 
-<% @sticks.each do |stick| %>
-  <tr>
-    <td><%= stick.stick_type %></td>
-	<td><%= stick.distance %></td>
-	<td><%= stick.degrees %></td>
-	<td><%= stick.shaft %></td>
-	<td><%= stick.shaft_strength %></td>
-    <td><%= link_to 'Edit', edit_admin_stick_path(stick.id) %></td>
-  </tr>
-<% end %>
-</table>
-
-<%= link_to 'New Stick', new_admin_stick_path %>
-
-<br />
 
 
 

@@ -1,22 +1,14 @@
 <h1>Listing Countries</h1>
 
-<table>
-  <tr>
-    <th>Text</th>
-	
-  </tr>
-
-<% @countries.each do |country| %>
-  <tr>
-    <td><%= country.name %></td>
-   
-  </tr>
-<% end %>
-</table>
-
-<%= link_to 'New Country', new_admin_country_path %>
-
-<br />
+<div class="form_edit">
+  <div class="column">
+    <div class="item"><%= link_to 'New Country', new_admin_country_path %></div><br />
+    <% @countries.each do |country| %>
+      <div class="item"><%= country.name %></div>
+    <% end %>
+    
+  </div>
+</div>
 
 
 

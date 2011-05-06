@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-        <title>LDDK: <%= controller.controller_name %>: <%= controller.action_name %></title>
+        <title><%= controller.controller_name %> :: <%= controller.action_name %></title>
         <%= stylesheet_link_tag 'admin' %>
         <%= stylesheet_link_tag 'scaffold' %>
         <%= javascript_include_tag :defaults %>
@@ -11,24 +11,23 @@
         <%= csrf_meta_tag %>
     </head>
     <body>
-        <div id="page">
-          <div id="header">
+        <div class="page">
+          <div class="header">
           	
           </div>
 		  
-        	<div id="menu">
+        	<div class="menu">
         		<ul class="navigation">
-        			<li><%= link_to "Sākums", admin_golf_clubs_path %></li>
-        			<li><%= link_to "Nūjas", admin_sticks_path %></li>
-        			<li><%= link_to "Lietotāji",admin_users_path %></li>
-        			<li><%= link_to "Padomi", admin_hints_path %></li>
-					<li><%= link_to "Valstis", admin_countries_path %></li>
+              <li><%= link_to "Home", admin_path %></li>
+        			<li><%= link_to "Golf clubs", admin_golf_clubs_path %></li>
+        			<li><%= link_to "Sticks", admin_sticks_path %></li>
+        			<li><%= link_to "Users",admin_users_path %></li>
+        			<li><%= link_to "Hints", admin_hints_path %></li>
+					<li><%= link_to "Countries", admin_countries_path %></li>
         		</ul>
         	</div>
-          <div id="content">
+          <div class="content">
               <%= yield %>
-          </div>
-          <div id="footer">
           </div>
         </div>
         
