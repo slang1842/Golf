@@ -110,5 +110,8 @@ class ApplicationController < ActionController::Base
         end
         return params
       end
+      
+      
+   
 
 end

@@ -1,9 +1,11 @@
 class GamesController < ApplicationController
- 
-  def index
-    @games = Game.all
+ before_filter :require_user
+ before_filter :require_game_owner, :except => [ :index,  :new, :create]
+    def index
+    @games = Game.where(:user_id => current_user.id)
 
     respond_to do |format|
+      format.js
       format.html # index.html.erb
       format.xml  { render :xml => @games }
     end
@@ -140,14 +142,14 @@ end
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
      @form_id = 'plan'
      if @active_hole == @start_hole && @active_hit == 1  
-      render '/games/hit_edit'
+     render '/games/hit_edit'
       end
     end
     
     def res
       game_holes    
       @active_hole = params[:active_hole]
-      render '/games/res_menu', :locals => {:game_id => params[:game_id], :active_hole => 1}
+      render '/games/res_menu', :locals => {:game_id => params[:game_id], :active_hole => @active_hole}
     end
     
     def results
@@ -166,7 +168,7 @@ end
       
       if @hitcount != 0
         @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
-        @hits.each do |f|
+        @hits.each   do |f|
           f.destroy
         end
       b = @hitcount - @puts
@@ -192,6 +194,7 @@ end
       @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
      
       end
+     
       if @active_hole == @start_hole 
       render '/games/hit_edit_results'
       end 
@@ -223,21 +226,32 @@ end
      @hit_real.pair_id = @pair_hit.id
      @hit_planned.pair_id = @pair_hit.id
      @form_id = 'details'
-     if @active_hole == @start_hole && @active_hit == 1  
-     render '/games/hit_edit_details'
-     end
+     #if @active_hole == @start_hole && @active_hit == 1  
+    # render '/games/hit_edit_details'
+    # end
     end
     
     
     def results_starter
-      @hits = params[:hits]
-      @puts = params[:puts]
-      if @hits == nil 
-        @path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/0/0'
-      else
-      @path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/' + @hits.to_s + '/'+ @puts.to_s
+      @hits = params[:hits].to_i
+      @puts = params[:puts].to_i
+      if @hits > 0
+       
+              @path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/' + @hits.to_s + '/'+ @puts.to_s
+              #@path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/0/0'
+              redirect_to @path, :remote => :true
+      
+      #@path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/' + @hits.to_s + '/'+ @puts.to_s
       end   
-    redirect_to @path, :remote => :true
+    #redirect_to @path, :remote => :true
     end
     
+     def require_game_owner
+       game_holes
+      if  @game.user_id == current_user.id
+        return true
+      else 
+        return false
+      end
+    end
 end
