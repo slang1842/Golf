@@ -1,71 +1,53 @@
-<br />
-
-<h1>Golf club <%= @golf_club.name%></h1>
-
-
+<h1>Golf club "<%= @golf_club.name%>"</h1>
 
 <%= form_for [:admin, @golf_club] do |f| %>
   <% if @golf_club.errors.any? %>
-   
-
-   <div id="error_explanation">
+    <div id="error_explanation">
       <h2><%= pluralize(@golf_club.errors.count, "error") %> prohibited this golf_club from being saved:</h2>
       <ul>
-      <% @golf_club.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @golf_club.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= @golf_club.name%>
-  </div>
-  <div class="field">
-    <%= f.label t "form.country" %>
-    <%= @country.name%>
-
+  <div class="form_edit">
+    <div class="column">
+      <div class="item"><%= f.label :name %></div>
+      <div class="item"><%= f.label t "form.country" %></div>
+      <div class="item"><%= f.label :region %></div>
+      <div class="item"><%= f.label :city %></div>
+      <div class="item"><%= f.label :web_page %></div>
+      <div class="item"><%= f.label "Statuss:" %> <%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %></div>
      
+    </div>
+
+
+
+    <div class="column">
+      <div class="item"><%= @golf_club.name%></div>
+      <div class="item"><%= @country.name%></div>
+      <div class="item"><%= @golf_club.region%></div>
+      <div class="item"><%= @golf_club.city%></div>
+      <div class="item"><%= @golf_club.web_page%></div>
+      <div class="item"><%= f.submit "Accept"%></div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :region %>
-   <%= @golf_club.region%>
-  </div>
-  
-  <div class="field">
-    <%= f.label :city %>
-   <%= @golf_club.city%>
-  </div>
-  <div class="field">
-    <%= f.label :web_page %>
-    <%= @golf_club.web_page%>
-  </div>
-  <div class="field">
-    <%= f.label :start_place_by_level_low %>
-    <%= @golf_club.start_place_by_level_low%>
-  </div>
-  <div class="field">
-    <%= f.label :start_place_by_level_medium %>
-    <%= @golf_club.start_place_by_level_medium%>
-  </div>
-  <div class="field">
-    <%= f.label :start_place_by_level_high %>
-     <%= @golf_club.start_place_by_level_high%>
-  </div>
-   <%= f.label "Statuss:" %> <%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %>
-  <div class="actions">
-    <%= f.submit "Accept"%>
-  </div>
-  <br />
-  
 <% end %>
 
-<br />
-<br />
-<br /><br />
+    
+    
+   
+   
+    
+
+    
+     
 
 
+     
+  
 
 
 

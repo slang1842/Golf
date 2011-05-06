@@ -3,15 +3,8 @@ html {
     font-family: Tahoma, Geneva, sans-serif;
 }
 
-a {
-  
-}
 
-a:hover {
-  background: #333333;
-}
-
-#page {
+.page {
     background-color: #f5f5f5;
     min-height: 1000px;
     width: 1200px;
@@ -23,102 +16,24 @@ a:hover {
     padding-bottom: 10px;
 }
 
-#header {
+.header {
     height: 30px;
 }
 
-.user {
-    float: right;
-	margin-right: 10px;
-	margin-top: 10px;
-}
-
-#content {
+.content {
 	margin: 10px 30px 30px 30px;
 }
 
-#footer {
-}
+.table_listing .row {border: solid 1px gray; margin: 5px; display: block;}
+.table_listing .item {margin: 4px; width: 120px; border-right: solid 1px gray; display:inline-block;}
 
-input {
-    border: none;
-    font-family: Tahoma, Geneva, sans-serif;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border: 1px solid #f5f5f5;
-    outline: none;
-}
+.form_edit .column {margin: 0 5px 0 0; display: inline-block;}
+.form_edit .item {border-bottom: dotted 1px grey; margin: 2px 0 2px 0; padding: 2px 5px 2px 10px; display: block; height: 25px;}
 
-textarea {
-    border: none;
-    font-family: Tahoma, Geneva, sans-serif;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border: 1px solid #f5f5f5;
-    outline: none;
-    height: 60px;
-}
 
-h2 {
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-
-#top {
-    margin-left: 1110px;
-    margin-top: 15px;
-}
-
-.input {
-    border: 1px solid #7acaf8;
-    width: 170px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    outline: 0;
-    margin-top: 10px;
-    background: white;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-form .newsform {
-    margin: auto;
-}
-
-form .newsform input[type = text] {
-    height: 20px;
-}
-
-form .newsform textarea {
-    height: 50px;
-}
-
-.actions input {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    text-align: center;
-    outline: none;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    cursor: pointer;
-    cursor: hand;
-}
-
-.actions input:hover {
-}
-
-.button span {
-    display: block;
-    padding-top: 3px;
-    font-size: 14px;
-    font-weight: normal;
-}
 
 /********************MENU*************************/
-#menu {
+.menu {
     font-family: Arial, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
@@ -134,13 +49,13 @@ form .newsform textarea {
     border-radius: 10px;
 }
 
-#menu li {
+.menu li {
     float: left;
     margin: 0;
     list-style-type: none;
 }
 
-#menu li a {
+.menu li a {
     text-decoration: none;
     display: block;
     padding: 0 20px;
@@ -148,13 +63,13 @@ form .newsform textarea {
     color: #fff;
 }
 
-#menu li a:hover, #menu li.active a {
+.menu li a:hover, #menu li.active a {
     background-color: #e5e5f5;
     /*background-color: #f5f5f5;*/
     color: #000;
 }
 
-#loginform {
+.loginform {
     margin: 100px;
     padding: 5px;
     width: 300px;
@@ -174,3 +89,9 @@ form .newsform textarea {
 .max_length_notification {
   border: 2px solid red;
 }
+/********************MENU*************************/
+
+
+
+
+
