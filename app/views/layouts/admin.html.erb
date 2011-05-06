@@ -13,7 +13,8 @@
     <body>
         <div class="page">
           <div class="header">
-          	
+            <br />
+            <span>Logged in as:</span> <%= current_user.first_name %> <%= current_user.last_name %>    <%= link_to t("form.logout"), logout_path %>
           </div>
 		  
         	<div class="menu">
@@ -23,7 +24,7 @@
         			<li><%= link_to "Sticks", admin_sticks_path %></li>
         			<li><%= link_to "Users",admin_users_path %></li>
         			<li><%= link_to "Hints", admin_hints_path %></li>
-					<li><%= link_to "Countries", admin_countries_path %></li>
+              <li><%= link_to "Countries", admin_countries_path %></li>
         		</ul>
         	</div>
           <div class="content">

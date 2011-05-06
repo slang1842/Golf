@@ -2,7 +2,7 @@
 
 <div class="form_edit">
   <div class="column">
-    <div class="item"><%= link_to 'New Country', new_admin_country_path %></div><br />
+    <div class="item"><%= link_to 'Add New Country', new_admin_country_path %></div><br />
     <% @countries.each do |country| %>
       <div class="item"><%= country.name %></div>
     <% end %>
