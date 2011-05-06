@@ -12,3 +12,4 @@
 <div id="hit_edit_tab">
   <%=render :partial => 'games/hit_form_'+@form_id, :locals => { :active_hole => @active_hole, :active_hit => @active_hit, :game_id => @game.id, :hit => @hit  }%>
 </div>
+<%= link_to 'Done', game_index_path, :remote => true%>

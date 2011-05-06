@@ -1,4 +1,4 @@
-page['form.hit'].submit()
+page['form'].submit()
 
 
 page['#hit_edit_tab'].html render(:partial => 'games/hit_form_results', :locals => {:hits => @hits})

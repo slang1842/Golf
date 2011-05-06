@@ -1,0 +1,22 @@
+<h1>Listing games</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%= game.id %></td>
+    <td><%= game.game_type %></td>
+    <td><%= link_to 'Results', results_path(game.id, 1, 'results', 0, 0)%></td>
+    <td><%= link_to 'Results in Details', details_path(game.id, 1, 1)%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
