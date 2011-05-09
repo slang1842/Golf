@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
  before_filter :require_user
  before_filter :require_game_owner, :except => [ :index,  :new, :create]
+ 
     def index
     @games = Game.where(:user_id => current_user.id)
 
@@ -140,6 +141,7 @@ end
                :user_id => current_user.id}
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     #convert_to_feet(@hit)
      @form_id = 'plan'
       if @active_hole == @start_hole && @active_hit == 1 && @hit.hit_distance == nil 
         render '/games/hit_edit'
@@ -181,6 +183,7 @@ end
                               :hit_number => i, 
                               :real_hit => 'r'}
             @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+            convert_to_feet(@hit)
             end
             
           a = ((b+1)..@hitcount)
@@ -191,6 +194,7 @@ end
                              :real_hit => 'r',
                              :stick_type => 'PUTTER'}
               @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+                          convert_to_feet(@hit)
               end
 
        @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r') 
@@ -222,7 +226,9 @@ end
                :user_id => current_user.id}
      
      @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
+     convert_to_feet(@hit_real)
      @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
+     convert_to_feet(@hit_planned)
                conditions3 = { :hit_planed_id => @hit_planned.id,
                                :hit_real_id => @hit_real.id}
      @pair_hit = PairHit.find(:first, :conditions => conditions3) || PairHit.create(conditions3)
@@ -257,4 +263,23 @@ end
         return false
       end
     end
+    
+      def convert_to_feet(hit)
+    if current_user.measurement == 'foots' && hit.hit_distance != nil
+      @a = hit.hit_distance
+      @b = hit.distance_to_hole
+      hit.hit_distance = @a.to_i / 0.3048
+      hit.distance_to_hole = @b.to_i / 0.3048
+      hit.update_attributes(params [:hit])
+    end
+  end
+  def convert_to_m(hit)
+      if current_user.measurement == 'foots' && hit.hit_distance != nil 
+      @a = hit.hit_distance
+      @b = hit.distance_to_hole
+      hit.hit_distance = @a.to_i * 0.3048
+      hit.distance_to_hole = @b.to_i * 0.3048
+      hit.update_attributes(params [:hit])
+    end
+  end
 end

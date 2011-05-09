@@ -1,22 +1,15 @@
+
 <% hits.each do |h|%>
-<div id="form">
+
 <%=form_for(h, :remote => true) do |f|%>
-<% if current_user.measurement == 2 %>
-<%= f.label :user_stick_id %>
-<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 
-<%= f.label :hit_distance %> ft
-<%= f.text_field :hit_distance %> 
-<%= f.label :land_place %>
-<%= f.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
-<% else %>
+
+
 <%= f.label :user_stick_id %>
 <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 
 <%= f.label :hit_distance %> 
-<%= f.text_field :hit_distance %> m 
+<%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
 <%= f.label :land_place %>
 <%= f.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
-<% end %> 
 <% end %>
 
-</div>
 <% end %>
