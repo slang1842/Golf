@@ -1325,3 +1325,163 @@ ActionController::RoutingError (No route matches "/stylesheets/themes/base/image
   
 
 
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 08:59:34 +0300 2011
+
+Mysql::Error (Can't connect to MySQL server on 'localhost' (10061)):
+  
+
+
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 09:00:33 +0300 2011
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Mon May 09 09:08:24 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 09:08:25 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon May 09 09:08:25 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Mon May 09 09:08:28 +0300 2011
+
+
+Started POST "/user/update_bag" for 127.0.0.1 at Mon May 09 09:08:33 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Mon May 09 09:08:42 +0300 2011
+
+
+Started POST "/user/update_bag" for 127.0.0.1 at Mon May 09 09:08:44 +0300 2011
+
+
+Started GET "/statistics" for 127.0.0.1 at Mon May 09 09:08:51 +0300 2011
+
+ActionController::RoutingError (uninitialized constant StatisticsController):
+  
+
+
+
+
+Started GET "/s" for 127.0.0.1 at Mon May 09 09:08:56 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 12:36:41 +0300 2011
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Mon May 09 12:36:53 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 12:36:53 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon May 09 12:36:54 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon May 09 12:37:40 +0300 2011
+
+
+Started GET "/club" for 127.0.0.1 at Mon May 09 12:37:42 +0300 2011
+
+
+Started GET "/club" for 127.0.0.1 at Mon May 09 12:38:45 +0300 2011
+
+
+Started GET "/club/edit" for 127.0.0.1 at Mon May 09 12:38:51 +0300 2011
+
+
+Started GET "/club/fields/new" for 127.0.0.1 at Mon May 09 12:39:01 +0300 2011
+
+
+Started GET "/club/edit" for 127.0.0.1 at Mon May 09 12:39:10 +0300 2011
+
+
+Started GET "/club" for 127.0.0.1 at Mon May 09 12:39:23 +0300 2011
+
+
+Started GET "/club/edit" for 127.0.0.1 at Mon May 09 12:39:27 +0300 2011
+
+
+Started POST "/club" for 127.0.0.1 at Mon May 09 12:42:05 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find GolfClub without an ID):
+  app/controllers/golf_club_controller.rb:44:in `update'
+
+
+
+
+Started GET "/club/fields/new" for 127.0.0.1 at Mon May 09 12:42:23 +0300 2011
+
+
+Started POST "/club/fields" for 127.0.0.1 at Mon May 09 12:42:39 +0300 2011
+
+
+Started GET "/club/edit" for 127.0.0.1 at Mon May 09 12:42:40 +0300 2011
+
+
+Started POST "/club" for 127.0.0.1 at Mon May 09 12:42:47 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find GolfClub without an ID):
+  app/controllers/golf_club_controller.rb:44:in `update'
+
+
+
+
+Started GET "/club/edit" for 127.0.0.1 at Mon May 09 12:44:24 +0300 2011
+
+
+Started POST "/club" for 127.0.0.1 at Mon May 09 12:44:26 +0300 2011
+
+NameError (undefined local variable or method `clubs_path' for #<GolfClubController:0x753b7f0>):
+  app/controllers/golf_club_controller.rb:48:in `update'
+
+
+
+
+Started POST "/club" for 127.0.0.1 at Mon May 09 12:46:51 +0300 2011
+
+
+Started GET "/club" for 127.0.0.1 at Mon May 09 12:46:52 +0300 2011
+
+
+Started GET "/club/edit" for 127.0.0.1 at Mon May 09 12:46:55 +0300 2011
+
+
+Started POST "/club" for 127.0.0.1 at Mon May 09 12:46:58 +0300 2011
+
+
+Started GET "/club" for 127.0.0.1 at Mon May 09 12:46:58 +0300 2011
+
+
+Started GET "/club/edit" for 127.0.0.1 at Mon May 09 12:47:00 +0300 2011
+
+
+Started POST "/club" for 127.0.0.1 at Mon May 09 12:47:05 +0300 2011
+
+
+Started GET "/club" for 127.0.0.1 at Mon May 09 12:47:05 +0300 2011
+
+
+Started GET "/club/edit" for 127.0.0.1 at Mon May 09 12:47:11 +0300 2011
+
+
+Started POST "/club" for 127.0.0.1 at Mon May 09 12:47:30 +0300 2011
+
+
+Started GET "/club" for 127.0.0.1 at Mon May 09 12:47:31 +0300 2011
+
+
+Started GET "/club/edit" for 127.0.0.1 at Mon May 09 12:47:33 +0300 2011
+
+
+Started GET "/club/fields/new" for 127.0.0.1 at Mon May 09 12:47:36 +0300 2011
+
+
+Started POST "/club/fields" for 127.0.0.1 at Mon May 09 12:47:46 +0300 2011
+
+
+Started GET "/club/edit" for 127.0.0.1 at Mon May 09 12:47:46 +0300 2011
