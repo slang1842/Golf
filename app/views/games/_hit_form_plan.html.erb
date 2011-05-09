@@ -4,7 +4,7 @@
 <%= f.label :user_stick_id %>
 <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 
 <%= f.label :hit_distance %>
-<%= f.text_field :hit_distance %> 
+<%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
 <%= f.label :land_place %>
 <%= f.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
 <% end %> 

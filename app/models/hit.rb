@@ -13,4 +13,6 @@ class Hit < ActiveRecord::Base
   has_many :hit_real, :class_name => 'PairHit', :foreign_key => 'hit_real_id'
   
   #scope :get_place_from, lambda { |place| where('place_from = ?', place) }
+  
+ 
 end

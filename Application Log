@@ -1325,3 +1325,121 @@ ActionController::RoutingError (No route matches "/stylesheets/themes/base/image
   
 
 
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 08:43:41 +0300 2011
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Mon May 09 08:44:03 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 08:44:03 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon May 09 08:44:04 +0300 2011
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Mon May 09 08:44:07 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Mon May 09 08:44:11 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon May 09 09:13:40 +0300 2011
+
+
+Started GET "/logout" for 127.0.0.1 at Mon May 09 09:13:44 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 09:13:44 +0300 2011
+
+
+Started GET "/user/new" for 127.0.0.1 at Mon May 09 09:13:47 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61982364_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:8)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Mon May 09 09:14:02 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started POST "/user" for 127.0.0.1 at Mon May 09 09:14:24 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 09:14:25 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon May 09 09:14:25 +0300 2011
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Mon May 09 09:14:28 +0300 2011
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Mon May 09 09:14:32 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started POST "/games" for 127.0.0.1 at Mon May 09 09:14:37 +0300 2011
+
+
+Started GET "/game_plan/114/1/1" for 127.0.0.1 at Mon May 09 09:14:37 +0300 2011
+
+NoMethodError (undefined method `convert_to_feet' for #<GamesController:0x7794318>):
+  app/controllers/games_controller.rb:143:in `plan'
+
+
+
+
+Started GET "/game_plan/114/1/1" for 127.0.0.1 at Mon May 09 09:22:47 +0300 2011
+
+NoMethodError (undefined method `convert_to_feet' for #<GamesController:0x7630c50>):
+  app/controllers/games_controller.rb:143:in `plan'
+
+
+
+
+Started GET "/game_plan/114/1/1" for 127.0.0.1 at Mon May 09 09:22:56 +0300 2011
+
+NoMethodError (undefined method `convert_to_feet' for #<GamesController:0x780d110>):
+  app/controllers/games_controller.rb:143:in `plan'
+
+
+
+
+Started GET "/game_plan/114/1/1" for 127.0.0.1 at Mon May 09 09:25:20 +0300 2011
+
+NoMethodError (undefined method `convert_to_feet' for #<GamesController:0x78fbc58>):
+  app/controllers/games_controller.rb:143:in `plan'
+
+
+
+
+Started GET "/game_plan/114/1/1" for 127.0.0.1 at Mon May 09 09:31:44 +0300 2011
+
+NoMethodError (undefined method `convert_to_feet' for #<GamesController:0x7b45108>):
+  app/controllers/games_controller.rb:143:in `plan'
+
+
+
+
+Started GET "/game_plan/114/1/1" for 127.0.0.1 at Mon May 09 09:32:25 +0300 2011
+
+NoMethodError (undefined method `convert_to_feet' for #<GamesController:0x75b5668>):
+  app/controllers/games_controller.rb:143:in `plan'
+
+
+
+
+Started GET "/game_plan/114/1/1" for 127.0.0.1 at Mon May 09 09:34:27 +0300 2011
+
+NoMethodError (undefined method `convert_to_feet' for #<GamesController:0x75d6518>):
+  app/controllers/games_controller.rb:143:in `plan'
+
+

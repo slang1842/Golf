@@ -58,13 +58,13 @@ class HitsController < ApplicationController
   # PUT /hits/1.xml
   def update
     @hit = Hit.find(params[:id])
-
+    convert_to_m(@hit)
     @hit.update_attributes(params[:hit])
   end
   
   def hit_update
   @hit = Hit.find(params[:id])
-
+    convert_to_m(@hit)
     respond_to do |format|
       if @hit.update_attributes(params[:hit])
         format.html { redirect_to(@hit, :notice => 'Hit was successfully updated.') }
@@ -87,5 +87,22 @@ class HitsController < ApplicationController
     end
   end
   
- 
+ def convert_to_feet(hit)
+    if current_user.measurement == 'foots' && hit.hit_distance != nil
+      @a = hit.hit_distance
+      @b = hit.distance_to_hole
+      hit.hit_distance = @a.to_i / 0.3048
+      hit.distance_to_hole = @b.to_i / 0.3048
+      hit.update_attributes(params [:hit])
+    end
+  end
+  def convert_to_m(hit)
+      if current_user.measurement == 'foots' && hit.hit_distance != nil
+      @a = hit.hit_distance
+      @b = hit.distance_to_hole
+      hit.hit_distance = @a.to_i * 0.3048
+      hit.distance_to_hole = @b.to_i * 0.3048
+      hit.update_attributes(params [:hit])
+    end
+  end
 end
