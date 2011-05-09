@@ -16,7 +16,7 @@ FIELD_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 WEATHER = { "Normal" => 1, "Wind" => 2, "Rain" => 3, "Wind and Rain" => 4}
 GAME_FORMAT = { "Training" => "t", "DM" => "d", "Tournament" => "tn"}
 GAME_TYPE = { "1-9" => 1, "10-18" => 2, "1-18" => 3}
-PLANNED_LAND_PLACES = { "Fairway" => 1, "Green" => 2, "Hole" => 3}
+PLANNED_LAND_PLACES = {"Feairway" => 2, "Next fairway" => 3,"Raf" => 5, "For green" => 6, "Green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Hole" => 10, "Semi raf" => 4 }
 STATISTICS_TEMPERATURE = {"Hot" => 1,"Normal" => 2,"Cold" => 3}
 STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "From right" => 3, "From left" => 4}
 STATISTICS_PLACE_FROM = {"Teebox" => 1, "Feairway" => 2, "Next fairway" => 3, "Semi raf" => 4, "Raf" => 5, "For green" => 6, "Green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Wood" => 10, "From water" => 11 }

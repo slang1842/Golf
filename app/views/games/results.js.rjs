@@ -1,4 +1,4 @@
-
+page['#hole_picture'].html render(:partial => 'games/hole_picture', :locals => {:hole => @hole})
 page['#hit_edit_tab'].find('form').submit()
 page['#hit_edit_tab'].html render(:partial => 'games/hit_form_results', :locals => {:hits => @hits})
 page['#hole_tab'].html render(:partial => 'games/hole_tab', :locals => {:game_id => @game.id, :form_id => @form_id, :active_hole => @active_hole, :holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :hits => 0, :puts => 0})

@@ -1,3 +1,5 @@
+
+
 #page.select('form').each { |f| f.submit }
 #page['form'].submit()
 #page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => 1, :form_id => @form_id, :active_hole => @active_hole})

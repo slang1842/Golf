@@ -1,14 +1,22 @@
+
+
+<div class="holes_wrap">
+  <div class="heading_wrap">
+  <p>Bedrīte:</p>
+  </div>
 <% holes_filtered.each do |f|%>
-<%  if f.hole_number == active_hole %>
-    <b><%= f.hole_number %></b>
-    <% else %>
-    <%= f.hole_number %> 
+<% if f.hole_number < active_hole %>
+
+<a href="<%=  hole_switch_path( game_id, f.hole_number, 'prev', form_id, 0, 0)%>" data-remote-true>  <div class="single_hole done"><p><%=f.hole_number%></p></div></a>
+
+
+<% elsif f.hole_number == active_hole %>
+<a href="<%=  hole_switch_path( game_id, f.hole_number, 'prev', form_id, 0, 0)%>" data-remote-true>  <div class="single_hole active"><p><%=f.hole_number%></p></div></a>
+<% else %>
+<a href="<%=  hole_switch_path( game_id, f.hole_number, 'prev', form_id, 0, 0)%>" data-remote-true>  <div class="single_hole empty"><p><%=f.hole_number%></p></div></a>
     <% end %>
-    <%end%>
+  
+    <% end %>
     
-    <% if active_hole != start_hole%>
-        <%= link_to 'Previous', hole_switch_path( game_id, active_hole, 'prev', form_id, 0, 0), :remote => true %>
-<% end %>
-<% if active_hole != end_hole%>
-        <%= link_to 'Next', hole_switch_path( game_id, active_hole, 'next', form_id, 0, 0), :remote => true %>
-<% end %>
+   </div> 
+   
