@@ -9,7 +9,7 @@
 				<img src="/images/default_profile.png" alt=""/>
 			</div>
 			<div class="text">
-				<p>Artūrs<br>Pakalns<br>HCP : 36<br>Klubs "Viesturi"<br><a href="#">Labot profilu</a></p>
+				<p><%= @user.first_name%><br><%= @user.last_name%><br>HCP : 36<br>Klubs <%= @golf_club.name%><br><a href="#">Labot profilu</a></p>
 			</div>
 		</div>
 		<div class="icon_wrap">
@@ -171,9 +171,11 @@
 				<a href="#"><img src="/images/link_left_big.png" alt=""/></a>
 			</div>
 		
+			
+		
 			<div class="single_club_wrap">
 				<div class="club_name">
-					<p>DRIVER</p>
+					<p><%= @sticks[0].stick_type%></p>
 				</div>
 				<div class="progress_bar">
 					<div class="progress_active normal" style="width:55%">
@@ -184,9 +186,11 @@
 				</div>
 			</div>
 			
+			
+			
 			<div class="single_club_wrap">
 				<div class="club_name">
-					<p>WOOD</p>
+					<p><%= @sticks[1].stick_type%></p>
 				</div>
 				<div class="progress_bar">
 					<div class="progress_active bad" style="width:20%">
@@ -199,7 +203,7 @@
 			
 			<div class="single_club_wrap">
 				<div class="club_name">
-					<p>PUTTER</p>
+					<p><%= @sticks[2].stick_type%></p>
 				</div>
 				<div class="progress_bar">
 					<div class="progress_active normal" style="width:80%">
@@ -212,7 +216,7 @@
 			
 			<div class="single_club_wrap">
 				<div class="club_name">
-					<p>PUTTER</p>
+					<p><%= @sticks[3].stick_type%></p>
 				</div>
 				<div class="progress_bar">
 					<div class="progress_active normal" style="width:80%">
@@ -270,31 +274,15 @@
 				<div class="name">
 					<p>Teebox</p>
 				</div>
-				<div class="progress_block">
-					<div class="progress_bar">
-						<div class="progress_active normal" style="width:80%">
-							<div class="percentage">
-								<p>80%</p>
-							</div>
-						</div>
-					</div>
-					<div class="notification"><a href="#"><img src="/images/tip_icon.png" alt=""/></a>
-					</div>
-				</div>
-				
-				<div class="progress_block">
-					<div class="no_value">
-						<p>N/A</p>
-					</div>
-				</div>
-				
-				<div class="progress_block">
-					<div class="tip_bubble_wrap" id="tip2">
+				<% for i in (0..5) %> 
+					<div class="progress_block">
+						<div class="tip_bubble_wrap" id="tip<%= i%>">
 						<div class="triangle"></div>
 						<div class="frame">
-							<p>Trenera (Edvīns Bērzkalniņš) padoms:</p>
+							<p>Trenera (<%= @trainee.first_name%> <%= @trainee.last_name%>) padoms:</p>
+							<% if @viewer.admin=1 %>
+							
 							<div class="tip">
-							<p>Torem ipsum dolor sit amet, consecetur alit dolor amet, secetur alit ipsum sit sit amet, consecetur amet, consecetur alit</p>
 							<textarea name="comments" ></textarea>
 							<a href="#"><div class="button_erase">
 								<p>Dzēst</p>
@@ -305,72 +293,103 @@
 							</div></a>
 
 							</div>
+							<% else %>
+							
+							<div class="tip">
+							<p>Torem ipsum dolor sit amet, consecetur alit dolor amet, secetur alit ipsum sit sit amet, consecetur amet, consecetur alit</p>
+							</div>
+							
+							<% end %>
 						</div>
 					</div>
-					
+						
+						
+						<% if @results[i]!= nil %>
 					<div class="progress_bar">
 						<div class="progress_active normal" style="width:80%">
 							<div class="percentage">
-								<p>22%</p>
+								<p><%= @results[i].place_teebox%>%</p>
 							</div>
 						</div>
 					</div>
-					<div class="notification"><a href="javascript:toggleLayer('tip2');"><img src="/images/tip_icon.png" alt=""/></a>
+					<% if @results[i].place_teebox.to_i<30 %>
+					<div class="notification"><a href="javascript:toggleLayer('tip<%= i%>');"><img src="/images/tip_icon.png" alt=""/></a>
 					</div>
+					<% end %>
+					<% else %>
+					<div class="no_value">
+						<p>N/A</p>
+					</div>
+					<% end %>
 				</div>
+
+				<% end %>
 				
-				<div class="progress_block">
-				<div class="tip_bubble_wrap" id="tip1">
+				
+				<div class="name">
+					<p>Teebox</p>
+				</div>
+				<% for i in (0..5) %> 
+					<div class="progress_block">
+						<div class="tip_bubble_wrap" id="tip<%= i%>">
 						<div class="triangle"></div>
 						<div class="frame">
-							<p>Trenera (Edvīns Bērzkalniņš) padoms:</p>
+							<p>Trenera (<%= @trainee.first_name%> <%= @trainee.last_name%>) padoms:</p>
+							<% if @viewer.admin=1 %>
+							
 							<div class="tip">
-							<p>Torem ipsum </p>
 							<textarea name="comments" ></textarea>
 							<a href="#"><div class="button_erase">
 								<p>Dzēst</p>
 							</div></a>
+							
 							<a href="#"><div class="button_save">
 								<p>Saglabāt</p>
 							</div></a>
+
 							</div>
+							<% else %>
+							
+							<div class="tip">
+							<p>Torem ipsum dolor sit amet, consecetur alit dolor amet, secetur alit ipsum sit sit amet, consecetur amet, consecetur alit</p>
+							</div>
+							
+							<% end %>
 						</div>
-				</div>
+					</div>
+						
+						
+						<% if @results[i]!= nil %>
 					<div class="progress_bar">
 						<div class="progress_active normal" style="width:80%">
 							<div class="percentage">
-								<p>80%</p>
+								<p><%= @results[i].place_teebox%>%</p>
 							</div>
 						</div>
 					</div>
-					<div class="notification"><a href="javascript:toggleLayer('tip1');"><img src="/images/tip_icon.png" alt=""/></a>
+					<% if @results[i].place_teebox.to_i<30 %>
+					<div class="notification"><a href="javascript:toggleLayer('tip<%= i%>');"><img src="/images/tip_icon.png" alt=""/></a>
 					</div>
+					<% end %>
+					<% else %>
+					<div class="no_value">
+						<p>N/A</p>
+					</div>
+					<% end %>
 				</div>
+
+				<% end %>
 				
-				<div class="progress_block">
-					<div class="progress_bar">
-						<div class="progress_active normal" style="width:80%">
-							<div class="percentage">
-								<p>80%</p>
-							</div>
-						</div>
-					</div>
-					<div class="notification"><a href="#"><img src="/images/tip_icon.png" alt=""/></a>
-					</div>
-				</div>
 				
-				<div class="progress_block">
-					<div class="progress_bar">
-						<div class="progress_active normal" style="width:80%">
-							<div class="percentage">
-								<p>80%</p>
-							</div>
-						</div>
-					</div>
-					<div class="notification"><a href="#"><img src="/images/tip_icon.png" alt=""/></a>
-					</div>
-				</div>
+				
 			</div>
+			
+			
+			
+			
+			
+			
+			
 				<div class="clear"></div>
 	</div>
 		<div class="situation_type">

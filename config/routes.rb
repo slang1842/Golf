@@ -11,7 +11,14 @@ Golf::Application.routes.draw do
   resources :hints
   resources :user_sessions
   resources :pair_hits
-  resources :user_stats
+  resources :user_stats do
+  collection  do
+    get 'populate'
+  end
+end
+  
+  
+
   
   resources  :statistics do
     resources :PairHit
