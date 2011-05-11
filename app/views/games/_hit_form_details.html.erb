@@ -1,8 +1,11 @@
-
-
-
-<div id="form" class="1">
-<%=form_for(hit_planned, :remote => true) do |f|%>
+<%=form_for( game, :url => '/hit_update/') do |game|%>
+<div class="active_hit"> <%= game.hidden_field :hit_direction %></div>
+<div class="nexthole"><%= game.hidden_field :next_hole%></div>
+<div class="formid"><%= game.hidden_field :form, :value => 'details'%></div>
+<%= game.hidden_field :active_hit, :value => active_hit%>
+<%= hits.each do |hit|%>
+<% if hit.real_hit == 'pp'%>
+<% game.fields_for hit do |f|%>
 <%= f.label :place_from %>
 <%= f.select(:place_from, STATISTICS_PLACE_FROM, :prompt => 'Select')%>
 <%= f.label :wind %>
@@ -12,21 +15,19 @@
 <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %>
 <%= f.label :hit_distance %>
 <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+<%= f.label :stance %>
+<%= f.select( :stance, STATISTICS_STANCE, :prompt => "Select") %>
 <%= f.label :land_place %>
 <%= f.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
 <%= f.label :direction%>
 <%= f.select(:direction, STATISTICS_DIRECTION, :prompt => "Select")%>
 <%= f.label :trajectory%>
 <%= f.select(:trajectory, STATISTICS_TRAJECTORY, :prompt => "Select")%>
+<%= f.label :difficulty%>
+<%= f.select(:difficulty, STATISTICS_DIFFICULTY, :prompt => "Select")%>
 <% end %> 
-</div>
-
-<div id="form" class="2">
-<%=form_for(hit_real, :remote => true) do |f|%>
-<%= f.hidden_field :hit_number, :value => active_hit %>
-<%= f.hidden_field :stick_type, :value => hit_planned.stick_type %>
-<%= f.hidden_field :place_from, :value => hit_planned.place_from %>
-<%= f.hidden_field :wind, :value => hit_planned.wind %>
+<% elsif hit.real_hit == 'rp' %>
+<% game.fields_for hit do |f|%>
 <%= f.label :hit_distance %>
 <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
 <%= f.label :land_place %>
@@ -48,4 +49,10 @@
 <%= f.label :comment %>
 <%= f.text_field :comment %>
 <% end %>
+<% end %>
 </div> 
+<% game.fields_for pair_hit do |p|%>
+<%= p.hidden_field :user_stick_id%>
+<% end %>
+<% end %>
+<

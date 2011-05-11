@@ -26,6 +26,8 @@ class CreateHits < ActiveRecord::Migration
       t.integer :direction
       t.string :misdirection # novirze
       t.integer :pair_id
+      t.integer :difficulty
+      t.string :hole_comment
       
       t.timestamps
     end

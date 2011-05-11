@@ -26,3 +26,4 @@ STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
 STATISTICS_HIT_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 3 }
 STATISTICS_MOTION_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 3 }
 STATISTICS_FOLLOWING_ACTION = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 3 }
+STATISTICS_DIFFICULTY = { "Easy" => 1, "Medium" => 2, "Hard" => 3}

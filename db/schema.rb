@@ -44,6 +44,11 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "field_id"
     t.integer  "game_type"
     t.integer  "start_place_colors"
+    t.string   "comment"
+    t.string   "hit_direction"
+    t.integer  "next_hole"
+    t.integer  "active_hit"
+    t.string   "form"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -113,6 +118,8 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "direction"
     t.string   "misdirection"
     t.integer  "pair_id"
+    t.integer  "difficulty"
+    t.string   "hole_comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -136,7 +143,7 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
   create_table "pair_hits", :force => true do |t|
     t.integer  "hit_planed_id"
     t.integer  "hit_real_id"
-    t.integer  "users_stick_id"
+    t.integer  "user_sticks_id"
     t.integer  "users_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -146,7 +153,7 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "user_id"
     t.integer  "stick_id"
     t.string   "place_teebox"
-    t.string   "place_feairway"
+    t.string   "place_eairway"
     t.string   "place_next_fairway"
     t.string   "place_semi_raf"
     t.string   "place_raf"
@@ -172,14 +179,10 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.string   "weather_normal"
     t.string   "weather_wind"
     t.string   "weather_rain"
-    t.string   "weather_wind_and_rain"
+    t.string   "weather_rain_and_wind"
     t.string   "trajectory_normal"
     t.string   "trajectory_high"
     t.string   "trajectory_low"
-    t.string   "wind_from_behind"
-    t.string   "wind_from_front"
-    t.string   "wind_from_left"
-    t.string   "wind_from_right"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -235,7 +238,6 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
   create_table "users_sticks", :force => true do |t|
     t.integer  "user_id"
     t.integer  "stick_id"
-    t.integer  "pair_hit_id"
     t.string   "distance",       :null => false
     t.string   "degrees",        :null => false
     t.string   "shaft",          :null => false

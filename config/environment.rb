@@ -14,4 +14,4 @@ Golf::Application.initialize!
 #   :password => "password",
 #}
 #ActionMailer::Base.default_content_type = "text/html"
-#ails.logger = Logger.new("Application Log")
+Rails.logger = Logger.new("Application Log")
