@@ -12,4 +12,7 @@
    <%= render :partial => 'games/hit_form_results', :locals => {:hits => @hits}%>
    <%end%>  
 </div>
+<div id="hole_picture">
+   <%= render :partial => 'games/hole_picture', :locals => {:hole => @hole} %>
+</div>
 <%= link_to "Done", game_index_path, :remote => true%>

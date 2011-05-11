@@ -4,7 +4,7 @@
 <%=form_for(h, :remote => true) do |f|%>
 
 
-<%= f.label :user_stick_id %>
+<%= f.label :user_stick_id, 'Club' %>
 <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 
 <%= f.label :hit_distance %> 
 <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>

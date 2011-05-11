@@ -41,7 +41,7 @@ class GamesController < ApplicationController
     @game = Game.new(params[:game])
     @game.save
     
-    @path = '/game_' + params[:commit].to_s + '/' + @game.id.to_s + '/1' + '/1'
+    @path = '/game_' + params[:commit].to_s + '/' + @game.id.to_s + '/1' + '/1' + '/new'
      redirect_to @path
     
 end
@@ -93,6 +93,8 @@ end
       end
     @holes_filtered = @holes.where(:hole_number => hole_num)
     @form_type = params[:form_type]
+    conditions7 = {:field_id => @game.field_id, :hole_number => @active_hole}
+  @hole = Hole.find(:first, :conditions => conditions7)
    
   end
   
@@ -102,13 +104,11 @@ end
     @active_hole = params[:active_hole].to_i
     @form_id = params[:form_id].to_s
     @form_id = params[:form_id].to_s
-     if @direction == 'next' && @active_hole != @end_hole
-        @active_hole = @active_hole + 1
-     elsif  @direction == 'prev' && @active_hole != @start_hole
-        @active_hole = @active_hole - 1
-     end
+    
     @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/1/0/0'
     redirect_to @path, :remote => :true
+    
+
   end
   
   def hit_switch
@@ -141,11 +141,11 @@ end
                :user_id => current_user.id}
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-     #convert_to_feet(@hit)
+     convert_to_feet(@hit)
      @form_id = 'plan'
-      if @active_hole == @start_hole && @active_hit == 1 && @hit.hit_distance == nil 
-        render '/games/hit_edit'
-      end
+     if params[:hits] == 'new'
+         render '/games/hit_edit'
+       end
     end
     
     def res
@@ -224,10 +224,44 @@ end
                :hit_number => @active_hit, 
                :real_hit => 'pp',
                :user_id => current_user.id}
+               conditions6 = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => @active_hit.to_i - 1, 
+               :real_hit => 'rp',
+               :user_id => current_user.id}
+      if @active_hit.to_i != 1
+       @hit_real_prev = Hit.find(:first, :conditions => conditions6)
+       #@hit_planned_prev = Hit.find(:first, :conditions => conditions4)
+             
+                 @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
+                @hit_real.place_from = @hit_real_prev.land_place
+               @hit_real.wind = @hit_real_prev.wind
+               @hit_real.update_attributes(params[:hit])
+               puts @hit_real.wind
+               puts @hit_real_prev.wind
+               puts @hit_real.place_from
+               puts @hit_real_prev.land_place
+               puts @hit_real_prev.id
+               else
+                   @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
+     end 
+               
+               
      
      @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
      convert_to_feet(@hit_real)
      @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
+     
+    if @active_hit.to_i != 1
+       @hit_real_prev = Hit.find(:first, :conditions => conditions6)
+       #@hit_planned_prev = Hit.find(:first, :conditions => conditions4)
+       @hit_real.place_from = @hit_real_prev.land_place
+       #@hit_planned.place_from = @hit_real_prev.land_place
+       @hit_real.wind = @hit_real_prev.wind
+       @hit_real.update_attributes(params[:hit])
+       @hit_planned.update_attributes(params[:hit])
+     end
+     
      convert_to_feet(@hit_planned)
                conditions3 = { :hit_planed_id => @hit_planned.id,
                                :hit_real_id => @hit_real.id}
@@ -236,7 +270,7 @@ end
      @hit_planned.pair_id = @pair_hit.id
      @form_id = 'details'
      if params[:hits] == 'new'
-         render '/games/hit_edit'
+         render '/games/hit_edit_details'
        end
     end
     
@@ -264,7 +298,7 @@ end
       end
     end
     
-      def convert_to_feet(hit)
+     def convert_to_feet(hit)
     if current_user.measurement == 'foots' && hit.hit_distance != nil
       @a = hit.hit_distance
       @b = hit.distance_to_hole
