@@ -13,12 +13,12 @@
 <% holes_filtered.each do |f|%>
 <% if f.hole_number.to_i < active_hole.to_i %>
 
-<a href="#" OnClick="$(#hit_edit_tab.formid).val().value('<%=form_id%>'); $(#hit_edit_tab.nexthole).val().value('<%=f.hole_number%>');$(#hit_edit_tab.active_hit).val().value('hole');$(form).submit;" ><%=f.hole_number%></a>
+<a href="#" rel="<%=f.hole_number%>" class="hole_switch"><%=f.hole_number%></a>
 
 <% elsif f.hole_number.to_i == active_hole.to_i %>
-<a href="#" OnClick="$(#hit_edit_tab.formid).val().value('<%=form_id%>'); $(#hit_edit_tab.nexthole).val().value('<%=f.hole_number%>');$(#hit_edit_tab.active_hit).val().value('hole');$(form).submit;" ><%=f.hole_number%></a>
+<a href="#" rel="<%=f.hole_number%>" class="hit_plan_link"><%=f.hole_number%></a>
 <% else %>
-<a href="#" OnClick="$(#hit_edit_tab.formid).val().value('<%=form_id%>'); $(#hit_edit_tab.nexthole).val().value('<%=f.hole_number%>');$(#hit_edit_tab.active_hit).val().value('hole');$(form).submit;" ><%=f.hole_number%></a>
+<a href="#" rel="<%=f.hole_number%>" class="hole_switch"><%=f.hole_number%></a>
     <% end %>
   
     <% end %>

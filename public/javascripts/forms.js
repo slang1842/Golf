@@ -1,6 +1,6 @@
 $(document).ready(function(){
   datapicker();
-  timepicker();  
+  timepicker();
 });
 
 function fill_sticks_form(a) {

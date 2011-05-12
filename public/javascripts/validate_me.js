@@ -8,7 +8,8 @@ $(document).ready(function(){
   //onChanged
   email.change(validate_email(email));
   
-
+  
+  
 });
 
 

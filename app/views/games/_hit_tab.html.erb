@@ -1,9 +1,9 @@
 <% if active_hit != 1 %>
-<a href="#" OnClick="$(#hit_edit_tab.nexthole).val().value('<%=active_hole%>');$(#hit_edit_tab.active_hit).val().value('prev');$(form).submit;" >Previous hit</a>
+<a href="#" rel="prev" class="hit_switch"> < </a>
 
 <%=active_hit%>
-<a href="#" OnClick="$(#hit_edit_tab.nexthole).val().value('<%=active_hole%>');$(#hit_edit_tab.active_hit).val().value('next');$(form).submit;" >Next hit</a>
+<a href="#" rel="next" class="hit_switch"> > </a>
 <% else %>
 <%=active_hit%>
-<a href="#" OnClick="$(#hit_edit_tab.nexthole).val().value('<%=active_hole%>');$(#hit_edit_tab.active_hit).val().value('next');$(form).submit;" >Next hit</a>
+<a href="#" rel="next" class="hit_switch"> > </a>
 <% end %>
