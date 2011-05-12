@@ -103,15 +103,12 @@ a {
 	position:relative;
 	margin-top:12px;
 	float:right;
-	width:188px;
+	width:216px;
 }
 
-.header_wrap .login_wrap .description {
-	float:left;
-	margin-bottom:7px;
-}
-
-.header_wrap .login_wrap .description p {
+.header_wrap .login_wrap p {
+        display: inline-block;
+        margin-right: 10px;
 	font-size:12px;
 	color:#b6d051;
 	font-family:"Tahoma";
@@ -119,8 +116,9 @@ a {
 }
 
 .header_wrap .login_wrap .input_wrap {
-	float:right;
+        float:right;
 	margin-left:5px;
+        margin-bottom:5px;
 	position:relative;
 	bottom:3px;
 }
@@ -133,11 +131,12 @@ a {
 	border:none;
 }
 
-.header_wrap .login_wrap .button {
+.header_wrap .login_wrap .button  {
 	float:right;
 }
 
-.header_wrap .login_wrap .button a{
+.header_wrap .login_wrap .button input {
+  border: none;
 	background-color:#88bb25;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -153,7 +152,10 @@ a {
 	position:relative;
 	bottom:1px;
 }	
-	
+.header_wrap .login_wrap .button input:hover {
+        cursor: pointer;    
+}
+
 .header_wrap .logo_wrap {
 	position:relative;
 	left:16px;
@@ -898,3 +900,4 @@ color:#898989;
 	color:#b6d051;
 	font-size:20px;
 }
+
