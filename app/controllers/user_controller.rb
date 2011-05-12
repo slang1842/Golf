@@ -34,9 +34,10 @@ class UserController < ApplicationController
       @user = current_user                 
       if @user.update_attributes(params[:user])
         redirect_to welcome_path           
-      else                                 
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      else      
+        respond_to do |format|
+          format.html { render :action => "edit" }
+        end
     end                                    
   end   
   

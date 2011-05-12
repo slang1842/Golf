@@ -200,9 +200,13 @@ a {
 .menu_wrap .profile_info .text a {
 	font-family:"Tahoma";
 	font-size:12px;
-	text-decoration:none;
+	text-decoration: none;
 	color:#00aeef;
 }
+.menu_wrap .profile_info .text a:hover {
+  text-decoration: underline;
+}
+
 
 .menu_wrap .icon_wrap {
 	float:left;
@@ -220,6 +224,10 @@ a {
 
 .menu_wrap .icon_wrap .link_wrap a {
 	text-decoration:none;
+}
+.menu_wrap .icon_wrap .link_wrap a:hover {
+	text-decoration:underline;
+    color:#898989;
 }
 
 .menu_wrap .icon_wrap .link_wrap p {

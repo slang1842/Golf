@@ -1,9 +1,6 @@
-#page['#hit_edit_tab'].find('form').submit()
-#if @k != 1
-#page[''].ajaxComplete(function(){ redirect_to details_path(game_id, @active_hole, @active_hit, 'done', 0), :remote => true; });
-#else
-page['#hit_count_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
-page['#hit_edit_tab'].html render(:partial => 'games/hit_form_details', :locals => {:hits => @hits, :active_hit => @active_hit, :pair_hit => @pair_hit, :game => @game})
+page['form'].submit()
+#page['#form.2'].submit()
+#page['#form.3'].submit()
+page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+page['#hit_edit_tab'].html render(:partial => 'games/hit_form_' + @form_id, :locals => {:hit_planned => @hit_planned, :active_hit => @active_hit, :hit_real => @hit_real, :pair_hit => @pair_hit})
 page['#hole_tab'].html render(:partial => 'games/hole_tab', :locals => {:game_id => @game.id, :form_id => @form_id, :active_hole => @active_hole, :holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :hits => 0, :puts => 0})
-page['#hole_picture'].html render(:partial => 'games/hole_picture', :locals => {:hole => @hole})
-#end

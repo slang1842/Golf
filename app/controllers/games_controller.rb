@@ -246,7 +246,7 @@ end
      @hit_p_final.update_attributes(params[:pair_id])
      @pair_hit.update_attributes(params[:pair_hit])
      @form_id = 'details'
-     
+     @hits = [@hit_r_final, @hit_p_final]
      if params[:hits] == 'new'
          render '/games/hit_edit_details'
        # else
@@ -342,6 +342,7 @@ end
                puts @hit_r_final.place_from.to_s + " real place_from"
                puts @hit_real_prev.land_place.to_s + " prev land_place"
                puts @hit_real_prev.id 
+               
   end
   def comments(hit, type, hole_hit)
     game_holes
