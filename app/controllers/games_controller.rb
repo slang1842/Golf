@@ -106,7 +106,7 @@ end
     @form_id = params[:form_id].to_s
     
     @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/1/0/0'
-    redirect_to @path, :remote => :true
+    #redirect_to @path, :remote => :true
     
 
   end
@@ -124,7 +124,7 @@ end
     end
     
     @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/' + @active_hit.to_s
-    redirect_to @path, :remote => :true
+    #redirect_to @path, :remote => :true
    end
     
    def plan
@@ -146,6 +146,7 @@ end
      if params[:hits] == 'new'
          render '/games/hit_edit'
        end
+      # comments(@hit, 'plan')
     end
     
     def res
@@ -205,6 +206,7 @@ end
     if params[:hits] == 'new'
          render '/games/hit_edit_results'
        end
+     #comments(@hit, 'results')
     end
     
     
@@ -214,64 +216,46 @@ end
       game_holes
       @active_hole = params[:active_hole]
       @active_hit = params[:active_hit]
-               conditions1 = { :game_id => @game.id, 
-               :hole_number => @active_hole,
-               :hit_number => @active_hit, 
-               :real_hit => 'rp',
-               :user_id => current_user.id}
-               conditions2 = { :game_id => @game.id, 
+              conditions2 = { :game_id => @game.id, 
                :hole_number => @active_hole,
                :hit_number => @active_hit, 
                :real_hit => 'pp',
                :user_id => current_user.id}
-               conditions6 = { :game_id => @game.id, 
+               conditions1 = { :game_id => @game.id, 
                :hole_number => @active_hole,
-               :hit_number => @active_hit.to_i - 1, 
+               :hit_number => @active_hit, 
                :real_hit => 'rp',
-               :user_id => current_user.id}
+               :user_id => current_user.id
+               }
       if @active_hit.to_i != 1
-       @hit_real_prev = Hit.find(:first, :conditions => conditions6)
-       #@hit_planned_prev = Hit.find(:first, :conditions => conditions4)
-             
-                 @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
-                @hit_real.place_from = @hit_real_prev.land_place
-               @hit_real.wind = @hit_real_prev.wind
-               @hit_real.update_attributes(params[:hit])
-               puts @hit_real.wind
-               puts @hit_real_prev.wind
-               puts @hit_real.place_from
-               puts @hit_real_prev.land_place
-               puts @hit_real_prev.id
-               else
-                   @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
-     end 
-               
-               
-     
-     @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
-     convert_to_feet(@hit_real)
-     @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
-     
-    if @active_hit.to_i != 1
-       @hit_real_prev = Hit.find(:first, :conditions => conditions6)
-       #@hit_planned_prev = Hit.find(:first, :conditions => conditions4)
-       @hit_real.place_from = @hit_real_prev.land_place
-       #@hit_planned.place_from = @hit_real_prev.land_place
-       @hit_real.wind = @hit_real_prev.wind
-       @hit_real.update_attributes(params[:hit])
-       @hit_planned.update_attributes(params[:hit])
-     end
-     
-     convert_to_feet(@hit_planned)
-               conditions3 = { :hit_planed_id => @hit_planned.id,
-                               :hit_real_id => @hit_real.id}
+        fix_params(@active_hole, @active_hit, @game.id)
+       else
+          @hit_r_final = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
+        @hit_p_final = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
+       
+        end
+     convert_to_feet(@hit_r_final)
+               convert_to_feet(@hit_p_final)
+               conditions3 = { :hit_planed_id => @hit_p_final.id,
+                               :hit_real_id => @hit_r_final.id,
+                               :users_id => current_user.id}
      @pair_hit = PairHit.find(:first, :conditions => conditions3) || PairHit.create(conditions3)
-     @hit_real.pair_id = @pair_hit.id
-     @hit_planned.pair_id = @pair_hit.id
+     @hit_r_final.pair_id = @pair_hit.id
+     @hit_p_final.pair_id = @pair_hit.id
+     @hit_r_final.update_attributes(params[:pair_id])
+     @hit_p_final.update_attributes(params[:pair_id])
+     @pair_hit.update_attributes(params[:pair_hit])
      @form_id = 'details'
+     
      if params[:hits] == 'new'
          render '/games/hit_edit_details'
+       # else
+       #   respond_to do |format|
+       #     format.js
+       #   end
        end
+       
+      # comments(@hit_real, 'details')
     end
     
     
@@ -315,5 +299,68 @@ end
       hit.distance_to_hole = @b.to_i * 0.3048
       hit.update_attributes(params [:hit])
     end
+  end
+  def fix_params(active_hole, active_hit, game_id)
+                conditions6 = { :game_id => game_id, 
+               :hole_number => active_hole,
+               :hit_number => active_hit.to_i - 1, 
+               :real_hit => 'rp',
+               :user_id => current_user.id}
+               conditions5 = {:game_id => game_id, 
+               :hole_number => active_hole,
+               :hit_number => active_hit.to_i - 1, 
+               :real_hit => 'pp',
+               :user_id => current_user.id
+                 }
+               conditions2 = { :game_id => game_id, 
+               :hole_number => active_hole,
+               :hit_number => active_hit, 
+               :real_hit => 'pp',
+               :user_id => current_user.id}
+               conditions1 = { :game_id => game_id, 
+               :hole_number => active_hole,
+               :hit_number => active_hit, 
+               :real_hit => 'rp',
+               :user_id => current_user.id
+               }
+               
+              
+       @hit_real_prev = Hit.find(:first, :conditions => conditions6)
+       @hit_planned_prev = Hit.find(:first, :conditions => conditions5)
+               
+       
+               @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
+               @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
+               place_from = @hit_real_prev.land_place
+               wind = @hit_planned_prev.wind
+               @hit_real.update_attributes({:place_from => place_from, :wind => wind})
+               @hit_planned.update_attributes({:place_from => place_from, :wind => wind})
+               @hit_r_final = @hit_real
+               @hit_p_final = @hit_planned
+               puts @hit_r_final.wind.to_s + " real wind"
+               puts @hit_real_prev.wind.to_s + " prev wind"
+               puts @hit_r_final.place_from.to_s + " real place_from"
+               puts @hit_real_prev.land_place.to_s + " prev land_place"
+               puts @hit_real_prev.id 
+  end
+  def comments(hit, type, hole_hit)
+    game_holes
+    
+  end
+  def hit_update
+    @game = params[:game]
+    @game.update_attributes(params[:hits])
+    
+    if params[:hit_direction] == 'next'
+      @active_hit = params[:active_hit].to_i + 1
+    end
+    if params[:hit_direction] == 'hole'
+      @active_hit = 1
+    end
+    if params[:hit_direction] == 'prev'
+      @active_hit = params[:active_hit].to_i - 1
+    end
+    @path = '/game_' + params[:form].to_s + '/' + params[:next_hole].to_s + '/' + @active_hit.to_s + '/'
+    redirect_to @path, :remote => :true
   end
 end

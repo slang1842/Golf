@@ -1,3 +1,4 @@
+
 <%= render :partial => 'share/header_menu' %>
 <br />
 
@@ -9,7 +10,7 @@
 </div>
 <div id="hit_edit_tab">
 
-   <%= render :partial => 'games/hit_form_details', :locals => {:hit_planned => @hit_planned, :hit_real => @hit_real, :active_hit => @active_hit}%>
+   <%= render :partial => 'games/hit_form_details', :locals => {:hits => @hits, :game => @game, :active_hit => @active_hit}%>
 
 </div>
 

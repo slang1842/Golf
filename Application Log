@@ -1,0 +1,3216 @@
+
+
+Started GET "/hit_switch/2/1/next/3/details" for 127.0.0.1 at Wed May 11 11:14:01 +0300 2011
+
+
+Started GET "/game_details/2/1/4" for 127.0.0.1 at Wed May 11 11:14:07 +0300 2011
+
+
+Started POST "/hits/7" for 127.0.0.1 at Wed May 11 11:14:08 +0300 2011
+
+
+Started POST "/hits/6" for 127.0.0.1 at Wed May 11 11:14:08 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/4/details" for 127.0.0.1 at Wed May 11 11:18:27 +0300 2011
+
+
+Started GET "/game_details/2/1/5" for 127.0.0.1 at Wed May 11 11:18:27 +0300 2011
+
+NameError (undefined local variable or method `game' for #<GamesController:0x7677498>):
+  app/controllers/games_controller.rb:296:in `fix_params'
+  app/controllers/games_controller.rb:231:in `details'
+
+
+
+
+Started GET "/hit_switch/2/1/next/4/details" for 127.0.0.1 at Wed May 11 11:18:45 +0300 2011
+
+
+Started GET "/game_details/2/1/5" for 127.0.0.1 at Wed May 11 11:18:45 +0300 2011
+
+NameError (undefined local variable or method `game' for #<GamesController:0x75fc948>):
+  app/controllers/games_controller.rb:296:in `fix_params'
+  app/controllers/games_controller.rb:231:in `details'
+
+
+
+
+Started GET "/game_details/2/1/1/new/0" for 127.0.0.1 at Wed May 11 11:19:34 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:19:37 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:19:38 +0300 2011
+
+
+Started POST "/hits/3" for 127.0.0.1 at Wed May 11 11:19:39 +0300 2011
+
+
+Started POST "/hits/2" for 127.0.0.1 at Wed May 11 11:19:39 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/2/details" for 127.0.0.1 at Wed May 11 11:19:42 +0300 2011
+
+
+Started GET "/game_details/2/1/3" for 127.0.0.1 at Wed May 11 11:19:43 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:19:44 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:19:44 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/3/details" for 127.0.0.1 at Wed May 11 11:19:48 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:19:48 +0300 2011
+
+
+Started POST "/hits/6" for 127.0.0.1 at Wed May 11 11:19:49 +0300 2011
+
+
+Started POST "/hits/7" for 127.0.0.1 at Wed May 11 11:19:49 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/2/details" for 127.0.0.1 at Wed May 11 11:19:50 +0300 2011
+
+
+Started GET "/game_details/2/1/1" for 127.0.0.1 at Wed May 11 11:19:50 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:19:51 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:19:52 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:19:55 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:19:55 +0300 2011
+
+
+Started POST "/hits/3" for 127.0.0.1 at Wed May 11 11:19:56 +0300 2011
+
+
+Started POST "/hits/2" for 127.0.0.1 at Wed May 11 11:19:57 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/2/details" for 127.0.0.1 at Wed May 11 11:19:59 +0300 2011
+
+
+Started GET "/game_details/2/1/3" for 127.0.0.1 at Wed May 11 11:19:59 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:20:00 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:20:01 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/3/details" for 127.0.0.1 at Wed May 11 11:20:01 +0300 2011
+
+
+Started GET "/game_details/2/1/4" for 127.0.0.1 at Wed May 11 11:20:02 +0300 2011
+
+
+Started POST "/hits/7" for 127.0.0.1 at Wed May 11 11:20:03 +0300 2011
+
+
+Started POST "/hits/6" for 127.0.0.1 at Wed May 11 11:20:03 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/4/details" for 127.0.0.1 at Wed May 11 11:20:10 +0300 2011
+
+
+Started GET "/game_details/2/1/5" for 127.0.0.1 at Wed May 11 11:20:11 +0300 2011
+
+
+Started POST "/hits/9" for 127.0.0.1 at Wed May 11 11:20:12 +0300 2011
+
+
+Started POST "/hits/8" for 127.0.0.1 at Wed May 11 11:20:13 +0300 2011
+
+
+Started GET "/game_details/2/1/1/new/0" for 127.0.0.1 at Wed May 11 11:23:50 +0300 2011
+
+SyntaxError (C:/workspace/Golf/app/controllers/games_controller.rb:315: syntax error, unexpected tSYMBEG, expecting '}'
+               :place_from => @hit_real_prev.land_place}
+                ^
+C:/workspace/Golf/app/controllers/games_controller.rb:315: syntax error, unexpected '}', expecting kEND):
+  
+
+
+
+
+Started GET "/game_details/2/1/1/new/0" for 127.0.0.1 at Wed May 11 11:24:07 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:24:11 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:24:12 +0300 2011
+
+
+Started POST "/hits/3" for 127.0.0.1 at Wed May 11 11:24:13 +0300 2011
+
+
+Started POST "/hits/2" for 127.0.0.1 at Wed May 11 11:24:13 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/2/details" for 127.0.0.1 at Wed May 11 11:24:14 +0300 2011
+
+
+Started GET "/game_details/2/1/3" for 127.0.0.1 at Wed May 11 11:24:15 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:24:16 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:24:16 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/3/details" for 127.0.0.1 at Wed May 11 11:24:17 +0300 2011
+
+
+Started GET "/game_details/2/1/4" for 127.0.0.1 at Wed May 11 11:24:17 +0300 2011
+
+
+Started POST "/hits/6" for 127.0.0.1 at Wed May 11 11:24:18 +0300 2011
+
+
+Started POST "/hits/7" for 127.0.0.1 at Wed May 11 11:24:19 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/4/details" for 127.0.0.1 at Wed May 11 11:24:20 +0300 2011
+
+
+Started GET "/game_details/2/1/5" for 127.0.0.1 at Wed May 11 11:24:20 +0300 2011
+
+
+Started POST "/hits/8" for 127.0.0.1 at Wed May 11 11:24:21 +0300 2011
+
+
+Started POST "/hits/9" for 127.0.0.1 at Wed May 11 11:24:22 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/5/details" for 127.0.0.1 at Wed May 11 11:24:31 +0300 2011
+
+
+Started GET "/game_details/2/1/6" for 127.0.0.1 at Wed May 11 11:24:32 +0300 2011
+
+
+Started POST "/hits/11" for 127.0.0.1 at Wed May 11 11:24:33 +0300 2011
+
+
+Started POST "/hits/10" for 127.0.0.1 at Wed May 11 11:24:33 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/6/details" for 127.0.0.1 at Wed May 11 11:28:06 +0300 2011
+
+
+Started GET "/game_details/2/1/5" for 127.0.0.1 at Wed May 11 11:28:06 +0300 2011
+
+
+Started POST "/hits/13" for 127.0.0.1 at Wed May 11 11:28:07 +0300 2011
+
+
+Started POST "/hits/12" for 127.0.0.1 at Wed May 11 11:28:08 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Wed May 11 11:28:22 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Wed May 11 11:28:22 +0300 2011
+
+
+Started GET "/hitsd" for 127.0.0.1 at Wed May 11 11:28:26 +0300 2011
+
+ActionController::RoutingError (No route matches "/hitsd"):
+  
+
+
+
+
+Started GET "/hits" for 127.0.0.1 at Wed May 11 11:28:30 +0300 2011
+
+
+Started GET "/hits" for 127.0.0.1 at Wed May 11 11:29:57 +0300 2011
+
+
+Started GET "/hole_switch/2/8/prev/details/0/0" for 127.0.0.1 at Wed May 11 11:31:27 +0300 2011
+
+
+Started GET "/game_details/2/8/1/0/0" for 127.0.0.1 at Wed May 11 11:31:27 +0300 2011
+
+
+Started GET "/hit_switch/2/8/next/1/details" for 127.0.0.1 at Wed May 11 11:31:41 +0300 2011
+
+
+Started GET "/game_details/2/8/2" for 127.0.0.1 at Wed May 11 11:31:42 +0300 2011
+
+
+Started POST "/hits/15" for 127.0.0.1 at Wed May 11 11:31:43 +0300 2011
+
+
+Started POST "/hits/14" for 127.0.0.1 at Wed May 11 11:31:43 +0300 2011
+
+
+Started GET "/game_details/2/8/1/0/0" for 127.0.0.1 at Wed May 11 11:32:02 +0300 2011
+
+
+Started GET "/hit_switch/2/8/next/1/details" for 127.0.0.1 at Wed May 11 11:32:13 +0300 2011
+
+
+Started GET "/game_details/2/8/2" for 127.0.0.1 at Wed May 11 11:32:14 +0300 2011
+
+
+Started POST "/hits/15" for 127.0.0.1 at Wed May 11 11:32:15 +0300 2011
+
+
+Started POST "/hits/14" for 127.0.0.1 at Wed May 11 11:32:15 +0300 2011
+
+
+Started GET "/hole_switch/2/1/prev/details/0/0" for 127.0.0.1 at Wed May 11 11:35:04 +0300 2011
+
+
+Started GET "/game_details/2/1/1/0/0" for 127.0.0.1 at Wed May 11 11:35:05 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:35:11 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:35:11 +0300 2011
+
+
+Started POST "/hits/3" for 127.0.0.1 at Wed May 11 11:35:12 +0300 2011
+
+
+Started POST "/hits/2" for 127.0.0.1 at Wed May 11 11:35:13 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:35:18 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:35:18 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:35:19 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:35:19 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:35:37 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:35:38 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:35:38 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:35:39 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/1/details" for 127.0.0.1 at Wed May 11 11:35:42 +0300 2011
+
+
+Started GET "/game_details/2/1/1" for 127.0.0.1 at Wed May 11 11:35:42 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:35:43 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:35:43 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:35:44 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:35:44 +0300 2011
+
+
+Started POST "/hits/3" for 127.0.0.1 at Wed May 11 11:35:45 +0300 2011
+
+
+Started POST "/hits/2" for 127.0.0.1 at Wed May 11 11:35:46 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:35:48 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:35:49 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:35:50 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:35:50 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:36:00 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:36:00 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:36:01 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:36:02 +0300 2011
+
+
+Started GET "/game_details/2/1/1/0/0" for 127.0.0.1 at Wed May 11 11:36:32 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:36:35 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:36:36 +0300 2011
+
+
+Started POST "/hits/3" for 127.0.0.1 at Wed May 11 11:36:37 +0300 2011
+
+
+Started POST "/hits/2" for 127.0.0.1 at Wed May 11 11:36:37 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:36:52 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:36:52 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:36:53 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:36:54 +0300 2011
+
+
+Started GET "/game_details/2/1/3/0/0" for 127.0.0.1 at Wed May 11 11:37:08 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/3/details" for 127.0.0.1 at Wed May 11 11:37:22 +0300 2011
+
+
+Started GET "/game_details/2/1/4" for 127.0.0.1 at Wed May 11 11:37:23 +0300 2011
+
+
+Started POST "/hits/7" for 127.0.0.1 at Wed May 11 11:37:24 +0300 2011
+
+
+Started POST "/hits/6" for 127.0.0.1 at Wed May 11 11:37:24 +0300 2011
+
+
+Started GET "/game_details/2/1/3/0/0" for 127.0.0.1 at Wed May 11 11:38:19 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:38:29 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:38:29 +0300 2011
+
+
+Started POST "/hits/3" for 127.0.0.1 at Wed May 11 11:38:30 +0300 2011
+
+
+Started POST "/hits/2" for 127.0.0.1 at Wed May 11 11:38:31 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/2/details" for 127.0.0.1 at Wed May 11 11:38:41 +0300 2011
+
+
+Started GET "/game_details/2/1/3" for 127.0.0.1 at Wed May 11 11:38:41 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:38:42 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:38:43 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/3/details" for 127.0.0.1 at Wed May 11 11:38:45 +0300 2011
+
+
+Started GET "/game_details/2/1/4" for 127.0.0.1 at Wed May 11 11:38:46 +0300 2011
+
+
+Started POST "/hits/7" for 127.0.0.1 at Wed May 11 11:38:47 +0300 2011
+
+
+Started POST "/hits/6" for 127.0.0.1 at Wed May 11 11:38:47 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/4/details" for 127.0.0.1 at Wed May 11 11:38:48 +0300 2011
+
+
+Started GET "/game_details/2/1/5" for 127.0.0.1 at Wed May 11 11:38:48 +0300 2011
+
+
+Started POST "/hits/9" for 127.0.0.1 at Wed May 11 11:38:49 +0300 2011
+
+
+Started POST "/hits/8" for 127.0.0.1 at Wed May 11 11:38:50 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/5/details" for 127.0.0.1 at Wed May 11 11:38:55 +0300 2011
+
+
+Started GET "/game_details/2/1/6" for 127.0.0.1 at Wed May 11 11:38:56 +0300 2011
+
+
+Started POST "/hits/11" for 127.0.0.1 at Wed May 11 11:38:57 +0300 2011
+
+
+Started POST "/hits/10" for 127.0.0.1 at Wed May 11 11:38:57 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/6/details" for 127.0.0.1 at Wed May 11 11:39:12 +0300 2011
+
+
+Started GET "/game_details/2/1/7" for 127.0.0.1 at Wed May 11 11:39:12 +0300 2011
+
+
+Started POST "/hits/13" for 127.0.0.1 at Wed May 11 11:39:14 +0300 2011
+
+
+Started POST "/hits/12" for 127.0.0.1 at Wed May 11 11:39:14 +0300 2011
+
+
+Started GET "/hits" for 127.0.0.1 at Wed May 11 11:39:19 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/7/details" for 127.0.0.1 at Wed May 11 11:41:30 +0300 2011
+
+
+Started GET "/game_details/2/1/8" for 127.0.0.1 at Wed May 11 11:41:30 +0300 2011
+
+
+Started POST "/hits/20" for 127.0.0.1 at Wed May 11 11:41:31 +0300 2011
+
+
+Started POST "/hits/19" for 127.0.0.1 at Wed May 11 11:41:32 +0300 2011
+
+
+Started GET "/game_details/2/1/1/new/0" for 127.0.0.1 at Wed May 11 11:55:36 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 11:55:44 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 11:55:44 +0300 2011
+
+
+Started POST "/hits/3" for 127.0.0.1 at Wed May 11 11:55:45 +0300 2011
+
+
+Started POST "/hits/2" for 127.0.0.1 at Wed May 11 11:55:46 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/2/details" for 127.0.0.1 at Wed May 11 11:58:38 +0300 2011
+
+
+Started GET "/game_details/2/1/3" for 127.0.0.1 at Wed May 11 11:58:39 +0300 2011
+
+
+Started POST "/hits/5" for 127.0.0.1 at Wed May 11 11:58:40 +0300 2011
+
+
+Started POST "/hits/4" for 127.0.0.1 at Wed May 11 11:58:40 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/3/details" for 127.0.0.1 at Wed May 11 12:02:56 +0300 2011
+
+
+Started GET "/game_details/2/1/4" for 127.0.0.1 at Wed May 11 12:02:57 +0300 2011
+
+
+Started POST "/hits/7" for 127.0.0.1 at Wed May 11 12:02:58 +0300 2011
+
+
+Started POST "/hits/6" for 127.0.0.1 at Wed May 11 12:02:59 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/4/details" for 127.0.0.1 at Wed May 11 12:03:01 +0300 2011
+
+
+Started GET "/game_details/2/1/5" for 127.0.0.1 at Wed May 11 12:03:01 +0300 2011
+
+
+Started POST "/hits/9" for 127.0.0.1 at Wed May 11 12:03:03 +0300 2011
+
+
+Started POST "/hits/8" for 127.0.0.1 at Wed May 11 12:03:03 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/5/details" for 127.0.0.1 at Wed May 11 12:03:08 +0300 2011
+
+
+Started GET "/game_details/2/1/6" for 127.0.0.1 at Wed May 11 12:03:09 +0300 2011
+
+
+Started POST "/hits/10" for 127.0.0.1 at Wed May 11 12:03:10 +0300 2011
+
+
+Started POST "/hits/11" for 127.0.0.1 at Wed May 11 12:03:10 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/6/details" for 127.0.0.1 at Wed May 11 12:03:18 +0300 2011
+
+
+Started GET "/game_details/2/1/7" for 127.0.0.1 at Wed May 11 12:03:18 +0300 2011
+
+
+Started POST "/hits/13" for 127.0.0.1 at Wed May 11 12:03:19 +0300 2011
+
+
+Started POST "/hits/12" for 127.0.0.1 at Wed May 11 12:03:20 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/7/details" for 127.0.0.1 at Wed May 11 12:03:58 +0300 2011
+
+
+Started GET "/game_details/2/1/8" for 127.0.0.1 at Wed May 11 12:03:58 +0300 2011
+
+
+Started POST "/hits/20" for 127.0.0.1 at Wed May 11 12:03:59 +0300 2011
+
+
+Started POST "/hits/19" for 127.0.0.1 at Wed May 11 12:04:00 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/8/details" for 127.0.0.1 at Wed May 11 12:04:07 +0300 2011
+
+
+Started GET "/game_details/2/1/9" for 127.0.0.1 at Wed May 11 12:04:07 +0300 2011
+
+
+Started POST "/hits/22" for 127.0.0.1 at Wed May 11 12:04:09 +0300 2011
+
+
+Started POST "/hits/21" for 127.0.0.1 at Wed May 11 12:04:09 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/9/details" for 127.0.0.1 at Wed May 11 12:04:17 +0300 2011
+
+
+Started GET "/game_details/2/1/8" for 127.0.0.1 at Wed May 11 12:04:17 +0300 2011
+
+
+Started POST "/hits/24" for 127.0.0.1 at Wed May 11 12:04:18 +0300 2011
+
+
+Started POST "/hits/23" for 127.0.0.1 at Wed May 11 12:04:19 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/8/details" for 127.0.0.1 at Wed May 11 12:04:20 +0300 2011
+
+
+Started GET "/game_details/2/1/9" for 127.0.0.1 at Wed May 11 12:04:20 +0300 2011
+
+
+Started POST "/hits/22" for 127.0.0.1 at Wed May 11 12:04:21 +0300 2011
+
+
+Started POST "/hits/21" for 127.0.0.1 at Wed May 11 12:04:22 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/9/details" for 127.0.0.1 at Wed May 11 12:04:51 +0300 2011
+
+
+Started GET "/game_details/2/1/10" for 127.0.0.1 at Wed May 11 12:04:52 +0300 2011
+
+
+Started POST "/hits/24" for 127.0.0.1 at Wed May 11 12:04:53 +0300 2011
+
+
+Started POST "/hits/23" for 127.0.0.1 at Wed May 11 12:04:54 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/10/details" for 127.0.0.1 at Wed May 11 12:04:55 +0300 2011
+
+
+Started GET "/game_details/2/1/9" for 127.0.0.1 at Wed May 11 12:04:56 +0300 2011
+
+
+Started POST "/hits/26" for 127.0.0.1 at Wed May 11 12:04:57 +0300 2011
+
+
+Started POST "/hits/25" for 127.0.0.1 at Wed May 11 12:04:58 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/9/details" for 127.0.0.1 at Wed May 11 12:04:58 +0300 2011
+
+
+Started GET "/game_details/2/1/10" for 127.0.0.1 at Wed May 11 12:04:59 +0300 2011
+
+
+Started POST "/hits/24" for 127.0.0.1 at Wed May 11 12:05:00 +0300 2011
+
+
+Started POST "/hits/23" for 127.0.0.1 at Wed May 11 12:05:00 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/10/details" for 127.0.0.1 at Wed May 11 12:06:12 +0300 2011
+
+
+Started GET "/game_details/2/1/11" for 127.0.0.1 at Wed May 11 12:06:12 +0300 2011
+
+NameError (undefined local variable or method `to' for #<GamesController:0x15cf7140>):
+  app/controllers/games_controller.rb:251:in `details'
+
+
+
+
+Started GET "/hit_switch/2/1/next/10/details" for 127.0.0.1 at Wed May 11 12:06:47 +0300 2011
+
+
+Started GET "/game_details/2/1/11" for 127.0.0.1 at Wed May 11 12:06:47 +0300 2011
+
+
+Started POST "/hits/26" for 127.0.0.1 at Wed May 11 12:06:48 +0300 2011
+
+
+Started POST "/hits/25" for 127.0.0.1 at Wed May 11 12:06:49 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/11/details" for 127.0.0.1 at Wed May 11 12:06:51 +0300 2011
+
+
+Started GET "/game_details/2/1/10" for 127.0.0.1 at Wed May 11 12:06:52 +0300 2011
+
+
+Started POST "/hits/28" for 127.0.0.1 at Wed May 11 12:06:53 +0300 2011
+
+
+Started POST "/hits/27" for 127.0.0.1 at Wed May 11 12:06:53 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/10/details" for 127.0.0.1 at Wed May 11 12:06:54 +0300 2011
+
+
+Started GET "/game_details/2/1/11" for 127.0.0.1 at Wed May 11 12:06:55 +0300 2011
+
+
+Started POST "/hits/25" for 127.0.0.1 at Wed May 11 12:06:56 +0300 2011
+
+
+Started POST "/hits/26" for 127.0.0.1 at Wed May 11 12:06:56 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/11/details" for 127.0.0.1 at Wed May 11 12:15:06 +0300 2011
+
+SyntaxError (C:/workspace/Golf/app/controllers/games_controller.rb:344: syntax error, unexpected kEND, expecting $end):
+  
+
+
+
+
+Started GET "/hit_switch/2/1/next/11/details" for 127.0.0.1 at Wed May 11 12:15:34 +0300 2011
+
+
+Started GET "/game_details/2/1/12" for 127.0.0.1 at Wed May 11 12:15:34 +0300 2011
+
+
+Started POST "/hits/28" for 127.0.0.1 at Wed May 11 12:15:36 +0300 2011
+
+
+Started POST "/hits/27" for 127.0.0.1 at Wed May 11 12:15:36 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/12/details" for 127.0.0.1 at Wed May 11 12:15:45 +0300 2011
+
+
+Started GET "/game_details/2/1/13" for 127.0.0.1 at Wed May 11 12:15:46 +0300 2011
+
+
+Started POST "/hits/30" for 127.0.0.1 at Wed May 11 12:15:47 +0300 2011
+
+
+Started POST "/hits/29" for 127.0.0.1 at Wed May 11 12:15:48 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/13/details" for 127.0.0.1 at Wed May 11 12:15:49 +0300 2011
+
+
+Started GET "/game_details/2/1/12" for 127.0.0.1 at Wed May 11 12:15:49 +0300 2011
+
+
+Started POST "/hits/32" for 127.0.0.1 at Wed May 11 12:15:51 +0300 2011
+
+
+Started POST "/hits/31" for 127.0.0.1 at Wed May 11 12:15:51 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/12/details" for 127.0.0.1 at Wed May 11 12:15:52 +0300 2011
+
+
+Started GET "/game_details/2/1/13" for 127.0.0.1 at Wed May 11 12:15:52 +0300 2011
+
+
+Started POST "/hits/30" for 127.0.0.1 at Wed May 11 12:15:53 +0300 2011
+
+
+Started POST "/hits/29" for 127.0.0.1 at Wed May 11 12:15:54 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/13/details" for 127.0.0.1 at Wed May 11 12:16:49 +0300 2011
+
+
+Started GET "/game_details/2/1/14" for 127.0.0.1 at Wed May 11 12:16:49 +0300 2011
+
+
+Started POST "/hits/32" for 127.0.0.1 at Wed May 11 12:16:51 +0300 2011
+
+
+Started POST "/hits/31" for 127.0.0.1 at Wed May 11 12:16:51 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/14/details" for 127.0.0.1 at Wed May 11 12:17:31 +0300 2011
+
+
+Started GET "/game_details/2/1/13" for 127.0.0.1 at Wed May 11 12:17:31 +0300 2011
+
+
+Started POST "/hits/33" for 127.0.0.1 at Wed May 11 12:17:32 +0300 2011
+
+
+Started POST "/hits/34" for 127.0.0.1 at Wed May 11 12:17:33 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/13/details" for 127.0.0.1 at Wed May 11 12:17:36 +0300 2011
+
+
+Started GET "/game_details/2/1/14" for 127.0.0.1 at Wed May 11 12:17:37 +0300 2011
+
+
+Started POST "/hits/32" for 127.0.0.1 at Wed May 11 12:17:38 +0300 2011
+
+
+Started POST "/hits/31" for 127.0.0.1 at Wed May 11 12:17:38 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/14/details" for 127.0.0.1 at Wed May 11 12:17:39 +0300 2011
+
+
+Started GET "/game_details/2/1/13" for 127.0.0.1 at Wed May 11 12:17:39 +0300 2011
+
+
+Started POST "/hits/33" for 127.0.0.1 at Wed May 11 12:17:41 +0300 2011
+
+
+Started POST "/hits/34" for 127.0.0.1 at Wed May 11 12:17:41 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/13/details" for 127.0.0.1 at Wed May 11 12:18:26 +0300 2011
+
+
+Started GET "/game_details/2/1/12" for 127.0.0.1 at Wed May 11 12:18:26 +0300 2011
+
+
+Started GET "/hit_switch/2/1/prev/13/details" for 127.0.0.1 at Wed May 11 12:18:27 +0300 2011
+
+
+Started POST "/hits/32" for 127.0.0.1 at Wed May 11 12:18:28 +0300 2011
+
+
+Started POST "/hits/31" for 127.0.0.1 at Wed May 11 12:18:28 +0300 2011
+
+
+Started GET "/game_details/2/1/12" for 127.0.0.1 at Wed May 11 12:18:29 +0300 2011
+
+
+Started GET "/game_details/2/1/1/new/0" for 127.0.0.1 at Wed May 11 12:18:30 +0300 2011
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    2: 
+    3: 
+    4: <div id="form" class="1">
+    5: <%=form_for(hit_planned, :remote => true) do |f|%>
+    6: <%= f.label :place_from %>
+    7: <%= f.select(:place_from, STATISTICS_PLACE_FROM, :prompt => 'Select')%>
+    8: <%= f.label :wind %>
+  app/views/games/_hit_form_details.html.erb:5:in `_app_views_games__hit_form_details_html_erb___278689022_182657016_12827500'
+  app/views/games/hit_edit_details.html.erb:116:in `_app_views_games_hit_edit_details_html_erb___161447898_182390532_0'
+  app/controllers/games_controller.rb:237:in `details'
+
+
+
+
+Started GET "/game_details/2/1/1/new/0" for 127.0.0.1 at Wed May 11 12:19:03 +0300 2011
+
+
+Started GET "/game_details/2/1/1/new/0" for 127.0.0.1 at Wed May 11 12:19:10 +0300 2011
+
+
+Started GET "/game_details/2/1/3/0/0" for 127.0.0.1 at Wed May 11 12:20:47 +0300 2011
+
+
+Started GET "/hit_switch/2/1/next/1/details" for 127.0.0.1 at Wed May 11 12:20:55 +0300 2011
+
+
+Started GET "/game_details/2/1/2" for 127.0.0.1 at Wed May 11 12:20:55 +0300 2011
+
+
+Started POST "/hits/2" for 127.0.0.1 at Wed May 11 12:20:56 +0300 2011
+
+
+Started POST "/hits/3" for 127.0.0.1 at Wed May 11 12:20:57 +0300 2011
+
+
+Started GET "/game_details/2/1/1/0/0" for 127.0.0.1 at Wed May 11 12:20:58 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Wed May 11 12:21:03 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Wed May 11 12:21:10 +0300 2011
+
+
+Started GET "/game_res/3/1/1/new" for 127.0.0.1 at Wed May 11 12:21:11 +0300 2011
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Wed May 11 12:21:13 +0300 2011
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Wed May 11 12:22:07 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/1/details" for 127.0.0.1 at Wed May 11 12:22:18 +0300 2011
+
+
+Started GET "/game_details/3/1/2" for 127.0.0.1 at Wed May 11 12:22:18 +0300 2011
+
+
+Started POST "/hits/36" for 127.0.0.1 at Wed May 11 12:22:19 +0300 2011
+
+
+Started POST "/hits/35" for 127.0.0.1 at Wed May 11 12:22:20 +0300 2011
+
+
+Started GET "/hit_switch/3/1/prev/2/details" for 127.0.0.1 at Wed May 11 12:22:21 +0300 2011
+
+
+Started GET "/game_details/3/1/1" for 127.0.0.1 at Wed May 11 12:22:22 +0300 2011
+
+
+Started POST "/hits/38" for 127.0.0.1 at Wed May 11 12:22:23 +0300 2011
+
+
+Started POST "/hits/37" for 127.0.0.1 at Wed May 11 12:22:23 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/1/details" for 127.0.0.1 at Wed May 11 12:22:25 +0300 2011
+
+
+Started GET "/game_details/3/1/2" for 127.0.0.1 at Wed May 11 12:22:25 +0300 2011
+
+
+Started POST "/hits/36" for 127.0.0.1 at Wed May 11 12:22:26 +0300 2011
+
+
+Started POST "/hits/35" for 127.0.0.1 at Wed May 11 12:22:27 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/2/details" for 127.0.0.1 at Wed May 11 12:23:01 +0300 2011
+
+
+Started GET "/game_details/3/1/3" for 127.0.0.1 at Wed May 11 12:23:02 +0300 2011
+
+
+Started POST "/hits/38" for 127.0.0.1 at Wed May 11 12:23:03 +0300 2011
+
+
+Started POST "/hits/37" for 127.0.0.1 at Wed May 11 12:23:03 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/3/details" for 127.0.0.1 at Wed May 11 12:23:06 +0300 2011
+
+
+Started GET "/game_details/3/1/4" for 127.0.0.1 at Wed May 11 12:23:06 +0300 2011
+
+
+Started POST "/hits/40" for 127.0.0.1 at Wed May 11 12:23:07 +0300 2011
+
+
+Started POST "/hits/39" for 127.0.0.1 at Wed May 11 12:23:08 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/4/details" for 127.0.0.1 at Wed May 11 12:23:11 +0300 2011
+
+
+Started GET "/game_details/3/1/5" for 127.0.0.1 at Wed May 11 12:23:11 +0300 2011
+
+
+Started POST "/hits/42" for 127.0.0.1 at Wed May 11 12:23:13 +0300 2011
+
+
+Started POST "/hits/41" for 127.0.0.1 at Wed May 11 12:23:13 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/5/details" for 127.0.0.1 at Wed May 11 12:23:19 +0300 2011
+
+
+Started GET "/game_details/3/1/6" for 127.0.0.1 at Wed May 11 12:23:19 +0300 2011
+
+
+Started POST "/hits/44" for 127.0.0.1 at Wed May 11 12:23:21 +0300 2011
+
+
+Started POST "/hits/43" for 127.0.0.1 at Wed May 11 12:23:21 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/6/details" for 127.0.0.1 at Wed May 11 12:23:38 +0300 2011
+
+
+Started GET "/game_details/3/1/7" for 127.0.0.1 at Wed May 11 12:23:39 +0300 2011
+
+
+Started POST "/hits/46" for 127.0.0.1 at Wed May 11 12:23:40 +0300 2011
+
+
+Started POST "/hits/45" for 127.0.0.1 at Wed May 11 12:23:41 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/7/details" for 127.0.0.1 at Wed May 11 12:24:34 +0300 2011
+
+
+Started GET "/game_details/3/1/8" for 127.0.0.1 at Wed May 11 12:24:34 +0300 2011
+
+
+Started POST "/hits/47" for 127.0.0.1 at Wed May 11 12:24:35 +0300 2011
+
+
+Started POST "/hits/48" for 127.0.0.1 at Wed May 11 12:24:36 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/8/details" for 127.0.0.1 at Wed May 11 12:24:42 +0300 2011
+
+
+Started GET "/game_details/3/1/9" for 127.0.0.1 at Wed May 11 12:24:43 +0300 2011
+
+
+Started POST "/hits/50" for 127.0.0.1 at Wed May 11 12:24:44 +0300 2011
+
+
+Started POST "/hits/49" for 127.0.0.1 at Wed May 11 12:24:45 +0300 2011
+
+
+Started GET "/hit_switch/3/1/prev/9/details" for 127.0.0.1 at Wed May 11 12:24:45 +0300 2011
+
+
+Started GET "/game_details/3/1/8" for 127.0.0.1 at Wed May 11 12:24:46 +0300 2011
+
+
+Started POST "/hits/52" for 127.0.0.1 at Wed May 11 12:24:47 +0300 2011
+
+
+Started POST "/hits/51" for 127.0.0.1 at Wed May 11 12:24:47 +0300 2011
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Wed May 11 12:24:49 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/1/details" for 127.0.0.1 at Wed May 11 12:24:55 +0300 2011
+
+
+Started GET "/game_details/3/1/2" for 127.0.0.1 at Wed May 11 12:24:55 +0300 2011
+
+
+Started POST "/hits/36" for 127.0.0.1 at Wed May 11 12:24:56 +0300 2011
+
+
+Started POST "/hits/35" for 127.0.0.1 at Wed May 11 12:24:57 +0300 2011
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Wed May 11 12:24:59 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/1/details" for 127.0.0.1 at Wed May 11 12:25:02 +0300 2011
+
+
+Started GET "/game_details/3/1/2" for 127.0.0.1 at Wed May 11 12:25:02 +0300 2011
+
+
+Started POST "/hits/36" for 127.0.0.1 at Wed May 11 12:25:03 +0300 2011
+
+
+Started POST "/hits/35" for 127.0.0.1 at Wed May 11 12:25:04 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/2/details" for 127.0.0.1 at Wed May 11 12:26:03 +0300 2011
+
+
+Started GET "/game_details/3/1/3" for 127.0.0.1 at Wed May 11 12:26:03 +0300 2011
+
+
+Started POST "/hits/38" for 127.0.0.1 at Wed May 11 12:26:04 +0300 2011
+
+
+Started POST "/hits/37" for 127.0.0.1 at Wed May 11 12:26:05 +0300 2011
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 12:26:18 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/2/details" for 127.0.0.1 at Wed May 11 12:28:07 +0300 2011
+
+
+Started GET "/game_details/3/1/3" for 127.0.0.1 at Wed May 11 12:28:07 +0300 2011
+
+
+Started POST "/hits/38" for 127.0.0.1 at Wed May 11 12:28:08 +0300 2011
+
+
+Started POST "/hits/37" for 127.0.0.1 at Wed May 11 12:28:09 +0300 2011
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:08:49 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:13: syntax error, unexpected '\n', expecting tASSOC
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:28: unknown regexp options - dv
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:28: unmatched ): /div>
+<%= f.label :hit_distance );@output_buffer.safe_concat('
+');@output_buffer.append= ( f.text_field :hit_distance );@output_buffer.safe_concat(' ');@output_buffer.append= ( if current_user.measurement == 'foots' then 'ft' else 'm' end);@output_buffer.safe_concat('
+');@output_buffer.append= ( f.label :stance );@output_buffer.safe_concat('
+');@output_buffer.append= ( f.select( :stance, STATISTICS_STANCE, :prompt => "Select") );
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:29: syntax error, unexpected tEQQ
+=================================...
+   ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:30: syntax error, unexpected kCLASS, expecting ')'
+<div id="form" class="2">
+                    ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...ut_buffer.safe_concat('<div id="sticktype">');@output_buffer...
+                              ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:54: unknown regexp options - dv
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:54: unmatched ): /div>
+');@output_buffer.append= ( f.label :hit_distance );@output_buffer.safe_concat('
+');@output_buffer.append= ( f.text_field :hit_distance );@output_buffer.safe_concat(' ');@output_buffer.append= ( if current_user.measurement == 'foots' then 'ft' else 'm' end);@output_buffer.safe_concat('
+');@output_buffer.append= ( f.label :land_place );@output_buffer.safe_concat('
+');@output_buffer.append= ( f.select( :land_place, PLANNED_LA
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:55: unterminated string meets end of file
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:55: syntax error, unexpected $end, expecting ')'):
+    10: <%= f.hidden_field :hit_number, :value => active_hit %>
+    11: <%= f.label :user_stick_id, 'Club' %>
+    12: <div>
+    13: <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select', "jQuery(this).change(function() {'(input[name=sticktype])'.val((this).value)) }"
+    14: </div>
+    15: <%= f.label :hit_distance %>
+    16: <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+  app/views/games/_hit_form_details.html.erb:55:in `compile'
+  app/views/games/hit_edit_details.html.erb:116:in `_app_views_games_hit_edit_details_html_erb___161447898_183020472_0'
+  app/controllers/games_controller.rb:237:in `details'
+
+
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:09:08 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:13: syntax error, unexpected ')', expecting tASSOC
+...type])'.val((this).value)) }");@output_buffer.safe_concat('
+                              ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:27: syntax error, unexpected kEND, expecting ')'
+'); end  
+       ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:56: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:58: syntax error, unexpected kEND, expecting ')'):
+    10: <%= f.hidden_field :hit_number, :value => active_hit %>
+    11: <%= f.label :user_stick_id, 'Club' %>
+    12: <div>
+    13: <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select', "jQuery(this).change(function() {'(input[name=sticktype])'.val((this).value)) }"%>
+    14: </div>
+    15: <%= f.label :hit_distance %>
+    16: <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+  app/views/games/_hit_form_details.html.erb:58:in `compile'
+  app/views/games/hit_edit_details.html.erb:116:in `_app_views_games_hit_edit_details_html_erb___161447898_183537048_0'
+  app/controllers/games_controller.rb:237:in `details'
+
+
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:10:45 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:13: syntax error, unexpected ')', expecting tASSOC
+...ktype])'.val((this).value)})");@output_buffer.safe_concat('
+                              ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:27: syntax error, unexpected kEND, expecting ')'
+'); end  
+       ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:56: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:58: syntax error, unexpected kEND, expecting ')'):
+    10: <%= f.hidden_field :hit_number, :value => active_hit %>
+    11: <%= f.label :user_stick_id, 'Club' %>
+    12: <div>
+    13: <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select', "jQuery(this).change(function(){'(input[name=sticktype])'.val((this).value)})"%>
+    14: </div>
+    15: <%= f.label :hit_distance %>
+    16: <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+  app/views/games/_hit_form_details.html.erb:58:in `compile'
+  app/views/games/hit_edit_details.html.erb:116:in `_app_views_games_hit_edit_details_html_erb___161447898_183202368_0'
+  app/controllers/games_controller.rb:237:in `details'
+
+
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:12:12 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:13: syntax error, unexpected ')', expecting tASSOC
+...type])'.val((this).value)});");@output_buffer.safe_concat('
+                              ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:27: syntax error, unexpected kEND, expecting ')'
+'); end  
+       ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:56: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:58: syntax error, unexpected kEND, expecting ')'):
+    10: <%= f.hidden_field :hit_number, :value => active_hit %>
+    11: <%= f.label :user_stick_id, 'Club' %>
+    12: <div>
+    13: <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select', "jQuery(this).change(function(){'(input[name=sticktype])'.val((this).value)});"%>
+    14: </div>
+    15: <%= f.label :hit_distance %>
+    16: <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+  app/views/games/_hit_form_details.html.erb:58:in `compile'
+  app/views/games/hit_edit_details.html.erb:116:in `_app_views_games_hit_edit_details_html_erb___161447898_183463896_0'
+  app/controllers/games_controller.rb:237:in `details'
+
+
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:13:16 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:13: syntax error, unexpected ')', expecting tASSOC
+...type])'.val((this).value)});");@output_buffer.safe_concat('
+                              ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:27: syntax error, unexpected kEND, expecting ')'
+'); end  
+       ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:56: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:58: syntax error, unexpected kEND, expecting ')'):
+    10: <%= f.hidden_field :hit_number, :value => active_hit %>
+    11: <%= f.label :user_stick_id, 'Club' %>
+    12: <div>
+    13: <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select', "jQuery(this).change()(function(){'(input[name=sticktype])'.val((this).value)});"%>
+    14: </div>
+    15: <%= f.label :hit_distance %>
+    16: <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+  app/views/games/_hit_form_details.html.erb:58:in `compile'
+  app/views/games/hit_edit_details.html.erb:116:in `_app_views_games_hit_edit_details_html_erb___161447898_183812664_0'
+  app/controllers/games_controller.rb:237:in `details'
+
+
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:18:46 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:13: syntax error, unexpected ')', expecting tASSOC
+...ype])'.val((this).value);});");@output_buffer.safe_concat('
+                              ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:28: syntax error, unexpected kEND, expecting ')'
+'); end  
+       ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:57: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:59: syntax error, unexpected kEND, expecting ')'):
+    10: <%= f.hidden_field :hit_number, :value => active_hit %>
+    11: <%= f.label :user_stick_id, 'Club' %>
+    12: <div>
+    13: <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select', "jQuery $(this).change( function(){$'(input[name=sticktype])'.val((this).value);});"%>
+    14: </div>
+    15: 
+    16: <%= f.label :hit_distance %>
+  app/views/games/_hit_form_details.html.erb:59:in `compile'
+  app/views/games/hit_edit_details.html.erb:116:in `_app_views_games_hit_edit_details_html_erb___161447898_183195768_0'
+  app/controllers/games_controller.rb:237:in `details'
+
+
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:20:16 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:13: syntax error, unexpected ')', expecting tASSOC
+...ype])'.val((this).value);});");@output_buffer.safe_concat('
+                              ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:28: syntax error, unexpected kEND, expecting ')'
+'); end  
+       ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:57: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:59: syntax error, unexpected kEND, expecting ')'):
+    10: <%= f.hidden_field :hit_number, :value => active_hit %>
+    11: <%= f.label :user_stick_id, 'Club' %>
+    12: <div>
+    13: <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select', "jQuery(this).change( function(){$'(input[name=sticktype])'.val((this).value);});"%>
+    14: </div>
+    15: 
+    16: <%= f.label :hit_distance %>
+  app/views/games/_hit_form_details.html.erb:59:in `compile'
+  app/views/games/hit_edit_details.html.erb:116:in `_app_views_games_hit_edit_details_html_erb___161447898_183438804_0'
+  app/controllers/games_controller.rb:237:in `details'
+
+
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:22:40 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:28: syntax error, unexpected kEND, expecting ')'
+'); end  
+       ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:57: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:59: syntax error, unexpected kEND, expecting ')'):
+    25: <%= f.select(:trajectory, STATISTICS_TRAJECTORY, :prompt => "Select")%>
+    26: <%= f.label :difficulty%>
+    27: <%= f.select(:difficulty, STATISTICS_DIFFICULTY, :prompt => "Select")%>
+    28: <% end %> 
+    29: </div>
+    30: ============================================================================
+    31: <div id="form" class="2">
+  app/views/games/_hit_form_details.html.erb:59:in `compile'
+  app/views/games/hit_edit_details.html.erb:116:in `_app_views_games_hit_edit_details_html_erb___161447898_183804972_0'
+  app/controllers/games_controller.rb:237:in `details'
+
+
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:23:56 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:28: syntax error, unexpected kEND, expecting ')'
+'); end  
+       ^
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:57: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:59: syntax error, unexpected kEND, expecting ')'):
+    25: <%= f.select(:trajectory, STATISTICS_TRAJECTORY, :prompt => "Select")%>
+    26: <%= f.label :difficulty%>
+    27: <%= f.select(:difficulty, STATISTICS_DIFFICULTY, :prompt => "Select")%>
+    28: <% end %> 
+    29: </div>
+    30: ============================================================================
+    31: <div id="form" class="2">
+  app/views/games/_hit_form_details.html.erb:59:in `compile'
+  app/views/games/hit_edit_details.html.erb:116:in `_app_views_games_hit_edit_details_html_erb___161447898_183196188_0'
+  app/controllers/games_controller.rb:237:in `details'
+
+
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:26:01 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/2/details" for 127.0.0.1 at Wed May 11 14:37:10 +0300 2011
+
+
+Started GET "/game_details/3/1/3" for 127.0.0.1 at Wed May 11 14:37:10 +0300 2011
+
+
+Started POST "/hits/38" for 127.0.0.1 at Wed May 11 14:37:11 +0300 2011
+
+
+Started POST "/hits/37" for 127.0.0.1 at Wed May 11 14:37:12 +0300 2011
+
+
+Started GET "/hit_switch/3/1/prev/3/details" for 127.0.0.1 at Wed May 11 14:37:15 +0300 2011
+
+
+Started GET "/game_details/3/1/2" for 127.0.0.1 at Wed May 11 14:37:15 +0300 2011
+
+
+Started POST "/hits/40" for 127.0.0.1 at Wed May 11 14:37:16 +0300 2011
+
+
+Started POST "/hits/39" for 127.0.0.1 at Wed May 11 14:37:16 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/2/details" for 127.0.0.1 at Wed May 11 14:37:17 +0300 2011
+
+
+Started GET "/game_details/3/1/3" for 127.0.0.1 at Wed May 11 14:37:17 +0300 2011
+
+
+Started POST "/hits/38" for 127.0.0.1 at Wed May 11 14:37:18 +0300 2011
+
+
+Started POST "/hits/37" for 127.0.0.1 at Wed May 11 14:37:19 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/3/details" for 127.0.0.1 at Wed May 11 14:37:46 +0300 2011
+
+
+Started GET "/game_details/3/1/4" for 127.0.0.1 at Wed May 11 14:37:46 +0300 2011
+
+
+Started POST "/hits/40" for 127.0.0.1 at Wed May 11 14:37:47 +0300 2011
+
+
+Started POST "/hits/39" for 127.0.0.1 at Wed May 11 14:37:48 +0300 2011
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:38:50 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/2/details" for 127.0.0.1 at Wed May 11 14:38:57 +0300 2011
+
+
+Started GET "/game_details/3/1/3" for 127.0.0.1 at Wed May 11 14:38:57 +0300 2011
+
+
+Started POST "/hits/38" for 127.0.0.1 at Wed May 11 14:38:58 +0300 2011
+
+
+Started POST "/hits/37" for 127.0.0.1 at Wed May 11 14:38:59 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/3/details" for 127.0.0.1 at Wed May 11 14:39:01 +0300 2011
+
+
+Started GET "/game_details/3/1/4" for 127.0.0.1 at Wed May 11 14:39:02 +0300 2011
+
+
+Started POST "/hits/40" for 127.0.0.1 at Wed May 11 14:39:03 +0300 2011
+
+
+Started POST "/hits/39" for 127.0.0.1 at Wed May 11 14:39:03 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/4/details" for 127.0.0.1 at Wed May 11 14:39:09 +0300 2011
+
+
+Started GET "/game_details/3/1/5" for 127.0.0.1 at Wed May 11 14:39:09 +0300 2011
+
+
+Started POST "/hits/41" for 127.0.0.1 at Wed May 11 14:39:10 +0300 2011
+
+
+Started POST "/hits/42" for 127.0.0.1 at Wed May 11 14:39:11 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/5/details" for 127.0.0.1 at Wed May 11 14:39:15 +0300 2011
+
+
+Started GET "/game_details/3/1/6" for 127.0.0.1 at Wed May 11 14:39:16 +0300 2011
+
+
+Started POST "/hits/44" for 127.0.0.1 at Wed May 11 14:39:17 +0300 2011
+
+
+Started POST "/hits/43" for 127.0.0.1 at Wed May 11 14:39:18 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/6/details" for 127.0.0.1 at Wed May 11 14:39:24 +0300 2011
+
+
+Started GET "/game_details/3/1/7" for 127.0.0.1 at Wed May 11 14:39:24 +0300 2011
+
+
+Started POST "/hits/46" for 127.0.0.1 at Wed May 11 14:39:25 +0300 2011
+
+
+Started POST "/hits/45" for 127.0.0.1 at Wed May 11 14:39:26 +0300 2011
+
+
+Started GET "/hit_switch/3/1/next/7/details" for 127.0.0.1 at Wed May 11 14:40:38 +0300 2011
+
+
+Started GET "/game_details/3/1/8" for 127.0.0.1 at Wed May 11 14:40:38 +0300 2011
+
+
+Started POST "/hits/48" for 127.0.0.1 at Wed May 11 14:40:39 +0300 2011
+
+
+Started POST "/hits/47" for 127.0.0.1 at Wed May 11 14:40:40 +0300 2011
+
+
+Started GET "/game_details/3/1/2/new/0" for 127.0.0.1 at Wed May 11 14:50:21 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Wed May 11 14:50:27 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Wed May 11 14:50:36 +0300 2011
+
+
+Started GET "/game_res/4/1/1/new" for 127.0.0.1 at Wed May 11 14:50:36 +0300 2011
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 14:50:39 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 14:50:45 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 14:50:46 +0300 2011
+
+ActionView::Template::Error (undefined local variable or method `z' for #<#<Class:0x15aebc70>:0x15ae9588>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: #page['#form.2'].submit()
+    3: #page['#form.3'].submit()
+    4: if z == 1
+    5: page['#hit_count_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+    6: page['#hit_edit_tab'].html render(:partial => 'games/hit_form_details', :locals => {:hit_planned => @hit_p_final, :active_hit => @active_hit, :hit_real => @hit_r_final, :pair_hit => @pair_hit})
+    7: page['#hole_tab'].html render(:partial => 'games/hole_tab', :locals => {:game_id => @game.id, :form_id => @form_id, :active_hole => @active_hole, :holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :hits => 0, :puts => 0})
+  app/views/games/details.js.rjs:4:in `_app_views_games_details_js_rjs___474520834_181874196_0'
+  app/views/games/details.js.rjs:1:in `_app_views_games_details_js_rjs___474520834_181874196_0'
+
+
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 14:51:52 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 14:51:52 +0300 2011
+
+
+Started POST "/hits/54" for 127.0.0.1 at Wed May 11 14:51:53 +0300 2011
+
+
+Started POST "/hits/53" for 127.0.0.1 at Wed May 11 14:51:54 +0300 2011
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 14:51:55 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 14:51:59 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 14:52:00 +0300 2011
+
+
+Started POST "/hits/53" for 127.0.0.1 at Wed May 11 14:52:01 +0300 2011
+
+
+Started POST "/hits/54" for 127.0.0.1 at Wed May 11 14:52:01 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/2/details" for 127.0.0.1 at Wed May 11 14:52:11 +0300 2011
+
+
+Started GET "/game_details/4/1/3" for 127.0.0.1 at Wed May 11 14:52:11 +0300 2011
+
+
+Started POST "/hits/56" for 127.0.0.1 at Wed May 11 14:52:12 +0300 2011
+
+
+Started POST "/hits/55" for 127.0.0.1 at Wed May 11 14:52:13 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/3/details" for 127.0.0.1 at Wed May 11 14:52:22 +0300 2011
+
+
+Started GET "/game_details/4/1/4" for 127.0.0.1 at Wed May 11 14:52:22 +0300 2011
+
+
+Started POST "/hits/58" for 127.0.0.1 at Wed May 11 14:52:24 +0300 2011
+
+
+Started POST "/hits/57" for 127.0.0.1 at Wed May 11 14:52:24 +0300 2011
+
+
+Started GET "/hit_switch/4/1/prev/4/details" for 127.0.0.1 at Wed May 11 14:52:27 +0300 2011
+
+
+Started GET "/game_details/4/1/3" for 127.0.0.1 at Wed May 11 14:52:28 +0300 2011
+
+
+Started POST "/hits/60" for 127.0.0.1 at Wed May 11 14:52:29 +0300 2011
+
+
+Started POST "/hits/59" for 127.0.0.1 at Wed May 11 14:52:30 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/3/details" for 127.0.0.1 at Wed May 11 14:52:31 +0300 2011
+
+
+Started GET "/game_details/4/1/4" for 127.0.0.1 at Wed May 11 14:52:31 +0300 2011
+
+
+Started POST "/hits/58" for 127.0.0.1 at Wed May 11 14:52:32 +0300 2011
+
+
+Started POST "/hits/57" for 127.0.0.1 at Wed May 11 14:52:33 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/4/details" for 127.0.0.1 at Wed May 11 14:52:34 +0300 2011
+
+
+Started GET "/game_details/4/1/5" for 127.0.0.1 at Wed May 11 14:52:35 +0300 2011
+
+
+Started POST "/hits/60" for 127.0.0.1 at Wed May 11 14:52:36 +0300 2011
+
+
+Started POST "/hits/59" for 127.0.0.1 at Wed May 11 14:52:37 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/5/details" for 127.0.0.1 at Wed May 11 14:53:14 +0300 2011
+
+
+Started GET "/game_details/4/1/6" for 127.0.0.1 at Wed May 11 14:53:14 +0300 2011
+
+
+Started POST "/hits/62" for 127.0.0.1 at Wed May 11 14:53:15 +0300 2011
+
+
+Started POST "/hits/61" for 127.0.0.1 at Wed May 11 14:53:16 +0300 2011
+
+
+Started GET "/game_details/4/1/6/new/0" for 127.0.0.1 at Wed May 11 14:53:27 +0300 2011
+
+
+Started GET "/game_details/4/1/6/new/0" for 127.0.0.1 at Wed May 11 14:59:14 +0300 2011
+
+NameError (undefined local variable or method `k' for #<GamesController:0x15ace9f0>):
+  app/controllers/games_controller.rb:312:in `fix_params'
+  app/controllers/games_controller.rb:221:in `details'
+
+
+
+
+Started GET "/game_details/4/1/6/new/0" for 127.0.0.1 at Wed May 11 14:59:32 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 14:59:42 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 14:59:42 +0300 2011
+
+
+Started POST "/hits/64" for 127.0.0.1 at Wed May 11 14:59:43 +0300 2011
+
+
+Started POST "/hits/63" for 127.0.0.1 at Wed May 11 14:59:44 +0300 2011
+
+
+Started GET "/game_details/4/1/6/new/0" for 127.0.0.1 at Wed May 11 15:00:27 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 15:00:29 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 15:00:30 +0300 2011
+
+ActionView::Template::Error (wrong number of arguments (0 for 1)):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: if page[].ajaxStop()
+    3:   @k = 1
+    4: end
+    5: #page['#form.2'].submit()
+  app/views/games/details.js.rjs:2:in `[]'
+  app/views/games/details.js.rjs:2:in `_app_views_games_details_js_rjs___474520834_182485044_0'
+  app/views/games/details.js.rjs:1:in `_app_views_games_details_js_rjs___474520834_182485044_0'
+
+
+
+
+Started GET "/game_details/4/1/6/new/0" for 127.0.0.1 at Wed May 11 15:00:58 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 15:01:01 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 15:01:02 +0300 2011
+
+
+Started POST "/hits/64" for 127.0.0.1 at Wed May 11 15:01:02 +0300 2011
+
+
+Started POST "/hits/63" for 127.0.0.1 at Wed May 11 15:01:03 +0300 2011
+
+
+Started GET "/hit_switch/4/1/prev/7/details" for 127.0.0.1 at Wed May 11 15:01:06 +0300 2011
+
+
+Started GET "/game_details/4/1/6" for 127.0.0.1 at Wed May 11 15:01:06 +0300 2011
+
+
+Started POST "/hits/65" for 127.0.0.1 at Wed May 11 15:01:07 +0300 2011
+
+
+Started POST "/hits/66" for 127.0.0.1 at Wed May 11 15:01:08 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 15:01:08 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 15:01:09 +0300 2011
+
+
+Started POST "/hits/64" for 127.0.0.1 at Wed May 11 15:01:10 +0300 2011
+
+
+Started POST "/hits/63" for 127.0.0.1 at Wed May 11 15:01:10 +0300 2011
+
+
+Started GET "/hit_switch/4/1/prev/7/details" for 127.0.0.1 at Wed May 11 15:01:15 +0300 2011
+
+
+Started GET "/game_details/4/1/6" for 127.0.0.1 at Wed May 11 15:01:16 +0300 2011
+
+
+Started POST "/hits/66" for 127.0.0.1 at Wed May 11 15:01:17 +0300 2011
+
+
+Started POST "/hits/65" for 127.0.0.1 at Wed May 11 15:01:17 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 15:01:23 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 15:01:24 +0300 2011
+
+
+Started POST "/hits/64" for 127.0.0.1 at Wed May 11 15:01:25 +0300 2011
+
+
+Started POST "/hits/63" for 127.0.0.1 at Wed May 11 15:01:25 +0300 2011
+
+
+Started GET "/game_details/4/1/6/new/0" for 127.0.0.1 at Wed May 11 15:02:02 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 15:02:06 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 15:02:07 +0300 2011
+
+
+Started POST "/hits/64" for 127.0.0.1 at Wed May 11 15:02:08 +0300 2011
+
+
+Started POST "/hits/63" for 127.0.0.1 at Wed May 11 15:02:08 +0300 2011
+
+
+Started GET "/game_details/4/1/6/new/0" for 127.0.0.1 at Wed May 11 15:04:05 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 15:04:09 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 15:04:10 +0300 2011
+
+
+Started POST "/hits/64" for 127.0.0.1 at Wed May 11 15:04:11 +0300 2011
+
+
+Started POST "/hits/63" for 127.0.0.1 at Wed May 11 15:04:11 +0300 2011
+
+
+Started GET "/game_details/4/1/6/new/0" for 127.0.0.1 at Wed May 11 15:06:00 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 15:06:04 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 15:06:05 +0300 2011
+
+
+Started POST "/hits/64" for 127.0.0.1 at Wed May 11 15:06:06 +0300 2011
+
+
+Started POST "/hits/63" for 127.0.0.1 at Wed May 11 15:06:06 +0300 2011
+
+
+Started GET "/hit_switch/4/1/prev/7/details" for 127.0.0.1 at Wed May 11 15:06:09 +0300 2011
+
+
+Started GET "/game_details/4/1/6" for 127.0.0.1 at Wed May 11 15:06:09 +0300 2011
+
+
+Started POST "/hits/66" for 127.0.0.1 at Wed May 11 15:06:10 +0300 2011
+
+
+Started POST "/hits/65" for 127.0.0.1 at Wed May 11 15:06:11 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 15:06:11 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 15:06:12 +0300 2011
+
+
+Started POST "/hits/64" for 127.0.0.1 at Wed May 11 15:06:13 +0300 2011
+
+
+Started POST "/hits/63" for 127.0.0.1 at Wed May 11 15:06:13 +0300 2011
+
+
+Started GET "/hole_switch/4/1/prev/details/0/0" for 127.0.0.1 at Wed May 11 15:07:50 +0300 2011
+
+
+Started GET "/game_details/4/1/1/0/0" for 127.0.0.1 at Wed May 11 15:07:51 +0300 2011
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    2: 
+    3: 
+    4: <div id="form" class="1">
+    5: <%=form_for(hit_planned, :remote => true) do |f|%>
+    6: <%= f.label :place_from %>
+    7: <%= f.select(:place_from, STATISTICS_PLACE_FROM, :prompt => 'Select')%>
+    8: <%= f.label :wind %>
+  app/views/games/_hit_form_details.html.erb:5:in `_app_views_games__hit_form_details_html_erb___278689022_183973260_104142604'
+  app/views/games/details.html.erb:12:in `_app_views_games_details_html_erb___84364445_182704020_0'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:07:57 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:08:01 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:08:02 +0300 2011
+
+
+Started POST "/hits/54" for 127.0.0.1 at Wed May 11 15:08:03 +0300 2011
+
+
+Started POST "/hits/53" for 127.0.0.1 at Wed May 11 15:08:03 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/2/details" for 127.0.0.1 at Wed May 11 15:08:04 +0300 2011
+
+
+Started GET "/game_details/4/1/3" for 127.0.0.1 at Wed May 11 15:08:05 +0300 2011
+
+
+Started POST "/hits/56" for 127.0.0.1 at Wed May 11 15:08:06 +0300 2011
+
+
+Started POST "/hits/55" for 127.0.0.1 at Wed May 11 15:08:06 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/3/details" for 127.0.0.1 at Wed May 11 15:08:07 +0300 2011
+
+
+Started GET "/game_details/4/1/4" for 127.0.0.1 at Wed May 11 15:08:07 +0300 2011
+
+
+Started POST "/hits/57" for 127.0.0.1 at Wed May 11 15:08:08 +0300 2011
+
+
+Started POST "/hits/58" for 127.0.0.1 at Wed May 11 15:08:09 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/4/details" for 127.0.0.1 at Wed May 11 15:08:10 +0300 2011
+
+
+Started GET "/game_details/4/1/5" for 127.0.0.1 at Wed May 11 15:08:10 +0300 2011
+
+
+Started POST "/hits/60" for 127.0.0.1 at Wed May 11 15:08:11 +0300 2011
+
+
+Started POST "/hits/59" for 127.0.0.1 at Wed May 11 15:08:12 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/5/details" for 127.0.0.1 at Wed May 11 15:08:13 +0300 2011
+
+
+Started GET "/game_details/4/1/6" for 127.0.0.1 at Wed May 11 15:08:13 +0300 2011
+
+
+Started POST "/hits/62" for 127.0.0.1 at Wed May 11 15:08:14 +0300 2011
+
+
+Started POST "/hits/61" for 127.0.0.1 at Wed May 11 15:08:15 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 15:08:16 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 15:08:17 +0300 2011
+
+
+Started POST "/hits/64" for 127.0.0.1 at Wed May 11 15:08:17 +0300 2011
+
+
+Started POST "/hits/63" for 127.0.0.1 at Wed May 11 15:08:18 +0300 2011
+
+
+Started GET "/hit_switch/4/1/prev/7/details" for 127.0.0.1 at Wed May 11 15:08:23 +0300 2011
+
+
+Started GET "/game_details/4/1/6" for 127.0.0.1 at Wed May 11 15:08:23 +0300 2011
+
+
+Started POST "/hits/66" for 127.0.0.1 at Wed May 11 15:08:24 +0300 2011
+
+
+Started POST "/hits/65" for 127.0.0.1 at Wed May 11 15:08:25 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/6/details" for 127.0.0.1 at Wed May 11 15:08:26 +0300 2011
+
+
+Started GET "/game_details/4/1/7" for 127.0.0.1 at Wed May 11 15:08:26 +0300 2011
+
+
+Started POST "/hits/64" for 127.0.0.1 at Wed May 11 15:08:27 +0300 2011
+
+
+Started POST "/hits/63" for 127.0.0.1 at Wed May 11 15:08:27 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/7/details" for 127.0.0.1 at Wed May 11 15:08:33 +0300 2011
+
+
+Started GET "/game_details/4/1/8" for 127.0.0.1 at Wed May 11 15:08:33 +0300 2011
+
+
+Started POST "/hits/66" for 127.0.0.1 at Wed May 11 15:08:35 +0300 2011
+
+
+Started POST "/hits/65" for 127.0.0.1 at Wed May 11 15:08:35 +0300 2011
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:14:58 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:15:03 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:15:03 +0300 2011
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:18:12 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:18:16 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:18:17 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15e5ee88>:0x15e5a190>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function () {@k = 1;}) 
+    3: 
+    4: #page['#form.2'].submit()
+    5: #page['#form.3'].submit()
+  app/views/games/details.js.rjs:2:in `_app_views_games_details_js_rjs___474520834_183672912_0'
+  app/views/games/details.js.rjs:1:in `_app_views_games_details_js_rjs___474520834_183672912_0'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:20:02 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:20:07 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:20:07 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/details.js.rjs:3: syntax error, unexpected $undefined
+$ @k = 1;
+ ^):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function (){ 
+    3: $ @k = 1;
+    4:   });
+    5:  
+    6: 
+  app/views/games/details.js.rjs:18:in `compile'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:20:39 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:20:42 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:20:43 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15bfa978>:0x15c46530>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function (){ 
+    3:  @k = 1;
+    4:   });
+    5:  
+    6: 
+    7: #page['#form.2'].submit()
+  app/views/games/details.js.rjs:4:in `_app_views_games_details_js_rjs___474520834_183991452_0'
+  app/views/games/details.js.rjs:1:in `_app_views_games_details_js_rjs___474520834_183991452_0'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:26:38 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:26:42 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:26:42 +0300 2011
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/games_controller.rb:225:in `details'
+
+
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:28:15 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:28:16 +0300 2011
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/games_controller.rb:225:in `details'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:37:31 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:37:34 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:37:35 +0300 2011
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/games_controller.rb:225:in `details'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:39:00 +0300 2011
+
+SyntaxError (C:/workspace/Golf/app/controllers/games_controller.rb:346: syntax error, unexpected kEND, expecting $end):
+  
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:39:11 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:39:17 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:39:17 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/details.js.rjs:2: syntax error, unexpected ';', expecting ')'
+page[''].ajaxComplete(function(){@k = 1;};)
+                                          ^):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function(){@k = 1;};)
+    3: 
+    4: 
+    5: 
+  app/views/games/details.js.rjs:17:in `compile'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:40:16 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:40:20 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:40:20 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15ca6158>:0x15ca3c98>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function(){@k = 1;});
+    3: 
+    4: 
+    5: 
+  app/views/games/details.js.rjs:2:in `_app_views_games_details_js_rjs___474520834_182779896_0'
+  app/views/games/details.js.rjs:1:in `_app_views_games_details_js_rjs___474520834_182779896_0'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:42:23 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:42:27 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:42:27 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15cf5988>:0x15cf4518>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function(){
+    3: 
+    4: 
+    5: page['#hit_count_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+  app/views/games/details.js.rjs:2:in `_app_views_games_details_js_rjs___474520834_182948928_0'
+  app/views/games/details.js.rjs:1:in `_app_views_games_details_js_rjs___474520834_182948928_0'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:42:57 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:42:59 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:42:59 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/details.js.rjs:5: odd number list for Hash
+...['#hit_count_tab'].html render(:partial => 'games/hit_tab', ...
+                              ^
+C:/workspace/Golf/app/views/games/details.js.rjs:5: syntax error, unexpected tIDENTIFIER, expecting '}'
+...['#hit_count_tab'].html render(:partial => 'games/hit_tab', ...
+                              ^
+C:/workspace/Golf/app/views/games/details.js.rjs:9: syntax error, unexpected '}', expecting kEND
+C:/workspace/Golf/app/views/games/details.js.rjs:14: syntax error, unexpected $end, expecting kEND):
+    2: page[''].ajaxComplete({
+    3: 
+    4: 
+    5: page['#hit_count_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+    6: page['#hit_edit_tab'].html render(:partial => 'games/hit_form_details', :locals => {:hit_planned => @hit_p_final, :active_hit => @active_hit, :hit_real => @hit_r_final, :pair_hit => @pair_hit})
+    7: page['#hole_tab'].html render(:partial => 'games/hole_tab', :locals => {:game_id => @game.id, :form_id => @form_id, :active_hole => @active_hole, :holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :hits => 0, :puts => 0})
+    8: page['#hole_picture'].html render(:partial => 'games/hole_picture', :locals => {:hole => @hole})
+  app/views/games/details.js.rjs:14:in `compile'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:43:45 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:43:48 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:43:49 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/details.js.rjs:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+page['#hit_edit_tab'].html render(...
+    ^
+C:/workspace/Golf/app/views/games/details.js.rjs:9: syntax error, unexpected ')', expecting kEND
+C:/workspace/Golf/app/views/games/details.js.rjs:14: syntax error, unexpected $end, expecting kEND):
+    3: 
+    4: 
+    5: page['#hit_count_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+    6: page['#hit_edit_tab'].html render(:partial => 'games/hit_form_details', :locals => {:hit_planned => @hit_p_final, :active_hit => @active_hit, :hit_real => @hit_r_final, :pair_hit => @pair_hit})
+    7: page['#hole_tab'].html render(:partial => 'games/hole_tab', :locals => {:game_id => @game.id, :form_id => @form_id, :active_hole => @active_hole, :holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :hits => 0, :puts => 0})
+    8: page['#hole_picture'].html render(:partial => 'games/hole_picture', :locals => {:hole => @hole})
+    9: )
+  app/views/games/details.js.rjs:14:in `compile'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:47:14 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:47:17 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:47:18 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15b7e790>:0x15b7d218>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function(){
+    3: page['#hit_count_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole});
+    4: page['#hit_edit_tab'].html render(:partial => 'games/hit_form_details', :locals => {:hit_planned => @hit_p_final, :active_hit => @active_hit, :hit_real => @hit_r_final, :pair_hit => @pair_hit});
+    5: page['#hole_tab'].html render(:partial => 'games/hole_tab', :locals => {:game_id => @game.id, :form_id => @form_id, :active_hole => @active_hole, :holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :hits => 0, :puts => 0});
+  app/views/games/details.js.rjs:2:in `_app_views_games_details_js_rjs___474520834_182180568_0'
+  app/views/games/details.js.rjs:1:in `_app_views_games_details_js_rjs___474520834_182180568_0'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:47:37 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:47:40 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:47:41 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/details.js.rjs:3: odd number list for Hash
+...['#hit_count_tab'].html render(:partial => 'games/hit_tab', ...
+                              ^
+C:/workspace/Golf/app/views/games/details.js.rjs:3: syntax error, unexpected tIDENTIFIER, expecting '}'
+...['#hit_count_tab'].html render(:partial => 'games/hit_tab', ...
+                              ^
+C:/workspace/Golf/app/views/games/details.js.rjs:7: syntax error, unexpected '}', expecting kEND
+C:/workspace/Golf/app/views/games/details.js.rjs:12: syntax error, unexpected $end, expecting kEND):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete({
+    3: page['#hit_count_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole});
+    4: page['#hit_edit_tab'].html render(:partial => 'games/hit_form_details', :locals => {:hit_planned => @hit_p_final, :active_hit => @active_hit, :hit_real => @hit_r_final, :pair_hit => @pair_hit});
+    5: page['#hole_tab'].html render(:partial => 'games/hole_tab', :locals => {:game_id => @game.id, :form_id => @form_id, :active_hole => @active_hole, :holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :hits => 0, :puts => 0});
+    6: page['#hole_picture'].html render(:partial => 'games/hole_picture', :locals => {:hole => @hole});
+  app/views/games/details.js.rjs:12:in `compile'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:55:14 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:55:20 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:55:20 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/details.js.rjs:4: syntax error, unexpected $undefined
+  $ redirect_to details_path(game...
+   ^):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: if @k != 1
+    3: page[''].ajaxComplete(function(){
+    4:   $ redirect_to details_path(game_id, @active_hole, @active_hit, 'done', 0);
+    5:   });
+    6: else
+    7: page['#hit_count_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+  app/views/games/details.js.rjs:15:in `compile'
+
+
+
+
+Started GET "/game_details/4/1/1/new/0" for 127.0.0.1 at Wed May 11 15:56:31 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/1/details" for 127.0.0.1 at Wed May 11 15:56:35 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:56:35 +0300 2011
+
+
+Started POST "/hits/54" for 127.0.0.1 at Wed May 11 15:56:36 +0300 2011
+
+
+Started POST "/hits/53" for 127.0.0.1 at Wed May 11 15:56:36 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/2/details" for 127.0.0.1 at Wed May 11 15:56:42 +0300 2011
+
+
+Started GET "/game_details/4/1/3" for 127.0.0.1 at Wed May 11 15:56:42 +0300 2011
+
+
+Started POST "/hits/56" for 127.0.0.1 at Wed May 11 15:56:43 +0300 2011
+
+
+Started POST "/hits/55" for 127.0.0.1 at Wed May 11 15:56:44 +0300 2011
+
+
+Started GET "/hit_switch/4/1/prev/3/details" for 127.0.0.1 at Wed May 11 15:56:48 +0300 2011
+
+
+Started GET "/game_details/4/1/2" for 127.0.0.1 at Wed May 11 15:56:48 +0300 2011
+
+
+Started POST "/hits/58" for 127.0.0.1 at Wed May 11 15:56:49 +0300 2011
+
+
+Started POST "/hits/57" for 127.0.0.1 at Wed May 11 15:56:50 +0300 2011
+
+
+Started GET "/hit_switch/4/1/next/2/details" for 127.0.0.1 at Wed May 11 15:56:50 +0300 2011
+
+
+Started GET "/game_details/4/1/3" for 127.0.0.1 at Wed May 11 15:56:51 +0300 2011
+
+
+Started POST "/hits/56" for 127.0.0.1 at Wed May 11 15:56:52 +0300 2011
+
+
+Started POST "/hits/55" for 127.0.0.1 at Wed May 11 15:56:53 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Wed May 11 15:56:54 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Wed May 11 15:57:05 +0300 2011
+
+
+Started GET "/game_res/5/1/1/new" for 127.0.0.1 at Wed May 11 15:57:06 +0300 2011
+
+
+Started GET "/game_details/5/1/1/new/0" for 127.0.0.1 at Wed May 11 15:57:08 +0300 2011
+
+
+Started GET "/hit_switch/5/1/next/1/details" for 127.0.0.1 at Wed May 11 15:57:18 +0300 2011
+
+
+Started GET "/game_details/5/1/2" for 127.0.0.1 at Wed May 11 15:57:19 +0300 2011
+
+
+Started POST "/hits/70" for 127.0.0.1 at Wed May 11 15:57:20 +0300 2011
+
+
+Started POST "/hits/69" for 127.0.0.1 at Wed May 11 15:57:21 +0300 2011
+
+
+Started GET "/hit_switch/5/1/prev/2/details" for 127.0.0.1 at Wed May 11 15:57:23 +0300 2011
+
+
+Started GET "/game_details/5/1/1" for 127.0.0.1 at Wed May 11 15:57:24 +0300 2011
+
+
+Started POST "/hits/72" for 127.0.0.1 at Wed May 11 15:57:25 +0300 2011
+
+
+Started POST "/hits/71" for 127.0.0.1 at Wed May 11 15:57:25 +0300 2011
+
+
+Started GET "/hit_switch/5/1/next/1/details" for 127.0.0.1 at Wed May 11 15:57:26 +0300 2011
+
+
+Started GET "/game_details/5/1/2" for 127.0.0.1 at Wed May 11 15:57:26 +0300 2011
+
+
+Started POST "/hits/70" for 127.0.0.1 at Wed May 11 15:57:27 +0300 2011
+
+
+Started POST "/hits/69" for 127.0.0.1 at Wed May 11 15:57:28 +0300 2011
+
+
+Started GET "/game_details/5/1/1/new/0" for 127.0.0.1 at Wed May 11 15:58:30 +0300 2011
+
+
+Started GET "/hit_switch/5/1/next/1/details" for 127.0.0.1 at Wed May 11 15:58:35 +0300 2011
+
+
+Started GET "/game_details/5/1/2" for 127.0.0.1 at Wed May 11 15:58:35 +0300 2011
+
+
+Started POST "/hits/70" for 127.0.0.1 at Wed May 11 15:58:36 +0300 2011
+
+
+Started POST "/hits/69" for 127.0.0.1 at Wed May 11 15:58:37 +0300 2011
+
+
+Started GET "/hit_switch/5/1/next/2/details" for 127.0.0.1 at Wed May 11 15:58:39 +0300 2011
+
+
+Started GET "/game_details/5/1/3" for 127.0.0.1 at Wed May 11 15:58:40 +0300 2011
+
+
+Started POST "/hits/72" for 127.0.0.1 at Wed May 11 15:58:41 +0300 2011
+
+
+Started POST "/hits/71" for 127.0.0.1 at Wed May 11 15:58:42 +0300 2011
+
+
+Started GET "/hit_switch/5/1/next/3/details" for 127.0.0.1 at Wed May 11 15:58:50 +0300 2011
+
+
+Started GET "/game_details/5/1/4" for 127.0.0.1 at Wed May 11 15:58:51 +0300 2011
+
+
+Started POST "/hits/74" for 127.0.0.1 at Wed May 11 15:58:52 +0300 2011
+
+
+Started POST "/hits/73" for 127.0.0.1 at Wed May 11 15:58:53 +0300 2011
+
+
+Started GET "/hit_switch/5/1/next/4/details" for 127.0.0.1 at Wed May 11 16:00:33 +0300 2011
+
+
+Started GET "/game_details/5/1/5" for 127.0.0.1 at Wed May 11 16:00:33 +0300 2011
+
+
+Started POST "/hits/75" for 127.0.0.1 at Wed May 11 16:00:34 +0300 2011
+
+
+Started POST "/hits/76" for 127.0.0.1 at Wed May 11 16:00:35 +0300 2011
+
+
+Started GET "/hit_switch/5/1/prev/5/details" for 127.0.0.1 at Wed May 11 16:01:19 +0300 2011
+
+
+Started GET "/game_details/5/1/4" for 127.0.0.1 at Wed May 11 16:01:20 +0300 2011
+
+
+Started POST "/hits/78" for 127.0.0.1 at Wed May 11 16:01:20 +0300 2011
+
+
+Started POST "/hits/77" for 127.0.0.1 at Wed May 11 16:01:21 +0300 2011
+
+
+Started GET "/game_details/5/1/1/new/0" for 127.0.0.1 at Wed May 11 16:05:17 +0300 2011
+
+NameError (undefined local variable or method `conditions1' for #<GamesController:0x15c9d0f8>):
+  app/controllers/games_controller.rb:223:in `details'
+
+
+
+
+Started GET "/game_details/5/1/1/new/0" for 127.0.0.1 at Wed May 11 16:05:44 +0300 2011
+
+NameError (undefined local variable or method `game_id' for #<GamesController:0x15bb59f0>):
+  app/controllers/games_controller.rb:219:in `details'
+
+
+
+
+Started GET "/game_details/5/1/1/new/0" for 127.0.0.1 at Wed May 11 16:06:18 +0300 2011
+
+
+Started GET "/hit_switch/5/1/next/1/details" for 127.0.0.1 at Wed May 11 16:06:21 +0300 2011
+
+
+Started GET "/game_details/5/1/2" for 127.0.0.1 at Wed May 11 16:06:22 +0300 2011
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/games_controller.rb:239:in `details'
+
+
+
+
+Started GET "/hit_switch/5/1/next/1/details" for 127.0.0.1 at Wed May 11 16:08:09 +0300 2011
+
+
+Started GET "/hit_switch/5/1/next/1/details" for 127.0.0.1 at Wed May 11 16:08:10 +0300 2011
+
+
+Started GET "/game_details/5/1/2" for 127.0.0.1 at Wed May 11 16:08:10 +0300 2011
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/games_controller.rb:239:in `details'
+
+
+
+
+Started GET "/game_details/5/1/2" for 127.0.0.1 at Wed May 11 16:08:11 +0300 2011
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/controllers/games_controller.rb:239:in `details'
+
+
+
+
+Started GET "/game_details/5/1/1/new/0" for 127.0.0.1 at Wed May 11 16:11:08 +0300 2011
+
+
+Started GET "/hit_switch/5/1/next/1/details" for 127.0.0.1 at Wed May 11 16:11:12 +0300 2011
+
+
+Started GET "/game_details/5/1/2" for 127.0.0.1 at Wed May 11 16:11:13 +0300 2011
+
+
+Started POST "/hits/70" for 127.0.0.1 at Wed May 11 16:11:14 +0300 2011
+
+
+Started POST "/hits/69" for 127.0.0.1 at Wed May 11 16:11:14 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Wed May 11 16:11:19 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Wed May 11 16:11:25 +0300 2011
+
+
+Started GET "/game_res/6/1/1/new" for 127.0.0.1 at Wed May 11 16:11:26 +0300 2011
+
+
+Started GET "/game_details/6/1/1/new/0" for 127.0.0.1 at Wed May 11 16:11:28 +0300 2011
+
+
+Started GET "/hit_switch/6/1/next/1/details" for 127.0.0.1 at Wed May 11 16:11:35 +0300 2011
+
+
+Started GET "/game_details/6/1/2" for 127.0.0.1 at Wed May 11 16:11:36 +0300 2011
+
+
+Started POST "/hits/80" for 127.0.0.1 at Wed May 11 16:11:37 +0300 2011
+
+
+Started POST "/hits/79" for 127.0.0.1 at Wed May 11 16:11:38 +0300 2011
+
+
+Started GET "/hit_switch/6/1/prev/2/details" for 127.0.0.1 at Wed May 11 16:11:40 +0300 2011
+
+
+Started GET "/game_details/6/1/1" for 127.0.0.1 at Wed May 11 16:11:40 +0300 2011
+
+
+Started POST "/hits/82" for 127.0.0.1 at Wed May 11 16:11:42 +0300 2011
+
+
+Started POST "/hits/81" for 127.0.0.1 at Wed May 11 16:11:43 +0300 2011
+
+
+Started GET "/hit_switch/6/1/next/1/details" for 127.0.0.1 at Wed May 11 16:11:43 +0300 2011
+
+
+Started GET "/game_details/6/1/2" for 127.0.0.1 at Wed May 11 16:11:44 +0300 2011
+
+
+Started POST "/hits/80" for 127.0.0.1 at Wed May 11 16:11:45 +0300 2011
+
+
+Started POST "/hits/79" for 127.0.0.1 at Wed May 11 16:11:46 +0300 2011
+
+
+Started GET "/game_results/6/1/results/new/0" for 127.0.0.1 at Wed May 11 16:12:32 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Wed May 11 16:12:39 +0300 2011
+
+
+Started GET "/game_results/6/1/results/2/1" for 127.0.0.1 at Wed May 11 16:12:39 +0300 2011
+
+
+Started GET "/hole_switch/6/16/prev/results/0/0" for 127.0.0.1 at Wed May 11 16:12:48 +0300 2011
+
+
+Started GET "/game_results/6/16/1/0/0" for 127.0.0.1 at Wed May 11 16:12:48 +0300 2011
+
+ActionView::MissingTemplate (Missing template games/results with {:handlers=>[:rjs, :erb, :rhtml, :rxml, :builder], :locale=>[:en, :en], :formats=>[:html]} in view paths "C:/workspace/Golf/app/views", "C:/workspace/Golf/vendor/plugins/dynamic_form/app/views"):
+  
+
+
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Wed May 11 16:12:53 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Wed May 11 16:12:55 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Wed May 11 16:13:01 +0300 2011
+
+
+Started GET "/game_res/7/1/1/new" for 127.0.0.1 at Wed May 11 16:13:02 +0300 2011
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:13:03 +0300 2011
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:15:20 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:15:26 +0300 2011
+
+
+Started GET "/game_details/7/1/2" for 127.0.0.1 at Wed May 11 16:15:27 +0300 2011
+
+
+Started POST "/hits/86" for 127.0.0.1 at Wed May 11 16:15:28 +0300 2011
+
+
+Started POST "/hits/85" for 127.0.0.1 at Wed May 11 16:15:29 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/2/details" for 127.0.0.1 at Wed May 11 16:15:38 +0300 2011
+
+
+Started GET "/game_details/7/1/3" for 127.0.0.1 at Wed May 11 16:15:38 +0300 2011
+
+
+Started POST "/hits/88" for 127.0.0.1 at Wed May 11 16:15:39 +0300 2011
+
+
+Started POST "/hits/87" for 127.0.0.1 at Wed May 11 16:15:40 +0300 2011
+
+
+Started GET "/hit_switch/7/1/prev/3/details" for 127.0.0.1 at Wed May 11 16:15:44 +0300 2011
+
+
+Started GET "/game_details/7/1/2" for 127.0.0.1 at Wed May 11 16:15:44 +0300 2011
+
+
+Started POST "/hits/90" for 127.0.0.1 at Wed May 11 16:15:45 +0300 2011
+
+
+Started POST "/hits/89" for 127.0.0.1 at Wed May 11 16:15:46 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/2/details" for 127.0.0.1 at Wed May 11 16:15:46 +0300 2011
+
+
+Started GET "/game_details/7/1/3" for 127.0.0.1 at Wed May 11 16:15:47 +0300 2011
+
+
+Started POST "/hits/88" for 127.0.0.1 at Wed May 11 16:15:48 +0300 2011
+
+
+Started POST "/hits/87" for 127.0.0.1 at Wed May 11 16:15:48 +0300 2011
+
+
+Started GET "/hit_switch/7/1/prev/3/details" for 127.0.0.1 at Wed May 11 16:15:53 +0300 2011
+
+
+Started GET "/game_details/7/1/2" for 127.0.0.1 at Wed May 11 16:15:53 +0300 2011
+
+
+Started POST "/hits/90" for 127.0.0.1 at Wed May 11 16:15:54 +0300 2011
+
+
+Started POST "/hits/89" for 127.0.0.1 at Wed May 11 16:15:55 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/2/details" for 127.0.0.1 at Wed May 11 16:15:58 +0300 2011
+
+
+Started GET "/game_details/7/1/3" for 127.0.0.1 at Wed May 11 16:15:58 +0300 2011
+
+
+Started POST "/hits/88" for 127.0.0.1 at Wed May 11 16:15:59 +0300 2011
+
+
+Started POST "/hits/87" for 127.0.0.1 at Wed May 11 16:16:00 +0300 2011
+
+
+Started GET "/hit_switch/7/1/prev/3/details" for 127.0.0.1 at Wed May 11 16:16:02 +0300 2011
+
+
+Started GET "/game_details/7/1/2" for 127.0.0.1 at Wed May 11 16:16:02 +0300 2011
+
+
+Started POST "/hits/90" for 127.0.0.1 at Wed May 11 16:16:03 +0300 2011
+
+
+Started POST "/hits/89" for 127.0.0.1 at Wed May 11 16:16:04 +0300 2011
+
+
+Started GET "/hit_switch/7/1/prev/2/details" for 127.0.0.1 at Wed May 11 16:16:04 +0300 2011
+
+
+Started GET "/game_details/7/1/1" for 127.0.0.1 at Wed May 11 16:16:05 +0300 2011
+
+
+Started POST "/hits/88" for 127.0.0.1 at Wed May 11 16:16:06 +0300 2011
+
+
+Started POST "/hits/87" for 127.0.0.1 at Wed May 11 16:16:06 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:16:12 +0300 2011
+
+
+Started GET "/game_details/7/1/2" for 127.0.0.1 at Wed May 11 16:16:12 +0300 2011
+
+
+Started POST "/hits/86" for 127.0.0.1 at Wed May 11 16:16:13 +0300 2011
+
+
+Started POST "/hits/85" for 127.0.0.1 at Wed May 11 16:16:14 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/2/details" for 127.0.0.1 at Wed May 11 16:16:15 +0300 2011
+
+
+Started GET "/game_details/7/1/3" for 127.0.0.1 at Wed May 11 16:16:15 +0300 2011
+
+
+Started POST "/hits/88" for 127.0.0.1 at Wed May 11 16:16:16 +0300 2011
+
+
+Started POST "/hits/87" for 127.0.0.1 at Wed May 11 16:16:17 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/3/details" for 127.0.0.1 at Wed May 11 16:16:22 +0300 2011
+
+
+Started GET "/game_details/7/1/4" for 127.0.0.1 at Wed May 11 16:16:23 +0300 2011
+
+
+Started POST "/hits/89" for 127.0.0.1 at Wed May 11 16:16:24 +0300 2011
+
+
+Started POST "/hits/90" for 127.0.0.1 at Wed May 11 16:16:25 +0300 2011
+
+
+Started GET "/hit_switch/7/1/prev/4/details" for 127.0.0.1 at Wed May 11 16:16:25 +0300 2011
+
+
+Started GET "/game_details/7/1/3" for 127.0.0.1 at Wed May 11 16:16:26 +0300 2011
+
+
+Started POST "/hits/91" for 127.0.0.1 at Wed May 11 16:16:27 +0300 2011
+
+
+Started POST "/hits/92" for 127.0.0.1 at Wed May 11 16:16:27 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/3/details" for 127.0.0.1 at Wed May 11 16:16:28 +0300 2011
+
+
+Started GET "/game_details/7/1/4" for 127.0.0.1 at Wed May 11 16:16:29 +0300 2011
+
+
+Started POST "/hits/90" for 127.0.0.1 at Wed May 11 16:16:30 +0300 2011
+
+
+Started POST "/hits/89" for 127.0.0.1 at Wed May 11 16:16:30 +0300 2011
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:17:01 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:17:04 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15edf7f8>:0x15edbe50>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function(){ redirect_to @path, :remote => :true });
+    3: #page.select('form').each { |f| f.submit }
+    4: #page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+    5: #page['#hit_edit_tab'].html render(:partial => 'games/hit_form_' + @form_id, :locals => {:hit => @hit, :active_hit => @active_hit})
+  app/views/games/hit_switch.js.rjs:2:in `_app_views_games_hit_switch_js_rjs___1025317875_183937104_0'
+  app/views/games/hit_switch.js.rjs:1:in `_app_views_games_hit_switch_js_rjs___1025317875_183937104_0'
+
+
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:20:43 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:20:46 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15e7ac80>:0x15e78ce8>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function(){ 
+    3:   redirect_to @path, :remote => :true });
+    4: #page.select('form').each { |f| f.submit }
+    5: #page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+  app/views/games/hit_switch.js.rjs:2:in `_app_views_games_hit_switch_js_rjs___1025317875_183730560_0'
+  app/views/games/hit_switch.js.rjs:1:in `_app_views_games_hit_switch_js_rjs___1025317875_183730560_0'
+
+
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:24:12 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:24:15 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: syntax error, unexpected tIVAR, expecting kDO or '{' or '('
+  redirect_to @path, :remote => :true ;
+                   ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  redirect_to @path, :remote => :true ;
+                               ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:4: syntax error, unexpected '}', expecting kEND
+  });
+   ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:12: syntax error, unexpected $end, expecting kEND):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete({ 
+    3:   redirect_to @path, :remote => :true ;
+    4:   });
+    5: #page.select('form').each { |f| f.submit }
+    6: #page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+  app/views/games/hit_switch.js.rjs:12:in `compile'
+
+
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:24:18 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:24:24 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: syntax error, unexpected tIVAR, expecting kDO or '{' or '('
+  redirect_to @path, :remote => :true ;
+                   ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  redirect_to @path, :remote => :true ;
+                               ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:4: syntax error, unexpected '}', expecting kEND
+  });
+   ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:12: syntax error, unexpected $end, expecting kEND):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete({ 
+    3:   redirect_to @path, :remote => :true ;
+    4:   });
+    5: #page.select('form').each { |f| f.submit }
+    6: #page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+  app/views/games/hit_switch.js.rjs:12:in `compile'
+
+
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:25:58 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:26:01 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: syntax error, unexpected tIVAR, expecting kDO or '{' or '('
+  redirect_to @path, :remote => true ;
+                   ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  redirect_to @path, :remote => true ;
+                               ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:4: syntax error, unexpected '}', expecting kEND
+  });
+   ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:12: syntax error, unexpected $end, expecting kEND):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete({ 
+    3:   redirect_to @path, :remote => true ;
+    4:   });
+    5: #page.select('form').each { |f| f.submit }
+    6: #page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+  app/views/games/hit_switch.js.rjs:12:in `compile'
+
+
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:26:59 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:27:02 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: odd number list for Hash
+  page.redirect_to( @path, :remote => true) ;
+                                             ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: syntax error, unexpected ';', expecting '}'
+  page.redirect_to( @path, :remote => true) ;
+                                             ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:12: syntax error, unexpected $end, expecting kEND):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete({ 
+    3:   page.redirect_to( @path, :remote => true) ;
+    4:   });
+    5: #page.select('form').each { |f| f.submit }
+    6: #page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+  app/views/games/hit_switch.js.rjs:12:in `compile'
+
+
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:27:23 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:27:26 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: odd number list for Hash):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete({ 
+    3:   page.redirect_to( @path, :remote => true) 
+    4:   });
+    5: #page.select('form').each { |f| f.submit }
+    6: #page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+  app/views/games/hit_switch.js.rjs:12:in `compile'
+
+
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:28:37 +0300 2011
+
+
+Started GET "/hole_switch/7/18/prev/details/0/0" for 127.0.0.1 at Wed May 11 16:29:01 +0300 2011
+
+ActionView::MissingTemplate (Missing template games/hole_switch with {:handlers=>[:rjs, :erb, :rhtml, :rxml, :builder], :locale=>[:en, :en], :formats=>[:html]} in view paths "C:/workspace/Golf/app/views", "C:/workspace/Golf/vendor/plugins/dynamic_form/app/views"):
+  
+
+
+
+
+Started GET "/hole_switch/7/18/prev/details/0/0" for 127.0.0.1 at Wed May 11 16:29:08 +0300 2011
+
+ActionView::MissingTemplate (Missing template games/hole_switch with {:handlers=>[:rjs, :erb, :rhtml, :rxml, :builder], :locale=>[:en, :en], :formats=>[:html]} in view paths "C:/workspace/Golf/app/views", "C:/workspace/Golf/vendor/plugins/dynamic_form/app/views"):
+  
+
+
+
+
+Started GET "/hole_switch/7/18/prev/details/0/0" for 127.0.0.1 at Wed May 11 16:29:15 +0300 2011
+
+ActionView::MissingTemplate (Missing template games/hole_switch with {:handlers=>[:rjs, :erb, :rhtml, :rxml, :builder], :locale=>[:en, :en], :formats=>[:html]} in view paths "C:/workspace/Golf/app/views", "C:/workspace/Golf/vendor/plugins/dynamic_form/app/views"):
+  
+
+
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:29:24 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:2: syntax error, unexpected '(', expecting ')'
+page[''].ajaxComplete(function()( { 
+                                 ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: odd number list for Hash
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:4: syntax error, unexpected ')', expecting kEND
+  });
+    ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:12: syntax error, unexpected $end, expecting kEND):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function()( { 
+    3:   page.redirect_to( @path, :remote => true) 
+    4:   });
+    5: #page.select('form').each { |f| f.submit }
+  app/views/games/hit_switch.js.rjs:12:in `compile'
+
+
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:29:46 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:2: syntax error, unexpected '(', expecting ')'
+page[''].ajaxComplete(function()( { 
+                                 ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:3: odd number list for Hash
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:4: syntax error, unexpected ')', expecting kEND
+  });
+    ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:12: syntax error, unexpected $end, expecting kEND):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function()( { 
+    3:   page.redirect_to( @path, :remote => true) 
+    4:   });
+    5: #page.select('form').each { |f| f.submit }
+  app/views/games/hit_switch.js.rjs:12:in `compile'
+
+
+
+
+Started GET "/game_details/7/1/1/new/0" for 127.0.0.1 at Wed May 11 16:30:15 +0300 2011
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:30:18 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15e30550>:0x15e2f0b0>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function(){ 
+    3:   page.redirect_to( @path, :remote => true) 
+    4:   });
+    5: #page.select('form').each { |f| f.submit }
+  app/views/games/hit_switch.js.rjs:2:in `_app_views_games_hit_switch_js_rjs___1025317875_183593532_0'
+  app/views/games/hit_switch.js.rjs:1:in `_app_views_games_hit_switch_js_rjs___1025317875_183593532_0'
+
+
+
+
+Started GET "/hit_switch/7/1/next/1/details" for 127.0.0.1 at Wed May 11 16:33:48 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15eabb38>:0x15eaa7b8>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function(){ 
+    3:   page.redirect_to( @path, :remote => true) 
+    4:   });
+    5: #page.select('form').each { |f| f.submit }
+  app/views/games/hit_switch.js.rjs:2:in `_app_views_games_hit_switch_js_rjs___1025317875_183844128_0'
+  app/views/games/hit_switch.js.rjs:1:in `_app_views_games_hit_switch_js_rjs___1025317875_183844128_0'
+
+
+
+
+Started GET "/game_results/7/1/results/new/0" for 127.0.0.1 at Wed May 11 16:54:57 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Wed May 11 16:55:06 +0300 2011
+
+
+Started GET "/game_results/7/1/results/3/1" for 127.0.0.1 at Wed May 11 16:55:06 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Wed May 11 18:21:34 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Wed May 11 18:21:40 +0300 2011
+
+
+Started GET "/game_res/8/1/1/new" for 127.0.0.1 at Wed May 11 18:21:40 +0300 2011
+
+
+Started GET "/game_details/8/1/1/new/0" for 127.0.0.1 at Wed May 11 18:21:43 +0300 2011
+
+
+Started GET "/game_details/8/1/1/new/0" for 127.0.0.1 at Wed May 11 18:25:43 +0300 2011
+
+
+Started GET "/hit_switch/8/1/next/1/details" for 127.0.0.1 at Wed May 11 18:25:54 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15d13e68>:0x15d11810>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function(){page['document'].get(@path)})
+    3: 
+    4: 
+    5: #page.select('form').each { |f| f.submit }
+  app/views/games/hit_switch.js.rjs:2:in `_app_views_games_hit_switch_js_rjs___1025317875_183009072_0'
+  app/views/games/hit_switch.js.rjs:1:in `_app_views_games_hit_switch_js_rjs___1025317875_183009072_0'
+
+
+
+
+Started GET "/game_details/8/1/1/new/0" for 127.0.0.1 at Wed May 11 18:28:04 +0300 2011
+
+
+Started GET "/hit_switch/8/1/next/1/details" for 127.0.0.1 at Wed May 11 18:28:07 +0300 2011
+
+ActionView::Template::Error (undefined method `function' for #<#<Class:0x15e1d5c0>:0x15e1bd18>):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete(function(){
+    3:    page['document'].get(@path);
+    4:   });
+    5: 
+  app/views/games/hit_switch.js.rjs:2:in `_app_views_games_hit_switch_js_rjs___1025317875_183553800_0'
+  app/views/games/hit_switch.js.rjs:1:in `_app_views_games_hit_switch_js_rjs___1025317875_183553800_0'
+
+
+
+
+Started GET "/game_details/8/1/1/new/0" for 127.0.0.1 at Wed May 11 18:31:47 +0300 2011
+
+
+Started GET "/hit_switch/8/1/next/1/details" for 127.0.0.1 at Wed May 11 18:31:51 +0300 2011
+
+ActionView::Template::Error (object references itself):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page[''].ajaxComplete( page['document'].get(@path))
+    3: 
+    4: 
+    5: #page.select('form').each { |f| f.submit }
+  app/views/games/hit_switch.js.rjs:2:in `_app_views_games_hit_switch_js_rjs___1025317875_183037680_0'
+  app/views/games/hit_switch.js.rjs:1:in `_app_views_games_hit_switch_js_rjs___1025317875_183037680_0'
+
+
+
+
+Started GET "/game_details/8/1/1/new/0" for 127.0.0.1 at Wed May 11 18:32:36 +0300 2011
+
+
+Started GET "/hit_switch/8/1/next/1/details" for 127.0.0.1 at Wed May 11 18:32:39 +0300 2011
+
+ActionView::Template::Error (object references itself):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page['#hit_edit_tab'].ajaxComplete( page[''].get(@path))
+    3: 
+    4: 
+    5: #page.select('form').each { |f| f.submit }
+  app/views/games/hit_switch.js.rjs:2:in `_app_views_games_hit_switch_js_rjs___1025317875_183453528_0'
+  app/views/games/hit_switch.js.rjs:1:in `_app_views_games_hit_switch_js_rjs___1025317875_183453528_0'
+
+
+
+
+Started GET "/game_details/8/1/1/new/0" for 127.0.0.1 at Wed May 11 18:33:59 +0300 2011
+
+
+Started GET "/hit_switch/8/1/next/1/details" for 127.0.0.1 at Wed May 11 18:34:02 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:2: syntax error, unexpected '.', expecting ')'
+page['#hit_edit_tab'].ajaxComplete( .get(@path))
+                                     ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:2: syntax error, unexpected ')', expecting kEND
+page['#hit_edit_tab'].ajaxComplete( .get(@path))
+                                                ^
+C:/workspace/Golf/app/views/games/hit_switch.js.rjs:12: syntax error, unexpected $end, expecting kEND):
+    1: page['#hit_edit_tab'].find('form').submit()
+    2: page['#hit_edit_tab'].ajaxComplete( .get(@path))
+    3: 
+    4: 
+    5: #page.select('form').each { |f| f.submit }
+  app/views/games/hit_switch.js.rjs:12:in `compile'
+
+
+
+
+Started GET "/game_results/8/1/results/new/0" for 127.0.0.1 at Wed May 11 18:45:30 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Wed May 11 18:45:35 +0300 2011
+
+
+Started GET "/game_results/8/1/results/3/1" for 127.0.0.1 at Wed May 11 18:45:36 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Wed May 11 18:45:45 +0300 2011
+
+
+Started GET "/game_results/8/1/results/7/1" for 127.0.0.1 at Wed May 11 18:45:45 +0300 2011
+
+
+Started POST "/hits/98" for 127.0.0.1 at Wed May 11 18:45:47 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find Hit with ID=98):
+  app/controllers/hits_controller.rb:60:in `update'
+
+
+
+
+Started POST "/hits/99" for 127.0.0.1 at Wed May 11 18:45:47 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find Hit with ID=99):
+  app/controllers/hits_controller.rb:60:in `update'
+
+
+
+
+Started POST "/hits/100" for 127.0.0.1 at Wed May 11 18:45:48 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find Hit with ID=100):
+  app/controllers/hits_controller.rb:60:in `update'
+
+
+
+
+Started GET "/club" for 127.0.0.1 at Wed May 11 18:46:15 +0300 2011
+
+
+Started GET "/club/edit" for 127.0.0.1 at Wed May 11 18:46:18 +0300 2011
+
+
+Started GET "/club/fields/new" for 127.0.0.1 at Wed May 11 18:46:21 +0300 2011
+
+
+Started GET "/club" for 127.0.0.1 at Wed May 11 18:47:14 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Wed May 11 18:47:19 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Wed May 11 18:47:34 +0300 2011
+
+
+Started GET "/game_res/9/1/1/new" for 127.0.0.1 at Wed May 11 18:47:35 +0300 2011
+
+
+Started GET "/game_details/9/10/1/new/0" for 127.0.0.1 at Wed May 11 18:47:39 +0300 2011
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at Wed May 11 18:47:40 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/original/missing.png"):
+  
+
+
+
+
+Started GET "/hole_switch/9/16/prev/details/0/0" for 127.0.0.1 at Wed May 11 18:47:42 +0300 2011
+
+ActionView::MissingTemplate (Missing template games/hole_switch with {:handlers=>[:rjs, :erb, :rhtml, :rxml, :builder], :locale=>[:en, :en], :formats=>[:html]} in view paths "C:/workspace/Golf/app/views", "C:/workspace/Golf/vendor/plugins/dynamic_form/app/views"):
+  
+
+
+
+
+Started GET "/hit_switch/9/10/next/1/details" for 127.0.0.1 at Wed May 11 18:47:47 +0300 2011
+
+
+Started GET "/game_results/9/10/results/new/0" for 127.0.0.1 at Wed May 11 18:55:06 +0300 2011
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at Wed May 11 18:55:07 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/original/missing.png"):
+  
+
+
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Wed May 11 20:40:37 +0300 2011
+
+SyntaxError (C:/workspace/Golf/app/controllers/games_controller.rb:361: syntax error, unexpected tIVAR, expecting kEND
+...t_hole].to_s + '/' @active_hit.to_s + '/'
+                              ^):
+  
+
+
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Wed May 11 20:44:47 +0300 2011
+
+SyntaxError (C:/workspace/Golf/app/controllers/games_controller.rb:361: syntax error, unexpected tIVAR, expecting kEND
+...t_hole].to_s + '/' @active_hit.to_s + '/'
+                              ^):
+  
+
+
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Wed May 11 20:45:51 +0300 2011
+
+SyntaxError (C:/workspace/Golf/app/controllers/games_controller.rb:363: syntax error, unexpected tIVAR, expecting kEND
+...t_hole].to_s + '/' @active_hit.to_s + '/'
+                              ^):
+  
+
+
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Wed May 11 20:46:04 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Wed May 11 20:46:11 +0300 2011
+
+
+Started GET "/game_plan/10/1/1/new" for 127.0.0.1 at Wed May 11 20:46:11 +0300 2011
+
+ActionView::Template::Error (undefined method `hit_direction' for #<Game:0x15df27c8>):
+    1: <%=form_for( game, :url => '/hit_update/') do |game|%>
+    2: <div class="active_hit"> <%= game.hidden_field :hit_direction %></div>
+    3: <div class="nexthole"><%= game.hidden_field :next_hole%></div>
+    4: <div class="formid"><%= game.hidden_field :form, :value => 'details'%></div>
+    5: <%= game.hidden_field :active_hit, :value => active_hit%>
+  app/views/games/_hit_form_plan.html.erb:2:in `_app_views_games__hit_form_plan_html_erb__799299848_183861912_587938956'
+  app/views/games/_hit_form_plan.html.erb:1:in `_app_views_games__hit_form_plan_html_erb__799299848_183861912_587938956'
+  app/views/games/hit_edit.html.erb:12:in `_app_views_games_hit_edit_html_erb___686102718_182685804_0'
+  app/controllers/games_controller.rb:147:in `plan'
+
+
+
+
+Started GET "/game_plan/10/1/1/new" for 127.0.0.1 at Wed May 11 20:49:49 +0300 2011
+
+ActiveRecord::RecordNotFound (Couldn't find Game with ID=10):
+  app/controllers/games_controller.rb:77:in `game_holes'
+  app/controllers/games_controller.rb:277:in `require_game_owner'
+
+
+
+
+Started POST "/games" for 127.0.0.1 at Wed May 11 20:49:55 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 20:49:56 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 20:50:05 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 20:50:20 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 20:50:25 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 20:51:54 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 20:53:13 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 20:53:24 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 20:53:32 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 21:09:08 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 21:13:11 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 21:14:22 +0300 2011
+
+
+Started GET "/game_plan/1/1/1/new" for 127.0.0.1 at Wed May 11 21:14:28 +0300 2011

@@ -11,6 +11,11 @@ class CreateGames < ActiveRecord::Migration
       t.references :field
       t.integer    :game_type
       t.integer    :start_place_colors
+      t.string     :comment
+      t.string     :hit_direction
+      t.integer    :next_hole
+      t.integer    :active_hit
+      t.string     :form
       t.timestamps
       t.timestamps
     end

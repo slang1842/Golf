@@ -13,7 +13,10 @@
     hole num<%= hit.hole_number%>
     hit num <%= hit.hit_number%>
     hit type<%= hit.real_hit%>
-    hit distance<%= hit.hit_distance%><br />
+    hit distance<%= hit.hit_distance%>
+    hit placeform<%= hit.place_from%>
+    hit landplace<%= hit.land_place%>
+    hit wind<%= hit.wind%><br />
     <td><%= link_to 'Show', hit %></td>
     <td><%= link_to 'Edit', edit_hit_path(hit) %></td>
     <td><%= link_to 'Destroy', hit, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,22 +1,28 @@
 
-
+ <div class="game_input_wrap">
+    <div class="tabs_wrap">
+     
+      <div class="clear"></div>
+    </div>
+    
+    <div class="clear"></div>
 <div class="holes_wrap">
   <div class="heading_wrap">
   <p>Bedrīte:</p>
   </div>
 <% holes_filtered.each do |f|%>
-<% if f.hole_number < active_hole %>
+<% if f.hole_number.to_i < active_hole.to_i %>
 
-<a href="<%=  hole_switch_path( game_id, f.hole_number, 'prev', form_id, 0, 0)%>" data-remote-true>  <div class="single_hole done"><p><%=f.hole_number%></p></div></a>
+<a href="#" OnClick="$(#hit_edit_tab.formid).val().value('<%=form_id%>'); $(#hit_edit_tab.nexthole).val().value('<%=f.hole_number%>');$(#hit_edit_tab.active_hit).val().value('hole');$(form).submit;" ><%=f.hole_number%></a>
 
-
-<% elsif f.hole_number == active_hole %>
-<a href="<%=  hole_switch_path( game_id, f.hole_number, 'prev', form_id, 0, 0)%>" data-remote-true>  <div class="single_hole active"><p><%=f.hole_number%></p></div></a>
+<% elsif f.hole_number.to_i == active_hole.to_i %>
+<a href="#" OnClick="$(#hit_edit_tab.formid).val().value('<%=form_id%>'); $(#hit_edit_tab.nexthole).val().value('<%=f.hole_number%>');$(#hit_edit_tab.active_hit).val().value('hole');$(form).submit;" ><%=f.hole_number%></a>
 <% else %>
-<a href="<%=  hole_switch_path( game_id, f.hole_number, 'prev', form_id, 0, 0)%>" data-remote-true>  <div class="single_hole empty"><p><%=f.hole_number%></p></div></a>
+<a href="#" OnClick="$(#hit_edit_tab.formid).val().value('<%=form_id%>'); $(#hit_edit_tab.nexthole).val().value('<%=f.hole_number%>');$(#hit_edit_tab.active_hit).val().value('hole');$(form).submit;" ><%=f.hole_number%></a>
     <% end %>
   
     <% end %>
     
    </div> 
-   
+</div>
+</div>

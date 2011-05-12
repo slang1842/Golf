@@ -1,8 +1,9 @@
 <% if active_hit != 1 %>
-<%= link_to 'Previous Hit', hit_switch_path(game_id, active_hole, 'prev', active_hit, form_id), :remote => :true%>
+<a href="#" OnClick="$(#hit_edit_tab.nexthole).val().value('<%=active_hole%>');$(#hit_edit_tab.active_hit).val().value('prev');$(form).submit;" >Previous hit</a>
+
 <%=active_hit%>
-<%= link_to 'Next Hit', hit_switch_path(game_id, active_hole, 'next', active_hit, form_id), :remote => :true%>
+<a href="#" OnClick="$(#hit_edit_tab.nexthole).val().value('<%=active_hole%>');$(#hit_edit_tab.active_hit).val().value('next');$(form).submit;" >Next hit</a>
 <% else %>
 <%=active_hit%>
-<%= link_to 'Next Hit', hit_switch_path(game_id, active_hole, 'next', active_hit, form_id), :remote => :true%>
+<a href="#" OnClick="$(#hit_edit_tab.nexthole).val().value('<%=active_hole%>');$(#hit_edit_tab.active_hit).val().value('next');$(form).submit;" >Next hit</a>
 <% end %>
