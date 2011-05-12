@@ -1,10 +1,10 @@
-<%=form_for( game, :url => '/hit_update/', :html => {:id => "hit_form"}, :remote => true) do |game|%>
-<input type="hidden" name="next_hit" id="nexthit">
-<div class="formid"><%= game.hidden_field :form_id, :value => 'plan'%></div>
+<%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
+<input type="hidden" name="next_hit" id="nexthit" value=0>
+<input type="hidden" name="form_id" id="formid" value="plan">
+<input type="hidden" name="active_hit" id="act_hit" value=<%=active_hit%>>
+<input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
 <%= game.hidden_field :active_hit, :value => active_hit%>
-<input type="hidden" name="next_hole" id="nexthole">
-<%= game.hidden_field :active_hit, :value => active_hit%>
-<%= game.fields_for hit do |f|%>
+<%= game.fields_for :hits, hit do |f|%>
 <%= f.hidden_field :hit_number, :value => active_hit %>
 <%= f.label :user_stick_id, 'Club' %>
 <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 

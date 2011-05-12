@@ -80,7 +80,7 @@ end
   #match '/game_details/:game_id/:active_hole/:active_hit/:hits/:puts' => 'games#details', :as => 'details'
   match '/results_starter/' => 'games#results_starter'
   match '/games/' => 'games#index', :as => 'game_index'
-  match '/hit_update/' => 'games#hit_update'
+  match '/hit_update/:game_id/' => 'games#hit_update'
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
   match '/welcome' => "welcome#index",        :as => :loged_in
