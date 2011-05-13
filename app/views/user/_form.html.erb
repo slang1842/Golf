@@ -1,108 +1,219 @@
 
 <% if current_user %>
-<%= render :partial => 'share/header_menu' %>
-<% else %>
+  <%= render :partial => 'share/header_menu' %>
 <% end %>
-<br /><br />
 
-<% form_for(@user, :url => user_path, :html => { :multipart => true } ) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
+<div class="profile_info_input">
+  <h1>Tavs profils</h1>
+
+  <% form_for(@user, :url => user_path, :html => { :multipart => true } ) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></h2>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div class="left_wrap">
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.first_name" %></p>
+        </div>
+        <div class="input">
+          <%= f.text_field :first_name %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.last_name" %></p>
+        </div>
+        <div class="input">
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.nick" %></p>
+        </div>
+        <div class="input">
+          <%= f.text_field :nick %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.sex" %></p>
+        </div>
+        <div class="input">
+          <%= f.select(:sex, FORM_SEX,{}, { :class => 'dropdown3'}) %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.birth" %></p>
+        </div>
+        <div class="input">
+          <%= f.text_field :birth, :id=> "datepicker" %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.hcp" %></p>
+        </div>
+        <div class="input">
+          <%= f.select(:hcp, (0..36),{}, { :class => 'dropdown3'}) %>
+        </div>
+      </div>
     </div>
+
+
+    <div class="left_wrap">
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.right_handed" %></p>
+        </div>
+        <div class="input">
+          <%= f.select(:right_handed, RIGHT_HANDED,{}, { :class => 'dropdown3'}) %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.country" %></p>
+        </div>
+        <div class="input">
+          <%= f.collection_select :country_id, Country.all, :id, :name,{}, { :class => 'dropdown3'} %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.measurement" %></p>
+        </div>
+        <div class="input">
+          <%= f.select(:measurement, MEASUREMENT,{}, { :class => 'dropdown3'}) %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.start_place" %></p>
+        </div>
+        <div class="input">
+          <%= f.select(:start_place_color, START_PLACE_COLORS,{}, { :class => 'dropdown3'}) %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.temperature" %></p>
+        </div>
+        <div class="input">
+          <%= f.select(:temp_preference, TEMPERATURE,{}, { :class => 'dropdown3'}) %>
+        </div>
+      </div>
+
+
+
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.home_club" %></p>
+        </div>
+        <div class="input">
+          <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :name, { :prompt => t(:notices_no_club)}, {:class => 'dropdown3'}) %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p class="two_lines">* Dont see your club?</p>
+        </div>
+        <div class="input">
+          <%= link_to "add club", new_golf_club_path %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="clear"></div>
+    <div class="push"></div>
+
+    <div class="single_element">
+      <div class="text">
+        <p><%= f.label t "form.email"%></p>
+      </div>
+      <div class="input">
+        <%= f.text_field :email %>
+      </div>
+    </div>
+
+    <div class="single_element">
+      <div class="text">
+        <p><%= f.label t "form.password_new" %></p>
+      </div>
+      <div class="input">
+        <%= f.password_field :password %>
+      </div>
+    </div>
+
+    <div class="single_element">
+      <div class="text">
+        <p><%= f.label t "form.password_confirmation_new"%></p>
+      </div>
+      <div class="input">
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+
+    <div class="single_element">
+      <div class="text">
+        <p><%= f.label t "form.profile_image" %></p>
+      </div>
+      <div class="input">
+        <%= f.file_field :image %>
+      </div>
+    </div>
+
+
+    <div class="button_done">
+      <div class="clear"></div>
+
+      <% if current_user %>
+        <%= f.submit "Save", :class => "green_button" %> 
+      <% else %>
+        <%= f.submit "Create", :class => "green_button" %>
+      <% end %>
+
+      <% unless current_user %>
+        <%= link_to "Back", welcome_path, :class=> "green_button" %>
+      <% end %>
+    </div>
+
   <% end %>
 
-  
-<div>
-   
-   
-   
-   <div class="valid_email_warning">email is not valid</div>
-   
-   
-  <%= f.label t "form.email"%>
-  <%= f.text_field :email %><br /><br />
-  
-  
-    
-    
-    
-
-  <%= f.label t "form.first_name" %>
-  <%= f.text_field :first_name %><br /><br />
-  
-  <%= f.label t "form.last_name" %>
-  <%= f.text_field :last_name %><br /><br />
-  
-  <%= f.label t "form.nick" %>
-  <%= f.text_field :nick %><br /><br />
-    
-  <%= f.label t "form.sex" %>
-  <%= f.select(:sex, FORM_SEX) %><br /><br />
-
-  <br /><br /><br />
-  <%= f.label t "form.birth" %>  
-  <%= f.text_field :birth, :id=> "datepicker" %>
-  
-  <br /><br /><br /><br />  
-  <%= f.label t "form.country" %>
-  <%= f.collection_select :country_id, Country.all, :id, :name %>
-  
-  <%= f.label t "form.hcp" %>
-  <%= f.select(:hcp, (0..36)) %><br /><br />
-      
-  <%= f.label t "form.right_handed" %>
-  <%= f.select(:right_handed, RIGHT_HANDED) %><br /><br />
-  
-  <%= f.label t "form.measurement" %>
-  <%= f.select(:measurement, MEASUREMENT) %><br /><br />
-  
-  <br /> 
-  
-  <%= f.label t "form.temperature" %>
-  <%= f.select(:temp_preference, TEMPERATURE) %><br /><br />
-  
-  <br /> 
-  <%= f.label t "form.home_club" %>
-  <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :name, :prompt => t(:notices_no_club)) %><br /><br />
-  
-  <%= f.label t "form.start_place" %>
-  <%= f.select(:start_place_color, START_PLACE_COLORS) %><br /><br />
-   
-  <h3><%= f.label t "form.profile_image" %></h3>
-  <br /> <br /> 
-  <%= f.file_field :image %>
-  <br />
- 
-  <% if current_user %>
-  Atstaj tukšu, lai nemainītu
-  <% end %><br /><br />
- 
-  <%= f.label t "form.password_new" %><br />
-  <%= f.text_field :password %><br /><br />
-    
-  <%= f.label t "form.password_confirmation_new"%><br />
-  <%= f.text_field :password_confirmation %><br /><br />
-    
-  <% if current_user %>
-  <%= f.submit t "form.edit_user_submit" %><br /><br />  
-  <% else %>      
-  <br />
-  <%= f.submit t "form.create_user_submit" %><br /><br />
-  <% end %>
 </div>
-<% end %>
-
-<% if current_user %>
-<% else %>
-  <%= link_to "Back", welcome_path %>
-<% end %>
 
 
-<img src="/images/images/Golfs_speletaja_profils_v01.jpg" />
+
+
+
+
+
+
+
+
+
+
+
+
 

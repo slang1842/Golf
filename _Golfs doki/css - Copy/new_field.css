@@ -1,0 +1,98 @@
+.new_field {
+	padding-left:10px;
+	background-image:url(img/bg_stripes.png);
+}
+
+.new_field h1 {
+	font-size:19px;
+}
+
+.new_field input {
+	border:1px solid #c3c3c3;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	height:24px;
+	width:200px;
+	font-family:"Trebuchet MS";
+	color:#898989;
+	font-weight:bold;
+}
+
+.new_field .field_name {
+	
+}
+
+.new_field .field_name .txt {
+	float:left;
+	position:relative;
+	top:6px;
+}
+
+.new_field .field_name .input {
+	float:left;
+	margin-left:10px;
+}
+
+.new_field .green_fee {
+	margin-top:10px;
+}
+
+.new_field .green_fee .txt {
+	float:left;
+	margin-right:100px;
+	margin-bottom:10px;
+}
+
+.new_field .green_fee .inputs {
+	
+	
+}
+
+.new_field .green_fee .inputs input {
+	border:1px solid #c3c3c3;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	height:24px;
+	width:120px;
+	font-family:"Trebuchet MS";
+	color:#898989;
+	font-weight:bold;
+	float:left;
+	margin-right:29px;
+	margin-bottom:10px;
+}
+
+.new_field .green_fee .button_wrap {
+	margin-left:140px;
+}
+
+.new_field .holes {
+	padding-left:10px;
+	background-image:url(img/bg_stripes.png);
+	width:400px;
+	margin-top:20px;
+}
+
+.new_field .holes .headings p {
+	color:#898989;
+}
+
+.new_field .holes .headings {
+	float:left;
+	margin-left:70px;
+	margin-right:100px;
+}
+
+.new_field .holes .inputs {
+	width:380px;
+	margin-left:10px;
+	margin-top:10px;
+}
+
+.new_field .holes .inputs .txt {
+	float:left;
+	margin-right:5px;
+	width:20px;
+}

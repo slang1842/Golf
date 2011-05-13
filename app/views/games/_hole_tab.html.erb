@@ -13,12 +13,21 @@
 <% holes_filtered.each do |f|%>
 <% if f.hole_number.to_i < active_hole.to_i %>
 
+<<<<<<< HEAD
+<a href="#" OnClick="$(.formid).val().value('<%=form_id%>'); $(#hit_edit_tab.nexthole).val().value('<%=f.hole_number%>');$(#hit_edit_tab.active_hit).val().value('hole');$(form).submit;" ><%=f.hole_number%></a>
+
+<% elsif f.hole_number.to_i == active_hole.to_i %>
+<a href="#" OnClick="$(.formid).val().value('<%=form_id%>'); $(#hit_edit_tab.nexthole).val().value('<%=f.hole_number%>');$(#hit_edit_tab.active_hit).val().value('hole');$(form).submit;" ><%=f.hole_number%></a>
+<% else %>
+<a href="#" OnClick="$('form.formid:input[id=game_form]').val([<%=form_id%>]);" data-remote-true > rieksti </a>
+=======
 <a href="#" rel="<%=f.hole_number%>" class="hole_switch"><%=f.hole_number%></a>
 
 <% elsif f.hole_number.to_i == active_hole.to_i %>
 <a href="#" rel="<%=f.hole_number%>" class="hit_plan_link"><%=f.hole_number%></a>
 <% else %>
 <a href="#" rel="<%=f.hole_number%>" class="hole_switch"><%=f.hole_number%></a>
+>>>>>>> 2e94258962ffb9874f617937d28e9dc99740df50
     <% end %>
   
     <% end %>

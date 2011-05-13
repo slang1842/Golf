@@ -1,55 +1,45 @@
-
-==========================================================================================
-<br />This is header menu
-<br /><br />
-
-<table border="1">
-
-<tr>
-  <td><%= image_tag(current_user.image.url, :size => '53x53') %></td>
-  <td><%= current_user.first_name %></td>
-</tr>
-<tr>
-  <td></td>
-  <td><%= current_user.last_name %></td>
-</tr>
-<tr>
-  <td></td>
-  <td>HCP: <%= current_user.hcp%></td>
-</tr>
-<tr>
-  <td></td>
-  <td>
-  
-<%= current_user.golf_club.presence || "No Home Club" %>
-  
-  </td>
-</tr>
-</table>
-<br />
-<%= link_to t("form.logout"), logout_path %>
-
-|
-<%= link_to "Labot profilu", edit_user_path %>
-<br /><br />
-
-
-
-<%= link_to "Sākums", loged_in_path %>
-
-<% if current_user.get_administrate_golf_club  %>
-    <%= link_to "| Klubs", golf_club_path %>
-<% end %>
-
-<%= link_to "| Statistics", statistics_path %>
-
-
-<%= link_to "| My Bag", bag_user_path %>
-<%= link_to "| New Game Plan", new_game_path('plan')%>
-<%= link_to "| Game Results", new_game_path('res')%>
-<%#= link_to "| My Games", game_index_path%>
-<br /><br />
-==========================================================================================
+<div class="menu_wrap">
+		<div class="profile_info">
+			<div class="profile_image">
+				<%= image_tag(current_user.image.url, :size => '53x53') %>
+			</div>
+			<div class="text">
+				<p><%= current_user.first_name %><br>
+        <%= current_user.last_name %><br>
+        HCP : <%= current_user.hcp%><br>
+        <%= current_user.golf_club.presence || "No Home Club" %><br>
+        <%= link_to "Edit profile", edit_user_path %>
+        |
+        <%= link_to t("form.logout"), logout_path %>
+        </p>
+			</div>
+		</div>
+		<div class="icon_wrap">
+			<div class="link_wrap">
+				<a href="<%= loged_in_path %>"><img src="/images/home_icon.png"/><p>Home</p></a>
+			</div>
+			<div class="link_wrap">
+				<a href="<%= game_index_path%>"><img src="/images/games_icon.png"/><p>My games</p></a>
+			</div>
+			<div class="link_wrap">
+				<a href="<%= bag_user_path %>"><img src="/images/bag_icon.png"/><p>My bag</p></a>
+			</div>
+			<div class="link_wrap">
+				<a href="<%= statistics_path %>"><img src="/images/results_icon.png"/><p>Statistics</p></a>
+			</div>
+      <% if current_user.get_administrate_golf_club  %>
+			<div class="link_wrap">
+				<a href="<%= golf_club_path %>"><img src="/images/club_icon.png"/><p>My Club</p></a>
+			</div>
+      <% end %>
+			<div class="link_wrap">
+				<a href="<%= new_game_path('res')%>"><img src="/images/results_input_icon.png"/><p>Game result</p></a>
+			</div>
+			<div class="link_wrap">
+				<a href="<%= new_game_path('plan') %>"><img src="/images/plan_icon.png"/><p>Game plan</p></a>
+			</div>
+		</div>
+	</div>
 
 
 
