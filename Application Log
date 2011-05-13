@@ -6164,3 +6164,1391 @@ Started POST "/hit_update/10/" for 127.0.0.1 at Thu May 12 19:41:43 +0300 2011
 
 
 Started GET "/game_plan/10/12/0/" for 127.0.0.1 at Thu May 12 19:41:44 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 09:11:30 +0300 2011
+
+Mysql::Error (Can't connect to MySQL server on 'localhost' (10061)):
+  
+
+
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 09:12:18 +0300 2011
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Fri May 13 09:12:28 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 09:12:28 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 09:12:29 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:12:29 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Fri May 13 09:15:11 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:15:12 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 13 09:15:17 +0300 2011
+
+
+Started GET "/game_res/11/1/1/new" for 127.0.0.1 at Fri May 13 09:15:17 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:15:18 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_results/11/1/results/new/0" for 127.0.0.1 at Fri May 13 09:15:20 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:15:21 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 13 09:15:26 +0300 2011
+
+
+Started GET "/game_results/11/1/results/4/1" for 127.0.0.1 at Fri May 13 09:15:26 +0300 2011
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:16:03 +0300 2011
+
+
+Started GET "/game_results/11/7/0/" for 127.0.0.1 at Fri May 13 09:16:04 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/11/7/0"):
+  
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:16:10 +0300 2011
+
+
+Started GET "/game_results/11/10/0/" for 127.0.0.1 at Fri May 13 09:16:10 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/11/10/0"):
+  
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:16:12 +0300 2011
+
+
+Started GET "/game_results/11/12/0/" for 127.0.0.1 at Fri May 13 09:16:13 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/11/12/0"):
+  
+
+
+
+
+Started GET "/game_results/11/1/results/new/0" for 127.0.0.1 at Fri May 13 09:17:27 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:17:28 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:18:41 +0300 2011
+
+
+Started GET "/game_results/11/4/0/" for 127.0.0.1 at Fri May 13 09:18:42 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/11/4/0"):
+  
+
+
+
+
+Started GET "/game_results/11/1/results/new/0" for 127.0.0.1 at Fri May 13 09:20:46 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:20:47 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:20:52 +0300 2011
+
+
+Started GET "/game_results/11/11/0/" for 127.0.0.1 at Fri May 13 09:20:53 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/11/11/0"):
+  
+
+
+
+
+Started GET "/game_results/11/1/results/new/0" for 127.0.0.1 at Fri May 13 09:21:14 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:21:15 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 13 09:23:01 +0300 2011
+
+
+Started GET "/game_results/11/1/results/2/1" for 127.0.0.1 at Fri May 13 09:23:02 +0300 2011
+
+
+Started GET "/game_results/11/1/results/new/0" for 127.0.0.1 at Fri May 13 09:23:21 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:23:22 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:24:35 +0300 2011
+
+
+Started GET "/game_results/11/2/0/" for 127.0.0.1 at Fri May 13 09:24:35 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/11/2/0"):
+  
+
+
+
+
+Started GET "/game_results/11/1/results/new/0" for 127.0.0.1 at Fri May 13 09:26:52 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:26:53 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:26:56 +0300 2011
+
+
+Started GET "/game_results/11/12/0/" for 127.0.0.1 at Fri May 13 09:26:57 +0300 2011
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:27:00 +0300 2011
+
+
+Started GET "/game_results/11/10/0/" for 127.0.0.1 at Fri May 13 09:27:00 +0300 2011
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:27:02 +0300 2011
+
+
+Started GET "/game_results/11/12/0/" for 127.0.0.1 at Fri May 13 09:27:03 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 13 09:27:06 +0300 2011
+
+
+Started GET "/game_results/11/12/results/3/1" for 127.0.0.1 at Fri May 13 09:27:07 +0300 2011
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:27:17 +0300 2011
+
+
+Started GET "/game_results/11/1/0/" for 127.0.0.1 at Fri May 13 09:27:17 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 13 09:27:22 +0300 2011
+
+
+Started GET "/game_results/11/1/results/3/1" for 127.0.0.1 at Fri May 13 09:27:22 +0300 2011
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:27:29 +0300 2011
+
+
+Started GET "/game_results/11/2/0/" for 127.0.0.1 at Fri May 13 09:27:29 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 13 09:27:32 +0300 2011
+
+
+Started GET "/game_results/11/2/results/2/1" for 127.0.0.1 at Fri May 13 09:27:32 +0300 2011
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:27:37 +0300 2011
+
+
+Started GET "/game_results/11/3/0/" for 127.0.0.1 at Fri May 13 09:27:38 +0300 2011
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:27:39 +0300 2011
+
+
+Started GET "/game_results/11/2/0/" for 127.0.0.1 at Fri May 13 09:27:40 +0300 2011
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:27:42 +0300 2011
+
+
+Started GET "/game_results/11/1/0/" for 127.0.0.1 at Fri May 13 09:27:42 +0300 2011
+
+
+Started GET "/game_details/11/1/1/new/0" for 127.0.0.1 at Fri May 13 09:27:51 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:27:53 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:28:09 +0300 2011
+
+
+Started GET "/game_details/11/2/0/" for 127.0.0.1 at Fri May 13 09:28:10 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:303:in `fix_params'
+  app/controllers/games_controller.rb:207:in `details'
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:28:13 +0300 2011
+
+
+Started GET "/game_details/11/3/0/" for 127.0.0.1 at Fri May 13 09:28:14 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:303:in `fix_params'
+  app/controllers/games_controller.rb:207:in `details'
+
+
+
+
+Started GET "/game_details/11/1/1/new/0" for 127.0.0.1 at Fri May 13 09:32:17 +0300 2011
+
+ActionView::Template::Error (undefined local variable or method `hits' for #<#<Class:0x7b36f78>:0x7b35358>):
+    4: <input type="hidden" name="active_hit" id="act_hit" value=<%=active_hit%>>
+    5: <input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
+    6: <%= game.hidden_field :active_hit, :value => active_hit%>
+    7: <%= hits.each do |hit|%>
+    8: 
+    9: <%= game.fields_for :hits, hit_p_final do |f|%>
+    10: <%= f.label :place_from %>
+  app/views/games/_hit_form_details.html.erb:7:in `_app_views_games__hit_form_details_html_erb___278689022_64603992_118236748'
+  app/views/games/_hit_form_details.html.erb:1:in `_app_views_games__hit_form_details_html_erb___278689022_64603992_118236748'
+  app/views/games/hit_edit_details.html.erb:13:in `_app_views_games_hit_edit_details_html_erb___161447898_64570356_0'
+  app/controllers/games_controller.rb:226:in `details'
+
+
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Fri May 13 09:32:51 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:32:51 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 13 09:32:57 +0300 2011
+
+
+Started GET "/game_plan/12/1/1/new" for 127.0.0.1 at Fri May 13 09:32:57 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:32:58 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/12/" for 127.0.0.1 at Fri May 13 09:33:02 +0300 2011
+
+
+Started GET "/game_plan/12/10/2/" for 127.0.0.1 at Fri May 13 09:33:03 +0300 2011
+
+
+Started POST "/hit_update/12/" for 127.0.0.1 at Fri May 13 09:33:08 +0300 2011
+
+
+Started GET "/game_plan/12/10/3/" for 127.0.0.1 at Fri May 13 09:33:08 +0300 2011
+
+
+Started POST "/hit_update/12/" for 127.0.0.1 at Fri May 13 09:33:10 +0300 2011
+
+
+Started GET "/game_plan/12/10/2/" for 127.0.0.1 at Fri May 13 09:33:11 +0300 2011
+
+
+Started POST "/hit_update/12/" for 127.0.0.1 at Fri May 13 09:33:18 +0300 2011
+
+
+Started GET "/game_plan/12/11/0/" for 127.0.0.1 at Fri May 13 09:33:19 +0300 2011
+
+
+Started POST "/hit_update/12/" for 127.0.0.1 at Fri May 13 09:33:24 +0300 2011
+
+
+Started GET "/game_plan/12/10/0/" for 127.0.0.1 at Fri May 13 09:33:25 +0300 2011
+
+
+Started POST "/hit_update/12/" for 127.0.0.1 at Fri May 13 09:33:28 +0300 2011
+
+
+Started GET "/game_plan/12/10/1/" for 127.0.0.1 at Fri May 13 09:33:29 +0300 2011
+
+
+Started POST "/hit_update/12/" for 127.0.0.1 at Fri May 13 09:33:32 +0300 2011
+
+
+Started GET "/game_plan/12/10/2/" for 127.0.0.1 at Fri May 13 09:33:32 +0300 2011
+
+
+Started GET "/game_details/11/1/1/new/0" for 127.0.0.1 at Fri May 13 09:34:19 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:58: syntax error, unexpected kENSURE, expecting $end):
+    55: </div> 
+    56: <% end %>
+  app/views/games/_hit_form_details.html.erb:58:in `compile'
+  app/views/games/hit_edit_details.html.erb:13:in `_app_views_games_hit_edit_details_html_erb___161447898_63897552_0'
+  app/controllers/games_controller.rb:226:in `details'
+
+
+
+
+Started GET "/game_details/11/1/1/new/0" for 127.0.0.1 at Fri May 13 09:34:31 +0300 2011
+
+ActionView::Template::Error (undefined local variable or method `hit_p_final' for #<#<Class:0x7ae1070>:0x7ad46e0>):
+    6: <%= game.hidden_field :active_hit, :value => active_hit%>
+    7: 
+    8: 
+    9: <%= game.fields_for :hits, hit_p_final do |f|%>
+    10: <%= f.label :place_from %>
+    11: <%= f.select(:place_from, STATISTICS_PLACE_FROM, :prompt => 'Select')%>
+    12: <%= f.label :wind %>
+  app/views/games/_hit_form_details.html.erb:9:in `_app_views_games__hit_form_details_html_erb___278689022_64543704_118236748'
+  app/views/games/_hit_form_details.html.erb:1:in `_app_views_games__hit_form_details_html_erb___278689022_64543704_118236748'
+  app/views/games/hit_edit_details.html.erb:13:in `_app_views_games_hit_edit_details_html_erb___161447898_64382628_0'
+  app/controllers/games_controller.rb:226:in `details'
+
+
+
+
+Started GET "/game_details/11/1/1/new/0" for 127.0.0.1 at Fri May 13 09:34:59 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:35:00 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:35:04 +0300 2011
+
+
+Started GET "/game_details/11/5/0/" for 127.0.0.1 at Fri May 13 09:35:05 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:302:in `fix_params'
+  app/controllers/games_controller.rb:207:in `details'
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:35:14 +0300 2011
+
+
+Started GET "/game_details/11/5/2/" for 127.0.0.1 at Fri May 13 09:35:14 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:302:in `fix_params'
+  app/controllers/games_controller.rb:207:in `details'
+
+
+
+
+Started GET "/game_details/11/1/1/new/0" for 127.0.0.1 at Fri May 13 09:43:10 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:43:11 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:43:17 +0300 2011
+
+
+Started GET "/game_details/11/2/0/" for 127.0.0.1 at Fri May 13 09:43:17 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:302:in `fix_params'
+  app/controllers/games_controller.rb:207:in `details'
+
+
+
+
+Started GET "/game_details/11/1/1/new/0" for 127.0.0.1 at Fri May 13 09:44:29 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:44:30 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/11/" for 127.0.0.1 at Fri May 13 09:44:33 +0300 2011
+
+
+Started GET "/game_details/11/9/0/" for 127.0.0.1 at Fri May 13 09:44:34 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:302:in `fix_params'
+  app/controllers/games_controller.rb:207:in `details'
+
+
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Fri May 13 09:52:56 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:52:57 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 13 09:53:04 +0300 2011
+
+
+Started GET "/game_plan/13/1/1/new" for 127.0.0.1 at Fri May 13 09:53:05 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:53:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/13/" for 127.0.0.1 at Fri May 13 09:53:11 +0300 2011
+
+
+Started GET "/game_plan/13/11/0/" for 127.0.0.1 at Fri May 13 09:53:11 +0300 2011
+
+
+Started GET "/game_plan/13/1/1/new" for 127.0.0.1 at Fri May 13 09:54:39 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:54:40 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/13/" for 127.0.0.1 at Fri May 13 09:54:44 +0300 2011
+
+
+Started GET "/game_plan/13/12/0/" for 127.0.0.1 at Fri May 13 09:54:45 +0300 2011
+
+
+Started POST "/hit_update/13/" for 127.0.0.1 at Fri May 13 09:54:48 +0300 2011
+
+
+Started GET "/game_plan/13/10/0/" for 127.0.0.1 at Fri May 13 09:54:48 +0300 2011
+
+
+Started POST "/hit_update/13/" for 127.0.0.1 at Fri May 13 09:54:50 +0300 2011
+
+
+Started GET "/game_plan/13/10/2/" for 127.0.0.1 at Fri May 13 09:54:51 +0300 2011
+
+
+Started POST "/hit_update/13/" for 127.0.0.1 at Fri May 13 09:54:53 +0300 2011
+
+
+Started GET "/game_plan/13/10/3/" for 127.0.0.1 at Fri May 13 09:54:54 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Fri May 13 09:55:09 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:55:10 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 13 09:55:15 +0300 2011
+
+
+Started GET "/game_res/14/1/1/new" for 127.0.0.1 at Fri May 13 09:55:15 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:55:16 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 09:55:18 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:55:19 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 09:55:32 +0300 2011
+
+
+Started GET "/game_details/14/1/2/" for 127.0.0.1 at Fri May 13 09:55:33 +0300 2011
+
+ActionView::Template::Error (undefined local variable or method `hit_p_final' for #<#<Class:0x7a60ef8>:0x7a59998>):
+    6: <%= game.hidden_field :active_hit, :value => active_hit%>
+    7: 
+    8: 
+    9: <%= game.fields_for :hits, hit_p_final do |f|%>
+    10: <%= f.label :place_from %>
+    11: <%= f.select(:place_from, STATISTICS_PLACE_FROM, :prompt => 'Select')%>
+    12: <%= f.label :wind %>
+  app/views/games/_hit_form_details.html.erb:9:in `_app_views_games__hit_form_details_html_erb___278689022_64076364_118236748'
+  app/views/games/_hit_form_details.html.erb:1:in `_app_views_games__hit_form_details_html_erb___278689022_64076364_118236748'
+  app/views/games/details.js.rjs:3:in `_app_views_games_details_js_rjs___474520834_64122636_0'
+  app/views/games/details.js.rjs:1:in `_app_views_games_details_js_rjs___474520834_64122636_0'
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 09:56:51 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:56:52 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 09:56:55 +0300 2011
+
+
+Started GET "/game_details/14/1/2/" for 127.0.0.1 at Fri May 13 09:56:56 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 09:57:04 +0300 2011
+
+
+Started GET "/game_details/14/9/0/" for 127.0.0.1 at Fri May 13 09:57:04 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:310:in `fix_params'
+  app/controllers/games_controller.rb:215:in `details'
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 09:57:21 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:57:22 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 09:57:28 +0300 2011
+
+
+Started GET "/game_details/14/1/2/" for 127.0.0.1 at Fri May 13 09:57:29 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 09:57:33 +0300 2011
+
+
+Started GET "/game_details/14/1/3/" for 127.0.0.1 at Fri May 13 09:57:34 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 09:57:39 +0300 2011
+
+
+Started GET "/game_details/14/1/4/" for 127.0.0.1 at Fri May 13 09:57:40 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:00:21 +0300 2011
+
+
+Started GET "/game_details/14/1/5/" for 127.0.0.1 at Fri May 13 10:00:21 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:02:04 +0300 2011
+
+
+Started GET "/game_details/14/1/6/" for 127.0.0.1 at Fri May 13 10:02:04 +0300 2011
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:02:28 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:02:29 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:02:31 +0300 2011
+
+
+Started GET "/game_details/14/1/2/" for 127.0.0.1 at Fri May 13 10:02:31 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:02:33 +0300 2011
+
+
+Started GET "/game_details/14/1/3/" for 127.0.0.1 at Fri May 13 10:02:34 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:02:39 +0300 2011
+
+
+Started GET "/game_details/14/1/4/" for 127.0.0.1 at Fri May 13 10:02:40 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:02:49 +0300 2011
+
+
+Started GET "/game_details/14/10/0/" for 127.0.0.1 at Fri May 13 10:02:50 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:310:in `fix_params'
+  app/controllers/games_controller.rb:215:in `details'
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:04:17 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:04:18 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:04:20 +0300 2011
+
+
+Started GET "/game_details/14/10/0/" for 127.0.0.1 at Fri May 13 10:04:20 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:311:in `fix_params'
+  app/controllers/games_controller.rb:216:in `details'
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:05:42 +0300 2011
+
+
+Started GET "/game_details/14/10/2/" for 127.0.0.1 at Fri May 13 10:05:43 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:311:in `fix_params'
+  app/controllers/games_controller.rb:216:in `details'
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:05:49 +0300 2011
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:05:50 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:05:51 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:05:54 +0300 2011
+
+
+Started GET "/game_details/14/1/2/" for 127.0.0.1 at Fri May 13 10:05:54 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:06:05 +0300 2011
+
+
+Started GET "/game_details/14/1/3/" for 127.0.0.1 at Fri May 13 10:06:06 +0300 2011
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:12:31 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:12:32 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:12:34 +0300 2011
+
+
+Started GET "/game_details/14/10/0/" for 127.0.0.1 at Fri May 13 10:12:35 +0300 2011
+
+NoMethodError (undefined method `land_place' for nil:NilClass):
+  app/controllers/games_controller.rb:313:in `fix_params'
+  app/controllers/games_controller.rb:218:in `details'
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:15:45 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:15:46 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:15:48 +0300 2011
+
+
+Started GET "/game_details/14/13/0/" for 127.0.0.1 at Fri May 13 10:15:49 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:16:01 +0300 2011
+
+
+Started GET "/game_details/14/14/0/" for 127.0.0.1 at Fri May 13 10:16:02 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:16:05 +0300 2011
+
+
+Started GET "/game_details/14/13/0/" for 127.0.0.1 at Fri May 13 10:16:06 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:17:47 +0300 2011
+
+
+Started GET "/game_details/14/13/2/" for 127.0.0.1 at Fri May 13 10:17:47 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:17:50 +0300 2011
+
+
+Started GET "/game_details/14/13/3/" for 127.0.0.1 at Fri May 13 10:17:50 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:18:00 +0300 2011
+
+
+Started GET "/game_details/14/13/4/" for 127.0.0.1 at Fri May 13 10:18:01 +0300 2011
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:33:50 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:33:51 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:35:07 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:35:08 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:37:50 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:37:51 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:38:53 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:38:54 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:40:50 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:40:51 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:41:46 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:41:47 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:42:09 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:42:10 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:43:54 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:43:55 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:51:57 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_details.html.erb:16: syntax error, unexpected ',', expecting ')'
+...k_type, :prompt => 'Select' ), :html => {:id => "stick_type_...
+                              ^):
+    13: <%= f.select(:wind, STATISTICS_WIND, :prompt => 'Select')%>
+    14: <%= f.hidden_field :hit_number, :value => active_hit %>
+    15: <%= f.label :user_stick_id, 'Club' %>
+    16: <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ), :html => {:id => "stick_type_old"} %>
+    17: <%= f.label :hit_distance %>
+    18: <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+    19: <%= f.label :stance %>
+  app/views/games/_hit_form_details.html.erb:61:in `compile'
+  app/views/games/hit_edit_details.html.erb:13:in `_app_views_games_hit_edit_details_html_erb___161447898_150555012_0'
+  app/controllers/games_controller.rb:235:in `details'
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:52:27 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:52:28 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 10:56:31 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:56:32 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 10:57:30 +0300 2011
+
+
+Started GET "/game_details/14/1/2/" for 127.0.0.1 at Fri May 13 10:57:31 +0300 2011
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:00:32 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:00:33 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:02:40 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:02:41 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 11:02:49 +0300 2011
+
+
+Started GET "/game_details/14/14/0/" for 127.0.0.1 at Fri May 13 11:02:50 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 11:02:51 +0300 2011
+
+
+Started GET "/game_details/14/14/0/" for 127.0.0.1 at Fri May 13 11:02:51 +0300 2011
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:05:57 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:05:58 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:07:51 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:07:52 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:08:51 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:08:52 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 11:08:57 +0300 2011
+
+
+Started GET "/game_details/14/1/2/" for 127.0.0.1 at Fri May 13 11:08:57 +0300 2011
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 11:09:00 +0300 2011
+
+
+Started GET "/game_details/14/11/0/" for 127.0.0.1 at Fri May 13 11:09:00 +0300 2011
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:12:41 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:12:42 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/hit_update/14/" for 127.0.0.1 at Fri May 13 11:13:56 +0300 2011
+
+
+Started GET "/game_details/14/14/0/" for 127.0.0.1 at Fri May 13 11:13:57 +0300 2011
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:16:25 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:16:26 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:17:24 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:17:25 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:18:14 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:18:15 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:21:29 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:21:30 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:22:22 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:22:23 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_details/14/1/1/new/0" for 127.0.0.1 at Fri May 13 11:24:04 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:24:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Fri May 13 11:24:31 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:24:32 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 13 11:24:39 +0300 2011
+
+
+Started GET "/game_res/15/1/1/new" for 127.0.0.1 at Fri May 13 11:24:40 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:24:40 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_results/15/10/results.new?=0" for 127.0.0.1 at Fri May 13 11:24:42 +0300 2011
+
+
+Started GET "/game_results/15/10/results.new?=0" for 127.0.0.1 at Fri May 13 11:25:51 +0300 2011
+
+
+Started GET "/game_details/15/10/1/new/0" for 127.0.0.1 at Fri May 13 11:26:00 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:26:01 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at Fri May 13 11:26:01 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/original/missing.png"):
+  
+
+
+
+
+Started POST "/hit_update/15/" for 127.0.0.1 at Fri May 13 11:26:05 +0300 2011
+
+
+Started GET "/game_details/15/10/2/" for 127.0.0.1 at Fri May 13 11:26:06 +0300 2011
+
+
+Started POST "/hit_update/15/" for 127.0.0.1 at Fri May 13 11:26:08 +0300 2011
+
+
+Started GET "/game_details/15/12/0/" for 127.0.0.1 at Fri May 13 11:26:09 +0300 2011
+
+
+Started GET "/game_results/15/10/results.new?=0" for 127.0.0.1 at Fri May 13 11:26:12 +0300 2011
+
+
+Started GET "/game_results/15/10/results.new?=0" for 127.0.0.1 at Fri May 13 11:31:51 +0300 2011
+
+
+Started GET "/game_res/15/1/1/new" for 127.0.0.1 at Fri May 13 11:36:02 +0300 2011
+
+
+Started GET "/game_res/15/1/1/new" for 127.0.0.1 at Fri May 13 11:39:46 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:39:47 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_res/15/1/1/new" for 127.0.0.1 at Fri May 13 11:42:53 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:42:53 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_res/15/1/results/new/0" for 127.0.0.1 at Fri May 13 11:46:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_res/15/1/results/new/0"):
+  
+
+
+
+
+Started GET "/game_results/15/1/results/new/0" for 127.0.0.1 at Fri May 13 11:46:25 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:46:26 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 13 11:46:29 +0300 2011
+
+
+Started GET "/game_results/15/10/results/4/1" for 127.0.0.1 at Fri May 13 11:46:30 +0300 2011
+
+
+Started POST "/hit_update/15/" for 127.0.0.1 at Fri May 13 11:46:35 +0300 2011
+
+
+Started GET "/game_results/15/11/0/" for 127.0.0.1 at Fri May 13 11:46:35 +0300 2011
+
+
+Started POST "/hit_update/15/" for 127.0.0.1 at Fri May 13 11:46:37 +0300 2011
+
+
+Started GET "/game_results/15/10/0/" for 127.0.0.1 at Fri May 13 11:46:38 +0300 2011
+
+
+Started GET "/game_res/15/1/1/new" for 127.0.0.1 at Fri May 13 11:47:37 +0300 2011
+
+
+Started GET "/game_res/15/1/1/new" for 127.0.0.1 at Fri May 13 11:48:13 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:48:13 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_res/15/1/1/new" for 127.0.0.1 at Fri May 13 11:48:36 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:48:36 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_res/15/1/1/new" for 127.0.0.1 at Fri May 13 11:50:03 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:50:04 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/game_results/15/10/results.0" for 127.0.0.1 at Fri May 13 11:50:08 +0300 2011
+
+
+Started GET "/game_res/15/1/1/new" for 127.0.0.1 at Fri May 13 11:51:35 +0300 2011
+
+
+Started GET "/game_results/15/10/results/0" for 127.0.0.1 at Fri May 13 11:51:38 +0300 2011
+
+ActionView::MissingTemplate (Missing template games/results with {:handlers=>[:rjs, :erb, :rhtml, :rxml, :builder], :locale=>[:en, :en], :formats=>[:html]} in view paths "C:/workspace/Golf/app/views", "C:/workspace/Golf/vendor/plugins/dynamic_form/app/views"):
+  
+
+
+
+
+Started GET "/game_results/15/10/results/0" for 127.0.0.1 at Fri May 13 11:52:13 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/15/10/results/0"):
+  
+
+
+
+
+Started GET "/game_results/15/10/results/0" for 127.0.0.1 at Fri May 13 11:52:16 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/15/10/results/0"):
+  
+
+
+
+
+Started GET "/game_res/15/1/1/new" for 127.0.0.1 at Fri May 13 11:52:29 +0300 2011
+
+
+Started GET "/game_results/15/10/results/new/0" for 127.0.0.1 at Fri May 13 11:52:34 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:52:35 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at Fri May 13 11:52:36 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/original/missing.png"):
+  
+
+
+
+
+Started POST "/hit_update/15/" for 127.0.0.1 at Fri May 13 11:52:38 +0300 2011
+
+
+Started GET "/game_results/15/12/0/" for 127.0.0.1 at Fri May 13 11:52:38 +0300 2011
+
+
+Started POST "/hit_update/15/" for 127.0.0.1 at Fri May 13 11:52:40 +0300 2011
+
+
+Started GET "/game_results/15/10/0/" for 127.0.0.1 at Fri May 13 11:52:41 +0300 2011

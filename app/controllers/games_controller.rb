@@ -106,6 +106,9 @@ end
    def plan
     game_holes
       @active_hit = params[:active_hit].to_i
+      if @active_hit == 0
+        @active_hit = 1
+      end
       @active_hole = params[:active_hole].to_i
       if @active_hole < @start_hole
         @active_hole = @start_hole
@@ -137,7 +140,9 @@ end
       @active_hit = params[:active_hit].to_i
       @active_hole = params[:active_hole].to_i
       @hitcount = params[:hits].to_i
-       
+       if @active_hit == 0
+        @active_hit = 1
+      end
       if @hitcount == nil
         @hitcount = 0
       end
@@ -192,6 +197,10 @@ end
       game_holes
       @active_hole = params[:active_hole]
       @active_hit = params[:active_hit]
+      if @active_hit.to_i == 0
+        @active_hit = 1
+      end
+      
               conditions2 = { :game_id => @game.id, 
                :hole_number => @active_hole,
                :hit_number => @active_hit, 
@@ -222,8 +231,7 @@ end
      @hit_p_final.update_attributes(params[:pair_id])
      @pair_hit.update_attributes(params[:pair_hit])
      @form_id = 'details'
-     @hits = [@hit_r_final, @hit_p_final]
-     if params[:hits] == 'new'
+       if params[:hits] == 'new'
          render '/games/hit_edit_details'
        # else
        #   respond_to do |format|
@@ -306,11 +314,6 @@ end
                @hit_planned.update_attributes({:place_from => place_from, :wind => wind})
                @hit_r_final = @hit_real
                @hit_p_final = @hit_planned
-               puts @hit_r_final.wind.to_s + " real wind"
-               puts @hit_real_prev.wind.to_s + " prev wind"
-               puts @hit_r_final.place_from.to_s + " real place_from"
-               puts @hit_real_prev.land_place.to_s + " prev land_place"
-               puts @hit_real_prev.id 
                
   end
   def comments(hit, type, hole_hit)
@@ -322,6 +325,7 @@ end
      require_game_owner
      @game.update_attributes(params[:game])
      @game.update_attributes(params[:hit])
+     @game_id = @game.id
      @active_hit = params[:next_hit]
      @active_hit1 = params[:active_hit]
     if @active_hit == 'next'
