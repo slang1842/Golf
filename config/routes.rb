@@ -74,13 +74,15 @@ end
   match '/game_plan/:game_id/:active_hole/:active_hit/:hits' => 'games#plan', :as => 'plan'
   match '/game_plan/:game_id/:active_hole/:active_hit/0/0' => 'games#plan', :as => 'plan'
   match '/game_res/:game_id/:active_hole/:active_hit/:hits' => 'games#res', :as => 'res'
+  match '/game_results/:game_id/:active_hole/:active_hit' => 'games#results', :as => 'results'
   match '/game_results/:game_id/:active_hole/:form_id/:hits/:puts' => 'games#results', :as => 'results'
+  
   match '/game_details/:game_id/:active_hole/:active_hit' => 'games#details', :as => 'details'
   match '/game_details/:game_id/:active_hole/:active_hit/:hits/:puts' => 'games#details', :as => 'details'
   #match '/game_details/:game_id/:active_hole/:active_hit/:hits/:puts' => 'games#details', :as => 'details'
   match '/results_starter/' => 'games#results_starter'
   match '/games/' => 'games#index', :as => 'game_index'
-  match '/hit_update/' => 'games#hit_update'
+  match '/hit_update/:game_id/' => 'games#hit_update'
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
   match '/welcome' => "welcome#index",        :as => :loged_in

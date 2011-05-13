@@ -4,3 +4,4 @@ Gemfile
 db/*.sqlite3
 log/*.log
 tmp/
+Application Log

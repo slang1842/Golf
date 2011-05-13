@@ -11,7 +11,7 @@
 </div>
 <div id="hit_edit_tab">
   <% if @hits != nil %> 
-   <%= render :partial => 'games/hit_form_results', :locals => {:hits => @hits, :game => @game}%>
+   <%= render :partial => 'games/hit_form_results', :locals => {:hits => @hits, :game => @game, :active_hole => @active_hole, :active_hit => 1}%>
    <%end%>  
 </div>
 <div id="hole_picture">

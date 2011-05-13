@@ -1,11 +1,12 @@
-<%=form_for( game, :url => '/hit_update/') do |game|%>
-<div class="active_hit"> <%= game.hidden_field :hit_direction %></div>
-<div class="nexthole"><%= game.hidden_field :next_hole%></div>
-<div class="formid"><%= game.hidden_field :form, :value => 'details'%></div>
+<%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
+<input type="hidden" name="next_hit" id="nexthit" value=0>
+<input type="hidden" name="form_id" id="formid" value="results">
+<input type="hidden" name="active_hit" id="act_hit" value=1>
+<input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
 <%= game.hidden_field :active_hit, :value => active_hit%>
 <%= hits.each do |hit|%>
 
-<%=game.fields_for hit do |f|%>
+<%=game.fields_for :hits, hit do |f|%>
 
 
 <%= f.label :user_stick_id, 'Club' %>
@@ -14,6 +15,7 @@
 <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
 <%= f.label :land_place %>
 <%= f.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
+</br>
 <% end %>
 
 <% end %>

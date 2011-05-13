@@ -1,18 +1,20 @@
-<%=form_for( game, :url => '/hit_update/') do |game|%>
-<div class="active_hit"> <%= game.hidden_field :hit_direction %></div>
-<div class="nexthole"><%= game.hidden_field :next_hole%></div>
-<div id="formid"><%= game.hidden_field :form, :value => 'details'%></div>
+<%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
+<input type="hidden" name="next_hit" id="nexthit" value=0>
+<input type="hidden" name="form_id" id="formid" value="details">
+<input type="hidden" name="active_hit" id="act_hit" value=<%=active_hit%>>
+<input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
 <%= game.hidden_field :active_hit, :value => active_hit%>
-<%= hits.each do |hit|%>
-<% if hit.real_hit == 'pp'%>
-<%= game.fields_for hit do |f|%>
+
+
+<%= game.fields_for :hits, hit_p_final do |f|%>
 <%= f.label :place_from %>
-<%= f.select(:place_from, STATISTICS_PLACE_FROM, :prompt => 'Select')%>
+
+<%= f.select(:place_from, STATISTICS_PLACE_FROM, :prompt => 'Select', :html => {:id =>"place_from_old" })%>
 <%= f.label :wind %>
 <%= f.select(:wind, STATISTICS_WIND, :prompt => 'Select')%>
 <%= f.hidden_field :hit_number, :value => active_hit %>
 <%= f.label :user_stick_id, 'Club' %>
-<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %>
+<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' , :html => {:id => "stick_type_old"}) %>
 <%= f.label :hit_distance %>
 <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
 <%= f.label :stance %>
@@ -26,8 +28,9 @@
 <%= f.label :difficulty%>
 <%= f.select(:difficulty, STATISTICS_DIFFICULTY, :prompt => "Select")%>
 <% end %> 
-<% elsif hit.real_hit == 'rp' %>
-<%= game.fields_for hit do |f|%>
+
+<%= game.fields_for :hits, hit_r_final do |f|%>
+
 <%= f.label :hit_distance %>
 <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
 <%= f.label :land_place %>
@@ -49,11 +52,6 @@
 <%= f.label :comment %>
 <%= f.text_field :comment %>
 <% end %>
-<% end %>
+
 <% end %>
 </div> 
-<%= game.fields_for pair_hit do |p|%>
-<%#s= p.hidden_field :users_stick_stick_id%>
-<% end %>
-<% end %>
-

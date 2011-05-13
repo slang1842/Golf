@@ -1,6 +1,4 @@
-page['form'].submit()
-#page['#form.2'].submit()
-#page['#form.3'].submit()
-page['#hit_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
-page['#hit_edit_tab'].html render(:partial => 'games/hit_form_' + @form_id, :locals => {:hit_planned => @hit_planned, :active_hit => @active_hit, :hit_real => @hit_real, :pair_hit => @pair_hit})
+
+page['#hit_count_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+page['#hit_edit_tab'].html render(:partial => 'games/hit_form_details', :locals => {:hit_r_final => @hit_r_final, :hit_p_final => @hit_p_final,  :active_hit => @active_hit, :pair_hit => @pair_hit, :active_hole => @active_hole, :game => @game})
 page['#hole_tab'].html render(:partial => 'games/hole_tab', :locals => {:game_id => @game.id, :form_id => @form_id, :active_hole => @active_hole, :holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :hits => 0, :puts => 0})
