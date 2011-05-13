@@ -1,20 +1,37 @@
 
 <%= render :partial => 'share/header_menu' %>
 <br />
-
+<div class="game_input_wrap">
+    <div class="tabs_wrap">
+      <div class="tab">
+        <a href="#" class="gray_button">Drukāt plānu</a>
+      </div>
+      <div class="tab">
+        <a href="#" class="gray_button">Drukāt plāna sagatavi</a>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="plan_input_wrap">
+     
 <div id="hole_tab">
   <%=render :partial => 'games/hole_tab', :locals => {:holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :game_id => @game.id, :active_hole => @start_hole, :form_id => @form_id, :hits => 0, :puts => 0}%>
 </div>
 
-<div id="hit_tab">
+<div id="hit_tab" >
+   <div class="input_wrap">
   <%=render :partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hole => @active_hole, :form_id => @form_id, :active_hit => @active_hit}%>
+  </div>
 </div>
 
-<div id="hit_edit_tab">
+<div id="hit_edit_tab" >
+   <div class="input_wrap">
   <%=render :partial => 'games/hit_form_'+@form_id, :locals => { :active_hole => @active_hole, :active_hit => @active_hit, :hit => @hit, :hit_real => @hit_real, :hit_planned => @hit_planned, :game => @game, :game_id => @game.id}%>
 </div>
-<%=@game.id%>
-<div id="hole_picture">
+</div>
+
+
+<div id="hole_picture" class="game_input_image_wrap">
   <%= render :partial => 'games/hole_picture', :locals => {:hole => @hole} %>
 </div>
+
 <%= link_to 'Done', game_index_path, :remote => true%>
