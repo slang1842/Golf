@@ -8,11 +8,23 @@
 
 <%=game.fields_for :hits, hit do |f|%>
 
-
-<%= f.label :user_stick_id, 'Club' %>
-<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 
-<%= f.label :hit_distance %> 
-<%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+<div class="single_dropdown" style="width:90px">
+          <p>Nūja</p>
+            <div class="element">
+              
+<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %>
+            </div>
+        </div>
+<%#= f.label :user_stick_id, 'Club' %>
+<%#= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 
+<%#= f.label :hit_distance %> 
+<%#= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+<div class="single_dropdown">
+          <p>Aizsitīšu</p>
+            <div class="element">
+              <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+            </div>
+        </div>
 <%= f.label :land_place %>
 <%= f.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
 </br>

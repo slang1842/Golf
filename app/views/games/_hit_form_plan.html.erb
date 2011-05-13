@@ -5,13 +5,33 @@
 <input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
 <%= game.hidden_field :active_hit, :value => active_hit%>
 <%= game.fields_for :hits, hit do |f|%>
-<%= f.hidden_field :hit_number, :value => active_hit %>
-<%= f.label :user_stick_id, 'Club' %>
-<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %> 
-<%= f.label :hit_distance %>
-<%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
-<%= f.label :land_place %>
-<%= f.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
+<div class="single_dropdown" style="width:90px">
+          <p>Nūja</p>
+            <div class="element">
+              
+<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %>
+            </div>
+        </div>
+
+<div class="single_dropdown" >
+          <p>Aizsitīšu</p>
+            <div class="element">
+              <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+            </div>
+        </div>
+        <div class="single_dropdown" style="width:90px">
+          <p>Piezemēsies</p>
+            <div class="element">
+              <%= f.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
+            </div>
+        </div>
+
+
 <% end %>
 <% end %> 
 </div>
+<script>
+$(document).ready(function(){
+  init_dropdown();
+});
+ </script>
