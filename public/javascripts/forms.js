@@ -43,8 +43,8 @@ function timepicker(){
 }
 
 
-
-function init_dropdown() {		
+/*
+function init_dropdown() {	
     $('.dropdown1').selectmenu({
         style:'popup',
         width:120
@@ -122,7 +122,6 @@ var addressFormatting = function(text){
     return newText;
 }
 
-/*
 function init_dropdown() {		
     $('.dropdown1').selectmenu({
         style:'popup',

@@ -6,7 +6,7 @@
 
 
       <div class="element"><%= f.label :stick_type %></div>
-      <div class="element"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown4", :onchange => "fill_sticks_form(this)"} %></div>
+      <div class="element"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown2", :onchange => "fill_sticks_form(this)"} %></div>
       <div class="element"><%= h.label :distance %></div>  
       <div class="element"><%= h.text_field :distance, :class => 'distance' %><br /></div>
       <div class="element"><%= h.label :degrees %></div> 

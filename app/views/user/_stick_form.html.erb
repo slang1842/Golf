@@ -1,8 +1,4 @@
-<script>
-  $(document).ready(function(){
-    init_dropdown();
-});
-</script>
+
 
 <div id="<%= "users_stick_#{users_stick.id}" unless users_stick.new_record? %>"  >
   <%= f.fields_for users_sticks_attributes, users_stick do |h| %>
@@ -12,7 +8,15 @@
 
 
       <div class="element"><%= f.label :stick_type %></div>
-      <div class="element"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown4", :onchange => "fill_sticks_form(this)"} %></div>
+      <div class="element_dropdown">
+
+
+
+
+        <%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "styled_select140", :onchange => "fill_sticks_form(this)"} %>
+      </div>
+
+
       <div class="element"><%= h.label :distance %></div>  
       <div class="element"><%= h.text_field :distance, :class => 'distance' %><br /></div>
       <div class="element"><%= h.label :degrees %></div> 
@@ -23,7 +27,7 @@
       <div class="element"><%= h.text_field :shaft_strength, :class => 'shaft_strength' %><br /></div>
       <div class="element">
         <% if users_stick.new_record? %>
-          <a href="" OnClick="$(this).parent().remove(); return false;" >cancel</a>
+          <a href="" OnClick="$(this).parent().parent().remove(); return false;" >cancel</a>
         <% else %>
           <%= link_to 'Destroy', users_stick, :confirm => 'Are you sure?', :remote => true, :method => :delete %>
         <% end %>
