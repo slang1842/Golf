@@ -1,3 +1,9 @@
+<script>
+  $(document).ready(function(){
+    init_dropdown();
+});
+</script>
+
 <div id="<%= "users_stick_#{users_stick.id}" unless users_stick.new_record? %>"  >
   <%= f.fields_for users_sticks_attributes, users_stick do |h| %>
     <%= h.hidden_field :id unless users_stick.new_record? %>
