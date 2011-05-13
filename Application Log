@@ -8988,3 +8988,70 @@ ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.pn
 
 Started GET "/user/edit" for 127.0.0.1 at Fri May 13 12:05:03 +0300 2011
 DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_191766816_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 12:22:03 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_62819724_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 12:22:13 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_62719368_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/statistics" for 127.0.0.1 at Fri May 13 12:22:28 +0300 2011
+
+ActionController::RoutingError (uninitialized constant StatisticsController):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:22:30 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:30:23 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:30:32 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:40:23 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:41:44 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:42:06 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 12:42:29 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:43:37 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:43:51 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 12:43:54 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:44:07 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:44:16 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:44:21 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 12:44:28 +0300 2011
+
+
+Started GET "/sticks/3.json" for 127.0.0.1 at Fri May 13 12:44:31 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 12:44:33 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 12:44:36 +0300 2011
