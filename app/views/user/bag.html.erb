@@ -1,47 +1,37 @@
 
 <% if current_user %>
   <%= render :partial => 'share/header_menu' %>
-  <% else %>
+<% else %>
 <% end %>
-<br /><br />
-
 
 <%= form_for @user, :url => update_bag_user_path do |f|  %>
 
-    <div id="sticks">
-      <h3>Sticks</h3>
+  <div class="bag_wrap">
+    <div class="clubs">
+      <div class="heading"><p>Sticks</p></div>
 
+      <div id="sticks">
         <% @users_sticks.each do |users_stick| %>
-
-          <%= render :partial => 'user/bag_form', :locals => {:users_stick => users_stick,  :f => f, :users_sticks_attributes => @sticks_attributes} %>
-        
+          <%= render :partial => 'user/bag_form', :locals => { :users_stick => users_stick,  :f => f, :users_sticks_attributes => @sticks_attributes} %>
         <% end %>
-    </div>
-    
-    <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json})" %>
+      </div>
 
-        <br /><br />
-   
-     
-  <br /><br />
-  <h3>Balls</h3>
-    <div id="balls">
-      <% @balls.each do |ball| %>
-        <%= render :partial => 'user/ball_form', :locals => {:ball => ball,  :f => f, :balls_attributes => @balls_attributes} %>
-      <% end %>
+      <div class="clear"></div>
+      <div class="element">
+        <!--<a href="#" class="gray_button">Add new</a>-->
+
+        <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :onclick=> 'init_dropdown', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json})" %>
+
+        <div class="clear"></div>
+      </div>
+
+
+
+
+
+      <div class="button_done">
+        <%= f.submit :value => "Save" %> 
+      </div>
+    <% end %>
+  </div>
 </div>
- <%= link_to_function 'add new', "jQuery('#balls').append(#{render(:partial => 'user/ball_form', :locals => {:f => f, :balls_attributes => @new_balls_attributes, :ball => Ball.new}).to_json})" %>
-
- 
- <br /><br />
-      <%= f.submit %>  
-<% end %>
-
-
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-
-
-
-
-

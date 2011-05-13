@@ -1,15 +1,16 @@
 $(document).ready(function(){
   datapicker();
   timepicker();
+  init_dropdown();
 });
 
 function fill_sticks_form(a) {
   var sel_id = ($(a).val() );
   $.getJSON('/sticks/' + sel_id + '.json', function(data) {
-     $(a).parent().find('.distance').val(data.stick.distance);
-     $(a).parent().find('.degrees').val(data.stick.degrees);
-     $(a).parent().find('.shaft').val(data.stick.shaft);
-     $(a).parent().find('.shaft_strength').val(data.stick.shaft_strength);
+     $(a).parent().parent().find('.distance').val(data.stick.distance);
+     $(a).parent().parent().find('.degrees').val(data.stick.degrees);
+     $(a).parent().parent().find('.shaft').val(data.stick.shaft);
+     $(a).parent().parent().find('.shaft_strength').val(data.stick.shaft_strength);
   });
 };
 
@@ -41,7 +42,7 @@ function timepicker(){
 
 
 
-$(function(){			
+function init_dropdown() {		
   $('.dropdown1').selectmenu({
     style:'popup',
     width:120
@@ -60,16 +61,10 @@ $(function(){
     
   });
   
-  $('.dropdown4').selectmenu({
-    style:'popup',
-    width:81
-    
-  });
-  
+ 
   $('.dropdown4').selectmenu({
     style:'popup',
     width:140
-    
   });
   
   $('.dropdown5').selectmenu({
@@ -105,7 +100,7 @@ $(function(){
       offset: "10 0"
     }
   });	
-});		
+}		
 
 //a custom format option callback
 var addressFormatting = function(text){

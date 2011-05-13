@@ -6863,3 +6863,2128 @@ ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
   
 
 
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 09:01:36 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61466220_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:01:42 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:01:43 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 09:05:17 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:05:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:05:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 09:07:16 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:07:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:07:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/games" for 127.0.0.1 at Fri May 13 09:07:25 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:07:25 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/games" for 127.0.0.1 at Fri May 13 09:12:19 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:12:19 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 09:12:21 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:12:22 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:12:23 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 09:12:24 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:12:25 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:12:25 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/logout" for 127.0.0.1 at Fri May 13 09:12:34 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 09:12:34 +0300 2011
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Fri May 13 09:12:37 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 09:12:37 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 09:12:38 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:12:38 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:12:39 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 09:12:42 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61147728_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:12:43 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:12:43 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/logout" for 127.0.0.1 at Fri May 13 09:18:42 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 09:18:42 +0300 2011
+
+
+Started GET "/user/new" for 127.0.0.1 at Fri May 13 09:18:44 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60351600_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/new" for 127.0.0.1 at Fri May 13 09:18:44 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_59740740_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:18:45 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:18:46 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 09:19:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 09:19:12 +0300 2011
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Fri May 13 09:19:13 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 09:19:14 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 09:19:14 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:19:15 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:19:16 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 09:45:37 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 09:45:37 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:45:38 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:45:38 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 09:50:43 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61996404_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:50:44 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:50:44 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 09:50:54 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:50:55 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 09:50:58 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:50:59 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 09:50:59 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 09:51:00 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:51:01 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 09:51:50 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:51:50 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 09:51:56 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 09:51:56 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:01:23 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:01:24 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:01:52 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:01:53 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:02:09 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:02:10 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:02:15 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:02:16 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:02:43 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:02:43 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:02:59 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:03:00 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:03:06 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:03:07 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:03:11 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:03:12 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:03:40 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:03:41 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:04:01 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:04:01 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 10:04:14 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:04:14 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 10:04:14 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:04:17 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:04:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:04:41 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:04:41 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:04:46 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:04:46 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:05:13 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:05:14 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:05:21 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:05:22 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:06:36 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/bag.html.erb:175: syntax error, unexpected kENSURE, expecting kEND
+C:/workspace/Golf/app/views/user/bag.html.erb:177: syntax error, unexpected $end, expecting kEND):
+    172:   
+    173:   <% end %
+    174:   </div>
+  app/views/user/bag.html.erb:177:in `compile'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:06:46 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:06:47 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:07:00 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/bag.html.erb:170: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+....append= ( f.submit, :value => "a" );@output_buffer.safe_con...
+                              ^):
+    167:     <div class="clear"></div>
+    168:   </div>
+    169:   <div class="button_done">
+    170:     <%= f.submit, :value => "a" %> 
+    171:   </div>
+    172:   
+    173:   <% end %>
+  app/views/user/bag.html.erb:177:in `compile'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:07:08 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/bag.html.erb:170: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...r.append= ( f.submit, :name => "a" );@output_buffer.safe_con...
+                              ^):
+    167:     <div class="clear"></div>
+    168:   </div>
+    169:   <div class="button_done">
+    170:     <%= f.submit, :name => "a" %> 
+    171:   </div>
+    172:   
+    173:   <% end %>
+  app/views/user/bag.html.erb:177:in `compile'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:07:12 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:07:13 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:07:18 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:07:19 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:07:25 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:07:26 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:07:33 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:07:33 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:09:20 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:09:21 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:09:48 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:09:49 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:10:17 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:10:18 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:10:27 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/bag.html.erb:179: syntax error, unexpected kENSURE, expecting kEND
+C:/workspace/Golf/app/views/user/bag.html.erb:181: syntax error, unexpected $end, expecting kEND):
+    176:   
+    177:   <% end %>
+    178:   </div>
+  app/views/user/bag.html.erb:181:in `compile'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:10:47 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:10:48 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:11:05 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:11:06 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:11:39 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:11:40 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:15:14 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61595280_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:15:15 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 10:15:16 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:15:22 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60764988_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:15:23 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 10:15:23 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:17:46 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61663896_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:17:47 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 10:17:48 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:18:40 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61191384_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:18:41 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 10:18:42 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:21:09 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61744020_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 10:21:09 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:23:13 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61294404_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:23:32 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61616496_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:24:17 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61510572_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:24:44 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60671736_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:25:08 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61507860_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:26:08 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61302384_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:26:25 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60260940_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:27:17 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61472460_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:27:41 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60642072_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:27:50 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61464132_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:30:06 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/_form.html.erb:121: syntax error, unexpected tSTRING_BEG, expecting ')'
+...,{}, { :class => 'dropdown3'}") );@output_buffer.safe_concat...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:128: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="single_element">
+                                ^
+C:/workspace/Golf/app/views/user/_form.html.erb:129: syntax error, unexpected tIDENTIFIER, expecting ')'
+        <div class="text">
+                        ^
+C:/workspace/Golf/app/views/user/_form.html.erb:130: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ffer.append= ( f.label t "form.home_club" );@output_buffer.s...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:132: syntax error, unexpected tIDENTIFIER, expecting ')'
+        <div class="input">
+                         ^
+C:/workspace/Golf/app/views/user/_form.html.erb:137: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="single_element">
+                                ^
+C:/workspace/Golf/app/views/user/_form.html.erb:138: syntax error, unexpected tIDENTIFIER, expecting ')'
+        <div class="text">
+                        ^
+C:/workspace/Golf/app/views/user/_form.html.erb:139: syntax error, unexpected tIDENTIFIER, expecting ')'
+          <p class="two_lines">* Dont see your club?</p>
+                             ^
+C:/workspace/Golf/app/views/user/_form.html.erb:141: syntax error, unexpected tIDENTIFIER, expecting ')'
+        <div class="input">
+                         ^
+C:/workspace/Golf/app/views/user/_form.html.erb:142: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._buffer.append= ( link_to "add club", new_golf_club_path );@...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:148: syntax error, unexpected tIDENTIFIER, expecting ')'
+    <div class="clear"></div>
+                     ^
+C:/workspace/Golf/app/views/user/_form.html.erb:149: syntax error, unexpected tIDENTIFIER, expecting ')'
+    <div class="push"></div>
+                    ^
+C:/workspace/Golf/app/views/user/_form.html.erb:151: syntax error, unexpected tIDENTIFIER, expecting ')'
+    <div class="single_element">
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:152: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="text">
+                      ^
+C:/workspace/Golf/app/views/user/_form.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ffer.append= ( f.label t "form.email");@output_buffer.safe_c...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:155: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="input">
+                       ^
+C:/workspace/Golf/app/views/user/_form.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting ')'
+    <div class="single_element">
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:161: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="text">
+                      ^
+C:/workspace/Golf/app/views/user/_form.html.erb:162: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ffer.append= ( f.label t "form.password_new" );@output_buffe...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="input">
+                       ^
+C:/workspace/Golf/app/views/user/_form.html.erb:169: syntax error, unexpected tIDENTIFIER, expecting ')'
+    <div class="single_element">
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:170: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="text">
+                      ^
+C:/workspace/Golf/app/views/user/_form.html.erb:171: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ffer.append= ( f.label t "form.password_confirmation_new");@...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:173: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="input">
+                       ^
+C:/workspace/Golf/app/views/user/_form.html.erb:178: syntax error, unexpected tIDENTIFIER, expecting ')'
+    <div class="single_element">
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:179: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="text">
+                      ^
+C:/workspace/Golf/app/views/user/_form.html.erb:180: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ffer.append= ( f.label t "form.profile_image" );@output_buff...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:182: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="input">
+                       ^
+C:/workspace/Golf/app/views/user/_form.html.erb:188: syntax error, unexpected tIDENTIFIER, expecting ')'
+    <div class="button_done">
+                           ^
+C:/workspace/Golf/app/views/user/_form.html.erb:189: syntax error, unexpected tIDENTIFIER, expecting ')'
+      <div class="clear"></div>
+                       ^
+C:/workspace/Golf/app/views/user/_form.html.erb:192: syntax error, unexpected tCONSTANT, expecting ')'
+...uffer.append= ( f.submit "Save", :class => "green_button" );...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:192: syntax error, unexpected tIDENTIFIER, expecting ')'
+...Save", :class => "green_button" );@output_buffer.safe_concat...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:194: syntax error, unexpected tCONSTANT, expecting ')'
+...fer.append= ( f.submit "Create", :class => "green_button" );...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:194: syntax error, unexpected tIDENTIFIER, expecting ')'
+...eate", :class => "green_button" );@output_buffer.safe_concat...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:198: syntax error, unexpected tCONSTANT, expecting ')'
+...buffer.append= ( link_to "Back", welcome_path, :class=> "gre...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:198: syntax error, unexpected tIDENTIFIER, expecting ')'
+...e_path, :class=> "green_button" );@output_buffer.safe_concat...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:198: unterminated string meets end of file
+C:/workspace/Golf/app/views/user/_form.html.erb:198: syntax error, unexpected $end, expecting ')'):
+    118:           <p><%= f.label t "form.temperature" %></p>
+    119:         </div>
+    120:         <div class="input">
+    121:           <%= f.select(:temp_preference, TEMPERATURE,{}, { :class => 'dropdown3'}") %>
+    122:         </div>
+    123:       </div>
+    124: 
+  app/views/user/_form.html.erb:198:in `compile'
+  app/views/user/edit.html.erb:1:in `_app_views_user_edit_html_erb__396103450_61264680_0'
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:30:16 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61998312_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:30:29 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61161144_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:30:40 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_59987268_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:31:00 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61224840_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:32:34 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60889344_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:32:41 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/_form.html.erb:133: syntax error, unexpected ',', expecting tASSOC
+...mpt => t(:notices_no_club),{}, { :class => 'dropdown3'}) );@...
+                              ^
+C:/workspace/Golf/app/views/user/_form.html.erb:133: syntax error, unexpected ')', expecting kEND
+...}, { :class => 'dropdown3'}) );@output_buffer.safe_concat('
+                              ^):
+    130:           <p><%= f.label t "form.home_club" %></p>
+    131:         </div>
+    132:         <div class="input">
+    133:           <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :name, :prompt => t(:notices_no_club),{}, { :class => 'dropdown3'}) %>
+    134:         </div>
+    135:       </div>
+    136: 
+  app/views/user/_form.html.erb:223:in `compile'
+  app/views/user/edit.html.erb:1:in `_app_views_user_edit_html_erb__396103450_61418964_0'
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:33:14 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61344048_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:33:48 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61926672_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:34:48 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61362648_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:35:05 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60661560_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:36:36 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61542396_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:36:49 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60703836_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:37:38 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61732116_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:37:53 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61303656_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:38:08 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61611408_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:38:50 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61464288_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 10:39:10 +0300 2011
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 10:39:11 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:39:11 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61128732_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:39:16 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:39:26 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:41:07 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:49:15 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:49:53 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:50:15 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:50:33 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:50:34 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:50:35 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:50:50 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:51:12 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:51:26 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:51:46 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 10:51:50 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:52:11 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:53:07 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:53:22 +0300 2011
+
+
+Started GET "/sticks/3.json" for 127.0.0.1 at Fri May 13 10:53:25 +0300 2011
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:53:40 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61369860_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:53:54 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 10:53:57 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 10:54:00 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:54:10 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:54:22 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:54:28 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 10:54:35 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:55:09 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:55:15 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:55:37 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:55:42 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 10:56:11 +0300 2011
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:56:18 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60727260_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 10:56:20 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:58:22 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61070400_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 10:58:24 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:58:28 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60052860_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 10:58:31 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:58:46 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61586868_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 10:58:48 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:59:23 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61405488_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 10:59:24 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:59:37 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61252344_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 10:59:40 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:59:46 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60782292_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 10:59:48 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 10:59:54 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60112440_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 10:59:56 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:00:02 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61580520_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:00:04 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:00:08 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61092816_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:00:11 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:00:14 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61195608_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:00:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:00:28 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60917328_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:00:30 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:00:35 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_59753352_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:00:37 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:00:50 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_59054376_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:00:52 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:00:58 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_58316460_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:01:01 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:01:24 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61566984_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:01:26 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:01:32 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61336932_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:01:34 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:01:41 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61275612_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:01:44 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:01:56 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60850548_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:02:00 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:02:17 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60121932_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:02:19 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:02:24 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_59377332_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:02:27 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:02:32 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_58717212_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:02:34 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:03:20 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_62068548_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:03:23 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:03:50 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61476936_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:03:52 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:04:51 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61495776_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/images/ui-icons_222222_256x240.png" for 127.0.0.1 at Fri May 13 11:04:54 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/ui-icons_222222_256x240.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:05:07 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61238472_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:05:31 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60846468_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:05:43 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60578280_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:05:53 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_59861712_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:06:34 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60532224_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:06:42 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_59878548_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:07:04 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_59783520_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:07:47 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_60317256_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:08:05 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_62058192_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:08:14 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61658100_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:08:27 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61466052_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:17:33 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61619712_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:17:44 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:17:47 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:18:10 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:20:47 +0300 2011
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:20:52 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_61904688_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:20:58 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:21:47 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:21:53 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:22:07 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:22:09 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:22:10 +0300 2011
+
+
+Started GET "/sticks/3.json" for 127.0.0.1 at Fri May 13 11:22:13 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:22:29 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:22:31 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:22:33 +0300 2011
+
+
+Started GET "/sticks/3.json" for 127.0.0.1 at Fri May 13 11:22:35 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:23:00 +0300 2011
+
+
+Started GET "/sticks/3.json" for 127.0.0.1 at Fri May 13 11:23:03 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:23:08 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:23:11 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:23:13 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:23:33 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:23:36 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:23:52 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:23:56 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:24:18 +0300 2011
+
+ActionView::Template::Error (undefined local variable or method `count' for #<#<Class:0x7363a58>:0x735d470>):
+    3:     <%= h.hidden_field :id unless users_stick.new_record? %>
+    4: 
+    5: 
+    6:     <div class="element"><p><%= count %>.</p></div>
+    7: 
+    8: 
+    9:     <div class="element"><%= f.label :stick_type %></div>
+  app/views/user/_bag_form.html.erb:6:in `_app_views_user__bag_form_html_erb__420059642_61137960_4593996'
+  app/views/user/_bag_form.html.erb:2:in `_app_views_user__bag_form_html_erb__420059642_61137960_4593996'
+  app/views/user/bag.html.erb:15:in `_app_views_user_bag_html_erb___1013072033_60470808_0'
+  app/views/user/bag.html.erb:14:in `_app_views_user_bag_html_erb___1013072033_60470808_0'
+  app/views/user/bag.html.erb:7:in `_app_views_user_bag_html_erb___1013072033_60470808_0'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:24:30 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:24:33 +0300 2011
+
+
+Started GET "/sticks/3.json" for 127.0.0.1 at Fri May 13 11:24:35 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:24:52 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:24:55 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:24:56 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:25:13 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:25:16 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:25:23 +0300 2011
+
+ActionView::Template::Error (undefined local variable or method `count' for #<#<Class:0x72bfcb8>:0x72b8de8>):
+    3:     <%= h.hidden_field :id unless users_stick.new_record? %>
+    4: 
+    5: 
+    6:     <!--<div class="element"><p><%= count %>.</p></div>-->
+    7: 
+    8: 
+    9:     <div class="element"><%= f.label :stick_type %></div>
+  app/views/user/_bag_form.html.erb:6:in `_app_views_user__bag_form_html_erb__420059642_60705192_4593996'
+  app/views/user/_bag_form.html.erb:2:in `_app_views_user__bag_form_html_erb__420059642_60705192_4593996'
+  app/views/user/bag.html.erb:15:in `_app_views_user_bag_html_erb___1013072033_60113916_0'
+  app/views/user/bag.html.erb:14:in `_app_views_user_bag_html_erb___1013072033_60113916_0'
+  app/views/user/bag.html.erb:7:in `_app_views_user_bag_html_erb___1013072033_60113916_0'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:25:50 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:25:53 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:26:05 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:26:18 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:26:25 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:26:48 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:26:50 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:26:51 +0300 2011
+
+
+Started GET "/sticks/3.json" for 127.0.0.1 at Fri May 13 11:26:52 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:27:09 +0300 2011
+
+
+Started GET "/sticks/3.json" for 127.0.0.1 at Fri May 13 11:27:12 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:27:14 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:27:27 +0300 2011
+
+
+Started GET "/sticks/3.json" for 127.0.0.1 at Fri May 13 11:27:30 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:27:31 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:28:29 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:28:38 +0300 2011
+
+
+Started DELETE "/users_sticks/1" for 127.0.0.1 at Fri May 13 11:28:57 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:29:00 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:29:02 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:29:19 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:29:37 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:30:37 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/bag.html.erb:26: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._json}, {:class=> "gray_button"})" );@output_buffer.safe_con...
+                              ^):
+    23:       <div class="clear"></div>
+    24:       <div class="element">
+    25:         <a href="#" class="gray_button">Add new</a>
+    26:         <%= link_to_function 'add new', "jQuery('#balls').append(#{render(:partial => 'user/ball_form', :locals => {:f => f, :balls_attributes => @new_balls_attributes, :ball => Ball.new}).to_json}, {:class=> "gray_button"})" %>
+    27:       </div>
+    28:       <div class="clear"></div>
+    29:     </div>
+  app/views/user/bag.html.erb:43:in `compile'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:31:00 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/bag.html.erb:26: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...> Ball.new}).to_json, :class=> "gray_button"})" );@output_bu...
+                              ^):
+    23:       <div class="clear"></div>
+    24:       <div class="element">
+    25:         <a href="#" class="gray_button">Add new</a>
+    26:         <%= link_to_function 'add new', "jQuery('#balls').append(#{render(:partial => 'user/ball_form', :locals => {:f => f, :balls_attributes => @new_balls_attributes, :ball => Ball.new}).to_json, :class=> "gray_button"})" %>
+    27:       </div>
+    28:       <div class="clear"></div>
+    29:     </div>
+  app/views/user/bag.html.erb:43:in `compile'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:31:09 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:31:31 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:32:05 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:32:33 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:33:34 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:33:39 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:33:41 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:35:23 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:35:32 +0300 2011
+
+
+Started POST "/user/update_bag" for 127.0.0.1 at Fri May 13 11:35:45 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:35:45 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:35:49 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 11:35:51 +0300 2011
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 11:35:51 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 11:35:53 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_191072040_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:36:09 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:36:13 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:38:05 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:38:11 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:39:06 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:40:02 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:40:05 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:40:07 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:41:15 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:41:28 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:42:20 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:42:26 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:42:35 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:42:47 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:43:10 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:43:15 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:43:32 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:44:19 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:44:22 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:44:24 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:44:41 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:44:45 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:44:48 +0300 2011
+
+
+Started GET "/sticks/3.json" for 127.0.0.1 at Fri May 13 11:44:59 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:45:01 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:45:03 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:45:10 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:46:33 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:46:39 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:46:42 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:46:46 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:46:51 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:48:32 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:48:37 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:48:40 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:48:42 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:49:37 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:49:41 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:50:14 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:50:17 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:50:45 +0300 2011
+
+ActionView::Template::Error (wrong number of arguments (7 for 6)):
+    6: 
+    7: 
+    8:       <div class="element"><%= f.label :stick_type %></div>
+    9:       <div class="element"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {}, {:prompt => "Select Stick"},{ :class => "dropdown4", :onchange => "fill_sticks_form(this)"} %></div>
+    10:       <div class="element"><%= h.label :distance %></div>  
+    11:       <div class="element"><%= h.text_field :distance, :class => 'distance' %><br /></div>
+    12:       <div class="element"><%= h.label :degrees %></div> 
+  app/views/user/_bag_form.html.erb:9:in `collection_select'
+  app/views/user/_bag_form.html.erb:9:in `_app_views_user__bag_form_html_erb__420059642_192619200_4593996'
+  app/views/user/_bag_form.html.erb:2:in `_app_views_user__bag_form_html_erb__420059642_192619200_4593996'
+  app/views/user/bag.html.erb:15:in `_app_views_user_bag_html_erb___1013072033_192383304_0'
+  app/views/user/bag.html.erb:14:in `_app_views_user_bag_html_erb___1013072033_192383304_0'
+  app/views/user/bag.html.erb:7:in `_app_views_user_bag_html_erb___1013072033_192383304_0'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:51:04 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:51:12 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:51:18 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:51:20 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:51:49 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:51:52 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:51:53 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:51:59 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:52:03 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 11:52:04 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:52:12 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:52:15 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:52:37 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 11:52:42 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:52:57 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:53:14 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:53:44 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:53:57 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:54:11 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:54:26 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:55:06 +0300 2011
+
+
+Started GET "/sticks/4.json" for 127.0.0.1 at Fri May 13 11:55:09 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:55:19 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:56:00 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:57:29 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/bag.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+...on}, {onclick=> "init_dropdown"})" );@output_buffer.safe_con...
+                              ^):
+    20:       <div class="element">
+    21:         <!--<a href="#" class="gray_button">Add new</a>-->
+    22: 
+    23:         <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}, {onclick=> "init_dropdown"})" %>
+    24: 
+    25:         <div class="clear"></div>
+    26:       </div>
+  app/views/user/bag.html.erb:40:in `compile'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:57:37 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/bag.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+...n}, {:onclick=> "init_dropdown"})" );@output_buffer.safe_con...
+                              ^):
+    20:       <div class="element">
+    21:         <!--<a href="#" class="gray_button">Add new</a>-->
+    22: 
+    23:         <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}, {:onclick=> "init_dropdown"})" %>
+    24: 
+    25:         <div class="clear"></div>
+    26:       </div>
+  app/views/user/bag.html.erb:40:in `compile'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:57:44 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/bag.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting ')'
+...n}, {:OnClick=> "init_dropdown"})" );@output_buffer.safe_con...
+                              ^):
+    20:       <div class="element">
+    21:         <!--<a href="#" class="gray_button">Add new</a>-->
+    22: 
+    23:         <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}, {:OnClick=> "init_dropdown"})" %>
+    24: 
+    25:         <div class="clear"></div>
+    26:       </div>
+  app/views/user/bag.html.erb:40:in `compile'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:58:59 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:59:13 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:59:21 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/user/bag.html.erb:23: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...ick.new}).to_json, :onclick => 'init_dropdown()'})" );@outpu...
+                              ^):
+    20:       <div class="element">
+    21:         <!--<a href="#" class="gray_button">Add new</a>-->
+    22: 
+    23:         <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json, :onclick => 'init_dropdown()'})" %>
+    24: 
+    25:         <div class="clear"></div>
+    26:       </div>
+  app/views/user/bag.html.erb:40:in `compile'
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 11:59:26 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:00:21 +0300 2011
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Fri May 13 12:00:28 +0300 2011
+
+
+Started GET "/sticks/1.json" for 127.0.0.1 at Fri May 13 12:00:32 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 12:03:12 +0300 2011
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 12:04:10 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_192236352_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)
+
+
+Started POST "/user" for 127.0.0.1 at Fri May 13 12:05:00 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 12:05:00 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 12:05:00 +0300 2011
+
+
+Started GET "/stylesheets/img/bg_stripes.png" for 127.0.0.1 at Fri May 13 12:05:02 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/img/bg_stripes.png"):
+  
+
+
+
+
+Started GET "/user/edit" for 127.0.0.1 at Fri May 13 12:05:03 +0300 2011
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb___55281080_191766816_635734 at C:/workspace/Golf/app/views/user/_form.html.erb:9)

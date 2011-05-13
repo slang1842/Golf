@@ -16,27 +16,27 @@
 		</div>
 		<div class="icon_wrap">
 			<div class="link_wrap">
-				<a href="<%= loged_in_path %>"><img src="/images/home_icon.png"/><p>Sākums</p></a>
+				<a href="<%= loged_in_path %>"><img src="/images/home_icon.png"/><p>Home</p></a>
 			</div>
 			<div class="link_wrap">
-				<a href="<%= game_index_path%>"><img src="/images/games_icon.png"/><p>Manas spēles</p></a>
+				<a href="<%= game_index_path%>"><img src="/images/games_icon.png"/><p>My games</p></a>
 			</div>
 			<div class="link_wrap">
-				<a href="<%= bag_user_path %>"><img src="/images/bag_icon.png"/><p>Mana soma</p></a>
+				<a href="<%= bag_user_path %>"><img src="/images/bag_icon.png"/><p>My bag</p></a>
 			</div>
 			<div class="link_wrap">
-				<a href="<%= statistics_path %>"><img src="/images/results_icon.png"/><p>Statistika</p></a>
+				<a href="<%= statistics_path %>"><img src="/images/results_icon.png"/><p>Statistics</p></a>
 			</div>
       <% if current_user.get_administrate_golf_club  %>
 			<div class="link_wrap">
-				<a href="<%= golf_club_path %>"><img src="/images/club_icon.png"/><p>Mans klubs</p></a>
+				<a href="<%= golf_club_path %>"><img src="/images/club_icon.png"/><p>My Club</p></a>
 			</div>
       <% end %>
 			<div class="link_wrap">
-				<a href="<%= new_game_path('res')%>"><img src="/images/results_input_icon.png"/><p>Spēles rezultāti</p></a>
+				<a href="<%= new_game_path('res')%>"><img src="/images/results_input_icon.png"/><p>Game result</p></a>
 			</div>
 			<div class="link_wrap">
-				<a href="<%= new_game_path('plan')"><img src="/images/plan_icon.png"/><p>Spēles plāns</p></a>
+				<a href="<%= new_game_path('plan') %>"><img src="/images/plan_icon.png"/><p>Game plan</p></a>
 			</div>
 		</div>
 	</div>

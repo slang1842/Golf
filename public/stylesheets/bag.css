@@ -1,0 +1,43 @@
+.bag_wrap {
+	width:900px;
+}
+
+.bag_wrap .clubs {
+	margin-top:20px;
+	width:900px;
+	background-image:url(/images/bg_stripes.png);
+	
+
+}
+
+.bag_wrap .clubs p {
+	font-size:19px;
+	color:#363636;
+}
+
+.bag_wrap .clubs .heading {
+	padding:10px;
+	padding-bottom:20px;
+}
+
+.bag_wrap .clubs .element {
+	float:left;
+	margin-left:10px;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+
+.bag_wrap .clubs .element p {
+	position:relative;
+	top:5px;
+}
+
+.bag_wrap .clubs .club_set {
+	margin-bottom:20px;
+	height:30px;
+}
+
+.bag_wrap .button_done {
+	margin-left:420px;
+	margin-top:20px;
+}

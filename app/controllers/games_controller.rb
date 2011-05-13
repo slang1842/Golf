@@ -349,19 +349,18 @@ end
     
   end
   def hit_update
-    @game = params[:game]
-    @game.update_attributes(params[:hits])
-    
-    if params[:hit_direction] == 'next'
+     @game = Game.find(:id => params[:id])
+     @game.update_attributes(params[:game])
+    if params[:next_hit] == 'next'
       @active_hit = params[:active_hit].to_i + 1
     end
-    if params[:hit_direction] == 'hole'
+    if params[:next_hit] == nil
       @active_hit = 1
     end
-    if params[:hit_direction] == 'prev'
+    if params[:next_hit] == 'prev'
       @active_hit = params[:active_hit].to_i - 1
     end
-    @path = '/game_' + params[:form].to_s + '/' + params[:next_hole].to_s + '/' + @active_hit.to_s + '/'
+    @path = '/game_' + params[:form].to_s + '/' + @game.id.to_s + '/' + params[:next_hole].to_s + '/' + @active_hit.to_s + '/'
     redirect_to @path, :remote => :true
   end
 end
