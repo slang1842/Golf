@@ -7552,3 +7552,67 @@ Started POST "/hit_update/15/" for 127.0.0.1 at Fri May 13 11:52:40 +0300 2011
 
 
 Started GET "/game_results/15/10/0/" for 127.0.0.1 at Fri May 13 11:52:41 +0300 2011
+
+
+Started GET "/game_results/15/10/results/new/0" for 127.0.0.1 at Fri May 13 11:59:01 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:59:02 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at Fri May 13 11:59:03 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/original/missing.png"):
+  
+
+
+
+
+Started GET "/images/original/missing.png" for 127.0.0.1 at Fri May 13 11:59:10 +0300 2011
+
+ActionController::RoutingError (No route matches "/images/original/missing.png"):
+  
+
+
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 11:59:16 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 11:59:16 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:59:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/logout" for 127.0.0.1 at Fri May 13 11:59:21 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 11:59:22 +0300 2011
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Fri May 13 11:59:24 +0300 2011
+
+
+Started GET "/" for 127.0.0.1 at Fri May 13 11:59:24 +0300 2011
+
+
+Started GET "/welcome" for 127.0.0.1 at Fri May 13 11:59:25 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 11:59:25 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
