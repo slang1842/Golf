@@ -1,6 +1,14 @@
 <%= render :partial => 'share/header_menu' %>
-<br />
 
-<%= link_to 'Results', results_path(game_id, @start_hole, 'results','new', 0)%>
-<%= link_to 'Results in Details', details_path(game_id, @start_hole, '1', 'new', 0)%>
 
+<div class="game_input_wrap">
+    <div class="tabs_wrap">
+      <div class="tab">
+        <a href="<%=results_path(game_id, @start_hole, 'results','new', "0") %>" class="gray_button " >Rezultāts</a>
+      </div>
+      <div class="tab">
+        <a href="<%=details_path(game_id, @start_hole, '1', 'new', "0") %>" class="green_button">Pilnā analīze</a>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>

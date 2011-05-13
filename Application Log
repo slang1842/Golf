@@ -7964,3 +7964,349 @@ Started POST "/hit_update/16/" for 127.0.0.1 at Fri May 13 15:10:00 +0300 2011
 
 
 Started GET "/game_plan/16/10/0/" for 127.0.0.1 at Fri May 13 15:10:00 +0300 2011
+
+
+Started GET "/game_plan/16/1/1/new" for 127.0.0.1 at Fri May 13 15:17:43 +0300 2011
+
+
+Started GET "/game_plan/16/1/1/new" for 127.0.0.1 at Fri May 13 15:18:45 +0300 2011
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 15:30:23 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Fri May 13 15:33:31 +0300 2011
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Fri May 13 15:33:31 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 13 15:33:47 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 15:33:48 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 15:35:33 +0300 2011
+
+
+Started GET "/stylesheets/test_style.css" for 127.0.0.1 at Fri May 13 15:35:35 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/test_style.css"):
+  
+
+
+
+
+Started GET "/user/bag" for 127.0.0.1 at Fri May 13 15:39:15 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 15:49:17 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 15:49:57 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 15:53:54 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 15:56:23 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 16:03:11 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 16:10:17 +0300 2011
+
+
+Started POST "/hit_update/17/" for 127.0.0.1 at Fri May 13 16:10:26 +0300 2011
+
+
+Started GET "/game_plan/17/11/0/" for 127.0.0.1 at Fri May 13 16:10:27 +0300 2011
+
+
+Started POST "/hit_update/17/" for 127.0.0.1 at Fri May 13 16:10:30 +0300 2011
+
+
+Started GET "/game_plan/17/12/0/" for 127.0.0.1 at Fri May 13 16:10:31 +0300 2011
+
+
+Started POST "/hit_update/17/" for 127.0.0.1 at Fri May 13 16:10:32 +0300 2011
+
+
+Started GET "/game_plan/17/10/0/" for 127.0.0.1 at Fri May 13 16:10:33 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 16:10:58 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 16:12:16 +0300 2011
+
+
+Started POST "/hit_update/17/" for 127.0.0.1 at Fri May 13 16:12:39 +0300 2011
+
+
+Started GET "/game_plan/17/11/0/" for 127.0.0.1 at Fri May 13 16:12:39 +0300 2011
+
+
+Started GET "/game_plan/17/1/1/new" for 127.0.0.1 at Fri May 13 16:17:18 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Fri May 13 16:22:50 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 13 16:22:57 +0300 2011
+
+
+Started GET "/game_res/18/1/1/new" for 127.0.0.1 at Fri May 13 16:22:58 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/res_menu.html.erb:15: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/res_menu.html.erb:17: syntax error, unexpected kEND, expecting ')'):
+    12:       <div class="clear"></div>
+    13:     </div>
+    14:   </div>
+  app/views/games/res_menu.html.erb:17:in `compile'
+  app/controllers/games_controller.rb:134:in `res'
+
+
+
+
+Started GET "/game_res/18/1/1/new" for 127.0.0.1 at Fri May 13 16:23:38 +0300 2011
+
+
+Started GET "/game_results/18/1/results/new/0" for 127.0.0.1 at Fri May 13 16:23:44 +0300 2011
+
+
+Started GET "/game_results/18/1/results/new/0" for 127.0.0.1 at Fri May 13 16:27:13 +0300 2011
+
+
+Started GET "/game_results/18/1/results/new/0" for 127.0.0.1 at Fri May 13 16:31:37 +0300 2011
+
+
+Started GET "/game_results/18/1/results/new/0" for 127.0.0.1 at Fri May 13 16:34:25 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_results_starter.html.erb:4: syntax error, unexpected ')', expecting tASSOC
+...true, {:id => "starter_form"}) do @output_buffer.safe_concat...
+                              ^
+C:/workspace/Golf/app/views/games/_results_starter.html.erb:20: syntax error, unexpected kENSURE, expecting $end):
+    1: <div class="results_input_wrap">
+    2: <div id="korm">
+    3:   <div class="left_coll">
+    4:   <%= form_tag('/results_starter', :method => 'post', :remote => true, {:id => "starter_form"}) do %>
+    5:   <p>How many strokes?</p>  <%=text_field_tag :hits%>
+    6:   <p>How many puts?</p> <%=text_field_tag :puts%>
+    7:   <%= hidden_field_tag :game_id, game_id%>
+  app/views/games/_results_starter.html.erb:20:in `compile'
+  app/views/games/hit_edit_results.html.erb:21:in `_app_views_games_hit_edit_results_html_erb__380888702_150332688_0'
+  app/controllers/games_controller.rb:188:in `results'
+
+
+
+
+Started GET "/game_results/18/1/results/new/0" for 127.0.0.1 at Fri May 13 16:35:15 +0300 2011
+
+
+Started GET "/game_results/18/1/results/new/0" for 127.0.0.1 at Fri May 13 16:36:04 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 13 16:36:08 +0300 2011
+
+
+Started GET "/game_results/18/1/results/3/1" for 127.0.0.1 at Fri May 13 16:36:08 +0300 2011
+
+
+Started GET "/game_results/18/1/results/new/0" for 127.0.0.1 at Fri May 13 16:46:53 +0300 2011
+
+
+Started POST "/hit_update/18/" for 127.0.0.1 at Fri May 13 16:47:56 +0300 2011
+
+
+Started GET "/game_results/18/17/0/" for 127.0.0.1 at Fri May 13 16:47:57 +0300 2011
+
+
+Started POST "/hit_update/18/" for 127.0.0.1 at Fri May 13 16:48:14 +0300 2011
+
+
+Started GET "/game_results/18/2/0/" for 127.0.0.1 at Fri May 13 16:48:14 +0300 2011
+
+
+Started POST "/hit_update/18/" for 127.0.0.1 at Fri May 13 16:48:17 +0300 2011
+
+
+Started GET "/game_results/18/5/0/" for 127.0.0.1 at Fri May 13 16:48:18 +0300 2011
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Fri May 13 16:48:26 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 13 16:48:33 +0300 2011
+
+
+Started GET "/game_res/19/1/1/new" for 127.0.0.1 at Fri May 13 16:48:34 +0300 2011
+
+
+Started GET "/game_details/19/1/1/new/0" for 127.0.0.1 at Fri May 13 16:48:37 +0300 2011
+
+
+Started GET "/game_results/19/1/results/new/0" for 127.0.0.1 at Fri May 13 16:48:41 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 13 16:48:51 +0300 2011
+
+
+Started GET "/game_res/20/1/1/new" for 127.0.0.1 at Fri May 13 16:48:51 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 16:48:54 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 16:50:53 +0300 2011
+
+
+Started POST "/results_starter" for 127.0.0.1 at Fri May 13 16:51:10 +0300 2011
+
+
+Started GET "/game_results/20/1/results/3/1" for 127.0.0.1 at Fri May 13 16:51:10 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 16:51:49 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 16:55:12 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 16:59:14 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:02:45 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:04:22 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:04:29 +0300 2011
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Fri May 13 17:05:11 +0300 2011
+
+
+Started POST "/games" for 127.0.0.1 at Fri May 13 17:05:18 +0300 2011
+
+
+Started GET "/game_plan/21/1/1/new" for 127.0.0.1 at Fri May 13 17:05:18 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:06:49 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:23:33 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:27:49 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:28:46 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:32:19 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:34:53 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:35:59 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:37:57 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:38:57 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:40:36 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:41:43 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:44:59 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:46:00 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:47:44 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:53:08 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:54:26 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:59:14 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 17:59:23 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:01:36 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/link_right_big.png" for 127.0.0.1 at Fri May 13 18:01:38 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/link_right_big.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/img/link_left_big.png" for 127.0.0.1 at Fri May 13 18:01:38 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/link_left_big.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:01:38 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:10:57 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:10:59 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:15:40 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:15:42 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:18:11 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:18:13 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+

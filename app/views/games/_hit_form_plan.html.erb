@@ -9,7 +9,7 @@
           <p>Nūja</p>
             <div class="element">
               
-<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select' ) %>
+<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, {:prompt => 'Select'}, {:class => 'selects'} ) %>
             </div>
         </div>
 
@@ -30,8 +30,10 @@
 <% end %>
 <% end %> 
 </div>
-<script>
-$(document).ready(function(){
-  init_dropdown();
+<script type='text/javascript'>
+  $(document).ready(function(){
+    $(".selects").selectmenu();
 });
- </script>
+
+</script>
+ 

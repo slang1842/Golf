@@ -1,9 +1,19 @@
+
 <div id="korm">
-  <%= form_tag('/results_starter', :method => 'post', :remote => true) do %>
-  Strokes : <%=text_field_tag :hits%>
-  Puts : <%=text_field_tag :puts%>
+  <div class="left_coll">
+  <%= form_tag('/results_starter', :method => 'post', :remote => true, :id => "starter_form") do %>
+  <p>How many strokes?</p>  <%=text_field_tag :hits%>
+  <p>How many puts?</p> <%=text_field_tag :puts%>
   <%= hidden_field_tag :game_id, game_id%>
   <%= hidden_field_tag :active_hole, active_hole%>
-  <%=submit_tag%>
+ <div class="clearblock_dropdowns"></div>
+
+ <%= link_to_function "Fill results", "$('#starter_form').submit()", {:class => "green_button"} %>
+   </div>
   <%end%>
 </div>
+
+</div>
+
+        
+     
