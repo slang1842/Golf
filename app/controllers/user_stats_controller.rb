@@ -21,7 +21,7 @@ def show
       
       @golf_club = GolfClub.find(@user.golf_club_id)
       @results = Statistic.where(:user_id => @user.id).order("stick_id ASC")
-      @sticks = Stick.find(:all,:order=> 'id')
+      
 
   
 end
@@ -68,6 +68,18 @@ def populate
   @statistic_row.wind_from_right = rand(100)
   @statistic_row.save
   redirect_to :action => "show"
+end
+
+def update
+    @hint = Hint.new
+    @hint.text = 'abrakadabra'
+    @hint.user_id = current_user.id
+    @hint.save
+    
+
+    
+    
+  
 end
 
 def sendmail

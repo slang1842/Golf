@@ -14,6 +14,7 @@ Golf::Application.routes.draw do
   resources :user_stats do
   collection  do
     get 'populate'
+    get 'save_hint'
   end
 end
   
