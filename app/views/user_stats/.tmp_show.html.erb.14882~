@@ -14,11 +14,11 @@
 		</div>
 		<div class="icon_wrap">
 			<div class="link_wrap">
-				<a href="#"><img src="/images/home_icon.png"/><p>Sakums</p></a>
+				<a href="#"><img src="/images/home_icon.png"/><p>Sākums</p></a>
 			</div>
 			
 			<div class="link_wrap">
-				<a href="#"><img src="/images/games_icon.png"/><p>Manas speles</p></a>
+				<a href="#"><img src="/images/games_icon.png"/><p>Manas spēles</p></a>
 			</div>
 			
 			<div class="link_wrap">
@@ -34,11 +34,11 @@
 			</div>
 			
 			<div class="link_wrap">
-				<a href="#"><img src="/images/results_input_icon.png"/><p>Speles rezultati</p></a>
+				<a href="#"><img src="/images/results_input_icon.png"/><p>Spēles rezultāti</p></a>
 			</div>
 			
 			<div class="link_wrap">
-				<a href="#"><img src="/images/plan_icon.png"/><p>Speles plans</p></a>
+				<a href="#"><img src="/images/plan_icon.png"/><p>Spēles plāns</p></a>
 			</div>
 		</div>
 	</div>
@@ -77,7 +77,7 @@
 		</div>
 		
 		<div class="top_three">
-			<p>TOP NUJAS</p>
+			<p>TOP NŪJAS</p>
 			<div class="left_text">
 				<p>Putter 1:<br>Driver 2:<br>Wood2:</p>
 			</div>
@@ -89,7 +89,7 @@
 		
 		<div class="club_stats">
 			<div class="info_text">
-				<p>Tava vieta golfa kluba "Viesturi"</p>
+				<p>Tava vieta golfa klubā "Viesturi"</p>
 			</div>
 			<div class="form_dropdowns">
 				<form action="#" method="post" class="dropdown1">
@@ -109,23 +109,23 @@
 				</form>
 			</div>
 			<div class="lists">
-			<p>1. Edgars Upitis<br>2. Janis Klava<br>3. Arturs Pakalns</p>
+			<p>1. Edgars Upītis<br>2. Jānis Kļava<br>3. Artūrs Pakalns</p>
 			</div>
 			<div class="lists">
-			<p>4. Karlis Padegs<br>5. Vilhelms Purvitis<br>6. Jazeps Vitols</p>
+			<p>4. Kārlis Padegs<br>5. Vilhelms Purvītis<br>6. Jāzeps Vītols</p>
 			</div>
 			<div class="lists">
-			<p>7. Viktors Nicivosebejs<br>8. Edgars Upitis<br>9. Edgars Upitis</p>
+			<p>7. Viktors Ņičivosebejs<br>8. Edgars Upītis<br>9. Edgars Upītis</p>
 			</div>
 		</div>
 	</div>
 
 	<div class="game_list_percentage_wrap">
 		<div class="heading">
-			<p>Tavas speles:</p>
+			<p>Tavas spēles:</p>
 		</div>
 		<a href="#"><div class="single_game_field">
-			<p>Visu spelu statistika</p>
+			<p>Visu spēļu statistika</p>
 		</div></a>
 		<div class="link_left_wrap">
 			<a href="#"><img src="/images/link_left_big.png" alt=""/></a>
@@ -164,29 +164,95 @@
 			<a href="#"><img src="/images/link_right_big.png" alt=""/></a>
 		</div>
 	</div>
-	<!-- Nujas -->
+	
 	<div class="main_stats_table_wrap">
 		<div class="clubs_wrap">
 			<div class="page_left">
 				<a href="#"><img src="/images/link_left_big.png" alt=""/></a>
 			</div>
-			<%  @user.users_sticks.each do |stick|%>
+		
+			
+		
 			<div class="single_club_wrap">
 				<div class="club_name">
-					<p><%= stick.stick.stick_type%></p>
+					<p><%= @sticks[0].stick_type%></p>
 				</div>
 				<div class="progress_bar">
 					<div class="progress_active normal" style="width:55%">
 					</div>
 				</div>
 				<div class="info">
-
 					<p>USAGE 15%<br>AVG. 170m</p>
 				</div>
 			</div>
-			<% end %>
-	<!-- Nujas end -->
-
+			
+			
+			
+			<div class="single_club_wrap">
+				<div class="club_name">
+					<p><%= @sticks[1].stick_type%></p>
+				</div>
+				<div class="progress_bar">
+					<div class="progress_active bad" style="width:20%">
+					</div>
+				</div>
+				<div class="info">
+					<p>USAGE 15%<br>AVG. 170m</p>
+				</div>
+			</div>
+			
+			<div class="single_club_wrap">
+				<div class="club_name">
+					<p><%= @sticks[2].stick_type%></p>
+				</div>
+				<div class="progress_bar">
+					<div class="progress_active normal" style="width:80%">
+					</div>
+				</div>
+				<div class="info">
+					<p>USAGE 15%<br>AVG. 170m</p>
+				</div>
+			</div>
+			
+			<div class="single_club_wrap">
+				<div class="club_name">
+					<p><%= @sticks[3].stick_type%></p>
+				</div>
+				<div class="progress_bar">
+					<div class="progress_active normal" style="width:80%">
+					</div>
+				</div>
+				<div class="info">
+					<p>USAGE 15%<br>AVG. 170m</p>
+				</div>
+			</div>
+			
+			<div class="single_club_wrap">
+				<div class="club_name">
+					<p>PUTTER</p>
+				</div>
+				<div class="progress_bar">
+					<div class="progress_active normal" style="width:80%">
+					</div>
+				</div>
+				<div class="info">
+					<p>USAGE 15%<br>AVG. 170m</p>
+				</div>
+			</div>
+			
+			<div class="single_club_wrap">
+				<div class="club_name">
+					<p>PUTTER</p>
+				</div>
+				<div class="progress_bar">
+					<div class="progress_active normal" style="width:80%">
+					</div>
+				</div>
+				<div class="info">
+					<p>USAGE 15%<br>AVG. 170m</p>
+				</div>
+			</div>
+			
 			<div class="page_left">
 				<a href="#"><img src="/images/link_right_big.png" alt=""/></a>
 			</div>
@@ -208,80 +274,9 @@
 				<div class="name">
 					<p>Teebox</p>
 				</div>
-				<!-- counter - lai dinamiski varetu pieskrit tip Id un atvert popupu -->
-				<% @counter = 0%>
-				<%  @results.each do |result|%>
-				<%  @counter = @counter + 1%>
+				<% for i in (0..5) %> 
 					<div class="progress_block">
-						<div class="tip_bubble_wrap" id="tip<%= @counter%>">
-						<div class="triangle"></div>
-						<div class="frame">
-							<p>Trenera (<%= @trainee.first_name%> <%= @trainee.last_name%>) padoms:</p>
-							<% if @viewer.admin=1 %>
-							
-							<div class="tip">
-						<!-- meginajums uztaisit dinamisko formu -->
-							<%= form_for(result , :url => { :action => "save_hint" }, :remote => true) do |f| %> 
-
-    						
-    						<%= f.text_area :place_teebox %>
-							<%= hidden_field_tag("field", "place_teebox") %>
-							<%= f.submit %>
-							<% end %>
-							
-							<a href="#"><div class="button_erase">
-								<p>Delete</p>
-							</div></a>
-							
-							<a href="#"><div class="button_save">
-								<p>Save</p>
-							</div></a>
-
-							</div>
-							<% else %>
-							<!-- viewer nav admins -->
-							<div class="tip">
-							<p>Torem ipsum dolor sit amet, consecetur alit dolor amet, secetur alit ipsum sit sit amet, consecetur amet, consecetur alit</p>
-							</div>
-							
-							<% end %>
-						</div>
-					</div>
-						
-						
-					<% if result!= nil %>
-					<div class="progress_bar">
-						<div class="progress_active normal" style="width:80%">
-							<div class="percentage">
-								<p><%= result.place_teebox%>%</p>
-								<!-- pierakstam vertibu hidden lauka , nosaukums veidojas no parametra_nosaukums_nujas nosaukums -->
-								<input type="hidden" id="place_teebox_<%=  result.stick_id%>" name="place_teebox_<%=  result.stick_id%>" value="<%= result.place_teebox%>" />
-							</div>
-						</div>
-					</div>
-					<% if result.place_teebox.to_i<30 %>
-					<div class="notification"><a href="javascript:toggleLayer('tip<%= @counter%>');"><img src="/images/tip_icon.png" alt=""/></a>
-					</div>
-					<% end %>
-					<% else %>
-					<div class="no_value">
-						<p>N/A</p>
-						
-					</div>
-					<% end %>
-				</div>
-
-				<% end %>
-				
-				
-				<div class="name">
-					<p>Feairway</p>
-				</div>
-				<% @counter = 0%>
-				<%  @results.each do |result|%>
-				<%  @counter = @counter + 1%>
-					<div class="progress_block">
-						<div class="tip_bubble_wrap" id="tip<%= @counter%>">
+						<div class="tip_bubble_wrap" id="tip<%= i%>">
 						<div class="triangle"></div>
 						<div class="frame">
 							<p>Trenera (<%= @trainee.first_name%> <%= @trainee.last_name%>) padoms:</p>
@@ -290,11 +285,11 @@
 							<div class="tip">
 							<textarea name="comments" ></textarea>
 							<a href="#"><div class="button_erase">
-								<p>Dzest</p>
+								<p>Dzēst</p>
 							</div></a>
 							
 							<a href="#"><div class="button_save">
-								<p>Saglabat</p>
+								<p>Saglabāt</p>
 							</div></a>
 
 							</div>
@@ -309,17 +304,71 @@
 					</div>
 						
 						
-						<% if result!= nil %>
+						<% if @results[i]!= nil %>
 					<div class="progress_bar">
 						<div class="progress_active normal" style="width:80%">
 							<div class="percentage">
-								<p><%= result.place_feairway%>%</p>
-								<input type="hidden" id="place_feairway_<%=  result.stick_id%>" name="place_feairway_<%=  result.stick_id%>" value="<%= result.place_feairway%>" />
+								<p><%= @results[i].place_teebox%>%</p>
 							</div>
 						</div>
 					</div>
-					<% if result.place_feairway.to_i<30 %>
-					<div class="notification"><a href="javascript:toggleLayer('tip<%= @counter%>');"><img src="/images/tip_icon.png" alt=""/></a>
+					<% if @results[i].place_teebox.to_i<30 %>
+					<div class="notification"><a href="javascript:toggleLayer('tip<%= i%>');"><img src="/images/tip_icon.png" alt=""/></a>
+					</div>
+					<% end %>
+					<% else %>
+					<div class="no_value">
+						<p>N/A</p>
+					</div>
+					<% end %>
+				</div>
+
+				<% end %>
+				
+				
+				<div class="name">
+					<p>Teebox</p>
+				</div>
+				<% for i in (0..5) %> 
+					<div class="progress_block">
+						<div class="tip_bubble_wrap" id="tip<%= i%>">
+						<div class="triangle"></div>
+						<div class="frame">
+							<p>Trenera (<%= @trainee.first_name%> <%= @trainee.last_name%>) padoms:</p>
+							<% if @viewer.admin=1 %>
+							
+							<div class="tip">
+							<textarea name="comments" ></textarea>
+							<a href="#"><div class="button_erase">
+								<p>Dzēst</p>
+							</div></a>
+							
+							<a href="#"><div class="button_save">
+								<p>Saglabāt</p>
+							</div></a>
+
+							</div>
+							<% else %>
+							
+							<div class="tip">
+							<p>Torem ipsum dolor sit amet, consecetur alit dolor amet, secetur alit ipsum sit sit amet, consecetur amet, consecetur alit</p>
+							</div>
+							
+							<% end %>
+						</div>
+					</div>
+						
+						
+						<% if @results[i]!= nil %>
+					<div class="progress_bar">
+						<div class="progress_active normal" style="width:80%">
+							<div class="percentage">
+								<p><%= @results[i].place_teebox%>%</p>
+							</div>
+						</div>
+					</div>
+					<% if @results[i].place_teebox.to_i<30 %>
+					<div class="notification"><a href="javascript:toggleLayer('tip<%= i%>');"><img src="/images/tip_icon.png" alt=""/></a>
 					</div>
 					<% end %>
 					<% else %>
@@ -345,13 +394,13 @@
 	</div>
 		<div class="situation_type">
 			<a href="javascript:toggleLayer('stance');"><div class="name_wrap">
-				<p>Staja</p>
+				<p>Stāja</p>
 				<img src="/images/link_right_small.png" alt=""/>
 			</div>
 			<div class="info_wrap">
 				<img src="/images/table_icon_stance.png" alt=""/>
 				<div class="description">
-					<p>Staja, kada notika sitiens</p>
+					<p>Stāja, kādā notika sitiens</p>
 				</div>
 			</div></a>
 			
@@ -362,7 +411,7 @@
 			
 			<div class="single_situation" id="stance">
 				<div class="name">
-					<p>Rapus</p>
+					<p>Rāpus</p>
 				</div>
 				<div class="progress_block">
 					<div class="progress_bar">
@@ -432,7 +481,7 @@
 			
 			
 				<div class="name">
-					<p>Tarpina</p>
+					<p>Tārpiņā</p>
 				</div>
 				<div class="progress_block">
 					<div class="progress_bar">
@@ -508,115 +557,62 @@
 	<div class="clear"></div>
 	<div class="result_filtering">
 		<div class="dropdown_wrap">
-			<h1>Filtret rezultatus</h1>
+			<h1>Filtrēt rezultātus</h1>
 			<div class="form_dropdowns">
-				<form action="#" method="post" name="filter_dropdowns">
-					
-					
-					<select size="1" name="stick" id="dropdown2">
-						<option value="default">Stick</option>
-						<%  @sticks.each do |stick|%>
-						<option value="<%= stick.id%>"><%= stick.stick_type%></option>
-						<% end %>
-					</select>
-					
-					<div class="clearblock_dropdowns"></div>
-					
-					<select size="1" name="place" id="dropdown2">
-						<option value="default">Place</option>
-						<option value="place_teebox">Teebox</option>
-						<option value="place_feairway">Feairway</option>
-						<option value="place_next_fairway">Next Fairway</option>
-						<option value="place_semi_raf">Semi raf</option>
-						<option value="place_raf">Raf</option>
-						<option value="place_for_green">For green</option>
-						<option value="place_green">Green</option>
-						<option value="place_fairway_sand">Fairway Sand</option>
-						<option value="place_green_sand">Green Sand</option>
-						<option value="place_wood">Wood</option>
-						<option value="place_from_water">From water</option>
-					</select>
-					
-					
-					
-					
-					
-					<div class="clearblock_dropdowns"></div>
-					
-					<select size="1" name="stance" id="dropdown2">
-						<option value="default">Stance</option>
-						<option value="stance_normal">Normal</option>
-						<option value="stance_right_leg_lower">Right leg lower</option>
-						<option value="stance_left_leg_lower">Left leg lower</option>
-						<option value="stance_ball_lower">Ball lower</option>
-						<option value="stance_ball_higher">Ball higher</option>
+				<form action="#" method="post">
+					<select size="1" name="club" id="dropdown2">
+						<option value="Laukums">Laukums</option>
 						<option value="Ozo">Ozo</option>
 					</select>
 					
 					<div class="clearblock_dropdowns"></div>
 					
-					<select size="1" name="direction" id="dropdown2">
-						<option value="default">Direction</option>
-						<option value="direction_straigth">Straigth</option>
-						<option value="direction_fade">Fade</option>
-						<option value="direction_drow">Drow</option>
-						<option value="direction_slice">Slice</option>
-						<option value="direction_hook">Hook</option>
+					<select size="1" name="club" id="dropdown2">
+						<option value="Laukums">Laukums</option>
+						<option value="Ozo">Ozo</option>
 					</select>
 					
 					<div class="clearblock_dropdowns"></div>
 					
-					<select size="1" name="temperature" id="dropdown2">
-						<option value="default">Temperature</option>
-						<option value="temperature_cold">Cold</option>
-						<option value="temperature_normal">Normal</option>
-						<option value="temperature_hot">Hot</option>
+					<select size="1" name="club" id="dropdown2">
+						<option value="Laukums">Laukums</option>
+						<option value="Ozo">Ozo</option>
 					</select>
 					
 					<div class="clearblock_dropdowns"></div>
 					
-					<select size="1" name="weather" id="dropdown2">
-						<option value="default">Weather</option>
-						<option value="weather_normal">Normal</option>
-						<option value="weather_wind">Wind</option>
-						<option value="weather_wind_and_rain">Wind and rain</option>
+					<select size="1" name="club" id="dropdown2">
+						<option value="Laukums">Laukums</option>
+						<option value="Ozo">Ozo</option>
 					</select>
 					
 					<div class="clearblock_dropdowns"></div>
 					
-					<select size="1" name="trajectory" id="dropdown2">
-						<option value="default">Trajectory</option>
-						<option value="trajectory_normal">Normal</option>
-						<option value="trajectory_high">High</option>
-						<option value="trajectory_low">Low</option>
+					<select size="1" name="club" id="dropdown2">
+						<option value="Laukums">Laukums</option>
+						<option value="Ozo">Ozo</option>
 					</select>
 					
 					<div class="clearblock_dropdowns"></div>
 					
-					<select size="1" name="wind" id="dropdown2">
-						<option value="default">Wind</option>
-						<option value="wind_from_behind">From behind</option>
-						<option value="wind_from_front">From front</option>
-						<option value="wind_from_left">From left</option>
-						<option value="wind_from_right">From right</option>
+					<select size="1" name="club" id="dropdown2">
+						<option value="Laukums">Laukums</option>
+						<option value="Ozo">Ozo</option>
 					</select>
-					
-
-					
 				</form>
 			</div>
 		</div>
 		<div class="table_wrap">
 		
-			<div class="button_filter" onclick="filterResults()">
-				Filtret
+			<div class="button_filter">
+				<a href="#">Filtrēt</a>
 			</div>
 			
 			<div class="filter_bar">
-				<h1>Trapijumi</h1>
+				<h1>Trāpījumi</h1>
 				<div class="unfilled">
-					<div class="filled" style="width:75%" id="filter_percentage_div">
-						<div class="percentage" id="percentage">
+					<div class="filled" style="width:75%">
+						<div class="percentage">
 							<p>73%</p>
 						</div>
 					</div>
@@ -630,7 +626,7 @@
 				</div>
 				
 				<div class="heading_plan">
-					<h1>Pec plana</h1>
+					<h1>Pēc plāna</h1>
 				</div>
 			
 				<div class="progress_wrap">
@@ -760,7 +756,7 @@
 				<p>1432 x</p>
 			</div>
 			<div class="strokes">
-				<h1>Videja distance:</h1>
+				<h1>Vidējā distance:</h1>
 				<p>130 m</p>
 			</div>
 			<div class="clear"></div>
@@ -773,124 +769,3 @@
 <div class="footer_wrap">
 		<p>Lorem ipsum 2011</p>
 	</div>
-	
-	<script type="text/javascript">
-        function filterResults() {
-			// filtra dropdowniem value lauka ir pilnie parametru nosaukumi
-			var sum = 0
-			var paramCount = 0
-			var stick = filter_dropdowns.stick[filter_dropdowns.stick.selectedIndex].value
-			// ir stick , eja talak
-			if (stick!='default') {
-				// panem vertibu no dropdown 
-				var place = filter_dropdowns.place[filter_dropdowns.place.selectedIndex].value
-				// ir kaut kas selektets , tad _ stick id  - saite uz attiecigo hidden lauku -->
-				if (place!='default'){
-					var place_value = document.getElementById(place + '_' +stick)
-					if (place_value){
-						sum = sum + place_value.value
-						paramCount = paramCount+1	
-					}
-					else {
-						paramCount = paramCount+1	
-					}
-				}
-				var stance = filter_dropdowns.stick[filter_dropdowns.stance.selectedIndex].value
-				if (stance!='default'){
-					var stance_value = document.getElementById(stance + '_' +stick)
-					if (stance_value){
-						sum = sum + stance_value.value
-						paramCount = paramCount+1	
-					}
-					else {
-						paramCount = paramCount+1	
-					}
-				}
-				var direction = filter_dropdowns.stick[filter_dropdowns.direction.selectedIndex].value
-				if (direction!='default'){
-					var direction_value = document.getElementById(direction + '_' +stick)
-					if (direction_value){
-						sum = sum + direction_value.value
-						paramCount = paramCount+1	
-					}
-					else {
-						paramCount = paramCount+1	
-					}
-				}
-				var temperature = filter_dropdowns.stick[filter_dropdowns.temperature.selectedIndex].value
-				if (temperature!='default'){
-					var temperature_value = document.getElementById(temperature + '_' +stick)
-					if (temperature_value){
-						sum = sum + temperature_value.value
-						paramCount = paramCount+1	
-					}
-					else {
-						paramCount = paramCount+1	
-					}
-				}
-				var weather = filter_dropdowns.stick[filter_dropdowns.weather.selectedIndex].value
-				if (weather!='default'){
-					var weather_value = document.getElementById(weather + '_' +stick)
-					if (weather_value){
-						sum = sum + weather_value.value
-						paramCount = paramCount+1	
-					}
-					else {
-						paramCount = paramCount+1	
-					}
-				}
-				var trajectory = filter_dropdowns.stick[filter_dropdowns.trajectory.selectedIndex].value
-				if (trajectory!='default'){
-					var trajectory_value = document.getElementById(trajectory + '_' +stick)
-					if (trajectory_value){
-						sum = sum + trajectory_value.value
-						paramCount = paramCount+1	
-					}
-					else {
-						paramCount = paramCount+1	
-					}
-				}
-				var wind = filter_dropdowns.stick[filter_dropdowns.wind.selectedIndex].value
-				if (wind!='default'){
-					var wind_value = document.getElementById(wind + '_' +stick)
-					if (wind_value){
-						sum = sum + wind_value.value
-						paramCount = paramCount+1	
-					}
-					else {
-						paramCount = paramCount+1	
-					}
-				}
-				
-				
-				if (sum>0){
-					sum=sum/paramCount
-				}
-				if (sum<10){
-					document.getElementById('filter_percentage_div').className = 'unfilled'
-					document.getElementById('filter_percentage_div').style.width = sum+'%'
-				}
-				else if (sum<30){
-					document.getElementById('filter_percentage_div').className = 'filled'
-					document.getElementById('filter_percentage_div').style.width = sum+'%'
-				}
-				else if (sum<70){
-					document.getElementById('filter_percentage_div').className = 'filled'
-					document.getElementById('filter_percentage_div').style.width = sum+'%'
-				}
-				else {
-					document.getElementById('filter_percentage_div').className = 'filled'
-					document.getElementById('filter_percentage_div').style.width = sum+'%'
-				}
-
-				document.getElementById("percentage").innerHTML='<p>'+sum+'%</p>'
-           		
-				
-			}
-			else 
-			{
-				alert("Please choose a Stick")
-			}
-            
-        }
-    </script>
