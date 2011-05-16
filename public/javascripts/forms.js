@@ -1,7 +1,7 @@
 $(document).ready(function(){
     datapicker();
     timepicker();
-    init_dropdown();
+   
 });
 
 

@@ -8310,3 +8310,274 @@ ActionController::RoutingError (No route matches "/game_results/20/1/results/new
   
 
 
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:34:00 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_results.html.erb:19: syntax error, unexpected ')', expecting tASSOC
+...ect', {:class => "dropown3"} ) );@output_buffer.safe_concat(...
+                              ^
+C:/workspace/Golf/app/views/games/_hit_form_results.html.erb:151: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/_hit_form_results.html.erb:153: syntax error, unexpected kEND, expecting ')'):
+    16:           <p>1.</p>
+    17:           <div class="element">
+    18:                          
+    19:                 <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select', {:class => "dropown3"} ) %>
+    20:               
+    21:           </div>
+    22:           
+  app/views/games/_hit_form_results.html.erb:153:in `compile'
+  app/views/games/hit_edit_results.html.erb:13:in `_app_views_games_hit_edit_results_html_erb__380888702_150284688_0'
+  app/controllers/games_controller.rb:188:in `results'
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:39:22 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_results.html.erb:19: syntax error, unexpected ')', expecting tASSOC
+...ect', {:class => "dropown3"} ) );@output_buffer.safe_concat(...
+                              ^
+C:/workspace/Golf/app/views/games/_hit_form_results.html.erb:33: syntax error, unexpected kEND, expecting ')'
+');          end 
+                ^
+C:/workspace/Golf/app/views/games/_hit_form_results.html.erb:44: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+C:/workspace/Golf/app/views/games/_hit_form_results.html.erb:56: syntax error, unexpected kENSURE, expecting ')'
+C:/workspace/Golf/app/views/games/_hit_form_results.html.erb:58: syntax error, unexpected kEND, expecting ')'):
+    16:           <%=game.fields_for :hits, hit do |f|%>
+    17:           <p>1.</p>
+    18:           <div class="element">                    
+    19:                 <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, :prompt => 'Select', {:class => "dropown3"} ) %>
+    20:               </div>
+    21:           
+    22:           <div class="element">
+  app/views/games/_hit_form_results.html.erb:58:in `compile'
+  app/views/games/hit_edit_results.html.erb:45:in `_app_views_games_hit_edit_results_html_erb__380888702_150270120_0'
+  app/controllers/games_controller.rb:188:in `results'
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:41:05 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_results.html.erb:56: syntax error, unexpected kENSURE, expecting $end):
+    53:   </div>
+    54:    
+    55:      
+  app/views/games/_hit_form_results.html.erb:56:in `compile'
+  app/views/games/hit_edit_results.html.erb:45:in `_app_views_games_hit_edit_results_html_erb__380888702_149853972_0'
+  app/controllers/games_controller.rb:188:in `results'
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:42:49 +0300 2011
+
+ActionView::Template::Error (compile error
+C:/workspace/Golf/app/views/games/_hit_form_results.html.erb:46: syntax error, unexpected kEND, expecting $end
+');  end   
+        ^):
+    43:        
+    44: <% end %>
+    45:  </div>
+    46:  <% end %>  
+    47:      
+  app/views/games/_hit_form_results.html.erb:46:in `compile'
+  app/views/games/hit_edit_results.html.erb:45:in `_app_views_games_hit_edit_results_html_erb__380888702_150304380_0'
+  app/controllers/games_controller.rb:188:in `results'
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:44:14 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:44:16 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:45:10 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:45:11 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:45:25 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:45:27 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:45:28 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:45:30 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:46:12 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:46:14 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:46:20 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:46:22 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:47:49 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:47:51 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:48:59 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:49:01 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:51:20 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:51:22 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started POST "/hit_update/20/" for 127.0.0.1 at Fri May 13 18:51:35 +0300 2011
+
+
+Started GET "/game_results/20/4/0/" for 127.0.0.1 at Fri May 13 18:51:35 +0300 2011
+
+
+Started POST "/hit_update/20/" for 127.0.0.1 at Fri May 13 18:51:39 +0300 2011
+
+
+Started GET "/game_results/20/1/0/" for 127.0.0.1 at Fri May 13 18:51:40 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:52:24 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:52:26 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:53:54 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:53:56 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:55:08 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:55:10 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 18:57:10 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 18:57:12 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 19:00:03 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 19:00:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 19:01:08 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/img/map_placeholder.png" for 127.0.0.1 at Fri May 13 19:01:10 +0300 2011
+
+ActionController::RoutingError (No route matches "/game_results/20/1/results/new/img/map_placeholder.png"):
+  
+
+
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 19:03:11 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 19:06:37 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 19:06:56 +0300 2011
+
+
+Started GET "/game_results/20/1/results/new/0" for 127.0.0.1 at Fri May 13 19:07:47 +0300 2011

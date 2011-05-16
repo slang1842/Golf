@@ -9,31 +9,39 @@
           <p>Nūja</p>
             <div class="element">
               
-<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, {:prompt => 'Select'}, {:class => 'selects'} ) %>
+<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, {:prompt => 'Select'}, {:class => 'dropdown6'} ) %>
             </div>
         </div>
 
 <div class="single_dropdown" >
           <p>Aizsitīšu</p>
             <div class="element">
-              <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+              <%= f.text_field :hit_distance %> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
             </div>
         </div>
         <div class="single_dropdown" style="width:90px">
           <p>Piezemēsies</p>
             <div class="element">
-              <%= f.select( :land_place, PLANNED_LAND_PLACES, :prompt => "Select") %>
+              <%= f.select( :land_place, PLANNED_LAND_PLACES, {:prompt => "Select"},{:class => 'dropdown6'}) %>
             </div>
         </div>
-
-
+<div class="single_dropdown">
+            <div class="element" >
+              <a href="game_index_path" class="gray_button" style="padding:5px; line-height:50px">Saglabāt</a>
+              
+            </div>
+        </div>
+        <% if active_hole != end_hole%>
+        <div class="single_dropdown">
+            <div class="element">
+              <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Tālāk</a>
+             </div>
+        </div>
+         <%end%>
 <% end %>
 <% end %> 
-</div>
-<script type='text/javascript'>
-  $(document).ready(function(){
-    $(".selects").selectmenu();
-});
 
-</script>
+
+
+
  
