@@ -1,37 +1,33 @@
-
-
 <div id="<%= "users_stick_#{users_stick.id}" unless users_stick.new_record? %>"  >
   <%= f.fields_for users_sticks_attributes, users_stick do |h| %>
     <%= h.hidden_field :id unless users_stick.new_record? %>
 
     <div class="club_set">
+      <div class="item">
+        <div class="subitem"><%= f.label :stick_type %></div>
+        <div class="subitem"><%= h.label :distance %></div>  
+        <div class="subitem"><%= h.label :degrees %></div>
+        <div class="subitem"><%= h.label :shaft %></div>  
+        <div class="subitem"><%= h.label :shaft_strength %></div>
+      </div>
 
-
-      <div class="element"><%= f.label :stick_type %></div>
-      <div class="element_dropdown">
-
-
-
-
-        <%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown4", :onchange => "fill_sticks_form(this)"} %>
+      <div class="item">
+        <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown4", :onchange => "fill_sticks_form(this)"} %></div>
+        <div class="subitem"><%= h.text_field :distance, :class => 'distance dropdown2' %></div>  
+        <div class="subitem"><%= h.text_field :degrees, :class => 'degrees dropdown2' %></div>
+        <div class="subitem"><%= h.text_field :shaft, :class => 'shaft dropdown4' %></div>
+        <div class="subitem"><%= h.text_field :shaft_strength, :class => 'shaft_strength dropdown4' %></div>
+        <div class="subitem2">
+          <% if users_stick.new_record? %>
+            <a href="" OnClick="$(this).parent().remove(); return false;" >cancel</a>
+          <% else %>
+            <%= link_to 'Destroy', users_stick, :confirm => 'Are you sure?', :remote => true, :method => :delete %>
+          <% end %>
+        </div>
       </div>
 
 
-      <div class="element"><%= h.label :distance %></div>  
-      <div class="element"><%= h.text_field :distance, :class => 'distance' %><br /></div>
-      <div class="element"><%= h.label :degrees %></div> 
-      <div class="element"><%= h.text_field :degrees, :class => 'degrees' %><br /></div>
-      <div class="element"><%= h.label :shaft %></div>  
-      <div class="element"><%= h.text_field :shaft, :class => 'shaft' %><br /></div>
-      <div class="element"><%= h.label :shaft_strength %></div> 
-      <div class="element"><%= h.text_field :shaft_strength, :class => 'shaft_strength' %><br /></div>
-      <div class="element">
-        <% if users_stick.new_record? %>
-          <a href="" OnClick="$(this).parent().parent().remove(); return false;" >cancel</a>
-        <% else %>
-          <%= link_to 'Destroy', users_stick, :confirm => 'Are you sure?', :remote => true, :method => :delete %>
-        <% end %>
-      </div>
-    </div>  
+    </div>
+
   </div>
 <% end %>
