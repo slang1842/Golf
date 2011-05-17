@@ -1,7 +1,6 @@
 $(document).ready(function(){
     datapicker();
     timepicker();
-   
 });
 
 
@@ -43,40 +42,25 @@ function timepicker(){
 }
 
 function check_bag_form() {
-    big_textboxes = $(".dropdown4")
-    small_textboxes = $(".dropdown2")
-    
-    $("input[type=text]").each(function() {
+    textEntered = true
+
+    $("input").each(function() {
         if (textEntered && $(this).val().length == 0) {
             textEntered = false;
         }
-        else {
-             textEntered = true;
+    });
+
+    $("select").each(function() {
+        if (textEntered && $(this).val() == "") {
+            textEntered = false;
         }
     });
                 
-                
     if (textEntered) {
-        alert("ir ok");
         return true
-        //$("#btnSubmit").attr("disabled", "");
     } else {
-        alert("NAV ok");
+        $(".error").slideDown('slow');
         return false
-        //$("#btnSubmit").attr("disabled", "disabled");
     }
-                
-/*
-    $.each(big_textboxes, function(value) {
-        if (value == "") {
-            alert("empy value")
-        }        
-    }); 
-    
-    $.each(small_textboxes, function(value) {
-        if (value == "") {
-            alert("empy value")
-        }        
-    }); 
-    */
+   
 }

@@ -4,11 +4,17 @@
 <% else %>
 <% end %>
 
-<%= form_for @user, :html => { :onsubmit=> "false"}, :url => update_bag_user_path do |f|  %>
+<%= form_for @user, :html => { :onsubmit=> "return check_bag_form();"}, :url => update_bag_user_path do |f|  %>
 
   <div class="bag_wrap">
 
+    
     <div class="clubs">
+      
+      
+        <div class="error">All fields are required</div>
+    
+      
       <div class="heading"><p>Sticks</p></div>
 
       <div id="sticks">

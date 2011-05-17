@@ -2,13 +2,14 @@ class UserController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   #before_filter :require_owner, :only => [:update, :edit]
   skip_before_filter :header, :only => [:login_or_register, :new, :create]
-  before_filter :require_user, :only => [:edit, :update]
+  before_filter :require_user, :only => [:edit, :update, :bag, :update_bag]
  
   def login_or_register                    
   end                                      
 
    def new                                 
-    @user = User.new                       
+    @user = User.new 
+    store_location
   end                                      
 
   def edit                                 

@@ -13,7 +13,7 @@
         <div class="subitem"><%= h.text_field :ball_type, :class => 'dropdown4' %></div> 
         <div class="subitem2">
           <% if ball.new_record? %>
-            <a href="" OnClick="$(this).parent().remove(); return false;"  >cancel</a>
+            <a href="" OnClick="$(this).parent().parent().parent().remove(); return false;"  >cancel</a>
           <% else %>
             <%= link_to 'Destroy', ball, :confirm => 'Are you sure?', :remote => true, :method => :delete %>
           <% end %>
