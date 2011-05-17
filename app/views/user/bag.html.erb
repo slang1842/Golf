@@ -4,9 +4,10 @@
 <% else %>
 <% end %>
 
-<%= form_for @user, :url => update_bag_user_path do |f|  %>
+<%= form_for @user, :html => { :onsubmit=> "false"}, :url => update_bag_user_path do |f|  %>
 
   <div class="bag_wrap">
+
     <div class="clubs">
       <div class="heading"><p>Sticks</p></div>
 
@@ -27,22 +28,24 @@
     <div class="clubs">
       <div class="heading"><p>Balls</p></div>
 
-      <div id="sticks">
+      <div id="balls">
         <% @balls.each do |ball| %>
           <%= render :partial => 'user/ball_form', :locals => {:f => f, :ball => ball, :balls_attributes => @balls_attributes} %>
         <% end %>
       </div>
+
       <div class="clear"></div>
       <div class="element">
         <%= link_to_function 'add new', "jQuery('#balls').append(#{render(:partial => 'user/ball_form', :locals => {:f => f, :balls_attributes => @new_balls_attributes, :ball => Ball.new}).to_json})" %>
         <div class="clear"></div>
       </div>
     </div>
-  </div>
 
+    <div class="button_done">
+      <!--<a href="#" onclick="check_bag_form()" class="green_button">Save</a>-->
+      <%= f.submit :class => 'green_button', :value => "Save" %> 
+    </div>
 
-  <div class="button_done">
-    <%= f.submit :value => "Save" %> 
   </div>
 <% end %>
-</div>
+

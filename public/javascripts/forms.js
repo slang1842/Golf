@@ -42,161 +42,41 @@ function timepicker(){
     });
 }
 
-
+function check_bag_form() {
+    big_textboxes = $(".dropdown4")
+    small_textboxes = $(".dropdown2")
+    
+    $("input[type=text]").each(function() {
+        if (textEntered && $(this).val().length == 0) {
+            textEntered = false;
+        }
+        else {
+             textEntered = true;
+        }
+    });
+                
+                
+    if (textEntered) {
+        alert("ir ok");
+        return true
+        //$("#btnSubmit").attr("disabled", "");
+    } else {
+        alert("NAV ok");
+        return false
+        //$("#btnSubmit").attr("disabled", "disabled");
+    }
+                
 /*
-function init_dropdown() {	
-    $('.dropdown1').selectmenu({
-        style:'popup',
-        width:120
+    $.each(big_textboxes, function(value) {
+        if (value == "") {
+            alert("empy value")
+        }        
+    }); 
     
-    });
-  
-    $('.dropdown2').selectmenu({
-        style:'popup',
-        width:50
-    
-    });
-  
-    $('.dropdown3').selectmenu({
-        style:'popup',
-        width:110
-    
-    });
-  
- 
-    $('.dropdown4').selectmenu({
-        style:'popup',
-        width:140
-    });
-  
-    $('.dropdown5').selectmenu({
-        style:'popup',
-        width:130
-    
-    });
-        
-    $('.speedAa').selectmenu({
-        style:'popup', 
-        maxHeight: 300,
-        wrapperElement: "<div class='wrap' />"
-    });
-  
-    $('.speedB').selectmenu({
-        style:'popup', 
-        width: 300,
-        format: addressFormatting
-    });
-  
-    $('.speedC').selectmenu();
-  
-    $('.speedD').selectmenu({
-        menuWidth: 400,
-        format: addressFormatting
-    });
-  
-    $('select#filesC').selectmenu({
-        style:'popup', 
-        positionOptions: {
-            my: "left center",
-            at: "right center",
-            offset: "10 0"
-        }
-    });	
-}		
-
-//a custom format option callback
-var addressFormatting = function(text){
-    var newText = text;
-    //array of find replaces
-    var findreps = [
-        {find:/^([^\-]+) \- /g, rep: '<span class="ui-selectmenu-item-header">$1</span>'},
-        {find:/([^\|><]+) \| /g, rep: '<span class="ui-selectmenu-item-content">$1</span>'},
-        {find:/([^\|><\(\)]+) (\()/g, rep: '<span class="ui-selectmenu-item-content">$1</span>$2'},
-        {find:/([^\|><\(\)]+)$/g, rep: '<span class="ui-selectmenu-item-content">$1</span>'},
-        {find:/(\([^\|><]+\))$/g, rep: '<span class="ui-selectmenu-item-footer">$1</span>'}
-    ];
-  
-    for(var i in findreps){
-        newText = newText.replace(findreps[i].find, findreps[i].rep);
-    }
-    return newText;
+    $.each(small_textboxes, function(value) {
+        if (value == "") {
+            alert("empy value")
+        }        
+    }); 
+    */
 }
-
-function init_dropdown() {		
-    $('.dropdown1').selectmenu({
-        style:'popup',
-        width:120
-    
-    });
-  
-    $('.dropdown2').selectmenu({
-        style:'popup',
-        width:50
-    
-    });
-  
-    $('.dropdown3').selectmenu({
-        style:'popup',
-        width:110
-    
-    });
-  
- 
-    $('.dropdown4').selectmenu({
-        style:'popup',
-        width:140
-    });
-  
-    $('.dropdown5').selectmenu({
-        style:'popup',
-        width:130
-    
-    });
-        
-    $('.speedAa').selectmenu({
-        style:'popup', 
-        maxHeight: 300,
-        wrapperElement: "<div class='wrap' />"
-    });
-  
-    $('.speedB').selectmenu({
-        style:'popup', 
-        width: 300,
-        format: addressFormatting
-    });
-  
-    $('.speedC').selectmenu();
-  
-    $('.speedD').selectmenu({
-        menuWidth: 400,
-        format: addressFormatting
-    });
-  
-    $('select#filesC').selectmenu({
-        style:'popup', 
-        positionOptions: {
-            my: "left center",
-            at: "right center",
-            offset: "10 0"
-        }
-    });	
-}		
-
-//a custom format option callback
-var addressFormatting = function(text){
-    var newText = text;
-    //array of find replaces
-    var findreps = [
-        {find:/^([^\-]+) \- /g, rep: '<span class="ui-selectmenu-item-header">$1</span>'},
-        {find:/([^\|><]+) \| /g, rep: '<span class="ui-selectmenu-item-content">$1</span>'},
-        {find:/([^\|><\(\)]+) (\()/g, rep: '<span class="ui-selectmenu-item-content">$1</span>$2'},
-        {find:/([^\|><\(\)]+)$/g, rep: '<span class="ui-selectmenu-item-content">$1</span>'},
-        {find:/(\([^\|><]+\))$/g, rep: '<span class="ui-selectmenu-item-footer">$1</span>'}
-    ];
-  
-    for(var i in findreps){
-        newText = newText.replace(findreps[i].find, findreps[i].rep);
-    }
-    return newText;
-}	
-*/

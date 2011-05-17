@@ -119,6 +119,7 @@ a {
 }
 
 .green_button {
+    border:none;
     background-color:#b6d051;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;

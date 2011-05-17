@@ -34,20 +34,18 @@
 }
 
 .bag_wrap .clubs .club_set {
-	margin: 15px 10px;
+	margin: 5px;
+    padding: 0 0 10px 0;
     display: block;
-    border: solid 1px red;
     
 }
 
 .bag_wrap .clubs .club_set .item {
     display: block;
     margin: 2px 0;
-    border: solid 1px black;
 }
 
 .bag_wrap .clubs .club_set .item .subitem {
-    border: solid 1px blue;
     display: inline-block;
     margin: 2px 1px;
     width: 145px;
@@ -67,6 +65,11 @@
     text-decoration: underline;
 }
 .bag_wrap .button_done {
-	margin-left:420px;
-	margin-top:20px;
+    width: 80px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.bag_wrap .button_done a:hover {
+    cursor: pointer;
 }
