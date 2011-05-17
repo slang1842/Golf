@@ -25,7 +25,7 @@
 
       <div class="clear"></div>
       <div class="element">
-        <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :onclick=> 'init_dropdown', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json})" %>
+        <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :onclick=> 'init_dropdown', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}).slideDown('fast')" %>
         <div class="clear"></div>
       </div>
 
@@ -42,13 +42,12 @@
 
       <div class="clear"></div>
       <div class="element">
-        <%= link_to_function 'add new', "jQuery('#balls').append(#{render(:partial => 'user/ball_form', :locals => {:f => f, :balls_attributes => @new_balls_attributes, :ball => Ball.new}).to_json})" %>
+        <%= link_to_function 'add new', "jQuery('#balls').append(#{render(:partial => 'user/ball_form', :locals => {:f => f, :balls_attributes => @new_balls_attributes, :ball => Ball.new}).to_json}).slideDown('fast')" %>
         <div class="clear"></div>
       </div>
     </div>
 
     <div class="button_done">
-      <!--<a href="#" onclick="check_bag_form()" class="green_button">Save</a>-->
       <%= f.submit :class => 'green_button', :value => "Save" %> 
     </div>
 

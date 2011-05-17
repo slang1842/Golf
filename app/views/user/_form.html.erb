@@ -4,21 +4,11 @@
 <% end %>
 
 <div class="profile_info_input">
+  <div class="error">All fields are required</div>
   <h1>Tavs profils</h1>
 
-  <% form_for(@user, :url => user_path, :html => { :multipart => true } ) do |f| %>
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></h2>
-        <ul>
-          <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-
+  <% form_for(@user, :url => user_path, :html => { :multipart => true, :onsubmit=> "return check_bag_form();" } ) do |f| %>
+    
     <div class="left_wrap">
       <div class="single_element">
         <div class="text">
@@ -136,10 +126,9 @@
 
       <div class="single_element">
         <div class="text">
-          <p class="two_lines">* Dont see your club?</p>
-        </div>
-        <div class="input">
-          <%= link_to "add club", new_golf_club_path %>
+          <br /><p class="two_lines">* Dont see your club?
+          <%#= checkbox_tag "text", :will_i_make_club %>
+          </p>
         </div>
       </div>
     </div>

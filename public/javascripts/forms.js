@@ -4,6 +4,9 @@ $(document).ready(function(){
 });
 
 
+function render_sticks() {
+    
+}
 
 function fill_sticks_form(a) {
     var sel_id = ($(a).val() );
@@ -59,7 +62,7 @@ function check_bag_form() {
     if (textEntered) {
         return true
     } else {
-        $(".error").slideDown('slow');
+        $(".error").slideUp('fast').slideDown('slow');
         return false
     }
    
