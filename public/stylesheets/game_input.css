@@ -197,6 +197,16 @@
 	margin-top:5px;
 	text-align:center;
 }
+.game_input_wrap .plan_input_wrap .input_wrap .single_dropdown2{
+  
+    float:left;
+  margin-right:20px;
+  width:100px;
+  height:52px;
+  margin-top:5px;
+  text-align:center;
+
+}
 
 .game_input_wrap .plan_input_wrap .input_wrap .larger {
 	width:100px;
