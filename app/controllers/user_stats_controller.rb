@@ -34,7 +34,7 @@ class UserStatsController < ApplicationController
   def populate
     @statistic_row = Statistic.new
     @statistic_row.user_id = 1
-    @statistic_row.stick_id = 2
+    @statistic_row.sticks = 1
     @statistic_row.place_teebox = rand(100)
     @statistic_row.place_feairway = rand(100)
     @statistic_row.place_next_fairway = rand(100)
