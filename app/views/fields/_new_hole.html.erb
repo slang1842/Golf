@@ -1,30 +1,17 @@
   <% hole ||= Hole.new %>
+  <% hole_number ||= 0 %>
   <%= f.fields_for hole_attributes_name, hole do |h| %>
   <%= h.hidden_field :id unless hole.new_record? %>
-  <div class="field">
+  <%= h.hidden_field :hole_number, :value => hole_number %>
 
 
-
-
-    <%= h.label :par %>
-    <%= h.text_field :par   %>
-
-    <%= h.label :hcp %>
-    <%= h.text_field :hcp %>
-
-    <%= h.label :white %>
-    <%= h.text_field :white %>
-
-    <%= h.label :blue %>
-    <%= h.text_field :blue %>
-
-    <%= h.label :red %>
-    <%= h.text_field :red %>
-    
-    <%= h.label :hole_number %>
-    <%= h.text_field :hole_number %>
-
-    <%= h.label :image, "Attēls" %>
-    <%= h.file_field :image %>
-  </div>
+<div class="inputs">
+            <div class="txt"><p><%=hole_number%>.</p></div>
+            <%= h.text_field :par   %>
+            <%= h.text_field :hcp %>
+            <div class="green_button_image_field">
+            <%= h.file_field (:image, :class => 'green_button') %>
+            </div>
+          </div>
+  
   <% end %>

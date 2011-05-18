@@ -28,7 +28,11 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
 
   create_table "fields", :force => true do |t|
     t.integer  "golf_club_id"
-    t.string   "name",         :null => false
+    t.string   "name",                :null => false
+    t.integer  "very_short_distance"
+    t.integer  "short_distance"
+    t.integer  "normal_distance"
+    t.integer  "long_distance"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -128,9 +132,6 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "field_id"
     t.integer  "par",                :null => false
     t.integer  "hcp",                :null => false
-    t.integer  "white",              :null => false
-    t.integer  "blue",               :null => false
-    t.integer  "red",                :null => false
     t.integer  "hole_number",        :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
