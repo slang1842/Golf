@@ -32,6 +32,8 @@
           </div>
         
         <div class="clear"></div>
+        <%= f.hidden_field :hole_number, :value => active_hole %>
+        <%= f.hidden_field :hit_number, :value => active_hit %>
          <% end %>
           
         <% end %>
@@ -44,7 +46,7 @@
         </div>
          <%end%>
         <div class="button_wrap">
-              <a href="game_index_path" class="gray_button" style="padding:5px; line-height:50px">Saglabāt</a>
+              <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Saglabāt</a>
               </div>
        
 <% end %>

@@ -1,10 +1,13 @@
 <%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
+
 <input type="hidden" name="next_hit" id="nexthit" value=0>
 <input type="hidden" name="form_id" id="formid" value="plan">
 <input type="hidden" name="active_hit" id="act_hit" value=<%=active_hit%>>
 <input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
 <%= game.hidden_field :active_hit, :value => active_hit%>
 <%= game.fields_for :hits, hit do |f|%>
+<%= f.hidden_field :hole_number, :value => active_hole %>
+<%= f.hidden_field :hit_number, :value => active_hit %>
 <div class="single_dropdown" style="width:90px">
           <p>Nūja</p>
             <div class="element">
@@ -27,7 +30,7 @@
         </div>
 <div class="single_dropdown">
             <div class="element" >
-              <a href="game_index_path" class="gray_button" style="padding:5px; line-height:50px">Saglabāt</a>
+              <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Saglabāt</a>
               
             </div>
         </div>

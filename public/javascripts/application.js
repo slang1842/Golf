@@ -6,6 +6,9 @@ $(document).ready(function() {
 $(document).ready(function() {
   bindHitSwitch();
 });
+$(document).ready(function() {
+  bindSaveSwitch();
+});
 
 function bindHitFormPlan() {
   $('.hole_switch').live('click', function() {
@@ -22,4 +25,13 @@ function bindHitSwitch() {
     return false;
   });
 }
+
+function bindSaveSwitch() {
+  $('.saveswitch').live('click', function() {
+    $('#nexthit').val($(this).attr('rel')); 
+    $('#hit_form').submit(); 
+    return false;
+  });
+}
+
 

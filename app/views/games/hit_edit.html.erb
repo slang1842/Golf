@@ -10,12 +10,12 @@
     <div class="plan_input_wrap">
      <div class="tabs_wrap">
       <div class="tab">
-        <a href="#" class="gray_button">Drukāt plānu</a>
+        <a href="<%=print_game_plan_path(@game.id)%>" class="gray_button ">Drukāt plānu</a>
       </div>
       <div class="tab">
-        <a href="#" class="gray_button">Drukāt plāna sagatavi</a>
+        <a href="<%=print_empty_plan_path(@game.id)%>" class="gray_button ">Drukāt plāna sagatavi</a>
       </div>
-      <div class="clear"></div>
+    <div class="clear"></div>
     </div>
 <div id="hole_tab">
   <%=render :partial => 'games/hole_tab', :locals => {:holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :game_id => @game.id, :active_hole => @start_hole, :form_id => @form_id, :hits => 0, :puts => 0}%>

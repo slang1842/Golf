@@ -73,7 +73,7 @@
             </div>
         </div>
 
-
+<%= f.hidden_field :hole_number, :value => active_hole %>
 <%= f.hidden_field :hit_number, :value => active_hit %>
 </div>
 <% end %> 
@@ -146,7 +146,8 @@
               <%= f.check_box :luck_factor %>
             </div>
 </div>
-
+<%= f.hidden_field :hole_number, :value => active_hole %>
+<%= f.hidden_field :hit_number, :value => active_hit %>
 <%#= f.label :following_action%>
 <%#= f.select(:following_action, STATISTICS_FOLLOWING_ACTION, :prompt => 'Select')%>
 
@@ -160,7 +161,7 @@
          <%end%>
 <div class="single_dropdown" style="float:right">
             <div class="element" >
-              <a href="game_index_path" class="gray_button" style="padding:5px; line-height:50px">Saglabāt</a>
+              <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Saglabāt</a>
               
             </div>
         </div>

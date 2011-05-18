@@ -74,34 +74,34 @@ end
   # GET /games/new.xml
   
   
-  def hole_switch
-    game_holes
-    @direction = params[:direction].to_s
-    @active_hole = params[:active_hole].to_i
-    @form_id = params[:form_id].to_s
-    @form_id = params[:form_id].to_s
-    
-    @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/1/0/0'
-    #redirect_to @path, :remote => :true
-    
-
-  end
-  
-  def hit_switch
-    game_holes
-    @active_hole = params[:active_hole]
-    @direction = params[:direction].to_s
-    @form_id = params[:form_id].to_s
-    @active_hit = params[:active_hit].to_i
-    if @direction == 'next'
-      @active_hit = @active_hit + 1
-    elsif  @direction == 'prev' && @active_hit != 1
-      @active_hit = @active_hit - 1
-    end
-    
-    @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/' + @active_hit.to_s
-    #redirect_to @path, :remote => :true
-   end
+  # def hole_switch
+  #   game_holes
+  #   @direction = params[:direction].to_s
+  #   @active_hole = params[:active_hole].to_i
+  #   @form_id = params[:form_id].to_s
+  #   @form_id = params[:form_id].to_s
+  #   
+  #   @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/1/0/0'
+  #   #redirect_to @path, :remote => :true
+  #   
+  # 
+  # end
+  # 
+  # def hit_switch
+  #   game_holes
+  #   @active_hole = params[:active_hole]
+  #   @direction = params[:direction].to_s
+  #   @form_id = params[:form_id].to_s
+  #   @active_hit = params[:active_hit].to_i
+  #   if @direction == 'next'
+  #     @active_hit = @active_hit + 1
+  #   elsif  @direction == 'prev' && @active_hit != 1
+  #     @active_hit = @active_hit - 1
+  #   end
+  #   
+  #   @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/' + @active_hit.to_s
+  #   #redirect_to @path, :remote => :true
+  #  end
     
    def plan
     game_holes
@@ -326,20 +326,27 @@ end
      @game.update_attributes(params[:game])
      @game.update_attributes(params[:hit])
      @game_id = @game.id
-     @active_hit = params[:next_hit]
+     @active_hit = params[:next_hit].to_s
      @active_hit1 = params[:active_hit]
-    if @active_hit == 'next'
+     if @active_hit == 'next'
       @active_hit = @active_hit1.to_i + 1
-    end
-    if @active_hit == 0
-      @active_hit = 1
-    end
-    if @active_hit == 'prev'
-      @active_hit = @active_hit1.to_i - 1
-    end
-    @game_id = params[:id]
+      @game_id = params[:id]
     @path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/' + params[:next_hole].to_s + '/' + @active_hit.to_s + '/'
     redirect_to @path, :remote => :true
+    elsif @active_hit == '0'
+      @active_hit = 1
+      @game_id = params[:id]
+    @path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/' + params[:next_hole].to_s + '/' + @active_hit.to_s + '/'
+    redirect_to @path, :remote => :true
+    elsif @active_hit == 'prev'
+      @active_hit = @active_hit1.to_i - 1
+      @game_id = params[:id]
+    @path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/' + params[:next_hole].to_s + '/' + @active_hit.to_s + '/'
+    redirect_to @path, :remote => :true
+   elsif @active_hit == 'save'
+    @path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/' + params[:next_hole].to_s + '/' + @active_hit1.to_s + '/'
+    redirect_to @path, :remote => :true
+    end
   end
  
   def game_holes
@@ -374,5 +381,11 @@ end
       else 
         return false
       end
+    end
+    def print_empty
+     
+    end
+    def print_game_plan
+    
     end
 end
