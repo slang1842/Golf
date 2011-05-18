@@ -30,8 +30,9 @@ class UserSessionsController < ApplicationController
     end
   end
 
+ 
+  
   def destroy
-    
     if current_user.is_blocked
       flash[:notice] = "Your account has been blocked."
     else
