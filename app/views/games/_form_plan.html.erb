@@ -1,3 +1,5 @@
+<div class="profile_info_input">
+  <h1>Jauna spēle</h1>
 <%= form_for(@game) do |f| %>
   <% if @game.errors.any? %>
     <div id="error_explanation">
@@ -10,28 +12,74 @@
       </ul>
     </div>
   <% end %>
-        
+        <input type="hidden" name="form_id" id="formid" value="plan">
         <%= f.hidden_field :user_id, :value => current_user.id%>
-        <%= f.label :field %>
-        
-        <%= f.collection_select( :field_id,  Field.all, :id, :name, :prompt => "Select Field" ) %>
-        <% if current_user.admin %>
-         <%= link_to "New field", new_golf_club_field_path %>
+       <div class="left_wrap">
+        <div class="single_element">
+          <div class="text">
+            <p>Laukums</p>
+          </div>
+          <div class="input">
+            <%= f.collection_select( :field_id,  Field.all, :id, :name, {:prompt => "Select Field"}, {:class => "dropdown3"} ) %>
+          </div>
+        </div>
+         <% if current_user.admin %>
+        <div class="single_element">
+          <div class="text">
+            <p class="two_lines">* Laukums nav sarakstā?</p>
+          </div>
+          <div class="input">
+            <a href="<%=new_golf_club_field_path%>" class="green_button">Izveidot</a>
+          </div>
+        </div>
+      
          <%  end  %>
-        <br />
+    <div class="single_element">
+          <div class="text">
+            <p>Speles veids</p>
+          </div>
+          <div class="input">
+            <%= f.select( :game_format, GAME_FORMAT, {:prompt => "Select Field"}, {:class => "dropdown3"} ) %>
+          </div>
+        </div>
+         <div class="single_element">
+          <div class="text">
+            <p>Datums</p>
+          </div>
+          <div class="input">
+            <%= f.text_field :date, :id => "timepicker" %>
+          </div>
+        </div>
         
-        <%= f.label :game_format %>
-        <%= f.select( :game_format, GAME_FORMAT, :prompt => "Select") %> 
-        <br />
-        <%= f.label t "form.date" %>  
-        <%= f.text_field :date, :id => "timepicker" %>
-        <br />
-        <%= f.label :game_type %>  
-        <%= f.select :game_type, GAME_TYPE, :prompt => "Select" %>
-        <br />
-        <%= f.label :start_place_colors %>
-        <%= f.select( :start_place_colors, START_PLACE_COLORS, :prompt => "Select") %>
-  <div class="actions">
-    <%= f.submit('plan') %>
-  </div>
+      
+      </div>
+        
+       
+        <div class="left_wrap">
+      
+        <div class="single_element">
+          <div class="text">
+            <p>Izsitiena vieta</p>
+          </div>
+          <div class="input">
+            <%= f.select( :start_place_colors, START_PLACE_COLORS,{:prompt => "Select"}, {:class => "dropdown3"}) %>
+          </div>
+        </div>
+        <div class="single_element">
+          <div class="text">
+            <p>Bedrīšu skaits</p>
+          </div>
+          <div class="input">
+           <%= f.select(:game_type, GAME_TYPE,{:prompt => "Select"}, {:class => "dropdown3"})%>
+     
+          </div>
+        </div>
+         <div class="clear"></div>
+      <div class="push"></div>
+         <div class="button_done_newgame">
+      <%= f.submit('Uz spēli', :class => "green_button") %>
+    </div>
+  
 <% end %>
+  </div>
+</div>
