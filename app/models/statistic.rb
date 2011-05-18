@@ -15,13 +15,8 @@ class Statistic < ActiveRecord::Base
     return @result
   end
   
-  def calculate_misdirection(p, r, m) # p = planed, r = real, m = max
-  
-    a = p - r
-    a = a.abs / m
-    
-    return ((p - r) / m).abs
-  
+  def calculate_diference(p, r) # p = planed, r = real
+    return (p - r).abs
   end
   
   
@@ -66,9 +61,7 @@ class Statistic < ActiveRecord::Base
         
           @all_pairs.each do |each_pair|
             if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick.id
-              
               @result = calculate_current_statistics(each_pair.hit_planed.hit_distance, each_pair.hit_real.hit_distance)
-              
               @result_arr.push(@result)
             end
           end
