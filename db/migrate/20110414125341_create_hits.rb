@@ -24,7 +24,7 @@ class CreateHits < ActiveRecord::Migration
       t.string :hit_was # under, miss, normal, top
       t.string :motion_was # under, miss, normal, top
       t.integer :direction
-      t.string :misdirection # novirze
+      t.integer :misdirection # novirze
       t.integer :pair_id
       t.integer :difficulty
       t.string :hole_comment

@@ -41,7 +41,7 @@ class GamesController < ApplicationController
     @game = Game.new(params[:game])
     @game.save
     
-    @path = '/game_' + params[:commit].to_s + '/' + @game.id.to_s + '/1' + '/1' + '/new'
+    @path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/1' + '/1' + '/new'
      redirect_to @path
     
 end
