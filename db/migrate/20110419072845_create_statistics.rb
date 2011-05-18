@@ -4,7 +4,7 @@ class CreateStatistics < ActiveRecord::Migration
       t.references :user
       t.references :stick
        
-      # N = in all statistic meens No Value
+      # Nil = in all statistic meens No Value
        
       t.string     :place_teebox
       t.references :place_teebox_hint
@@ -45,10 +45,10 @@ class CreateStatistics < ActiveRecord::Migration
       t.references :stance_normal_hint
       
       t.string     :stance_right_leg_lower
-      t.references :stance_right_leg_hint
+      t.references :stance_right_leg_lower_hint
       
       t.string     :stance_left_leg_lower
-      t.references :stance_left_leg_hint
+      t.references :stance_left_leg_lower_hint
       
       t.string     :stance_ball_lower
       t.references :stance_ball_lower_hint
