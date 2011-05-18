@@ -5,7 +5,13 @@ class AdminController < ApplicationController
   before_filter :require_user, :only => :index
     
   def index
-    
+    if current_user
+      unless current_user.admin
+        current_user_session.destroy
+        redirect_to welcome_url
+        flash[:notice] = "You have no access to this page"
+      end
+    end
   end
   
 

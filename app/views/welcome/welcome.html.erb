@@ -1,108 +1,112 @@
 <!-- <a href="<%= new_golf_club_path %>"><p>Add Your Golf Club!</p></a> -->
 
 <div class="site_wrapper">
-	<div class="header_wrap">
-		<div class="logo_wrap"></div>
-		
-    
-    
-		<div class="login_wrap">
-    <%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>
-		</div>
-		
-		
-	</div>
-	
-	<div class="splash_page_header">
-		<div class="comments_wrap">
-			<div class="single_comment_wrap">	
-				<div class="image"><img src="/images/default_profile.png" alt=""/></div>
-				<div class="text">
-					<p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
-				</div>
-			</div>
-			
-			<div class="single_comment_wrap">	
-				<div class="image"><img src="/images/default_profile.png" alt=""/></div>
-				<div class="text">
-					<p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
-				</div>
-			</div>
-			
-			<div class="single_comment_wrap">	
-				<div class="image"><img src="/images/default_profile.png" alt=""/></div>
-				<div class="text">
-					<p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
-				</div>
-			</div>
-			
-			<div class="single_comment_wrap">	
-				<div class="image"><img src="/images/default_profile.png" alt=""/></div>
-				<div class="text">
-					<p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
-				</div>
-			</div>
-		</div>
-		
-		  <div class="contents_wrap">
+  <div class="header_wrap">
+    <div class="logo_wrap"></div>
+
+
+
+    <div class="login_wrap">
+      <%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>
+    </div>
+
+
+  </div>
+
+  <div class="splash_page_header">
+    <div class="comments_wrap">
+      <div class="single_comment_wrap">	
+        <div class="image"><img src="/images/default_profile.png" alt=""/></div>
+        <div class="text">
+          <p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
+        </div>
+      </div>
+
+      <div class="single_comment_wrap">	
+        <div class="image"><img src="/images/default_profile.png" alt=""/></div>
+        <div class="text">
+          <p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
+        </div>
+      </div>
+
+      <div class="single_comment_wrap">	
+        <div class="image"><img src="/images/default_profile.png" alt=""/></div>
+        <div class="text">
+          <p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
+        </div>
+      </div>
+
+      <div class="single_comment_wrap">	
+        <div class="image"><img src="/images/default_profile.png" alt=""/></div>
+        <div class="text">
+          <p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contents_wrap">
+
       <% flash.each do |key, msg| %>
-      <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-      <%= content_tag :script, :type => "text/javascript" do -%>
-        setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+        <div class="error" style="display: block;">
+          <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+          <%= content_tag :script, :type => "text/javascript" do -%>
+            setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+          <% end %>
+        </div>
       <% end %>
-      <% end %>
-      erroru pazinojumi bus seit.!<br/>
-    
-			<h1>Dolor sit. Lorem ipsum.</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit? Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris!</p>
-			<div class="button">
-				<a href="<%= new_user_path %>"><p>Start Now!</p></a>
- 			</div>
-              <%=  link_to "create golf club", new_golf_club_path %>
-			<img src="/images/promo_image.png" alt=""/>
-			<div class="image"><img src="/images/games_icon.png" alt=""/></div>
-			<div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>
-			<div class="clear"></div>
-			<div class="image"><img src="/images/results_icon.png" alt=""/></div>
-			<div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>
-			<div class="clear"></div>
-			<div class="image"><img src="/images/club_icon.png" alt=""/></div>
-			<div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>
-		</div>
-		
-		<div class="news_wrap">
-			<p>Golfa ziņas un jaunumi</p>
-			<div class="single_news">
-				<p>Lorem ipsum dolor sit amet.<br><span class="gray">
+
+
+
+      <h1>Dolor sit. Lorem ipsum.</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit? Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris!</p>
+      <div class="button">
+        <a href="<%= new_user_path %>"><p>Start Now!</p></a>
+      </div>
+      <%=  link_to "create golf club", new_golf_club_path %>
+      <img src="/images/promo_image.png" alt=""/>
+      <div class="image"><img src="/images/games_icon.png" alt=""/></div>
+      <div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>
+      <div class="clear"></div>
+      <div class="image"><img src="/images/results_icon.png" alt=""/></div>
+      <div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>
+      <div class="clear"></div>
+      <div class="image"><img src="/images/club_icon.png" alt=""/></div>
+      <div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>
+    </div>
+
+    <div class="news_wrap">
+      <p>Golfa ziņas un jaunumi</p>
+      <div class="single_news">
+        <p>Lorem ipsum dolor sit amet.<br><span class="gray">
 				Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-			</div>
-			
-			<div class="single_news">
-				<p>Lorem ipsum dolor sit amet.<br><span class="gray">
+      </div>
+
+      <div class="single_news">
+        <p>Lorem ipsum dolor sit amet.<br><span class="gray">
 				Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-			</div>
-			
-			<div class="single_news">
-				<p>Lorem ipsum dolor sit amet.<br><span class="gray">
+      </div>
+
+      <div class="single_news">
+        <p>Lorem ipsum dolor sit amet.<br><span class="gray">
 				Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-			</div>
-			
-			<div class="single_news">
-				<p>Lorem ipsum dolor sit amet.<br><span class="gray">
+      </div>
+
+      <div class="single_news">
+        <p>Lorem ipsum dolor sit amet.<br><span class="gray">
 				Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-			</div>
-			
-		
-		</div>
-			<div class="clear"></div>
-	
-	<div class="bg_image"></div>
-	
-	</div>
-<div class="clear"></div>
+      </div>
+
+
+    </div>
+    <div class="clear"></div>
+
+    <div class="bg_image"></div>
+
+  </div>
+  <div class="clear"></div>
 </div>
 <div class="footer_wrap">
-		<p>Lorem ipsum 2011</p>
-	</div>
+  <p>Lorem ipsum 2011</p>
+</div>
 
-  
+

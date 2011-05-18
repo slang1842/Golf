@@ -47,7 +47,6 @@ end
   get "user_sessions/new"
   
   #statistics
-  #========================================================================
   match '/statistics/' => "statistics#index", :as => "statistics"
   
   #game
@@ -59,9 +58,12 @@ end
   match '/game_plan/:game_id/:active_hole/:active_hit/0/0' => 'games#plan', :as => 'plan'
   match '/game_res/:game_id/:active_hole/:active_hit/:hits' => 'games#res', :as => 'res'
   match '/game_results/:game_id/:active_hole/:active_hit' => 'games#results', :as => 'results'
-  match '/game_results/:game_id/:active_hole/:form_id/:hits/:puts' => 'games#results', :as => 'results' 
+  match '/game_results/:game_id/:active_hole/:form_id/:hits/:puts' => 'games#results', :as => 'results'
+  
   match '/game_details/:game_id/:active_hole/:active_hit' => 'games#details', :as => 'details'
   match '/game_details/:game_id/:active_hole/:active_hit/:hits/:puts' => 'games#details', :as => 'details'
+  
+  #match '/game_details/:game_id/:active_hole/:active_hit/:hits/:puts' => 'games#details', :as => 'details'
   match '/results_starter/' => 'games#results_starter'
   match '/games/' => 'games#index', :as => 'game_index'
   match '/hit_update/:game_id/' => 'games#hit_update'
@@ -72,12 +74,11 @@ end
   match '/welcome' => "welcome#index",        :as => :loged_in
   
   match '/register' => "user_sessions#index", :as => :login_or_register
-  #========================================================================
+  
   #login
   match '/login' => "user_sessions#new",      :as => :login
   match '/logout' => "user_sessions#destroy", :as => :logout
   
-  #========================================================================
   #user profiles
   match '/admin' => "admin#index",          :as => :admin
   
