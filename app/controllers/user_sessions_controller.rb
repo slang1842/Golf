@@ -36,7 +36,7 @@ class UserSessionsController < ApplicationController
     if current_user.is_blocked
       flash[:notice] = "Your account has been blocked."
     else
-      flash[:notice] = "Logout successful!"
+      #flash[:notice] = "Logout successful!"
     end
     current_user_session.destroy
     redirect_to welcome_url

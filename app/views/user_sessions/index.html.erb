@@ -1,24 +1,13 @@
 
 
-
-<% flash.each do |key, msg| %>
-    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-    <%= content_tag :script, :type => "text/javascript" do -%>
-        setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
-    <% end %>
-<% end %>
-
-<br />
-<br />
-<br /><br />
-Login<br />
-<%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>
-<br /><br />
-or <%= link_to "Register", new_user_path %>
-
-<%= link_to "sakums", welcome_path %>
-
-
-
+<div class="login_or_register_wrap">
+  Login<br />
+  <%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>
+  <br /><br />
+  or
+  <br /><%= link_to "Register", new_user_path, :class => "green_button" %>
+  <br /><br />
+  <%= link_to "Back", welcome_path, :class => "green_button" %>
+</div>
 
 
