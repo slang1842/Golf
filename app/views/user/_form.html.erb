@@ -5,6 +5,7 @@
 
 <div class="profile_info_input">
   <div class="error">All fields are required</div>
+<<<<<<< HEAD
   
   <h1>Tavs profils</h1>
 
@@ -21,6 +22,12 @@
     <% end %>
 
 
+=======
+  <h1>Tavs profils</h1>
+
+  <% form_for(@user, :url => user_path, :html => { :multipart => true, :onsubmit=> "return check_bag_form();" } ) do |f| %>
+    
+>>>>>>> 79358c512a6edfd95db0778d67a240b93724847a
     <div class="left_wrap">
       <div class="single_element">
         <div class="text">
@@ -138,10 +145,9 @@
 
       <div class="single_element">
         <div class="text">
-          <p class="two_lines">* Dont see your club?</p>
-        </div>
-        <div class="input">
-          <%= link_to "add club", new_golf_club_path %>
+          <br /><p class="two_lines">* Dont see your club?
+          <%#= checkbox_tag "text", :will_i_make_club %>
+          </p>
         </div>
       </div>
     </div>
