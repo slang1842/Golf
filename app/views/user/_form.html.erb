@@ -7,7 +7,7 @@
   <div class="error">All fields are required</div>
   <h1>Tavs profils</h1>
 
-  <% form_for(@user, :url => user_path, :html => { :multipart => true, :onsubmit=> "return check_bag_form();" } ) do |f| %>
+  <% form_for(@user, :url => user_path, :html => { :multipart => true } ) do |f| %>
     
     <div class="left_wrap">
       <div class="single_element">

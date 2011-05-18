@@ -1,0 +1,64 @@
+<%= link_to "home", welcome_path %>
+
+<br /><br />
+
+<% @statistic.each do |s| %>
+
+  <ul>
+    <li>Statistic id: <%=  s.id %>
+      <ul>
+        <li>User: <%= User.find(s.user_id).first_name  %>
+          <ul>
+            <li>Stick name: <%# = Sticks.find(s.stick_id).stick_type %>
+              <ul>
+                <li>place_teebox: <%= s.place_teebox %></li>
+                <li>place_feairway: <%= s.place_feairway %></li>
+                <li>place_next_fairway: <%= s.place_next_fairway %></li>
+                <li>place_semi_raf: <%= s.place_semi_raf %></li>
+                <li>place_raf: <%= s.place_raf %></li>
+                <li>place_for_green: <%= s.place_for_green %></li>
+                <li>place_green: <%= s.place_green %></li>
+                <li>place_fairway_sand: <%= s.place_fairway_sand %></li>
+                <li>place_green_sand: <%= s.place_green_sand %></li>
+                <li>place_wood: <%= s.place_wood %></li>
+                <li>place_from_water: <%= s.place_from_water%></li>
+
+                <li>stance_normal: <%= s.stance_normal %></li>
+                <li>stance_right_leg_lower: <%= s.stance_right_leg_lower %></li>
+                <li>stance_left_leg_lower: <%= s.stance_left_leg_lower %></li>
+                <li>stance_ball_lower: <%= s.stance_ball_lower %></li>
+                <li>stance_ball_higher: <%= s.stance_ball_higher %></li>
+
+                <li>direction_straigth: <%= s.direction_straigth %></li>
+                <li>direction_fade: <%= s.direction_fade %></li>
+                <li>direction_drow: <%= s.direction_drow %></li>
+                <li>direction_slice: <%= s.direction_slice %></li>
+                <li>direction_hook: <%= s.direction_hook %></li>
+
+                <li>temperature_cold: <%= s.temperature_cold %></li>
+                <li>temperature_normal: <%= s.temperature_normal %></li>
+                <li>temperature_hot: <%= s.temperature_hot %></li>
+
+                <li>weather_normal: <%= s.weather_normal %></li>
+                <li>weather_wind: <%= s.weather_wind %></li>
+                <li>weather_rain: <%= s.weather_rain %></li>
+                <li>weather_wind_and_rain: <%= s.weather_wind_and_rain %></li>
+
+                <li>trajectory_normal: <%= s.trajectory_normal %></li>
+                <li>trajectory_high: <%= s.trajectory_high %></li>
+                <li>trajectory_low: <%= s.trajectory_low %></li>
+
+                <li>wind_from_behind: <%= s.wind_from_behind %></li>
+                <li>wind_from_front: <%= s.wind_from_front %></li>
+                <li>wind_from_left: <%= s.wind_from_left %></li>
+                <li>wind_from_right: <%= s.wind_from_right %></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+
+<% end %>

@@ -28,6 +28,7 @@ end
   #statistics
   #================
   match '/s' => "statistic#statistics",   :as => "s"
+  match '/ss' => "statistic#show", :as => "show_statistic"
   
   resource :user, :controller => "user" do
     collection do

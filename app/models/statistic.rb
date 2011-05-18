@@ -15,6 +15,16 @@ class Statistic < ActiveRecord::Base
     return @result
   end
   
+  def calculate_misdirection(p, r, m) # p = planed, r = real, m = max
+  
+    a = p - r
+    a = a.abs / m
+    
+    return ((p - r) / m).abs
+  
+  end
+  
+  
   def self.calculate_current_statistics(p, r) # p = planed, r = Real
     @result = ((1 - ((r.to_f - p.to_f).abs / p.to_f)).round(2) * 100).to_i
     if @result > 100
@@ -29,6 +39,8 @@ class Statistic < ActiveRecord::Base
   
   def self.calculate_statistics
 
+    @good = false
+    
     3.times { puts "============================================xx" }
   
     Statistic.delete_all
@@ -389,12 +401,24 @@ class Statistic < ActiveRecord::Base
         end
         # ==========================================
         
-        statistic.save
+        if statistic.save
+          @good = true
+        else
+          @good = false
+        end
       end
     end
     puts ""
     3.times { puts "============================================xx" }
+  
+    if @good
+      return true
+    else
+      return false      
+    end
   end
   
 
+  
+  
 end
