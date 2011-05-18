@@ -515,7 +515,7 @@
 					
 					<select size="1" name="stick" id="dropdown2">
 						<option value="default">Stick</option>
-						<%  @sticks.each do |stick|%>
+						<%  @user_sticks.each do |stick|%>
 						<option value="<%= stick.id%>"><%= stick.stick_type%></option>
 						<% end %>
 					</select>

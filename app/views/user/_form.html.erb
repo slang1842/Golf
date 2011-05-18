@@ -6,6 +6,16 @@
 <div class="profile_info_input">
   <div class="error">All fields are required</div>
 
+  <% if @user.errors.any? %>
+    <div class="error_default">
+      <span><%= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></span>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <h1>Tavs profils</h1>
 

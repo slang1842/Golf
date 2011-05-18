@@ -6,7 +6,7 @@ class AdminController < ApplicationController
     
   def index
     if current_user
-      unless current_user.admin
+      unless current_user.is_super_admin
         current_user_session.destroy
         redirect_to welcome_url
         flash[:notice] = "You have no access to this page"
