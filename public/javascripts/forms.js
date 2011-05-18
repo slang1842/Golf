@@ -64,3 +64,47 @@ function check_bag_form() {
     }
    
 }
+
+function check_user_form() {
+    textEntered = true
+
+    $(".user_text_field").each(function() {
+        if (textEntered && $(this).val().length == 0) {
+            textEntered = false;
+        }
+    });
+
+    $(".user_select_field").each(function() {
+         if (textEntered && $(this).val() == "") {
+             textEntered = false;
+         }
+     });
+                
+    if (textEntered) {
+        return true
+    } else {
+        $(".error").slideDown('slow');
+        return false
+    }
+   
+}
+
+function check_game_form() {
+    textEntered = true
+
+   
+
+    $(".game_input_select").each(function() {
+         if (textEntered && $(this).val() == "") {
+             textEntered = false;
+         }
+     });
+                
+    if (textEntered) {
+        return true
+    } else {
+        $(".error").slideDown('slow');
+        return false
+    }
+   
+}

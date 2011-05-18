@@ -2,9 +2,8 @@
   <%= render :partial => 'share/header_menu' %>
   <% else %>
 <% end %>
-<br /><br />
-<h1>New game</h1>
+
 
 <%= render :partial => 'form_' + params[:form_id].to_s %>
 
-<%= link_to 'Back', games_path %>
+<%#= link_to 'Back', games_path %>

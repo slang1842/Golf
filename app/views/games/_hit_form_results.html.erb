@@ -15,13 +15,13 @@
         <div class="dropdowns_wrap">
           <% hits.each do |hit|%>
           <%=game.fields_for :hits, hit do |f|%>
-          <p>1.</p>
-          <div class="element">                    
+          <p><%=hit.hit_number%>.</p>
+          <div class="element" style="height:45px">                    
                 <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, {:prompt => 'Select'}, {:class => "dropdown3"} ) %>
               </div>
           
-          <div class="element">
-            <%= f.text_field :hit_distance %> <%= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+          <div class="element" >
+            <%= f.text_field :hit_distance%> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
           </div>
           
           <div class="element">

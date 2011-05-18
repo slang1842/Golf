@@ -4,9 +4,11 @@
 <% end %>
 
 <div class="profile_info_input">
+  <div class="error">All fields are required</div>
+  
   <h1>Tavs profils</h1>
 
-  <% form_for(@user, :url => user_path, :html => { :multipart => true } ) do |f| %>
+  <% form_for(@user, :url => user_path, :html => { :multipart => true, :onsubmit => "return check_user_form();"} ) do |f| %>
     <% if @user.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></h2>
@@ -25,7 +27,7 @@
           <p><%= f.label t "form.first_name" %></p>
         </div>
         <div class="input">
-          <%= f.text_field :first_name %>
+          <%= f.text_field :first_name, :class => "user_text_field" %>
         </div>
       </div>
 
@@ -34,7 +36,7 @@
           <p><%= f.label t "form.last_name" %></p>
         </div>
         <div class="input">
-          <%= f.text_field :last_name %>
+          <%= f.text_field :last_name, :class => "user_text_field"  %>
         </div>
       </div>
 
@@ -43,7 +45,7 @@
           <p><%= f.label t "form.nick" %></p>
         </div>
         <div class="input">
-          <%= f.text_field :nick %>
+          <%= f.text_field :nick, :class => "user_text_field" %>
         </div>
       </div>
 
@@ -52,7 +54,7 @@
           <p><%= f.label t "form.sex" %></p>
         </div>
         <div class="input">
-          <%= f.select(:sex, FORM_SEX,{}, { :class => 'dropdown3'}) %>
+          <%= f.select(:sex, FORM_SEX,{}, { :class => 'dropdown3 user_select_field'}) %>
         </div>
       </div>
 
@@ -61,7 +63,7 @@
           <p><%= f.label t "form.birth" %></p>
         </div>
         <div class="input">
-          <%= f.text_field :birth, :id=> "datepicker" %>
+          <%= f.text_field :birth, :id=> "datepicker", :class => "user_text_field" %>
         </div>
       </div>
 
@@ -70,7 +72,7 @@
           <p><%= f.label t "form.hcp" %></p>
         </div>
         <div class="input">
-          <%= f.select(:hcp, (0..36),{}, { :class => 'dropdown3'}) %>
+          <%= f.select(:hcp, (0..36),{}, { :class => 'dropdown3 user_select_field'}) %>
         </div>
       </div>
     </div>
@@ -156,7 +158,7 @@
         <%= f.text_field :email %>
       </div>
     </div>
-
+<% if current_user %>
     <div class="single_element">
       <div class="text">
         <p><%= f.label t "form.password_new" %></p>
@@ -174,7 +176,25 @@
         <%= f.password_field :password_confirmation %>
       </div>
     </div>
+<%else%>
+<div class="single_element">
+      <div class="text">
+        <p><%= f.label t "form.password_new" %></p>
+      </div>
+      <div class="input">
+        <%= f.password_field :password, :class => "user_text_field" %>
+      </div>
+    </div>
 
+    <div class="single_element">
+      <div class="text">
+        <p><%= f.label t "form.password_confirmation_new"%></p>
+      </div>
+      <div class="input">
+        <%= f.password_field :password_confirmation,  :class => "user_text_field" %>
+      </div>
+    </div>
+    <%end%>
     <div class="single_element">
       <div class="text">
         <p><%= f.label t "form.profile_image" %></p>
