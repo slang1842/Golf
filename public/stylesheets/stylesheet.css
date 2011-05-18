@@ -961,8 +961,7 @@ a {
     font-size:20px;
 }
 
-.error {
-    display: none;
+.error, .error_default {
     border: 1px solid;
     margin: 10px 0px;
     padding:15px 10px 15px 50px;
@@ -971,4 +970,15 @@ a {
     color: #D8000C;
     background-color: #FFBABA;
     background-image: url('/images/error.png');
+}
+.error {
+    display: none;
+}
+
+.error_default span {
+    font-size: 16px;
+}
+
+.error_default ul li {
+    font-size: 14px;
 }

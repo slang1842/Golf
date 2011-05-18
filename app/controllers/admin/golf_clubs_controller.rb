@@ -7,7 +7,7 @@ class Admin::GolfClubsController < ApplicationController
     
     @clubs = GolfClub.find(:all, :conditions => "accepted != 'yes'")
     
-     respond_to do |format|
+    respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @clubs }
     end
@@ -17,16 +17,16 @@ class Admin::GolfClubsController < ApplicationController
   
   
 	def show
-	 @clubs = GolfClub.find(:all, :conditions => "accepted = '0'")
+    @clubs = GolfClub.find(:all, :conditions => "accepted = '0'")
     
-     respond_to do |format|
+    respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @clubs }
     end
 	end
 
- def edit
-   countries
+  def edit
+    countries
     @golf_club = GolfClub.find(params[:id])
     @country = Country.find(@golf_club.country_id)
    
@@ -36,11 +36,14 @@ class Admin::GolfClubsController < ApplicationController
   
   def update
     @golf_club = GolfClub.find(params[:id])
+    if params[:status] == "yes"
+      @golf_club.user.update_attributes(:admin => 1, :golf_club => @golf_club.id)
+    end
     GolfClub.update (params[:id], {:accepted=>params[:status]} )
     redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')
   end
   
-/
+  /
   def destroy
     @golf_club = GolfClub.find(params[:id])
     @golf_club.destroy
@@ -59,7 +62,7 @@ class Admin::GolfClubsController < ApplicationController
     #@country = Country.find(current_user.country.id)
   end
   
-   private
+  private
   def countries
     @contries = Country.all
     #@country = Country.find(current_user.country.id)
