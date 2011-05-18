@@ -1,13 +1,20 @@
 
 
 <div class="login_or_register_wrap">
-  Login<br />
-  <%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>
-  <br /><br />
-  or
-  <br /><%= link_to "Register", new_user_path, :class => "green_button" %>
-  <br /><br />
-  <%= link_to "Back", welcome_path, :class => "green_button" %>
+  <span>You need to be signed in to acces this page</span>
+
+  <div class="login">
+    <%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>
+  </div>
+
+  
+
+  <div class="login">
+
+    <%= link_to "Register", new_user_path, :class => "green_button" %>
+    <%= link_to "Go Back", welcome_path, :class => "green_button" %>
+  </div>
+
 </div>
 
 

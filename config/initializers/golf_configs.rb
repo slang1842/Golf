@@ -22,9 +22,11 @@ STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "From right" => 3, "Fr
 STATISTICS_PLACE_FROM = {"Teebox" => 1, "Feairway" => 2, "Next fairway" => 3, "Semi raf" => 4, "Raf" => 5, "For green" => 6, "Green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Wood" => 10, "From water" => 11 }
 STATISTICS_STANCE = {"Normal" => 1, "Right leg lower" => 2, "Left leg lower" => 3, "Ball lower" => 4, "Ball higher" => 5}
 STATISTICS_DIRECTION = {"Straigth" => 1, "Fade" => 2, "Drow" => 3, "Slice" => 4, "Hook" => 5 }
-STATISTICS_MISDIRECTION = {"Straigth" => 1, "Fade" => 2, "Drow" => 3, "Slice" => 4, "Hook" => 5 }
+STATISTICS_MISDIRECTION = {"Hook" => 1, "Drow" => 2, "Straigth" => 3, "Fade" => 4, "Slice" => 5 }
 STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
 STATISTICS_HIT_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_MOTION_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_FOLLOWING_ACTION = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_DIFFICULTY = { "Easy" => 1, "Medium" => 2, "Hard" => 3}
+
+

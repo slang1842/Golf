@@ -1,4 +1,47 @@
 .login_or_register_wrap {
-    border: solid 1px red;
-    margin: 30px;
+    margin: 30px 0;
+    padding: 10px 40px;
+    background-image:url(/images/bg_stripes.png);
+    text-align: center;
+    border-top: solid 1px grey;
+    border-bottom: solid 1px grey;
+    
+}
+
+.login_or_register_wrap span {
+    color: grey;
+    display: block;
+    margin: 10px 10px 20px 10px;
+    
+}
+.login {
+    margin: 10px 0;
+}
+
+.login_or_register_wrap .login input {
+    border: 1px solid #C3C3C3;
+    border-radius: 9px 9px 9px 9px;
+    color: #898989;
+    font-family: "Trebuchet MS";
+    font-weight: bold;
+    height: 24px;
+    width: 150px;
+    margin: 4px 0;
+}
+
+.login_or_register_wrap .login .button input:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login_or_register_wrap .green_button {
+    margin: 5px;
+    display: inline-block;
+    min-width: 150px;
+    text-align: center;
+}
+.info {
+  color: #00529B;
+  background-color: #BDE5F8;
+  background-image: url('info.png');
 }
