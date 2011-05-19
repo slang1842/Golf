@@ -5,7 +5,7 @@ class Admin::GolfClubsController < ApplicationController
   
   def index
     
-    @clubs = GolfClub.find(:all, :conditions => "accepted != 'yes'")
+    @clubs = GolfClub.find(:all)
     
     respond_to do |format|
       format.html # index.html.erb
@@ -15,16 +15,16 @@ class Admin::GolfClubsController < ApplicationController
   
   
   
-  
-	def show
-    @clubs = GolfClub.find(:all, :conditions => "accepted = '0'")
+  /
+   show
+    @clubs = GolfClub.all
     
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @clubs }
     end
 	end
-
+/
   def edit
     countries
     @golf_club = GolfClub.find(params[:id])
@@ -37,7 +37,7 @@ class Admin::GolfClubsController < ApplicationController
   def update
     @golf_club = GolfClub.find(params[:id])
     if params[:status] == "yes"
-      @golf_club.user.update_attributes(:admin => 1, :golf_club => @golf_club.id)
+      @golf_club.user.update_attributes(:admin => 1, :golf_club_id => @golf_club.id)
     end
     GolfClub.update (params[:id], {:accepted=>params[:status]} )
     redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')

@@ -51,19 +51,38 @@
           <div class="clear"></div>
 	
 	     <div id="holes">
-	    <% @field.holes.each do |hole| %>
+	    	     <% @field.holes.each do |hole| %>
+        <%= render :partial => '/fields/new_hole', :locals => {:hole => hole, :f => f, :hole_attributes_name => @hole_attributes_name, :hole_number => hole.hole_number} %>
         
-	     <%= render :partial => '/fields/new_hole', :locals => {:hole => hole, :f => f, :hole_attributes_name => @hole_attributes_name, :hole_number => hole.hole_number} %>
-        
-        <% hole_number = hole.hole_number %>
+       <% hole_number = hole.hole_number %>
 	    <% end %>
-	</div>
+	 </div>
 	  <% hole_number ||= 0 %>
 	  <% hole_attributes_name = @new_holes_attributes_name %>
 	  <div class="add_hole">
 	    <div id="hole_add_link">
-	      <%= render(:partial => '/fields/hole_add_link', :locals => {:f => f, :hole_attributes_name => @new_hole_attributes_name, :hole_number => hole_number})%>
-            </div>
+	      
+	      
+	      
+	      
+	      <script type="text/javascript">
+	  	  function append_new_hole(x) {
+	  	         var i = $('.current_hole_number:last').val();  	           
+  	           if(i === undefined) {
+  	             i = 0;
+  	             i = parseInt(i);
+  	           }
+	           
+	             i = parseInt(i) + 1;
+	             $('#holes').append(x);
+	           	 $('.current_hole_number:last').val(i);
+	             $('.hole_number_text:last').append(i+'.');
+	            }
+	        
+	       </script>
+	      
+	      <a href="#" onClick="append_new_hole(<%=render(:partial => '/fields/new_hole', :locals => {:f => f, :hole_attributes_name => :hole_attributes_name, :hole => Hole.new, :hole_number => hole_number + 1}).to_json %>)" class="green_button" >+ Vēl vienu</a>
+           </div>
           </div>
 	 </div>
 

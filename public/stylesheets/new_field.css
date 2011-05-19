@@ -116,7 +116,9 @@
 	width:50px;
 	margin-right:15px;
 }
-
+.new_field .holes .inputs .hole_image_field input {
+  opacity:0%;
+}
 .new_field .holes .add_hole {
 	margin-top:10px;
 	margin-left:226px;
@@ -208,6 +210,7 @@
     font-family:"Trebuchet MS";
     
 }
+
 .button_done_newgame button {
 	width:220px;
 }
