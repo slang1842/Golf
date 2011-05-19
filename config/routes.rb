@@ -29,7 +29,8 @@ end
   #================
   match '/s' => "statistic#statistics",   :as => "s"
   match '/ss' => "statistic#show", :as => "show_statistic"
-  
+  match '/user_stats/:id' => 'user_stats#show', :as => 'statistic'
+    
   resource :user, :controller => "user" do
     collection do
       get "bag"
@@ -45,9 +46,6 @@ end
   get "welcome/index"
   get "home/index"
   get "user_sessions/new"
-  
-  #statistics
-  match '/statistics/' => "statistics#index", :as => "statistics"
   
   #game
   match '/hole_switch/:game_id/:active_hole/:direction/:form_id/:hits/:puts' => 'games#hole_switch', :as => 'hole_switch'

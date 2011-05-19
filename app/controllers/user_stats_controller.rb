@@ -79,11 +79,6 @@ class UserStatsController < ApplicationController
     @hint.text = 'abrakadabra'
     @hint.user_id = current_user.id
     @hint.save
-    
-
-    
-    
-  
   end
 
   def sendmail

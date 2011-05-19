@@ -4,6 +4,7 @@ class Statistic < ActiveRecord::Base
   scope :game, :joins => {:game => :hit}
   scope :stick, :joins => {:stick => :user_stick}
 
+  
   def self.get_average_from_array(arr)
     @result
     

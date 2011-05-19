@@ -25,7 +25,7 @@
 				<a href="<%= bag_user_path %>"><img src="/images/bag_icon.png"/><p>My bag</p></a>
 			</div>
 			<div class="link_wrap">
-				<a href="<%= statistics_path %>"><img src="/images/results_icon.png"/><p>Statistics</p></a>
+				<a href="<%= statistic_path(current_user.golf_club_id) %>"><img src="/images/results_icon.png"/><p>Statistics</p></a>
 			</div>
       <% if current_user.get_administrate_golf_club  %>
 			<div class="link_wrap">
