@@ -43,7 +43,7 @@ class GolfClubController < ApplicationController
   def update
     @golf_club = GolfClub.find(current_user.golf_club.id)
       if @golf_club.update_attributes(params[:golf_club])
-        redirect_to(clubs_path, :notice => 'Golf club was successfully updated.')
+        redirect_to(golf_club_path, :notice => 'Golf club was successfully updated.')
       else
         redirect_to(golf_club_path, :notice => 'Golf club was not successfully updated.')
       
