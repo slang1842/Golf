@@ -58,7 +58,7 @@ p
     border-radius: 5px;
     background: #E0E0E0; 
 }
-.dropdown1:hover, .dropdown2:hover, .dropdown3:hover, .dropdown4:hover, .dropdown5:hover, .dropdown6:hover {background: #EDEDED; border: soli 2px #F5F5F5;}
+.dropdown1:hover, .dropdown2:hover, .dropdown3:hover, .dropdown4:hover, .dropdown5:hover, .dropdown6:hover {background: #EDEDED; border: solid 2px #F5F5F5;}
 
 .dropdown1 option, .dropdown2 option, .dropdown3 option, .dropdown4 option, .dropdown5 option, .dropdown6 option {
     display: block;
@@ -524,6 +524,7 @@ a {
     background-color:#e2e2e2;
     border:1px solid #cacaca;
     border-left:none;
+    border-right:none;
     border-bottom:none;
 }
 

@@ -21,8 +21,8 @@ class CreateHits < ActiveRecord::Migration
       t.integer :distance_to_hole #cik bija lidz bedritei
       t.integer :hit_distance
       t.integer :wind
-      t.string :hit_was # under, miss, normal, top
-      t.string :motion_was # under, miss, normal, top
+      t.integer :hit_was # under, miss, normal, top
+      t.integer :motion_was # under, miss, normal, top
       t.integer :direction
       t.integer :misdirection # novirze
       t.integer :pair_id
