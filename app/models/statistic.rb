@@ -51,8 +51,7 @@ class Statistic < ActiveRecord::Base
         
     if @result > 100
       return 100
-    elsif @result == 0
-    elsif @result < 0
+    elsif @result < 1
       return 1
     else
       return @result

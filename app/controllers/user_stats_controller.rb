@@ -7,7 +7,7 @@ class UserStatsController < ApplicationController
     @viewer = current_user
     #@user = User.find(params[:id])
    
-    if @viewer.admin=1
+    if @viewer.admin
       # skatitajs ir treneris
       @trainee = @viewer
       @user = User.find(params[:id])
