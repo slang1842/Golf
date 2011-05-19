@@ -22,7 +22,7 @@ class UserStatsController < ApplicationController
       # ka meklet treneri
       @trainee = @user
     end
-      
+    @user_sticks = Stick.where(user_id = @user.id)
     @golf_club = GolfClub.find(@user.golf_club_id)
     @results = Statistic.where(:user_id => @user.id).order("stick_id ASC")
       

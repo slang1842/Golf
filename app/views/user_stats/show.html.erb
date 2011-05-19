@@ -1,5 +1,3 @@
-
-
 <%= render :partial => 'share/header_menu' %>
 
 <div class="main_stats_table_wrap">
@@ -101,10 +99,10 @@
 
           <% if result.place_teebox!= nil %>
             <div class="progress_bar">
-              <div class="progress_active normal" style="width:80%">
+              <div class="progress_active normal" style="width: <%= "#{result.place_teebox }%"%>" >
                 <div class="percentage">
                   
-                  <p><%= result.place_teebox %>%</p>
+                  <p><%= result.place_teebox %> %</p>
                     <!-- pierakstam vertibu hidden lauka , nosaukums veidojas no parametra_nosaukums_nujas nosaukums -->
                     <input type="hidden" id="place_teebox_<%=  result.stick_id%>" name="place_teebox_<%=  result.stick_id%>" value="<%= result.place_teebox%>" />
                 </div>
