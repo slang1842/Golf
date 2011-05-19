@@ -10,6 +10,7 @@ $(document).ready(function() {
   bindSaveSwitch();
 });
 
+
 function bindHitFormPlan() {
   $('.hole_switch').live('click', function() {
     $('#nexthole').val($(this).attr('rel')); 
