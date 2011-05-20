@@ -126,27 +126,32 @@
         </div>
       </div>
 
+      <div id="golf_club_control"> <!-- SIS DIVS IR VAIDZIGS, LAI VARTU DISABLE/ENABLE GOLFA IZVELNI, KAD CHECKBOXIS IECEKSETS/IZCEKSETS -->
+        <div class="input" >
 
 
+          <div class="single_element">
+            <div class="text" >
+              <p><%= f.label t "form.home_club", :id => "golf_club_label"%></p>
+            </div>
+            <div class="input" id = "golf_club_checkbox">
+              <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :name, { :prompt => t(:notices_no_club)}, {:class => 'dropdown3'}) %>
+            </div>
+          </div>
+          
 
-      <div class="single_element">
-        <div class="text">
-          <p><%= f.label t "form.home_club" %></p>
-        </div>
-        <div class="input">
-          <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :name, { :prompt => t(:notices_no_club)}, {:class => 'dropdown3'}) %>
+          <div>
+            <p>* Dont see your club?</p>
+            <p ><input onclick="golf_club_checkbox();" type="checkbox" name="create_club" >I will create new golf club</p>
+          </div>
+
         </div>
       </div>
 
-      <div class="single_element">
-        <div class="text">
-          <br /><p class="two_lines">* Dont see your club?
-  <%#= checkbox_tag "text", :will_i_make_club %>
-          </p>
-        </div>
-      </div>
+
+
+
     </div>
-
 
     <div class="clear"></div>
     <div class="push"></div>

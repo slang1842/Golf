@@ -68,7 +68,7 @@ class Statistic < ActiveRecord::Base
   
     Statistic.delete_all
   
-    @users = User.all 
+    @users = User(:all, :conditions => { :is_super_admin => false} )
     @users.each do |user|
       puts ""
       puts "user_id #{user.id}"
@@ -417,6 +417,12 @@ class Statistic < ActiveRecord::Base
   end
   
 
+  #================================================
+  # Game statistic
   
+  def self.game_statistics
+    
+    
+  end
   
 end

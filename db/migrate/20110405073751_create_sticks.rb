@@ -6,6 +6,7 @@ class CreateSticks < ActiveRecord::Migration
       t.integer     :degrees,           :null => false
       t.string      :shaft,             :null => false
       t.string      :shaft_strength,    :null => false
+      t.string      :short_name,        :null => false
       t.timestamps
     end
   end
