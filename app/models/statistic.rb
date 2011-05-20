@@ -66,7 +66,7 @@ class Statistic < ActiveRecord::Base
   end
   
   
-  def self.calculate_statistics
+  def self.main_statistics
 
     @good = false
     
@@ -426,9 +426,35 @@ class Statistic < ActiveRecord::Base
   #================================================
   # Game statistic
   
-  def self.game_statistics
+  def self.game_statistics_by_holes
+    @users = User.where(:is_super_admin => false)
+    @games = Game.all
+    GameStatisticsByHoles.delete_all
+    
+    game_s_by_ball = GameStatisticsByHoles.new
+    
+    @games.each do |current_game|
+      game_s_by_ball.game_id = current_game.id
+      game_s_by_ball.fields_id = current_game.field_id
+      
+      
+      
+      
+    end
+    #game_s_by_ball
+    if game_s_by_ball.save
+      return true
+    else
+      return false
+    end
+
+  end
+  
+  def self.game_statistics_by_sticks
+    @users = User.where(:is_super_admin => false)
     
     
+    return true
   end
   
 end

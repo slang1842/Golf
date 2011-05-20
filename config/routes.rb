@@ -1,4 +1,6 @@
 Golf::Application.routes.draw do
+  resources :game_statistics
+
   resources :games
 
   resources :statistic
