@@ -17,46 +17,52 @@ class Statistic < ActiveRecord::Base
   end
   
   def self.calculate_diference(p, r)
-    @diference = (p - r).abs
-    
-    case @diference
-    when 0
-      return 3
-    when 1
-      return 5 # - 5% from hit
-    when 2
-      return  12
-    when 3
-      return 15
-    when 4
-      return  18
-    when 5
-      return  22
-    when 6
-      return 25
+    if p == nil or r == nil
+      return false
     else
-      return  30
-    end
+      @diference = (p - r).abs
+    
+      case @diference
+      when 0
+        return 3
+      when 1
+        return 5 # - 5% from hit
+      when 2
+        return  12
+      when 3
+        return 15
+      when 4
+        return  18
+      when 5
+        return  22
+      when 6
+        return 25
+      else
+        return  30
+      end
+    end   
   end
   
   def self.calculate_current_statistics(planed, real) # p = planed, r = Real
     p = planed.hit_distance
     r = real.hit_distance
     
-    @result = ((1 - ((r.to_f - p.to_f).abs / p.to_f)).round(2) * 100).to_i
+    unless p == nil or r == nil
+      @result = ((1 - ((r.to_f - p.to_f).abs / p.to_f)).round(2) * 100).to_i
        
-    #@result = @result - calculate_diference(planed.trajectory, real.trajectory)
-    #@result = @result - calculate_diference(planed.hit_was, real.hit_was)
-    #@result = @result - calculate_diference(planed.motion_was, real.motion_was)
-    #@result = @result - calculate_diference(planed.misdirection, real.misdirection)
+      @result = @result - calculate_diference(planed.trajectory, real.trajectory) unless calculate_diference(planed.trajectory, real.trajectory) == false
+      @result = @result - calculate_diference(planed.hit_was, real.hit_was) unless calculate_diference(planed.hit_was, real.hit_was) == false
+      @result = @result - calculate_diference(planed.motion_was, real.motion_was) unless calculate_diference(planed.motion_was, real.motion_was) == false
+      @result = @result - calculate_diference(planed.misdirection, real.misdirection) unless calculate_diference(planed.misdirection, real.misdirection) == false
         
-    if @result > 100
-      return 100
-    elsif @result < 1
-      return 1
-    else
-      return @result
-    end
+      if @result > 100
+        return 100
+      elsif @result < 1
+        return 1
+      else
+        return @result
+      end
+    end    
   end
   
   
@@ -67,8 +73,7 @@ class Statistic < ActiveRecord::Base
     3.times { puts "============================================xx" }
   
     Statistic.delete_all
-  
-    @users = User(:all, :conditions => { :is_super_admin => false} )
+    @users = User.where(:is_super_admin => false)
     @users.each do |user|
       puts ""
       puts "user_id #{user.id}"
@@ -89,7 +94,8 @@ class Statistic < ActiveRecord::Base
         
           @all_pairs.each do |each_pair|
             if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick.id
-              @result_arr.push(calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real))
+              @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+              @result_arr.push(@add_to_arr) unless @add_to_arr == false
             end
           end
 
@@ -152,7 +158,8 @@ class Statistic < ActiveRecord::Base
         
           @all_pairs.each do |each_pair|
             if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick.id
-              @result_arr.push(calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real))
+              @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+              @result_arr.push(@add_to_arr) unless @add_to_arr == false
             end
           end
 
@@ -201,7 +208,8 @@ class Statistic < ActiveRecord::Base
         
           @all_pairs.each do |each_pair|
             if each_pair.hit_planed.direction == direction_num && each_pair.hit_planed.stick_id == user_stick.stick.id
-              @result_arr.push(calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real))
+              @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+              @result_arr.push(@add_to_arr) unless @add_to_arr == false
             end
           end
 
@@ -250,7 +258,8 @@ class Statistic < ActiveRecord::Base
         
           @all_pairs.each do |each_pair|
             if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick.id
-              @result_arr.push(calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real))
+              @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+              @result_arr.push(@add_to_arr) unless @add_to_arr == false
             end
           end
 
@@ -287,7 +296,8 @@ class Statistic < ActiveRecord::Base
         
           @all_pairs.each do |each_pair|
             if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick.id
-              @result_arr.push(calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real))
+              @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+              @result_arr.push(@add_to_arr) unless @add_to_arr == false
             end
           end
 
@@ -329,27 +339,22 @@ class Statistic < ActiveRecord::Base
         
           @all_pairs.each do |each_pair|
             if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick.id
-              @result_arr.push(calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real))
+              @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+              @result_arr.push(@add_to_arr) unless @add_to_arr == false
             end
           end
 
           case trajectory_num 
           when 1
-            if @result_arr.size != 0
-              puts "    trajectory: Normal: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
-              statistic.trajectory_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+            unless @result_arr.size == 0
+              statistic.trajectory_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i unless false
             end
           when 2
             if @result_arr.size != 0
-              puts "    trajectory: High: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.trajectory_high = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 3
             if @result_arr.size != 0
-              puts "    trajectory: Low: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.trajectory_low = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           end
@@ -366,7 +371,8 @@ class Statistic < ActiveRecord::Base
         
           @all_pairs.each do |each_pair|
             if each_pair.hit_planed.wind == wind_num && each_pair.hit_planed.stick_id == user_stick.stick.id
-              @result_arr.push(calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real))
+              @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+              @result_arr.push(@add_to_arr) unless @add_to_arr == false
             end
           end
 
