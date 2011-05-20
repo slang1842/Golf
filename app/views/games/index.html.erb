@@ -4,29 +4,15 @@
 
 
 
-
-<% @games.each do |game| %>
-  
-    <div class="single_game_wrap">
-      <div class="date_wrap">
-        <p><%=game.date%></p>
-      </div>
-      <div class="field_name_wrap">
-        <%# field = Field.find([:id => game.field_id])%>
-        <p><%=game.field_id%></p>
-      </div>
-      <div class="links">
-        <a href="#" class="gray_button">Plāns</a>
-        <a href="#" class="green_button">Rezultāti</a>
-        <a href="#" class="gray_button">Analīze</a>
-        <a href="#" class="green_button">Statistika</a>
-      </div>
-      <div class="clear"></div>
-    </div>
- 
-<% end %>
+<div id="games_list_div">
+<%= render(:partial => 'games/index_partial', :locals => {:games => @games})%>
+</div>
+<div id="more_games_link" style="margin:10px">
+<%= render(:partial => 'games/more_games_link', :locals => {:count => 5})%>
+</div>
 
 
 
+</div>
 
 

@@ -1,4 +1,4 @@
-<div class="error">Lūdzu, norādi laukumu un bedrīšu skaitu!</div>
+<div class="error">Lūdzu, norādi laukumu un bedrīšu skaitu, kā arī datumu!</div>
 <div class="profile_info_input">
   <h1>Jauna spēle</h1>
 <%= form_for(@game, :html => { :onsubmit => "return check_game_form();"}) do |f| %>
@@ -48,7 +48,7 @@
             <p>Datums</p>
           </div>
           <div class="input">
-            <%= f.text_field :date, :id => "timepicker" %>
+            <%= f.text_field :date, {:id => "timepicker", :class => "game_input_select"}  %>
           </div>
         </div>
          <div class="single_element">
