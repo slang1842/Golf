@@ -1,15 +1,16 @@
 <%= link_to "home", welcome_path %>
 
 <br /><br />
-
+Main Statistic
+<hr />
+<br /><br />
 <% @statistic.each do |s| %>
-
   <ul>
     <li>Statistic id: <%=  s.id %>
       <ul>
-        <li>User: <%= User.find(s.user_id).first_name  %>
+        <li>User: <%=  User.find(s.user_id).id  %>
           <ul>
-            <li>Stick name: <%# = Sticks.find(s.stick_id).stick_type %>
+            <li>Stick: <%= Stick.find(s.stick_id).id %>
               <ul>
                 <li>place_teebox: <%= s.place_teebox %></li>
                 <li>place_feairway: <%= s.place_feairway %></li>
@@ -59,6 +60,9 @@
       </ul>
     </li>
   </ul>
-
-
 <% end %>
+
+<br /><br />
+Game statistic (order by holes)
+<hr />
+<br /><br />
