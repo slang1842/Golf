@@ -13,8 +13,8 @@
     </div>
   <% end %>
 
-  <h1>Jauns laukums</h1>
-
+ 
+      <div class="background_fix" style="margin-top:0px ">
   <div class="field_name">
           <div class="txt"><p>Nosaukums</p></div>
           <div class="input"><%= f.text_field :name %><br /><br /></div>
@@ -32,7 +32,8 @@
       
       <% end %>
       <%else%>
-     <%= render(:partial => '/fields/new_green_fee', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name})%>
+     <%= render(:partial => '/fields/new_green_fee1', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name, :green_fee_value => 'Working days, 18 holes'})%>
+     <%= render(:partial => '/fields/new_green_fee1', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name, :green_fee_value => 'Weekend, 18 holes'})%>
      <% end %>
      </div>
      </div>  
@@ -58,13 +59,8 @@
 	    <% end %>
 	 </div>
 	  <% hole_number ||= 0 %>
-	  <% hole_attributes_name = @new_holes_attributes_name %>
+	  
 	  <div class="add_hole">
-	    <div id="hole_add_link">
-	      
-	      
-	      
-	      
 	      <script type="text/javascript">
 	  	  function append_new_hole(x) {
 	  	         var i = $('.current_hole_number:last').val();  	           
@@ -76,16 +72,16 @@
 	             i = parseInt(i) + 1;
 	             $('#holes').append(x);
 	           	 $('.current_hole_number:last').val(i);
-	             $('.hole_number_text:last').append(i+'.');
+	             $('.hole_number_text:last').replaceWith(i+'.');
 	            }
 	        
 	       </script>
 	      
-	      <a href="#" onClick="append_new_hole(<%=render(:partial => '/fields/new_hole', :locals => {:f => f, :hole_attributes_name => :hole_attributes_name, :hole => Hole.new, :hole_number => hole_number + 1}).to_json %>)" class="green_button" >+ Vēl vienu</a>
-           </div>
+	      <a href="#" onClick="append_new_hole(<%=render(:partial => '/fields/new_hole', :locals => {:f => f, :hole_attributes_name => @new_hole_attributes_name, :hole => Hole.new}).to_json %>)" class="green_button" >+ Vēl vienu</a>
+          
           </div>
 	 </div>
-
+</div>
 
 
 	  <div id="hit_places">
@@ -118,11 +114,11 @@
             </div>
           </div>                                             
         </div>    
-
+</div>
 <div class="green_button_save_field">
       <%= f.submit %>
   </div>
-</div>
+
 
 
 

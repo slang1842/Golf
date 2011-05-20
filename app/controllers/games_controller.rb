@@ -70,38 +70,7 @@ end
       format.xml  { head :ok }
     end
   end
-   # GET /games/new
-  # GET /games/new.xml
-  
-  
-  # def hole_switch
-  #   game_holes
-  #   @direction = params[:direction].to_s
-  #   @active_hole = params[:active_hole].to_i
-  #   @form_id = params[:form_id].to_s
-  #   @form_id = params[:form_id].to_s
-  #   
-  #   @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/1/0/0'
-  #   #redirect_to @path, :remote => :true
-  #   
-  # 
-  # end
-  # 
-  # def hit_switch
-  #   game_holes
-  #   @active_hole = params[:active_hole]
-  #   @direction = params[:direction].to_s
-  #   @form_id = params[:form_id].to_s
-  #   @active_hit = params[:active_hit].to_i
-  #   if @direction == 'next'
-  #     @active_hit = @active_hit + 1
-  #   elsif  @direction == 'prev' && @active_hit != 1
-  #     @active_hit = @active_hit - 1
-  #   end
-  #   
-  #   @path = '/game_' + @form_id.to_s + '/' + @game.id.to_s + '/' + @active_hole.to_s + '/' + @active_hit.to_s
-  #   #redirect_to @path, :remote => :true
-  #  end
+ 
     
    def plan
     game_holes
@@ -233,13 +202,10 @@ end
      @form_id = 'details'
        if params[:hits] == 'new'
          render '/games/hit_edit_details'
-       # else
-       #   respond_to do |format|
-       #     format.js
-       #   end
+     
        end
        
-      # comments(@hit_real, 'details')
+     
     end
     
     
@@ -249,12 +215,12 @@ end
       if @hitcount > 0 
        
               @path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/' + @hitcount.to_s + '/'+ @puts.to_s
-              #@path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/0/0'
+              
               redirect_to @path, :remote => :true
       
-      #@path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/' + @hits.to_s + '/'+ @puts.to_s
+      
       end   
-    #redirect_to @path, :remote => :true
+   
     end
     
     

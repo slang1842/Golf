@@ -17,7 +17,7 @@
           <%=game.fields_for :hits, hit do |f|%>
           <p><%=hit.hit_number%>.</p>
           <div class="element" style="height:45px">                    
-                <%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, {:prompt => 'Select'}, {:class => "dropdown3"} ) %>
+                <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Izvēlies.."},{:class => "dropdown3"} %>
               </div>
           
           <div class="element" >

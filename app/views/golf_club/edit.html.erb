@@ -2,8 +2,7 @@
 
 <div class="profile_info_input">
 
-  <h1>Edit  club</h1> 
-
+  <h1>Kluba rediģēšana</h1>
 
   <%= form_for(@golf_club, :url => golf_club_path)  do |f| %>
     <% if @golf_club.errors.any? %>
@@ -20,7 +19,7 @@
 
       <% end %>
     </div>
-
+<div class="profile_info_input" style="margin-top:0px ">
     <div class="left_wrap">
 
       <div class="single_element">
@@ -108,22 +107,25 @@
       </div>
 
 
-    </div>
-
-    <div class="button_done">
-      <div class="clear"></div>
-
-      <div class="actions">
-        <%= render :partial => 'fields/list', :class => "green_button", :locals => {:golf_club => @golf_club, :fields => @golf_club.fields } %> 
-      </div>
-
-    </div>
-<div class="actions">
+    
+<div class="green_button_save_field">
   <%= f.submit %>
 </div>
-  <% end %>
-
 </div>
+</div>
+<% end %>
+ 
+      <div class="clear"></div>
+
+      
+        <%= render :partial => 'fields/list', :class => "green_button", :locals => {:golf_club => @golf_club, :fields => @golf_club.fields } %> 
+     
+</div>
+   <div class="clear"></div>
+
+  
+
+
 
 
 

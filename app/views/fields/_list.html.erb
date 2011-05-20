@@ -1,23 +1,22 @@
-<h1>Listing fields</h1>
+<div class="profile_info_input" style="padding-bottom:30px">
+    <h1>Laukumi</h1>
+<div class="fields_wrap">
 
-<table>
-  <tr>
-    <th>Golf club</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+ <%= select_tag( "fields", options_from_collection_for_select(fields, "id", "name"), {:onchange => "changeLink(this.value)", :class => "dropdown3"}) %>
 
-<% fields.each do |field| %>
-  <tr>
-    <td><%= field.golf_club %></td>
-    <td><%#= link_to 'Show', [:golf_club, field] %></td>
-    <td><%= link_to 'Edit', edit_golf_club_field_path(field) %></td>
-    <td><%= link_to 'Destroy', [:golf_club, field], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+            <a href="#" class="green_button link edit_field_by_id">Rediģēt</a>
+            <a href="<%=new_golf_club_field_path%>" class="green_button link">Pieteikt jaunu</a>
+   
 
-<br />
-
-<%= link_to 'New Field', new_golf_club_field_path %>
+<script type="text/javascript">
+function changeLink(x)
+{
+  var z = "/edit_field_by_id/" + x;
+  $('.edit_field_by_id').attr('href', z);
+  return false;
+  
+}
+</script>
+<div class="clear"></div>
+</div>
+</div>

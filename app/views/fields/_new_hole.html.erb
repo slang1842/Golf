@@ -1,18 +1,18 @@
 <%# hole ||= Hole.new %>
 <%#= hole_number ||= 0 %>
-<%= f.fields_for :holes,  hole do |h| %>
+<%= f.fields_for hole_attributes_name,  hole do |h| %>
 <%= h.hidden_field :id unless hole.new_record? %>
 <%= h.hidden_field :hole_number, :class => 'current_hole_number' %>
 
 <div class="inputs">
-            <div class="txt"><p><div class="hole_number_text"></div></p></div>
+            <div class="txt"><p><div class="hole_number_text"><%= hole.hole_number.to_s + '.'%></div></p></div>
             <%= h.text_field :par   %>
             <%= h.text_field :hcp %>
            <%= h.file_field :image %>
             <!-- <a href="#" class="green_button" onclick="$('.field_hole_image').click();">Augaupldt bildi</a>
                         
                       </div> -->
-  
+</div>
   <% end %>
   
    

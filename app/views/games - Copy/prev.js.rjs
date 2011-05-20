@@ -1,2 +1,0 @@
-page['#holes_tab'].html render(:partial => 'games/hole_tab', :locals => {:active_hole => @active_hole})
-page['#hole_number'].replaceWith(@active_hole)
