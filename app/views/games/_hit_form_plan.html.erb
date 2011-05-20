@@ -12,7 +12,7 @@
           <p>Nūja</p>
             <div class="element">
               
-<%= f.collection_select( :stick_type, current_user.sticks, :stick_type, :stick_type, {:prompt => 'Select'}, {:class => 'dropdown6'} ) %>
+<%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Izvēlies.."},{:class => "dropdown6"}%>
             </div>
         </div>
 

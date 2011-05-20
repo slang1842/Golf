@@ -1,2 +1,0 @@
-page['#hits_tab'].html render(:partial => 'games/p', :locals => {:active_hole => @active_hole, :hit => @hit})
-page['#holes_tab'].html render(:partial => 'games/hole_tab', :locals => {:active_hole => @active_hole, :form_id => 'p', :game_id => @game.id, :hit_type => 'p', :count => 1})

@@ -50,17 +50,17 @@ class GolfClubController < ApplicationController
       end
   end
   
-/
-  def destroy
-    @golf_club = GolfClub.find(params[:id])
-    @golf_club.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(golf_clubs_url) }
-      format.xml  { head :ok }
-    end
-  end
-  /
+# /
+#   def destroy
+#     @golf_club = GolfClub.find(params[:id])
+#     @golf_club.destroy
+# 
+#     respond_to do |format|
+#       format.html { redirect_to(golf_clubs_url) }
+#       format.xml  { head :ok }
+#     end
+#   end
+#   /
   
   
   private

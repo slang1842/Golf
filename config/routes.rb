@@ -46,6 +46,7 @@ Golf::Application.routes.draw do
   get "user_sessions/new"
   
   #game
+  match '/edit_field_by_id/:id' => 'fields#edit'
   match '/hole_switch/:game_id/:active_hole/:direction/:form_id/:hits/:puts' => 'games#hole_switch', :as => 'hole_switch'
   match '/hit_switch/:game_id/:active_hole/:direction/:active_hit/:form_id' => 'games#hit_switch', :as => 'hit_switch'
   match '/game_new/:form_id' => 'games#new', :as => 'new_game'
