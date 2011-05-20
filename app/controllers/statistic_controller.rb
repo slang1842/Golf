@@ -2,15 +2,16 @@ class StatisticController < ApplicationController
 
  
   def statistics
-    redirect_to view_statistic_path if Statistic.calculate_statistics
+    redirect_to view_statistic_path if Statistic.main_statistics && Statistic.game_statistics_by_sticks && Statistic.game_statistics_by_holes
   end
   
   #def game_statistics
-  #  redirect_to view_statistic_path if Statistic.calculate_statistics && Statistic.game_statistics
+  #  redirect_to view_statistic_path if Statistic.calculate_statistics && 
   #end
     
   def view
     @statistic = Statistic.find(:all)
+    @GameStatisticsByHoles = GameStatisticsByHoles.find(:all)
     @users = User.where(:is_super_admin => false)
   end
   

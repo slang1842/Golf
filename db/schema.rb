@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110427094148) do
+ActiveRecord::Schema.define(:version => 20110520131047) do
 
   create_table "balls", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +33,37 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "short_distance"
     t.integer  "normal_distance"
     t.integer  "long_distance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "game_statistics_by_holes", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "fields_id"
+    t.integer  "hit_sum"
+    t.integer  "gir_sum"
+    t.integer  "hole_number"
+    t.integer  "hit_p"
+    t.integer  "hit_r"
+    t.integer  "puts_p"
+    t.integer  "puts_r"
+    t.string   "stick_order_p"
+    t.string   "stick_order_r"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "game_statistics_by_sticks", :force => true do |t|
+    t.integer  "games_id"
+    t.integer  "fields_id"
+    t.integer  "sticks_id"
+    t.integer  "hit_sum"
+    t.integer  "gir_sum"
+    t.integer  "puts_sum"
+    t.integer  "hits_p"
+    t.integer  "hits_r"
+    t.integer  "avg_distance"
+    t.integer  "stick_usage"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,7 +139,7 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "land_place"
     t.integer  "stance"
     t.integer  "trajectory"
-    t.string   "put_or_hit"
+    t.string   "hit_is_put"
     t.boolean  "luck_factor"
     t.string   "comment"
     t.integer  "following_action"
