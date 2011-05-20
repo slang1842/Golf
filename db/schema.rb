@@ -90,8 +90,6 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
 
   create_table "hit_places", :force => true do |t|
     t.integer  "field_id"
-    t.integer  "place",      :null => false
-    t.integer  "color",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,8 +115,8 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "distance_to_hole"
     t.integer  "hit_distance"
     t.integer  "wind"
-    t.string   "hit_was"
-    t.string   "motion_was"
+    t.integer  "hit_was"
+    t.integer  "motion_was"
     t.integer  "direction"
     t.integer  "misdirection"
     t.integer  "pair_id"
@@ -233,6 +231,7 @@ ActiveRecord::Schema.define(:version => 20110427094148) do
     t.integer  "degrees",        :null => false
     t.string   "shaft",          :null => false
     t.string   "shaft_strength", :null => false
+    t.string   "short_name",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

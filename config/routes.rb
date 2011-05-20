@@ -12,14 +12,11 @@ Golf::Application.routes.draw do
   resources :user_sessions
   resources :pair_hits
   resources :user_stats do
-  collection  do
-    get 'populate'
-    get 'save_hint'
+    collection  do
+      get 'populate'
+      get 'save_hint'
+    end
   end
-end
-  
-  
-
   
   resources  :statistics do
     resources :PairHit
@@ -28,8 +25,9 @@ end
   #statistics
   #================
   match '/s' => "statistic#statistics",   :as => "s"
-  match '/ss' => "statistic#show", :as => "show_statistic"
-  match '/user_stats/:id' => 'user_stats#show', :as => 'statistic'
+  match '/ss' => "statistic#view", :as => "view_statistic"
+  
+  
     
   resource :user, :controller => "user" do
     collection do
@@ -91,7 +89,7 @@ end
   
   
     
- # match '/' => "user_sessions#index",         :as => :login
+  # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

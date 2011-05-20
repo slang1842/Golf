@@ -78,10 +78,10 @@ function check_user_form() {
     });
 
     $(".user_select_field").each(function() {
-         if (textEntered && $(this).val() == "") {
-             textEntered = false;
-         }
-     });
+        if (textEntered && $(this).val() == "") {
+            textEntered = false;
+        }
+    });
                 
     if (textEntered) {
         return true
@@ -98,10 +98,10 @@ function check_game_form() {
    
 
     $(".game_input_select").each(function() {
-         if (textEntered && $(this).val() == "") {
-             textEntered = false;
-         }
-     });
+        if (textEntered && $(this).val() == "") {
+            textEntered = false;
+        }
+    });
                 
     if (textEntered) {
         return true
@@ -111,3 +111,54 @@ function check_game_form() {
     }
    
 }
+
+
+
+function golf_club_checkbox(){
+    if ($("#golf_club_label").is(":hidden")) {
+        $("#golf_club_label").slideDown("medium");
+    } else {
+        $("#golf_club_label").slideUp("medium");
+    }
+    
+    if ($("#user_golf_club_id").is(":hidden")) {
+        $("#user_golf_club_id").slideDown("medium");
+        
+    } else {
+        $("#user_golf_club_id").slideUp("medium", function() {
+            $("#user_golf_club_id").val("");
+        });
+        
+    }        
+};
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

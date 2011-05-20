@@ -1,15 +1,16 @@
 <h1>Listing sticks</h1>
 
 <div class="table_listing"
-  <b>
-  <div class="row">
-    <div class="item">Stick Type</div>
-    <div class="item">Distance</div>
-    <div class="item">Degrees</div>
-    <div class="item">Shaft</div>
-    <div class="item">Shaft Strenght</div>
-    <div class="item">To Do</div>
-  </div>
+     <b>
+    <div class="row">
+      <div class="item">Stick Type</div>
+      <div class="item">Distance</div>
+      <div class="item">Degrees</div>
+      <div class="item">Shaft</div>
+      <div class="item">Shaft Strenght</div>
+      <div class="item">Stick Short Name</div>
+      <div class="item">To Do</div>
+    </div>
   </b>
   <% @sticks.each do |stick| %>
     <div class="row">
@@ -18,6 +19,7 @@
       <div class="item"><%= stick.degrees %></div>
       <div class="item"><%= stick.shaft %></div>
       <div class="item"><%= stick.shaft_strength %></div>
+      <div class="item"><%= stick.short_name %></div>
       <div class="item"><%= link_to 'Edit', edit_admin_stick_path(stick.id) %></div>
     </div>
   <% end %>
