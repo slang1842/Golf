@@ -290,7 +290,7 @@ Hit.create(:game_id => 2,
   :direction => 4,
   :pair_id => 3)
             
-Hit.create (:game_id => 2,
+Hit.create(:game_id => 2,
   :user_id => 1,
   :hole_id => 3,
   :stick_id => 1,
@@ -356,8 +356,51 @@ PairHit.create(:users_id => 2,
   :hit_real_id => 12,
   :users_stick_id => 1)
               
+
+Hole.create(:field_id => 1,
+  :par => 1,
+  :hcp => 2,
+  :hole_number => 1)
               
+Hole.create(:field_id => 1,
+  :par => 1,
+  :hcp => 2,
+  :hole_number => 2)
               
+Hole.create(:field_id => 1,
+  :par => 1,
+  :hcp => 2,
+  :hole_number => 3)
+              
+Hole.create(:field_id => 1,
+  :par => 1,
+  :hcp => 2,
+  :hole_number => 4)
+              
+Hole.create(:field_id => 1,
+  :par => 1,
+  :hcp => 2,
+  :hole_number => 5)
+              
+Hole.create(:field_id => 1,
+  :par => 1,
+  :hcp => 2,
+  :hole_number => 6)
+              
+Hole.create(:field_id => 1,
+  :par => 1,
+  :hcp => 2,
+  :hole_number => 7)
+              
+Hole.create(:field_id => 1,
+  :par => 1,
+  :hcp => 2,
+  :hole_number => 8)
+              
+Hole.create(:field_id => 1,
+  :par => 1,
+  :hcp => 2,
+  :hole_number => 9)
               
               
               
