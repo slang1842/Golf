@@ -1,18 +1,34 @@
 class GamesController < ApplicationController
  before_filter :require_user
- before_filter :require_game_owner, :except => [ :index,  :new, :create]
+ before_filter :require_game_owner, :except => [ :index,  :new, :create, :more_games]
  
-    def index
-    @games = Game.where(:user_id => current_user.id)
-
-    respond_to do |format|
+    
+ def index
+    @games = Game.find(
+            :all,
+            :conditions => {:user_id => current_user.id},
+            :order =>  'created_at desc',
+            :limit => 5
+            )
+      respond_to do |format|
       format.js
       format.html # index.html.erb
       format.xml  { render :xml => @games }
     end
   end
-
- 
+  
+  
+  def more_games
+    
+    @count = params[:count].to_i + 5
+    @games = Game.find(
+            :all,
+            :conditions => {:user_id => current_user.id},
+            :order =>  'created_at desc',
+            :limit => @count
+            )
+      
+ end
   def show
     @game = Game.find(params[:id])
 
