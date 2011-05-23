@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20110520131047) do
     t.integer  "user_id"
     t.integer  "game_id"
     t.integer  "field_id"
+    t.integer  "hole_id"
     t.integer  "hit_sum"
     t.integer  "gir_sum"
     t.integer  "hole_number"

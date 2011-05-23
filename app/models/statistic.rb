@@ -434,7 +434,8 @@ class Statistic < ActiveRecord::Base
     
     @games.each do |c_game|
       
-      @fields = Field.where(:golf_club_id == c_game.user.golf_club)
+      @user = User.find(c_game.user_id)
+      @fields = Field.where(:golf_club_id == @user.golf_club_id)
       @fields.each do |c_field|
       
         
@@ -448,15 +449,30 @@ class Statistic < ActiveRecord::Base
           game_s_by_holes.hole_id = c_hole.id
           
           @all_c_hits = Hit.where(:game_id == c_game.id, :hole_id == c_hole.id)
-          @all_c_hits_p = @all_c_hits.where("real_hit = 'p' OR real_hit = 'pp'")
-          @all_c_hits_r = @all_c_hits.where("real_hit = 'r' OR real_hit = 'rp'")
+          @all_c_hits_p = @all_c_hits.where("real_hit = 'p' OR real_hit = 'pp'", :order => "hit_number ASC")
+          @all_c_hits_r = @all_c_hits.where("real_hit = 'r' OR real_hit = 'rp'", :order => "hit_number ASC")
          
+          @hits_p_arr = []
+          @hits_r_arr = []
+          @hit_p_count = 0
+          @hit_r_count = 0
+          @hit_p_put_count = 0
+          @hit_r_put_count = 0
+          
           @all_c_hits_p.each do |p|
-           
+            @hits_p_arr.push(p.stick.short_name)
+            @hit_p_count =+ 1
+            if p.place_from == 1
+              @hit_p_put_count =+ 1
+            end
           end
           
           @all_c_hits_r.each do |r|
-          
+            @hits_r_arr.push(r.stick.short_name)
+            @hit_r_count =+ 1
+            if r.place_from == 1
+              @hit_r_put_count =+ 1
+            end
           end
           
           if game_s_by_holes.save

@@ -19,7 +19,7 @@ GAME_TYPE = { "1-9" => 1, "10-18" => 2, "1-18" => 3}
 PLANNED_LAND_PLACES = {"Feairway" => 2, "Next fairway" => 3,"Raf" => 5, "For green" => 6, "Green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Hole" => 10, "Semi raf" => 4 }
 STATISTICS_TEMPERATURE = {"Hot" => 1,"Normal" => 2,"Cold" => 3}
 STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "From right" => 3, "From left" => 4}
-STATISTICS_PLACE_FROM = {"Teebox" => 1, "Feairway" => 2, "Next fairway" => 3, "Semi raf" => 4, "Raf" => 5, "For green" => 6, "Green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Wood" => 10, "From water" => 11 }
+STATISTICS_PLACE_FROM = {"Green" => 1, "Teebox" => 2, "Feairway" => 3, "Next fairway" => 4, "Semi raf" => 5, "Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Wood" => 10, "From water" => 11 }
 STATISTICS_STANCE = {"Normal" => 1, "Right leg lower" => 2, "Left leg lower" => 3, "Ball lower" => 4, "Ball higher" => 5}
 STATISTICS_DIRECTION = {"Straigth" => 1, "Fade" => 2, "Drow" => 3, "Slice" => 4, "Hook" => 5 }
 STATISTICS_MISDIRECTION = {"Hook" => 1, "Drow" => 2, "Straigth" => 3, "Fade" => 4, "Slice" => 5 }

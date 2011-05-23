@@ -14,7 +14,6 @@ class CreateHits < ActiveRecord::Migration
       t.integer :land_place # vieta kur trapija
       t.integer :stance
       t.integer :trajectory
-      t.string  :hit_is_put
       t.boolean :luck_factor
       t.string  :comment
       t.integer :following_action

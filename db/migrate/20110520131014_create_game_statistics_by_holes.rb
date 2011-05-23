@@ -4,6 +4,7 @@ class CreateGameStatisticsByHoles < ActiveRecord::Migration
       t.references   :user
       t.references   :game
       t.references   :field
+      t.references   :hole
       t.integer      :hit_sum
       t.integer      :gir_sum
         
