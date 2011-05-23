@@ -1,8 +1,9 @@
-class CreateGameStatisticsByBalls < ActiveRecord::Migration
+class CreateGameStatisticsByHoles < ActiveRecord::Migration
   def self.up
     create_table :game_statistics_by_holes do |t|
+      t.references   :user
       t.references   :game
-      t.references   :fields
+      t.references   :field
       t.integer      :hit_sum
       t.integer      :gir_sum
         

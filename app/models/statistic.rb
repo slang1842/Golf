@@ -427,27 +427,71 @@ class Statistic < ActiveRecord::Base
   # Game statistic
   
   def self.game_statistics_by_holes
-    @users = User.where(:is_super_admin => false)
-    @games = Game.all
     GameStatisticsByHoles.delete_all
     
-    game_s_by_ball = GameStatisticsByHoles.new
+    @games = Game.all
+    @game_all_saved = true
     
-    @games.each do |current_game|
-      game_s_by_ball.game_id = current_game.id
-      game_s_by_ball.fields_id = current_game.field_id
+    @games.each do |c_game|
+      
+      @fields = Field.where(:golf_club_id == c_game.user.golf_club)
+      @fields.each do |c_field|
+      
+        
+        @holes = Hole.where(:field_id == c_field.id)
+        @holes.each do |c_hole|
+            
+          game_s_by_holes = GameStatisticsByHoles.new
+          game_s_by_holes.game_id = c_game.id
+          game_s_by_holes.user_id = c_game.user_id
+          game_s_by_holes.field_id = c_field.id
+          game_s_by_holes.hole_id = c_hole.id
+          
+          @all_c_hits = Hit.where(:game_id == c_game.id, :hole_id == c_hole.id)
+          @all_c_hits_p = @all_c_hits.where("real_hit = 'p' OR real_hit = 'pp'")
+          @all_c_hits_r = @all_c_hits.where("real_hit = 'r' OR real_hit = 'rp'")
+         
+          @all_c_hits_p.each do |p|
+           
+          end
+          
+          @all_c_hits_r.each do |r|
+          
+          end
+          
+          if game_s_by_holes.save
+            @game_all_saved = true
+          else
+            @game_all_saved = false
+          end
+      
+        end # ends hole
+      end # ends field
+    
+      
+      #game_s_by_holes.game_id = c_game.id
+      #game_s_by_holes.user_id = c_game.user_id
+      #game_s_by_holes.field_id = c_game.field.id
+      
+      #all planed hits
+      #@hits = Hit.where(:game_id == c_game.id)
+      #@hits = @hits.where("real_hit = 'p' OR real_hit = 'pp'")
+      
+    
+      #@hit_arr = []
+      #@hits.each do |c_hit|
+      #  @hit_arr.push(@add_to_arr)
+      #end
       
       
-      
-      
-    end
-    #game_s_by_ball
-    if game_s_by_ball.save
+     
+    end # ends game
+    
+    if @game_all_saved
       return true
     else
       return false
     end
-
   end
   
   def self.game_statistics_by_sticks

@@ -19,9 +19,8 @@
       <div class="item"><%= f.label :region %></div>
       <div class="item"><%= f.label :city %></div>
       <div class="item"><%= f.label :web_page %></div>
-      <div class="item"><%= f.label "Statuss:" %> <%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %></div>
-     
-    </div>
+      <div class="item"><%= f.label "Accept club?" %> <%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %></div>
+     </div>
 
 
 
@@ -31,7 +30,7 @@
       <div class="item"><%= @golf_club.region%></div>
       <div class="item"><%= @golf_club.city%></div>
       <div class="item"><%= @golf_club.web_page%></div>
-      <div class="item"><%= f.submit "Accept"%></div>
+      <div class="item"><%= f.submit "Save"%></div>
     </div>
   </div>
 <% end %>

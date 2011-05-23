@@ -1,8 +1,9 @@
 class StatisticController < ApplicationController
-
+  skip_before_filter :require_user
  
   def statistics
-    redirect_to view_statistic_path if Statistic.main_statistics && Statistic.game_statistics_by_sticks && Statistic.game_statistics_by_holes
+    #redirect_to view_statistic_path if Statistic.main_statistics && Statistic.game_statistics_by_sticks && Statistic.game_statistics_by_holes
+    redirect_to view_statistic_path if Statistic.game_statistics_by_holes
   end
   
   #def game_statistics
@@ -11,8 +12,7 @@ class StatisticController < ApplicationController
     
   def view
     @statistic = Statistic.find(:all)
-    @GameStatisticsByHoles = GameStatisticsByHoles.find(:all)
-    @users = User.where(:is_super_admin => false)
+    @GameStatisticsByHoles = GameStatisticsByHoles.all
   end
   
   def show

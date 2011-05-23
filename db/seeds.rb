@@ -12,7 +12,7 @@ lv = Country.create(:name => 'Latvia')
 it = Country.create(:name => 'Italy')
 
 
-Stick.create (:stick_type => 'ORIONIONIN',
+Stick.create(:stick_type => 'ORIONIONIN',
   :distance => 100,
   :degrees => 35,
   :shaft => "metal",
@@ -20,7 +20,7 @@ Stick.create (:stick_type => 'ORIONIONIN',
   :shaft_strength => "strong")
               
 
-Stick.create (:stick_type => "PUTTER",
+Stick.create(:stick_type => "PUTTER",
   :distance => "210",
   :degrees => "34",
   :shaft => "wood",
@@ -28,14 +28,14 @@ Stick.create (:stick_type => "PUTTER",
   :shaft_strength => "strong")
               
               
-Stick.create (:stick_type => "DRIVER",
+Stick.create(:stick_type => "DRIVER",
   :distance => "160",
   :degrees => "14",
   :shaft => "metal",
   :short_name => "D",
   :shaft_strength => "very strong")
               
-Stick.create (:stick_type => "WOODBOW",
+Stick.create(:stick_type => "WOODBOW",
   :distance => "410",
   :degrees => "45",
   :shaft => "wood",
@@ -43,12 +43,12 @@ Stick.create (:stick_type => "WOODBOW",
   :shaft_strength => "medium strong")
              
 
-PairHit.create (:users_id => 1,
+PairHit.create(:users_id => 1,
   :hit_planed_id => 7,
   :hit_real_id => 8,
   :users_stick_id => 3)                
             
-GolfClub.create (:user_id => 1,
+GolfClub.create(:user_id => 1,
   :name => "OZO",
   :country_id => 1,
   :region => "Rīgas raj",
@@ -57,7 +57,7 @@ GolfClub.create (:user_id => 1,
   :accepted => "unknown",
   :active => false)
 
-Game.create (:id => 1,
+Game.create(:id => 1,
   :user_id => 1,
   :field_quality => "field_quality",
   :green_quality => "green_quality",
@@ -65,16 +65,7 @@ Game.create (:id => 1,
   :weather => 2,
   :field_id => 1)
    
-Game.create (:id => 2,
-  :user_id => 1,
-  :field_quality => "field_quality",
-  :green_quality => "green_quality",
-  :temperature => 3,
-  :weather => 2,
-  :field_id => 1)
-              
-   
-Game.create (:id => 3,
+Game.create(:id => 2,
   :user_id => 1,
   :field_quality => "field_quality",
   :green_quality => "green_quality",
@@ -83,7 +74,16 @@ Game.create (:id => 3,
   :field_id => 1)
               
    
-Game.create (:id => 4,
+Game.create(:id => 3,
+  :user_id => 1,
+  :field_quality => "field_quality",
+  :green_quality => "green_quality",
+  :temperature => 3,
+  :weather => 2,
+  :field_id => 1)
+              
+   
+Game.create(:id => 4,
   :user_id => 2,
   :field_quality => "field_quality",
   :green_quality => "green_quality",
@@ -92,21 +92,21 @@ Game.create (:id => 4,
   :field_id => 1)
               
 
-Field.create (:golf_club_id => 1,
+Field.create(:golf_club_id => 1,
   :name => "Viesturi",
   :very_short_distance => 1,
   :short_distance => 2,
   :normal_distance => 3,
   :long_distance => 4)    
 
-Field.create (:golf_club_id => 1,
+Field.create(:golf_club_id => 1,
   :name => "Cits laukums",
   :very_short_distance => 1,
   :short_distance => 2,
   :normal_distance => 3,
   :long_distance => 4)
 
-Hit.create (:game_id => 1,
+Hit.create(:game_id => 1,
   :user_id => 1,
   :hole_id => 1,
   :stick_id => 1,
@@ -125,7 +125,7 @@ Hit.create (:game_id => 1,
   :pair_id => 1)
             
 
-Hit.create (:game_id => 1,
+Hit.create(:game_id => 1,
   :user_id => 1,
   :hole_id => 1,
   :stick_id => 1,
@@ -145,7 +145,7 @@ Hit.create (:game_id => 1,
               
               
             
-Hit.create (:game_id => 2,
+Hit.create(:game_id => 2,
   :user_id => 2,
   :hole_id => 2,
   :stick_id => 1,
@@ -163,7 +163,7 @@ Hit.create (:game_id => 2,
   :direction => 2,
   :pair_id => 2)
 
-Hit.create (:game_id => 2,
+Hit.create(:game_id => 2,
   :user_id => 2,
   :hole_id => 2,
   :stick_id => 1,
@@ -182,7 +182,7 @@ Hit.create (:game_id => 2,
   :pair_id => 2)
            
             
-Hit.create (:game_id => 2,
+Hit.create(:game_id => 2,
   :user_id => 2,
   :hole_id => 2,
   :stick_id => 1,
@@ -200,7 +200,7 @@ Hit.create (:game_id => 2,
   :direction => 2,
   :pair_id => 2)
 
-Hit.create (:game_id => 2,
+Hit.create(:game_id => 2,
   :user_id => 2,
   :hole_id => 2,
   :stick_id => 1,
@@ -218,7 +218,7 @@ Hit.create (:game_id => 2,
   :direction => 2,
   :pair_id => 2)
 
-Hit.create (:game_id => 2,
+Hit.create(:game_id => 2,
   :user_id => 2,
   :hole_id => 2,
   :stick_id => 1,
@@ -236,7 +236,7 @@ Hit.create (:game_id => 2,
   :direction => 2,
   :pair_id => 2)
 
-Hit.create (:game_id => 2,
+Hit.create(:game_id => 2,
   :user_id => 2,
   :hole_id => 2,
   :stick_id => 1,
@@ -254,7 +254,7 @@ Hit.create (:game_id => 2,
   :direction => 2,
   :pair_id => 2)
             
-Hit.create (:game_id => 2,
+Hit.create(:game_id => 2,
   :user_id => 1,
   :hole_id => 2,
   :stick_id => 1,
@@ -272,7 +272,7 @@ Hit.create (:game_id => 2,
   :direction => 3,
   :pair_id => 3)
             
-Hit.create (:game_id => 2,
+Hit.create(:game_id => 2,
   :user_id => 1,
   :hole_id => 2,
   :stick_id => 1,
@@ -308,7 +308,7 @@ Hit.create (:game_id => 2,
   :direction => 4,
   :pair_id => 3)
             
-Hit.create (:game_id => 2,
+Hit.create(:game_id => 2,
   :user_id => 1,
   :hole_id => 3,
   :stick_id => 1,
@@ -326,32 +326,32 @@ Hit.create (:game_id => 2,
   :direction => 4,
   :pair_id => 3)
               
-PairHit.create (:users_id => 1,
+PairHit.create(:users_id => 1,
   :hit_planed_id => 1,
   :hit_real_id => 2,
   :users_stick_id => 1) 
 
-PairHit.create (:users_id => 2,
+PairHit.create(:users_id => 2,
   :hit_planed_id => 3,
   :hit_real_id => 4,
   :users_stick_id => 2) 
 
-PairHit.create (:users_id => 1,
+PairHit.create(:users_id => 1,
   :hit_planed_id => 5,
   :hit_real_id => 6,
   :users_stick_id => 3)
                 
-PairHit.create (:users_id => 1,
+PairHit.create(:users_id => 1,
   :hit_planed_id => 7,
   :hit_real_id => 8,
   :users_stick_id => 2)
                 
-PairHit.create (:users_id => 2,
+PairHit.create(:users_id => 2,
   :hit_planed_id => 9,
   :hit_real_id => 10,
   :users_stick_id => 1)
                 
-PairHit.create (:users_id => 2,
+PairHit.create(:users_id => 2,
   :hit_planed_id => 11,
   :hit_real_id => 12,
   :users_stick_id => 1)

@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(:version => 20110520131047) do
   end
 
   create_table "game_statistics_by_holes", :force => true do |t|
+    t.integer  "user_id"
     t.integer  "game_id"
-    t.integer  "fields_id"
+    t.integer  "field_id"
     t.integer  "hit_sum"
     t.integer  "gir_sum"
     t.integer  "hole_number"
