@@ -23,16 +23,18 @@ class UserController < ApplicationController
     @add_club = @params[:add_club]
     @golf_club = @params[:golf_club]
     #====================================
-    if  @add_club
+    if  @add_club == true
       @add_club = false
       @add_golf_club = true
+    else
+      @add_club == false
     end
     #====================================
     @user = User.new(params[:user])        
     if @user.save                        
-      if @add_golf_club
+      if @add_golf_club == true
         redirect_to new_golf_club_path
-      else
+      elsif @add_golf_club == false
         redirect_back_or_default(welcome_path)
       end      
     else                                 
