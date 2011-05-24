@@ -69,18 +69,14 @@ class Statistic < ActiveRecord::Base
   
   def self.main_statistics
 
-    @good = false
+    @return = false
     
     3.times { puts "============================================xx" }
   
     Statistic.delete_all
     @users = User.where(:is_super_admin => false)
     @users.each do |user|
-      puts ""
-      puts "user_id #{user.id}"
-      puts ""
       user.users_sticks.each do |user_stick|
-        puts " stick_id #{user_stick.stick.id}"
         
         statistic = Statistic.new
         statistic.user_id = user.id
@@ -167,32 +163,22 @@ class Statistic < ActiveRecord::Base
           case stance_num 
           when 1
             if @result_arr.size != 0
-              puts "    stance: Normal: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.stance_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 2
             if @result_arr.size != 0
-              puts "    stance: Right leg lower: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.stance_right_leg_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 3
             if @result_arr.size != 0
-              puts "    stance: Left leg lower: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.stance_left_leg_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 4
             if @result_arr.size != 0
-              puts "    stance: Ball lower: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.stance_ball_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 5
             if @result_arr.size != 0
-              puts "    stance: Ball higher: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.stance_ball_higher = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           end
@@ -217,32 +203,22 @@ class Statistic < ActiveRecord::Base
           case direction_num 
           when 1
             if @result_arr.size != 0
-              puts "    direction: Straigth: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.direction_straigth = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 2
             if @result_arr.size != 0
-              puts "    direction: Fade: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.direction_fade = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 3
             if @result_arr.size != 0
-              puts "    direction: Drow: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.direction_drow = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 4
             if @result_arr.size != 0
-              puts "    direction: Slice: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.direction_slice = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 5
             if @result_arr.size != 0
-              puts "    direction: Hook: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.direction_hook = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           end
@@ -267,20 +243,14 @@ class Statistic < ActiveRecord::Base
           case temperature_num 
           when 1
             if @result_arr.size != 0
-              puts "    temperature: Hot: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.temperature_hot = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 2
             if @result_arr.size != 0
-              puts "    temperature: Normal: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.temperature_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 3
             if @result_arr.size != 0
-              puts "    temperature: Cold: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.temperature_cold = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           end
@@ -305,26 +275,18 @@ class Statistic < ActiveRecord::Base
           case weather_num 
           when 1
             if @result_arr.size != 0
-              puts "    weather: Normal: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.weather_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 2
             if @result_arr.size != 0
-              puts "    weather: Wind: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.weather_wind = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 3
             if @result_arr.size != 0
-              puts "    weather: Rain: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.weather_rain = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 4
             if @result_arr.size != 0
-              puts "    weather: Wind and Rain: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.weather_wind_and_rain = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           end
@@ -380,47 +342,29 @@ class Statistic < ActiveRecord::Base
           case wind_num 
           when 1
             if @result_arr.size != 0
-              puts "    wind: From behind: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.wind_from_behind = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 2
             if @result_arr.size != 0
-              puts "    wind: From front: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.wind_from_front = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           when 3
             if @result_arr.size != 0
-              puts "    wind: From right: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.wind_from_right
             end
           when 4
             if @result_arr.size != 0
-              puts "    wind: From left: #{(@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i}%"
-              puts "   ---"
               statistic.wind_from_right = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
             end
           end
         end
         # ==========================================
-        
-        if statistic.save
-          @good = true
-        else
-          @good = false
-        end
+      
+        @return = true if statistic.save
       end
     end
-    puts ""
-    3.times { puts "============================================xx" }
-  
-    if @good
-      return true
-    else
-      return false      
-    end
+   
+    return @return
   end
   
 
@@ -429,7 +373,7 @@ class Statistic < ActiveRecord::Base
   
   def self.game_statistics_by_holes
     GameStatisticsByHoles.delete_all
-    @return = true
+    @return = false
     
     @games = Game.all
     @games.each do |c_game|
@@ -479,18 +423,49 @@ class Statistic < ActiveRecord::Base
         game_s_holes.put_sum = @global_hits.where(:place_from => 1).count #put_sum
         game_s_holes.gir_sum = @global_hits.where(:land_place => 1, :hit_number => 1).count #gir_sum
         
-        @return = false unless game_s_holes.save
+        @return = true if game_s_holes.save
       end # ends hole
     end # ends game
     
     return @return
   end
   
-  def self.game_statistics_by_sticks
-    @users = User.where(:is_super_admin => false)
-    
-    
-    return true
-  end
   
+  def self.game_statistics_by_sticks
+    GameStatisticsBySticks.delete_all
+    @return = false
+    
+    @games = Game.all
+    @games.each do |c_game|
+      
+      @user = c_game.user
+      @user_sticks = UsersStick.where(:user_id => @user.id)
+      @user_sticks.each do |c_user_stick|
+      
+        game_s_sticks = GameStatisticsBySticks.new
+        game_s_sticks.game_id = c_game.id
+        game_s_sticks.fields_id = c_game.field_id
+        game_s_sticks.users_stick_id = c_user_stick.id
+        game_s_sticks.user_id = @user.id
+        @hit_p = Hit.where("real_hit = 'p' OR real_hit = 'pp'").where(:stick_id => c_user_stick.stick.id, :game_id => c_game.id).order("hit_number ASC")
+        @hit_r = Hit.where("real_hit = 'r' OR real_hit = 'rp'").where(:stick_id => c_user_stick.stick.id, :game_id => c_game.id).order("hit_number ASC")
+        
+        game_s_sticks.hits_p = @hit_p.count
+        game_s_sticks.hits_r = @hit_r.count
+        
+        
+        @all_hits = Hit.all
+        @all_current_stick_hits = Hit.where(:stick_id => c_user_stick.stick.id)
+        @avg = ((@all_current_stick_hits.count.to_f / @all_hits.count.to_f).to_f * 100).round
+        game_s_sticks.stick_usage = @avg
+        game_s_sticks.avg_distance = @all_current_stick_hits.average("hit_distance") #@all_current_stick_hits.count
+        
+        @return = true if game_s_sticks.save
+        
+      end # ends user stick
+    end # ends game
+    
+    return @return
+  end
+    
 end

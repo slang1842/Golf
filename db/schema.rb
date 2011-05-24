@@ -57,12 +57,10 @@ ActiveRecord::Schema.define(:version => 20110520131047) do
   end
 
   create_table "game_statistics_by_sticks", :force => true do |t|
-    t.integer  "games_id"
+    t.integer  "game_id"
     t.integer  "fields_id"
-    t.integer  "sticks_id"
-    t.integer  "hit_sum"
-    t.integer  "gir_sum"
-    t.integer  "puts_sum"
+    t.integer  "users_stick_id"
+    t.integer  "user_id"
     t.integer  "hits_p"
     t.integer  "hits_r"
     t.integer  "avg_distance"

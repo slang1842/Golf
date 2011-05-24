@@ -94,3 +94,20 @@ Game statistic (order by holes)
 Game statistic (order by holes)
 <hr />
 <br /><br />
+<% @GameStatisticsBySticks.each do |s| %>
+
+  <ul>
+    <li>game_id: <%= s.game_id || "N/A" %></li>
+    <ul>
+      <li>user_id: <%= s.user_id || "N/A" %></li>
+      <li>fields_id: <%= s.fields_id || "N/A" %></li>
+      <li>sticks_id: <%= s.users_stick_id || "N/A" %></li>
+      <li>hit_p: <%= s.hits_p || "N/A" %></li>
+      <li>hit_r: <%= s.hits_r || "N/A" %></li>
+      <li>stick_usage: <%= s.stick_usage || "N/A" %></li>
+      <li>avg_distance: <%= s.avg_distance || "N/A" %></li>
+
+    </ul>
+  </ul>
+
+<% end %>
