@@ -272,6 +272,7 @@ ActiveRecord::Schema.define(:version => 20110520131047) do
     t.string   "crypted_password",                      :null => false
     t.string   "password_salt",                         :null => false
     t.string   "persistence_token",                     :null => false
+    t.boolean  "add_club",           :default => false
     t.boolean  "admin",              :default => false
     t.boolean  "is_super_admin",     :default => false
     t.boolean  "is_blocked",         :default => false
