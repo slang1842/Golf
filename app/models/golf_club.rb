@@ -2,8 +2,8 @@ class GolfClub < ActiveRecord::Base
   belongs_to :user
   belongs_to :country
   has_many :fields
-	validates_presence_of :name, :region, :city, :web_page
-  validates_uniqueness_of :name, :web_page
+	validates :name, :region, :city, :web_page, :presence => true
+  validates :name, :web_page, :uniqueness => true
   def to_s
     self.name
   end
