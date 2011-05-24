@@ -18,7 +18,7 @@ class GolfClubController < ApplicationController
   /
  def edit
     store_location
-    @golf_club = GolfClub.find(current_user)
+    @golf_club = GolfClub.find(current_user.golf_club.id)
   end
 
   
