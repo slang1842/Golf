@@ -22,10 +22,11 @@
     <div class="table_wrap">
       <div class="line">
         <div class="desc_row">
-          <div class="selector stats_selector">
-            <select size="1" name="type" id="dropdown3" onchange="SwitchStats()">
-                  <option value="1">Nūjas</option>
-                  <option value="2">Bedrītes</option>
+          <div class="selector">
+            <select size="1" name="type" class="dropdown3 stats_selector" onchange="SwitchStats(this.value)">
+                  
+                  <option value="1">Bedrītes</option>
+                  <option value="2">Nūjas</option>
             </select>
           </div>
         </div>
@@ -36,16 +37,19 @@
     <div class="clear"></div>
 </div> 
 <script type='text/javascript'>  
-function SwitchStats()
+function SwitchStats(x)
 {
-  var x = $('.stats_selector:selected').val();
-  if (x == 2)
-  {
-    $('#game_stats_view').render('<%= escape_javascript(render :partial => 'game_statistics/view_by_holes', :locals => {:holes_filtered => @holes_filtered, :game => @game}) %>');
-  }
+  // var x = $('.stats_selector:selected').val();
+  x = parseInt(x);
   if (x == 1)
   {
-    $('#game_stats_view').render('<%= escape_javascript(render :partial => 'game_statistics/view_by_sticks', :locals => {:holes_filtered => @holes_filtered, :game => @game}) %>');
+   
+    $('.game_stats_view').replaceWith('<%= escape_javascript(render :partial => 'game_statistics/view_by_holes', :locals => {:holes_filtered => @holes_filtered, :game => @game}) %>');
+  }
+  if (x == 2)
+  {
+    
+    $('.game_stats_view').replaceWith('<%= escape_javascript(render :partial => 'game_statistics/view_by_sticks', :locals => {:holes_filtered => @holes_filtered, :game => @game}) %>');
   }
   return false;
   
