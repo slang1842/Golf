@@ -1,6 +1,7 @@
 class Statistic < ActiveRecord::Base
-  has_many  :users
-  has_many  :hits
+  has_many    :users
+  has_many    :hits
+  belongs_to  :hole
   scope :game, :joins => {:game => :hit}
   scope :stick, :joins => {:stick => :user_stick}
 
@@ -428,86 +429,61 @@ class Statistic < ActiveRecord::Base
   
   def self.game_statistics_by_holes
     GameStatisticsByHoles.delete_all
+    @return = true
     
     @games = Game.all
-    @game_all_saved = true
-    
     @games.each do |c_game|
       
-      @user = User.find(c_game.user_id)
-      @fields = Field.where(:golf_club_id == @user.golf_club_id)
-      @fields.each do |c_field|
-      
+      @holes = Hole.where(:field_id => c_game.field_id)
+      @holes.each do |c_hole|
+       
+        @hits = Hit.where(
+          :game_id => c_game.id, 
+          :user_id => c_game.user_id,
+          :hole_id => c_hole.id)
         
-        @holes = Hole.where(:field_id == c_field.id)
-        @holes.each do |c_hole|
-            
-          game_s_by_holes = GameStatisticsByHoles.new
-          game_s_by_holes.game_id = c_game.id
-          game_s_by_holes.user_id = c_game.user_id
-          game_s_by_holes.field_id = c_field.id
-          game_s_by_holes.hole_id = c_hole.id
-          
-          @all_c_hits = Hit.where(:game_id == c_game.id, :hole_id == c_hole.id)
-          @all_c_hits_p = @all_c_hits.where("real_hit = 'p' OR real_hit = 'pp'", :order => "hit_number ASC")
-          @all_c_hits_r = @all_c_hits.where("real_hit = 'r' OR real_hit = 'rp'", :order => "hit_number ASC")
-         
-          @hits_p_arr = []
-          @hits_r_arr = []
-          @hit_p_count = 0
-          @hit_r_count = 0
-          @hit_p_put_count = 0
-          @hit_r_put_count = 0
-          
-          @all_c_hits_p.each do |p|
-            @hits_p_arr.push(p.stick.short_name)
-            @hit_p_count =+ 1
-            if p.place_from == 1
-              @hit_p_put_count =+ 1
-            end
-          end
-          
-          @all_c_hits_r.each do |r|
-            @hits_r_arr.push(r.stick.short_name)
-            @hit_r_count =+ 1
-            if r.place_from == 1
-              @hit_r_put_count =+ 1
-            end
-          end
-          
-          if game_s_by_holes.save
-            @game_all_saved = true
-          else
-            @game_all_saved = false
-          end
+        game_s_holes = GameStatisticsByHoles.new
+        game_s_holes.game_id = c_game.id #game_id
+        game_s_holes.user_id = c_game.user_id #user_id
+        game_s_holes.field_id = c_game.field_id #field_id
+        
+        game_s_holes.hole_id = c_hole.id #hole_id
+        game_s_holes.hole_number = c_hole.hole_number #hole_number
+        
+        @hit_p = @hits.where("real_hit = 'p' OR real_hit = 'pp'").order("hit_number ASC")
+        @hit_r = @hits.where("real_hit = 'r' OR real_hit = 'rp'").order("hit_number ASC")
+        
+        game_s_holes.puts_p = @hit_p.where(:place_from => 1).count
+        game_s_holes.puts_r = @hit_r.where(:place_from => 1).count
+        
+        game_s_holes.hit_p = @hit_p.count
+        game_s_holes.hit_r = @hit_r.count
+        
+        @stick_order_p_arr = []
+        @stick_order_r_arr = []
+        
+        @hit_p.each do |c_p_hit|
+          @stick_order_p_arr.push(Stick.find(c_p_hit.stick).short_name)
+        end
+        
+        @hit_r.each do |c_r_hit|
+          @stick_order_r_arr.push(Stick.find(c_r_hit.stick_id).short_name)
+        end
+        
+        game_s_holes.stick_order_p = @stick_order_p_arr.join(", ") unless @stick_order_p_arr.length == 0
+        game_s_holes.stick_order_r = @stick_order_r_arr.join(", ") unless @stick_order_r_arr.length == 0
+        
+        @global_hits = Hit.where(:user_id == c_game.user_id, :game == c_game.id)
       
-        end # ends hole
-      end # ends field
-    
-      
-      #game_s_by_holes.game_id = c_game.id
-      #game_s_by_holes.user_id = c_game.user_id
-      #game_s_by_holes.field_id = c_game.field.id
-      
-      #all planed hits
-      #@hits = Hit.where(:game_id == c_game.id)
-      #@hits = @hits.where("real_hit = 'p' OR real_hit = 'pp'")
-      
-    
-      #@hit_arr = []
-      #@hits.each do |c_hit|
-      #  @hit_arr.push(@add_to_arr)
-      #end
-      
-      
-     
+        game_s_holes.hit_sum = @global_hits.count #hit_sum
+        game_s_holes.put_sum = @global_hits.where(:place_from => 1).count #put_sum
+        game_s_holes.gir_sum = @global_hits.where(:land_place => 1, :hit_number => 1).count #gir_sum
+        
+        @return = false unless game_s_holes.save
+      end # ends hole
     end # ends game
     
-    if @game_all_saved
-      return true
-    else
-      return false
-    end
+    return @return
   end
   
   def self.game_statistics_by_sticks

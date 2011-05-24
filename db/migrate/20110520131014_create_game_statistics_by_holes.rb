@@ -5,11 +5,13 @@ class CreateGameStatisticsByHoles < ActiveRecord::Migration
       t.references   :game
       t.references   :field
       t.references   :hole
+      
       t.integer      :hit_sum
       t.integer      :gir_sum
-        
+      t.integer      :put_sum
+      
       t.integer      :hole_number
-        
+      
       t.integer      :hit_p
       t.integer      :hit_r
       t.integer      :puts_p
