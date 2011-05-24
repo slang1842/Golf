@@ -1,0 +1,53 @@
+
+<%= render :partial => 'share/header_menu' %>
+
+<div class="single_stats_wrap">
+    <div class="description"> 
+      <p>Spēle laukumā "<%=@field.name%>"</p>
+      <p><%=l @game.date, :format => :game %></p>
+    </div>
+    <div class="total_hits_desc">
+      <p>Kopējais sitienu skaits</p>
+    </div>
+    <div class="value">
+      <p>87</p>
+    </div>
+    <div class="total_hits_desc one_line">
+      <p>GIR</p>
+    </div>
+    <div class="value">
+      <p>2</p>
+    </div>
+    
+    <div class="table_wrap">
+      <div class="line">
+        <div class="desc_row">
+          <div class="selector stats_selector">
+            <select size="1" name="type" id="dropdown3" onchange="SwitchStats()">
+                  <option value="1">Nūjas</option>
+                  <option value="2">Bedrītes</option>
+            </select>
+          </div>
+        </div>
+        <div class="game_stats_view">
+        <%= render :partial => 'game_statistics/view_by_holes', :locals => {:holes_filtered => @holes_filtered, :game => @game} %>
+      </div>
+        
+    <div class="clear"></div>
+</div> 
+<script type='text/javascript'>  
+function SwitchStats()
+{
+  var x = $('.stats_selector:selected').val();
+  if (x == 2)
+  {
+    $('#game_stats_view').render('<%= escape_javascript(render :partial => 'game_statistics/view_by_holes', :locals => {:holes_filtered => @holes_filtered, :game => @game}) %>');
+  }
+  if (x == 1)
+  {
+    $('#game_stats_view').render('<%= escape_javascript(render :partial => 'game_statistics/view_by_sticks', :locals => {:holes_filtered => @holes_filtered, :game => @game}) %>');
+  }
+  return false;
+  
+}
+</script> 

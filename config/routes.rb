@@ -66,6 +66,7 @@ Golf::Application.routes.draw do
   match '/hit_update/:game_id/' => 'games#hit_update'
   match '/print_game_plan/:game_id/' => 'games#print_game_plan', :as => 'print_game_plan'
   match '/print_empty_plan/:game_id/' => 'games#print_empty', :as => 'print_empty_plan'
+  match '/single_game_statistics/:game_id' => 'games#get_stats', :as => 'get_stats'
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
   match '/welcome' => "welcome#index",        :as => :loged_in
