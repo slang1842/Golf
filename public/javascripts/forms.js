@@ -1,7 +1,9 @@
 $(document).ready(function(){
     datapicker();
     timepicker();
+    check_to_disable();
 });
+
 
 
 function render_sticks() {

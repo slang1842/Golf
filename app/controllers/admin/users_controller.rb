@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     
-    @users = User.find(:all)
+    @users = User.where(:is_super_admin => false)
     
      respond_to do |format|
       format.html # index.html.erb

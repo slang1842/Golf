@@ -19,13 +19,13 @@
 
       <div id="sticks">
         <% @users_sticks.each do |users_stick| %>
-          <%= render :partial => 'user/stick_form', :locals => { :users_stick => users_stick,  :f => f, :users_sticks_attributes => @sticks_attributes} %>
+          <%= render :partial => 'user/stick_form', :locals => {:users_stick => users_stick,  :f => f, :users_sticks_attributes => @sticks_attributes} %>
         <% end %>
       </div>
 
       <div class="clear"></div>
       <div class="element">
-        <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :onclick=> 'init_dropdown', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}).slideDown('fast')" %>
+        <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :onclick=> 'init_dropdown()', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}).slideDown('fast')" %>
         <div class="clear"></div>
       </div>
 

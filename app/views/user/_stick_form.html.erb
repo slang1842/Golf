@@ -1,4 +1,4 @@
-<div id="<%= "users_stick_#{users_stick.id}" unless users_stick.new_record? %>"  >
+<div id="<%= "users_stick_#{users_stick.id}" unless users_stick.new_record? %>"  >  
   <%= f.fields_for users_sticks_attributes, users_stick do |h| %>
     <%= h.hidden_field :id unless users_stick.new_record? %>
 
@@ -12,17 +12,27 @@
       </div>
 
       <div class="item">
-        <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown4", :onchange => "fill_sticks_form(this)"} %></div>
+        <% if users_stick.id != nil %>
+          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown4", :onchange => "fill_sticks_form(this)", :disabled => "disabled" } %></div>
+        <% else %>
+          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown4", :onchange => "fill_sticks_form(this)"} %></div>
+        <% end %>
         <div class="subitem"><%= h.text_field :distance, :class => 'distance dropdown2' %></div>  
         <div class="subitem"><%= h.text_field :degrees, :class => 'degrees dropdown2' %></div>
         <div class="subitem"><%= h.text_field :shaft, :class => 'shaft dropdown4' %></div>
         <div class="subitem"><%= h.text_field :shaft_strength, :class => 'shaft_strength dropdown4' %></div>
         <div class="subitem2">
+
+
           <% if users_stick.new_record? %>
             <a href="" OnClick="$(this).parent().parent().parent().slideUp('fast', function() { $(this).remove(); } ); return false;" >cancel</a>
           <% else %>
+            <!--
             <%= link_to 'Destroy', users_stick, :confirm => 'Are you sure?', :remote => true, :method => :delete %>
+            -->
           <% end %>
+
+
         </div>
       </div>
 

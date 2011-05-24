@@ -11,7 +11,7 @@
 lv = Country.create(:name => 'Latvia')
 it = Country.create(:name => 'Italy')
 
-
+/
 Stick.create(:stick_type => 'ORIONIONIN',
   :distance => 100,
   :degrees => 35,
@@ -623,7 +623,7 @@ Hole.create(:field_id => 1,
   :hole_number => 9)
               
               
-              
+   
               
               
               
