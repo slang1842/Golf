@@ -142,7 +142,9 @@
 
           <div>
             <p>* Dont see your club?</p>
-            <p ><input onclick="golf_club_checkbox();" type="checkbox" name="create_club" >I will create new golf club</p>
+            
+
+            <p><%= f.check_box :golf_club_id, {:onclick => "golf_club_checkbox()"} %> I will create new golf club</p>
           </div>
 
         </div>
