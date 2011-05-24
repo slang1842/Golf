@@ -8,10 +8,10 @@
             <div class="txt"><p><div class="hole_number_text"><%= hole.hole_number.to_s + '.'%></div></p></div>
             <%= h.text_field :par   %>
             <%= h.text_field :hcp %>
-           <%= h.file_field :image %>
-            <!-- <a href="#" class="green_button" onclick="$('.field_hole_image').click();">Augaupldt bildi</a>
-                        
-                      </div> -->
+           <%= h.file_field( :image,{:style => "width:110px"}) %>
+           <!-- <a href="#" class="green_button" onclick="$('.field_hole_image').click();">Augaupldt bildi</a>
+                           -->       
+                      
 </div>
   <% end %>
   
