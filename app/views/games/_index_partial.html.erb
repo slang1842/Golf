@@ -28,7 +28,7 @@
         <a href="<%='/game_details/' + game.id.to_s + '/1/1/new/0'%>" class="gray_button">Analīze</a>
         <% end %>
        
-        <a href="#" class="green_button">Statistika</a>
+        <a href="<%=get_stats_path(game.id)%>" class="green_button">Statistika</a>
       </div>
       <div class="clear"></div>
     </div>

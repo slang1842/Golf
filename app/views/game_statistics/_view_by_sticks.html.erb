@@ -1,0 +1,34 @@
+<div class="game_stats_view">
+  <div class="row" style="width:115px">
+          <p>Cik reizes plānoji sist</p>
+        </div>
+        <div class="row" style="width:115px">
+          <p>Cik reizes<br>siti</p>
+        </div>
+        <div class="row" style="width:115px">
+          <p>AVG<br>distance</p>
+        </div>
+        
+        <div class="clear"></div>
+      </div>
+      <% current_user.sticks.each do |stick|%>
+      <% @stats = GameStatisticsBySticks.find(:first, :conditions => {:games_id => @game.id, :sticks_id => stick.id})%>
+      <% if @stats %>
+        <div class="line">
+          <div class="desc_row1">
+            <p><%=stick.name%></p>
+          </div>
+          
+          <div class="row1" style="width:115px">
+            <p><%=@stats.hits_p%></p>
+          </div>
+          <div class="row1" style="width:115px">
+            <p><%=@stats.hits_r%></p>
+          </div>
+          <div class="row1" style="width:115px">
+            <p><%=@stats.avg_distance%></p>
+          </div>
+        </div>
+        <%end%>
+        <%end%>
+  </div>

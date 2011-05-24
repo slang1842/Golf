@@ -17,7 +17,12 @@ class GamesController < ApplicationController
     end
   end
   
-  
+  def get_stats
+    @game_holes
+    
+    @field = Field.find(:first, :conditions => {:id => @game.field_id})
+    render '/game_statistics/view/'
+  end
   def more_games
     
     @count = params[:count].to_i + 5

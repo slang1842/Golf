@@ -1,0 +1,53 @@
+<div class="game_stats_view"> 
+        <div class="row" style="width:115px">
+          <p>Ar cik plānoji izsist</p>
+        </div>
+        <div class="row" style="width:50px">
+          <p>Puts</p>
+        </div>
+        <div class="row" style="width:135px">
+          <p>Nūju secība</p>
+        </div>
+        
+        <div class="row" style="width:115px">
+          <p>Ar cik sanāca</p>
+        </div>
+        <div class="row" style="width:50px">
+          <p>Puts</p>
+        </div>
+        <div class="row" style="width:135px">
+          <p>Plānotā nūju secība</p>
+        </div>
+        
+        <div class="clear"></div>
+      </div>
+      <% @holes_filtered.each do |hole|%>
+      <% @statistics = GameStatisticsByHoles.find(:first, :conditions => {:game_id => @game.id, :hole_number => hole.hole_number})%>
+      <% if @statistics%>
+        <div class="line">
+          <div class="desc_row1">
+            <p><%=hole.hole_number%>. bedrīte</p>
+          </div>
+          
+          <div class="row1" style="width:115px">
+            <p><%= @statistics.hit_p%></p>
+          </div>
+          <div class="row1" style="width:50px">
+            <p><%= @statistics.puts_p%></p>
+          </div>
+          <div class="row1" style="width:135px">
+            <p class="sticks_font"><%= @statistics.stick_order_p%></p>
+          </div>
+          <div class="row1" style="width:115px">
+            <p><%= @statistics.hit_r%></p>
+          </div>
+          <div class="row1" style="width:50px">
+            <p><%= @statistics.puts_r%></p>
+          </div>
+          <div class="row1" style="width:135px">
+            <p class="sticks_font"><%= @statistics.stick_order_r%></p>
+          </div>
+        </div>
+        <%end%>
+        <%end%>
+      </div>
