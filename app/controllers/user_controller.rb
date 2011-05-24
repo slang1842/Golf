@@ -16,58 +16,60 @@ class UserController < ApplicationController
     @user = current_user                   
   end                                      
 
-  def create                               
+  def create
+    @add_golf_club = false
+    
+    @params = params[:user]
+    @add_club = @params[:add_club]
+    @golf_club = @params[:golf_club]
+    #====================================
+    if  @add_club
+      @add_club = false
+      @add_golf_club = true
+    end
+    #====================================
     @user = User.new(params[:user])        
     if @user.save                        
-      redirect_back_or_default(welcome_path)
+      if @add_golf_club
+        redirect_to new_golf_club_path
+      else
+        redirect_back_or_default(welcome_path)
+      end      
     else                                 
       render :action => "new"             
     end                                  
   end                                      
 
   def update
-    #====================================
-    @add_club
-    golf_params = params[:user]
-    golf_params = golf_params[:golf_club]
+    @add_golf_club = false
     
-    /
-    case golf_params
-    when true
-      @add_club = true
-      golf_params = nil
-    when false
-      golf_params = nil
+    @params = params[:user]
+    @add_club = @params[:add_club]
+    @golf_club = @params[:golf_club]
+    #====================================
+    if  @add_club
       @add_club = false
-    when current_user.golf_club
-    else
+      @add_golf_club = true
+    end
+    #====================================
+    unless @golf_club == current_user.golf_club
       current_user.update_attributes(:admin => false)
     end
-    
-    /
-    if golf_params == true
-      #is true
-      @add_club = true
-    else
-      golf_params = nil
-      current_user.update_attributes(:admin => false)
-    end unless golf_params == current_user.golf_club
-   
+    #====================================
     @user = current_user                 
     if @user.update_attributes(params[:user])
-      if @add_club
+      if @add_golf_club
         redirect_to new_golf_club_path
       else
         redirect_to welcome_path
       end
+                
     else      
       respond_to do |format|
         format.html { render :action => "edit" }
       end
     end                                    
   end   
-  
-   
   #============================================
   def bag
     # bag
@@ -85,7 +87,8 @@ class UserController < ApplicationController
    
     store_location
   end 
-  #===========================
+  
+  
   def update_bag
     @user = current_user
     @users_sticks = current_user.users_sticks
