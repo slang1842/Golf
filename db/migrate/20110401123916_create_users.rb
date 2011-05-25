@@ -11,6 +11,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean       :admin,            	   :default => false 
       t.boolean       :is_super_admin,       :default => false
       t.boolean       :is_blocked,           :default => false
+      t.boolean       :show_hints,           :default => false
       
       t.string        :first_name,           :null => false
       t.string        :last_name,            :null => false

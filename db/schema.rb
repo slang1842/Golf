@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525065908) do
+ActiveRecord::Schema.define(:version => 20110525104705) do
 
   create_table "balls", :force => true do |t|
     t.integer  "user_id"
@@ -94,6 +94,18 @@ ActiveRecord::Schema.define(:version => 20110525065908) do
     t.integer  "next_hole"
     t.integer  "active_hit"
     t.string   "form"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "golf_club_banners", :force => true do |t|
+    t.integer  "golf_club_id"
+    t.date     "date_limit"
+    t.boolean  "is_pay_banner"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -24,22 +24,26 @@ class Admin::GolfClubsController < ApplicationController
       format.xml  { render :xml => @clubs }
     end
 	end
-/
+  /
   def edit
     countries
     @golf_club = GolfClub.find(params[:id])
+    @golf_club_banner = GolfClubBanner.where(:game_id => @golf_club.id)
     @country = Country.find(@golf_club.country_id)
-   
+    
+    @pay_banner = GolfClubBanner.new
+    @free_banner = GolfClubBanner.new
   end
 
 
   
   def update
+    @pay_banner = GolfClubBanner.update_attributes(params(:golf_club_banners))
+    @free_banner = GolfClubBanner.update_attributes(params(:golf_club_banners))
+        
     @golf_club = GolfClub.find(params[:id])
-    if params[:status] == "yes"
-      @golf_club.user.update_attributes(:admin => 1, :golf_club_id => @golf_club.id)
-    end
-    GolfClub.update (params[:id], {:accepted=>params[:status]} )
+    @golf_club.user.update_attributes(:admin => 1, :golf_club_id => @golf_club.id) if params[:status] == "yes"
+    GolfClub.update(params[:id], {:accepted=>params[:status]} )
     redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')
   end
   
