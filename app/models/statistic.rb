@@ -417,12 +417,6 @@ class Statistic < ActiveRecord::Base
         game_s_holes.stick_order_p = @stick_order_p_arr.join(", ") unless @stick_order_p_arr.length == 0
         game_s_holes.stick_order_r = @stick_order_r_arr.join(", ") unless @stick_order_r_arr.length == 0
         
-        @global_hits = Hit.where(:user_id == c_game.user_id, :game == c_game.id)
-      
-        game_s_holes.hit_sum = @global_hits.count #hit_sum
-        game_s_holes.put_sum = @global_hits.where(:place_from => 1).count #put_sum
-        game_s_holes.gir_sum = @global_hits.where(:land_place => 1, :hit_number => 1).count #gir_sum
-        
         @return = true if game_s_holes.save
       end # ends hole
     end # ends game
@@ -453,7 +447,6 @@ class Statistic < ActiveRecord::Base
         game_s_sticks.hits_p = @hit_p.count
         game_s_sticks.hits_r = @hit_r.count
         
-        
         @all_hits = Hit.all
         @all_current_stick_hits = Hit.where(:stick_id => c_user_stick.stick.id)
         @avg = ((@all_current_stick_hits.count.to_f / @all_hits.count.to_f).to_f * 100).round
@@ -468,4 +461,22 @@ class Statistic < ActiveRecord::Base
     return @return
   end
     
+  def self.game_statistics_general
+    GameStatisticsGeneral.delete_all
+    @return = false
+    
+    @games = Game.all
+    @games.each do |c_game|
+      @GameStatisticsGeneral = GameStatisticsGeneral.new
+      @global_hits = Hit.where(:game == c_game.id)
+      
+      @GameStatisticsGeneral.game_id = c_game.id
+      game_s_holes.hit_sum = @global_hits.count #hit_sum
+      game_s_holes.put_sum = @global_hits.where(:place_from => 1).count #put_sum
+      game_s_holes.gir_sum = @global_hits.where(:land_place => 1, :hit_number => 1).count #gir_sum
+      @return = true if @GameStatisticsGeneral.save
+    end
+    return @return
+  end
+  
 end
