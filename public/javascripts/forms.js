@@ -117,16 +117,16 @@ function check_game_form() {
 
 function golf_club_checkbox(){
     if ($("#golf_club_label").is(":hidden")) {
-        $("#golf_club_label").slideDown("medium");
+        $("#golf_club_label").slideDown("fast");
     } else {
-        $("#golf_club_label").slideUp("medium");
+        $("#golf_club_label").slideUp("fast");
     }
     
     if ($("#user_golf_club_id").is(":hidden")) {
-        $("#user_golf_club_id").slideDown("medium");
+        $("#user_golf_club_id").slideDown("fast");
         
     } else {
-        $("#user_golf_club_id").slideUp("medium", function() {
+        $("#user_golf_club_id").slideUp("fast", function() {
             $("#user_golf_club_id").val("");
         });
         
