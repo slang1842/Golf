@@ -18,24 +18,16 @@ class UserController < ApplicationController
 
   def create
     @add_golf_club = false
-    
-    @params = params[:user]
-    @add_club = @params[:add_club]
-    @golf_club = @params[:golf_club]
-    #====================================
-    if  @add_club == true
-      @add_club = false
+    @user = User.new(params[:user])
+    if  @user.add_club == true
+      @user.add_club = false
       @add_golf_club = true
-    else
-      @add_club == false
-    end
-    #====================================
-    @user = User.new(params[:user])        
+    end            
     if @user.save                        
       if @add_golf_club == true
         redirect_to new_golf_club_path
       elsif @add_golf_club == false
-        redirect_back_or_default(welcome_path)
+        redirect_to welcome_path
       end      
     else                                 
       render :action => "new"             
@@ -43,35 +35,22 @@ class UserController < ApplicationController
   end                                      
 
   def update
-    @add_golf_club = false
-    
     @params = params[:user]
-    @add_club = @params[:add_club]
-    @golf_club = @params[:golf_club]
-    #====================================
-    if  @add_club == true
-      @add_club = false
-      @add_golf_club = true
-    else
-      @add_club == false
-    end
-    #====================================
-    unless @golf_club == current_user.golf_club
+    unless @params[:golf_club] == current_user.golf_club
       current_user.update_attributes(:admin => false)
     end
-    #====================================
-    @user = current_user                 
+    @user = current_user
     if @user.update_attributes(params[:user])
-       if @add_golf_club == true
-         redirect_to new_golf_club_path
-      elsif @add_golf_club == false
-         redirect_to welcome_path
-      end              
-    else      
-      respond_to do |format|
-        format.html { render :action => "edit" }
+      if current_user.add_club == true
+        current_user.update_attributes(:add_club => false)
+        redirect_to new_golf_club_path
+      else
+        redirect_to welcome_path
       end
-    end                                    
+    else
+      format.html { render :action => "edit" }
+      format.xml { render :xml => @user.errors, :status => :unprocessable_entity }
+    end 
   end   
   #============================================
   def bag
