@@ -1,4 +1,4 @@
-<div class="game_stats_view">
+
   <div class="row" style="width:115px">
           <p>Cik reizes plānoji sist</p>
         </div>
@@ -10,13 +10,13 @@
         </div>
         
         <div class="clear"></div>
-      </div>
+      
       <% current_user.sticks.each do |stick|%>
-      <% @stats = GameStatisticsBySticks.find(:first, :conditions => {:games_id => @game.id, :sticks_id => stick.id})%>
+      <% @stats = GameStatisticsBySticks.find(:first, :conditions => {:game_id => @game.id, :users_stick_id => stick.id})%>
       <% if @stats %>
         <div class="line">
           <div class="desc_row1">
-            <p><%=stick.name%></p>
+            <p><%=stick.stick_type%></p>
           </div>
           
           <div class="row1" style="width:115px">
@@ -31,4 +31,4 @@
         </div>
         <%end%>
         <%end%>
-  </div>
+

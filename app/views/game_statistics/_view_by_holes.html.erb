@@ -1,4 +1,4 @@
-<div class="game_stats_view"> 
+
         <div class="row" style="width:115px">
           <p>Ar cik plānoji izsist</p>
         </div>
@@ -20,7 +20,7 @@
         </div>
         
         <div class="clear"></div>
-      </div>
+     
       <% @holes_filtered.each do |hole|%>
       <% @statistics = GameStatisticsByHoles.find(:first, :conditions => {:game_id => @game.id, :hole_number => hole.hole_number})%>
       <% if @statistics%>
@@ -50,4 +50,4 @@
         </div>
         <%end%>
         <%end%>
-      </div>
+   

@@ -30,7 +30,7 @@
             </select>
           </div>
         </div>
-        <div class="game_stats_view">
+        <div id="game_stats_view">
         <%= render :partial => 'game_statistics/view_by_holes', :locals => {:holes_filtered => @holes_filtered, :game => @game} %>
       </div>
         
@@ -42,11 +42,12 @@ function SwitchStats(x)
    x = parseInt(x);
   if (x == 1)
   {
-     $('.game_stats_view').replaceWith('<%= escape_javascript(render :partial => 'game_statistics/view_by_holes', :locals => {:holes_filtered => @holes_filtered, :game => @game}) %>');
+         $('#game_stats_view').html('<%= escape_javascript(render :partial => 'game_statistics/view_by_holes', :locals => {:holes_filtered => @holes_filtered, :game => @game}) %>');
   }
   if (x == 2)
   {
-        $('.game_stats_view').replaceWith('<%= escape_javascript(render :partial => 'game_statistics/view_by_sticks', :locals => {:holes_filtered => @holes_filtered, :game => @game}) %>');
+         // $('#game_stats_view').empty();
+         $('#game_stats_view').html('<%= escape_javascript(render :partial => 'game_statistics/view_by_sticks', :locals => {:holes_filtered => @holes_filtered, :game => @game}) %>');
   }
   return false;
   

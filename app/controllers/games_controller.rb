@@ -115,7 +115,7 @@ end
      if params[:hits] == 'new'
          render '/games/hit_edit'
        end
-  puts @game.id
+  puts @hit.id
     end
     
     def res
@@ -310,8 +310,8 @@ end
   def hit_update
      game_holes
      require_game_owner
-     @game.update_attributes(params[:game])
-     @game.update_attributes(params[:hit])
+     #@game.update_attributes(params[:game])
+     @game.update_attributes(params[:hits])
      @game_id = @game.id
      @active_hit = params[:next_hit].to_s
      @active_hit1 = params[:active_hit]
