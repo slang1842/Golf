@@ -74,9 +74,7 @@ Game statistic (order by holes)
     <li>game_id: <%= s.game_id || "N/A" %></li>
     <ul>
       <li>User_id: <%= s.user_id %>
-      <li>fields_id: <%= s.field_id || "N/A" %></li>
-      <li>hit_sum: <%= s.hit_sum || "N/A" %></li>
-      <li>gir_sum: <%= s.gir_sum || "N/A" %></li>
+      <li>fields_id: <%= s.field_id || "N/A" %></li> 
       <li>hole_number: <%= s.hole_number || "N/A" %></li>
       <li>hole id: <%= s.hole_id || "N/A" %></li>
       <li>hit_p: <%= s.hit_p || "N/A" %></li>
@@ -110,4 +108,20 @@ Game statistic (order by holes)
     </ul>
   </ul>
 
+<% end %>
+
+<br /><br />
+Game statistic (general)
+<hr />
+<br /><br />
+<% @GameStatisticsGeneral.each do |s| %>
+
+  <ul>
+    <li> game_id: <%= s.game_id %>
+      <ul>
+        <li>hit_sum: <%= s.hit_sum || "N/A" %></li>
+        <li>gir_sum: <%= s.gir_sum || "N/A" %></li>
+      </ul>
+    </li>
+  </ul>
 <% end %>
