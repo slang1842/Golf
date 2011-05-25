@@ -1,73 +1,31 @@
 <h1>Golf club "<%= @golf_club.name%>"</h1>
 
-<%= form_for [:admin, @golf_club], :html => {:multipart => true} do |f| %>
-  <% if @golf_club.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@golf_club.errors.count, "error") %> prohibited this golf_club from being saved:</h2>
-      <ul>
-        <% @golf_club.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@golf_club, :url => admin_golf_club_path)  do |f| %>
+
 
   <div class="form_edit">
+
+
     <div class="column">
-      <div class="item"><%= f.label :name %></div>
-      <div class="item"><%= f.label t "form.country" %></div>
-      <div class="item"><%= f.label :region %></div>
-      <div class="item"><%= f.label :city %></div>
-      <div class="item"><%= f.label :web_page %></div>
-      <div class="item"><%= f.label "Accept club?" %> <%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %></div>
+      <div class="item">Name:</div>
+      <div class="item">Country:</div>
+      <div class="item">Region:</div>
+      <div class="item">City:</div>
+      <div class="item">Web Page:</div>
+      <div class="item"><%= f.label "Accept club?" %></div>
     </div>
-
-
 
     <div class="column">
       <div class="item"><%= @golf_club.name%></div>
-      <div class="item"><%= @country.name%></div>
+      <div class="item"><%= @golf_club.country.name%></div>
       <div class="item"><%= @golf_club.region%></div>
       <div class="item"><%= @golf_club.city%></div>
       <div class="item"><%= @golf_club.web_page%></div>
-      <div class="item"><%= f.submit "Save"%></div>
+      <div class="item"><%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %></div>
     </div>
+
+    <div class="item"><%= f.submit "Save"%></div>
+
   </div>
 
-  <div class="banner_wrap">
-    <% f.fields_for :golf_club_banners, @pay_banner do |bp| %>
-      <%= bp.file_field :image %>
-    <% end %>
-  </div>
-
-  <div class="banner_wrap">
-    <% fields_for :golf_club_banners, @free_banner do |bf| %>
-      <%= bf.file_field :image %>
-    <% end %>
-  </div>
 <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

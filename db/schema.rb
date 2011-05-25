@@ -122,6 +122,10 @@ ActiveRecord::Schema.define(:version => 20110525104705) do
     t.string   "start_place_by_level_high"
     t.string   "accepted",                    :default => "unknown"
     t.boolean  "active",                      :default => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -297,6 +301,7 @@ ActiveRecord::Schema.define(:version => 20110525104705) do
     t.boolean  "admin",              :default => false
     t.boolean  "is_super_admin",     :default => false
     t.boolean  "is_blocked",         :default => false
+    t.boolean  "show_hints",         :default => false
     t.string   "first_name",                            :null => false
     t.string   "last_name",                             :null => false
     t.string   "nick",                                  :null => false
