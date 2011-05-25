@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110520131047) do
+ActiveRecord::Schema.define(:version => 20110525065908) do
 
   create_table "balls", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(:version => 20110520131047) do
     t.integer  "short_distance"
     t.integer  "normal_distance"
     t.integer  "long_distance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "game_statistic_generals", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "hit_sum"
+    t.integer  "put_sum"
+    t.integer  "gir_sum"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

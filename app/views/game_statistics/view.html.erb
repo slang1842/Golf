@@ -6,17 +6,24 @@
       <p>Spēle laukumā "<%=@field.name%>"</p>
       <p><%=l @game.date, :format => :game %></p>
     </div>
+    <% @gen_stats = GameStatisticGeneral.find(:first, :conditions => {:game_id => @game.id})%>
     <div class="total_hits_desc">
       <p>Kopējais sitienu skaits</p>
     </div>
     <div class="value">
-      <p>87</p>
+      <p><%= @gen_stats.hit_sum%></p>
     </div>
     <div class="total_hits_desc one_line">
       <p>GIR</p>
     </div>
     <div class="value">
-      <p>2</p>
+      <p><%= @gen_stats.gir_sum%></p>
+    </div>
+    <div class="total_hits_desc one_line">
+      <p>Puts</p>
+    </div>
+    <div class="value">
+      <p><%=@gen_stats.put_sum%></p>
     </div>
     
     <div class="table_wrap">
