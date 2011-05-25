@@ -99,4 +99,13 @@ class UserController < ApplicationController
       end
     end  
   end
+  
+  def update_hints
+    @user = User.find(params[:id])
+    @user.show_hints = params[:show_hints]
+   if  @user.update_attributes(params[:user])
+     
+   end
+      
+  end
 end

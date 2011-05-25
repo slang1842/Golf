@@ -1,23 +1,12 @@
-<h1>Listing fields</h1>
+<%= render :partial => 'share/header_menu' %>
 
-<table>
-  <tr>
-    <th>Golf club</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @fields.each do |field| %>
-  <tr>
-    <td><%= field.golf_club %></td>
-    <td><%#= link_to 'Show', [:golf_club, field] %></td>
-    <td><%= link_to 'Edit', edit_golf_club_field_path(field) %></td>
-    <td><%= link_to 'Destroy', [:golf_club, field], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Field', new_golf_club_field_path %>
+    
+      <div class="club_wrap">
+    <div class="club_info_wrap">
+      <h1><%=@golf_club.name%></h1>
+      <p><span class="gray"><%=@golf_club.city%>, <%=@golf_club.region%></span></p>
+      <p><span class="gray"><%=@golf_club.web_page%></span></p>
+      <p><a href="/club/edit">Rediģēt kluba info</a>   </p>
+    </div>
+      </div>
+<%= render :partial => 'fields/list', :class => "green_button", :locals => {:golf_club => @golf_club, :fields => @golf_club.fields } %> 

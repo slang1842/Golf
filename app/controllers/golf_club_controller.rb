@@ -17,6 +17,11 @@ class GolfClubController < ApplicationController
     @golf_club = GolfClub.find(current_user.golf_club.id)
   end
 
+  def edit_fields
+    store_location
+    @golf_club = GolfClub.find(current_user.golf_club.id)
+    render '/fields/index'
+  end
   
   def create
     @golf_club = GolfClub.new(params[:golf_club])
@@ -35,6 +40,12 @@ class GolfClubController < ApplicationController
     end
   end
 
+
+  def show
+   @club = GolfClub.find(:first, :conditions => {:id => current_user.golf_club.id})
+   @users = User.find(:all, :conditions => {:golf_club_id => @club.id})
+   render '/golf_club/show'
+  end
   
   def update
     @golf_club = GolfClub.find(current_user.golf_club.id)
@@ -64,5 +75,5 @@ class GolfClubController < ApplicationController
     @contries = Country.all
     #@country = Country.find(current_user.country.id)
   end
-
+ 
 end
