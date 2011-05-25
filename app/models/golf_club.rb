@@ -8,7 +8,8 @@ class GolfClub < ActiveRecord::Base
     self.name
   end
   
-  has_many :golf_club_banners#, :dependent => :destroy
-  accepts_nested_attributes_for :golf_club_banners, :reject_if => lambda { |t| t['golf_club_banners'].nil? }
-
+  has_attached_file :image,
+    :url => "/golf_club/f_banner/:attachment/:id_:style.:extension",
+    :path => ":rails_root/public/golf_club/f_banner/:attachment/:id_:style.:extension"
+  
 end
