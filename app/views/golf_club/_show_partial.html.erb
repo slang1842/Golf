@@ -1,8 +1,4 @@
-
-<%= render :partial => 'share/header_menu' %>
-
-
-		<% if current_user.golf_club.accepted == "yes" %>
+<% if current_user.golf_club.accepted == "yes" %>
       <%if current_user.golf_club.active? %>
       <div class="club_wrap">
     <div class="club_info_wrap">
@@ -34,11 +30,7 @@
           </div>
           <p><%=user.email%></p>
         </div>
-        
-      
-        
-        
-        
+         
         <% @sticks = user.users_sticks%>
         <% @sticks.each do |stick| %>
         <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => user.id})%>
@@ -74,8 +66,8 @@
         You must complete club registration, for club to be active. You can do that <%= link_to "here", edit_golf_club_path %>
       <% end %>
       
-		<% elsif current_user.golf_club.accepted == "no" %>
-			your club has not beed accepted
+    <% elsif current_user.golf_club.accepted == "no" %>
+      your club has not beed accepted
     <% else %>
       Administrator has not yet accepted your club
-		<% end %>
+    <% end %>

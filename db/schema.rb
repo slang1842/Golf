@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525104705) do
+ActiveRecord::Schema.define(:version => 20110525141619) do
+
+  create_table "all_stick_statistics", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "stick_id"
+    t.integer  "usage"
+    t.integer  "avg_distance"
+    t.integer  "stick_progres"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "balls", :force => true do |t|
     t.integer  "user_id"
@@ -122,10 +132,6 @@ ActiveRecord::Schema.define(:version => 20110525104705) do
     t.string   "start_place_by_level_high"
     t.string   "accepted",                    :default => "unknown"
     t.boolean  "active",                      :default => false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
