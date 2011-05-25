@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20110525065908) do
     t.string   "green_quality"
     t.integer  "temperature"
     t.integer  "weather"
-    t.time     "date"
+    t.datetime "date"
     t.string   "game_format"
     t.integer  "user_id"
     t.integer  "field_id"

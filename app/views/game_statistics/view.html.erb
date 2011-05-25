@@ -7,6 +7,7 @@
       <p><%=l @game.date, :format => :game %></p>
     </div>
     <% @gen_stats = GameStatisticGeneral.find(:first, :conditions => {:game_id => @game.id})%>
+    <% if @gen_stats %>
     <div class="total_hits_desc">
       <p>Kopējais sitienu skaits</p>
     </div>
@@ -25,7 +26,7 @@
     <div class="value">
       <p><%=@gen_stats.put_sum%></p>
     </div>
-    
+    <% end %>
     <div class="table_wrap">
       <div class="line">
         <div class="desc_row">

@@ -1,6 +1,7 @@
 $(document).ready(function(){
     datapicker();
     timepicker();
+    gamedatepicker();
 });
 
 
@@ -19,14 +20,21 @@ function fill_sticks_form(a) {
     });
 };
 
-
+function gamedatepicker() {
+    $( ".gamedatepicker" ).datetimepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'dd.mm.y',
+        yearRange: '1900:2011'
+    });
+}
 
 
 function datapicker() {
     $( "#datepicker" ).datepicker({
         changeMonth: true,
         changeYear: true,
-        dateFormat: 'dd-mm-yy',
+        dateFormat: 'dd.mm.y',
         yearRange: '1900:2011'
     });
 }

@@ -32,9 +32,9 @@ STATISTICS_DIFFICULTY = { "Easy" => 1, "Medium" => 2, "Hard" => 3}
 # PLANNED_LAND_PLACES     (id 1 = must be Green)
 # STATISTICS_PLACE_FROM   (id 1 = must be Green)
 # STATISTICS_PLACE_FROM   (id 2 = must be Teebox)
-# statistics must be as specified above for statistics to
+# statistics must be specified as above for statistics to
 # work correctly .!!!!!
 # ========================================================
-PLANNED_LAND_PLACES = {"Green" => 1,"Feairway" => 2, "Next fairway" => 3,"Raf" => 4, "For green" => 5, "Fairway sand" => 6, "Green sand" => 7, "Hole" => 8, "Semi raf" => 9 }
-STATISTICS_PLACE_FROM = {"Green" => 1, "Teebox" => 2, "Feairway" => 3, "Next fairway" => 4, "Semi raf" => 5, "Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Wood" => 10, "From water" => 11 }
+PLANNED_LAND_PLACES = {"Green" => 1,"Fairway" => 3, "Next fairway" => 4,"Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Hole" => 8, "Semi raf" => 5 }
+STATISTICS_PLACE_FROM = {"Green" => 1, "Teebox" => 2, "Fairway" => 3, "Next fairway" => 4, "Semi raf" => 5, "Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Wood" => 10, "From water" => 11 }
 

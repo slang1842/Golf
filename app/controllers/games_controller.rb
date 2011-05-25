@@ -297,7 +297,7 @@ end
                @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
                place_from = @hit_real_prev.land_place
                wind = @hit_planned_prev.wind
-               @hit_real.update_attributes({:place_from => place_from, :wind => wind})
+              #@hit_real.update_attributes({:place_from => place_from, :wind => wind})
                @hit_planned.update_attributes({:place_from => place_from, :wind => wind})
                @hit_r_final = @hit_real
                @hit_p_final = @hit_planned
@@ -310,8 +310,12 @@ end
   def hit_update
      game_holes
      require_game_owner
-     #@game.update_attributes(params[:game])
-     @game.update_attributes(params[:hits])
+      if @game.update_attributes(params[:game])
+        
+      end
+     if @game.update_attributes(params[:hits])
+      
+     end
      @game_id = @game.id
      @active_hit = params[:next_hit].to_s
      @active_hit1 = params[:active_hit]
@@ -369,10 +373,9 @@ end
         return false
       end
     end
-    def print_empty
-     
-    end
+   
     def print_game_plan
-    
+    game_holes
+    render 'games/print_game_plan', :layout => 'print'
     end
 end

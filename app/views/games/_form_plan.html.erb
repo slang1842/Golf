@@ -74,7 +74,8 @@
             <p>Datums</p>
           </div>
           <div class="input">
-            <%= f.text_field (:date, {:id => "timepicker", :class => "game_input_select"} )%>
+            <%= f.text_field (:date, {:class => "game_input_select gamedatepicker"} )%>
+            <%#= f.datetime_select :date %> 
           </div>
         </div>
          <div class="clear"></div>
