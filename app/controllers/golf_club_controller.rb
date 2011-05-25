@@ -1,6 +1,6 @@
 class GolfClubController < ApplicationController
 
- before_filter :require_admin, :except => [:create, :new]
+  before_filter :require_admin, :except => [:create, :new]
   before_filter :require_user, :only => [:create, :new]
   
   def new
@@ -11,18 +11,14 @@ class GolfClubController < ApplicationController
       format.xml  { render :xml => @golf_club }
     end
   end
-  /
-  def show #index
-    countries
-  end
-  /
- def edit
+  
+  def edit
     store_location
     @golf_club = GolfClub.find(current_user.golf_club.id)
   end
 
   
- def create
+  def create
     @golf_club = GolfClub.new(params[:golf_club])
     @golf_club.user = current_user
     
@@ -42,25 +38,25 @@ class GolfClubController < ApplicationController
   
   def update
     @golf_club = GolfClub.find(current_user.golf_club.id)
-      if @golf_club.update_attributes(params[:golf_club])
-        redirect_to(golf_club_path, :notice => 'Golf club was successfully updated.')
-      else
-        redirect_to(golf_club_path, :notice => 'Golf club was not successfully updated.')
+    if @golf_club.update_attributes(params[:golf_club])
+      redirect_to(golf_club_path, :notice => 'Golf club was successfully updated.')
+    else
+      redirect_to(golf_club_path, :notice => 'Golf club was not successfully updated.')
       
-      end
+    end
   end
   
-# /
-#   def destroy
-#     @golf_club = GolfClub.find(params[:id])
-#     @golf_club.destroy
-# 
-#     respond_to do |format|
-#       format.html { redirect_to(golf_clubs_url) }
-#       format.xml  { head :ok }
-#     end
-#   end
-#   /
+  # /
+  #   def destroy
+  #     @golf_club = GolfClub.find(params[:id])
+  #     @golf_club.destroy
+  # 
+  #     respond_to do |format|
+  #       format.html { redirect_to(golf_clubs_url) }
+  #       format.xml  { head :ok }
+  #     end
+  #   end
+  #   /
   
   
   private

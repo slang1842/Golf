@@ -55,13 +55,21 @@
 	-moz-border-radius: 9px;
 	border-radius: 9px;
 	height:24px;
-	width:120px;
 	font-family:"Trebuchet MS";
 	color:#898989;
 	font-weight:bold;
 	float:left;
 	margin-right:29px;
 	margin-bottom:10px;
+}
+
+
+.new_field .green_fee .inputs .text {
+    width:180px;
+}
+
+.new_field .green_fee .inputs .price {
+    width:50px;
 }
 
 .new_field .green_fee .button_wrap {

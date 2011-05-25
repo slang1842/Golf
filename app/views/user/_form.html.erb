@@ -135,7 +135,7 @@
               <p><%= f.label t "form.home_club", :id => "golf_club_label"%></p>
             </div>
             <div class="input" id = "golf_club_checkbox">
-              <%= f.collection_select(:golf_club_id, GolfClub.all, :id, :name, { :prompt => t(:notices_no_club)}, {:class => 'dropdown3'}) %>
+              <%= f.collection_select(:golf_club_id, @golf_club, :id, :name, { :prompt => t(:notices_no_club)}, {:class => 'dropdown3'}) %>
             </div>
           </div>
           

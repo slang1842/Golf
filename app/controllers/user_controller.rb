@@ -4,16 +4,18 @@ class UserController < ApplicationController
   skip_before_filter :header, :only => [:login_or_register, :new, :create]
   before_filter :require_user, :only => [:edit, :update, :bag, :update_bag]
  
-  def login_or_register                    
+  def login_or_register
   end                                      
 
   def new                                 
-    @user = User.new 
+    @user = User.new
     store_location
+    @golf_club = GolfClub.where(:accepted => "yes", :active => true)
   end                                      
 
-  def edit                                 
-    @user = current_user                   
+  def edit
+    @user = current_user
+    @golf_club = GolfClub.where(:accepted => "yes", :active => true)
   end                                      
 
   def create
