@@ -7,10 +7,12 @@
 <div id="games_list_div">
 <%= render(:partial => 'games/index_partial', :locals => {:games => @games})%>
 </div>
+<% if current_user.games.count > 5 %>
 <div id="more_games_link" style="margin:10px">
 <%= render(:partial => 'games/more_games_link', :locals => {:count => 5})%>
 </div>
 
+<% end %>
 
 
 </div>

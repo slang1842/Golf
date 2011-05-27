@@ -11,7 +11,11 @@
 
 	<div class="user_home_wrap">
 		<div class="ads_wrap">
-			<img src="/images/ad_blank.png" alt=""/>
+		  <% if current_user.golf_club.is_v_banner_disabled == false %>
+		  <img src="<%=current_user.golf_club.image_v.url%>" width="160px" height="469px" alt=""/>
+		  <%else%>
+			<img src="/images/ad_blank.png" width="160px" height="469px" alt=""/>
+			<%end%>
 			<div class="single_ad">
 				<p><b>Lorem ipsum - 50% ATLAIDE!</b><span class="gray"> Dolor sit amet, consecetur adipiscing alit.</span></p>
 			</div>
