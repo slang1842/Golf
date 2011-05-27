@@ -481,34 +481,35 @@ class Statistic < ActiveRecord::Base
   
   
   def self.all_sticks_statistics
-    AllStickStatistics.delete_all
+    AllStickStatistic.delete_all
     
     @return = false
     
     @users = User.all      
     @users.each do |c_user|
      
-      c_user.users_stick.each do |c_users_stick|
+      @users_stick = UsersStick.where(:user_id => c_user.id)
+      @users_stick.each do |c_users_stick|
     
-        @AllStickStatistics = AllStickStatistics.new
+        @AllStickStatistics = AllStickStatistic.new
         
         @all_hits = Hit.all
         @all_c_hits = Hit.where(:stick_id => c_users_stick.stick.id)
 
         @AllStickStatistics.user_id = c_user.id
         @AllStickStatistics.stick_id = c_users_stick.stick.id
-        @AllStickStatistics.stick_usage = ((@all_c_hits.count.to_f / @all_hits.count.to_f).to_f * 100).round
+        @AllStickStatistics.stick_usage = ((@all_c_hits.count.to_f / @all_hits.count.to_f).to_f * 100).round unless @all_c_hits
         @AllStickStatistics.avg_distance = @all_c_hits.average("hit_distance") #@all_current_stick_hits.count
         
         @stick_progres_arr = []
         
-        @current_users_stick_stats = Statistic.where(:user_stick_id => c_users_stick)
+        @current_users_stick_stats = Statistic.where(:stick_id => c_users_stick.stick.id)
         
         @current_users_stick_stats.each do |sss|
           @stick_progres_arr.push(sss)
         end
         
-        @AllStickStatistics.stick_progres = (@stick_progres_arr.inject(0.0) { |sum, el| sum + el } / @stick_progres_arr.size).round
+        @AllStickStatistics.stick_progres = (@stick_progres_arr.inject(0.0) { |sum, el| sum + el } / @stick_progres_arr.size).round unless @stick_progres_arr
         
         
         @return = true if @AllStickStatistics.save
@@ -522,15 +523,18 @@ class Statistic < ActiveRecord::Base
   
   def self.check_golf_club_pay_banner_time_limit
     @return = true
-    
+      
     @golf_clubs = GolfClub.all
-    @time = Time.now
-    
-    @golf_clubs.each do |golf_club|
-      if golf_club.pay_banner_end_date > @time
-        c_club = GolfClub.find(golf_club.id)
-        c_club.is_banner_active = false
-        @return = false unless c_club.save 
+      
+    @golf_clubs.each do |c_club|
+      @pay_banner_end_date = c_club.pay_banner_end_date
+      
+      if @pay_banner_end_date == nil
+        @return = false unless c_club.update_attributes(:is_banner_active => false) 
+      elsif @pay_banner_end_date < Time.now
+        @return = false unless c_club.update_attributes(:is_banner_active => false) 
+      elsif @pay_banner_end_date > Time.now
+        @return = false unless c_club.update_attributes(:is_banner_active => true) 
       end
     end
     

@@ -13,7 +13,8 @@ class CreateGolfClubs < ActiveRecord::Migration
       t.string       :accepted,                    :default => "unknown" # unknown, no, yes
       t.boolean      :active,                      :default => false
       t.datetime     :pay_banner_end_date
-      t.boolean      :is_banner_active,            :default => false
+      t.boolean      :is_p_banner_active,            :default => false
+      t.boolean      :is_f_banner_active,            :default => false
       
       #image_f
       t.string :image_f_file_name

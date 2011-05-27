@@ -29,6 +29,7 @@ class Admin::GolfClubsController < ApplicationController
     if @golf_club.update_attributes(params[:golf_club])
       redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')
       
+      /
       @pay_banner_end_date = @golf_club.pay_banner_end_date
       
       if @pay_banner_end_date == nil
@@ -38,7 +39,7 @@ class Admin::GolfClubsController < ApplicationController
       elsif @pay_banner_end_date > Time.now
         @golf_club.update_attributes(:is_banner_active => true) 
       end
-      
+      /
     else
       redirect_to(admin_golf_clubs_path, :notice => 'Golf club was not successfully updated.')
     end

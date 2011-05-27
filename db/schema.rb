@@ -133,7 +133,8 @@ ActiveRecord::Schema.define(:version => 20110525141619) do
     t.string   "accepted",                    :default => "unknown"
     t.boolean  "active",                      :default => false
     t.datetime "pay_banner_end_date"
-    t.boolean  "is_banner_active",            :default => false
+    t.boolean  "is_p_banner_active",          :default => false
+    t.boolean  "is_f_banner_active",          :default => false
     t.string   "image_f_file_name"
     t.string   "image_f_content_type"
     t.integer  "image_f_file_size"
