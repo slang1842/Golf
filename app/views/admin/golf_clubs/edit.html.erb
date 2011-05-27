@@ -33,7 +33,7 @@
       <div class="banner_wrap">
         <%= image_tag(@golf_club.image_f.url) %>
         <%= f.file_field :image_f %>
-        <%=  f.check_box :is_f_banner_active %> Disable
+        <%=  f.check_box :is_f_banner_disabled %> Disable
       </div>
     </div>
 
@@ -45,7 +45,7 @@
       <div class="banner_wrap">
         <%= image_tag(@golf_club.image_p.url) %>
         <%= f.file_field :image_p %>
-        <%=  f.check_box :is_p_banner_active %> Disable
+        <%=  f.check_box :is_p_banner_disabled %> Disable
         <%= f.text_field :pay_banner_end_date, :id=> "timepicker", :class => "user_text_field" %>
       </div>
     </div>
@@ -57,7 +57,7 @@
       <div class="banner_wrap">
         <%= image_tag(@golf_club.image_v.url) %>
         <%= f.file_field :image_v %>
-        <%=  f.check_box :is_v_banner_active %> Disable
+        <%=  f.check_box :is_v_banner_disabled %> Disable
       </div>
     </div>
 
