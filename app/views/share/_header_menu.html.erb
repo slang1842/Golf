@@ -40,14 +40,19 @@
     </div>
   </div>
 </div>
-<div class="club_banner">
-  
-</div>
 
 
-
-
-
+<% if current_user.golf_club %>
+<%if current_user.golf_club.is_p_banner_active == true %>
+  <div class="club_banner">
+   <img src="<%=current_user.golf_club.image_p.url%>" width="900px" height="100px"/>
+  </div>
+<%elsif current_user.golf_club.is_f_banner_active == true%>
+  <div class="club_banner">
+     <img src="<%=current_user.golf_club.image_f.url%>" width="900px" height="100px"/>
+  </div>
+ <%end%>
+<%end%>
 
 
 

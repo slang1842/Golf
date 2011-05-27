@@ -108,6 +108,18 @@ ActiveRecord::Schema.define(:version => 20110525141619) do
     t.datetime "updated_at"
   end
 
+  create_table "golf_club_banners", :force => true do |t|
+    t.integer  "golf_club_id"
+    t.date     "date_limit"
+    t.boolean  "is_pay_banner"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "golf_clubs", :force => true do |t|
     t.integer  "user_id"
     t.string   "name",                                               :null => false
