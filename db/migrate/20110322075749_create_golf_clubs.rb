@@ -12,12 +12,20 @@ class CreateGolfClubs < ActiveRecord::Migration
       t.string		   :start_place_by_level_high
       t.string       :accepted,                    :default => "unknown" # unknown, no, yes
       t.boolean      :active,                      :default => false
-
-      #image
-      t.string :image_file_name
-      t.string :image_content_type
-      t.integer :image_file_size
-      t.datetime :image_updated_at
+      t.datetime     :pay_banner_end_date
+      t.boolean      :is_banner_active,            :default => false
+      
+      #image_f
+      t.string :image_f_file_name
+      t.string :image_f_content_type
+      t.integer :image_f_file_size
+      t.datetime :image_f_updated_at
+      
+      #image_p
+      t.string :image_p_file_name
+      t.string :image_p_content_type
+      t.integer :image_p_file_size
+      t.datetime :image_p_updated_at
       t.timestamps
     end
   end

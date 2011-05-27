@@ -34,19 +34,46 @@ class Admin::GolfClubsController < ApplicationController
   def update
     @golf_club = GolfClub.find(params[:id])
     @golf_club.update_attributes(:accepted => params[:status])
-    if params[:status] == "yes"
-      @golf_club.user.update_attributes(:admin => 1, :golf_club => @golf_club.id)
+    @user = User.find(@golf_club.user_id)
+    
+    @user.update_attributes(:admin => 1, :golf_club_id => @golf_club.id) if params[:status] == "yes"
+    
+    if params[:pay_banner_end_date] == nil
+      @golf_club.update_attributes(:is_banner_active => false) 
+    elsif params[:pay_banner_end_date] < Time.now
+      @golf_club.update_attributes(:is_banner_active => false) 
+    elsif params[:pay_banner_end_date] > Time.now
+      @golf_club.update_attributes(:is_banner_active => true) 
     end
     
+  
     if @golf_club.update_attributes(params[:golf_club])
       redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')
     else
       redirect_to(admin_golf_clubs_path, :notice => 'Golf club was not successfully updated.')
     end
-   
-  end
   
+  end
   /
+    unless params[:pay_banner_end_date] == nil
+      if params[:pay_banner_end_date] < Time.now
+        @golf_club.update_attributes(:is_banner_active => false)    
+      else
+        @golf_club.update_attributes(:is_banner_active => true)
+      end
+    else
+      @golf_club.update_attributes(:is_banner_active => false) 
+    end
+        
+    if @golf_club.update_attributes(params[:golf_club])
+      redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')
+    else
+      redirect_to(admin_golf_clubs_path, :notice => 'Golf club was not successfully updated.')
+    end
+  
+end
+  
+  
   def destroy
     @golf_club = GolfClub.find(params[:id])
     @golf_club.destroy
