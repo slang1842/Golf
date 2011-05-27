@@ -5,7 +5,7 @@ class Admin::GolfClubsController < ApplicationController
   
   def index
     
-    @clubs = GolfClub.find(:all, :conditions => "accepted != 'yes'")
+    @clubs = GolfClub.all
     
     respond_to do |format|
       format.html # index.html.erb
@@ -13,18 +13,6 @@ class Admin::GolfClubsController < ApplicationController
     end
   end
   
-  
-  
-  
-  def show
-    @clubs = GolfClub.find(:all, :conditions => "accepted = '0'")
-    
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @clubs }
-    end
-  end
-
   def edit
     @golf_club = GolfClub.find(params[:id])
   end
@@ -38,17 +26,19 @@ class Admin::GolfClubsController < ApplicationController
     
     @user.update_attributes(:admin => 1, :golf_club_id => @golf_club.id) if params[:status] == "yes"
     
-    if params[:pay_banner_end_date] == nil
-      @golf_club.update_attributes(:is_banner_active => false) 
-    elsif params[:pay_banner_end_date] < Time.now
-      @golf_club.update_attributes(:is_banner_active => false) 
-    elsif params[:pay_banner_end_date] > Time.now
-      @golf_club.update_attributes(:is_banner_active => true) 
-    end
-    
-  
     if @golf_club.update_attributes(params[:golf_club])
       redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')
+      
+      @pay_banner_end_date = @golf_club.pay_banner_end_date
+      
+      if @pay_banner_end_date == nil
+        @golf_club.update_attributes(:is_banner_active => false) 
+      elsif @pay_banner_end_date < Time.now
+        @golf_club.update_attributes(:is_banner_active => false) 
+      elsif @pay_banner_end_date > Time.now
+        @golf_club.update_attributes(:is_banner_active => true) 
+      end
+      
     else
       redirect_to(admin_golf_clubs_path, :notice => 'Golf club was not successfully updated.')
     end
