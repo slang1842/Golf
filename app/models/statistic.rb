@@ -49,7 +49,7 @@ class Statistic < ActiveRecord::Base
     r = real.hit_distance
     
     unless p == nil or r == nil
-      @result = ((1 - ((r.to_f - p.to_f).abs / p.to_f)).round(2) * 100).to_i
+      @result = ((1 - ((r.to_f - p.to_f).abs / p.to_f)).round(2) * 100).round
        
       @result = @result - calculate_diference(planed.trajectory, real.trajectory) unless calculate_diference(planed.trajectory, real.trajectory) == false
       @result = @result - calculate_diference(planed.hit_was, real.hit_was) unless calculate_diference(planed.hit_was, real.hit_was) == false
@@ -99,47 +99,47 @@ class Statistic < ActiveRecord::Base
           case place_from_num 
           when 1
             if @result_arr.size != 0
-              statistic.place_teebox = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_teebox = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 2
             if @result_arr.size != 0
-              statistic.place_feairway = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_feairway = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 3
             if @result_arr.size != 0
-              statistic.place_next_fairway = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_next_fairway = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 4
             if @result_arr.size != 0
-              statistic.place_semi_raf = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_semi_raf = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 5
             if @result_arr.size != 0
-              statistic.place_raf = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_raf = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 6
             if @result_arr.size != 0
-              statistic.place_for_green = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_for_green = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 7
             if @result_arr.size != 0
-              statistic.place_green = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_green = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 8
             if @result_arr.size != 0
-              statistic.place_fairway_sand = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_fairway_sand = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 9
             if @result_arr.size != 0
-              statistic.place_green_sand = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_green_sand = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 11
             if @result_arr.size != 0
-              statistic.place_wood = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_wood = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 11
             if @result_arr.size != 0
-              statistic.place_from_water = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.place_from_water = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           end
         end
@@ -163,23 +163,23 @@ class Statistic < ActiveRecord::Base
           case stance_num 
           when 1
             if @result_arr.size != 0
-              statistic.stance_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.stance_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 2
             if @result_arr.size != 0
-              statistic.stance_right_leg_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.stance_right_leg_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 3
             if @result_arr.size != 0
-              statistic.stance_left_leg_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.stance_left_leg_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 4
             if @result_arr.size != 0
-              statistic.stance_ball_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.stance_ball_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 5
             if @result_arr.size != 0
-              statistic.stance_ball_higher = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.stance_ball_higher = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           end
         end
@@ -203,23 +203,23 @@ class Statistic < ActiveRecord::Base
           case direction_num 
           when 1
             if @result_arr.size != 0
-              statistic.direction_straigth = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.direction_straigth = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 2
             if @result_arr.size != 0
-              statistic.direction_fade = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.direction_fade = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 3
             if @result_arr.size != 0
-              statistic.direction_drow = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.direction_drow = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 4
             if @result_arr.size != 0
-              statistic.direction_slice = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.direction_slice = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 5
             if @result_arr.size != 0
-              statistic.direction_hook = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.direction_hook = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           end
         end
@@ -243,15 +243,15 @@ class Statistic < ActiveRecord::Base
           case temperature_num 
           when 1
             if @result_arr.size != 0
-              statistic.temperature_hot = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.temperature_hot = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 2
             if @result_arr.size != 0
-              statistic.temperature_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.temperature_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 3
             if @result_arr.size != 0
-              statistic.temperature_cold = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.temperature_cold = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           end
         end
@@ -275,19 +275,19 @@ class Statistic < ActiveRecord::Base
           case weather_num 
           when 1
             if @result_arr.size != 0
-              statistic.weather_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.weather_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 2
             if @result_arr.size != 0
-              statistic.weather_wind = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.weather_wind = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 3
             if @result_arr.size != 0
-              statistic.weather_rain = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.weather_rain = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 4
             if @result_arr.size != 0
-              statistic.weather_wind_and_rain = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.weather_wind_and_rain = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           end
         end
@@ -310,15 +310,15 @@ class Statistic < ActiveRecord::Base
           case trajectory_num 
           when 1
             unless @result_arr.size == 0
-              statistic.trajectory_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i unless false
+              statistic.trajectory_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round unless false
             end
           when 2
             if @result_arr.size != 0
-              statistic.trajectory_high = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.trajectory_high = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 3
             if @result_arr.size != 0
-              statistic.trajectory_low = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.trajectory_low = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           end
         end
@@ -342,11 +342,11 @@ class Statistic < ActiveRecord::Base
           case wind_num 
           when 1
             if @result_arr.size != 0
-              statistic.wind_from_behind = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.wind_from_behind = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 2
             if @result_arr.size != 0
-              statistic.wind_from_front = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.wind_from_front = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           when 3
             if @result_arr.size != 0
@@ -354,7 +354,7 @@ class Statistic < ActiveRecord::Base
             end
           when 4
             if @result_arr.size != 0
-              statistic.wind_from_right = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).to_i
+              statistic.wind_from_right = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
             end
           end
         end
@@ -480,7 +480,7 @@ class Statistic < ActiveRecord::Base
   end
   
   
-  def self.game_statistics_by_sticks
+  def self.all_sticks_statistics
     AllStickStatistics.delete_all
     
     @return = false
@@ -508,7 +508,7 @@ class Statistic < ActiveRecord::Base
           @stick_progres_arr.push(sss)
         end
         
-        @AllStickStatistics.stick_progres = (@stick_progres_arr.inject(0.0) { |sum, el| sum + el } / @stick_progres_arr.size).to_i
+        @AllStickStatistics.stick_progres = (@stick_progres_arr.inject(0.0) { |sum, el| sum + el } / @stick_progres_arr.size).round
         
         
         @return = true if @AllStickStatistics.save
@@ -518,4 +518,22 @@ class Statistic < ActiveRecord::Base
     return @return
   end
   
+  
+  
+  def self.check_golf_club_pay_banner_time_limit
+    @return = true
+    
+    @golf_clubs = GolfClub.all
+    @time = Time.now
+    
+    @golf_clubs.each do |golf_club|
+      if golf_club.pay_banner_end_date > @time
+        c_club = GolfClub.find(golf_club.id)
+        c_club.is_banner_active = false
+        @return = false unless c_club.save 
+      end
+    end
+    
+    return @return
+  end
 end

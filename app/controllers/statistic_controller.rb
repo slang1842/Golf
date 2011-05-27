@@ -2,7 +2,8 @@ class StatisticController < ApplicationController
   skip_before_filter :require_user
  
   def statistics
-    redirect_to view_statistic_path if Statistic.main_statistics && Statistic.game_statistics_by_sticks && Statistic.game_statistics_by_holes
+    redirect_to view_statistic_path if Statistic.check_golf_club_pay_banner_time_limit && Statistic.main_statistics && Statistic.all_sticks_statistics && Statistic.game_statistics_by_sticks && Statistic.game_statistics_by_holes
+    
     # redirect_to view_statistic_path if Statistic.game_statistics_by_sticks
   end
   

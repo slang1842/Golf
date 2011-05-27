@@ -122,7 +122,6 @@ function check_game_form() {
 }
 
 
-
 function golf_club_checkbox(){
     if ($("#golf_club_label").is(":hidden")) {
         $("#golf_club_label").slideDown("fast");
@@ -144,9 +143,30 @@ function golf_club_checkbox(){
     
 
 
-
-
-
+function golf_club_checkbox(){
+    if ($("#golf_club_label").is(":hidden")) {
+        $("#golf_club_label").slideDown("fast");
+    } else {
+        $("#golf_club_label").slideUp("fast");
+    }
+    
+    if ($("#user_golf_club_id").is(":hidden")) {
+        $("#user_golf_club_id").slideDown("fast");
+        
+    } else {
+        $("#user_golf_club_id").slideUp("fast", function() {
+            $("#user_golf_club_id").val("");
+        });
+        
+    }        
+};
+    
+    
+    
+function check_admin_pay_banner(x){
+    $("#timepicker").val("")
+};
+  
 
 
 

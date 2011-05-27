@@ -1,6 +1,6 @@
-<h1>Golf club "<%= @golf_club.name%>"</h1>
+<h2>Golf club "<%= @golf_club.name%>"</h2>
 
-<%= form_for(@golf_club, :url => admin_golf_club_path)  do |f| %>
+<%= form_for @golf_club, :url => admin_golf_club_path, :html => { :multipart => true }  do |f| %>
 
 
   <div class="form_edit">
@@ -12,7 +12,10 @@
       <div class="item">Region:</div>
       <div class="item">City:</div>
       <div class="item">Web Page:</div>
-      <div class="item"><%= f.label "Accept club?" %></div>
+      <div class="item">
+        <%= f.label "Accept club?" %>
+        <%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %>
+      </div>
     </div>
 
     <div class="column">
@@ -21,10 +24,34 @@
       <div class="item"><%= @golf_club.region%></div>
       <div class="item"><%= @golf_club.city%></div>
       <div class="item"><%= @golf_club.web_page%></div>
-      <div class="item"><%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %></div>
+      <div class="item"><%= f.submit "Save"%></div>
     </div>
 
-    <div class="item"><%= f.submit "Save"%></div>
+
+    <div class="banner_box">
+      <div class="banner_title" onclick="">Golf Club banner</div>
+      <div class="banner_wrap">
+        <%= image_tag(@golf_club.image_f.url) %>
+        <%= f.file_field :image_f %>
+      </div>
+    </div>
+
+
+
+
+    <div class="banner_box">
+      <div class="banner_title" onclick="">Golf Club pay banner</div>
+      <div class="banner_wrap">
+        <%= image_tag(@golf_club.image_p.url) %>
+        <%= f.file_field :image_p %>
+        <%= f.text_field :pay_banner_end_date, :id=> "timepicker", :class => "user_text_field" %>
+        
+        <input type="button" value="Disable Banner" class="admin_pay_banner_check" onclick="check_admin_pay_banner(this)"/>
+      </div>
+    </div>
+
+
+
 
   </div>
 
