@@ -28,54 +28,11 @@ class Admin::GolfClubsController < ApplicationController
     
     if @golf_club.update_attributes(params[:golf_club])
       redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')
-      
-      /
-      @pay_banner_end_date = @golf_club.pay_banner_end_date
-      
-      if @pay_banner_end_date == nil
-        @golf_club.update_attributes(:is_banner_active => false) 
-      elsif @pay_banner_end_date < Time.now
-        @golf_club.update_attributes(:is_banner_active => false) 
-      elsif @pay_banner_end_date > Time.now
-        @golf_club.update_attributes(:is_banner_active => true) 
-      end
-      /
     else
       redirect_to(admin_golf_clubs_path, :notice => 'Golf club was not successfully updated.')
     end
   
-  end
-  /
-    unless params[:pay_banner_end_date] == nil
-      if params[:pay_banner_end_date] < Time.now
-        @golf_club.update_attributes(:is_banner_active => false)    
-      else
-        @golf_club.update_attributes(:is_banner_active => true)
-      end
-    else
-      @golf_club.update_attributes(:is_banner_active => false) 
-    end
-        
-    if @golf_club.update_attributes(params[:golf_club])
-      redirect_to(admin_golf_clubs_path, :notice => 'Golf club was successfully updated.')
-    else
-      redirect_to(admin_golf_clubs_path, :notice => 'Golf club was not successfully updated.')
-    end
-  
-end
-  
-  
-  def destroy
-    @golf_club = GolfClub.find(params[:id])
-    @golf_club.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(golf_clubs_url) }
-      format.xml { head :ok }
-    end
-  end
-  /
-  
+  end 
   
   private
   def golfClubs

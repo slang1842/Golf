@@ -71,8 +71,6 @@ class Statistic < ActiveRecord::Base
 
     @return = false
     
-    3.times { puts "============================================xx" }
-  
     Statistic.delete_all
     @users = User.where(:is_super_admin => false)
     @users.each do |user|
@@ -530,11 +528,11 @@ class Statistic < ActiveRecord::Base
       @pay_banner_end_date = c_club.pay_banner_end_date
       
       if @pay_banner_end_date == nil
-        @return = false unless c_club.update_attributes(:is_banner_active => false) 
+        @return = false unless c_club.update_attributes(:is_p_banner_active => false) 
       elsif @pay_banner_end_date < Time.now
-        @return = false unless c_club.update_attributes(:is_banner_active => false) 
+        @return = false unless c_club.update_attributes(:is_p_banner_active => false) 
       elsif @pay_banner_end_date > Time.now
-        @return = false unless c_club.update_attributes(:is_banner_active => true) 
+        @return = false unless c_club.update_attributes(:is_p_banner_active => true) 
       end
     end
     
