@@ -14,6 +14,7 @@
       
       <div class="club_players_wrap">
         <% @users.each do |user|%>
+        
       <div class="single_player_wrap">
         <div class="profile_info">
           <div class="image">
@@ -34,62 +35,41 @@
           <p><%=user.email%></p>
         </div>
         
-      </div>
-        <%end%>
-        <div class="link_switch">
-          <a href=""><img src="img/link_left_big.png" alt=""/></a>
-        </div>
+      
+        
+        
+        
+        <% @sticks = user.users_sticks%>
+        <% @sticks.each do |stick| %>
+        <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => user.id})%>
         <div class="single_club_wrap">
           <div class="club_name">
-            <p>WOOD</p>
+            <p><%=stick.stick.stick_type%></p>
           </div>
           <div class="progress_bar">
-            <div class="progress_active bad" style="width:20%">
+            <%if @stats.stick_progres < 35 %>
+            <div class="progress_active bad" style="width:<%=@stats.stick_progres.to_s%>%">
             </div>
+            <%else%>
+            <div class="progress_active normal" style="width:<%=@stats.stick_progres.to_s%>%">
+          </div>
+          <%end%>
           </div>
           <div class="info">
-            <p>USAGE 15%<br>AVG. 170m</p>
+            <p>USAGE <%=@stats.usage%><br>AVG. <%=@stats.avg_distance%>m</p>
           </div>
-        </div>
-        <div class="single_club_wrap">
-          <div class="club_name">
-            <p>IRON</p>
-          </div>
-          <div class="progress_bar">
-            <div class="progress_active normal" style="width:60%">
-            </div>
-          </div>
-          <div class="info">
-            <p>USAGE 15%<br>AVG. 170m</p>
-          </div>
-        </div>
-        <div class="single_club_wrap">
-          <div class="club_name">
-            <p>IRON</p>
-          </div>
-          <div class="progress_bar">
-            <div class="progress_active normal" style="width:60%">
-            </div>
-          </div>
-          <div class="info">
-            <p>USAGE 15%<br>AVG. 170m</p>
-          </div>
-        </div>
-        <div class="link_switch">
-          <a href=""><img src="img/link_right_big.png" alt=""/></a>
-        </div>
-        <div class="clear"></div>
-        <div class="bottom_line">
-          <img src="img/my_club_gradient.png" alt=""/>
-        </div>
+         </div>
+      <%end%>
       </div>
+      <div class="clear"></div>
+        <div class="bottom_line" style="margin-bottom:10px">
+          <img src="images/my_club_gradient.png" alt=""/>
+        </div>
+      <%end%>
       
       </div>
-      
-      
-      
-      
-      
+      </div>
+      </div>
       <% else %>
         You must complete club registration, for club to be active. You can do that <%= link_to "here", edit_golf_club_path %>
       <% end %>

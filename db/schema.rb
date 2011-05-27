@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20110525141619) do
     t.string   "start_place_by_level_high"
     t.string   "accepted",                    :default => "unknown"
     t.boolean  "active",                      :default => false
+
     t.datetime "pay_banner_end_date"
     t.boolean  "is_banner_active",            :default => false
     t.string   "image_f_file_name"
@@ -130,6 +131,7 @@ ActiveRecord::Schema.define(:version => 20110525141619) do
     t.string   "image_p_content_type"
     t.integer  "image_p_file_size"
     t.datetime "image_p_updated_at"
+
     t.datetime "created_at"
     t.datetime "updated_at"
   end
