@@ -47,14 +47,19 @@
         <%= f.file_field :image_p %>
         <%=  f.check_box :is_p_banner_active %> Disable
         <%= f.text_field :pay_banner_end_date, :id=> "timepicker", :class => "user_text_field" %>
-        
-        
-        
-        <!--<input type="button" value="Disable Banner" class="admin_pay_banner_check" onclick="check_admin_pay_banner(this)"/>-->
       </div>
     </div>
 
 
+
+    <div class="banner_box">
+      <div class="banner_title" onclick="">Golf Club vertical banner</div>
+      <div class="banner_wrap">
+        <%= image_tag(@golf_club.image_v.url) %>
+        <%= f.file_field :image_v %>
+        <%=  f.check_box :is_v_banner_active %> Disable
+      </div>
+    </div>
 
 
   </div>
