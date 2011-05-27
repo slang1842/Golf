@@ -983,3 +983,10 @@ a {
 .error_default ul li {
     font-size: 14px;
 }
+
+.club_banner {
+  width: 900px;
+  height: 110px;
+  margin-top: 5px;
+  background-image:url(/images/bg_stripes.png);
+}
