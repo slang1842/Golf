@@ -3,43 +3,40 @@ class StatisticController < ApplicationController
  
   def statistics
     redirect_to view_statistic_path if Statistic.check_golf_club_pay_banner_time_limit && Statistic.main_statistics && Statistic.all_sticks_statistics && Statistic.game_statistics_by_sticks && Statistic.game_statistics_by_holes
-    
-    # redirect_to view_statistic_path if Statistic.game_statistics_by_sticks
   end
-  
-  #def game_statistics
-  #  redirect_to view_statistic_path if Statistic.calculate_statistics && 
-  #end
-    
+      
   def view
     @statistic = Statistic.find(:all)
     @GameStatisticsByHoles = GameStatisticsByHoles.all
     @GameStatisticsBySticks = GameStatisticsBySticks.all
   end
-  
-  def show
+
+  def edit
+    @user = User.find(params[:user_id])
+    @is_admin = true if @user.admin == true
+
     
+    @user_fields = Field.where(:golf_club_id => @user.golf_club.id)
+
     
-    @viewer = current_user
-    #@user = User.find(params[:id])
-   
-    if @viewer.admin
-      # skatitajs ir treneris
-      @trainee = @viewer
-      @user = User.find(params[:id])
-      #@user_sticks = UsersStick.where(:user_id => @user.id)
-      @user_sticks = @user.sticks.find(:all)
-      @istrainee = 1
+    redirect_to main_statistic_path(:user_id => current_user.id, :field_id => Field.find(current_user.golf_club.id)) unless @is_admin == false && @user.id != current_user.id
+    #sataisit redirect
+    #pielikt klat field kontroli ne adminiem
       
-    else
-      # skatitajs ir lietotajs
-      @user = @viewer
-      @istrainee = 0
-      # ka meklet treneri
-      @trainee = @user
-    end
-    @user_sticks = Stick.where(user_id = @user.id)
-    @golf_club = GolfClub.find(@user.golf_club_id)
-    @results = Statistic.where(:user_id => @user.id).order("stick_id ASC")
+    @field = Field.find(@user.golf_club.id)
+    @user_sticks = UsersStick.where(:user_id => @user.id).order("stick.stick_type ASC")
+    @statistic = Statistic.where(:user_id => @user.id, :stick_id => @user_sticks.id).order("stick.stick_type ASC")
+   
+    
+  
+
+
+    
+
   end
+
+  def update
+
+  end
+
 end

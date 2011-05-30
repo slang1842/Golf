@@ -2,8 +2,6 @@ Golf::Application.routes.draw do
   resources :game_statistics
 
   resources :games
-
-  resources :statistic
   resources :hits
   resources :users_sticks
   resources :balls
@@ -13,24 +11,24 @@ Golf::Application.routes.draw do
   resources :hints
   resources :user_sessions
   resources :pair_hits
-  resources :user_stats do
-    collection  do
-      get 'populate'
-      get 'save_hint'
-    end
-  end
-  
-  resources  :statistics do
-    resources :PairHit
-  end
-  
+   
   #statistics
   #================
+  #resources
+  #match '/statistic/:user_id/:field_id' => 'statistic#edit', :as => 'main_statistic'
+  #match '/statistic/:user_id/:field_id' => 'statistic#edit', :as => 'main_statistic'
+  #end
+
+
+  resource :statistic do
+    member do
+      match 'user/:user_id/field/:field_id' => 'statistic#edit', :as => "main"
+    end
+  end
+
   match '/s' => "statistic#statistics",   :as => "s"
   match '/ss' => "statistic#view", :as => "view_statistic"
-  
-  
-    
+      
   resource :user, :controller => "user" do
     collection do
       get "bag"
@@ -59,7 +57,7 @@ Golf::Application.routes.draw do
   match '/game_plan/:game_id/:active_hole/:active_hit/0/0' => 'games#plan', :as => 'plan'
   match '/game_res/:game_id/:active_hole/:active_hit/:hits' => 'games#res', :as => 'res'
   match '/game_results/:game_id/:active_hole/:active_hit' => 'games#results', :as => 'results'
-  match '/game_results/:game_id/:active_hole/:form_id/:hits/:puts' => 'games#results', :as => 'results'  
+  match '/game_results/:game_id/:active_hole/:form_id/:hits/:puts' => 'games#results', :as => 'results'
   match '/game_details/:game_id/:active_hole/:active_hit' => 'games#details', :as => 'details'
   match '/game_details/:game_id/:active_hole/:active_hit/:hits/:puts' => 'games#details', :as => 'details'
   match '/more_games/:count' => 'games#more_games', :as => 'more_games'
@@ -81,7 +79,7 @@ Golf::Application.routes.draw do
   #user profiles
   match '/admin' => "admin#index",          :as => :admin
   
-  namespace "admin" do 
+  namespace "admin" do
     resources :golf_clubs
     resources :sticks
     resources :users

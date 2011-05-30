@@ -1,0 +1,117 @@
+.profile_info_input {
+	padding-top:5px;
+	padding-left:10px;
+	margin-top:10px;
+	width:890px;
+	background-image:url(img/bg_stripes.png);
+}
+
+.profile_info_input h1 {
+	font-size:19px;
+}
+
+.profile_info_input .left_wrap {
+	float:left;
+	margin-right:10px;
+	width:300px;
+}
+
+.profile_info_input .single_element {
+	height:30px;
+	width:300px;
+	margin-bottom:5px;
+}
+
+.profile_info_input .single_element .text {
+	float:left;
+	width:150px;
+	text-align:right;
+	margin-right:10px;
+}
+
+.profile_info_input .single_element .text p {
+	position:relative;
+	top:7px;
+}
+
+.profile_info_input .single_element .text .two_lines{
+	position:relative;
+	top:1px;
+}
+
+.profile_info_input .single_element .input {
+	float:left;
+	width:140px;
+}
+
+.profile_info_input .single_element input {
+	border:1px solid #c3c3c3;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	height:24px;
+	width:110px;
+	font-family:"Trebuchet MS";
+	color:#898989;
+	font-weight:bold;
+}
+
+
+.profile_info_input .button_done {
+	margin-left:400px;
+	padding-bottom:20px;
+}
+
+.profile_info_input .button_done button {
+	border:none;
+}
+
+.profile_info_input .push {
+	height:20px;
+}
+
+.profile_info_input .single_element .green_button {
+	background-color:#b6d051;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	font-size:16px;
+	color:#363636;
+	line-height:30px;
+	padding-left:25px;
+	padding-right:25px;
+	font-weight:bold;
+	font-family:"Trebuchet MS";
+	padding-top:2px;
+	padding-bottom:3px;
+}
+
+.profile_info_input .single_element .image_upload {
+	background-color:#b6d051;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	font-size:16px;
+	color:#363636;
+	line-height:26px;
+	border:none;
+	font-weight:bold;
+	font-family:"Trebuchet MS";
+	padding-left:18px;
+	padding-right:18px;
+}
+
+.profile_info_input .fields_wrap {
+	
+}
+
+.profile_info_input .fields_wrap .link{
+	position:relative;
+	top:3px;
+	padding-bottom:2px;
+	padding-top:2px;
+}
+
+.button_done_newgame button {
+	width:140px;
+}

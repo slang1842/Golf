@@ -1,0 +1,93 @@
+.my_games_wrap {
+	width:900px;
+	background-image:url(img/bg_stripes.png);
+	margin-top:10px;
+}
+
+.my_games_wrap h1 {
+	font-size:19px;
+	margin-left:10px;
+}
+
+.my_games_wrap p {
+	font-size:17px;
+}
+
+.my_games_wrap .single_game_wrap {
+	border-bottom:1px solid #cecece;
+	width:900px;
+}
+
+.my_games_wrap .single_game_wrap .date_wrap {
+	float:left;
+	width:90px;
+	margin-left:20px;
+	margin-top:20px;
+}
+
+.my_games_wrap .single_game_wrap .field_name_wrap {
+	float:left;
+	width:150px;
+	margin-left:20px;
+	margin-top:20px;
+}
+
+.my_games_wrap .single_game_wrap .done_wrap {
+	float:left;
+	width:100px;
+	margin-left:20px;
+	margin-top:20px;
+}
+
+.my_games_wrap .single_game_wrap .progress_bar {
+	float:left;
+	position:relative;
+	margin-left:20px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.my_games_wrap .single_game_wrap .progress_bar .unfilled {
+	margin-top:3px;
+	width:178px;
+	height:29px;
+	background-image:url(img/bg_stripes_dark.png);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.my_games_wrap .single_game_wrap .progress_bar .unfilled .filled {
+	height:29px;
+	background-image:url(img/bg_stripes_green.png);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.my_games_wrap .single_game_wrap .progress_bar .percentage {
+	position:absolute;
+	bottom:8px;
+	left:5px;
+}
+
+.my_games_wrap .single_game_wrap .progress_bar .percentage p {
+	font-size:24px;
+	color:#464646;
+}
+
+.my_games_wrap .single_game_wrap .links {
+	margin-left:20px;
+	margin-top:10px;
+	float:left;
+	position:relative;
+	top:3px;
+	margin-bottom:7px;
+}
+
+.my_games_wrap .single_game_wrap .links a {
+	float:left;
+	width:auto;
+	margin-right:20px;
+	margin-bottom:10px;
+}

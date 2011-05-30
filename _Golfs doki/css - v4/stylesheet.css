@@ -1,0 +1,921 @@
+html 
+{
+ font-family: "Trebuchet MS", "Tahoma";
+ outline:none;
+ height:100%;
+}
+
+input {
+	outline:none;
+}
+
+body 
+{
+ margin: 0px;
+ padding: 0px;
+ padding-bottom:60px;
+ background-color:#4a4a4a;
+ height:100%;
+}
+
+img 
+{
+ border: 0;
+}
+
+h1
+{
+
+}
+
+button {
+	border:none;
+}
+
+.gray {
+	color:#898989;
+}
+
+.pusher {
+	height:1px;
+}
+
+.clear {
+	clear:both;
+}
+
+p
+{
+	color:#363636;
+	font-size:12px;
+	font-family:"Trebuchet MS";
+	line-height:14px;
+	margin:0px;
+	font-weight:bold;
+}
+
+.large {
+	font-size:26px;
+}
+
+
+a {
+	outline: none;
+	text-decoration:none;
+}
+
+.gray {
+	color:#898989;
+}
+
+.gray_button {
+	background-color:#dcdcdc;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	font-size:19px;
+	color:#363636;
+	line-height:29px;
+	padding-left:5px;
+	padding-right:5px;
+	width:80px;
+	font-weight:bold;
+	font-family:"Trebuchet MS";
+}
+
+.green_button {
+	background-color:#b6d051;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	font-size:19px;
+	color:#363636;
+	line-height:29px;
+	padding-left:5px;
+	padding-right:5px;
+	width:80px;
+	font-weight:bold;
+	font-family:"Trebuchet MS";
+}
+
+.site_wrapper {
+	margin-left:auto;
+	margin-right:auto;
+	width:900px;
+	background:url(img/bg_stripes_light.png);
+	padding-bottom:25px;
+	position:relative;
+	min-height:100%;
+}
+
+.header_wrap {
+	background-color:#4a4a4a;
+	width:900px;
+	height:93px;
+}
+
+.header_wrap .login_wrap {
+	position:relative;
+	margin-top:12px;
+	float:right;
+	width:188px;
+}
+
+.header_wrap .login_wrap .description {
+	float:left;
+	margin-bottom:7px;
+}
+
+.header_wrap .login_wrap .description p {
+	font-size:12px;
+	color:#b6d051;
+	font-family:"Tahoma";
+	font-weight:normal;
+}
+
+.header_wrap .login_wrap .input_wrap {
+	float:right;
+	margin-left:5px;
+	position:relative;
+	bottom:3px;
+}
+
+.header_wrap .login_wrap .input_wrap input {
+	width:133px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border:none;
+}
+
+.header_wrap .login_wrap .button {
+	float:right;
+}
+
+.header_wrap .login_wrap .button a{
+	background-color:#88bb25;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font-size:15px;
+	color:#ffffff;
+	line-height:21px;
+	padding-left:4px;
+	padding-right:4px;
+	padding-bottom:1px;
+	font-weight:bold;
+	font-family:"Trebuchet MS";
+	position:relative;
+	bottom:1px;
+}	
+	
+.header_wrap .logo_wrap {
+	position:relative;
+	left:16px;
+	top:8px;
+	width:357px;
+	height:79px;
+	background-image:url(img/golf_logo.png);
+	float:left;
+}
+
+.menu_wrap {
+	width:900px;
+	background-image:url(img/bg_stripes.png);
+	height:100px;
+}
+
+.menu_wrap .profile_info {
+	float:left;
+	margin-left:10px;
+	margin-top:10px;
+	width:204px;
+}
+
+.menu_wrap .profile_info .profile_image {
+	float:left;
+	height:51px;
+	width:51px;
+}
+
+.menu_wrap .profile_info .text {
+	float:left;
+	margin-left:10px;
+}
+
+.menu_wrap .profile_info .text p {
+	line-height:14px;
+	font-family:"Tahoma";
+	font-size:12px;
+	font-weight:normal;
+}
+
+.menu_wrap .profile_info .text a {
+	font-family:"Tahoma";
+	font-size:12px;
+	text-decoration:none;
+	color:#00aeef;
+}
+
+.menu_wrap .icon_wrap {
+	float:left;
+	height:83px;
+	margin-top:13px;
+}
+
+.menu_wrap .icon_wrap .link_wrap {
+	float:left;
+	margin-right:25px;
+	text-align:center;
+	text-decoration:none;
+	width:54px;
+}
+
+.menu_wrap .icon_wrap .link_wrap a {
+	text-decoration:none;
+}
+
+.menu_wrap .icon_wrap .link_wrap p {
+	color:#898989;
+	font-size:12px;
+	font-family:"Trebuchet MS";
+	font-weight:bold;
+	line-height:14px;
+}
+
+.short_statistics_wrap {
+	margin-top:25px;
+	height:86px;
+	width:900px;
+	background-image:url(img/bg_stripes.png);
+}
+
+.short_statistics_wrap .top_three {
+	height:65px;
+	float:left;
+	margin-left:15px;
+	margin-right:10px;
+	margin-top:17px;
+	text-align:center;
+	font-weight:bold;
+}
+
+.short_statistics_wrap .top_three .left_text {
+	text-align:right;
+	float:left;
+}
+
+.short_statistics_wrap .top_three .left_text p {
+	color:#898989;
+}
+
+.short_statistics_wrap .top_three .right_text {
+	margin-left:3px;
+	text-align:left;
+	float:left;
+}
+
+.short_statistics_wrap .club_stats {
+	float:right;
+	width:450px;
+}
+
+.short_statistics_wrap .club_stats .lists {
+	margin-top:7px;
+	width:130px;
+	float:left;
+}
+
+.short_statistics_wrap .club_stats .lists p {
+	font-weight:bold;
+	color:#898989;
+}
+
+.short_statistics_wrap .club_stats .info_text {
+	float:left;
+	margin-top:10px;
+	font-weight:bold;
+}
+
+.short_statistics_wrap .club_stats .form_dropdowns {
+	float:right;
+	margin-top:4px;
+	margin-right:5px;
+}
+
+.game_list_percentage_wrap {
+	height:72px;
+	width:900px;
+	margin-top:25px;
+	background-image:url(img/bg_stripes.png);
+}
+
+.game_list_percentage_wrap .heading{
+	margin-left:155px;
+	padding-top:7px;
+	padding-bottom:5px;
+}
+
+.game_list_percentage_wrap .heading p {
+color:#898989;
+}
+
+.game_list_percentage_wrap .single_game_field {
+	width:100px;
+	height:46px;
+	-webkit-border-top-left-radius: 9px;
+	-webkit-border-top-right-radius: 9px;
+	-moz-border-radius-topleft: 9px;
+	-moz-border-radius-topright: 9px;
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+	background-image:url(img/game_field_bg.png);
+	float:left;
+	margin-left:10px;
+	margin-right:7px;
+}
+
+.game_list_percentage_wrap .single_game_field p {
+	margin-top:3px;
+	font-size:18px;
+	line-height:20px;
+	text-align:center;
+}
+
+.game_list_percentage_wrap .single_game_field .percentage p {
+	margin-top:5px;
+	font-size:26px;
+}
+
+.game_list_percentage_wrap .single_game_field .date p {
+	margin-top:0px;
+	font-size:12px;
+}
+
+.game_list_percentage_wrap .link_left_wrap {
+	float:left;
+	margin-left:10px;
+	margin-top:12px;
+}
+
+.game_list_percentage_wrap .link_right_wrap {
+	float:left;
+	margin-left:3px;
+	margin-top:12px;
+}
+
+.main_stats_table_wrap {
+	margin-top:25px;
+}
+
+.main_stats_table_wrap .bottom_line {
+	width:812px;
+	border-bottom:1px solid #cacaca;
+}
+
+.main_stats_table_wrap .clubs_wrap{
+	margin-left:127px;
+}
+
+.main_stats_table_wrap .clubs_wrap .page_left {
+	float:left;
+	margin-right:2px;
+	margin-top:18px;
+}
+
+.main_stats_table_wrap .clubs_wrap .single_club_wrap {
+	float:left;
+	background-image:url(img/single_club_bg.png);
+	width:93px;
+	height:60px;
+	margin-left:8px;
+	margin-right:9px;
+	-webkit-border-top-left-radius: 9px;
+	-webkit-border-top-right-radius: 9px;
+	-moz-border-radius-topleft: 9px;
+	-moz-border-radius-topright: 9px;
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+}
+
+.main_stats_table_wrap .clubs_wrap .single_club_wrap .club_name {
+	margin-top:5px;
+	text-align:center;
+	
+}
+
+.main_stats_table_wrap .clubs_wrap .single_club_wrap .club_name p {
+	font-size:19px;
+}
+
+.main_stats_table_wrap .clubs_wrap .single_club_wrap .progress_bar {
+	margin-left:10px;
+	margin-top:3px;
+	width:73px;
+	height:13px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-image:url(img/progress_bar_bg_gray.png);
+}
+
+.main_stats_table_wrap .clubs_wrap .single_club_wrap .progress_bar .progress_active {
+	height:13px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.main_stats_table_wrap .clubs_wrap .single_club_wrap .progress_bar .normal {
+	background-image:url(img/progress_bar_bg_green.png);
+}
+
+.main_stats_table_wrap .clubs_wrap .single_club_wrap .progress_bar .bad {
+	background-image:url(img/progress_bar_bg_red.png);
+}
+
+.main_stats_table_wrap .clubs_wrap .single_club_wrap .info {
+	margin-top:3px;
+	text-align:center;
+}
+
+.main_stats_table_wrap .clubs_wrap .single_club_wrap .info p {
+	font-size:11px;
+	line-height:10px;
+}
+
+.main_stats_table_wrap .situation_type {
+}
+
+.main_stats_table_wrap .situation_type .name_wrap {
+	float:left;
+	height:37px;
+	width:144px;
+	background-color:#e2e2e2;
+	border:1px solid #cacaca;
+	border-bottom:none;
+}
+
+.main_stats_table_wrap .situation_type .name_wrap p {
+	margin-top:11px;
+	margin-left:5px;
+	font-size:17px;
+	color:#898989;
+	float:left;
+}
+
+.main_stats_table_wrap .situation_type .name_wrap img {
+	margin-top:11px;
+	margin-right:5px;
+	float:right;
+}
+
+.main_stats_table_wrap .situation_type .info_wrap {
+	float:left;
+	height:37px;
+	width:665px;
+	background-color:#e2e2e2;
+	border:1px solid #cacaca;
+	border-left:none;
+	border-bottom:none;
+}
+
+.main_stats_table_wrap .situation_type .info_wrap img {
+	margin-left:22px;
+	margin-top:2px;
+	float:left;
+}
+
+.main_stats_table_wrap .situation_type .info_wrap .description {
+	float:left;
+	margin-top:12px;
+	margin-left:5px;
+}
+
+.main_stats_table_wrap .situation_type .info_wrap .description p {
+	color:#898989;
+}
+
+.main_stats_table_wrap .situation_type .name {
+	float:left;
+	height:37px;
+	width:144px;
+	background-image:url(img/bg_stripes.png);
+	border:1px solid #cacaca;
+	border-bottom:none;
+}
+
+.main_stats_table_wrap .situation_type .single_situation {
+	display:none;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .name p {
+	margin-top:11px;
+	margin-left:5px;
+	font-size:17px;
+	color:#898989;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block {
+	width:110px;
+	height:37px;
+	border:1px solid #cacaca;
+	border-left:none;
+	border-bottom:none;
+	float:left;
+	background-image:url(img/bg_stripes.png);
+	position:relative;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap {
+	position:absolute;
+	bottom:1px;
+	left:-13px;
+	z-index:5;
+	display:none;
+}
+
+/*
+#tip1, #tip2 {
+	display:none;
+}
+*/
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap .triangle {
+	width:19px;
+	height:9px;
+	background-image:url(img/speech_bubble_triangle.png);
+	position:absolute;
+	bottom:-1px;
+	left:99px;
+	z-index:2;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap .frame {
+	width:220px;
+	background-color:#ffffff;
+	border:1px solid #b3b3b3;
+	position:absolute;
+	z-index:10;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap .frame p {
+	color:#959595;
+	font-family:"Tahoma";
+	font-weight:normal;
+	margin:5px;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap .frame .tip p {
+	color:#363636;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap .frame textarea {
+	width:198px;
+	border:1px solid #b3b3b3;
+	margin-left:5px;
+	height:80px;
+	color:#363636;
+	font-family:"Tahoma";
+	font-weight:normal;
+	padding:5px;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap .frame .button_erase {
+	margin:5px;
+	float:right;
+	width:70px;
+	height:19px;
+	background-image:url(img/erase_button_bg.png);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	text-align:center;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap .frame .button_erase p{
+	font-size:16px;
+	font-weight:bold;
+	font-family:"Trebuchet MS";
+	line-height:18px;
+	margin:0px;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap .frame .button_save {
+	margin:5px;
+	float:right;
+	width:70px;
+	height:19px;
+	background-color:#1ebff6;
+	/*background-image:url(img/save_button_bg.png);*/
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	text-align:center;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap .frame .button_save p{
+	font-size:16px;
+	font-weight:bold;
+	font-family:"Trebuchet MS";
+	line-height:18px;
+	margin:0px;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .no_value {
+	text-align:center;
+	margin-top:12px;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .no_value p {
+	font-size:20px;
+	color:#898989;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .inactive {
+	background-image:url(img/bg_stripes_inactive.png);
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar {
+	margin-left:20px;
+	margin-top:12px;
+	width:73px;
+	height:13px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-image:url(img/progress_bar_bg_gray.png);
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .progress_active {
+	height:13px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	position:relative;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .progress_active .percentage {
+	position:absolute;
+	left:5px;
+	top:1px;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .progress_active .percentage p {
+	font-size:10px;
+	line-height:10px;
+	font-weight:normal;
+	color:#363636;
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .normal {
+	background-image:url(img/progress_bar_bg_green.png);
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .bad {
+	background-image:url(img/progress_bar_bg_red.png);
+}
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .inactive {
+	background-image:url(img/progress_bar_bg_lightgray.png);
+}
+
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block .notification {
+	position:absolute;
+	width:19px;
+	height:19px;
+	left:85px;
+	bottom:9px;
+}
+
+.result_filtering {
+	width:900px;
+	margin-top:25px;
+}
+
+.result_filtering .dropdown_wrap {
+	float:left;
+	width:160px;
+	margin-left:10px;
+}
+
+.result_filtering  h1 {
+	font-family:"Trebuchet MS";
+	font-size:19px;
+	color:#898989;
+	font-weight:bold;
+	margin:0px;
+}
+
+.result_filtering .dropdown_wrap .form_dropdowns {
+	margin-top:4px;
+}
+
+.result_filtering .table_wrap {
+	width:328px;
+	float:left;
+	margin-left:40px;
+}
+
+.result_filtering .table_wrap .button_filter {
+	float:left;
+	margin-top:29px;
+}
+
+.result_filtering .table_wrap .button_filter a {
+	font-family:"Trebuchet MS";
+	color:#464646;
+	font-size:19px;
+	font-weight:bold;
+	line-height:29px;
+	background-color:#1ebff6;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:3px;
+	padding-bottom:2px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.result_filtering .table_wrap .filter_bar {
+	float:right;
+	position:relative;
+}
+
+.result_filtering .table_wrap .filter_bar .unfilled {
+	margin-top:3px;
+	width:178px;
+	height:29px;
+	background-image:url(img/bg_stripes_dark.png);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.result_filtering .table_wrap .filter_bar .unfilled .filled {
+	height:29px;
+	background-image:url(img/bg_stripes_green.png);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.result_filtering .table_wrap .filter_bar .percentage {
+	position:absolute;
+	bottom:8px;
+	left:5px;
+}
+
+.result_filtering .table_wrap .filter_bar .percentage p {
+	font-size:24px;
+	color:#464646;
+}
+
+
+.result_filtering .table_wrap .table_container {
+	margin-top:25px;
+	width:328px;
+	background-image:url(img/bg_stripes_inactive.png);
+	position:relative;
+}
+
+.result_filtering .table_wrap .table_container .clearblock {
+	height:25px;
+	background-image:url(img/bg_stripes.png);
+}
+
+
+
+.result_filtering .table_wrap .table_container .progress_wrap {
+	width:40px;
+	height:98px;
+	border-left:1px solid #cfcfcf;
+	position:relative;
+	border-top:1px solid #cfcfcf;
+	float:left;
+}
+
+.result_filtering .table_wrap .table_container .progress_wrap:hover .overlay_wrap {
+	display:block;
+}
+
+.result_filtering .table_wrap .table_container .progress_wrap .bar {
+	margin-left:13px;
+	width:15px;
+	background-color:#b6d051;
+	position:relative;
+	margin-bottom:0px;
+	position:absolute;
+	bottom:1px;
+	z-index:3;
+}
+
+.result_filtering .table_wrap .table_container .progress_wrap .overlay_wrap {
+	display:none;
+	position:absolute;
+	left:-21px;
+	bottom:-123px;
+	width:80px;
+	height:221px;
+	background-image:url(img/overlay_bg.png);
+}
+
+.result_filtering .table_wrap .table_container .progress_wrap .overlay_wrap .date {
+	text-align:center;
+	margin-top:3px;
+}
+
+.result_filtering .table_wrap .table_container .progress_wrap .overlay_wrap .date p {
+	font-size:9px;
+	color:#898989;
+}
+
+.result_filtering .table_wrap .table_container .heading_distance {
+	position:absolute;
+	left:5px;
+	top:10px;
+	z-index:1;
+}
+
+.result_filtering .table_wrap .table_container .heading_plan {
+	position:absolute;
+	left:5px;
+	top:133px;
+	z-index:1;
+}
+
+.result_filtering .table_wrap .table_container .number_wrap {
+	width:41px;
+	float:left;
+	text-align:center;
+	margin-top:5px;
+}
+
+.result_filtering .table_wrap .table_container .number_wrap p {
+	font-size:18px;
+	color:#898989;
+}
+
+.result_filtering .info_wrap {
+	margin-left:43px;
+	float:left;
+}
+
+.result_filtering .info_wrap .strokes {
+	float:left;
+	margin-right:40px;
+}
+
+.result_filtering .info_wrap .strokes p {
+	margin-top:3px;
+	background-color:#dcdcdc;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	font-size:24px;
+	color:#363636;
+	line-height:29px;
+	padding-left:5px;
+	padding-right:5px;
+	width:80px;
+	font-weight:bold;
+	font-family:"Trebuchet MS";
+}
+
+.result_filtering .info_wrap img {
+	margin-top:25px;
+	margin-bottom:5px;
+}
+
+.result_filtering .info_wrap p {
+	font-family:"Tahoma";
+	font-size:14px;
+	color:#464646;
+	width:280px;
+	font-weight:normal;
+}
+
+.clearblock_dropdowns {
+	height:9px;
+}
+
+.footer_wrap {
+	margin-top:20px;
+	bottom:0px;
+	width:100%;
+	background-color:#4a4a4a;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	height:60px;
+	
+}
+
+.footer_wrap p {
+	
+	color:#b6d051;
+	font-size:20px;
+}
+
