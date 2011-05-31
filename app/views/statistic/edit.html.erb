@@ -141,57 +141,51 @@
       <a href="#"><img src="/images/link_left_big.png" alt=""/></a>
     </div>
 
-    <div class="single_club_wrap">
-      <div class="club_name">
-        <p>DRIVER</p>
-      </div>
-      <div class="progress_bar">
-        <div class="progress_active normal" style="width:55%">
-        </div>
-      </div>
-      <div class="info">
-        <p>USAGE 15%<br>AVG. 170m</p>
-      </div>
-    </div>
+    <% @user_sticks.each do |stick| %>
 
-    <div class="single_club_wrap">
-      <div class="club_name">
-        <p>WOOD</p>
-      </div>
-      <div class="progress_bar">
-        <div class="progress_active bad" style="width:20%">
-        </div>
-      </div>
-      <div class="info">
-        <p>USAGE 15%<br>AVG. 170m</p>
-      </div>
-    </div>
+      <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => @user_params.id})%>
 
-    <div class="single_club_wrap">
-      <div class="club_name">
-        <p>PUTTER</p>
-      </div>
-      <div class="progress_bar">
-        <div class="progress_active normal" style="width:80%">
+      <div class="single_club_wrap">
+        <div class="club_name">
+          <p><%=  stick.stick.stick_type %></p>
         </div>
-      </div>
-      <div class="info">
-        <p>USAGE 15%<br>AVG. 170m</p>
-      </div>
-    </div>
 
-    <div class="single_club_wrap">
-      <div class="club_name">
-        <p>PUTTER</p>
-      </div>
-      <div class="progress_bar">
-        <div class="progress_active normal" style="width:80%">
+        <div class="progress_bar">
+          <% unless @stats.stick_progres == nil %>
+            <%  if @stats.stick_progres < 35 %>
+              <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>">
+              </div>
+            <%else%>
+              <div class="progress_active normal" style="width: <%= " #{ @stats.stick_progres.to_s}%"%>">
+              </div>
+            <%end%>
+          <%end%>
+        </div>
+
+        <div class="info">
+          <p>
+            USAGE:
+            <% unless @stats.usage == nil %>
+              <%="#{@stats.usage}%" %>
+            <% else %>
+              N/A
+            <% end %>
+            <br />
+            AVG:
+            <% unless @stats.avg_distance == nil %>
+              <%="#{@stats.avg_distance}m"%>
+            <%  else %>
+              N/A
+            <% end %>
+          </p>
         </div>
       </div>
-      <div class="info">
-        <p>USAGE 15%<br>AVG. 170m</p>
-      </div>
-    </div>
+
+
+    <% end %>
+
+
+
 
     <div class="page_left">
       <a href="#"><img src="/images/link_right_big.png" alt=""/></a>
@@ -235,6 +229,8 @@
 
           <%  unless @c_s_stick.place_teebox == nil %>
 
+
+            <!-- ============== add hint ============== -->
             <% if @is_admin %>
               <div class="tip_bubble_wrap" id="teebox_<%=  c_stick.id %>" style="display: none;">
                 <div class="triangle"></div>
@@ -248,8 +244,25 @@
                   </div>
                 </div>
               </div>
-            <% end %>
+            <% else %>
+              <!-- ============== add hint ============== -->
 
+
+              <!-- ============== view hint ============== -->
+              <div class="tip_bubble_wrap" id="teebox_<%=  c_stick.id %>" style="display: none;">
+                <div class="triangle"></div>
+                <div class="frame">
+                  <p>Trenera (Edvīns Bērzkalniņš) padoms:</p>
+                  <p>text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text</p>
+                </div>
+              </div>
+
+            <% end %>
+            <!-- ============== view hint ============== -->
+
+
+
+            <!-- ============== show progress ============== -->
             <div class="progress_bar">
               <div class="progress_active <%= @c_s_stick.place_teebox.to_i < 31 ? "bad" : "normal" %>" style="width:<%= "#{@c_s_stick.place_teebox.to_i}%"%>">
                 <div class="percentage">
@@ -257,16 +270,28 @@
                 </div>
               </div>
             </div>
+            <!-- ============== show progress ============== -->
 
-            <% if @c_s_stick.place_teebox.to_i < 31 %>
-              <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.id %>')">
-                <img src="/images/tip_icon.png" alt=""/>
-              </div>
+
+            <!-- ============== when to show hint ============== -->
+            <% if @is_admin %>
+              <% if @user_params.couch == current_user.id %>
+                <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.id %>')">
+                  <img src="/images/tip_icon.png" alt=""/>
+                </div>
+              <% end %>
+            <% else %>
+              <% if @c_s_stick.place_teebox.to_i < 31 %>
+                <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.id %>')">
+                  <img src="/images/tip_icon.png" alt=""/>
+                </div>
+              <% end %>
             <% end %>
+
+            <!-- ============== when to show hint ============== -->
+
           <% else %>
-            <div class="no_value">
-              <p>N/A</p>
-            </div>
+            <div class="no_value"><p>N/A</p></div>
           <% end %>
         </div>
 
