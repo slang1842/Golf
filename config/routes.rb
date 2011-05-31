@@ -22,7 +22,7 @@ Golf::Application.routes.draw do
 
   resource :statistic do
     member do
-      match 'user/:user_id/field/:field_id' => 'statistic#edit', :as => "main"
+      match 'user/:user_id/' => 'statistic#edit', :as => "main"
     end
   end
 
