@@ -25,7 +25,8 @@ function gamedatepicker() {
         changeMonth: true,
         changeYear: true,
         dateFormat: 'dd.mm.y',
-        yearRange: '1900:2011'
+        yearRange: '1900:2011',
+        firstDay :1
     });
 }
 
@@ -35,7 +36,8 @@ function datapicker() {
         changeMonth: true,
         changeYear: true,
         dateFormat: 'dd.mm.y',
-        yearRange: '1900:2011'
+        yearRange: '1900:2011',
+         firstDay: 1
     });
 }
 
@@ -49,7 +51,8 @@ function timepicker(){
         timeText: 'Time',
         hourText: 'Hour',
         minuteText: 'Minute',
-        secondText: 'Second'
+        secondText: 'Second',
+        firstDay: 1
     });
 }
 

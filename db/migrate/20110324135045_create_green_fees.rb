@@ -3,7 +3,7 @@ class CreateGreenFees < ActiveRecord::Migration
     create_table :green_fees do |t|
       t.references :field
       t.string :title,     :null => false
-      t.integer :price,    :null => false
+      t.string :price,    :null => false
 
       t.timestamps
     end

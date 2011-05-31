@@ -79,7 +79,7 @@
 .new_field .holes {
 	padding-left:10px;
 	background-image:url(img/bg_stripes.png);
-	width:400px;
+	width:420px;
 	margin-top:20px;
 	float:left;
 	position:relative;
@@ -135,7 +135,7 @@
 
 .new_field .hit_places_wrap {
 	float:left;
-	width:470px;
+	width:450px;
 	margin: 20px 10px 50px 0;
 	background-image:url(img/bg_stripes.png);
 }
@@ -304,7 +304,7 @@
 .edit_field .holes {
   padding-left:10px;
   background-image:url(img/bg_stripes.png);
-  width:400px;
+  width:420px;
   margin-top:20px;
   float:left;
   position:relative;
@@ -360,7 +360,7 @@
 
 .edit_field .hit_places_wrap {
   float:left;
-  width:470px;
+  width:450px;
   margin: 20px 10px 50px 0;
   background-image:url(img/bg_stripes.png);
 }

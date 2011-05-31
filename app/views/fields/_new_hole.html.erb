@@ -1,14 +1,17 @@
 <%# hole ||= Hole.new %>
 <%#= hole_number ||= 0 %>
+<script type="text/javascript">
+  $(function(){ $(".hole_file_field").uniform(); });
+</script>
 <%= f.fields_for hole_attributes_name,  hole do |h| %>
 <%= h.hidden_field :id unless hole.new_record? %>
 <%= h.hidden_field :hole_number, :class => 'current_hole_number' %>
 
-<div class="inputs">
+<div class="inputs" >
             <div class="txt"><p><div class="hole_number_text"><%= hole.hole_number.to_s + '.'%></div></p></div>
             <%= h.text_field :par   %>
             <%= h.text_field :hcp %>
-           <%= h.file_field( :image,{:style => "width:110px"}) %>
+           <%= h.file_field( :image,{:class => "hole_file_field"}) %>
            <!-- <a href="#" class="green_button" onclick="$('.field_hole_image').click();">Augaupldt bildi</a>
                            -->       
                       

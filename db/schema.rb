@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(:version => 20110525141619) do
   create_table "green_fees", :force => true do |t|
     t.integer  "field_id"
     t.string   "title",      :null => false
-    t.integer  "price",      :null => false
+    t.string   "price",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

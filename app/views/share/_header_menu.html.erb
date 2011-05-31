@@ -25,16 +25,14 @@
       <a href="<%= bag_user_path %>"><img src="/images/bag_icon.png" alt="" /><p>My bag</p></a>
     </div>
     <div class="link_wrap">
-<<<<<<< HEAD
-      <a href="<%= main_statistic_path(:user_id => current_user.id, :field_id => Field.find(current_user.golf_club.id)) %>"><img src="/images/results_icon.png" alt="" /><p>Statistics</p></a>
-=======
 
+      
       <% unless current_user.golf_club == nil %>
         <% @field_id = Field.where(:golf_club_id => current_user.golf_club.id).first %>
         <a href="<%= main_statistic_path(:user_id => current_user.id) %>"><img src="/images/results_icon.png" alt="" /><p>Statistics</p></a>
       <% end %>
 
->>>>>>> f4ccd24a78bf694ac2c620af681468b30099c13b
+
     </div>
     <% if current_user.get_administrate_golf_club  %>
       <div class="link_wrap">
