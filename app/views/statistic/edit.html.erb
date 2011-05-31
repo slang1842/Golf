@@ -239,7 +239,7 @@
 
 
               <!-- ============== hint ============== -->
-              <% if @is_admin %>
+              <% if @is_admin_and_coach || @is_admin %>
 
                 <div class="tip_bubble_wrap" id="teebox_<%=  c_stick.stick.id %>" style="display: none;">
                   <div class="triangle"></div>
@@ -256,11 +256,13 @@
 
               <% else %>
 
-                <div class="tip_bubble_wrap" id="teebox_<%=  c_stick.id %>" style="display: none;">
+                <div class="tip_bubble_wrap" id="teebox_<%=  c_stick.stick.id %>" style="display: none;">
                   <div class="triangle"></div>
                   <div class="frame">
                     <p>Trenera (Edvīns Bērzkalniņš) padoms:</p>
-                    <p>text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text</p>
+                    <div class="tip">
+                      <p>Torem ipsum dolor sit amet, consecetur alit dolor amet, secetur alit ipsum sit sit amet, consecetur amet, consecetur alit</p>
+                    </div>
                   </div>
                 </div>
 
@@ -268,7 +270,6 @@
               <!-- ============== hint ============== -->
 
               <%  unless @c_s_stick.place_teebox == nil %>
-
 
                 <!-- ============== show progress ============== -->
                 <div class="progress_bar">
@@ -289,7 +290,9 @@
                 <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
               <% elsif @is_admin %>
               <% else %>
-                <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+                <% if (@c_s_stick.place_teebox.to_i < 31) && (@c_s_stick.place_teebox != nil) %>
+                  <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+                <% end %>
               <% end %>
               <!-- ============== when to show hint ============== -->
 
