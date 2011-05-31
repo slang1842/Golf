@@ -14,6 +14,7 @@ class StatisticController < ApplicationController
   def edit
     @user_params = User.find(params[:user_id])
     @is_admin = true if current_user.admin == true
+    @is_admin_and_coach = true if current_user.admin == true && @user_params.coach == current_user.id
 
     unless @is_admin
       if @user_params.id != current_user.id

@@ -135,182 +135,185 @@
 
 
 <!-- ============================ sticks ============================ -->
+
 <div class="main_stats_table_wrap">
-  <div class="clubs_wrap">
-    <div class="page_left">
-      <a href="#"><img src="/images/link_left_big.png" alt=""/></a>
-    </div>
 
-    <% @user_sticks.each do |stick| %>
 
-      <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => @user_params.id})%>
+  <div> <!-- MAIN statistikas divs -->
+    <%  @stick_count = @user_params.sticks %>
+    <%  @stats_count = Statistic.where(:user_id == @user_params.id) %>
 
-      <div class="single_club_wrap">
-        <div class="club_name">
-          <p><%=  stick.stick.stick_type %></p>
+    <% if @stick_count.count > 0 && @stats_count.count > 0 && @stick_count.count == @stats_count.where(:user_id => @user_params.id).count  %>
+
+
+      <div class="clubs_wrap">
+        <div class="page_left">
+          <a href="#"><img src="/images/link_left_big.png" alt=""/></a>
         </div>
 
-        <div class="progress_bar">
-          <% unless @stats.stick_progres == nil %>
-            <%  if @stats.stick_progres < 35 %>
-              <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>">
-              </div>
-            <%else%>
-              <div class="progress_active normal" style="width: <%= " #{ @stats.stick_progres.to_s}%"%>">
-              </div>
-            <%end%>
-          <%end%>
-        </div>
+        <% @user_sticks.each do |stick| %>
 
-        <div class="info">
-          <p>
-            USAGE:
-            <% unless @stats.usage == nil %>
-              <%="#{@stats.usage}%" %>
-            <% else %>
-              N/A
-            <% end %>
-            <br />
-            AVG:
-            <% unless @stats.avg_distance == nil %>
-              <%="#{@stats.avg_distance}m"%>
-            <%  else %>
-              N/A
-            <% end %>
-          </p>
-        </div>
-      </div>
+          <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => @user_params.id})%>
+
+          <div class="single_club_wrap">
+
+            <div class="club_name">
+              <p><%=  stick.stick.stick_type %></p>
+            </div>
+
+            <div class="progress_bar">
+              <% unless @stats.stick_progres == nil %>
+                <%  if @stats.stick_progres < 35 %>
+                  <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>"></div>
+                <%else%>
+                  <div class="progress_active normal" style="width: <%= " #{ @stats.stick_progres.to_s}%"%>"></div>
+                <%end%>
+              <%end%>
+            </div>
+
+            <div class="info">
+              <p>
+                USAGE:
+                <% unless @stats.usage == nil %>
+                  <%="#{@stats.usage}%" %>
+                <% else %>
+                  N/A
+                <% end %>
+                <br />
+                AVG:
+                <% unless @stats.avg_distance == nil %>
+                  <%="#{@stats.avg_distance}m"%>
+                <%  else %>
+                  N/A
+                <% end %>
+              </p>
+            </div>
+          </div>
 
 
-    <% end %>
-
-
-
-
-    <div class="page_left">
-      <a href="#"><img src="/images/link_right_big.png" alt=""/></a>
-    </div>
-  </div>
-  <!-- ============================ sticks ============================ -->
-
+        <% end %>
 
 
 
-  <!-- ============================ main stats ============================ -->
 
-  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- location =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
-  <div class="clear"></div>
-  <div class="situation_type">
-    <span onclick="showHideElement('#location')">
-      <div class="name_wrap">
-        <p>Vieta</p>
-        <img src="/images/link_right_small.png" alt=""/>
-      </div>
-      <div class="info_wrap">
-        <img src="/images/table_icon_location.png" alt=""/>
-        <div class="description">
-          <p>Vieta, no kuras notika sitiens</p>
+        <div class="page_left">
+          <a href="#"><img src="/images/link_right_big.png" alt=""/></a>
         </div>
       </div>
-    </span>
+      <!-- ============================ sticks ============================ -->
 
 
-    <!-- ---------------------------- teebox ---------------------------- -->
-    <div class="single_situation" id="location" >
-      <div class="name">
-        <p>Teebox</p>
-      </div>
-
-      <!-- ---------------------------- nujas ---------------------------- -->
-      <% @user_sticks.each do |c_stick|%>
-        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.id) %>
-
-        <div class="progress_block">
-
-          <%  unless @c_s_stick.place_teebox == nil %>
 
 
-            <!-- ============== add hint ============== -->
-            <% if @is_admin %>
-              <div class="tip_bubble_wrap" id="teebox_<%=  c_stick.id %>" style="display: none;">
-                <div class="triangle"></div>
-                <div class="frame">
-                  <p>Trenera (Edvīns Bērzkalniņš) padoms:</p>
-                  <div class="tip">
-                    <p>Torem ipsum dolor sit amet, consecetur alit dolor amet, secetur alit ipsum sit sit amet, consecetur amet, consecetur alit</p>
-                    <textarea name="comments" ></textarea>
-                    <a href="#"><div class="button_erase"><p>Dzēst</p></div></a>
-                    <a href="#"><div class="button_save"><p>Saglabāt</p></div></a>
+      <!-- ============================ main stats ============================ -->
+
+      <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- location =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+      <div class="clear"></div>
+      <div class="situation_type">
+        <span onclick="showHideElement('#location')">
+          <div class="name_wrap">
+            <p>Vieta</p>
+            <img src="/images/link_right_small.png" alt=""/>
+          </div>
+          <div class="info_wrap">
+            <img src="/images/table_icon_location.png" alt=""/>
+            <div class="description">
+              <p>Vieta, no kuras notika sitiens</p>
+            </div>
+          </div>
+        </span>
+
+
+        <!-- ---------------------------- teebox ---------------------------- -->
+        <div class="single_situation" id="location" >
+          <div class="name">
+            <p>Teebox</p>
+          </div>
+
+          <!-- ---------------------------- nujas ---------------------------- -->
+          <% @user_sticks.each do |c_stick|%>
+            <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+
+            <div class="progress_block">
+
+
+
+              <!-- ============== hint ============== -->
+              <% if @is_admin %>
+
+                <div class="tip_bubble_wrap" id="teebox_<%=  c_stick.stick.id %>" style="display: none;">
+                  <div class="triangle"></div>
+                  <div class="frame">
+                    <p>Trenera (Edvīns Bērzkalniņš) padoms:</p>
+                    <div class="tip">
+                      <p>Torem ipsum dolor sit amet, consecetur alit dolor amet, secetur alit ipsum sit sit amet, consecetur amet, consecetur alit</p>
+                      <textarea name="comments" ></textarea>
+                      <a href="#"><div class="button_erase"><p>Dzēst</p></div></a>
+                      <a href="#"><div class="button_save"><p>Saglabāt</p></div></a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <% else %>
-              <!-- ============== add hint ============== -->
 
+              <% else %>
 
-              <!-- ============== view hint ============== -->
-              <div class="tip_bubble_wrap" id="teebox_<%=  c_stick.id %>" style="display: none;">
-                <div class="triangle"></div>
-                <div class="frame">
-                  <p>Trenera (Edvīns Bērzkalniņš) padoms:</p>
-                  <p>text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text</p>
+                <div class="tip_bubble_wrap" id="teebox_<%=  c_stick.id %>" style="display: none;">
+                  <div class="triangle"></div>
+                  <div class="frame">
+                    <p>Trenera (Edvīns Bērzkalniņš) padoms:</p>
+                    <p>text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text, text</p>
+                  </div>
                 </div>
-              </div>
 
-            <% end %>
-            <!-- ============== view hint ============== -->
+              <% end %>
+              <!-- ============== hint ============== -->
+
+              <%  unless @c_s_stick.place_teebox == nil %>
 
 
-
-            <!-- ============== show progress ============== -->
-            <div class="progress_bar">
-              <div class="progress_active <%= @c_s_stick.place_teebox.to_i < 31 ? "bad" : "normal" %>" style="width:<%= "#{@c_s_stick.place_teebox.to_i}%"%>">
-                <div class="percentage">
-                  <p><%= "#{@c_s_stick.place_teebox}%"%></p>
+                <!-- ============== show progress ============== -->
+                <div class="progress_bar">
+                  <div class="progress_active <%= @c_s_stick.place_teebox.to_i < 31 ? "bad" : "normal" %>" style="width:<%= "#{@c_s_stick.place_teebox.to_i}%"%>">
+                    <div class="percentage">
+                      <p><%= "#{@c_s_stick.place_teebox}%"%></p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+                <!-- ============== show progress ============== -->
+
+              <% else %>
+                <div class="no_value"><p>N/A</p></div>
+              <% end %>
+
+              <!-- ============== when to show hint ============== -->
+              <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
+                <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <% elsif @is_admin %>
+              <% else %>
+                <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <% end %>
+              <!-- ============== when to show hint ============== -->
+
             </div>
-            <!-- ============== show progress ============== -->
 
-
-            <!-- ============== when to show hint ============== -->
-            <% if @is_admin %>
-              <% if @user_params.couch == current_user.id %>
-                <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.id %>')">
-                  <img src="/images/tip_icon.png" alt=""/>
-                </div>
-              <% end %>
-            <% else %>
-              <% if @c_s_stick.place_teebox.to_i < 31 %>
-                <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.id %>')">
-                  <img src="/images/tip_icon.png" alt=""/>
-                </div>
-              <% end %>
-            <% end %>
-
-            <!-- ============== when to show hint ============== -->
-
-          <% else %>
-            <div class="no_value"><p>N/A</p></div>
           <% end %>
+          <!-- ---------------------------- nujas ---------------------------- -->
         </div>
-
-      <% end %>
-      <!-- ---------------------------- nujas ---------------------------- -->
-    </div>
-    <!-- ---------------------------- teebox ---------------------------- -->
+        <!-- ---------------------------- teebox ---------------------------- -->
 
 
-    <div class="clear"></div>
-    <div class="bottom_line"></div>
-  </div>
-  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- location =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+        <div class="clear"></div>
+        <div class="bottom_line"></div>
+      </div>
+      <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- location =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 
 
 
 
-  <!-- ============================ main stats ============================ -->
+      <!-- ============================ main stats ============================ -->
 
+
+    <% else %> <div class="error" style="display: block;">Stick statistic is not available for a moment. Please wait.</div> <% end %>
+  </div> <!-- MAIN statistikas divs -->
 
 
 
