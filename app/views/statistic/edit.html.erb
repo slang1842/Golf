@@ -228,33 +228,50 @@
       </div>
 
       <!-- ---------------------------- nujas ---------------------------- -->
-      <div class="progress_block">
-        <div class="tip_bubble_wrap" id="abc" style="display: none;">
-          <div class="triangle"></div>
-          <div class="frame">
-            <p>Trenera (Edvīns Bērzkalniņš) padoms:</p>
-            <div class="tip">
-              <p>Torem ipsum dolor sit amet, consecetur alit dolor amet, secetur alit ipsum sit sit amet, consecetur amet, consecetur alit</p>
-              <textarea name="comments" ></textarea>
-              <a href="#"><div class="button_erase"><p>Dzēst</p></div></a>
-              <a href="#"><div class="button_save"><p>Saglabāt</p></div></a>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.id) %>
+
+        <div class="progress_block">
+
+          <%  unless @c_s_stick.place_teebox == nil %>
+
+            <% if @is_admin %>
+              <div class="tip_bubble_wrap" id="teebox_<%=  c_stick.id %>" style="display: none;">
+                <div class="triangle"></div>
+                <div class="frame">
+                  <p>Trenera (Edvīns Bērzkalniņš) padoms:</p>
+                  <div class="tip">
+                    <p>Torem ipsum dolor sit amet, consecetur alit dolor amet, secetur alit ipsum sit sit amet, consecetur amet, consecetur alit</p>
+                    <textarea name="comments" ></textarea>
+                    <a href="#"><div class="button_erase"><p>Dzēst</p></div></a>
+                    <a href="#"><div class="button_save"><p>Saglabāt</p></div></a>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="progress_bar">
+              <div class="progress_active <%= @c_s_stick.place_teebox.to_i < 31 ? "bad" : "normal" %>" style="width:<%= "#{@c_s_stick.place_teebox.to_i}%"%>">
+                <div class="percentage">
+                  <p><%= "#{@c_s_stick.place_teebox}%"%></p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="progress_bar">
-          <div class="progress_active normal" style="width:80%">
-            <div class="percentage">
-              <p>22%</p>
+
+            <% if @c_s_stick.place_teebox.to_i < 31 %>
+              <div class="notification" onclick="showHideElement('#teebox_<%=  c_stick.id %>')">
+                <img src="/images/tip_icon.png" alt=""/>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="no_value">
+              <p>N/A</p>
             </div>
-          </div>
+          <% end %>
         </div>
-        <div class="notification" onclick="showHideElement('#abc')">
-          <img src="/images/tip_icon.png" alt=""/>
-        </div>
-      </div>
+
+      <% end %>
       <!-- ---------------------------- nujas ---------------------------- -->
-
-
     </div>
     <!-- ---------------------------- teebox ---------------------------- -->
 

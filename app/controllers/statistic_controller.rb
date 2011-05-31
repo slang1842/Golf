@@ -13,7 +13,7 @@ class StatisticController < ApplicationController
 
   def edit
     @user_params = User.find(params[:user_id])
-    @is_admin = true if current_user.admin
+    @is_admin = true if current_user.admin == true
 
     unless @is_admin
       if @user_params.id != current_user.id
@@ -21,8 +21,8 @@ class StatisticController < ApplicationController
       end
     end
       
-    @user_sticks = UsersStick.where(:user_id => @user_params.id).order("stick.stick_type ASC")
-    @statistic = Statistic.where(:user_id => @user_params.id, :stick_id => @user_sticks.id).order("stick.stick_type ASC")
+    @user_sticks = UsersStick.where(:user_id => @user_params.id).order("@user_params.stick_type ASC")
+    @statistic = Statistic.where(:user_id => @user_params.id)
   
   end
 
