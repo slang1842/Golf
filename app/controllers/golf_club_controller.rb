@@ -44,7 +44,7 @@ class GolfClubController < ApplicationController
   def show
    @club = GolfClub.find(:first, :conditions => {:id => current_user.golf_club.id})
    @users = User.find(:all, :conditions => {:golf_club_id => @club.id, :coach => !nil})
-   @users_w_no_coach = User.find(:all, :conditions => {:golf_club_id => @club.id, :coach => 0})
+   @users_w_no_coach = User.find(:all, :conditions => {:golf_club_id => @club.id, :coach => nil})
    render '/golf_club/show'
   end
   

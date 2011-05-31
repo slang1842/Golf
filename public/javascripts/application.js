@@ -13,7 +13,8 @@ $(document).ready(function() {
 
 function bindHitFormPlan() {
   $('.hole_switch').live('click', function() {
-    $('#nexthole').val($(this).attr('rel')); 
+    $('#nexthole').val($(this).attr('rel'));
+    $('.single_hole').replaceWith('<img src="/images/ajax-loader-small.gif" style="position:relative; top:18px; margin-left:7px;" />');
     $('#hit_form').submit(); 
     return false;
   });
@@ -22,6 +23,8 @@ function bindHitFormPlan() {
 function bindHitSwitch() {
   $('.hit_switch').live('click', function() {
     $('#nexthit').val($(this).attr('rel')); 
+    $('.gif_placeholder').empty();
+    $('.gif_placeholder').append('<img src="/images/ajax-loader.gif" />');
     $('#hit_form').submit(); 
     return false;
   });
