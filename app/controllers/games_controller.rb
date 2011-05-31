@@ -114,8 +114,8 @@ end
      @form_id = 'plan'
      if params[:hits] == 'new'
          render '/games/hit_edit'
+      
        end
-  puts @hit.id
     end
     
     def res
