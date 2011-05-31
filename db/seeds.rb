@@ -8,7 +8,7 @@
 
 #Add Countrys
 
-=begin
+
 lv = Country.create(:name => 'Latvia')
 it = Country.create(:name => 'Italy')
 
@@ -41,7 +41,7 @@ Stick.create(:stick_type => "WOODBOW",
   :shaft => "wood",
   :short_name => "W",
   :shaft_strength => "medium strong")
-=end
+
 
 PairHit.create(:users_id => 1,
   :hit_planed_id => 7,
@@ -623,7 +623,13 @@ Hole.create(:field_id => 1,
   :hole_number => 9)
               
               
-   
+GolfClub.create(:user_id => 1,
+  :name => "golf clubs nr1",
+  :country_id => 1,
+  :region => "Rīga",
+  :city => "Rīga",
+  :web_page => "www.g.lv",
+  :active => true)
               
               
               

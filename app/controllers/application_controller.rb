@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   before_filter :is_blocked
   
   private
+
+  def self.do_i_have_main_statistic(user)
+    return user.stick.count > 0 && Statistic.where(:user_id == user.id).count > 0
+  end
+
   def is_blocked
     if current_user
       if current_user.is_blocked
