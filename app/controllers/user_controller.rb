@@ -102,7 +102,7 @@ class UserController < ApplicationController
   
   def update_hints
     @user = User.find(params[:id])
-    @user.show_hints = params[:show_hints]
+    @user.coach = params[:coach]
    if  @user.update_attributes(params[:user])
      
    end

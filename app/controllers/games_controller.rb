@@ -94,7 +94,7 @@ end
  
     
    def plan
-    game_holes
+      game_holes
       @active_hit = params[:active_hit].to_i
       if @active_hit == 0
         @active_hit = 1
@@ -113,9 +113,10 @@ end
      convert_to_feet(@hit)
      @form_id = 'plan'
      if params[:hits] == 'new'
-         render '/games/hit_edit'
-      
-       end
+       render '/games/hit_edit'
+     else
+       render 'games/plan'
+     end
     end
     
     def res
@@ -303,12 +304,11 @@ end
                @hit_p_final = @hit_planned
                
   end
-  def comments(hit, type, hole_hit)
-    game_holes
-    
-  end
+ 
+
   def hit_update
-     game_holes
+   #  game_holes
+   @next_hole = params[:next_hole].to_s
      require_game_owner
       if @game.update_attributes(params[:game])
         
@@ -316,27 +316,29 @@ end
      if @game.update_attributes(params[:hits])
       
      end
-     @game_id = @game.id
+   @game_id = params[:game_id]
      @active_hit = params[:next_hit].to_s
      @active_hit1 = params[:active_hit]
      if @active_hit == 'next'
       @active_hit = @active_hit1.to_i + 1
-      @game_id = params[:id]
-    @path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/' + params[:next_hole].to_s + '/' + @active_hit.to_s + '/'
-    redirect_to @path, :remote => :true
+        
     elsif @active_hit == '0'
       @active_hit = 1
-      @game_id = params[:id]
-    @path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/' + params[:next_hole].to_s + '/' + @active_hit.to_s + '/'
-    redirect_to @path, :remote => :true
+     
+  
     elsif @active_hit == 'prev'
       @active_hit = @active_hit1.to_i - 1
-      @game_id = params[:id]
-    @path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/' + params[:next_hole].to_s + '/' + @active_hit.to_s + '/'
-    redirect_to @path, :remote => :true
-   elsif @active_hit == 'save'
-    @path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/' + params[:next_hole].to_s + '/' + @active_hit1.to_s + '/'
-    redirect_to @path, :remote => :true
+         
+   elsif @active_hit == 'save'   
+     @active_hit = @active_hit1
+        
+    end
+    if params[:form_id].to_s == 'plan'
+      get_plan(params[:form_id], @game_id, @next_hole, @active_hit)
+    elsif params[:form_id].to_s == 'results'
+      get_results(params[:form_id], @game_id, @next_hole, @active_hit)
+    elsif params[:form_id].to_s == 'details'
+      get_details(params[:form_id], @game_id, @next_hole, @active_hit)
     end
   end
  
@@ -378,4 +380,120 @@ end
     game_holes
     render 'games/print_game_plan', :layout => 'print'
     end
+    
+    private
+    def get_plan(form_id, game_id, next_hole, active_hit)
+       @form_id = form_id
+       @game_id = game_id
+       @next_hole = next_hole
+       @active_hit = active_hit
+     get_game_holes(game_id, next_hole)
+      
+      if @active_hit == 0
+        @active_hit = 1
+      end
+      
+      if @active_hole.to_i < @start_hole
+        @active_hole = @start_hole
+      end
+      conditions = { :game_id => @game_id, 
+               :hole_number => @active_hole,
+               :hit_number => @active_hit, 
+               :real_hit => 'p',
+               :user_id => current_user.id}
+     
+     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     convert_to_feet(@hit)
+     @form_id = 'plan'
+     
+       render 'games/plan'
+  
+    end
+    
+    def get_results(form_id, game_id, next_hole, active_hit)
+       @form_id = form_id
+       @game_id = game_id
+       @next_hole = next_hole
+       @active_hit = active_hit
+     get_game_holes(@game_id, @next_hole)
+      @form_id = 'results'     
+   
+      @active_hole = next_hole
+      if active_hit == 0
+        @active_hit = 1
+      end
+      if @active_hole.to_i < @start_hole
+        @active_hole = @start_hole
+      end    
+      @hits = Hit.where(:game_id => game_id,:hole_number => @active_hole,:real_hit => 'r')  
+      render 'games/results'
+   
+     end
+     
+     def get_details(form_id, game_id, next_hole, active_hit)
+       @form_id = form_id
+       @game_id = game_id
+       @next_hole = next_hole
+       @active_hit = active_hit
+     get_game_holes(@game_id, @next_hole)
+               conditions2 = { :game_id => @game_id, 
+               :hole_number => @active_hole,
+               :hit_number => @active_hit, 
+               :real_hit => 'pp',
+               :user_id => current_user.id}
+               conditions1 = { :game_id => @game.id, 
+               :hole_number => @active_hole,
+               :hit_number => @active_hit, 
+               :real_hit => 'rp',
+               :user_id => current_user.id
+               }
+      if @active_hit.to_i != 1
+        fix_params(@active_hole, @active_hit, @game_id)
+       else
+          @hit_r_final = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
+        @hit_p_final = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
+       
+        end
+               conditions3 = { :hit_planed_id => @hit_p_final.id,
+                               :hit_real_id => @hit_r_final.id,
+                               :users_id => current_user.id}
+     @pair_hit = PairHit.find(:first, :conditions => conditions3) || PairHit.create(conditions3)
+     @hit_r_final.pair_id = @pair_hit.id
+     @hit_p_final.pair_id = @pair_hit.id
+     @hit_r_final.update_attributes(params[:pair_id])
+     @hit_p_final.update_attributes(params[:pair_id])
+     @pair_hit.update_attributes(params[:pair_hit])
+     @form_id = 'details'
+       render 'games/details'
+     end
+     
+     
+    def get_game_holes(game_id, active_hole)
+
+       @game_id = game_id
+       @active_hole = active_hole
+
+    @game = Game.find_by_id(game_id)
+    game_type = @game.game_type
+    @holes = Hole.where(:field_id => @game.field_id)
+    case game_type
+      when 1
+        hole_num = 1..9  
+        @start_hole = 1
+        @end_hole = 9
+      when 2
+        hole_num = 10..18
+        @start_hole = 10 
+        @end_hole = 18
+      when 3
+        hole_num = 1..18
+        @start_hole = 1
+        @end_hole = 18   
+      end
+    @holes_filtered = @holes.where(:hole_number => hole_num)
+    @form_type = params[:form_type]
+    conditions7 = {:field_id => @game.field_id, :hole_number => @active_hole}
+  @hole = Hole.find(:first, :conditions => conditions7)
+    end
+
 end
