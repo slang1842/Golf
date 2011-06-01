@@ -28,13 +28,12 @@
 
 
       <% unless current_user.golf_club == nil %>
-        <% if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0 %>
+        <% if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil%>
           <% @field_id = Field.where(:golf_club_id => current_user.golf_club.id).first %>
-          <a href="<%= main_statistic_path(:user_id => current_user.id) %>"><img src="/images/results_icon.png" alt="" /><p>Statistics</p></a>
+                  <a href="<%= main_statistic_path(:user_id => current_user.id) %>"><img src="/images/results_icon.png" alt="" /><p>Statistics</p></a>
         <% end %>
       <% end %>
-
-
+     
     </div>
     <% if current_user.get_administrate_golf_club  %>
       <div class="link_wrap">

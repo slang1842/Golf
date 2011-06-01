@@ -15,6 +15,10 @@ class StatisticController < ApplicationController
     @user_params = User.find(params[:user_id])
     @is_admin = true if current_user.admin == true
     @is_admin_and_coach = true if current_user.admin == true && @user_params.coach == current_user.id
+    @current_club_trainer = User.find(@user_params.golf_club.user_id)
+    @current_hints = Hint.where(:user_id => @current_club_trainer.id)
+    
+    store_location
 
     unless @is_admin
       if @user_params.id != current_user.id
@@ -28,7 +32,24 @@ class StatisticController < ApplicationController
   end
 
   def update
-
+    Hint.update_attributes(params[:c_hint])
   end
 
+  def update_hints
+    #conditions = {:user_id => current_user.id, :stick_id => params[:stick_id]}
+    #@hint = Hint.find(:first, :conditions => conditions)
+    #@hint.update_attributes(params[:hint])
+    #redirect_back
+
+
+    conditions = {:user_id => current_user.id, :stick_id => params[:hint][:stick_id]}
+    @hint = Hint.find(:first, :conditions => conditions) || Hint.new(conditions)
+    @hint.update_attributes(params[:hint])
+    redirect_back
+  end
+
+  
 end
+
+
+

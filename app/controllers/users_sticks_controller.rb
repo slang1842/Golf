@@ -16,5 +16,10 @@ class UsersSticksController < ApplicationController
      @sticks = Sticks.find(params[:id])
      Respond_with @sticks  
   end
-  
+/
+  def update
+     @statistic = GolfClub.new(params[:statistic])
+     
+  end
+  /
 end

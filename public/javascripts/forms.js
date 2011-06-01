@@ -159,7 +159,9 @@ function check_admin_pay_banner(x){
   
 
 
-
+function hint_delete_text_field(x) {
+  $(x).Parent().find("textarea").val() = "";
+}
 
 
 

@@ -28,9 +28,9 @@
 
                 <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "hints_checkbox"}, :remote => :true) do |u|%>
                    <%= u.hidden_field(:coach, {:value => user.coach}, {:class => "user_coach"})%>
-                  <p>Dot padomus <input type="checkbox" onchange="change_coach" checked>
+                  <p>Dot padomus <input type="checkbox" onchange="change_coach()" checked />
                     <script type="text/javascript">
-                         function change_coach{
+                         function change_coach(){
                          $('this.user_coach').val("0")
                          $('this').submit()
                             }

@@ -20,12 +20,19 @@ Golf::Application.routes.draw do
   #end
 
 
-  resource :statistic do
+  resource :statistic, :controller => "statistic" do
     member do
       match 'user/:user_id/' => 'statistic#edit', :as => "main"
     end
+    collection do
+      get "hints"
+      post "update_hints"
+      put "update_hints"
+    end
   end
 
+
+  
   match '/s' => "statistic#statistics",   :as => "s"
   match '/ss' => "statistic#view", :as => "view_statistic"
       
