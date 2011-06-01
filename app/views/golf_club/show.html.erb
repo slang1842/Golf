@@ -39,8 +39,8 @@
                 <img src="<%=user.image.url%>" alt=""/>
               </div>
               <div class="text">
-                <p><%=user.first_name%></p>
-                <p><%=user.last_name%></p>
+               <a href="<%=main_statistic_path(user.id.to_s)%>" ><p><%=user.first_name%></p>
+                <p><%=user.last_name%></p></a>
                 <p><span class="gray">HCP:</span> <%=user.hcp%></p>
 
 
@@ -117,8 +117,8 @@
                 <img src="<%=user.image.url%>" alt=""/>
               </div>
               <div class="text">
-                <p><%=user.first_name%></p>
-                <p><%=user.last_name%></p>
+                 <a href="<%=main_statistic_path(user.id.to_s)%>" ><p><%=user.first_name%></p>
+                <p><%=user.last_name%></p></a>
                 <p><span class="gray">HCP:</span> <%=user.hcp%></p>
 
 

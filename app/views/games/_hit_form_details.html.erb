@@ -1,4 +1,7 @@
-<%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
+
+<div class="error">Lūdzu, norādi nūju!</div>
+<%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form", :onsubmit => "return check_game_form();"}, :remote => true) do |game|%>
+
 <input type="hidden" name="next_hit" id="nexthit" value=0>
 <input type="hidden" name="form_id" id="formid" value="details">
 <input type="hidden" name="active_hit" id="act_hit" value=<%=active_hit%>>
@@ -57,7 +60,7 @@
 <div class="single_dropdown">
           <p>Nūja</p>
             <div class="element">
-              <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Izvēlies.."},{:class => "dropdown6", :id => "stick_type_old" }  %>
+              <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Izvēlies.."},{:class => "dropdown6 game_input_select", :id => "stick_type_old" }  %>
             </div>
         </div>
 <div class="single_dropdown">

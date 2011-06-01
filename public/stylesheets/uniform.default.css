@@ -15,7 +15,7 @@ http://pixelmatrixdesign.com/uniform/themer.html
 
 /* Global Declaration */
 
-div.selector, 
+ 
 div.selector span, 
 div.checker span,
 div.radio span, 
@@ -33,7 +33,7 @@ div.button span {
 .checker, 
 .uploader,
 .button, 
-.selector *, 
+ 
 .radio *, 
 .checker *, 
 .uploader *,
@@ -80,19 +80,19 @@ textarea.uniform:focus {
 
 /* Select */
 
-div.selector {
+/*div.selector {
   background-position: -483px -130px;
   line-height: 26px;
   height: 26px;
-}
+}*/
 
-div.selector span {
+/*div.selector span {
   background-position: right 0px;
   height: 26px;
   line-height: 26px;
-}
+}*/
 
-div.selector select {
+/*div.selector select {
   /* change these to adjust positioning of select element */
   top: 0px;
   left: 0px;
@@ -136,7 +136,7 @@ div.selector.disabled {
 
 div.selector.disabled span {
   background-position: right -104px;
-}
+}*/
 
 /* Checkbox */
 
@@ -391,8 +391,8 @@ div.button span {
   padding-right: 15px;
 }
 
-/* Select */
-div.selector {
+/*/* Select */
+/*div.selector {
   width: 190px;
   font-size: 12px;
 }
@@ -417,8 +417,8 @@ div.selector span {
 
 div.selector.disabled span {
   color: #bbb;
-}
-
+}*/
+*/
 /* Checker */
 div.checker {
   margin-right: 5px;
@@ -471,7 +471,7 @@ Not advised to edit stuff below this line
 -----------------------------------------------------
 */
 
-.selector, 
+/*.selector, */
 .checker, 
 .button, 
 .radio, 
@@ -483,9 +483,9 @@ Not advised to edit stuff below this line
   *display: inline;
 }
 
-.selector select:focus, .radio input:focus, .checker input:focus, .uploader input:focus {
+/*.selector select:focus, .radio input:focus, .checker input:focus, .uploader input:focus {
   outline: 0;
-}
+}*/
 
 /* Button */
 
@@ -508,7 +508,7 @@ div.button span {
 }
 
 /* Select */
-
+/*
 div.selector {
   position: relative;
   padding-left: 10px;
@@ -530,7 +530,7 @@ div.selector select {
   border: none;
   background: none;
 }
-
+*/
 /* Checker */
 
 div.checker {

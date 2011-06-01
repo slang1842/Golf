@@ -12,30 +12,56 @@ $(document).ready(function() {
 
 
 function bindHitFormPlan() {
+
   $('.hole_switch').live('click', function() {
+    // check_game_form();
+    
     $('#nexthole').val($(this).attr('rel'));
     $('.single_hole').replaceWith('<img src="/images/ajax-loader-small.gif" style="position:relative; top:18px; margin-left:7px;" />');
     $('#hit_form').submit(); 
     return false;
+  
   });
   
 }
 function bindHitSwitch() {
   $('.hit_switch').live('click', function() {
+ // check_game_form();
+
     $('#nexthit').val($(this).attr('rel')); 
     $('.gif_placeholder').empty();
     $('.gif_placeholder').append('<img src="/images/ajax-loader.gif" />');
     $('#hit_form').submit(); 
     return false;
+  
   });
 }
 
 function bindSaveSwitch() {
   $('.saveswitch').live('click', function() {
+     // check_game_form();
+ 
     $('#nexthit').val($(this).attr('rel')); 
     $('#hit_form').submit(); 
     return false;
+ 
   });
 }
 
+function check_game_form() {
+    textEntered = true
+       $(".game_input_select").each(function() {
+        if (textEntered && $(this).val() == "") {
+            textEntered = false;
+        }
+    });
+                
+    if (textEntered) {
+        return true
+    } else {
+        $(".error").slideDown('slow');
+        return false
+  
+}
 
+}
