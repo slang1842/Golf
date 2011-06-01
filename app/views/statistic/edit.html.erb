@@ -163,10 +163,10 @@
 
             <div class="progress_bar">
               <% unless @stats.stick_progres == nil %>
-                <%  if @stats.stick_progres < 35 %>
-                  <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>"></div>
+                <%  if @stats.stick_progres < MAIN_STATISTIC_BAD_PROC %>
+                  <div class="progress_active bad" style="width:<%= "#{@stats.usage}%;" %>"></div>
                 <%else%>
-                  <div class="progress_active normal" style="width: <%= " #{ @stats.stick_progres.to_s}%"%>"></div>
+                  <div class="progress_active normal" style="width:<%= "#{ @stats.usage}%;"%>"></div>
                 <%end%>
               <%end%>
             </div>

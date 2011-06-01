@@ -2,7 +2,7 @@
   <h1>Laukumi</h1>
   <div class="fields_wrap">
 
-    <% unless @golf_club.fields %>
+    <% unless @golf_club.fields.count < 1 %>
 
       <%= select_tag( "fields", options_from_collection_for_select(fields, "id", "name"), {:onchange => "changeLink(this.value)", :class => "dropdown3"}) %>
       <% first_field = fields.first%>

@@ -491,40 +491,26 @@ class Statistic < ActiveRecord::Base
     
         @AllStickStatistics = AllStickStatistic.new
         
-        @all_hits = Hit.all
-        @all_c_hits = Hit.where(:stick_id => c_users_stick.stick.id)
-
+        @all_hits = Hit.where(:user_id => c_user.id)
+        @all_c_hits = Hit.where(:user_id => c_user.id, :stick_id => c_users_stick.stick.id)
+        
         @AllStickStatistics.user_id = c_user.id
         @AllStickStatistics.stick_id = c_users_stick.stick.id
-        @AllStickStatistics.stick_usage = ((@all_c_hits.count.to_f / @all_hits.count.to_f).to_f * 100).round unless @all_c_hits
-        @AllStickStatistics.avg_distance = @all_c_hits.average("hit_distance") #@all_current_stick_hits.count
         
+        @AllStickStatistics.usage = (((@all_c_hits.count).to_f / (@all_hits.count).to_f).to_f * 100).round
+        @AllStickStatistics.avg_distance = @all_c_hits.average("hit_distance") #@all_current_stick_hits.count
         @stick_progres_arr = []
 
-        #==============================
         @stick_usage_curret_stick_hits = Hit.where(:stick_id => c_users_stick.stick.id, :user_id => c_user.id)
         @stick_usage_all_stick_hits = Hit.where(:user_id => c_user.id)
 
-        @AllStickStatistics.stick_progres = (@stick_usage_curret_stick_hits.count / @stick_usage_all_stick_hits.count).round
-        @return = true if @AllStickStatistics.save
-       
-
-        #@current_users_stick_stats = Statistic.where(:stick_id => c_users_stick.stick.id)
-        
-        #@current_users_stick_stats.each do |sss|
-        #  @stick_progres_arr.push(sss)
-        #end
-        
-        #@stick_progress = (@stick_progres_arr.inject(0.0) { |sum, el| sum + el } / @stick_progres_arr.size).round unless @stick_progres_arr.count < 1
-        #@AllStickStatistics.stick_progres = @stick_progress.to_i 
-        
-
-        #==============================
-        
+       @return = true if @AllStickStatistics.save
       end # ends user stick
 
     end
-    
+  
+
+  
     return @return
   end
   
