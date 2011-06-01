@@ -22,6 +22,7 @@ function bindHitFormPlan() {
     });
                 
     if (textEntered) {
+      $('.error').hide();
      $('#nexthole').val($(this).attr('rel'));
     $('.single_hole').replaceWith('<img src="/images/ajax-loader-small.gif" style="position:relative; top:18px; margin-left:7px;" />');
     $('#hit_form').submit(); 
@@ -46,6 +47,7 @@ function bindHitSwitch() {
     });
                 
     if (textEntered) {
+      $('.error').hide();
      $('#nexthit').val($(this).attr('rel')); 
     $('.gif_placeholder').empty();
     $('.gif_placeholder').append('<img src="/images/ajax-loader.gif" />');
@@ -71,6 +73,7 @@ function bindSaveSwitch() {
     });
                 
     if (textEntered) {
+      $('.error').hide();
      $('#nexthit').val($(this).attr('rel')); 
     $('#hit_form').submit(); 
     return false;
