@@ -46,6 +46,9 @@ Golf::Application.routes.draw do
   
   resource :golf_club, :controller => "golf_club", :path => 'club' do
     resources :fields
+    collection do
+      get "show"
+    end
   end
   
   get "welcome/index"

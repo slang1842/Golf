@@ -9,6 +9,7 @@
 #Add Countrys
 
 
+=begin
 lv = Country.create(:name => 'Latvia')
 it = Country.create(:name => 'Italy')
 
@@ -42,6 +43,7 @@ Stick.create(:stick_type => "WOODBOW",
   :short_name => "W",
   :shaft_strength => "medium strong")
 
+=end
 
 PairHit.create(:users_id => 1,
   :hit_planed_id => 7,

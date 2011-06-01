@@ -21,7 +21,6 @@
 </script>
 
 <% if current_user.golf_club.accepted == "yes" %>
-  <%if current_user.golf_club.active? %>
     <div class="club_wrap">
       <div class="club_info_wrap">
         <h1><%=@club.name%></h1>
@@ -125,7 +124,7 @@
 
                 <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "coach_checkbox" + user.id.to_s}, :remote => :true) do |u|%>
                   <%= u.hidden_field(:coach, {:class => "user_roach"})%>
-                  <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" >
+                  <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" />
                   <%end%></p>
 
 
@@ -184,11 +183,9 @@
             <img src="images/my_club_gradient.png" alt=""/>
           </div>
         </div>
-      <%end%>
+      
 
     </div>
-  <% else %>
-    You must complete club registration, for club to be active. You can do that <%= link_to "here", edit_golf_club_path %>
   <% end %>
 
 <% elsif current_user.golf_club.accepted == "no" %>

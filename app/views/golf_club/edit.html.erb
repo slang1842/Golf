@@ -74,56 +74,24 @@
       </div>
 
 
-
-      <div class="single_element">
-        <div class="text">
-          <p><%= f.label :start_place_by_level_low %></p>
-        </div>
-        <div class="input">
-          <%= f.text_field :start_place_by_level_low %>
-        </div>
+      <div class="green_button_save_field">
+        <%= f.submit %>
       </div>
+    </div>
+
+  <% end %>
+
+  <div class="clear"></div>
+
+
+  <%= render :partial => 'fields/list', :class => "green_button", :locals => {:golf_club => @golf_club, :fields => @golf_club.fields } %>
 
 
 
-      <div class="single_element">
-        <div class="text">
-          <p><%= f.label :start_place_by_level_medium %></p>
-        </div>
-        <div class="input">
-          <%= f.text_field :start_place_by_level_medium %>
-        </div>
-      </div>
-
-
-
-      <div class="single_element">
-        <div class="text">
-          <p><%= f.label :start_place_by_level_high %></p>
-        </div>
-        <div class="input">
-          <%= f.text_field :start_place_by_level_high %>
-        </div>
-      </div>
-
-
-    
-<div class="green_button_save_field">
-  <%= f.submit %>
 </div>
-</div>
+<div class="clear"></div>
 
-<% end %>
- 
-      <div class="clear"></div>
 
-      
-        <%= render :partial => 'fields/list', :class => "green_button", :locals => {:golf_club => @golf_club, :fields => @golf_club.fields } %> 
-     
-</div>
-   <div class="clear"></div>
-
-  
 
 
 
