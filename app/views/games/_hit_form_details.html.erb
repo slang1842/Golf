@@ -1,5 +1,5 @@
-<div class="error">Lūdzu, norādi nūju!</div>
-<%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form", :onsubmit => "return check_game_form();"}, :remote => true) do |game|%>
+
+<%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
 
   <input type="hidden" name="next_hit" id="nexthit" value=0/>
   <input type="hidden" name="form_id" id="formid" value="details"/>
