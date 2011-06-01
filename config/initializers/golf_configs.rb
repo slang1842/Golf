@@ -27,6 +27,8 @@ STATISTICS_MOTION_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_FOLLOWING_ACTION = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_DIFFICULTY = { "Easy" => 1, "Medium" => 2, "Hard" => 3}
 
+MAIN_STATISTIC_BAD_SIMBOL = "N/V"
+MAIN_STATISTIC_BAD_PROC = 30 # these are % to show red bar and hint
 # !!! WARNING !!!
 # ========================================================
 # PLANNED_LAND_PLACES     (id 1 = must be Green)
