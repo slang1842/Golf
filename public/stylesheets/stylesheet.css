@@ -994,3 +994,19 @@ a {
   margin-bottom: 5px;
   background-image:url(/images/bg_stripes.png);
 }
+
+.file_upload_input {
+  position:relative;
+  left:208px;
+  bottom:28px;
+  
+}
+
+@-moz-document url-prefix() { .file_upload_input {
+  position:relative;
+  left:208px;
+  bottom:28px;
+}
+}
+
+
