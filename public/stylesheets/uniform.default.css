@@ -16,9 +16,9 @@ http://pixelmatrixdesign.com/uniform/themer.html
 /* Global Declaration */
 
  
-div.selector span, 
+/*div.selector span, 
 div.checker span,
-div.radio span, 
+div.radio span, */
 div.uploader, 
 div.uploader span.action,
 div.button,
@@ -28,14 +28,14 @@ div.button span {
   -webkit-font-smoothing: antialiased;
 }
 
-.selector, 
+/*.selector, 
 .radio, 
-.checker, 
+.checker, */
 .uploader,
 .button, 
  
-.radio *, 
-.checker *, 
+/*radio *, 
+.checker *, */
 .uploader *,
 .button *{
   margin: 0;
@@ -43,7 +43,7 @@ div.button span {
 }
 
 /* INPUT & TEXTAREA */
-
+/*
 input.text,
 input.email, 
 input.password,
@@ -74,7 +74,7 @@ textarea.uniform:focus {
   box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
   border-color: #999;
   background: url('../images/bg-input-focus.png') repeat-x 0px 0px;
-}
+}*/
 
 /* SPRITES */
 
@@ -207,7 +207,7 @@ div.checker.disabled.active span.checked {
 }
 
 /* Radio */
-
+/*
 div.radio {
   width: 18px;
   height: 18px;
@@ -272,7 +272,7 @@ div.radio.disabled:active span.checked,
 div.radio.disabled.active span.checked {
   background-position: -162px -279px;
 }
-
+*/
 /* Uploader */
 
 div.uploader {
@@ -420,7 +420,7 @@ div.selector.disabled span {
 }*/
 */
 /* Checker */
-div.checker {
+/*div.checker {
   margin-right: 5px;
 }
 
@@ -463,7 +463,7 @@ div.uploader.disabled span.filename {
   border-color: #ddd;
   color: #aaa;
 }
-/*
+/**/
 
 CORE FUNCTIONALITY 
 
