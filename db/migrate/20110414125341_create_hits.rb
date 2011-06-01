@@ -3,7 +3,7 @@ class CreateHits < ActiveRecord::Migration
     create_table :hits do |t|
       t.references :game
       t.references :user
-      t.references :hole
+      #t.references :hole
       t.references :stick 
       t.references :users_stick
       t.string :stick_type
