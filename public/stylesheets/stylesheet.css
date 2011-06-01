@@ -558,7 +558,7 @@ a {
 }
 
 .main_stats_table_wrap .situation_type .single_situation {
-
+  display: none;
 }
 
 .main_stats_table_wrap .situation_type .single_situation .name p {
@@ -999,13 +999,13 @@ a {
   position:relative;
   left:208px;
   bottom:28px;
-  
+
 }
 
 @-moz-document url-prefix() { .file_upload_input {
-  position:relative;
-  left:208px;
-  bottom:28px;
+                              position:relative;
+                              left:208px;
+                              bottom:28px;
 }
 }
 
