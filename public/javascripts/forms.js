@@ -120,11 +120,10 @@ function check_game_form() {
     } else {
         $(".error").slideDown('slow');
         return false
-    }
-   
+  
 }
 
-
+}
 function golf_club_checkbox(){
     if ($("#golf_club_label").is(":hidden")) {
         $("#golf_club_label").slideDown("fast");

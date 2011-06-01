@@ -1,24 +1,24 @@
 
 <%= render :partial => 'share/header_menu' %>
-   <script type="text/javascript">
+<script type="text/javascript">
                   
-                         function change_coach(id){
-                           var form = '#edit_user_' + id;
+  function change_coach(id){
+    var form = '#edit_user_' + id;
                            
-                           var hidden_field = form + ':text';
-                           var form1 = form + ' .c_checkbox';
+    var hidden_field = form + ':text';
+    var form1 = form + ' .c_checkbox';
                           
-                               if ($(form1).attr("checked") == true) { 
-                                                                      $(".user_roach").val("<%= escape_javascript(current_user.id.to_s)%>");                                                                    
-                                                                      } 
-                                      else { $(".user_roach").val("");}
+    if ($(form1).attr("checked") == true) {
+      $(".user_roach").val("<%= escape_javascript(current_user.id.to_s)%>");
+    }
+    else { $(".user_roach").val("");}
                            
                                          
                                   
-                         $(form).submit();
+    $(form).submit();
                             
-                          }
-                    </script>
+  }
+</script>
 
 <% if current_user.golf_club.accepted == "yes" %>
   <%if current_user.golf_club.active? %>
@@ -39,27 +39,16 @@
                 <img src="<%=user.image.url%>" alt=""/>
               </div>
               <div class="text">
-                <p><%=user.first_name%></p>
-                <p><%=user.last_name%></p>
+                <a href="<%=main_statistic_path(user.id.to_s)%>" ><p><%=user.first_name%></p>
+                  <p><%=user.last_name%></p></a>
                 <p><span class="gray">HCP:</span> <%=user.hcp%></p>
 
 
-<<<<<<< HEAD
-                <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "hints_checkbox"}, :remote => :true) do |u|%>
-                   <%= u.hidden_field(:coach, {:value => user.coach}, {:class => "user_coach"})%>
-                  <p>Dot padomus <input type="checkbox" onchange="change_coach()" checked />
-                    <script type="text/javascript">
-                         function change_coach(){
-                         $('this.user_coach').val("0")
-                         $('this').submit()
-                            }
-                    </script>
-=======
+
                 <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "coach_checkbox" + user.id.to_s}, :remote => :true) do |u|%>
-                   <%= u.hidden_field(:coach, { :class => "user_roach"})%>
-                  <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" checked="true">
-                
->>>>>>> 6ca5b7e2d47f0414a3d54c361239e3ac785817b1
+                  <%= u.hidden_field(:coach, { :class => "user_roach"})%>
+                  <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" checked="true" />
+
                   <%end%></p>
 
 
@@ -119,23 +108,23 @@
           </div>
         <%end%>
 
-      
-   
-    
-    <% @users_w_no_coach.each do |user| %>
-    <div class="single_player_wrap">
+
+
+
+        <% @users_w_no_coach.each do |user| %>
+          <div class="single_player_wrap">
             <div class="profile_info">
               <div class="image">
                 <img src="<%=user.image.url%>" alt=""/>
               </div>
               <div class="text">
-                <p><%=user.first_name%></p>
-                <p><%=user.last_name%></p>
+                <a href="<%=main_statistic_path(user.id.to_s)%>" ><p><%=user.first_name%></p>
+                  <p><%=user.last_name%></p></a>
                 <p><span class="gray">HCP:</span> <%=user.hcp%></p>
 
 
                 <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "coach_checkbox" + user.id.to_s}, :remote => :true) do |u|%>
-                   <%= u.hidden_field(:coach, {:class => "user_roach"})%>
+                  <%= u.hidden_field(:coach, {:class => "user_roach"})%>
                   <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" >
                   <%end%></p>
 
@@ -195,9 +184,9 @@
             <img src="images/my_club_gradient.png" alt=""/>
           </div>
         </div>
-        <%end%>
-     
-      </div>
+      <%end%>
+
+    </div>
   <% else %>
     You must complete club registration, for club to be active. You can do that <%= link_to "here", edit_golf_club_path %>
   <% end %>
