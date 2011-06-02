@@ -32,7 +32,7 @@ class UserController < ApplicationController
         redirect_to welcome_path
       end      
     else                                 
-      render :action => "new"             
+      redirect_back
     end                                  
   end                                      
 
