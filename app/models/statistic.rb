@@ -49,6 +49,14 @@ class Statistic < ActiveRecord::Base
     r = real.hit_distance
     
     unless p == nil or r == nil
+
+      #formula ir
+      #
+      #              | R - P |
+      # result = 1 - -------- * 100
+      #                  P
+      #
+      
       @result = ((1 - ((r.to_f - p.to_f).abs / p.to_f)).round(2) * 100).round
        
       @result = @result - calculate_diference(planed.trajectory, real.trajectory) unless calculate_diference(planed.trajectory, real.trajectory) == false
@@ -83,7 +91,7 @@ class Statistic < ActiveRecord::Base
         #CALCULATE PLACE_FROM
         # ==========================================
         for place_from_num in 1..11 do
-          @all_pairs = PairHit.where(:users_id => user.id)
+          @all_pairs = PairHit.where(:user_id => user.id)
           
           @result_arr = []
         
@@ -147,7 +155,7 @@ class Statistic < ActiveRecord::Base
         #CALCULATE STANCE
         # ==========================================
         for stance_num in 1..5 do
-          @all_pairs = PairHit.where(:users_id => user.id)
+          @all_pairs = PairHit.where(:user_id => user.id)
           
           @result_arr = []
         
@@ -187,7 +195,7 @@ class Statistic < ActiveRecord::Base
         #CALCULATE DIRECTION
         # ==========================================
         for direction_num in 1..5 do
-          @all_pairs = PairHit.where(:users_id => user.id)
+          @all_pairs = PairHit.where(:user_id => user.id)
           
           @result_arr = []
         
@@ -227,7 +235,7 @@ class Statistic < ActiveRecord::Base
         #CALCULATE TEMPERATURE
         # ==========================================
         for temperature_num in 1..3 do
-          @all_pairs = PairHit.where(:users_id => user.id)
+          @all_pairs = PairHit.where(:user_id => user.id)
           
           @result_arr = []
         
@@ -259,7 +267,7 @@ class Statistic < ActiveRecord::Base
         #CALCULATE WEATHER
         # ==========================================
         for weather_num in 1..4 do
-          @all_pairs = PairHit.where(:users_id => user.id)
+          @all_pairs = PairHit.where(:user_id => user.id)
           
           @result_arr = []
         
@@ -294,7 +302,7 @@ class Statistic < ActiveRecord::Base
         #CALCULATE TRAJECTORY
         # ==========================================
         for trajectory_num in 1..3 do
-          @all_pairs = PairHit.where(:users_id => user.id)
+          @all_pairs = PairHit.where(:user_id => user.id)
           
           @result_arr = []
         
@@ -326,7 +334,7 @@ class Statistic < ActiveRecord::Base
         #CALCULATE WIND
         # ==========================================
         for wind_num in 1..4 do
-          @all_pairs = PairHit.where(:users_id => user.id)
+          @all_pairs = PairHit.where(:user_id => user.id)
           
           @result_arr = []
         
@@ -388,18 +396,22 @@ class Statistic < ActiveRecord::Base
         game_s_holes.game_id = c_game.id #game_id
         game_s_holes.user_id = c_game.user_id #user_id
         game_s_holes.field_id = c_game.field_id #field_id
+
+        game_s_holes.hole_id = c_hole.id
+        game_s_holes.hole_number = c_hole.hole_number
         
-        game_s_holes.hole_id = c_hole.id #hole_id
-        game_s_holes.hole_number = c_hole.hole_number #hole_number
-        
-        @hit_p = @hits.where("real_hit = 'p' OR real_hit = 'pp'").order("hit_number ASC")
-        @hit_r = @hits.where("real_hit = 'r' OR real_hit = 'rp'").order("hit_number ASC")
-        
-        game_s_holes.puts_p = @hit_p.where(:place_from => 1).count
-        game_s_holes.puts_r = @hit_r.where(:place_from => 1).count
-        
+        game_s_holes.put_sum = @hit_r.where(:place_from => 1).count
+        game_s_holes.gir_sum = @hit_r.where(:place_from => 1, :hit_number => 2).count
+        game_s_holes.hit_sum = @hit_r.count
+
+        @hit_p = Hit.where(:real_hit => "pp").order("hit_number")
+        @hit_r = Hit.where(:real_hit => "rp").order("hit_number")
+
         game_s_holes.hit_p = @hit_p.count
         game_s_holes.hit_r = @hit_r.count
+
+        game_s_holes.puts_p = @hit_p.where(:place_from => 1).count
+        game_s_holes.puts_r = @hit_r.where(:place_from => 1).count
         
         @stick_order_p_arr = []
         @stick_order_r_arr = []
@@ -439,8 +451,9 @@ class Statistic < ActiveRecord::Base
         game_s_sticks.fields_id = c_game.field_id
         game_s_sticks.users_stick_id = c_user_stick.id
         game_s_sticks.user_id = @user.id
-        @hit_p = Hit.where("real_hit = 'p' OR real_hit = 'pp'").where(:stick_id => c_user_stick.stick.id, :game_id => c_game.id).order("hit_number ASC")
-        @hit_r = Hit.where("real_hit = 'r' OR real_hit = 'rp'").where(:stick_id => c_user_stick.stick.id, :game_id => c_game.id).order("hit_number ASC")
+
+        @hit_p = Hit.where("real_hit = 'p' OR real_hit = 'pp'").where(:stick_id => c_user_stick.stick_id, :game_id => c_game.id).order("hit_number ASC")
+        @hit_r = Hit.where("real_hit = 'r' OR real_hit = 'rp'").where(:stick_id => c_user_stick.stick_id, :game_id => c_game.id).order("hit_number ASC")
         
         game_s_sticks.hits_p = @hit_p.count
         game_s_sticks.hits_r = @hit_r.count
@@ -496,24 +509,39 @@ class Statistic < ActiveRecord::Base
         
         @AllStickStatistics.user_id = c_user.id
         @AllStickStatistics.stick_id = c_users_stick.stick.id
-        
-        @AllStickStatistics.usage = (((@all_c_hits.count).to_f / (@all_hits.count).to_f).to_f * 100).round
-        @AllStickStatistics.avg_distance = @all_c_hits.average("hit_distance") #@all_current_stick_hits.count
-        @stick_progres_arr = []
+        @AllStickStatistics.avg_distance = @all_c_hits.average("hit_distance")
 
-        @stick_usage_curret_stick_hits = Hit.where(:stick_id => c_users_stick.stick.id, :user_id => c_user.id)
-        @stick_usage_all_stick_hits = Hit.where(:user_id => c_user.id)
+        unless @all_hits.count == 0 || @all_c_hits == 0
+          @AllStickStatistics.usage = (((@all_c_hits.count).to_f / (@all_hits.count).to_f).to_f * 100).round
+        end
 
-       @return = true if @AllStickStatistics.save
-      end # ends user stick
+        @all_pair_hits = PairHit.where(:user_id == c_user.id)
 
-    end
-  
 
-  
+
+        @result_arr = []
+
+        @all_pair_hits.each do |c_pair_hit|
+          if c_pair_hit.hit_real.stick_id == c_users_stick.stick.id
+            @add_to_arr = calculate_current_statistics(c_pair_hit.hit_planed, c_pair_hit.hit_real)
+            @result_arr.push(@add_to_arr) unless @add_to_arr == false
+          end
+        end
+
+        if @result_arr.size == 0
+          @AllStickStatistics.stick_progres = 0
+        else
+          @AllStickStatistics.stick_progres = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+        end
+
+        @return = true if @AllStickStatistics.save
+
+      end
+    end # ends user stick
+   
     return @return
   end
-  
+
   
   
   def self.check_golf_club_pay_banner_time_limit

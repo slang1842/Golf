@@ -10,12 +10,12 @@ class UserController < ApplicationController
   def new                                 
     @user = User.new
     store_location
-    @golf_club = GolfClub.where(:accepted => "yes", :active => true)
+    @golf_club = GolfClub.where(:accepted => "yes")
   end                                      
 
   def edit
     @user = current_user
-    @golf_club = GolfClub.where(:accepted => "yes", :active => true)
+    @golf_club = GolfClub.where(:accepted => "yes")
   end                                      
 
   def create

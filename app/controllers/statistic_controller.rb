@@ -19,18 +19,25 @@ class StatisticController < ApplicationController
     @current_club_trainer = User.find(@user_params.golf_club.user_id)
     @current_hints = Hint.where(:user_id => @current_club_trainer.id)
 
+    @user_sticks = UsersStick.where(:user_id => @user_params.id).order("@user_params.stick_type ASC")
+    @statistic = Statistic.where(:user_id => @user_params.id)
+
+
     # ======== mini stats menu
     @GameStatisticsByHoles = GameStatisticsByHoles.where(:user_id => params[:user_id]) #.order("field_id ASC")
-    @hit_asc = Hit.where(:user_id => params[:user_id]).order("stick_id ASC")
-    @hit_dsc = Hit.where(:user_id => params[:user_id]).order("stick_id DSC")
-
+    
     @gir = @GameStatisticsByHoles.sum(:gir_sum)
     @puts = @GameStatisticsByHoles.sum(:put_sum)
     @strokes = @GameStatisticsByHoles.sum(:hit_sum)
-      
-    #@hits = @hit_asc.hits_r.limit(3)
-    @top_good = Stick.where(:stick_id => @hit_asc.stick_id).stick_type.limit(3)
-    @top_fail = Stick.where(:stick_id => @hit_dsc.stick.id).stick_type.limit(3)
+
+    @top_good = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres').limit(3)
+    @top_fail = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres DESC').limit(3)
+    @top_sticks = GameStatisticsBySticks.where(:user_id => params[:user_id]).order('hits_r').limit(3)
+      ##Hit.where(:user_id => params[:user_id]).limit(3)
+    #@top_sticks = Hit.where(:user_id => params[:user_id])
+    #GameStatisticsBySticks.where(:user_id => params[:user_id]).order('hits_r').limit(3)
+    #@hits = GameStatisticsBySticks.where(:user_id => params[:user_id]).limit(3)
+
       
     # ======== mini stats menu
       
@@ -46,8 +53,6 @@ class StatisticController < ApplicationController
 
     end
       
-    @user_sticks = UsersStick.where(:user_id => @user_params.id).order("@user_params.stick_type ASC")
-    @statistic = Statistic.where(:user_id => @user_params.id)
   
   end
 

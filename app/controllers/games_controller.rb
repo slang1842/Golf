@@ -216,7 +216,7 @@ end
                convert_to_feet(@hit_p_final)
                conditions3 = { :hit_planed_id => @hit_p_final.id,
                                :hit_real_id => @hit_r_final.id,
-                               :users_id => current_user.id}
+                               :user_id => current_user.id}
      @pair_hit = PairHit.find(:first, :conditions => conditions3) || PairHit.create(conditions3)
      @hit_r_final.pair_id = @pair_hit.id
      @hit_p_final.pair_id = @pair_hit.id
@@ -458,7 +458,7 @@ end
         end
                conditions3 = { :hit_planed_id => @hit_p_final.id,
                                :hit_real_id => @hit_r_final.id,
-                               :users_id => current_user.id}
+                               :user_id => current_user.id}
      @pair_hit = PairHit.find(:first, :conditions => conditions3) || PairHit.create(conditions3)
      @hit_r_final.pair_id = @pair_hit.id
      @hit_p_final.pair_id = @pair_hit.id

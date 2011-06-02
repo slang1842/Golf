@@ -5,7 +5,7 @@ class CreatePairHits < ActiveRecord::Migration
       t.integer         :hit_planed_id
       t.integer         :hit_real_id
       t.references      :users_stick
-      t.references      :users
+      t.references      :user
       t.timestamps
     end
   end
