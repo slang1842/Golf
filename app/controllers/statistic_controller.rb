@@ -33,7 +33,7 @@ class StatisticController < ApplicationController
     @top_good = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres').limit(3)
     @top_fail = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres DESC').limit(3)
     @top_sticks = GameStatisticsBySticks.where(:user_id => params[:user_id]).order('hits_r').limit(3)
-      ##Hit.where(:user_id => params[:user_id]).limit(3)
+    #Hit.where(:user_id => params[:user_id]).limit(3)
     #@top_sticks = Hit.where(:user_id => params[:user_id])
     #GameStatisticsBySticks.where(:user_id => params[:user_id]).order('hits_r').limit(3)
     #@hits = GameStatisticsBySticks.where(:user_id => params[:user_id]).limit(3)

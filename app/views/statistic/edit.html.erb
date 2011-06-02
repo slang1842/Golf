@@ -58,7 +58,7 @@
       <div class="left_text">
         <p>
           <% @top_sticks.each do |top_stick|%>
-            <% top_stick.stick.stick_type %>
+            <% top_stick.users_stick.stick.stick_type %>
           <% end %>
         </p>
       </div>
@@ -66,7 +66,7 @@
       <div class="right_text">
         <p>
           <% @top_sticks.each do |top_stick|%>
-            <% Hit.where(:stick_id => top_stick.stick.id).count %><span class="gray">x</span><br />
+            <% Hit.where(:stick_id =>  top_stick.users_stick.stick.stick_type).count %><span class="gray">x</span><br />
           <% end %>
         </p>
       </div>
