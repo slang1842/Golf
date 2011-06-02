@@ -32,7 +32,7 @@ class UserController < ApplicationController
         redirect_to welcome_path
       end      
     else                                 
-      redirect_back
+      redirect_to new_user_path
     end                                  
   end                                      
 
