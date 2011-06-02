@@ -3,49 +3,53 @@
 
 <!-- ================================= top mini stats ============================ -->
 <div class="short_statistics_wrap">
-  <div class="top_three">
-    <div class="left_text">
-      <p>GIR:<br>Puts:<br>Strokes:</p>
+  <div id="mini_statistics_wrap_render">
+    <div class="top_three">
+      <div class="left_text">
+        <p>GIR:<br />Puts:<br />Strokes:</p>
+      </div>
+
+      <div class="right_text">
+        <p><%= @gir %><br /><%= @puts %><br /><%= @strokes %></p>
+      </div>
     </div>
 
-    <div class="right_text">
-      <p>2<br>54<br>2964</p>
+
+    <div class="top_three">
+      <p>TOP FAIL</p>
+      <div class="left_text">
+        <p>I3:<br />Driver 2:<br />Wood2:</p>
+      </div>
+
+      <div class="right_text">
+        <p>2<br />54<br />2964</p>
+      </div>
+    </div>
+
+    <div class="top_three">
+      <p>TOP GOOD</p>
+      <div class="left_text">
+        <p>Putter 1:<br />Driver 2:<br />Wood2:</p>
+      </div>
+
+      <div class="right_text">
+        <p>332<br />4<br />24</p>
+      </div>
+    </div>
+
+    <div class="top_three">
+      <p>TOP NŪJAS</p>
+      <div class="left_text">
+        <p>Putter 1:<br />Driver 2:<br />Wood2:</p>
+      </div>
+
+      <div class="right_text">
+        <p>332<span class="gray">x</span><br />4<span class="gray">x</span><br />24<span class="gray">x</span></p>
+      </div>
     </div>
   </div>
 
 
-  <div class="top_three">
-    <p>TOP FAIL</p>
-    <div class="left_text">
-      <p>I3:<br>Driver 2:<br>Wood2:</p>
-    </div>
-
-    <div class="right_text">
-      <p>2<br>54<br>2964</p>
-    </div>
-  </div>
-
-  <div class="top_three">
-    <p>TOP GOOD</p>
-    <div class="left_text">
-      <p>Putter 1:<br>Driver 2:<br>Wood2:</p>
-    </div>
-
-    <div class="right_text">
-      <p>332<br>4<br>24</p>
-    </div>
-  </div>
-
-  <div class="top_three">
-    <p>TOP NŪJAS</p>
-    <div class="left_text">
-      <p>Putter 1:<br>Driver 2:<br>Wood2:</p>
-    </div>
-
-    <div class="right_text">
-      <p>332<span class="gray">x</span><br>4<span class="gray">x</span><br>24<span class="gray">x</span></p>
-    </div>
-  </div>
 
   <div class="club_stats">
     <div class="info_text">
@@ -53,15 +57,12 @@
     </div>
     <div class="form_dropdowns">
       <form action="#" method="post" class="">
-        <select size="1" name="club" >
-          <option value="Laukums">Laukums</option>
-          <option value="Ozo">Ozo</option>
-          <option value="Ozo">Testa klubs tests</option>
-          <option value="Ozo">Viesturi</option>
-        </select>
+        <%  @stats_fields = Statistic.all %>
+        <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown1 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
+
 
         <select size="1" name="club" >
-          <option value="GIR">GIR</option>
+          <option value="GIR">HCP</option>
           <option value="3">Par 3</option>
           <option value="4">Par 4</option>
           <option value="5">Par 5</option>
@@ -69,13 +70,13 @@
       </form>
     </div>
     <div class="lists">
-      <p>1. Edgars Upītis<br>2. Jānis Kļava<br>3. Artūrs Pakalns</p>
+      <p>1. Edgars Upītis<br />2. Jānis Kļava<br />3. Artūrs Pakalns</p>
     </div>
     <div class="lists">
-      <p>4. Kārlis Padegs<br>5. Vilhelms Purvītis<br>6. Jāzeps Vītols</p>
+      <p>4. Kārlis Padegs<br />5. Vilhelms Purvītis<br />6. Jāzeps Vītols</p>
     </div>
     <div class="lists">
-      <p>7. Viktors Ņičivosebejs<br>8. Edgars Upītis<br>9. Edgars Upītis</p>
+      <p>7. Viktors Ņičivosebejs<br />8. Edgars Upītis<br />9. Edgars Upītis</p>
     </div>
   </div>
 </div>

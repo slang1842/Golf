@@ -1,10 +1,10 @@
-
+<%#game1 = game%>
 <%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
 
-  <input type="hidden" name="next_hit" id="nexthit" value=0/>
+  <input type="hidden" name="next_hit" id="nexthit" value="0" />
   <input type="hidden" name="form_id" id="formid" value="details"/>
-  <input type="hidden" name="active_hit" id="act_hit" value=<%=active_hit%>/>
-  <input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>/>
+  <input type="hidden" name="active_hit" id="act_hit" value=<%=active_hit%>>
+  <input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
   <%= game.hidden_field :active_hit, :value => active_hit%>
 
 
@@ -154,12 +154,16 @@
     <%#= f.select(:following_action, STATISTICS_FOLLOWING_ACTION, :prompt => 'Select')%>
 
     <% end %>
+    <%# field = Field.find_by_id(game1.field_id)%>
+    <% #last_hole = field.holes.last %>
     <% if active_hole != end_hole%>
+    <%# if active_hole != last_hole.hole_number %>
       <div class="single_dropdown" style="float:right">
         <div class="element">
           <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Tālāk</a>
         </div>
       </div>
+    <%#end%>
     <%end%>
     <div class="single_dropdown" style="float:right">
       <div class="element" >

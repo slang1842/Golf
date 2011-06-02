@@ -340,13 +340,13 @@ a {
 
 .short_statistics_wrap .club_stats .info_text {
   float:left;
-  margin-top:10px;
+  margin-top:14px;
   font-weight:bold;
 }
 
 .short_statistics_wrap .club_stats .form_dropdowns {
   float:right;
-  margin-top:4px;
+  margin-top:7px;
   margin-right:5px;
 }
 
