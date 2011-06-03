@@ -9,69 +9,69 @@
 
 
   <%= game.fields_for :hits, hit_p_final do |f|%>
-
+<%= f.hidden_field :user_id, :value => current_user.id %>
     <div class="single_dropdown">
-      <p>Vieta</p>
+      <p>Place</p>
       <div class="element">
-        <%= f.select(:place_from, STATISTICS_PLACE_FROM, {:prompt => 'Izvēlies..'}, {:id =>"place_from_old", :class => "dropdown6" })%>
+        <%= f.select(:place_from, STATISTICS_PLACE_FROM, {:prompt => 'Select'}, {:id =>"place_from_old", :class => "dropdown6" })%>
       </div>
     </div>
     <div class="single_dropdown" style="width:100px">
-      <p>Līdz bedrītei</p>
+      <p>Distance to hole</p>
       <div class="element">
         <%= f.text_field :distance_to_hole %> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
       </div>
     </div>
     <div class="single_dropdown">
-      <p>Stāja</p>
+      <p>Stance</p>
       <div class="element">
-        <%= f.select( :stance, STATISTICS_STANCE, {:prompt => 'Izvēlies..'}, {:class => "dropdown6"}) %>
+        <%= f.select( :stance, STATISTICS_STANCE, {:prompt => 'Select'}, {:class => "dropdown6"}) %>
       </div>
     </div>
     <div class="single_dropdown">
-      <p>Vējš</p>
+      <p>Wind</p>
       <div class="element">
-        <%= f.select(:wind, STATISTICS_WIND, {:prompt => 'Izvēlies..'}, {:class => "dropdown6"})%>
+        <%= f.select(:wind, STATISTICS_WIND, {:prompt => 'Select'}, {:class => "dropdown6"})%>
       </div>
     </div>
     <div class="single_dropdown">
-      <p>Grūtība</p>
+      <p>Difficulty</p>
       <div class="element">
-        <%= f.select(:difficulty, STATISTICS_DIFFICULTY, {:prompt => 'Izvēlies..'}, {:class => "dropdown6"})%>
+        <%= f.select(:difficulty, STATISTICS_DIFFICULTY, {:prompt => 'Select'}, {:class => "dropdown6"})%>
       </div>
     </div>
     <div class="input_wrap" >
       <div class="heading_plan">
-        <p>Plāns:</p>
+        <p>Plan:</p>
       </div>
       <div class="single_dropdown">
-        <p>Piezemēsies</p>
+        <p>Land place</p>
         <div class="element">
-          <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Izvēlies..'}, {:class => "dropdown6"}) %>
+          <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6"}) %>
         </div>
       </div>
       <div class="single_dropdown" style="width:100px">
-        <p>Attālums</p>
+        <p>Hit distance</p>
         <div class="element">
           <%= f.text_field :hit_distance %>
         </div>
       </div>
       <div class="single_dropdown">
-        <p>Nūja</p>
+        <p>Club</p>
         <div class="element">
           <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Izvēlies.."},{:class => "dropdown6 game_input_select", :id => "stick_type_old" }  %>
         </div>
       </div>
       <div class="single_dropdown">
-        <p>Virziens</p>
+        <p>Direction</p>
         <div class="element">
-          <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Izvēlies..'}, {:class => "dropdown6"})%>
+          <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Select'}, {:class => "dropdown6"})%>
         </div>
       </div>
       <div class="single_dropdown">
-        <p>Trajektorija</p>
+        <p>Trajectory</p>
         <div class="element">
-          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Izvēlies..'}, {:class => "dropdown6"})%>
+          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6"})%>
         </div>
       </div>
 
@@ -81,47 +81,48 @@
   <% end %>
 
   <%= game.fields_for :hits, hit_r_final do |f|%>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
     <div class="input_wrap" style="height:45px">
       <div class="heading_result">
-        <p>Rezultāts:</p>
+        <p>Result:</p>
       </div>
-
+      <%= f.hidden_field :stick_id, :class => "stick_type_real" %>
       <div class="single_dropdown">
-        <p>Piezemējās</p>
+        <p>Land place</p>
         <div class="element">
-          <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Izvēlies..'}, {:class => "dropdown6"}) %>
+          <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6"}) %>
         </div>
       </div>
       <div class="single_dropdown" style="width:100px">
-        <p>Attālums</p>
+        <p>Hit distance</p>
         <div class="element">
           <%= f.text_field :hit_distance %>
         </div>
       </div>
       <div class="single_dropdown">
-        <p>Novirze</p>
+        <p>Misdirection</p>
         <div class="element">
-          <%= f.select(:misdirection, STATISTICS_MISDIRECTION,{:prompt => 'Izvēlies..'}, {:class => "dropdown6"})%>
+          <%= f.select(:misdirection, STATISTICS_MISDIRECTION,{:prompt => 'Select'}, {:class => "dropdown6"})%>
         </div>
       </div>
       <div class="single_dropdown">
-        <p>Virziens</p>
+        <p>Direction</p>
         <div class="element">
-          <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Izvēlies..'}, {:class => "dropdown6"})%>
+          <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Select'}, {:class => "dropdown6"})%>
         </div>
       </div>
       <div class="single_dropdown">
-        <p>Trajektorija</p>
+        <p>Trajectory</p>
         <div class="element">
-          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Izvēlies..'}, {:class => "dropdown6"})%>
+          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6"})%>
         </div>
       </div>
     </div>
     <div class="input_wrap" style="height:250px">
       <div class="radio_button_wrap">
-        <div class="heading"><p>Sitiena piezīmes</p></div>
+        <div class="heading"><p>Hit notes</p></div>
         <div class="buttons">
-          <p>Kustības bija..</p>
+          <p>Motion was</p>
 
           <% STATISTICS_MOTION_WAS.each do |stat|%>
             <%= f.radio_button(:motion_was, stat[1])%> <%= stat[0] %></br>
@@ -137,13 +138,13 @@
       </div>
 
       <div class="textarea_wrap">
-        <p>Komentāri par sitienu</p>
+        <p>Comment on hit</p>
         <%= f.text_area(:comment,:cols => 20, :rows => 2) %>
 
       </div>
 
       <div class="single_dropdown" style="width:140px">
-        <p>Veiksmes faktors</p>
+        <p>Luck factor</p>
         <div class="element">
           <%= f.check_box :luck_factor %>
         </div>
@@ -160,15 +161,16 @@
     <%# if active_hole != last_hole.hole_number %>
       <div class="single_dropdown" style="float:right">
         <div class="element">
-          <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Tālāk</a>
+          <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Next hole</a>
         </div>
       </div>
     <%#end%>
     <%end%>
-    <div class="single_dropdown" style="float:right">
+    <div class="single_dropdown " style="float:right">
       <div class="element" >
-        <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Saglabāt</a>
-
+        <div class="save_gif">
+        <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Save</a>
+         </div>
       </div>
     </div>
 

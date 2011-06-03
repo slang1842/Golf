@@ -31,11 +31,11 @@
 
     <div class="club_players_wrap">
       <% @users.each do |user|%>
-
+        <%if user.id != @club.user_id %>
         <div class="single_player_wrap">
           <div class="profile_info">
             <div class="image">
-              <img src="<%=user.image.url%>" alt=""/>
+              <img src="<%=user.image.url%>" alt="" width="53px" height="53px"/>
             </div>
             <div class="text">
               <a href="<%=main_statistic_path(user.id.to_s)%>" ><p><%=user.first_name%></p>
@@ -70,7 +70,7 @@
 
               <div class="progress_bar">
                 <% unless @stats.stick_progres == nil %>
-                  <%  if @stats.stick_progres < 35 %>
+                  <%  if @stats.stick_progres < MAIN_STATISTIC_BAD_SIMBOL %>
                     <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>">
                     </div>
                   <%else%>
@@ -106,15 +106,16 @@
           <img src="images/my_club_gradient.png" alt=""/>
         </div>
       <%end%>
-
+      <% end %>
 
 
 
       <% @users_w_no_coach.each do |user| %>
+       <%if user.id != @club.user_id %>
         <div class="single_player_wrap">
           <div class="profile_info">
             <div class="image">
-              <img src="<%=user.image.url%>" alt=""/>
+              <img src="<%=user.image.url%>" alt="" width="53px" height="53px"/>
             </div>
             <div class="text">
               <a href="<%=main_statistic_path(user.id.to_s)%>" ><p><%=user.first_name%></p>
@@ -147,7 +148,7 @@
 
               <div class="progress_bar">
                 <% unless @stats == nil || @stats.stick_progres == nil %>
-                  <%  if @stats.stick_progres < 35 %>
+                  <%  if @stats.stick_progres < MAIN_STATISTIC_BAD_SIMBOL %>
                     <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>">
                     </div>
                   <%else%>
@@ -183,12 +184,13 @@
         <div class="bottom_line" style="margin-bottom:10px">
           <img src="images/my_club_gradient.png" alt=""/>
         </div>
+   
+  <% end %>
+   <% end %>
       </div>
 
 
     </div>
-  <% end %>
-
 <% elsif current_user.golf_club.accepted == "no" %>
   your club has not beed accepted
 <% else %>

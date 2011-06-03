@@ -1,4 +1,5 @@
 <div class="printable_wrap2">
+ 
 <% @holes_filtered.each do |hole|%>
 
   <div class="hole_wrap">
@@ -7,7 +8,11 @@
     <% @hits = Hit.find(:all, :conditions => {:game_id => @game.id, :real_hit => 'p', :hole_number => hole.hole_number})%>
     <% @hits.each do |hit| %>
     <% @stick = Stick.find(:first, :conditions => {:id => hit.stick_id})%>
-    <p><%=hit.hit_number%>. <%=@stick.short_name%>, <%=hit.hit_distance%>, <%=hit.land_place%></p>
+    <% if @stick %>
+    <p><%=hit.hit_number%>. <%=@stick.short_name%>, <%=hit.hit_distance%> m, <%=PLANNED_LAND_PLACES_FOR_PRINT[hit.land_place]%></p>
+    <% else %>
+    <p><%=hit.hit_number%>.  <%=hit.hit_distance%> m, <%=PLANNED_LAND_PLACES_FOR_PRINT[hit.land_place]%></p>
+    <% end %>
     <% end %>
     <p> Wind was :</p>
     </div>
@@ -22,3 +27,4 @@
 <%#= link_to_function("Print this Page", {"javascript:print()"},{ :class="green_button"}) %>
 <a href="<%= game_index_path%>" class="green_button"> Back to my games</a>
 </div>
+

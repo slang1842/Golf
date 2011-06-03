@@ -167,7 +167,7 @@ end
                              :hole_number => @active_hole,
                              :hit_number => i, 
                              :real_hit => 'r',
-                             :stick_type => 'PUTTER'}
+                             :stick_id => 1 }
               @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
                           convert_to_feet(@hit)
               end

@@ -1,6 +1,6 @@
-<div class="error">Lūdzu, norādi laukumu un bedrīšu skaitu, kā arī datumu!</div>
+<div class="error">Please, insert date, field, and holes!</div>
 <div class="profile_info_input">
-  <h1>Jauna spēle</h1>
+  <h1>New game</h1>
 <%= form_for(@game, :html => { :onsubmit => "return check_game_form();"}) do |f| %>
   <% if @game.errors.any? %>
     <div id="error_explanation">
