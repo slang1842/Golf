@@ -21,169 +21,170 @@
 </script>
 
 <% if current_user.golf_club.accepted == "yes" %>
-    <div class="club_wrap">
-      <div class="club_info_wrap">
-        <h1><%=@club.name%></h1>
-        <p><span class="gray"><%=@club.city%>, <%=@club.region%></span></p>
-        <p><span class="gray"><%=@club.web_page%></span></p>
-        <p><a href="/club/edit">Rediģēt kluba info</a> | <a href="<%=new_golf_club_field_path%>">Pievienot laukumu</a>  | <a href="/club/edit_fields">Rediģēt laukumus</a> </p>
+  <div class="club_wrap">
+    <div class="club_info_wrap">
+      <h1><%=@club.name%></h1>
+      <p><span class="gray"><%=@club.city%>, <%=@club.region%></span></p>
+      <p><span class="gray"><%=@club.web_page%></span></p>
+      <p><a href="/club/edit">Rediģēt kluba info</a> | <a href="<%=new_golf_club_field_path%>">Pievienot laukumu</a>  | <a href="/club/edit_fields">Rediģēt laukumus</a> </p>
+    </div>
+
+    <div class="club_players_wrap">
+      <% @users.each do |user|%>
+
+        <div class="single_player_wrap">
+          <div class="profile_info">
+            <div class="image">
+              <img src="<%=user.image.url%>" alt=""/>
+            </div>
+            <div class="text">
+              <a href="<%=main_statistic_path(user.id.to_s)%>" ><p><%=user.first_name%></p>
+                <p><%=user.last_name%></p></a>
+              <p><span class="gray">HCP:</span> <%=user.hcp%></p>
+
+
+
+              <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "coach_checkbox" + user.id.to_s}, :remote => :true) do |u|%>
+                <%= u.hidden_field(:coach, { :class => "user_roach"})%>
+                <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" checked="true" />
+
+                <%end%></p>
+
+
+            </div>
+            <p><%=user.email%></p>
+          </div>
+
+
+
+
+
+          <% @sticks = user.users_sticks%>
+          <% @sticks.each do |stick| %>
+            <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => user.id})%>
+            <div class="single_club_wrap">
+              <div class="club_name">
+                <p><%=stick.stick.stick_type%></p>
+              </div>
+
+
+              <div class="progress_bar">
+                <% unless @stats.stick_progres == nil %>
+                  <%  if @stats.stick_progres < 35 %>
+                    <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>">
+                    </div>
+                  <%else%>
+                    <div class="progress_active normal" style="width: <%= " #{ @stats.stick_progres.to_s}%"%>">
+                    </div>
+                  <%end%>
+                <%end%>
+              </div>
+
+
+              <div class="info">
+                <p>
+                  USAGE:
+                  <% unless @stats.usage == nil %>
+                    <%="#{@stats.usage}%" %>
+                  <% else %>
+                    N/A
+                  <% end %>
+                  <br />
+                  AVG:
+                  <% unless @stats.avg_distance == nil %>
+                    <%="#{@stats.avg_distance}m"%>
+                  <%  else %>
+                    N/A
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          <%end%>
+        </div>
+        <div class="clear"></div>
+        <div class="bottom_line" style="margin-bottom:10px">
+          <img src="images/my_club_gradient.png" alt=""/>
+        </div>
+      <%end%>
+
+
+
+
+      <% @users_w_no_coach.each do |user| %>
+        <div class="single_player_wrap">
+          <div class="profile_info">
+            <div class="image">
+              <img src="<%=user.image.url%>" alt=""/>
+            </div>
+            <div class="text">
+              <a href="<%=main_statistic_path(user.id.to_s)%>" ><p><%=user.first_name%></p>
+                <p><%=user.last_name%></p></a>
+              <p><span class="gray">HCP:</span> <%=user.hcp%></p>
+
+
+              <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "coach_checkbox" + user.id.to_s}, :remote => :true) do |u|%>
+                <%= u.hidden_field(:coach, {:class => "user_roach"})%>
+                <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" />
+                <%end%></p>
+
+
+            </div>
+            <p><%=user.email%></p>
+          </div>
+
+
+
+
+
+          <% @sticks = user.users_sticks%>
+          <% @sticks.each do |stick| %>
+            <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => user.id})%>
+            <div class="single_club_wrap">
+              <div class="club_name">
+                <p><%=  stick.stick.stick_type%></p>
+              </div>
+
+
+              <div class="progress_bar">
+                <% unless @stats == nil || @stats.stick_progres == nil %>
+                  <%  if @stats.stick_progres < 35 %>
+                    <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>">
+                    </div>
+                  <%else%>
+                    <div class="progress_active normal" style="width: <%= " #{ @stats.stick_progres.to_s}%"%>">
+                    </div>
+                  <%end%>
+                <%end%>
+              </div>
+
+
+              <div class="info">
+                <p>
+                  USAGE:
+                  <% unless @stats == nil || @stats.usage == nil %>
+                    <%="#{@stats.usage}%" %>
+                  <% else %>
+                    N/A
+                  <% end %>
+                  <br />
+                  AVG:
+                  <% unless @stats == nil || @stats.avg_distance == nil %>
+                    <%="#{@stats.avg_distance}m"%>
+                  <%  else %>
+                    N/A
+                  <% end %>
+                </p>
+              </div>
+
+            </div>
+          <%end%>
+        </div>
+        <div class="clear"></div>
+        <div class="bottom_line" style="margin-bottom:10px">
+          <img src="images/my_club_gradient.png" alt=""/>
+        </div>
       </div>
 
-      <div class="club_players_wrap">
-        <% @users.each do |user|%>
-
-          <div class="single_player_wrap">
-            <div class="profile_info">
-              <div class="image">
-                <img src="<%=user.image.url%>" alt=""/>
-              </div>
-              <div class="text">
-                <a href="<%=main_statistic_path(user.id.to_s)%>" ><p><%=user.first_name%></p>
-                  <p><%=user.last_name%></p></a>
-                <p><span class="gray">HCP:</span> <%=user.hcp%></p>
-
-
-
-                <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "coach_checkbox" + user.id.to_s}, :remote => :true) do |u|%>
-                  <%= u.hidden_field(:coach, { :class => "user_roach"})%>
-                  <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" checked="true" />
-
-                  <%end%></p>
-
-
-              </div>
-              <p><%=user.email%></p>
-            </div>
-
-
-
-
-
-            <% @sticks = user.users_sticks%>
-            <% @sticks.each do |stick| %>
-              <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => user.id})%>
-              <div class="single_club_wrap">
-                <div class="club_name">
-                  <p><%=stick.stick.stick_type%></p>
-                </div>
-
-
-                <div class="progress_bar">
-                  <% unless @stats.stick_progres == nil %>
-                    <%  if @stats.stick_progres < 35 %>
-                      <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>">
-                      </div>
-                    <%else%>
-                      <div class="progress_active normal" style="width: <%= " #{ @stats.stick_progres.to_s}%"%>">
-                      </div>
-                    <%end%>
-                  <%end%>
-                </div>
-
-
-                <div class="info">
-                  <p>
-                    USAGE:
-                    <% unless @stats.usage == nil %>
-                      <%="#{@stats.usage}%" %>
-                    <% else %>
-                      N/A
-                    <% end %>
-                    <br />
-                    AVG:
-                    <% unless @stats.avg_distance == nil %>
-                      <%="#{@stats.avg_distance}m"%>
-                    <%  else %>
-                      N/A
-                    <% end %>
-                  </p>
-                </div>
-              </div>
-            <%end%>
-          </div>
-          <div class="clear"></div>
-          <div class="bottom_line" style="margin-bottom:10px">
-            <img src="images/my_club_gradient.png" alt=""/>
-          </div>
-        <%end%>
-
-
-
-
-        <% @users_w_no_coach.each do |user| %>
-          <div class="single_player_wrap">
-            <div class="profile_info">
-              <div class="image">
-                <img src="<%=user.image.url%>" alt=""/>
-              </div>
-              <div class="text">
-                <a href="<%=main_statistic_path(user.id.to_s)%>" ><p><%=user.first_name%></p>
-                  <p><%=user.last_name%></p></a>
-                <p><span class="gray">HCP:</span> <%=user.hcp%></p>
-
-
-                <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "coach_checkbox" + user.id.to_s}, :remote => :true) do |u|%>
-                  <%= u.hidden_field(:coach, {:class => "user_roach"})%>
-                  <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" />
-                  <%end%></p>
-
-
-              </div>
-              <p><%=user.email%></p>
-            </div>
-
-
-
-
-
-            <% @sticks = user.users_sticks%>
-            <% @sticks.each do |stick| %>
-              <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => user.id})%>
-              <div class="single_club_wrap">
-                <div class="club_name">
-                  <p><%=stick.stick.stick_type%></p>
-                </div>
-
-
-                <div class="progress_bar">
-                  <% unless @stats.stick_progres == nil %>
-                    <%  if @stats.stick_progres < 35 %>
-                      <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>">
-                      </div>
-                    <%else%>
-                      <div class="progress_active normal" style="width: <%= " #{ @stats.stick_progres.to_s}%"%>">
-                      </div>
-                    <%end%>
-                  <%end%>
-                </div>
-
-
-                <div class="info">
-                  <p>
-                    USAGE:
-                    <% unless @stats.usage == nil %>
-                      <%="#{@stats.usage}%" %>
-                    <% else %>
-                      N/A
-                    <% end %>
-                    <br />
-                    AVG:
-                    <% unless @stats.avg_distance == nil %>
-                      <%="#{@stats.avg_distance}m"%>
-                    <%  else %>
-                      N/A
-                    <% end %>
-                  </p>
-                </div>
-              </div>
-            <%end%>
-          </div>
-          <div class="clear"></div>
-          <div class="bottom_line" style="margin-bottom:10px">
-            <img src="images/my_club_gradient.png" alt=""/>
-          </div>
-        </div>
-      
 
     </div>
   <% end %>

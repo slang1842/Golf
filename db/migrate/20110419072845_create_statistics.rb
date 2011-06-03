@@ -3,63 +3,63 @@ class CreateStatistics < ActiveRecord::Migration
     create_table :statistics do |t|
       t.references :user
       t.references :stick
+      t.references :field
        
       # Nil = in all statistic meens No Value
        
-      t.string     :place_teebox
-      t.string     :place_feairway
-      t.string     :place_next_fairway
-      t.string     :place_semi_raf
-      t.string     :place_raf
-      t.string     :place_for_green      
-      t.string     :place_green
-      t.references :place_green_hint      
-      t.string     :place_fairway_sand      
-      t.string     :place_green_sand      
-      t.string     :place_wood
-      t.string     :place_from_water
+      t.integer     :place_teebox
+      t.integer     :place_feairway
+      t.integer     :place_next_fairway
+      t.integer     :place_semi_raf
+      t.integer     :place_raf
+      t.integer     :place_for_green
+      t.integer     :place_green
+      t.integer     :place_fairway_sand
+      t.integer     :place_green_sand
+      t.integer     :place_wood
+      t.integer     :place_from_water
       
       #==========================
       
-      t.string     :stance_normal      
-      t.string     :stance_right_leg_lower
-      t.string     :stance_left_leg_lower
-      t.string     :stance_ball_lower
-      t.string     :stance_ball_higher
+      t.integer     :stance_normal
+      t.integer     :stance_right_leg_lower
+      t.integer     :stance_left_leg_lower
+      t.integer     :stance_ball_lower
+      t.integer     :stance_ball_higher
        
       #==========================
       
-      t.string     :direction_straigth      
-      t.string     :direction_fade      
-      t.string     :direction_drow      
-      t.string     :direction_slice
-      t.string     :direction_hook
+      t.integer     :direction_straigth
+      t.integer     :direction_fade
+      t.integer     :direction_drow
+      t.integer     :direction_slice
+      t.integer     :direction_hook
         
       #==========================
       
-      t.string     :temperature_cold      
-      t.string     :temperature_normal      
-      t.string     :temperature_hot
+      t.integer     :temperature_cold
+      t.integer     :temperature_normal
+      t.integer     :temperature_hot
         
       #==========================
       
-      t.string     :weather_normal      
-      t.string     :weather_wind      
-      t.string     :weather_rain      
-      t.string     :weather_wind_and_rain
+      t.integer     :weather_normal
+      t.integer     :weather_wind
+      t.integer     :weather_rain
+      t.integer     :weather_wind_and_rain
       
       #==========================
       
-      t.string     :trajectory_normal      
-      t.string     :trajectory_high      
-      t.string     :trajectory_low
+      t.integer     :trajectory_normal
+      t.integer     :trajectory_high
+      t.integer     :trajectory_low
         
       #==========================
       
-      t.string     :wind_from_behind #From behind      
-      t.string     :wind_from_front  #From front      
-      t.string     :wind_from_left   #From left      
-      t.string     :wind_from_right  #From right
+      t.integer     :wind_from_behind #From behind
+      t.integer     :wind_from_front  #From front
+      t.integer     :wind_from_left   #From left
+      t.integer     :wind_from_right  #From right
       
       t.timestamps
     end

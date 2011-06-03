@@ -3,7 +3,7 @@ class StatisticController < ApplicationController
   respond_to :json, :html
 
   def statistics
-    redirect_to view_statistic_path if Statistic.check_golf_club_pay_banner_time_limit && Statistic.main_statistics && Statistic.all_sticks_statistics && Statistic.game_statistics_by_sticks && Statistic.game_statistics_by_holes
+    redirect_to view_statistic_path if Statistic.check_golf_club_pay_banner_time_limit && Statistic.main_statistics && Statistic.all_sticks_statistics && Statistic.game_statistics_by_sticks && Statistic.game_statistics_by_holes && Statistic.user_progres
   end
       
   def view
@@ -30,8 +30,8 @@ class StatisticController < ApplicationController
     @puts = @GameStatisticsByHoles.sum(:put_sum)
     @strokes = @GameStatisticsByHoles.sum(:hit_sum)
 
-    @top_good = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres').limit(3)
-    @top_fail = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres DESC').limit(3)
+    @top_good = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres DESC').limit(3)
+    @top_fail = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres').limit(3)
     @top_sticks = GameStatisticsBySticks.where(:user_id => params[:user_id]).order('hits_r').limit(3)
     #Hit.where(:user_id => params[:user_id]).limit(3)
     #@top_sticks = Hit.where(:user_id => params[:user_id])
