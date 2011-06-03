@@ -10,21 +10,21 @@
 <%= f.hidden_field :hit_number, :value => active_hit %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <div class="single_dropdown" style="width:90px">
-          <p>Nūja</p>
+          <p>Club</p>
             <div class="element">
               
-<%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Izvēlies.."},{:class => "dropdown6"}%>
+<%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Select"},{:class => "dropdown6 game_input_select"}%>
             </div>
         </div>
 
 <div class="single_dropdown" >
-          <p>Aizsitīšu</p>
+          <p>Distance</p>
             <div class="element">
               <%= f.text_field :hit_distance %> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
             </div>
         </div>
         <div class="single_dropdown" style="width:90px">
-          <p>Piezemēsies</p>
+          <p>Land place</p>
             <div class="element">
               <%= f.select( :land_place, PLANNED_LAND_PLACES, {:prompt => "Select"},{:class => 'dropdown6'}) %>
             </div>
@@ -32,14 +32,14 @@
 <div class="single_dropdown ">
             <div class="element" >
               <div class="save_gif">
-              <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Saglabāt</a>
+              <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Save</a>
               </div>
             </div>
         </div>
         <% if active_hole != end_hole%>
         <div class="single_dropdown">
             <div class="element">
-              <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Tālāk</a>
+              <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Next</a>
              </div>
         </div>
          <%end%>
