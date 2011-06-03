@@ -581,11 +581,14 @@ class Statistic < ActiveRecord::Base
     @users = User.all
 
     @users.each do |c_user|
-      @user_progres_arr = []
+      
+
 
       @Statistic = Statistic.where(:user_id => c_user.id)
       @Statistic.each do |c_stat|
 
+        @user_progres_arr = []
+        
         @user_progres_arr.push(c_stat.place_teebox) unless c_stat.place_teebox == nil
         @user_progres_arr.push(c_stat.place_feairway) unless c_stat.place_feairway == nil
         @user_progres_arr.push(c_stat.place_next_fairway) unless c_stat.place_next_fairway == nil
@@ -629,22 +632,24 @@ class Statistic < ActiveRecord::Base
         @user_progres_arr.push(c_stat.wind_from_right) unless c_stat.wind_from_right == nil
 
 
-        
-        puts "============================"
-        puts @user_progres_arr
-      end
+        unless @user_progres_arr.size == 0
+          @user_stats_progres_val = (@user_progres_arr.inject(0.0) { |sum, el| sum + el } / @user_progres_arr.size).round
 
-      unless @user_progres_arr.size == 0
-        @user_stats_progres_val = (@user_progres_arr.inject(0.0) { |sum, el| sum + el } / @user_progres_arr.size).round
+          @u_statsProg = StatisticUserProgres.new
+          @u_statsProg.user_progress = @user_stats_progres_val
+          @u_statsProg.user_id = c_user.id
+          @u_statsProg.field_id = c_stat.field_id
+          @u_statsProg.hcp = c_user.hcp
 
-        @u_statsProg = StatisticUserProgres.new
-        @u_statsProg.user_progress = @user_stats_progres_val
-        @u_statsProg.user_id = c_user.id
-        @u_statsProg.hcp = c_user.hcp
+          @return = true if @u_statsProg.save
+        end
 
-        @return = true if @u_statsProg.save
-      end
-    end
+      
+      end # end statistic
+
+     
+
+    end # end user
     return @return
   end
 end

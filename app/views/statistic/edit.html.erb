@@ -124,7 +124,7 @@
   <div class="link_left_wrap">
     <a href="#"><img src="/images/link_left_big.png" alt=""/></a>
   </div>
-  
+
   <a href="#"><div class="single_game_field">
       <div class="percentage"><p>60%</p></div>
       <div class="date"><p>01.02.03</p></div>
@@ -238,52 +238,28 @@
       <!-- ============================ main stats ============================ -->
 
       <!-- ============================ filter stats ============================ -->
+
       <div class="clear"></div>
       <div class="result_filtering">
         <div class="dropdown_wrap">
           <h1>Filtrēt rezultātus</h1>
           <div class="form_dropdowns">
+
+
             <form action="#" method="post">
-              <select size="1" name="club" id="dropdown2">
-                <option value="Laukums">Laukums</option>
-                <option value="Ozo">Ozo</option>
-              </select>
 
+              <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown1 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
               <div class="clearblock_dropdowns"></div>
 
-              <select size="1" name="club" id="dropdown2">
-                <option value="Laukums">Laukums</option>
-                <option value="Ozo">Ozo</option>
-              </select>
-
+              <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown1 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
               <div class="clearblock_dropdowns"></div>
 
-              <select size="1" name="club" id="dropdown2">
-                <option value="Laukums">Laukums</option>
-                <option value="Ozo">Ozo</option>
-              </select>
 
-              <div class="clearblock_dropdowns"></div>
 
-              <select size="1" name="club" id="dropdown2">
-                <option value="Laukums">Laukums</option>
-                <option value="Ozo">Ozo</option>
-              </select>
 
-              <div class="clearblock_dropdowns"></div>
-
-              <select size="1" name="club" id="dropdown2">
-                <option value="Laukums">Laukums</option>
-                <option value="Ozo">Ozo</option>
-              </select>
-
-              <div class="clearblock_dropdowns"></div>
-
-              <select size="1" name="club" id="dropdown2">
-                <option value="Laukums">Laukums</option>
-                <option value="Ozo">Ozo</option>
-              </select>
             </form>
+
+
           </div>
         </div>
         <div class="table_wrap">
