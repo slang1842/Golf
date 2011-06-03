@@ -291,28 +291,42 @@
 
 
             <div id="table_filter_wrap">
-              <%#= form_remote_tag :url => {:controler => "statistic", :action => "filter_statistic"} do %>
+              <% form_tag('/filter_statistic', :method => 'post', :remote => true, :id => "filter_statistic_form") do %>
 
-                <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown1 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
+                <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown4 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= submit_tag "Add repair_part" %>
-              <%#= end %>
+                <%= select_tag("place_from", options_for_select(STATISTICS_PLACE_FROM), {:include_blank => "Place",:class => "dropdown4"}) %>
+                <div class="clearblock_dropdowns"></div>
+
+                <%= select_tag("place_from", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown4"}) %>
+                <div class="clearblock_dropdowns"></div>
+
+                <%= select_tag("place_from", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown4"}) %>
+                <div class="clearblock_dropdowns"></div>
+
+                <%= select_tag("place_from", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown4"}) %>
+                <div class="clearblock_dropdowns"></div>
+
+                <%= select_tag("place_from", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown4"}) %>
+                <div class="clearblock_dropdowns"></div>
+
+                <%= select_tag("place_from", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown4"}) %>
+                <div class="clearblock_dropdowns"></div>
+
+                <%= select_tag("place_from", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown4"}) %>
+                <div class="clearblock_dropdowns"></div>
+
+              <% end %>
             </div>
-
-
-
           </div>
         </div>
 
-
-
         <div id="table_result_wrap">
-          <%= render :partial => 'statistic/table_main_wrap' %>
-  <%#= link_to_function "Fill results", "$('#starter_form').submit()", {:class => "green_button"} %>
-  <%#= render :partial => 'statistic/results_starter', :locals => {:game_id => @game.id, :active_hole => @active_hole} %>
+          <div class="table_wrap">
+            <%= render :partial => 'statistic/table_main_wrap' %>
+          </div>
         </div>
-
 
         <div class="info_wrap">
           <div class="strokes">
