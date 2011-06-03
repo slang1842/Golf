@@ -2,13 +2,9 @@ $(document).ready(function(){
   datapicker();
   timepicker();
   gamedatepicker();
+  slider();
 });
 
-
-
-function render_sticks() {
-    
-}
 
 function fill_sticks_form(a) {
   var sel_id = ($(a).val() );
@@ -167,15 +163,15 @@ function fill_golf_club_mini_statistic(field_id, user_id) {
   var field = ($(field_id).val() );
   var user = ($(user_id).val() );
   alert("user_id: " + field + "  field_id: " + user + " :: " + data);
-  //$.getJSON('/statistic/get_mini_statistic_by_field/' + field + '/' + user + '.json', function(data) {
+//$.getJSON('/statistic/get_mini_statistic_by_field/' + field + '/' + user + '.json', function(data) {
 
 
-    //$(a).parent().parent().find('.distance').val(data.stick.distance);
-    //$(a).parent().parent().find('.degrees').val(data.stick.degrees);
-   // $(a).parent().parent().find('.shaft').val(data.stick.shaft);
-   // $(a).parent().parent().find('.shaft_strength').val(data.stick.shaft_strength);
+//$(a).parent().parent().find('.distance').val(data.stick.distance);
+//$(a).parent().parent().find('.degrees').val(data.stick.degrees);
+// $(a).parent().parent().find('.shaft').val(data.stick.shaft);
+// $(a).parent().parent().find('.shaft_strength').val(data.stick.shaft_strength);
     
-  //});
+//});
 };
 
 

@@ -37,8 +37,8 @@ class UserController < ApplicationController
   end                                      
 
   def update
-    @params = params[:user]
-    unless @params[:golf_club] == current_user.golf_club
+    @golf_club_id = params[:user][:golf_club_id]
+    if @golf_club_id.to_i != current_user.golf_club_id.to_i
       current_user.update_attributes(:admin => false)
     end
     @user = current_user
@@ -103,9 +103,9 @@ class UserController < ApplicationController
   def update_hints
     @user = User.find(params[:id])
     @user.coach = params[:coach]
-   if  @user.update_attributes(params[:user])
+    if  @user.update_attributes(params[:user])
      
-   end
+    end
       
   end
 end

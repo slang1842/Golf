@@ -121,43 +121,85 @@
   <a href="#"><div class="single_game_field">
       <p>Visu spēļu statistika</p>
     </div></a>
-  <div class="link_left_wrap">
+
+
+  <div class="link_left_wrap carousel-control previous carousel-previous">
     <a href="#"><img src="/images/link_left_big.png" alt=""/></a>
   </div>
 
-  <a href="#"><div class="single_game_field">
-      <div class="percentage"><p>60%</p></div>
-      <div class="date"><p>01.02.03</p></div>
-    </div></a>
 
-  <a href="#"><div class="single_game_field">
-      <div class="percentage"><p>60%</p></div>
-      <div class="date"><p>01.02.03</p></div>
-    </div></a>
+  <div class="carousel-wrap">
+    <ul id="slider">
+      <li>
+        <a href="#">
+          <div class="single_game_field">
+            <div class="percentage"><p>60%</p></div>
+            <div class="date"><p>01.02.03</p></div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="single_game_field">
+            <div class="percentage"><p>60%</p></div>
+            <div class="date"><p>01.02.03</p></div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="single_game_field">
+            <div class="percentage"><p>60%</p></div>
+            <div class="date"><p>01.02.03</p></div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="single_game_field">
+            <div class="percentage"><p>60%</p></div>
+            <div class="date"><p>01.02.03</p></div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="single_game_field">
+            <div class="percentage"><p>60%</p></div>
+            <div class="date"><p>01.02.03</p></div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="single_game_field">
+            <div class="percentage"><p>60%</p></div>
+            <div class="date"><p>01.02.03</p></div>
+          </div>
+        </a>
+      </li>
 
-  <a href="#"><div class="single_game_field">
-      <div class="percentage"><p>60%</p></div>
-      <div class="date"><p>01.02.03</p></div>
-    </div></a>
+    </ul>
 
-  <a href="#"><div class="single_game_field">
-      <div class="percentage"><p>60%</p></div>
-      <div class="date"><p>01.02.03</p></div>
-    </div></a>
+    <!--
 
-  <a href="#"><div class="single_game_field">
-      <div class="percentage"><p>60%</p></div>
-      <div class="date"><p>01.02.03</p></div>
-    </div></a>
+     <a href="#">text
+          <div class="single_game_field">
+            <div class="percentage"><p>60%</p></div>
+            <div class="date"><p>01.02.03</p></div>
+          </div>
+        </a>
 
-  <a href="#"><div class="single_game_field">
-      <div class="percentage"><p>60%</p></div>
-      <div class="date"><p>01.02.03</p></div>
-    </div></a>
+    -->
 
-  <div class="link_right_wrap">
+
+
+  </div>
+
+  <div class="link_right_wrap carousel-control next carousel-next">
     <a href="#"><img src="/images/link_right_big.png" alt=""/></a>
   </div>
+
 </div>
 <!-- ============================ games ============================ -->
 
@@ -240,175 +282,37 @@
       <!-- ============================ filter stats ============================ -->
 
       <div class="clear"></div>
+
+
       <div class="result_filtering">
         <div class="dropdown_wrap">
           <h1>Filtrēt rezultātus</h1>
           <div class="form_dropdowns">
 
 
-            <form action="#" method="post">
+            <div id="table_filter_wrap">
+              <%#= form_remote_tag :url => {:controler => "statistic", :action => "filter_statistic"} do %>
 
-              <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown1 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
-              <div class="clearblock_dropdowns"></div>
+                <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown1 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
+                <div class="clearblock_dropdowns"></div>
 
-              <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown1 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
-              <div class="clearblock_dropdowns"></div>
+                <%= submit_tag "Add repair_part" %>
+              <%#= end %>
+            </div>
 
-
-
-
-            </form>
 
 
           </div>
         </div>
-        <div class="table_wrap">
 
-          <div class="button_filter">
-            <a href="#">Filtrēt</a>
-          </div>
 
-          <div class="filter_bar">
-            <h1>Trāpījumi</h1>
-            <div class="unfilled">
-              <div class="filled" style="width:75%">
-                <div class="percentage">
-                  <p>73%</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="clear"></div>
-          <div class="table_container">
 
-            <div class="heading_distance">
-              <h1>Distance</h1>
-            </div>
-
-            <div class="heading_plan">
-              <h1>Pēc plāna</h1>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="overlay_wrap">
-                <div class="date">
-                  <p>11.06.23</p>
-                </div>
-              </div>
-              <div class="bar" style="height:20%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="overlay_wrap">
-                <div class="date">
-                  <p>11.06.23</p>
-                </div>
-              </div>
-              <div class="bar" style="height:22%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="overlay_wrap">
-                <div class="date">
-                  <p>11.06.23</p>
-                </div>
-              </div>
-              <div class="bar" style="height:21%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="overlay_wrap">
-                <div class="date">
-                  <p>11.06.23</p>
-                </div>
-              </div>
-              <div class="bar" style="height:50%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="overlay_wrap">
-                <div class="date">
-                  <p>11.06.23</p>
-                </div>
-              </div>
-              <div class="bar" style="height:60%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="overlay_wrap">
-                <div class="date">
-                  <p>11.06.23</p>
-                </div>
-              </div>
-              <div class="bar" style="height:70%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="overlay_wrap">
-                <div class="date">
-                  <p>11.06.23</p>
-                </div>
-              </div>
-              <div class="bar" style="height:73%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="overlay_wrap">
-                <div class="date">
-                  <p>11.06.23</p>
-                </div>
-              </div>
-              <div class="bar" style="height:86%"></div>
-            </div>
-
-            <div class="clear"></div>
-            <div class="clearblock"></div>
-
-            <div class="progress_wrap">
-              <div class="bar" style="height:22%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="bar" style="height:21%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="bar" style="height:50%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="bar" style="height:60%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="bar" style="height:70%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="bar" style="height:73%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="bar" style="height:12%"></div>
-            </div>
-
-            <div class="progress_wrap">
-              <div class="bar" style="height:12%"></div>
-            </div>
-            <div class="clear"></div>
-
-            <div class="number_wrap"><p>24</p></div>
-            <div class="number_wrap"><p>244</p></div>
-            <div class="number_wrap"><p>13</p></div>
-            <div class="number_wrap"><p>745</p></div>
-            <div class="number_wrap"><p>24</p></div>
-            <div class="number_wrap"><p>478</p></div>
-            <div class="number_wrap"><p>93</p></div>
-            <div class="number_wrap"><p>24</p></div>
-
-          </div>
-
+        <div id="table_result_wrap">
+          <%= render :partial => 'statistic/table_main_wrap' %>
+  <%#= link_to_function "Fill results", "$('#starter_form').submit()", {:class => "green_button"} %>
+  <%#= render :partial => 'statistic/results_starter', :locals => {:game_id => @game.id, :active_hole => @active_hole} %>
         </div>
+
 
         <div class="info_wrap">
           <div class="strokes">

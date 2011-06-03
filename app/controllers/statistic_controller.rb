@@ -73,12 +73,8 @@ class StatisticController < ApplicationController
     redirect_back
   end
 
-  def get_statistic_by_field
-   
-   
-    @result = [@gir, @puts, @strokes] #, @hits, @top_good, @top_fail]
+  def filter_statistic
     
-    respond_with @result
   end
   
 end
