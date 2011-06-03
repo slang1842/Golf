@@ -9,7 +9,7 @@
 
 
   <%= game.fields_for :hits, hit_p_final do |f|%>
-
+<%= f.hidden_field :user_id, :value => current_user.id %>
     <div class="single_dropdown">
       <p>Vieta</p>
       <div class="element">
@@ -81,11 +81,12 @@
   <% end %>
 
   <%= game.fields_for :hits, hit_r_final do |f|%>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
     <div class="input_wrap" style="height:45px">
       <div class="heading_result">
         <p>Rezultāts:</p>
       </div>
-
+      <%= f.hidden_field :stick_id, :class => "stick_type_real" %>
       <div class="single_dropdown">
         <p>Piezemējās</p>
         <div class="element">
@@ -165,10 +166,11 @@
       </div>
     <%#end%>
     <%end%>
-    <div class="single_dropdown" style="float:right">
+    <div class="single_dropdown " style="float:right">
       <div class="element" >
+        <div class="save_gif">
         <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Saglabāt</a>
-
+         </div>
       </div>
     </div>
 

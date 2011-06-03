@@ -8,6 +8,7 @@
 <%= game.fields_for :hits, hit do |f|%>
 <%= f.hidden_field :hole_number, :value => active_hole %>
 <%= f.hidden_field :hit_number, :value => active_hit %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
 <div class="single_dropdown" style="width:90px">
           <p>Nūja</p>
             <div class="element">
@@ -28,10 +29,11 @@
               <%= f.select( :land_place, PLANNED_LAND_PLACES, {:prompt => "Select"},{:class => 'dropdown6'}) %>
             </div>
         </div>
-<div class="single_dropdown">
+<div class="single_dropdown ">
             <div class="element" >
+              <div class="save_gif">
               <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Saglabāt</a>
-              
+              </div>
             </div>
         </div>
         <% if active_hole != end_hole%>

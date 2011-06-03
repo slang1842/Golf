@@ -7,7 +7,7 @@
     <% @hits = Hit.find(:all, :conditions => {:game_id => @game.id, :real_hit => 'p', :hole_number => hole.hole_number})%>
     <% @hits.each do |hit| %>
     <% @stick = Stick.find(:first, :conditions => {:id => hit.stick_id})%>
-    <p><%=hit.hit_number%>. <%=@stick.short_name%>, <%=hit.hit_distance%>, <%=hit.land_place%></p>
+    <p><%=hit.hit_number%>. <%=@stick.short_name%>, <%=hit.hit_distance%> m, <%=hit.land_place%></p>
     <% end %>
     <p> Wind was :</p>
     </div>

@@ -19,7 +19,7 @@
           <div class="element" style="height:45px">                    
                 <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Izvēlies.."},{:class => "dropdown3"} %>
               </div>
-          
+          <%= f.hidden_field :user_id, :value => current_user.id %>
           <div class="element" >
             <%= f.text_field :hit_distance%> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
           </div>
@@ -43,8 +43,10 @@
          <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Tālāk</a>
         </div>
          <%end%>
-        <div class="button_wrap">
+        <div class="button_wrap ">
+          <div class="save_gif">
               <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Saglabāt</a>
+            </div>
               </div>
        
 <% end %>
