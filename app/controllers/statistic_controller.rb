@@ -74,7 +74,18 @@ class StatisticController < ApplicationController
   end
 
   def filter_statistic
+    @direction = params[:direction]
+    @place_from = params[:place_from]
+    @stance = params[:stance]
+    @temperature = params[:temperature]
+    @trajectory = params[:trajectory]
+    @weather = params[:weather]
+    @wind = params[:wind]
+
     
+
+
+    #respond_with filter_statistic
   end
   
 end

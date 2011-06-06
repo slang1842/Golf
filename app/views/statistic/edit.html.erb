@@ -299,22 +299,22 @@
                 <%= select_tag("place_from", options_for_select(STATISTICS_PLACE_FROM), {:include_blank => "Place",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown4"}) %>
+                <%= select_tag("stance", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown4"}) %>
+                <%= select_tag("direction", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown4"}) %>
+                <%= select_tag("temperature", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown4"}) %>
+                <%= select_tag("weather", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown4"}) %>
+                <%= select_tag("trajectory", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown4"}) %>
+                <%= select_tag("wind", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
               <% end %>
@@ -322,24 +322,8 @@
           </div>
         </div>
 
-        <div id="table_result_wrap">
-          <div class="table_wrap">
-            <%= render :partial => 'statistic/table_main_wrap' %>
-          </div>
-        </div>
-
-        <div class="info_wrap">
-          <div class="strokes">
-            <h1>Sitieni:</h1>
-            <p>1432 x</p>
-          </div>
-          <div class="strokes">
-            <h1>Vidējā distance:</h1>
-            <p>130 m</p>
-          </div>
-          <div class="clear"></div>
-          <img src="/images/tip_icon_big.png" alt=""/>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.</p>
+        <div id="filter_statistic">         
+              <%= render :partial => 'statistic/filter_statistic' %>    
         </div>
       </div>
       <!-- ============================ filter stats ============================ -->
