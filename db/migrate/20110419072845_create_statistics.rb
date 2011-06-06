@@ -1,9 +1,10 @@
 class CreateStatistics < ActiveRecord::Migration
   def self.up
     create_table :statistics do |t|
+      t.references :game
+      t.references :field
       t.references :user
       t.references :stick
-      t.references :field
        
       # Nil = in all statistic meens No Value
        

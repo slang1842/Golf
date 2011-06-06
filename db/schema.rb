@@ -256,9 +256,10 @@ ActiveRecord::Schema.define(:version => 20110603051449) do
   end
 
   create_table "statistics", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "field_id"
     t.integer  "user_id"
     t.integer  "stick_id"
-    t.integer  "field_id"
     t.integer  "place_teebox"
     t.integer  "place_feairway"
     t.integer  "place_next_fairway"
