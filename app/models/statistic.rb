@@ -83,16 +83,14 @@ class Statistic < ActiveRecord::Base
 
 
     User.where(:is_super_admin => false).each do |c_user|
-      Game.where(:user_id => c_user.id).each do |c_game|
-        @c_field = c_game.field   #(:golf_club_id => c_user.golf_club_id).each do |c_field|
+      @c_field = Field.where(:golf_club_id => c_user.golf_club_id).each do |c_field|
 
         c_user.users_sticks.each do |user_stick|
 
         
           statistic = Statistic.new
-          statistic.game_id = c_game.id
           statistic.user_id = c_user.id
-          statistic.field_id = @c_field.id
+          statistic.field_id = c_field.id
           statistic.stick_id = user_stick.stick.id
         
           #CALCULATE PLACE_FROM
@@ -103,7 +101,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game_id == c_game.id
+              if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -167,7 +165,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game_id == c_game.id
+              if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -207,7 +205,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.direction == direction_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game_id == c_game.id
+              if each_pair.hit_planed.direction == direction_num && each_pair.hit_planed.stick_id == user_stick.stick.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -247,7 +245,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game_id == c_game.id
+              if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -281,7 +279,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game_id == c_game.id
+              if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -316,7 +314,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game_id == c_game.id
+              if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -348,7 +346,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.wind == wind_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game_id == c_game.id
+              if each_pair.hit_planed.wind == wind_num && each_pair.hit_planed.stick_id == user_stick.stick.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -377,15 +375,228 @@ class Statistic < ActiveRecord::Base
       
           @return = true if statistic.save
         end # end user
-      end # end game
+      end # end field
     end # end stick
    
     return @return
   end
   
 
+
+
   #================================================
-  # Game statistic
+  # Game statistics
+  def self.game_filter_statistic
+    @return = false
+    GameFilterStatistic.delete_all
+
+    @games = Game.order("date DESC")
+    @games.each do |c_game|
+
+      @GameFilterStatistic = GameFilterStatistic.new
+      @GameFilterStatistic.game_id = c_game.id
+      @GameFilterStatistic.user_id = c_game.user_id
+      @GameFilterStatistic.field_id = c_game.field_id
+
+      @avg_r_distance = []
+      @avg_p_distance = []
+      @hit_sum = 0
+
+      PairHit.where(:game_id => c_game.id).each do |c_pair|
+
+        puts "======================="
+        puts "c_pair.hit_real.hit_distance #{c_pair.hit_real.hit_distance}"
+        puts "c_pair.hit_planed.hit_distance #{c_pair.hit_planed.hit_distance}"
+        
+        @avg_r_distance = @avg_r_distance.push(c_pair.hit_real.hit_distance)
+        @avg_p_distance = @avg_p_distance.push(c_pair.hit_planed.hit_distance)
+        @hit_sum = @hit_sum + 1
+
+        case c_pair.hit_planed.place_from
+        when 1
+          @GameFilterStatistic.place_green = true
+        when 2
+          @GameFilterStatistic.place_teebox = true
+        when 3
+          @GameFilterStatistic.place_feairway = true
+        when 4
+          @GameFilterStatistic.place_next_fairway = true
+        when 5
+          @GameFilterStatistic.place_semi_raf = true
+        when 6
+          @GameFilterStatistic.place_raf = true
+        when 7
+          @GameFilterStatistic.place_for_green = true
+        when 8
+          @GameFilterStatistic.place_fairway_sand = true
+        when 9
+          @GameFilterStatistic.place_green_sand = true
+        when 10
+          @GameFilterStatistic.place_wood = true
+        when 11
+          @GameFilterStatistic.place_from_water = true
+        end
+
+        case c_pair.hit_planed.stance
+        when 1
+          @GameFilterStatistic.stance_normal = true
+        when 2
+          @GameFilterStatistic.stance_right_leg_lower = true
+        when 3
+          @GameFilterStatistic.stance_left_leg_lower = true
+        when 4
+          @GameFilterStatistic.stance_ball_lower = true
+        when 5
+          @GameFilterStatistic.stance_ball_higher = true
+        end
+
+        case c_pair.hit_planed.direction
+        when 1
+          @GameFilterStatistic.direction_straigth = true
+        when 2
+          @GameFilterStatistic.direction_fade = true
+        when 3
+          @GameFilterStatistic.direction_drow = true
+        when 4
+          @GameFilterStatistic.direction_slice = true
+        when 5
+          @GameFilterStatistic.direction_hook = true
+        end
+
+        case Game.find(c_pair.hit_planed.game_id).temperature
+        when 1
+          @GameFilterStatistic.temperature_hot = true
+        when 2
+          @GameFilterStatistic.temperature_normal = true
+        when 3
+          @GameFilterStatistic.temperature_cold = true
+        end
+
+        case Game.find(c_pair.hit_planed.game_id).weather
+        when 1
+          @GameFilterStatistic.weather_normal = true
+        when 2
+          @GameFilterStatistic.weather_wind = true
+        when 3
+          @GameFilterStatistic.weather_rain = true
+        when 4
+          @GameFilterStatistic.weather_wind_and_rain = true
+        end
+
+        case c_pair.hit_planed.trajectory
+        when 1
+          @GameFilterStatistic.trajectory_normal = true
+        when 2
+          @GameFilterStatistic.trajectory_high = true
+        when 3
+          @GameFilterStatistic.trajectory_low = true
+        end
+
+        case c_pair.hit_planed.wind
+        when 1
+          @GameFilterStatistic.wind_from_behind = true
+        when 2
+          @GameFilterStatistic.wind_from_front = true
+        when 3
+          @GameFilterStatistic.wind_from_left = true
+        when 4
+          @GameFilterStatistic.wind_from_right = true
+        end
+      end # end pair hit
+
+
+      puts "================================="
+      puts "================================="
+      puts "================================="
+      puts "================================="
+      puts "@avg_r_distance: #{@avg_r_distance.join(".")}"
+      puts "@avg_p_distance: #{@avg_p_distance.join(".")}"
+      
+      @avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round# unless @avg_r_distance.size == 0
+      @avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round# unless @avg_p_distance.size == 0
+      puts "@avg_r: #{@avg_r.class}"
+      puts "@avg_p: #{@avg_p.class}"
+
+
+      
+      if @avg_r.to_i > @avg_p.to_i
+
+        puts "@avg_r > @avg_p"
+        @GameFilterStatistic.avg_r_distance = 100
+        @GameFilterStatistic.avg_p_distance = (@avg_p / @avg_r) * 100
+
+      elsif @avg_p.to_i < @avg_p.to_i
+
+         puts "@avg_r < @avg_p"
+        @GameFilterStatistic.avg_r_distance = 100
+        @GameFilterStatistic.avg_p_distance = (@avg_r / @avg_p) * 100
+
+      elsif @avg_p.to_i == @avg_r.to_i
+
+         puts "@avg_r = @avg_p"
+        @GameFilterStatistic.avg_r_distance = 100
+        @GameFilterStatistic.avg_p_distance = 100
+
+      end #unless @avg_r == nil or @avg_p == nil
+
+      @GameFilterStatistic.hit_sum = @hit_sum
+      @GameFilterStatistic.save
+    end # end game
+  end
+
+
+      
+=begin
+  def self.game_filter_statistic
+
+    @return = false
+    GameFilterStatistic.delete_all
+
+    @games = Game.order("date DESC")
+    @games.each do |c_game|
+
+      @avg_r_distance = []
+      @avg_p_distance = []
+      @hit_sum = 0
+      
+      PairHit.where(:game_id => c_game.id).each do |c_pairhit|
+        @avg_r_distance = @avg_r_distance.push(c_pairhit.hit_real.hit_distance)
+        @avg_p_distance = @avg_p_distance.push(c_pairhit.hit_planed.hit_distance)
+        @hit_sum = @hit_sum + 1
+      end # end PairHit
+
+      @GameFilterStatistic = GameFilterStatistic.new
+      @GameFilterStatistic.game_id = c_game.id
+      @GameFilterStatistic.user_id = c_game.user_id
+      @GameFilterStatistic.field_id = c_game.field_id
+      @GameFilterStatistic.hit_sum = @hit_sum
+
+
+      @avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round unless @avg_r_distance.size == 0
+      @avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round unless @avg_p_distance.size == 0
+
+      if @avg_r > @avg_p
+        @GameFilterStatistic.avg_r_distance = 100
+        @GameFilterStatistic.avg_p_distance = (@avg_p / @avg_r) * 100
+      elsif @avg_p < @avg_p
+        @GameFilterStatistic.avg_r_distance = 100
+        @GameFilterStatistic.avg_p_distance = (@avg_r / @avg_p) * 100
+      end unless @avg_r == nil or @avg_p == nil
+
+      
+      @GameFilterStatistic.place_from =  c_pairhit.hit_real.place_from
+      @GameFilterStatistic.stance = c_pairhit.hit_real.stance
+      @GameFilterStatistic.direction =  c_pairhit.hit_real.direction      
+      @GameFilterStatistic.temperature = Game.find(c_pairhit.hit_real.game_id).temperature
+      @GameFilterStatistic.trajectory = c_pairhit.hit_real.trajectory
+      @GameFilterStatistic.wind = c_pairhit.hit_real.wind
+      
+
+      @return = true if @GameFilterStatistic.save
+    end # end game
+    return @return
+  end
+=end
   
   def self.game_statistics_by_holes
     GameStatisticsByHoles.delete_all
@@ -487,14 +698,15 @@ class Statistic < ActiveRecord::Base
     @return = false
     
     @games = Game.all
+    puts "NAHUJ: #{@games}"
     @games.each do |c_game|
       @GameStatisticsGeneral = GameStatisticsGeneral.new
-      @global_hits = Hit.where(:game == c_game.id)
+      @global_hits = Hit.where(:game_id => c_game.id)
       
       @GameStatisticsGeneral.game_id = c_game.id
-      game_s_holes.hit_sum = @global_hits.count #hit_sum
-      game_s_holes.put_sum = @global_hits.where(:place_from => 1).count #put_sum
-      game_s_holes.gir_sum = @global_hits.where(:land_place => 1, :hit_number => 1).count #gir_sum
+      @GameStatisticsGeneral.hit_sum = @global_hits.count #hit_sum
+      @GameStatisticsGeneral.put_sum = @global_hits.where(:place_from => 1).count #put_sum
+      @GameStatisticsGeneral.gir_sum = @global_hits.where(:land_place => 1, :hit_number => 1).count #gir_sum
       @return = true if @GameStatisticsGeneral.save
     end
     return @return
@@ -583,9 +795,6 @@ class Statistic < ActiveRecord::Base
     @users = User.all
 
     @users.each do |c_user|
-      
-
-
       @Statistic = Statistic.where(:user_id => c_user.id)
       @Statistic.each do |c_stat|
 
@@ -645,13 +854,18 @@ class Statistic < ActiveRecord::Base
 
           @return = true if @u_statsProg.save
         end
-
-      
       end # end statistic
-
-     
-
     end # end user
+
+    @all_user_progress = StatisticUserProgres.order("user_progress")
+    @num = 1
+
+    @all_user_progress.each do |c_u_progr|
+      @c = StatisticUserProgres.find(c_u_progr.id)
+      @c.num = @num
+      @c.save
+      @num = @num + 1
+    end # end all_user_progress
     return @return
   end
 end

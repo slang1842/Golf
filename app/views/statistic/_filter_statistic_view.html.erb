@@ -1,0 +1,90 @@
+<div id="table_result_wrap">
+
+  <div class="table_wrap">
+
+
+    <div class="button_filter">
+      <%= link_to_function "Filter", "$('#filter_statistic_form').submit()" %>
+    </div>
+
+    <% if @games_to_return.count != 0  %>
+      <div class="filter_bar">
+        <h1>Trāpījumi</h1>
+        <div class="unfilled">
+          <div class="filled" style="width:<%= "#{@filtered_games.average(:hit_progress)}%"  %>">
+            <div class="percentage">
+              <p><%= "#{@filtered_games.average(:hit_progress).to_i}%" %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="table_container">
+
+        <div class="heading_distance">
+          <h1>Distance</h1>
+        </div>
+
+        <div class="heading_plan">
+          <h1>Pēc plāna</h1>
+        </div>
+
+        <% @games_to_return.each do |c_game| %>
+          <div class="progress_wrap">
+            <div class="overlay_wrap">
+              <div class="date">
+                <p><%=  c_game.game.date.to_date.strftime %></p>
+              </div>
+            </div>
+            <div class="bar" style="height:<%= "#{c_game.avg_r_distance}%" %>"></div>
+          </div>
+        <% end %>
+
+
+        <div class="clear"></div>
+        <div class="clearblock"></div>
+
+        <% @games_to_return.each do |c_game| %>
+          <div class="progress_wrap">
+            <div class="bar" style="height:<%= "#{c_game.avg_p_distance}%" %>"></div>
+          </div>
+        <% end %>
+
+        <div class="clear"></div>
+        <!--
+                <div class="number_wrap"><p>24</p></div>
+                <div class="number_wrap"><p>244</p></div>
+                <div class="number_wrap"><p>13</p></div>
+                <div class="number_wrap"><p>745</p></div>
+                <div class="number_wrap"><p>24</p></div>
+                <div class="number_wrap"><p>478</p></div>
+                <div class="number_wrap"><p>93</p></div>
+                <div class="number_wrap"><p>24</p></div>
+              </div>
+        -->
+      <% else %>
+        <div class="filter_bar">
+          <h1>There are no statistics for selected filter</h1>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+  <% if @game != nil  %>
+    <div class="info_wrap">
+      <div class="strokes">
+        <h1>Sitieni:</h1>
+        <p>1432 x</p>
+      </div>
+      <div class="strokes">
+        <h1>Vidējā distance:</h1>
+        <p>130 m</p>
+      </div>
+      <div class="clear"></div>
+      <img src="/images/tip_icon_big.png" alt=""/>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.</p>
+    </div>
+
+  <% end %>
+</div>
