@@ -18,7 +18,7 @@
          <div class="left_wrap">
         <div class="single_element">
           <div class="text">
-            <p>Laukums</p>
+            <p>Field</p>
           </div>
           <div class="input">
             <%= f.collection_select( :field_id,  Field.all, :id, :name, {:prompt => "Izvēlies.."}, {:class => "dropdown3 game_input_select"} ) %>
@@ -27,25 +27,25 @@
          <% if current_user.admin %>
         <div class="single_element">
           <div class="text">
-            <p class="two_lines">* Laukums nav sarakstā?</p>
+            <p class="two_lines">* Field not on list?</p>
           </div>
           <div class="input">
-            <a href="<%=new_golf_club_field_path%>" class="green_button">Izveidot</a>
+            <a href="<%=new_golf_club_field_path%>" class="green_button">Create</a>
           </div>
         </div>
       
          <%  end  %>
     <div class="single_element">
           <div class="text">
-            <p>Speles veids</p>
+            <p>Game type</p>
           </div>
           <div class="input">
-            <%= f.select( :game_format, GAME_FORMAT, {:prompt => "Izvēlies.."}, {:class => "dropdown3"} ) %>
+            <%= f.select( :game_format, GAME_FORMAT, {:prompt => "Select"}, {:class => "dropdown3"} ) %>
           </div>
         </div>
          <div class="single_element">
           <div class="text">
-            <p>Datums</p>
+            <p>Date</p>
           </div>
           <div class="input">
             <%= f.text_field :date, {:id => "timepicker", :class => "game_input_select"}  %>
@@ -53,10 +53,10 @@
         </div>
          <div class="single_element">
           <div class="text">
-            <p>Bedrīšu skaits</p>
+            <p>Hole count</p>
           </div>
           <div class="input">
-           <%= f.select(:game_type, GAME_TYPE,{:prompt => "Izvēlies.."}, {:class => "dropdown3 game_input_select"})%>
+           <%= f.select(:game_type, GAME_TYPE,{:prompt => "Select"}, {:class => "dropdown3 game_input_select"})%>
      
           </div>
         </div>
@@ -66,45 +66,45 @@
       
         <div class="single_element">
           <div class="text">
-            <p>Laikapstakli</p>
+            <p>Weather</p>
           </div>
           <div class="input">
-              <%= f.select( :weather, WEATHER,{:prompt => "Izvēlies.."}, {:class => "dropdown3"}) %>
+              <%= f.select( :weather, WEATHER,{:prompt => "Select"}, {:class => "dropdown3"}) %>
           </div>
         </div>
         <div class="single_element">
           <div class="text">
-            <p>Green kvalitate</p>
+            <p>Green quality</p>
           </div>
           <div class="input">
-           <%= f.select( :green_quality, GREEN_QUALITY,{:prompt => "Izvēlies.."}, {:class => "dropdown3"})%>
+           <%= f.select( :green_quality, GREEN_QUALITY,{:prompt => "Select"}, {:class => "dropdown3"})%>
      
           </div>
         </div>
         
         <div class="single_element">
           <div class="text">
-            <p>Laukuma kvalitate</p>
+            <p>Field quality</p>
           </div>
-          <%= f.select( :field_quality, FIELD_QUALITY,{:prompt => "Izvēlies.."}, {:class => "dropdown3"})%>
+          <%= f.select( :field_quality, FIELD_QUALITY,{:prompt => "Select"}, {:class => "dropdown3"})%>
         </div>
         <div class="single_element">
           <div class="text">
-            <p>Temperatura</p>
+            <p>Temperature</p>
           </div>
-          <%= f.select( :temperature, STATISTICS_TEMPERATURE,{:prompt => "Izvēlies.."}, {:class => "dropdown3"})%>
+          <%= f.select( :temperature, STATISTICS_TEMPERATURE,{:prompt => "Select"}, {:class => "dropdown3"})%>
         </div>
          <div class="single_element">
           <div class="text">
-            <p>Izsitiena vietas</p>
+            <p>Start place</p>
           </div>
-          <%= f.select( :start_place_colors, START_PLACE_COLORS,{:prompt => "Izvēlies.."}, {:class => "dropdown3"})%>
+          <%= f.select( :start_place_colors, START_PLACE_COLORS,{:prompt => "Select"}, {:class => "dropdown3"})%>
         </div>
   
          <div class="clear"></div>
       <div class="push"></div>
          <div class="button_done_newgame">
-      <%= f.submit('Uz spēli', :class => "green_button") %>
+      <%= f.submit('Go!', :class => "green_button") %>
     </div>
       </div>
 <% end %>

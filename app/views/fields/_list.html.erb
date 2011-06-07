@@ -1,5 +1,5 @@
 <div class="profile_info_input" style="padding-bottom:30px">
-  <h1>Laukumi</h1>
+  <h1>Fields</h1>
   <div class="fields_wrap">
 
     <% unless @golf_club.fields.count < 1 %>
@@ -7,11 +7,11 @@
       <%= select_tag( "fields", options_from_collection_for_select(fields, "id", "name"), {:onchange => "changeLink(this.value)", :class => "dropdown3"}) %>
       <% first_field = fields.first%>
 
-      <a href="/edit_field_by_id/<%= first_field.id%>" class="green_button link edit_field_by_id">Rediģēt</a>
+      <a href="/edit_field_by_id/<%= first_field.id%>" class="green_button link edit_field_by_id">Edit</a>
 
     <% end %>
       
-    <a href="<%=new_golf_club_field_path%>" class="green_button link">Pieteikt jaunu</a>
+    <a href="<%=new_golf_club_field_path%>" class="green_button link">Create new field</a>
 
 
     <script type="text/javascript">

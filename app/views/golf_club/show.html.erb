@@ -26,7 +26,7 @@
       <h1><%=@club.name%></h1>
       <p><span class="gray"><%=@club.city%>, <%=@club.region%></span></p>
       <p><span class="gray"><%=@club.web_page%></span></p>
-      <p><a href="/club/edit">Rediģēt kluba info</a> | <a href="<%=new_golf_club_field_path%>">Pievienot laukumu</a>  | <a href="/club/edit_fields">Rediģēt laukumus</a> </p>
+      <p><a href="/club/edit">Edit club info</a> | <a href="<%=new_golf_club_field_path%>">Add field</a>  | <a href="/club/edit_fields">Edit fields</a> </p>
     </div>
 
     <div class="club_players_wrap">
@@ -46,7 +46,7 @@
 
               <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "coach_checkbox" + user.id.to_s}, :remote => :true) do |u|%>
                 <%= u.hidden_field(:coach, { :class => "user_roach"})%>
-                <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" checked="true" />
+                <p>Provide hints <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" checked="true" />
 
                 <%end%></p>
 
@@ -125,7 +125,7 @@
 
               <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "coach_checkbox" + user.id.to_s}, :remote => :true) do |u|%>
                 <%= u.hidden_field(:coach, {:class => "user_roach"})%>
-                <p>Dot padomus <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" />
+                <p>Provide hints <input type="checkbox" onchange="change_coach(<%=escape_javascript(user.id.to_s)%>)" class="c_checkbox" />
                 <%end%></p>
 
 

@@ -186,7 +186,7 @@
 
 
 
-.green_button_save_field {text-align: center;}
+/*.green_button_save_field {text-align: center;}*/
 
 .green_button_save_field input {
     border:none;
@@ -197,7 +197,7 @@
     font-size:19px;
     color:#363636;
     width: auto;
-    margin: 0 0 5px 0;
+    margin: 5px  5px 5px 390px;
     padding: 0 5px 5px 5px;
     font-weight:bold;
     font-family:"Trebuchet MS";
@@ -411,7 +411,7 @@
 
 
 
-.green_button_save_field {text-align: center;}
+/*.green_button_save_field {text-align: center;}
 
 .green_button_save_field input {
     border:none;
@@ -427,7 +427,7 @@
     font-weight:bold;
     font-family:"Trebuchet MS";
     
-}
+}*/
 .green_button_image_field input {
     border:none;
     background-color:#b6d051;

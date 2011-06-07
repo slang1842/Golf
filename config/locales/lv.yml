@@ -4,7 +4,7 @@
 lv:
   date:
     formats:
-      default: "%d.%m.%Y."
+      default: "%d.%m.%y."
       short: "%e. %B"
       long: "%Y. gada %e. %B"
 
@@ -17,7 +17,7 @@ lv:
   time:
     formats:
       default: "%Y. gada %e. %B, %H:%M"
-      short: "%d.%m.%Y., %H:%M"
+      short: "%d.%m.%y., %H:%M"
       long: "%Y. gada %e. %B, %H:%M:%S"
 
     am: "priekšpusdiena"

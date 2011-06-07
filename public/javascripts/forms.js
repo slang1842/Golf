@@ -2,7 +2,7 @@ $(document).ready(function(){
   datapicker();
   timepicker();
   gamedatepicker();
-  slider();
+  //slider();
 });
 
 
