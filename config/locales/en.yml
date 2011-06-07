@@ -23,7 +23,7 @@
 
   time:
     formats:
-      default: "%a, %d %b %Y %H:%M:%S %z"
+      default: " %d %a %b %Y %H:%M:%S %z"
       short: "%d %b %H:%M"
       game: "%d.%m.%y"
       long: "%B %d, %Y %H:%M"

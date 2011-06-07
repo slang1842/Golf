@@ -299,16 +299,14 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.integer  "field_id"
     t.integer  "hcp"
     t.integer  "user_progress"
-    t.integer  "num"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "statistics", :force => true do |t|
-    t.integer  "game_id"
-    t.integer  "field_id"
     t.integer  "user_id"
     t.integer  "stick_id"
+    t.integer  "field_id"
     t.integer  "place_teebox"
     t.integer  "place_feairway"
     t.integer  "place_next_fairway"
