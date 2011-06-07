@@ -81,12 +81,10 @@ class Statistic < ActiveRecord::Base
     @return = false
     Statistic.delete_all
 
-
     User.where(:is_super_admin => false).each do |c_user|
       @c_field = Field.where(:golf_club_id => c_user.golf_club_id).each do |c_field|
 
         c_user.users_sticks.each do |user_stick|
-
         
           statistic = Statistic.new
           statistic.user_id = c_user.id
@@ -101,7 +99,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+              if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -165,7 +163,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+              if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -205,7 +203,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.direction == direction_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+              if each_pair.hit_planed.direction == direction_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -245,7 +243,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+              if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -279,7 +277,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+              if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -314,7 +312,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+              if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -346,7 +344,7 @@ class Statistic < ActiveRecord::Base
             @result_arr = []
         
             @all_pairs.each do |each_pair|
-              if each_pair.hit_planed.wind == wind_num && each_pair.hit_planed.stick_id == user_stick.stick.id
+              if each_pair.hit_planed.wind == wind_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
                 @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                 @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
               end
@@ -527,13 +525,13 @@ class Statistic < ActiveRecord::Base
 
       elsif @avg_p.to_i < @avg_p.to_i
 
-         puts "@avg_r < @avg_p"
+        puts "@avg_r < @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = (@avg_r / @avg_p) * 100
 
       elsif @avg_p.to_i == @avg_r.to_i
 
-         puts "@avg_r = @avg_p"
+        puts "@avg_r = @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = 100
 
@@ -638,11 +636,13 @@ class Statistic < ActiveRecord::Base
         @stick_order_r_arr = []
         
         @hit_p.each do |c_p_hit|
-          @stick_order_p_arr.push(Stick.find(c_p_hit.stick.id).short_name)
+          @c_stick_id = Stick.find(c_p_hit.stick.id)
+          @stick_order_p_arr.push(@c_stick_id.short_name) unless @c_stick_id == nil
         end
         
         @hit_r.each do |c_r_hit|
-          @stick_order_r_arr.push(Stick.find(c_r_hit.stick_id).short_name)
+          @c_stick_id = Stick.find(c_r_hit.stick_id)
+          @stick_order_r_arr.push(@c_stick_id.short_name) unless @c_stick_id == nil
         end
         
         game_s_holes.stick_order_p = @stick_order_p_arr.join(", ") unless @stick_order_p_arr.length == 0
@@ -694,13 +694,12 @@ class Statistic < ActiveRecord::Base
   end
     
   def self.game_statistics_general
-    GameStatisticsGeneral.delete_all
+    GameStatisticGeneral.delete_all
     @return = false
     
     @games = Game.all
-    puts "NAHUJ: #{@games}"
     @games.each do |c_game|
-      @GameStatisticsGeneral = GameStatisticsGeneral.new
+      @GameStatisticsGeneral = GameStatisticGeneral.new
       @global_hits = Hit.where(:game_id => c_game.id)
       
       @GameStatisticsGeneral.game_id = c_game.id
@@ -791,70 +790,71 @@ class Statistic < ActiveRecord::Base
     StatisticUserProgres.delete_all
 
     @return = false
-
     @users = User.all
 
     @users.each do |c_user|
-      @Statistic = Statistic.where(:user_id => c_user.id)
-      @Statistic.each do |c_stat|
+      Field.all.each do |c_field|
+        @Statistic = Statistic.where(:field_id => c_field.id, :user_id => c_user.id)
+        @Statistic.each do |c_stat|
 
-        @user_progres_arr = []
+          @user_progres_arr = []
         
-        @user_progres_arr.push(c_stat.place_teebox) unless c_stat.place_teebox == nil
-        @user_progres_arr.push(c_stat.place_feairway) unless c_stat.place_feairway == nil
-        @user_progres_arr.push(c_stat.place_next_fairway) unless c_stat.place_next_fairway == nil
-        @user_progres_arr.push(c_stat.place_semi_raf) unless c_stat.place_semi_raf == nil
-        @user_progres_arr.push(c_stat.place_raf) unless c_stat.place_raf == nil
-        @user_progres_arr.push(c_stat.place_for_green) unless c_stat.place_for_green == nil
-        @user_progres_arr.push(c_stat.place_green) unless c_stat.place_green == nil
-        @user_progres_arr.push(c_stat.place_fairway_sand) unless c_stat.place_fairway_sand == nil
-        @user_progres_arr.push(c_stat.place_green_sand) unless c_stat.place_green_sand == nil
-        @user_progres_arr.push(c_stat.place_wood) unless c_stat.place_wood == nil
-        @user_progres_arr.push(c_stat.place_from_water) unless c_stat.place_from_water == nil
+          @user_progres_arr.push(c_stat.place_teebox) unless c_stat.place_teebox == nil
+          @user_progres_arr.push(c_stat.place_feairway) unless c_stat.place_feairway == nil
+          @user_progres_arr.push(c_stat.place_next_fairway) unless c_stat.place_next_fairway == nil
+          @user_progres_arr.push(c_stat.place_semi_raf) unless c_stat.place_semi_raf == nil
+          @user_progres_arr.push(c_stat.place_raf) unless c_stat.place_raf == nil
+          @user_progres_arr.push(c_stat.place_for_green) unless c_stat.place_for_green == nil
+          @user_progres_arr.push(c_stat.place_green) unless c_stat.place_green == nil
+          @user_progres_arr.push(c_stat.place_fairway_sand) unless c_stat.place_fairway_sand == nil
+          @user_progres_arr.push(c_stat.place_green_sand) unless c_stat.place_green_sand == nil
+          @user_progres_arr.push(c_stat.place_wood) unless c_stat.place_wood == nil
+          @user_progres_arr.push(c_stat.place_from_water) unless c_stat.place_from_water == nil
 
-        @user_progres_arr.push(c_stat.stance_normal) unless c_stat.stance_normal == nil
-        @user_progres_arr.push(c_stat.stance_right_leg_lower) unless c_stat.stance_right_leg_lower == nil
-        @user_progres_arr.push(c_stat.stance_left_leg_lower) unless c_stat.stance_left_leg_lower == nil
-        @user_progres_arr.push(c_stat.stance_ball_lower) unless c_stat.stance_ball_lower == nil
-        @user_progres_arr.push(c_stat.stance_ball_higher) unless c_stat.stance_ball_higher == nil
+          @user_progres_arr.push(c_stat.stance_normal) unless c_stat.stance_normal == nil
+          @user_progres_arr.push(c_stat.stance_right_leg_lower) unless c_stat.stance_right_leg_lower == nil
+          @user_progres_arr.push(c_stat.stance_left_leg_lower) unless c_stat.stance_left_leg_lower == nil
+          @user_progres_arr.push(c_stat.stance_ball_lower) unless c_stat.stance_ball_lower == nil
+          @user_progres_arr.push(c_stat.stance_ball_higher) unless c_stat.stance_ball_higher == nil
 
-        @user_progres_arr.push(c_stat.direction_straigth) unless c_stat.direction_straigth == nil
-        @user_progres_arr.push(c_stat.direction_fade) unless c_stat.direction_fade == nil
-        @user_progres_arr.push(c_stat.direction_drow) unless c_stat.direction_drow == nil
-        @user_progres_arr.push(c_stat.direction_slice) unless c_stat.direction_slice == nil
-        @user_progres_arr.push(c_stat.direction_hook) unless c_stat.direction_hook == nil
+          @user_progres_arr.push(c_stat.direction_straigth) unless c_stat.direction_straigth == nil
+          @user_progres_arr.push(c_stat.direction_fade) unless c_stat.direction_fade == nil
+          @user_progres_arr.push(c_stat.direction_drow) unless c_stat.direction_drow == nil
+          @user_progres_arr.push(c_stat.direction_slice) unless c_stat.direction_slice == nil
+          @user_progres_arr.push(c_stat.direction_hook) unless c_stat.direction_hook == nil
         
-        @user_progres_arr.push(c_stat.temperature_cold) unless c_stat.temperature_cold == nil
-        @user_progres_arr.push(c_stat.temperature_normal) unless c_stat.temperature_normal == nil
-        @user_progres_arr.push(c_stat.temperature_hot) unless c_stat.temperature_hot == nil
+          @user_progres_arr.push(c_stat.temperature_cold) unless c_stat.temperature_cold == nil
+          @user_progres_arr.push(c_stat.temperature_normal) unless c_stat.temperature_normal == nil
+          @user_progres_arr.push(c_stat.temperature_hot) unless c_stat.temperature_hot == nil
 
-        @user_progres_arr.push(c_stat.weather_normal) unless c_stat.weather_normal == nil
-        @user_progres_arr.push(c_stat.weather_wind) unless c_stat.weather_wind == nil
-        @user_progres_arr.push(c_stat.weather_rain) unless c_stat.weather_rain == nil
-        @user_progres_arr.push(c_stat.weather_wind_and_rain) unless c_stat.weather_wind_and_rain == nil
+          @user_progres_arr.push(c_stat.weather_normal) unless c_stat.weather_normal == nil
+          @user_progres_arr.push(c_stat.weather_wind) unless c_stat.weather_wind == nil
+          @user_progres_arr.push(c_stat.weather_rain) unless c_stat.weather_rain == nil
+          @user_progres_arr.push(c_stat.weather_wind_and_rain) unless c_stat.weather_wind_and_rain == nil
 
-        @user_progres_arr.push(c_stat.trajectory_normal) unless c_stat.trajectory_normal == nil
-        @user_progres_arr.push(c_stat.trajectory_high) unless c_stat.trajectory_high == nil
-        @user_progres_arr.push(c_stat.trajectory_low) unless c_stat.trajectory_low == nil
+          @user_progres_arr.push(c_stat.trajectory_normal) unless c_stat.trajectory_normal == nil
+          @user_progres_arr.push(c_stat.trajectory_high) unless c_stat.trajectory_high == nil
+          @user_progres_arr.push(c_stat.trajectory_low) unless c_stat.trajectory_low == nil
 
-        @user_progres_arr.push(c_stat.wind_from_behind) unless c_stat.wind_from_behind == nil
-        @user_progres_arr.push(c_stat.wind_from_front) unless c_stat.wind_from_front == nil
-        @user_progres_arr.push(c_stat.wind_from_left) unless c_stat.wind_from_left == nil
-        @user_progres_arr.push(c_stat.wind_from_right) unless c_stat.wind_from_right == nil
+          @user_progres_arr.push(c_stat.wind_from_behind) unless c_stat.wind_from_behind == nil
+          @user_progres_arr.push(c_stat.wind_from_front) unless c_stat.wind_from_front == nil
+          @user_progres_arr.push(c_stat.wind_from_left) unless c_stat.wind_from_left == nil
+          @user_progres_arr.push(c_stat.wind_from_right) unless c_stat.wind_from_right == nil
 
+          unless @user_progres_arr.size == 0
+            @user_stats_progres_val = (@user_progres_arr.inject(0.0) { |sum, el| sum + el } / @user_progres_arr.size).round
 
-        unless @user_progres_arr.size == 0
-          @user_stats_progres_val = (@user_progres_arr.inject(0.0) { |sum, el| sum + el } / @user_progres_arr.size).round
+            @u_statsProg = StatisticUserProgres.new
+            @u_statsProg.user_progress = @user_stats_progres_val
+            @u_statsProg.user_id = c_user.id
+            @u_statsProg.field_id = c_stat.field_id
+            @u_statsProg.hcp = c_user.hcp
 
-          @u_statsProg = StatisticUserProgres.new
-          @u_statsProg.user_progress = @user_stats_progres_val
-          @u_statsProg.user_id = c_user.id
-          @u_statsProg.field_id = c_stat.field_id
-          @u_statsProg.hcp = c_user.hcp
-
-          @return = true if @u_statsProg.save
-        end
-      end # end statistic
+            @return = true if @u_statsProg.save
+          end
+     
+        end # end statistic
+      end # ends field
     end # end user
 
     @all_user_progress = StatisticUserProgres.order("user_progress")
@@ -865,7 +865,8 @@ class Statistic < ActiveRecord::Base
       @c.num = @num
       @c.save
       @num = @num + 1
-    end # end all_user_progress
+    end
+
     return @return
   end
 end

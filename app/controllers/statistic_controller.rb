@@ -86,7 +86,7 @@ class StatisticController < ApplicationController
     @user_id = params[:user_id]
 
  
-    @games_to_return = GameFilterStatistic.where(:user_id => @user_id) #.where(:user_id => @user_params) #.where(:field_id => @field).order("created_at DESC").limit(8)
+    @games_to_return = GameFilterStatistic.where(:user_id => @user_id).order("created_at DESC").limit(8)
 
     case @place_from.to_i
     when 1
@@ -110,7 +110,7 @@ class StatisticController < ApplicationController
     when 10
       @games_to_return = @games_to_return.where(:place_wood => true)
     when 11
-      @games_to_return = @games_to_return.where(:place_from_water => true)
+      @games_to_return = @games_to_return.where(:place_from_water => true)      
     end
 
     case @stance.to_i
