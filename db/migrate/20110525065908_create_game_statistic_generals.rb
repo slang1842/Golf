@@ -3,8 +3,9 @@ class CreateGameStatisticGenerals < ActiveRecord::Migration
     create_table :game_statistic_generals do |t|
       t.references :game
       t.integer    :hit_sum
-      t.integer   :put_sum
+      t.integer    :put_sum
       t.integer    :gir_sum
+      t.integer    :game_progress
       t.timestamps
     end
   end

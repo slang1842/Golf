@@ -92,7 +92,7 @@
 
       <div id="user_place_in_golf_club_div">
 
-
+        <!-- pec filtracijas saja diva paradas user saraksts-->
       </div>
 
       <!--
@@ -131,54 +131,17 @@
 
   <div class="carousel-wrap">
     <ul id="slider">
-      <li>
-        <a href="#">
-          <div class="single_game_field">
-            <div class="percentage"><p>60%</p></div>
-            <div class="date"><p>01.02.03</p></div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="single_game_field">
-            <div class="percentage"><p>60%</p></div>
-            <div class="date"><p>01.02.03</p></div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="single_game_field">
-            <div class="percentage"><p>60%</p></div>
-            <div class="date"><p>01.02.03</p></div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="single_game_field">
-            <div class="percentage"><p>60%</p></div>
-            <div class="date"><p>01.02.03</p></div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="single_game_field">
-            <div class="percentage"><p>60%</p></div>
-            <div class="date"><p>01.02.03</p></div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="single_game_field">
-            <div class="percentage"><p>60%</p></div>
-            <div class="date"><p>01.02.03</p></div>
-          </div>
-        </a>
-      </li>
+
+      <% @user_params_golf_clubs.each do |user_params_golf_clubs| %>
+        <li>
+          <a href="#">
+            <div class="single_game_field">
+              <div class="percentage"><p>60%</p></div>
+              <div class="date"><p>01.02.03</p></div>
+            </div>
+          </a>
+        </li>
+      <% end %>
 
     </ul>
 
@@ -214,9 +177,9 @@
 
 
   <div> <!-- MAIN statistikas divs -->
-   
-<% if @user_sticks.count > 0 && @statistic.count > 0 %>
-    <%#= if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil%>
+
+    <% if @user_sticks.count > 0 && @statistic.count > 0 %>
+  <%#= if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil%>
 
       <div class="clubs_wrap">
         <div class="page_left">
