@@ -17,6 +17,13 @@
     </div>
   <% end %>
 
+  <% flash.each do |key, msg| %>
+    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+    <%= content_tag :script, :type => "text/javascript" do -%>
+      setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+    <% end %>
+  <% end %>
+
   <h1>Tavs profils</h1>
 
 
@@ -113,7 +120,7 @@
           <p><%= f.label t "form.start_place" %></p>
         </div>
         <div class="input">
-          <%= f.select(:start_place_color, START_PLACE_COLORS,{}, { :class => 'dropdown3'}) %>
+          <%= f.select(:start_place_color, START_PLACE_COLORS_USER,{}, { :class => 'dropdown3'}) %>
         </div>
       </div>
 
@@ -138,11 +145,11 @@
               <%= f.collection_select(:golf_club_id, @golf_club, :id, :name, { :prompt => t(:notices_no_club)}, {:class => 'dropdown3'}) %>
             </div>
           </div>
-          
+
 
           <div>
             <p>* Dont see your club?</p>
-            
+
 
             <p><%= f.check_box :add_club, {:onclick => "golf_club_checkbox()"} %> I will create new golf club</p>
           </div>
@@ -217,7 +224,7 @@
       <div class="clear"></div>
 
       <% if current_user %>
-        <%= f.submit "Save", :class => "green_button" %> 
+        <%= f.submit "Save", :class => "green_button" %>
       <% else %>
         <%= f.submit "Create", :class => "green_button" %>
       <% end %>

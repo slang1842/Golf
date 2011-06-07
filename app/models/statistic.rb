@@ -776,9 +776,9 @@ class Statistic < ActiveRecord::Base
 
       if @pay_banner_end_date == nil
         @return = false unless c_club.update_attributes(:is_p_banner_disabled => false)
-      elsif @pay_banner_end_date < Time.now
+      elsif @pay_banner_end_date < DateTime.now
         @return = false unless c_club.update_attributes(:is_p_banner_disabled => false)
-      elsif @pay_banner_end_date > Time.now
+      elsif @pay_banner_end_date > DateTime.now
         @return = false unless c_club.update_attributes(:is_p_banner_disabled => true)
       end
     end
