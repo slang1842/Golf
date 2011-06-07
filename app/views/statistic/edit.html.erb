@@ -214,11 +214,9 @@
 
 
   <div> <!-- MAIN statistikas divs -->
-    <%  @stick_count = @user_params.sticks %>
-    <%  @stats_count = Statistic.where(:user_id == @user_params.id) %>
-
-    <% if @stick_count.count > 0 && @stats_count.count > 0 && @stick_count.count == @stats_count.where(:user_id => @user_params.id).count  %>
-
+   
+<% if @user_sticks.count > 0 && @statistic.count > 0 %>
+    <%#= if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil%>
 
       <div class="clubs_wrap">
         <div class="page_left">
