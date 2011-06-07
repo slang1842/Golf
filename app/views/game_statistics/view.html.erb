@@ -3,13 +3,13 @@
 
 <div class="single_stats_wrap">
     <div class="description"> 
-      <p>Spēle laukumā "<%=@field.name%>"</p>
+      <p>Game in field "<%=@field.name%>"</p>
       <p><%=l @game.date, :format => :game %></p>
     </div>
     <% @gen_stats = GameStatisticGeneral.find(:first, :conditions => {:game_id => @game.id})%>
     <% if @gen_stats %>
     <div class="total_hits_desc">
-      <p>Kopējais sitienu skaits</p>
+      <p>Total stroke count</p>
     </div>
     <div class="value">
       <p><%= @gen_stats.hit_sum%></p>
@@ -21,7 +21,7 @@
       <p><%= @gen_stats.gir_sum%></p>
     </div>
     <div class="total_hits_desc one_line">
-      <p>Puts</p>
+      <p>Putts</p>
     </div>
     <div class="value">
       <p><%=@gen_stats.put_sum%></p>
@@ -33,8 +33,8 @@
           <div class="selector">
             <select size="1" name="type" class="dropdown3 stats_selector" onchange="SwitchStats(this.value)">
                   
-                  <option value="1">Bedrītes</option>
-                  <option value="2">Nūjas</option>
+                  <option value="1">By holes</option>
+                  <option value="2">By clubs</option>
             </select>
           </div>
         </div>

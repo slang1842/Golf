@@ -1,7 +1,11 @@
 <%# hole ||= Hole.new %>
 <%#= hole_number ||= 0 %>
 <script type="text/javascript">
+  
+  $(document).ready(function() {
   $(function(){ $(".hole_file_field").uniform(); });
+});
+  
 </script>
 <%= f.fields_for hole_attributes_name,  hole do |h| %>
 <%= h.hidden_field :id unless hole.new_record? %>

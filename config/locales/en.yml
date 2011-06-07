@@ -23,10 +23,10 @@
 
   time:
     formats:
-      default: " %d %a %b %Y %H:%M:%S %z"
+      default: " %d %a %b %g %H:%M:%S %z"
       short: "%d %b %H:%M"
-      game: "%d.%m.%y"
-      long: "%B %d, %Y %H:%M"
+      game: "%d.%m.%g"
+      long: "%B %d, %g %H:%M"
     am: "am"
     pm: "pm"
 

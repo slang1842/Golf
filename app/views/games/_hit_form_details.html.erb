@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="single_dropdown" style="width:100px">
-      <p>Distance to hole</p>
+      <p>Till hole</p>
       <div class="element">
         <%= f.text_field :distance_to_hole %> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
       </div>
@@ -130,7 +130,7 @@
         </div>
 
         <div class="buttons">
-          <p>Trāpījums bija..</p>
+          <p>Stroke was .. </p>
           <% STATISTICS_HIT_WAS.each do |stat|%>
             <%= f.radio_button(:hit_was, stat[1])%> <%= stat[0] %></br>
           <% end %>
@@ -161,7 +161,7 @@
     <%# if active_hole != last_hole.hole_number %>
       <div class="single_dropdown" style="float:right">
         <div class="element">
-          <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Next hole</a>
+          <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Next&nbsp;hole</a>
         </div>
       </div>
     <%#end%>

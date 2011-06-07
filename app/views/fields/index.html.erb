@@ -6,7 +6,7 @@
       <h1><%=@golf_club.name%></h1>
       <p><span class="gray"><%=@golf_club.city%>, <%=@golf_club.region%></span></p>
       <p><span class="gray"><%=@golf_club.web_page%></span></p>
-      <p><a href="/club/edit">Rediģēt kluba info</a>   </p>
+      <p><a href="/club/edit">Edit club info</a>   </p>
     </div>
       </div>
 <%= render :partial => 'fields/list', :class => "green_button", :locals => {:golf_club => @golf_club, :fields => @golf_club.fields } %> 

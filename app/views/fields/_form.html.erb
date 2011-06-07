@@ -1,5 +1,4 @@
 
-
 <%= form_for([:golf_club, @field], :html => {:multipart => true}) do |f| %>
   <% if @field.errors.any? %>
     <div id="error_explanation">
@@ -16,7 +15,7 @@
 
   <div class="background_fix" style="margin-top:0px ">
     <div class="field_name">
-      <div class="txt"><p>Nosaukums</p></div>
+      <div class="txt"><p>Field name</p></div>
       <div class="input"><%= f.text_field :name %><br /><br /></div>
 
     </div>
@@ -24,8 +23,8 @@
     <div class="txt"><p>Green fees</p></div>
     <div id="green_fees">
       <div class="green_fee">
-        <div class="txt"><p>Green fee (Kas / kad)</p></div>
-        <div class="txt"><p>Maksa</p></div>
+        <div class="txt"><p>Green fee (What / When)</p></div>
+        <div class="txt"><p>Price</p></div>
         <%if @field.green_fees.any? %>
           <% @field.green_fees.each do |green_fee| %>
             <%= render :partial => '/fields/new_green_fee', :locals => {:green_fee => green_fee, :f => f, :green_fee_attributes_name => @green_fee_attributes_name} %>
@@ -46,7 +45,7 @@
 
 
     <div class="holes">
-      <h1>Bedrītes</h1>
+      <h1>Holes</h1>
       <div class="headings"><p>PAR</p></div>
       <div class="headings"><p>HCP</p></div>
       <div class="clear"></div>
@@ -87,7 +86,7 @@
   <div id="hit_places">
     <div class="hit_places_wrap">
 
-      <h1>Izsitiena vietas</h1>
+      <h1>Start places</h1>
 
       <div class="single_wrap">
         <div class="txt two_lines"><p>Very short distance</p></div>
