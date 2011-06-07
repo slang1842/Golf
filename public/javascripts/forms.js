@@ -145,7 +145,8 @@ function hint_delete_text_field(x) {
 
 
 function user_place_in_golf_club() {
-  $("#user_place_in_golf_club").submit()
+  //$("#table_result_wrap_box").hide();
+  $("#user_place_in_golf_club").submit();
 };
 
 

@@ -1,13 +1,15 @@
-<div class="lists">
-  <p>
-    <% @stats_to_return.each do |a| %>
+<div id="table_result_wrap_box">
+  <div class="lists">
+    <p>
+      <% @stats_to_return.each do |a| %>
 
-      <% if a.num == @user_stats.num %>
-      <div class=""><b> <%= a.num  %> <%= User.find(a.user_id).first_name %> <%= User.find(a.user_id).last_name %> </b><br /></div>
-    <% else %>
-      <div class=""><%= a.num  %> <%= User.find(a.user_id).first_name %> <%= User.find(a.user_id).last_name %> <br /></div>
+        <% if a.num == @user_stats.num %>
+        <div class=""><b> <%= a.num  %> <%= User.find(a.user_id).first_name %> <%= User.find(a.user_id).last_name %> </b><br /></div>
+      <% else %>
+        <div class=""><%= a.num  %> <%= User.find(a.user_id).first_name %> <%= User.find(a.user_id).last_name %> <br /></div>
+      <% end %>
+
     <% end %>
-
-  <% end %>
-</p>
+    </p>
+  </div>
 </div>
