@@ -1,0 +1,6 @@
+
+#page['#hit_count_tab'].html render(:partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hit => @active_hit, :form_id => @form_id, :active_hole => @active_hole})
+
+page['#table_result_wrap'].html render(:partial => 'statistic/filter_statistic_view' ,:locals => {:filtered_games => @filtered_games})
+
+

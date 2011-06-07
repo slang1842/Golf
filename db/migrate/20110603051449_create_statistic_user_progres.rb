@@ -5,6 +5,7 @@ class CreateStatisticUserProgres < ActiveRecord::Migration
       t.references    :field
       t.integer       :hcp
       t.integer       :user_progress
+      t.integer       :num
       t.timestamps
     end
   end

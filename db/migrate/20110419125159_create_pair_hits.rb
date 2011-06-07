@@ -6,6 +6,7 @@ class CreatePairHits < ActiveRecord::Migration
       t.integer         :hit_real_id
       t.references      :users_stick
       t.references      :user
+      t.references      :game
       t.timestamps
     end
   end

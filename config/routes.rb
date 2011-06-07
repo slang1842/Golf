@@ -19,7 +19,7 @@ Golf::Application.routes.draw do
   #match '/statistic/:user_id/:field_id' => 'statistic#edit', :as => 'main_statistic'
   #end
   match '/filter_statistic' => 'statistic#filter_statistic'
-
+  match '/user_place_in_golf_club' => 'statistic#user_place_in_golf_club'
 
   match 'statistic/get_mini_statistic_by_field/:field_id/:user_id' => 'statistic#get_statistic_by_field'
   resource :statistic, :controller => "statistic" do

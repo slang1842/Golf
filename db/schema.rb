@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110603051449) do
+ActiveRecord::Schema.define(:version => 20110606050327) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -43,6 +43,53 @@ ActiveRecord::Schema.define(:version => 20110603051449) do
     t.integer  "short_distance"
     t.integer  "normal_distance"
     t.integer  "long_distance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "game_filter_statistics", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "user_id"
+    t.integer  "field_id"
+    t.integer  "hit_sum"
+    t.integer  "avg_r_distance"
+    t.integer  "avg_p_distance"
+    t.integer  "hit_progress"
+    t.boolean  "place_teebox",           :default => false
+    t.boolean  "place_feairway",         :default => false
+    t.boolean  "place_next_fairway",     :default => false
+    t.boolean  "place_semi_raf",         :default => false
+    t.boolean  "place_raf",              :default => false
+    t.boolean  "place_for_green",        :default => false
+    t.boolean  "place_green",            :default => false
+    t.boolean  "place_fairway_sand",     :default => false
+    t.boolean  "place_green_sand",       :default => false
+    t.boolean  "place_wood",             :default => false
+    t.boolean  "place_from_water",       :default => false
+    t.boolean  "stance_normal",          :default => false
+    t.boolean  "stance_right_leg_lower", :default => false
+    t.boolean  "stance_left_leg_lower",  :default => false
+    t.boolean  "stance_ball_lower",      :default => false
+    t.boolean  "stance_ball_higher",     :default => false
+    t.boolean  "direction_straigth",     :default => false
+    t.boolean  "direction_fade",         :default => false
+    t.boolean  "direction_drow",         :default => false
+    t.boolean  "direction_slice",        :default => false
+    t.boolean  "direction_hook",         :default => false
+    t.boolean  "temperature_cold",       :default => false
+    t.boolean  "temperature_normal",     :default => false
+    t.boolean  "temperature_hot",        :default => false
+    t.boolean  "weather_normal",         :default => false
+    t.boolean  "weather_wind",           :default => false
+    t.boolean  "weather_rain",           :default => false
+    t.boolean  "weather_wind_and_rain",  :default => false
+    t.boolean  "trajectory_normal",      :default => false
+    t.boolean  "trajectory_high",        :default => false
+    t.boolean  "trajectory_low",         :default => false
+    t.boolean  "wind_from_behind",       :default => false
+    t.boolean  "wind_from_front",        :default => false
+    t.boolean  "wind_from_left",         :default => false
+    t.boolean  "wind_from_right",        :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -242,6 +289,7 @@ ActiveRecord::Schema.define(:version => 20110603051449) do
     t.integer  "hit_real_id"
     t.integer  "users_stick_id"
     t.integer  "user_id"
+    t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -251,14 +299,16 @@ ActiveRecord::Schema.define(:version => 20110603051449) do
     t.integer  "field_id"
     t.integer  "hcp"
     t.integer  "user_progress"
+    t.integer  "num"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "statistics", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "field_id"
     t.integer  "user_id"
     t.integer  "stick_id"
-    t.integer  "field_id"
     t.integer  "place_teebox"
     t.integer  "place_feairway"
     t.integer  "place_next_fairway"

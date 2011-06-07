@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration
       t.string     :green_quality
       t.integer    :temperature
       t.integer    :weather
-      t.datetime       :date
+      t.datetime   :date
       t.string     :game_format
       t.references :user
       t.references :field

@@ -83,19 +83,19 @@
         <p>Tava vieta golfa klubā "Viesturi"</p>
       </div>
       <div class="form_dropdowns">
-        <form action="#" method="post" class="">
-          <%  @stats_fields = Statistic.all %>
-          <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown1 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
-
-
-          <select size="1" name="club" >
-            <option value="GIR">HCP</option>
-            <option value="3">Par 3</option>
-            <option value="4">Par 4</option>
-            <option value="5">Par 5</option>
-          </select>
-        </form>
+        <% form_tag('/user_place_in_golf_club', :method => 'post', :remote => true, :id => "user_place_in_golf_club") do %>
+          <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown3", :onchange => "user_place_in_golf_club()"} %>
+          <%= select_tag("hcp", options_for_select(0..36), {:include_blank => "HCP", :id => "place_in_club_hcp", :class => "dropdown3", :onchange => "user_place_in_golf_club()"}) %>
+          <%= hidden_field_tag "user_id", @user_params.id %>
+        <% end %>
       </div>
+
+      <div id="user_place_in_golf_club_div">
+
+
+      </div>
+
+      <!--
       <div class="lists">
         <p>1. Edgars Upītis<br />2. Jānis Kļava<br />3. Artūrs Pakalns</p>
       </div>
@@ -105,6 +105,7 @@
       <div class="lists">
         <p>7. Viktors Ņičivosebejs<br />8. Edgars Upītis<br />9. Edgars Upītis</p>
       </div>
+      -->
     </div>
   <% end %>
 </div>
@@ -293,53 +294,41 @@
             <div id="table_filter_wrap">
               <% form_tag('/filter_statistic', :method => 'post', :remote => true, :id => "filter_statistic_form") do %>
 
-                <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown4 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
+                <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown3"} %>
                 <div class="clearblock_dropdowns"></div>
 
                 <%= select_tag("place_from", options_for_select(STATISTICS_PLACE_FROM), {:include_blank => "Place",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown4"}) %>
+                <%= select_tag("stance", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown4"}) %>
+                <%= select_tag("direction", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown4"}) %>
+                <%= select_tag("temperature", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown4"}) %>
+                <%= select_tag("weather", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown4"}) %>
+                <%= select_tag("trajectory", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown4"}) %>
+                <%= select_tag("wind", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown4"}) %>
                 <div class="clearblock_dropdowns"></div>
+
+                <input type="hidden" id="user_id_for_filter" value="<%=  @user_params.id %>"/>
+
+                <%= hidden_field_tag "user_id", @user_params.id %>
 
               <% end %>
             </div>
           </div>
         </div>
 
-        <div id="table_result_wrap">
-          <div class="table_wrap">
-            <%= render :partial => 'statistic/table_main_wrap' %>
-          </div>
-        </div>
-
-        <div class="info_wrap">
-          <div class="strokes">
-            <h1>Sitieni:</h1>
-            <p>1432 x</p>
-          </div>
-          <div class="strokes">
-            <h1>Vidējā distance:</h1>
-            <p>130 m</p>
-          </div>
-          <div class="clear"></div>
-          <img src="/images/tip_icon_big.png" alt=""/>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.</p>
+        <div id="filter_statistic">
+          <%= render :partial => 'statistic/filter_statistic' %>
         </div>
       </div>
       <!-- ============================ filter stats ============================ -->

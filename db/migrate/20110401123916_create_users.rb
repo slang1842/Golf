@@ -11,14 +11,14 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean       :admin,            	   :default => false 
       t.boolean       :is_super_admin,       :default => false
       t.boolean       :is_blocked,           :default => false
-      t.integer       :coach,           :default => nil
+      t.integer       :coach,                :default => nil
       
       t.string        :first_name,           :null => false
       t.string        :last_name,            :null => false
       t.string        :nick,                 :null => false
       t.string        :sex,                  :null => false
       t.date          :birth,                :null => false
-      t.references    :country#,              :null => false
+      t.references    :country
       t.references    :golf_club
       t.integer       :hcp,                  :null => false
       t.boolean       :right_handed,         :null => false

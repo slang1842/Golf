@@ -121,30 +121,18 @@ function check_game_form() {
 
 }
 function golf_club_checkbox(){
-  if ($("#golf_club_label").is(":hidden")) {
-    $("#golf_club_label").slideDown("fast");
-  } else {
-    $("#golf_club_label").slideUp("fast");
-  }
-    
-  if ($("#user_golf_club_id").is(":hidden")) {
-    $("#user_golf_club_id").slideDown("fast");
-        
-  } else {
-    $("#user_golf_club_id").slideUp("fast", function() {
-      $("#user_golf_club_id").val("");
-    });
-        
-  }
+  $("#user_golf_club_id").toggle();
 }
 
 
 function showHideElement(whichLayer){
+  $(whichLayer).toggle();
+/*
   if ($(whichLayer).css("display") == 'block' ) {
     $(whichLayer).hide();
   } else {
     $(whichLayer).show();
-  }
+  }*/
 }
     
     
@@ -159,19 +147,8 @@ function hint_delete_text_field(x) {
 }
 
 
-function fill_golf_club_mini_statistic(field_id, user_id) {
-  var field = ($(field_id).val() );
-  var user = ($(user_id).val() );
-  alert("user_id: " + field + "  field_id: " + user + " :: " + data);
-//$.getJSON('/statistic/get_mini_statistic_by_field/' + field + '/' + user + '.json', function(data) {
-
-
-//$(a).parent().parent().find('.distance').val(data.stick.distance);
-//$(a).parent().parent().find('.degrees').val(data.stick.degrees);
-// $(a).parent().parent().find('.shaft').val(data.stick.shaft);
-// $(a).parent().parent().find('.shaft_strength').val(data.stick.shaft_strength);
-    
-//});
+function user_place_in_golf_club() {
+  $("#user_place_in_golf_club").submit()
 };
 
 

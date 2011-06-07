@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :users_sticks, :allow_destroy => true
   accepts_nested_attributes_for :balls, :allow_destroy => true
   
-  validates_presence_of :first_name, :last_name, :nick, :birth
+  validates :first_name, :last_name, :nick, :birth, :presence => true
   validates_uniqueness_of :email
   
-  validates_presence_of :ball_manufacturer, :ball_type, :on => :bag
-  validates_presence_of :stick_type, :distance, :degrees, :shaft, :shaft_strength, :on => :bag
+  validates :ball_manufacturer, :ball_type, :on => :bag, :presence => true
+  validates :stick_type, :distance, :degrees, :shaft, :shaft_strength, :on => :bag, :presence => true
   
   acts_as_authentic do |c| 
     c.login_field = :email

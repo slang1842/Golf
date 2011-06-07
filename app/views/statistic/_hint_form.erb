@@ -1,18 +1,1 @@
 <%= render :partial => 'statistic/hint_form', :locales => {:c_hint => @c_hint, :where_to_save => 1} %>
-
-<% form_for :c_hint do |f| %>
-
-  <% case :where_to_save %>
-  <% when 1 %>
-    <%= f.text_area :place_teebox_hint, :class => "textarea" %>
-
-  <% else %>
-    sss
-  <% end %>
-
-
-
-  <%= f.submit :class => "button_save" %>
-  <%#= f.submit :class => "button_erase", :onclick => "hint_delete_text_field(this)" %>
-<% end %>
-
