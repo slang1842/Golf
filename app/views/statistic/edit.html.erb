@@ -83,15 +83,19 @@
         <p>Tava vieta golfa klubā "Viesturi"</p>
       </div>
       <div class="form_dropdowns">
-        <form action="#" method="post" class="">
-          <%  @stats_fields = Statistic.all %>
-          <%= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown1 select_golf_club", :onchange => "fill_golf_club_mini_statistic(this)"}) %>
-
-
-          <%= select_tag("hcp", options_for_select(0..36), {:include_blank => "HCP",:class => "dropdown3", :onchange => "fill_golf_club_mini_statistic(this)"}) %>
-
-        </form>
+        <% form_tag('/user_place_in_golf_club', :method => 'post', :remote => true, :id => "user_place_in_golf_club") do %>
+          <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown3", :onchange => "user_place_in_golf_club()"} %>
+          <%= select_tag("hcp", options_for_select(0..36), {:include_blank => "HCP", :id => "place_in_club_hcp", :class => "dropdown3", :onchange => "user_place_in_golf_club()"}) %>
+          <%= hidden_field_tag "user_id", @user_params.id %>
+        <% end %>
       </div>
+
+      <div id="user_place_in_golf_club_div">
+
+
+      </div>
+
+      <!--
       <div class="lists">
         <p>1. Edgars Upītis<br />2. Jānis Kļava<br />3. Artūrs Pakalns</p>
       </div>
@@ -101,6 +105,7 @@
       <div class="lists">
         <p>7. Viktors Ņičivosebejs<br />8. Edgars Upītis<br />9. Edgars Upītis</p>
       </div>
+      -->
     </div>
   <% end %>
 </div>
@@ -289,12 +294,7 @@
             <div id="table_filter_wrap">
               <% form_tag('/filter_statistic', :method => 'post', :remote => true, :id => "filter_statistic_form") do %>
 
-    <%#= collection_select( @stats_fields, :field_id,  Field.all, :id, :name, {}, {:class => "dropdown4 select_golf_club", :onchange => "fill_golf_club_mini_statistic()"})    %>
-    <%#= select_tag(Field.all, :id, :name) %>
-
-
-                <% @current_field_id = Field.where(:golf_club_id => @user_params.golf_club_id) %>
-                <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name") %>
+                <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown3"} %>
                 <div class="clearblock_dropdowns"></div>
 
                 <%= select_tag("place_from", options_for_select(STATISTICS_PLACE_FROM), {:include_blank => "Place",:class => "dropdown4"}) %>

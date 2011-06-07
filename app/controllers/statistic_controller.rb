@@ -182,18 +182,19 @@ class StatisticController < ApplicationController
     @filtered_games = @games_to_return
   end
 
-  def filter_user_place
+  def user_place_in_golf_club
     @hcp = params[:hcp]
-    @field = params[:field]
+    @field_id = params[:field_id]
+    @user_id = params[:user_id]
 
-    @my_stats = StatisticUserProgres.find(@user_params[:id])
-    @all_stats = StatisticUserProgres.where(:hcp => @hcp, :field => @field).order("user_progress DESC")
-    @three_better = @all_stats.where(:user_progress.to_i > @my_stats.user_progress.to_i).order("user_progress DESC").limit(3)
-    @three_worse = @all_stats.where(:user_progress.to_i < @my_stats.user_progress.to_i).order("user_progress DESC").limit(3)
 
-    
-    
+    @all_stats = StatisticUserProgres.where(:field_id => @field_id, :hcp => @hcp).order("user_progress DESC")
+    @my_stats = @all_stats.where(:user_id => @user_id)
+
+    #@three_better = @all_stats.where(:user_progress.to_i > @my_stats.user_progress.to_i).order("user_progress DESC").limit(3)
+    #@three_worse = @all_stats.where(:user_progress.to_i < @my_stats.user_progress.to_i).order("user_progress DESC").limit(3)
   end
+  
 end
 
 

@@ -159,8 +159,8 @@ function hint_delete_text_field(x) {
 }
 
 
-function fill_golf_club_mini_statistic(x) {
-
+function user_place_in_golf_club() {
+ $("#user_place_in_golf_club").submit()
 
 
 //var field = ($(field_id).val() );
