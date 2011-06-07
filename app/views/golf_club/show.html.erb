@@ -70,7 +70,7 @@
 
               <div class="progress_bar">
                 <% unless @stats.stick_progres == nil %>
-                  <%  if @stats.stick_progres < MAIN_STATISTIC_BAD_SIMBOL %>
+                  <%  if @stats.stick_progres < MAIN_STATISTIC_BAD_PROC %>
                     <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>">
                     </div>
                   <%else%>
@@ -148,7 +148,7 @@
 
               <div class="progress_bar">
                 <% unless @stats == nil || @stats.stick_progres == nil %>
-                  <%  if @stats.stick_progres < MAIN_STATISTIC_BAD_SIMBOL %>
+                  <%  if @stats.stick_progres < MAIN_STATISTIC_BAD_PROC %>
                     <div class="progress_active bad" style="width:<%= " #{@stats.stick_progres.to_s}%" %>">
                     </div>
                   <%else%>
