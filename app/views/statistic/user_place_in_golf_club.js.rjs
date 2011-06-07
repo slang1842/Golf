@@ -1,4 +1,4 @@
 
-page['#user_place_in_golf_club_div'].html render(:partial => 'statistic/user_place_in_golf_club_view' ,:locals => {:three_better => @three_better, :three_worse => @three_worse, :my_stats => @my_stats})
+page['#user_place_in_golf_club_div'].html render(:partial => 'statistic/user_place_in_golf_club_view' ,:locals => {:stats_to_return => @stats_to_return})
 
 

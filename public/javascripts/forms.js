@@ -2,7 +2,6 @@ $(document).ready(function(){
   datapicker();
   timepicker();
   gamedatepicker();
-  slider();
 });
 
 
@@ -126,13 +125,11 @@ function golf_club_checkbox(){
 
 
 function showHideElement(whichLayer){
-  $(whichLayer).toggle();
-/*
   if ($(whichLayer).css("display") == 'block' ) {
     $(whichLayer).hide();
   } else {
     $(whichLayer).show();
-  }*/
+  }
 }
     
     

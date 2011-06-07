@@ -406,10 +406,12 @@ class Statistic < ActiveRecord::Base
         puts "c_pair.hit_real.hit_distance #{c_pair.hit_real.hit_distance}"
         puts "c_pair.hit_planed.hit_distance #{c_pair.hit_planed.hit_distance}"
         
-        @avg_r_distance = @avg_r_distance.push(c_pair.hit_real.hit_distance)
-        @avg_p_distance = @avg_p_distance.push(c_pair.hit_planed.hit_distance)
+        @avg_r_distance = @avg_r_distance.push(c_pair.hit_real.hit_distance) unless c_pair.hit_real.hit_distance == nil
+        @avg_p_distance = @avg_p_distance.push(c_pair.hit_planed.hit_distance)unless c_pair.hit_planed.hit_distance == nil
         @hit_sum = @hit_sum + 1
 
+       
+        
         case c_pair.hit_planed.place_from
         when 1
           @GameFilterStatistic.place_green = true
@@ -502,19 +504,21 @@ class Statistic < ActiveRecord::Base
         end
       end # end pair hit
 
-
-      puts "================================="
-      puts "================================="
-      puts "================================="
-      puts "================================="
+      puts "----------------------"
+      puts "now the array:"
       puts "@avg_r_distance: #{@avg_r_distance.join(".")}"
-      puts "@avg_p_distance: #{@avg_p_distance.join(".")}"
+      puts "@avg_p_distance #{@avg_p_distance.join(".")}"
       
-      @avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round.to_int # unless @avg_r_distance.size == 0
-      @avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round.to_int # unless @avg_p_distance.size == 0
-      puts "@avg_r: #{@avg_r.class}"
-      puts "@avg_p: #{@avg_p.class}"
 
+      puts ""
+      puts ""
+
+      @avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round # unless @avg_r_distance.size == 0
+      @avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round # unless @avg_p_distance.size == 0
+
+      puts "@avg_r: #{@avg_r}"
+      puts "@avg_p: #{@avg_p}"
+      puts ""
 
       
       if @avg_r.to_i > @avg_p.to_i
@@ -636,13 +640,20 @@ class Statistic < ActiveRecord::Base
         @stick_order_r_arr = []
         
         @hit_p.each do |c_p_hit|
-          @c_stick_id = Stick.find(c_p_hit.stick.id)
-          @stick_order_p_arr.push(@c_stick_id.short_name) unless @c_stick_id == nil
+          begin
+            @c_stick_id = Stick.find(c_p_hit.stick_id)
+            @stick_order_p_arr.push(@c_stick_id.short_name) unless @c_stick_id
+          rescue
+          end
         end
         
         @hit_r.each do |c_r_hit|
-          @c_stick_id = Stick.find(c_r_hit.stick_id)
-          @stick_order_r_arr.push(@c_stick_id.short_name) unless @c_stick_id == nil
+          begin
+            @c_stick_id = Stick.find(c_r_hit.stick_id) || nil
+            @stick_order_r_arr.push(@c_stick_id.short_name) unless @c_stick_id == nil
+          rescue
+          end
+        
         end
         
         game_s_holes.stick_order_p = @stick_order_p_arr.join(", ") unless @stick_order_p_arr.length == 0

@@ -187,12 +187,10 @@ class StatisticController < ApplicationController
     @field_id = params[:field_id]
     @user_id = params[:user_id]
 
+    @user_stats = StatisticUserProgres.where(:field_id => @field_id, :hcp => @hcp).first
+    @stats_arr = [@user_stats.num - 3, @user_stats.num - 2,@user_stats.num - 1,@user_stats.num, @user_stats.num + 1, @user_stats.num + 2, @user_stats.num + 3]
 
-    @all_stats = StatisticUserProgres.where(:field_id => @field_id, :hcp => @hcp).order("user_progress DESC")
-    @my_stats = @all_stats.where(:user_id => @user_id)
-
-    #@three_better = @all_stats.where(:user_progress.to_i > @my_stats.user_progress.to_i).order("user_progress DESC").limit(3)
-    #@three_worse = @all_stats.where(:user_progress.to_i < @my_stats.user_progress.to_i).order("user_progress DESC").limit(3)
+    @stats_to_return = StatisticUserProgres.where('num IN  (?)', @stats_arr).order("num ASC") #DESC")
   end
   
 end
