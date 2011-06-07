@@ -638,11 +638,13 @@ class Statistic < ActiveRecord::Base
         @stick_order_r_arr = []
         
         @hit_p.each do |c_p_hit|
-          @stick_order_p_arr.push(Stick.find(c_p_hit.stick.id).short_name)
+          @c_stick_id = Stick.find(c_p_hit.stick.id)
+          @stick_order_p_arr.push(@c_stick_id.short_name) unless @c_stick_id == nil
         end
         
         @hit_r.each do |c_r_hit|
-          @stick_order_r_arr.push(Stick.find(c_r_hit.stick_id).short_name)
+          @c_stick_id = Stick.find(c_r_hit.stick_id)
+          @stick_order_r_arr.push(@c_stick_id.short_name) unless @c_stick_id == nil
         end
         
         game_s_holes.stick_order_p = @stick_order_p_arr.join(", ") unless @stick_order_p_arr.length == 0
