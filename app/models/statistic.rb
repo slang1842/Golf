@@ -512,8 +512,8 @@ class Statistic < ActiveRecord::Base
       puts "@avg_r_distance: #{@avg_r_distance.join(".")}"
       puts "@avg_p_distance: #{@avg_p_distance.join(".")}"
       
-      @avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round# unless @avg_r_distance.size == 0
-      @avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round# unless @avg_p_distance.size == 0
+      @avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round.to_int # unless @avg_r_distance.size == 0
+      @avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round.to_int # unless @avg_p_distance.size == 0
       puts "@avg_r: #{@avg_r.class}"
       puts "@avg_p: #{@avg_p.class}"
 

@@ -159,10 +159,13 @@ function hint_delete_text_field(x) {
 }
 
 
-function fill_golf_club_mini_statistic(field_id, user_id) {
-  var field = ($(field_id).val() );
-  var user = ($(user_id).val() );
-  alert("user_id: " + field + "  field_id: " + user + " :: " + data);
+function fill_golf_club_mini_statistic(x) {
+
+
+
+//var field = ($(field_id).val() );
+//var user = ($(user_id).val() );
+//alert("user_id: " + field + "  field_id: " + user + " :: " + data);
 //$.getJSON('/statistic/get_mini_statistic_by_field/' + field + '/' + user + '.json', function(data) {
 
 

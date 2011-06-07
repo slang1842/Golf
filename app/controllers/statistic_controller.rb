@@ -39,13 +39,7 @@ class StatisticController < ApplicationController
 
     @top_good = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres DESC').limit(3)
     @top_fail = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres').limit(3)
-    @top_sticks = GameStatisticsBySticks.where(:user_id => params[:user_id]).order('hits_r').limit(3)
-    #Hit.where(:user_id => params[:user_id]).limit(3)
-    #@top_sticks = Hit.where(:user_id => params[:user_id])
-    #GameStatisticsBySticks.where(:user_id => params[:user_id]).order('hits_r').limit(3)
-    #@hits = GameStatisticsBySticks.where(:user_id => params[:user_id]).limit(3)
-
-      
+    @top_sticks = GameStatisticsBySticks.where(:user_id => params[:user_id]).order('hits_r').limit(3) 
     # ======== mini stats menu
       
     store_location
@@ -88,15 +82,11 @@ class StatisticController < ApplicationController
     @trajectory = params[:trajectory]
     @weather = params[:weather]
     @wind = params[:wind]
-    @field = params[:field]
-    #@user_params = User.find(params[:user_id])
+    @field = params[:field_id]
+    @user_id = params[:user_id]
 
-    puts "=========="
-    puts "1.!!!"
-    puts @place_from.class
-
-
-    @games_to_return = GameFilterStatistic.where(:user_id => 2) #.where(:user_id => @user_params) #.where(:field_id => @field).order("created_at DESC").limit(8)
+ 
+    @games_to_return = GameFilterStatistic.where(:user_id => @user_id) #.where(:user_id => @user_params) #.where(:field_id => @field).order("created_at DESC").limit(8)
 
     case @place_from.to_i
     when 1
@@ -112,7 +102,6 @@ class StatisticController < ApplicationController
     when 6
       @games_to_return = @games_to_return.where(:place_raf => true)
     when 7
-      puts "2"
       @games_to_return = @games_to_return.where(:place_for_green => true)
     when 8
       @games_to_return = @games_to_return.where(:place_fairway_sand => true)
@@ -123,7 +112,8 @@ class StatisticController < ApplicationController
     when 11
       @games_to_return = @games_to_return.where(:place_from_water => true)
     end
-    case @stance
+
+    case @stance.to_i
     when 1
       @games_to_return = @games_to_return.where(:stance_normal => true)
     when 2
@@ -136,7 +126,7 @@ class StatisticController < ApplicationController
       @games_to_return = @games_to_return.where(:stance_ball_higher => true)
     end
 
-    case @trajectory
+    case @trajectory.to_i
     when 1
       @games_to_return = @games_to_return.where(:direction_straigth => true)
     when 2
@@ -149,17 +139,16 @@ class StatisticController < ApplicationController
       @games_to_return = @games_to_return.where(:direction_hook => true)
     end
 
-    case @temperature
+    case @temperature.to_i
     when 1
       @games_to_return = @games_to_return.where(:temperature_hot => true)
     when 2
-      @GameFilterStatistic.temperature_normal = true
       @games_to_return = @games_to_return.where(:temperature_normal => true)
     when 3
       @games_to_return = @games_to_return.where(:temperature_cold => true)
     end
 
-    case @weather
+    case @weather.to_i
     when 1
       @games_to_return = @games_to_return.where(:weather_normal => true)
     when 2
@@ -170,7 +159,7 @@ class StatisticController < ApplicationController
       @games_to_return = @games_to_return.where(:weather_wind_and_rain => true)
     end
 
-    case @trajectory
+    case @trajectory.to_i
     when 1
       @games_to_return = @games_to_return.where(:trajectory_normal => true)
     when 2
@@ -179,7 +168,7 @@ class StatisticController < ApplicationController
       @games_to_return = @games_to_return.where(:trajectory_low => true)
     end
 
-    case @wind
+    case @wind.to_i
     when 1
       @games_to_return = @games_to_return.where(:wind_from_behind => true)
     when 2
