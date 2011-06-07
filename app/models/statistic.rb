@@ -694,13 +694,12 @@ class Statistic < ActiveRecord::Base
   end
     
   def self.game_statistics_general
-    GameStatisticsGeneral.delete_all
+    GameStatisticGeneral.delete_all
     @return = false
     
     @games = Game.all
-    puts "NAHUJ: #{@games}"
     @games.each do |c_game|
-      @GameStatisticsGeneral = GameStatisticsGeneral.new
+      @GameStatisticsGeneral = GameStatisticGeneral.new
       @global_hits = Hit.where(:game_id => c_game.id)
       
       @GameStatisticsGeneral.game_id = c_game.id

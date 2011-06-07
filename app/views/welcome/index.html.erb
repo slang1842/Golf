@@ -39,18 +39,20 @@
 
     <% if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil && current_user.coach != nil %>
       <% @recent_hint = Hint.where(:user_id => current_user.coach).order("updated_at DESC").limit(2) %>
-      <%  @recent_hint.each do |c_hint| %>
-        <div class="hints_wrap">
-          <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
-          <div class="text_wrap">
-            <p><%= c_hint.text %> </p>
+      <% if @recent_hint.count != 0 %>
+        <%  @recent_hint.each do |c_hint| %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= c_hint.text %> </p>
+            </div>
+            <div class="clear"></div>
           </div>
-          <div class="clear"></div>
+        <% end %>
+        <div class="button_wrap">
+          <a href="<%= main_statistic_path(:user_id => current_user.id) %>" class="green_button" >More Hints</a>
         </div>
       <% end %>
-      <div class="button_wrap">
-        <a href="<%= main_statistic_path(:user_id => current_user.id) %>"  class="green_button" <p>More Hints</p></a>
-      </div>
     <% end %>
 
     <div class="clear"></div>
