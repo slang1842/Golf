@@ -100,7 +100,7 @@ class Statistic < ActiveRecord::Base
             #CALCULATE PLACE_FROM
             # ==========================================
             for place_from_num in 1..11 do
-              @all_pairs = PairHit.where(:user_id => c_user.id)
+              @all_pairs = PairHit.where(:user_id => c_user.id, :game_id => c_game.id)
           
               @result_arr = []
         
@@ -579,14 +579,14 @@ class Statistic < ActiveRecord::Base
 
         game_s_holes.hole_id = c_hole.id
         game_s_holes.hole_number = c_hole.hole_number
-        
-        game_s_holes.put_sum = @hit_r.where(:place_from => 1).count
-        game_s_holes.gir_sum = @hit_r.where(:place_from => 1, :hit_number => 2).count
-        game_s_holes.hit_sum = @hit_r.count
-
+       
         @hit_p = Hit.where(:real_hit => "pp").order("hit_number")
         @hit_r = Hit.where(:real_hit => "rp").order("hit_number")
 
+        game_s_holes.put_sum = @hit_r.where(:place_from => 1).count
+        game_s_holes.gir_sum = @hit_r.where(:place_from => 1, :hit_number => 2).count
+        game_s_holes.hit_sum = @hit_r.count
+        
         game_s_holes.hit_p = @hit_p.count
         game_s_holes.hit_r = @hit_r.count
 

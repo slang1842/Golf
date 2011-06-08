@@ -3,9 +3,9 @@ class StatisticController < ApplicationController
   respond_to :json, :html, :js
 
   def statistics
-     redirect_to view_statistic_path if Statistic.game_statistics_by_holes
+    #redirect_to view_statistic_path if Statistic.game_statistics_by_holes
 
-  /
+    #/
     redirect_to view_statistic_path if Statistic.check_golf_club_pay_banner_time_limit && 
       Statistic.main_statistics &&
       Statistic.all_sticks_statistics &&
@@ -14,7 +14,7 @@ class StatisticController < ApplicationController
       Statistic.user_progres &&
       Statistic.game_filter_statistic &&
       Statistic.game_statistics_general
-/
+    #/
   end
       
   def view
@@ -53,13 +53,8 @@ class StatisticController < ApplicationController
       if @user_params.id != current_user.id
         render_404
       end
-
-
-    
-
-    end
       
-  
+    end
   end
 
   def update
@@ -91,100 +86,111 @@ class StatisticController < ApplicationController
     @user_id = params[:user_id]
 
  
-    @games_to_return = GameFilterStatistic.where(:user_id => @user_id).order("created_at DESC").limit(8)
+    @filtered_games = GameFilterStatistic.where(:user_id => @user_id).order("created_at DESC").limit(8)
 
     case @place_from.to_i
     when 1
-      @games_to_return = @games_to_return.where(:place_green => true)
+      @filtered_games = @filtered_games.where(:place_green => true)
     when 2
-      @games_to_return = @games_to_return.where(:place_teebox => true)
+      @filtered_games = @filtered_games.where(:place_teebox => true)
     when 3
-      @games_to_return = @games_to_return.where(:place_feairway => true)
+      @filtered_games = @filtered_games.where(:place_feairway => true)
     when 4
-      @games_to_return = @games_to_return.where(:place_next_fairway => true)
+      @filtered_games = @filtered_games.where(:place_next_fairway => true)
     when 5
-      @games_to_return = @games_to_return.where(:place_semi_raf => true)
+      @filtered_games = @filtered_games.where(:place_semi_raf => true)
     when 6
-      @games_to_return = @games_to_return.where(:place_raf => true)
+      @filtered_games = @filtered_games.where(:place_raf => true)
     when 7
-      @games_to_return = @games_to_return.where(:place_for_green => true)
+      @filtered_games = @filtered_games.where(:place_for_green => true)
     when 8
-      @games_to_return = @games_to_return.where(:place_fairway_sand => true)
+      @filtered_games = @filtered_games.where(:place_fairway_sand => true)
     when 9
-      @games_to_return = @games_to_return.where(:place_green_sand => true)
+      @filtered_games = @filtered_games.where(:place_green_sand => true)
     when 10
-      @games_to_return = @games_to_return.where(:place_wood => true)
+      @filtered_games = @filtered_games.where(:place_wood => true)
     when 11
-      @games_to_return = @games_to_return.where(:place_from_water => true)      
+      @filtered_games = @filtered_games.where(:place_from_water => true)
     end
 
     case @stance.to_i
     when 1
-      @games_to_return = @games_to_return.where(:stance_normal => true)
+      @filtered_games = @filtered_games.where(:stance_normal => true)
     when 2
-      @games_to_return = @games_to_return.where(:stance_right_leg_lower => true)
+      @filtered_games = @filtered_games.where(:stance_right_leg_lower => true)
     when 3
-      @games_to_return = @games_to_return.where(:stance_left_leg_lower => true)
+      @filtered_games = @filtered_games.where(:stance_left_leg_lower => true)
     when 4
-      @games_to_return = @games_to_return.where(:stance_ball_lower => true)
+      @filtered_games = @filtered_games.where(:stance_ball_lower => true)
     when 5
-      @games_to_return = @games_to_return.where(:stance_ball_higher => true)
+      @filtered_games = @filtered_games.where(:stance_ball_higher => true)
     end
 
     case @trajectory.to_i
     when 1
-      @games_to_return = @games_to_return.where(:direction_straigth => true)
+      @filtered_games = @filtered_games.where(:direction_straigth => true)
     when 2
-      @games_to_return = @games_to_return.where(:direction_fade => true)
+      @filtered_games = @filtered_games.where(:direction_fade => true)
     when 3
-      @games_to_return = @games_to_return.where(:direction_drow => true)
+      @filtered_games = @filtered_games.where(:direction_drow => true)
     when 4
-      @games_to_return = @games_to_return.where(:direction_slice => true)
+      @filtered_games = @filtered_games.where(:direction_slice => true)
     when 5
-      @games_to_return = @games_to_return.where(:direction_hook => true)
+      @filtered_games = @filtered_games.where(:direction_hook => true)
     end
 
     case @temperature.to_i
     when 1
-      @games_to_return = @games_to_return.where(:temperature_hot => true)
+      @filtered_games = @filtered_games.where(:temperature_hot => true)
     when 2
-      @games_to_return = @games_to_return.where(:temperature_normal => true)
+      @filtered_games = @filtered_games.where(:temperature_normal => true)
     when 3
-      @games_to_return = @games_to_return.where(:temperature_cold => true)
+      @filtered_games = @filtered_games.where(:temperature_cold => true)
     end
 
     case @weather.to_i
     when 1
-      @games_to_return = @games_to_return.where(:weather_normal => true)
+      @filtered_games = @filtered_games.where(:weather_normal => true)
     when 2
-      @games_to_return = @games_to_return.where(:weather_wind => true)
+      @filtered_games = @filtered_games.where(:weather_wind => true)
     when 3
-      @games_to_return = @games_to_return.where(:weather_rain => true)
+      @filtered_games = @filtered_games.where(:weather_rain => true)
     when 4
-      @games_to_return = @games_to_return.where(:weather_wind_and_rain => true)
+      @filtered_games = @filtered_games.where(:weather_wind_and_rain => true)
     end
 
     case @trajectory.to_i
     when 1
-      @games_to_return = @games_to_return.where(:trajectory_normal => true)
+      @filtered_games = @filtered_games.where(:trajectory_normal => true)
     when 2
-      @games_to_return = @games_to_return.where(:trajectory_high => true)
+      @filtered_games = @filtered_games.where(:trajectory_high => true)
     when 3
-      @games_to_return = @games_to_return.where(:trajectory_low => true)
+      @filtered_games = @filtered_games.where(:trajectory_low => true)
     end
 
     case @wind.to_i
     when 1
-      @games_to_return = @games_to_return.where(:wind_from_behind => true)
+      @filtered_games = @filtered_games.where(:wind_from_behind => true)
     when 2
-      @games_to_return = @games_to_return.where(:wind_from_front => true)
+      @filtered_games = @filtered_games.where(:wind_from_front => true)
     when 3
-      @games_to_return = @games_to_return.where(:wind_from_left => true)
+      @filtered_games = @filtered_games.where(:wind_from_left => true)
     when 4
-      @games_to_return = @games_to_return.where(:wind_from_right => true)
+      @filtered_games = @filtered_games.where(:wind_from_right => true)
     end
   
-    @filtered_games = @games_to_return
+    @filtered_games = @filtered_games
+
+
+    @all_filter_game_progress_arr = []
+    
+    @filtered_games.each do |filtered_game|
+      @GSG = GameStatisticGeneral.where(:game_id => filtered_game.game_id).first
+      @all_filter_game_progress_arr.push(@GSG.game_progress)
+    end
+    @all_filter_game_progress = (@all_filter_game_progress_arr.sum / @all_filter_game_progress_arr.size)
+
+    
   end
 
   def user_place_in_golf_club
@@ -196,6 +202,8 @@ class StatisticController < ApplicationController
     @stats_arr = [@user_stats.num - 3, @user_stats.num - 2,@user_stats.num - 1,@user_stats.num, @user_stats.num + 1, @user_stats.num + 2, @user_stats.num + 3]
 
     @stats_to_return = StatisticUserProgres.where('num IN  (?)', @stats_arr).order("num ASC") #DESC")
+
+   
   end
   
 end
