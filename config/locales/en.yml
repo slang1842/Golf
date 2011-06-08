@@ -17,15 +17,17 @@
     month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
     abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
     order:
-      - :year
-      - :month
       - :day
+      - :month
+      - :year
+      
+      
 
   time:
     formats:
       default: " %d %a %b %g %H:%M:%S %z"
       short: "%d %b %H:%M"
-      game: "%d.%m.%g"
+      game: "%d.%m.%y"
       long: "%B %d, %g %H:%M"
     am: "am"
     pm: "pm"

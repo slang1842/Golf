@@ -19,6 +19,7 @@ lv:
       default: "%Y. gada %e. %B, %H:%M"
       short: "%d.%m.%y., %H:%M"
       long: "%Y. gada %e. %B, %H:%M:%S"
+      game: "%d.%m.%y"
 
     am: "priekšpusdiena"
     pm: "pēcpusdiena"
