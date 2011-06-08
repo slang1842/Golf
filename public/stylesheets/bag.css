@@ -60,15 +60,15 @@
     color: gray;
     text-decoration: none;
 }
-.bag_wrap .clubs .club_set .item .subitem2 :hover {
+/*.bag_wrap .clubs .club_set .item .subitem2 :hover {
     text-decoration: underline;
-}
+}*/
 .bag_wrap .button_done {
     width: 80px;
 	margin-right: auto;
 	margin-left: auto;
 }
 
-.bag_wrap .button_done a:hover {
+/*.bag_wrap .button_done a:hover {
     cursor: pointer;
-}
+}*/

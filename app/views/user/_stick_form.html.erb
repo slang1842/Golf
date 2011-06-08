@@ -4,7 +4,7 @@
 
     <div class="club_set">
       <div class="item">
-        <div class="subitem"><%= f.label :stick_type %></div>
+        <div class="subitem"><%= f.label "Club type" %></div>
         <div class="subitem"><%= h.label :distance %></div>
         <div class="subitem"><%= h.label :degrees %></div>
         <div class="subitem"><%= h.label :shaft %></div>
@@ -13,14 +13,14 @@
 
       <div class="item">
         <% if users_stick.id != nil %>
-          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown6", :onchange => "fill_sticks_form(this)", :disabled => "disabled" } %></div>
+          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select type"},{:class => "dropdown5", :onchange => "fill_sticks_form(this)", :disabled => "disabled" } %></div>
         <% else %>
-          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown6", :onchange => "fill_sticks_form(this)"} %></div>
+          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select type"},{:class => "dropdown5", :onchange => "fill_sticks_form(this)"} %></div>
         <% end %>
-        <div class="subitem"><%= h.text_field :distance, :class => 'distance dropdown2' %></div>
-        <div class="subitem"><%= h.text_field :degrees, :class => 'degrees dropdown2' %></div>
-        <div class="subitem"><%= h.text_field :shaft, :class => 'shaft dropdown4' %></div>
-        <div class="subitem"><%= h.text_field :shaft_strength, :class => 'shaft_strength dropdown4' %></div>
+        <div class="subitem"><%= h.text_field :distance, :class => 'distance  textbox2' %></div>
+        <div class="subitem"><%= h.text_field :degrees, :class => 'degrees textbox2' %></div>
+        <div class="subitem"><%= h.text_field :shaft, :class => 'shaft textbox4' %></div>
+        <div class="subitem"><%= h.text_field :shaft_strength, :class => 'shaft_strength textbox4' %></div>
         <div class="subitem2"> 
 
           <% if users_stick.new_record? %>

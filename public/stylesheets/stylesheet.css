@@ -44,47 +44,87 @@ p
   font-weight:bold;
 }
 
+
+.textbox1, .textbox2, .textbox3, .textbox4, .textbox5, .textbox6 {
+  border: 1px solid #C3C3C3;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  height: 24px;
+  width: 71px;
+  font-family: "Trebuchet MS";
+  color: #898989;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.textbox1 {
+  width: 100px;
+}
+.textbox1 {
+  width: 80px;
+}
+
+.textbox2 {
+  width: 80px;
+}
+
+.textbox3 {
+  width: 80px;
+}
+
+.textbox4 {
+  width: 80px;
+}
+
+.textbox5 {
+  width: 80px;
+}
+
+.textbox6 {
+  width: 85px;
+}
+
+
 /* ---- .styled_select ---- */
 .dropdown1, .dropdown2, .dropdown3, .dropdown4, .dropdown5, .dropdown6  {
-  border: solid 2px #D3D3D3;
-  color: #898989;
-  font-size: 12px;
-  height: 24px;
-  background: #F5F5F5;
-  padding: 0;
-  background: gray;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  background: #E0E0E0;
+    border: solid 2px #D3D3D3;
+    font-size: 12px;
+    height: 24px;
+    background: #E0E0E0;
+    padding: 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
-.dropdown1:hover, .dropdown2:hover, .dropdown3:hover, .dropdown4:hover, .dropdown5:hover, .dropdown6:hover {background: #EDEDED; border: solid 2px #F5F5F5;}
 
+
+/*.dropdown1:hover, .dropdown2:hover, .dropdown3:hover, .dropdown4:hover, .dropdown5:hover, .dropdown6:hover {background: #EDEDED; border: solid 2px #F5F5F5;}
+*/
 .dropdown1 option, .dropdown2 option, .dropdown3 option, .dropdown4 option, .dropdown5 option, .dropdown6 option {
   display: block;
   padding: 6px;
   border: solid 1px #DEDEDE;
-  background: #E0E0E0;
 }
 
 .dropdown1 {
-  width: 120px;
+  width: 80px;
 }
 
 .dropdown2 {
-  width: 50px;
+  width: 80px;
 }
 
 .dropdown3 {
-  width: 110px;
+  width: 80px;
 }
 
 .dropdown4 {
-  width: 140px;
+  width: 80px;
 }
 
 .dropdown5 {
-  width: 130px;
+  width: 100px;
 }
 
 .dropdown6 {
