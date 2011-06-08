@@ -799,7 +799,15 @@ class Statistic < ActiveRecord::Base
       
     @golf_clubs.each do |c_club|
       unless c_club.pay_banner_end_date == nil
-        c_club.update_attributes(:is_p_banner_disabled => true) if (c_club.pay_banner_end_date > DateTime.now) && c_club.is_p_banner_disabled == false
+        @DateNow = Date.today #Date.new(Time.now.month, Time.now.day, Time.now.year)
+        puts "----------------------"
+        puts "dates"
+        puts @DateNow
+        puts "day #{@DateNow.day}"
+        puts "month #{@DateNow.month}"
+        puts "year #{@DateNow.year}"
+        
+        c_club.update_attributes(:is_p_banner_disabled => true) if (c_club.pay_banner_end_date < @DateNow) && c_club.is_p_banner_disabled == false
       end
     end
 

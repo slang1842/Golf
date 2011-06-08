@@ -46,7 +46,7 @@
         <%= image_tag(@golf_club.image_p.url) %>
         <%= f.file_field :image_p %>
         <%=  f.check_box :is_p_banner_disabled %> Disable
-        <%= f.text_field :pay_banner_end_date, :id=> "timepicker", :class => "user_text_field" %>
+        <%= f.text_field :pay_banner_end_date("dd/MM/yyyy"), :id=> "datepicker", :class => "user_text_field" %>
       </div>
     </div>
 
