@@ -1,116 +1,8 @@
 <%= render :partial => 'share/header_menu' %>
 
-
 <!-- ================================= top mini stats ============================ -->
-<div class="short_statistics_wrap">
-  <div id="mini_statistics_wrap_render">
-    <div class="top_three">
-      <div class="left_text">
-        <p>GIR:<br />Puts:<br />Strokes:</p>
-      </div>
-
-      <div class="right_text">
-        <p><%= @gir %><br /><%= @puts %><br /><%= @strokes %></p>
-      </div>
-    </div>
-
-
-    <div class="top_three">
-      <p>TOP FAIL</p>
-      <div class="left_text">
-        <p>
-          <% @top_fail.each do |top_fail| %>
-            <%= Stick.find(top_fail.stick_id).stick_type %>:<br/>
-          <% end %>
-        </p>
-      </div>
-
-      <div class="right_text">
-        <p>
-          <% @top_fail.each do |top_fail| %>
-            <%= "#{top_fail.stick_progres}%" %><br/>
-          <% end %>
-        </p>
-      </div>
-    </div>
-
-    <div class="top_three">
-      <p>TOP GOOD</p>
-      <div class="left_text">
-        <p>
-          <% @top_good.each do |top_good| %>
-            <%= Stick.find(top_good.stick_id).stick_type %>:<br/>
-          <% end %>
-        </p>
-      </div>
-
-      <div class="right_text">
-        <p>
-          <% @top_good.each do |top_good| %>
-            <%= "#{top_good.stick_progres}%" %><br/>
-          <% end %>
-        </p>
-      </div>
-    </div>
-
-    <% unless @top_sticks.count == 0 %>
-      <div class="top_three">
-        <p>TOP NŪJAS</p>
-        <div class="left_text">
-          <p>
-            <% @top_sticks.each do |top_stick|%>
-              <%= top_stick.users_stick.stick.stick_type %>:<br />
-            <% end %>
-          </p>
-        </div>
-
-        <div class="right_text">
-          <p>
-            <% @top_sticks.each do |top_stick|%>
-              <%= Hit.where(:stick_id =>  top_stick.users_stick.stick_id).count %><span class="gray">x</span><br />
-            <% end %>
-          </p>
-        </div>
-      </div>
-    <% end %>
-
-  </div>
-
-
-  <% if @user_params.golf_club && Field.where(:golf_club_id => @user_params.golf_club_id).count != 0 %>
-    <div class="club_stats">
-      <div class="info_text">
-        <p>Tava vieta golfa klubā "Viesturi"</p>
-      </div>
-      <div class="form_dropdowns">
-        <% form_tag('/user_place_in_golf_club', :method => 'post', :remote => true, :id => "user_place_in_golf_club") do %>
-          <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown3", :onchange => "user_place_in_golf_club()"} %>
-          <%= select_tag("hcp", options_for_select(0..36), {:include_blank => "HCP", :id => "place_in_club_hcp", :class => "dropdown3", :onchange => "user_place_in_golf_club()"}) %>
-          <%= hidden_field_tag "user_id", @user_params.id %>
-        <% end %>
-      </div>
-
-      <div id="user_place_in_golf_club_div">
-
-        <!-- pec filtracijas saja diva paradas user saraksts-->
-      </div>
-
-      <!--
-      <div class="lists">
-        <p>1. Edgars Upītis<br />2. Jānis Kļava<br />3. Artūrs Pakalns</p>
-      </div>
-      <div class="lists">
-        <p>4. Kārlis Padegs<br />5. Vilhelms Purvītis<br />6. Jāzeps Vītols</p>
-      </div>
-      <div class="lists">
-        <p>7. Viktors Ņičivosebejs<br />8. Edgars Upītis<br />9. Edgars Upītis</p>
-      </div>
-      -->
-    </div>
-  <% end %>
-</div>
+<%= render :partial => 'statistic/mini_statistic_top' %>
 <!-- ============================ top mini stats ============================ -->
-
 
 
 
@@ -138,9 +30,14 @@
             <div class="single_game_field">
               <%  @GSG = GameStatisticGeneral.where(:game_id => user_params_games.id).first %>
 
+              <% if @GSG != nil %>
+                <div class="percentage"><p><%= " #{@GSG.game_progress}%"%></p></div>
+                <div class="date"><p><%= Game.find(user_params_games.id).updated_at.strftime("%m.%d.%Y") %> </p></div>
+              <% else %>
+                <div class="percentage"><p><%= MAIN_STATISTIC_BAD_SIMBOL %> </p></div>
+                <div class="date"><p><%= Game.find(user_params_games.id).updated_at.strftime("%m.%d.%Y") %> </p></div>
+              <% end %>
 
-              <div class="percentage"><p><%= " #{@GSG.game_progress}%"%></p></div>
-              <div class="date"><p><%= Game.find(user_params_games.id).updated_at.strftime("%m.%d.%Y") %> </p></div>
             </div>
           </a>
         </li>
@@ -262,28 +159,28 @@
               <div id="table_filter_wrap">
                 <% form_tag('/filter_statistic', :method => 'post', :remote => true, :id => "filter_statistic_form") do %>
 
-                  <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown3"} %>
+                  <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown7"} %>
                   <div class="clearblock_dropdowns"></div>
 
-                  <%= select_tag("place_from", options_for_select(STATISTICS_PLACE_FROM), {:include_blank => "Place",:class => "dropdown4"}) %>
+                  <%= select_tag("place_from", options_for_select(STATISTICS_PLACE_FROM), {:include_blank => "Place",:class => "dropdown7"}) %>
                   <div class="clearblock_dropdowns"></div>
 
-                  <%= select_tag("stance", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown4"}) %>
+                  <%= select_tag("stance", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown7"}) %>
                   <div class="clearblock_dropdowns"></div>
 
-                  <%= select_tag("direction", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown4"}) %>
+                  <%= select_tag("direction", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown7"}) %>
                   <div class="clearblock_dropdowns"></div>
 
-                  <%= select_tag("temperature", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown4"}) %>
+                  <%= select_tag("temperature", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown7"}) %>
                   <div class="clearblock_dropdowns"></div>
 
-                  <%= select_tag("weather", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown4"}) %>
+                  <%= select_tag("weather", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown7"}) %>
                   <div class="clearblock_dropdowns"></div>
 
-                  <%= select_tag("trajectory", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown4"}) %>
+                  <%= select_tag("trajectory", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown7"}) %>
                   <div class="clearblock_dropdowns"></div>
 
-                  <%= select_tag("wind", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown4"}) %>
+                  <%= select_tag("wind", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown7"}) %>
                   <div class="clearblock_dropdowns"></div>
 
                   <input type="hidden" id="user_id_for_filter" value="<%=  @user_params.id %>"/>

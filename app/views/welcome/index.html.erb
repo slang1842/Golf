@@ -47,7 +47,7 @@
         <% @recent_hint = Hint.find(:all, :order => "updated_at").last %>
       <% end %>
 
-      <% if @recent_hint.place_teebox_hint != nil %>
+      <% if @recent_hint != nil && @recent_hint.place_teebox_hint != nil %>
         <div class="hints_wrap">
           <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
           <div class="text_wrap">
@@ -57,7 +57,7 @@
         </div>
       <% end %>
 
-      <% if @recent_hint.direction_fade_hint != nil %>
+      <% if @recent_hint != nil && @recent_hint.direction_fade_hint != nil %>
         <div class="hints_wrap">
           <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
           <div class="text_wrap">
@@ -67,7 +67,7 @@
         </div>
       <% end %>
 
-      <% if @recent_hint.temperature_cold_hint != nil %>
+      <% if @recent_hint != nil && @recent_hint.temperature_cold_hint != nil %>
         <div class="hints_wrap">
           <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
           <div class="text_wrap">
@@ -77,7 +77,7 @@
         </div>
       <% end %>
 
-      <% if @recent_hint.weather_wind_hint != nil %>
+      <% if @recent_hint != nil && @recent_hint.weather_wind_hint != nil %>
         <div class="hints_wrap">
           <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
           <div class="text_wrap">
@@ -87,7 +87,7 @@
         </div>
       <% end %>
 
-      <% if @recent_hint.trajectory_high_hint != nil %>
+      <% if @recent_hint != nil && @recent_hint.trajectory_high_hint != nil %>
         <div class="hints_wrap">
           <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
           <div class="text_wrap">
@@ -98,7 +98,7 @@
       <% end %>
 
 
-      <% if @recent_hint.wind_from_front_hint != nil %>
+      <% if @recent_hint != nil && @recent_hint.wind_from_front_hint != nil %>
         <div class="hints_wrap">
           <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
           <div class="text_wrap">
