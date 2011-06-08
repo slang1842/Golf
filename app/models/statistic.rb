@@ -511,24 +511,24 @@ class Statistic < ActiveRecord::Base
 
       puts "----------------------"
       puts "now the array:"
-      puts "@avg_r_distance: #{@avg_r_distance.join(".")}"
-      puts "@avg_p_distance #{@avg_p_distance.join(".")}"
+      puts "@avg_r_distances: #{@avg_r_distance.join(".")}"
+      puts "@avg_p_distances: #{@avg_p_distance.join(".")}"
       
 
       puts ""
       puts ""
 
-      @rr = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round unless @avg_r_distance.size == 0
-      @pp = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round unless @avg_p_distance.size == 0
+      #@avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round unless @avg_r_distance.size == 0
+      #@avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round unless @avg_p_distance.size == 0
+      @avg_r = (@avg_r_distance.sum /  @avg_r_distance.size).to_i unless @avg_r_distance.size == 0
+      @avg_p = (@avg_p_distance.sum /  @avg_p_distance.size).to_i unless @avg_p_distance.size == 0
 
-      
-
-      @avg_p = @pp.to_i
-      @avg_r = @rr.to_i
-      
       puts "@avg_r: #{@avg_r}"
       puts "@avg_p: #{@avg_p}"
+
       puts ""
+      puts "@avg_r.class: #{@avg_r.class}"
+      puts "@avg_p.class: #{@avg_p.class}"
 
       
       if @avg_r.to_i > @avg_p.to_i
