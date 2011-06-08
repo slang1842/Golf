@@ -136,8 +136,11 @@
         <li>
           <a href="<%= get_stats_path(user_params_games.id) %>">
             <div class="single_game_field">
-              <div class="percentage"><p>60%</p></div>
-              <div class="date"><p>01.02.03</p></div>
+              <%  @GSG = GameStatisticGeneral.where(:game_id => user_params_games.id).first %>
+
+
+              <div class="percentage"><p><%= " #{@GSG.game_progress}%"%></p></div>
+              <div class="date"><p><%= Game.find(user_params_games.id).updated_at.strftime("%m.%d.%Y") %> </p></div>
             </div>
           </a>
         </li>
