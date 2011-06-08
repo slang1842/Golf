@@ -29,7 +29,7 @@ class StatisticController < ApplicationController
     @is_admin_and_coach = true if current_user.admin == true && @user_params.coach == current_user.id
     @current_club_trainer = User.find(@user_params.golf_club.user_id)
     @current_hints = Hint.where(:user_id => @current_club_trainer.id)
-    @user_params_games = Game.where(:user_id => @user_params.id)
+    @user_params_games_limited = Game.where(:user_id => @user_params.id).limit(100)
 
     @user_sticks = UsersStick.where(:user_id => @user_params.id).order("@user_params.stick_type ASC")
     @statistic = Statistic.where(:user_id => @user_params.id)

@@ -3,7 +3,49 @@ $(document).ready(function(){
   timepicker();
   admintimepicker();
   gamedatepicker();
+  serialScroll();
 });
+
+function serialScroll() {
+ 
+
+
+  $('#slideshow').serialScroll({
+    items:'li',
+    prev:'.link_left_wrap a.prev',
+    next:'.link_right_wrap a.next',
+    offset:0, //when scrolling to photo, stop 230 before reaching it (from the left)
+    start:0, //as we are centering it, start at the 2nd
+    duration:400,
+    force:true,
+    stop:true,
+    lock:false,
+    cycle:true, //don't pull back once you reach the end
+    easing:'easeOutQuart', //use this easing equation for a funny effect
+    jump: false //click on the images to scroll to them
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function fill_sticks_form(a) {
@@ -160,20 +202,3 @@ function user_place_in_golf_club() {
   //$("#table_result_wrap_box").hide();
   $("#user_place_in_golf_club").submit();
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

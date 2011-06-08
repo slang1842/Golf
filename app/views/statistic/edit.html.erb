@@ -5,69 +5,68 @@
 <!-- ============================ top mini stats ============================ -->
 
 
-<!-- ================================= top mini stats ============================ -->
-<%= render :partial => 'statistic/mini_statistic_top' %>
-<!-- ============================ top mini stats ============================ -->
-
-
 <!-- ============================ games ============================ -->
 <div class="game_list_percentage_wrap">
   <div class="heading">
     <p>Tavas spēles:</p>
   </div>
   <a href="#"><div class="single_game_field">
-      <p>Visu spēļu statistika</p>
+      <p>Previous Games</p>
     </div></a>
 
+  <!--
+    <div class="link_left_wrap carousel-control previous carousel-previous">
+      <a href="#"><img src="/images/link_left_big.png" alt=""/></a>
+    </div>
+  -->
+  <!-- ============================================================================================================================================= -->
+  <!-- ============================================================================================================================================= -->
 
-  <div class="link_left_wrap carousel-control previous carousel-previous">
-    <a href="#"><img src="/images/link_left_big.png" alt=""/></a>
+
+  <div id="screen">
+
+    <div class="link_left_wrap carousel-control previous carousel-previous">
+      <a href="#" class="prev"><img src="/images/link_left_big.png" alt=""/></a>
+    </div>
+
+    <div id="slideshow">
+      <ul>
+        <% @user_params_games_limited.each do |user_params_games| %>
+          <li>
+            <a href="<%= get_stats_path(user_params_games.id) %>">
+              <div class="single_game_field">
+                <%  @GSG = GameStatisticGeneral.where(:game_id => user_params_games.id).first %>
+
+                <% if @GSG != nil %>
+                  <div class="percentage"><p><%= " #{@GSG.game_progress}%"%></p></div>
+                  <div class="date"><p><%= Game.find(user_params_games.id).updated_at.strftime("%m.%d.%Y") %> </p></div>
+                <% else %>
+                  <div class="percentage"><p><%= MAIN_STATISTIC_BAD_SIMBOL %> </p></div>
+                  <div class="date"><p><%= Game.find(user_params_games.id).updated_at.strftime("%m.%d.%Y") %> </p></div>
+                <% end %>
+
+              </div>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="link_right_wrap carousel-control next carousel-next">
+      <a href="#" class="next"><img src="/images/link_right_big.png" alt=""/></a>
+    </div>
+
   </div>
 
 
-  <div class="carousel-wrap">
-    <ul id="slider">
 
-      <% @user_params_games.each do |user_params_games| %>
-        <li>
-          <a href="<%= get_stats_path(user_params_games.id) %>">
-            <div class="single_game_field">
-              <%  @GSG = GameStatisticGeneral.where(:game_id => user_params_games.id).first %>
-
-              <% if @GSG != nil %>
-                <div class="percentage"><p><%= " #{@GSG.game_progress}%"%></p></div>
-                <div class="date"><p><%= Game.find(user_params_games.id).updated_at.strftime("%m.%d.%Y") %> </p></div>
-              <% else %>
-                <div class="percentage"><p><%= MAIN_STATISTIC_BAD_SIMBOL %> </p></div>
-                <div class="date"><p><%= Game.find(user_params_games.id).updated_at.strftime("%m.%d.%Y") %> </p></div>
-              <% end %>
-
-            </div>
-          </a>
-        </li>
-      <% end %>
-
-    </ul>
-
-    <!--
-
-     <a href="#">text
-          <div class="single_game_field">
-            <div class="percentage"><p>60%</p></div>
-            <div class="date"><p>01.02.03</p></div>
-          </div>
-        </a>
-
-    -->
-
-
-
-  </div>
-
-  <div class="link_right_wrap carousel-control next carousel-next">
-    <a href="#"><img src="/images/link_right_big.png" alt=""/></a>
-  </div>
-
+  <!-- ============================================================================================================================================= -->
+  <!-- ============================================================================================================================================= -->
+  <!--
+    <div class="link_right_wrap carousel-control next carousel-next">
+      <a href="#"><img src="/images/link_right_big.png" alt=""/></a>
+    </div>
+  -->
 </div>
 <!-- ============================ games ============================ -->
 
@@ -156,7 +155,7 @@
         <!-- ============================ filter stats ============================ -->
         <div class="result_filtering">
           <div class="dropdown_wrap">
-            <h1>Filtrēt rezultātus</h1>
+            <h1>Filter results</h1><br />
             <div class="form_dropdowns">
 
 

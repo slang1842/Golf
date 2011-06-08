@@ -77,7 +77,7 @@
   <% if @user_params.golf_club && Field.where(:golf_club_id => @user_params.golf_club_id).count != 0 %>
     <div class="club_stats">
       <div class="info_text">
-        <p>Tava vieta golfa klubā "Viesturi"</p>
+        <p>Your place in field <%= "''#{GolfClub.find(@user_params.golf_club_id)}''"  %> </p>
       </div>
       <div class="form_dropdowns">
         <% form_tag('/user_place_in_golf_club', :method => 'post', :remote => true, :id => "user_place_in_golf_club") do %>
