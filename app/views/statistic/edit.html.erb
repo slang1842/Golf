@@ -244,58 +244,64 @@
       <%= render :partial => 'statistic/main_statistic' %>
       <!-- ============================ main stats ============================ -->
 
-      <!-- ============================ filter stats ============================ -->
+
 
       <div class="clear"></div>
+      <% if PairHit.where(:user_id => @user_params.id).count == 0 %>
+        <div style="display: block; border: solid 1px red; padding: 10px; margin: 10px;">
+          Filtering statistic is not available for the moment
+        </div>
+      <% else %>
+        <!-- ============================ filter stats ============================ -->
+        <div class="result_filtering">
+          <div class="dropdown_wrap">
+            <h1>Filtrēt rezultātus</h1>
+            <div class="form_dropdowns">
 
 
-      <div class="result_filtering">
-        <div class="dropdown_wrap">
-          <h1>Filtrēt rezultātus</h1>
-          <div class="form_dropdowns">
+              <div id="table_filter_wrap">
+                <% form_tag('/filter_statistic', :method => 'post', :remote => true, :id => "filter_statistic_form") do %>
 
+                  <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown3"} %>
+                  <div class="clearblock_dropdowns"></div>
 
-            <div id="table_filter_wrap">
-              <% form_tag('/filter_statistic', :method => 'post', :remote => true, :id => "filter_statistic_form") do %>
+                  <%= select_tag("place_from", options_for_select(STATISTICS_PLACE_FROM), {:include_blank => "Place",:class => "dropdown4"}) %>
+                  <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown3"} %>
-                <div class="clearblock_dropdowns"></div>
+                  <%= select_tag("stance", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown4"}) %>
+                  <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("place_from", options_for_select(STATISTICS_PLACE_FROM), {:include_blank => "Place",:class => "dropdown4"}) %>
-                <div class="clearblock_dropdowns"></div>
+                  <%= select_tag("direction", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown4"}) %>
+                  <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("stance", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown4"}) %>
-                <div class="clearblock_dropdowns"></div>
+                  <%= select_tag("temperature", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown4"}) %>
+                  <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("direction", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown4"}) %>
-                <div class="clearblock_dropdowns"></div>
+                  <%= select_tag("weather", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown4"}) %>
+                  <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("temperature", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown4"}) %>
-                <div class="clearblock_dropdowns"></div>
+                  <%= select_tag("trajectory", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown4"}) %>
+                  <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("weather", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown4"}) %>
-                <div class="clearblock_dropdowns"></div>
+                  <%= select_tag("wind", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown4"}) %>
+                  <div class="clearblock_dropdowns"></div>
 
-                <%= select_tag("trajectory", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown4"}) %>
-                <div class="clearblock_dropdowns"></div>
+                  <input type="hidden" id="user_id_for_filter" value="<%=  @user_params.id %>"/>
 
-                <%= select_tag("wind", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown4"}) %>
-                <div class="clearblock_dropdowns"></div>
+                  <%= hidden_field_tag "user_id", @user_params.id %>
 
-                <input type="hidden" id="user_id_for_filter" value="<%=  @user_params.id %>"/>
-
-                <%= hidden_field_tag "user_id", @user_params.id %>
-
-              <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div id="filter_statistic">
-          <%= render :partial => 'statistic/filter_statistic' %>
+          <div id="filter_statistic">
+            <%= render :partial => 'statistic/filter_statistic' %>
+          </div>
         </div>
-      </div>
-      <!-- ============================ filter stats ============================ -->
+        <!-- ============================ filter stats ============================ -->
+
+      <% end %>
 
     <% else %> <div class="error" style="display: block;">Stick statistic is not available for a moment. Please wait.</div> <% end %>
   </div> <!-- MAIN statistikas divs -->
