@@ -70,7 +70,7 @@ function bindHitSwitch() {
 
 function bindSaveSwitch() {
   $('.saveswitch').live('click', function() {
-    $('.save_gif').replaceWith('<img src="/images/ajax-loader.gif" />');
+    
     textEntered = true
      $(".game_input_select").each(function() {
         if (textEntered && $(this).val() == "") {
@@ -83,7 +83,7 @@ function bindSaveSwitch() {
      $('#nexthit').val($(this).attr('rel')); 
       var i = $('#stick_type_old').val();
     $('.stick_type_real').val(i);
-
+    $('.save_gif').replaceWith('<img src="/images/ajax-loader.gif" />');
     $('#hit_form').submit(); 
     return false;
     }
