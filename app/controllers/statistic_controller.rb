@@ -3,6 +3,8 @@ class StatisticController < ApplicationController
   respond_to :json, :html, :js
 
   def statistics
+    redirect_to view_statistic_path if Statistic.game_statistics_by_sticks 
+    /
     redirect_to view_statistic_path if Statistic.check_golf_club_pay_banner_time_limit && 
       Statistic.main_statistics &&
       Statistic.all_sticks_statistics &&
@@ -11,6 +13,7 @@ class StatisticController < ApplicationController
       Statistic.user_progres &&
       Statistic.game_filter_statistic &&
       Statistic.game_statistics_general
+    /
   end
       
   def view
@@ -25,7 +28,7 @@ class StatisticController < ApplicationController
     @is_admin_and_coach = true if current_user.admin == true && @user_params.coach == current_user.id
     @current_club_trainer = User.find(@user_params.golf_club.user_id)
     @current_hints = Hint.where(:user_id => @current_club_trainer.id)
-    @user_params_golf_clubs = GolfClub.where(:user_id => @user_params.id)
+    @user_params_games = Game.where(:user_id => @user_params.id)
 
     @user_sticks = UsersStick.where(:user_id => @user_params.id).order("@user_params.stick_type ASC")
     @statistic = Statistic.where(:user_id => @user_params.id)

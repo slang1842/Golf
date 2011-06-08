@@ -685,7 +685,7 @@ class Statistic < ActiveRecord::Base
     @games.each do |c_game|
       
       @user = c_game.user
-      @user_sticks = UsersStick.where(:user_id => @user.id)
+      @user_sticks = UsersStick.where(:user_id => c_game.user_id)
       @user_sticks.each do |c_user_stick|
       
         game_s_sticks = GameStatisticsBySticks.new
@@ -701,7 +701,7 @@ class Statistic < ActiveRecord::Base
         game_s_sticks.hits_r = @hit_r.count
         
         @all_hits = Hit.all
-        @all_current_stick_hits = Hit.where(:stick_id => c_user_stick.stick.id)
+        @all_current_stick_hits = Hit.where(:stick_id => c_user_stick.stick_id, :game_id => c_game.id)
         @avg = ((@all_current_stick_hits.count.to_f / @all_hits.count.to_f).to_f * 100).round
         game_s_sticks.stick_usage = @avg
         game_s_sticks.avg_distance = @all_current_stick_hits.average("hit_distance") #@all_current_stick_hits.count
