@@ -1,6 +1,7 @@
 $(document).ready(function(){
   datapicker();
   timepicker();
+  admintimepicker();
   gamedatepicker();
 });
 
@@ -35,6 +36,17 @@ function datapicker() {
     firstDay: 1
   });
 }
+
+function admintimepicker() {
+  $( "#admintimepicker" ).datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: 'yy-mm-dd',
+    yearRange: '2011:2015',
+    firstDay: 1
+  });
+}
+
 
 function timepicker(){
   $('#timepicker').datetimepicker({
