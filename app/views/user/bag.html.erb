@@ -15,7 +15,7 @@
         <div class="error">All fields are required</div>
     
       
-      <div class="heading"><p>Sticks</p></div>
+      <div class="heading"><p>Clubs</p></div>
 
       <div id="sticks">
         <% @users_sticks.each do |users_stick| %>
@@ -25,7 +25,7 @@
 
       <div class="clear"></div>
       <div class="element">
-        <%= link_to_function 'add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :onclick=> 'init_dropdown()', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}).slideDown('fast')" %>
+        <%= link_to_function 'Add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :onclick=> 'init_dropdown()', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}).slideDown('fast')", :class => "gray_button" %>
         <div class="clear"></div>
       </div>
 
@@ -42,7 +42,7 @@
 
       <div class="clear"></div>
       <div class="element">
-        <%= link_to_function 'add new', "jQuery('#balls').append(#{render(:partial => 'user/ball_form', :locals => {:f => f, :balls_attributes => @new_balls_attributes, :ball => Ball.new}).to_json}).slideDown('fast')" %>
+        <%= link_to_function 'Add new', "jQuery('#balls').append(#{render(:partial => 'user/ball_form', :locals => {:f => f, :balls_attributes => @new_balls_attributes, :ball => Ball.new}).to_json}).slideDown('fast')", :class => "gray_button" %>
         <div class="clear"></div>
       </div>
     </div>
