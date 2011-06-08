@@ -13,15 +13,15 @@
 
       <div class="item">
         <% if users_stick.id != nil %>
-          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown4", :onchange => "fill_sticks_form(this)", :disabled => "disabled" } %></div>
+          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown6", :onchange => "fill_sticks_form(this)", :disabled => "disabled" } %></div>
         <% else %>
-          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown4", :onchange => "fill_sticks_form(this)"} %></div>
+          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select Stick"},{:class => "dropdown6", :onchange => "fill_sticks_form(this)"} %></div>
         <% end %>
         <div class="subitem"><%= h.text_field :distance, :class => 'distance dropdown2' %></div>
         <div class="subitem"><%= h.text_field :degrees, :class => 'degrees dropdown2' %></div>
         <div class="subitem"><%= h.text_field :shaft, :class => 'shaft dropdown4' %></div>
         <div class="subitem"><%= h.text_field :shaft_strength, :class => 'shaft_strength dropdown4' %></div>
-        <div class="subitem2">
+        <div class="subitem2"> 
 
           <% if users_stick.new_record? %>
             <a href="" OnClick="$(this).parent().parent().parent().slideUp('fast', function() { $(this).remove(); } ); return false;" class="gray_button">Cancel</a>

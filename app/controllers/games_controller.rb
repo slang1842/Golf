@@ -112,7 +112,7 @@ end
                :user_id => current_user.id}
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-     convert_to_feet(@hit)
+     #convert_to_feet(@hit)
      @form_id = 'plan'
      if params[:hits] == 'new'
        render '/games/hit_edit'
@@ -158,7 +158,7 @@ end
                               :hit_number => i, 
                               :real_hit => 'r'}
             @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-            convert_to_feet(@hit)
+            #convert_to_feet(@hit)
             end
             
           a = ((b+1)..@hitcount)
@@ -169,7 +169,7 @@ end
                              :real_hit => 'r',
                              :stick_id => 1 }
               @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-                          convert_to_feet(@hit)
+                          #convert_to_feet(@hit)
               end
 
        @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r') 
@@ -212,8 +212,8 @@ end
         @hit_p_final = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
        
         end
-     convert_to_feet(@hit_r_final)
-               convert_to_feet(@hit_p_final)
+     #convert_to_feet(@hit_r_final)
+               #convert_to_feet(@hit_p_final)
                conditions3 = { :hit_planed_id => @hit_p_final.id,
                                :hit_real_id => @hit_r_final.id,
                                :user_id => current_user.id,
@@ -406,7 +406,7 @@ end
                :user_id => current_user.id}
      
      @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-     convert_to_feet(@hit)
+     #convert_to_feet(@hit)
      @form_id = 'plan'
      
        render 'games/plan'
