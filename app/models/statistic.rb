@@ -798,9 +798,11 @@ class Statistic < ActiveRecord::Base
     @golf_clubs = GolfClub.all
       
     @golf_clubs.each do |c_club|
-      c_club.update_attributes(:is_p_banner_disabled => true) if (c_club.pay_banner_end_date > DateTime.now) && c_club.is_p_banner_disabled == false
+      unless c_club.pay_banner_end_date == nil
+        c_club.update_attributes(:is_p_banner_disabled => true) if (c_club.pay_banner_end_date > DateTime.now) && c_club.is_p_banner_disabled == false
+      end
     end
-    
+
     return @return
   end
 
