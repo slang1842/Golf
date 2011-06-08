@@ -14,10 +14,8 @@
     </div>
   </span>
 
+
   <div class="single_situation" id="place" >
-
-
-
     <!-- ---------------------------- teebox ---------------------------- -->
     <div class="name">
       <p>Teebox</p>
@@ -57,7 +55,6 @@
             <% end %>
           </div>
         </div>
-        
         <%  unless @c_s_stick.place_teebox == nil %>
           <!-- ============== show progress ============== -->
           <div class="progress_bar">
@@ -453,6 +450,7 @@
 
 
 
+
     <!-- ---------------------------- fairway_sand ---------------------------- -->
     <div class="name">
       <p>Fairway Sand</p>
@@ -737,13 +735,15 @@
     <div class="clear"></div>
     <!-- ---------------------------- from_water ---------------------------- -->
 
-
-
   </div>
   <div class="clear"></div>
   <div class="bottom_line"></div>
 </div>
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- place =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
+
+
 
 
 
@@ -784,7 +784,7 @@
       <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
       <div class="progress_block">
         <!-- ============== hint ============== -->
-        <div class="tip_bubble_wrap" id="normal_<%=  c_stick.stick.id %>" style="display: none;">
+        <div class="tip_bubble_wrap" id="stance_normal_<%=  c_stick.stick.id %>" style="display: none;">
           <div class="triangle"></div>
           <div class="frame">
             <% if @is_admin_and_coach || @is_admin %>
@@ -826,11 +826,11 @@
         <% end %>
         <!-- ============== when to show hint ============== -->
         <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-          <div class="notification" onclick="showHideElement('#normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+          <div class="notification" onclick="showHideElement('#stance_normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
         <% elsif @is_admin %>
         <% else %>
           <% if (@c_s_stick.stance_normal.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.stance_normal != nil) && @c_hint_user.stance_normal_hint != nil %>
-            <div class="notification" onclick="showHideElement('#normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('stance_#normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% end %>
         <% end %>
         <!-- ============== when to show hint ============== -->
@@ -856,7 +856,7 @@
       <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
       <div class="progress_block">
         <!-- ============== hint ============== -->
-        <div class="tip_bubble_wrap" id="right_leg_lower_<%=  c_stick.stick.id %>" style="display: none;">
+        <div class="tip_bubble_wrap" id="stance_right_leg_lower_<%=  c_stick.stick.id %>" style="display: none;">
           <div class="triangle"></div>
           <div class="frame">
             <% if @is_admin_and_coach || @is_admin %>
@@ -898,11 +898,11 @@
         <% end %>
         <!-- ============== when to show hint ============== -->
         <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-          <div class="notification" onclick="showHideElement('#right_leg_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+          <div class="notification" onclick="showHideElement('#stance_right_leg_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
         <% elsif @is_admin %>
         <% else %>
           <% if (@c_s_stick.stance_right_leg_lower.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.stance_right_leg_lower != nil) && @c_hint_user.stance_right_leg_lower_hint != nil %>
-            <div class="notification" onclick="showHideElement('#right_leg_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#stance_right_leg_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% end %>
         <% end %>
         <!-- ============== when to show hint ============== -->
@@ -928,7 +928,7 @@
       <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
       <div class="progress_block">
         <!-- ============== hint ============== -->
-        <div class="tip_bubble_wrap" id="left_leg_lower_<%=  c_stick.stick.id %>" style="display: none;">
+        <div class="tip_bubble_wrap" id="stance_left_leg_lower_<%=  c_stick.stick.id %>" style="display: none;">
           <div class="triangle"></div>
           <div class="frame">
             <% if @is_admin_and_coach || @is_admin %>
@@ -970,11 +970,11 @@
         <% end %>
         <!-- ============== when to show hint ============== -->
         <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-          <div class="notification" onclick="showHideElement('#left_leg_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+          <div class="notification" onclick="showHideElement('#stance_left_leg_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
         <% elsif @is_admin %>
         <% else %>
           <% if (@c_s_stick.stance_left_leg_lower.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.stance_left_leg_lower != nil) && @c_hint_user.stance_left_leg_lower_hint != nil %>
-            <div class="notification" onclick="showHideElement('#left_leg_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#stance_left_leg_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% end %>
         <% end %>
         <!-- ============== when to show hint ============== -->
@@ -1000,7 +1000,7 @@
       <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
       <div class="progress_block">
         <!-- ============== hint ============== -->
-        <div class="tip_bubble_wrap" id="ball_lower_<%=  c_stick.stick.id %>" style="display: none;">
+        <div class="tip_bubble_wrap" id="stance_ball_lower_<%=  c_stick.stick.id %>" style="display: none;">
           <div class="triangle"></div>
           <div class="frame">
             <% if @is_admin_and_coach || @is_admin %>
@@ -1042,11 +1042,11 @@
         <% end %>
         <!-- ============== when to show hint ============== -->
         <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-          <div class="notification" onclick="showHideElement('#ball_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+          <div class="notification" onclick="showHideElement('#stance_ball_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
         <% elsif @is_admin %>
         <% else %>
           <% if (@c_s_stick.stance_ball_lower.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.stance_ball_lower != nil) && @c_hint_user.stance_ball_lower_hint != nil %>
-            <div class="notification" onclick="showHideElement('#ball_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#stance_ball_lower_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% end %>
         <% end %>
         <!-- ============== when to show hint ============== -->
@@ -1072,7 +1072,7 @@
       <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
       <div class="progress_block">
         <!-- ============== hint ============== -->
-        <div class="tip_bubble_wrap" id="ball_higher_<%=  c_stick.stick.id %>" style="display: none;">
+        <div class="tip_bubble_wrap" id="stance_ball_higher_<%=  c_stick.stick.id %>" style="display: none;">
           <div class="triangle"></div>
           <div class="frame">
             <% if @is_admin_and_coach || @is_admin %>
@@ -1114,11 +1114,11 @@
         <% end %>
         <!-- ============== when to show hint ============== -->
         <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-          <div class="notification" onclick="showHideElement('#ball_higher_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+          <div class="notification" onclick="showHideElement('#stance_ball_higher_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
         <% elsif @is_admin %>
         <% else %>
           <% if (@c_s_stick.stance_ball_higher.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.stance_ball_higher != nil) && @c_hint_user.stance_ball_higher_hint != nil %>
-            <div class="notification" onclick="showHideElement('#ball_higher_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#stance_ball_higher_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% end %>
         <% end %>
         <!-- ============== when to show hint ============== -->
@@ -1133,6 +1133,9 @@
   <div class="clear"></div>
   <div class="bottom_line"></div>
   <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- stance =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
+
 
 
 
@@ -1521,6 +1524,10 @@
   <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- direction =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 
 
+
+
+
+
   <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- temperature =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
   <div class="clear"></div>
   <div class="situation_type">
@@ -1552,7 +1559,7 @@
         <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
         <div class="progress_block">
           <!-- ============== hint ============== -->
-          <div class="tip_bubble_wrap" id="cold_<%=  c_stick.stick.id %>" style="display: none;">
+          <div class="tip_bubble_wrap" id="temperature_cold_<%=  c_stick.stick.id %>" style="display: none;">
             <div class="triangle"></div>
             <div class="frame">
               <% if @is_admin_and_coach || @is_admin %>
@@ -1594,11 +1601,11 @@
           <% end %>
           <!-- ============== when to show hint ============== -->
           <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-            <div class="notification" onclick="showHideElement('#cold_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#temperature_cold_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% elsif @is_admin %>
           <% else %>
             <% if (@c_s_stick.temperature_cold.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.temperature_cold != nil) && @c_hint_user.temperature_cold_hint != nil %>
-              <div class="notification" onclick="showHideElement('#cold_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <div class="notification" onclick="showHideElement('#temperature_cold_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
             <% end %>
           <% end %>
           <!-- ============== when to show hint ============== -->
@@ -1624,7 +1631,7 @@
         <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
         <div class="progress_block">
           <!-- ============== hint ============== -->
-          <div class="tip_bubble_wrap" id="normal_<%=  c_stick.stick.id %>" style="display: none;">
+          <div class="tip_bubble_wrap" id="temperature_normal_<%=  c_stick.stick.id %>" style="display: none;">
             <div class="triangle"></div>
             <div class="frame">
               <% if @is_admin_and_coach || @is_admin %>
@@ -1666,11 +1673,11 @@
           <% end %>
           <!-- ============== when to show hint ============== -->
           <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-            <div class="notification" onclick="showHideElement('#normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#temperature_normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% elsif @is_admin %>
           <% else %>
             <% if (@c_s_stick.temperature_normal.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.temperature_normal != nil) && @c_hint_user.temperature_normal_hint != nil %>
-              <div class="notification" onclick="showHideElement('#normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <div class="notification" onclick="showHideElement('#temperature_normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
             <% end %>
           <% end %>
           <!-- ============== when to show hint ============== -->
@@ -1696,7 +1703,7 @@
         <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
         <div class="progress_block">
           <!-- ============== hint ============== -->
-          <div class="tip_bubble_wrap" id="hot_<%=  c_stick.stick.id %>" style="display: none;">
+          <div class="tip_bubble_wrap" id="temperature_hot_<%=  c_stick.stick.id %>" style="display: none;">
             <div class="triangle"></div>
             <div class="frame">
               <% if @is_admin_and_coach || @is_admin %>
@@ -1738,11 +1745,11 @@
           <% end %>
           <!-- ============== when to show hint ============== -->
           <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-            <div class="notification" onclick="showHideElement('#hot_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#temperature_hot_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% elsif @is_admin %>
           <% else %>
             <% if (@c_s_stick.temperature_hot.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.temperature_hot != nil) && @c_hint_user.temperature_hot_hint != nil %>
-              <div class="notification" onclick="showHideElement('#hot_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <div class="notification" onclick="showHideElement('#temperature_hot_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
             <% end %>
           <% end %>
           <!-- ============== when to show hint ============== -->
@@ -1794,7 +1801,7 @@
         <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
         <div class="progress_block">
           <!-- ============== hint ============== -->
-          <div class="tip_bubble_wrap" id="normal_<%=  c_stick.stick.id %>" style="display: none;">
+          <div class="tip_bubble_wrap" id="weather_normal_<%=  c_stick.stick.id %>" style="display: none;">
             <div class="triangle"></div>
             <div class="frame">
               <% if @is_admin_and_coach || @is_admin %>
@@ -1836,11 +1843,11 @@
           <% end %>
           <!-- ============== when to show hint ============== -->
           <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-            <div class="notification" onclick="showHideElement('#normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#weather_normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% elsif @is_admin %>
           <% else %>
             <% if (@c_s_stick.weather_normal.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.weather_normal != nil) && @c_hint_user.weather_normal_hint != nil %>
-              <div class="notification" onclick="showHideElement('#normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <div class="notification" onclick="showHideElement('#weather_normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
             <% end %>
           <% end %>
           <!-- ============== when to show hint ============== -->
@@ -1866,7 +1873,7 @@
         <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
         <div class="progress_block">
           <!-- ============== hint ============== -->
-          <div class="tip_bubble_wrap" id="wind_<%=  c_stick.stick.id %>" style="display: none;">
+          <div class="tip_bubble_wrap" id="weather_wind_<%=  c_stick.stick.id %>" style="display: none;">
             <div class="triangle"></div>
             <div class="frame">
               <% if @is_admin_and_coach || @is_admin %>
@@ -1908,11 +1915,11 @@
           <% end %>
           <!-- ============== when to show hint ============== -->
           <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-            <div class="notification" onclick="showHideElement('#wind_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#weather_wind_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% elsif @is_admin %>
           <% else %>
             <% if (@c_s_stick.weather_wind.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.weather_wind != nil) && @c_hint_user.weather_wind_hint != nil %>
-              <div class="notification" onclick="showHideElement('#wind_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <div class="notification" onclick="showHideElement('#weather_wind_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
             <% end %>
           <% end %>
           <!-- ============== when to show hint ============== -->
@@ -1939,7 +1946,7 @@
         <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
         <div class="progress_block">
           <!-- ============== hint ============== -->
-          <div class="tip_bubble_wrap" id="rain_<%=  c_stick.stick.id %>" style="display: none;">
+          <div class="tip_bubble_wrap" id="weather_rain_<%=  c_stick.stick.id %>" style="display: none;">
             <div class="triangle"></div>
             <div class="frame">
               <% if @is_admin_and_coach || @is_admin %>
@@ -1981,11 +1988,11 @@
           <% end %>
           <!-- ============== when to show hint ============== -->
           <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-            <div class="notification" onclick="showHideElement('#rain_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#weather_rain_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% elsif @is_admin %>
           <% else %>
             <% if (@c_s_stick.weather_rain.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.weather_rain != nil) && @c_hint_user.weather_rain_hint != nil %>
-              <div class="notification" onclick="showHideElement('#rain_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <div class="notification" onclick="showHideElement('#weather_rain_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
             <% end %>
           <% end %>
           <!-- ============== when to show hint ============== -->
@@ -2011,7 +2018,7 @@
         <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
         <div class="progress_block">
           <!-- ============== hint ============== -->
-          <div class="tip_bubble_wrap" id="wind_and_rain_<%=  c_stick.stick.id %>" style="display: none;">
+          <div class="tip_bubble_wrap" id="weather_wind_and_rain_<%=  c_stick.stick.id %>" style="display: none;">
             <div class="triangle"></div>
             <div class="frame">
               <% if @is_admin_and_coach || @is_admin %>
@@ -2053,11 +2060,11 @@
           <% end %>
           <!-- ============== when to show hint ============== -->
           <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-            <div class="notification" onclick="showHideElement('#wind_and_rain_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#weather_wind_and_rain_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% elsif @is_admin %>
           <% else %>
             <% if (@c_s_stick.weather_wind_and_rain.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.weather_wind_and_rain != nil) && @c_hint_user.weather_wind_and_rain_hint != nil %>
-              <div class="notification" onclick="showHideElement('#wind_and_rain_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <div class="notification" onclick="showHideElement('#weather_wind_and_rain_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
             <% end %>
           <% end %>
           <!-- ============== when to show hint ============== -->
@@ -2110,7 +2117,7 @@
         <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
         <div class="progress_block">
           <!-- ============== hint ============== -->
-          <div class="tip_bubble_wrap" id="normal_<%=  c_stick.stick.id %>" style="display: none;">
+          <div class="tip_bubble_wrap" id="trajectory_normal_<%=  c_stick.stick.id %>" style="display: none;">
             <div class="triangle"></div>
             <div class="frame">
               <% if @is_admin_and_coach || @is_admin %>
@@ -2152,11 +2159,11 @@
           <% end %>
           <!-- ============== when to show hint ============== -->
           <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-            <div class="notification" onclick="showHideElement('#normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#trajectory_normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% elsif @is_admin %>
           <% else %>
             <% if (@c_s_stick.trajectory_normal.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.trajectory_normal != nil) && @c_hint_user.trajectory_normal_hint != nil %>
-              <div class="notification" onclick="showHideElement('#normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <div class="notification" onclick="showHideElement('#trajectory_normal_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
             <% end %>
           <% end %>
           <!-- ============== when to show hint ============== -->
@@ -2182,7 +2189,7 @@
         <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
         <div class="progress_block">
           <!-- ============== hint ============== -->
-          <div class="tip_bubble_wrap" id="high_<%=  c_stick.stick.id %>" style="display: none;">
+          <div class="tip_bubble_wrap" id="trajectory_high_<%=  c_stick.stick.id %>" style="display: none;">
             <div class="triangle"></div>
             <div class="frame">
               <% if @is_admin_and_coach || @is_admin %>
@@ -2224,11 +2231,11 @@
           <% end %>
           <!-- ============== when to show hint ============== -->
           <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-            <div class="notification" onclick="showHideElement('#high_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#trajectory_high_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% elsif @is_admin %>
           <% else %>
             <% if (@c_s_stick.trajectory_high.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.trajectory_high != nil) && @c_hint_user.trajectory_high_hint != nil %>
-              <div class="notification" onclick="showHideElement('#high_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <div class="notification" onclick="showHideElement('#trajectory_high_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
             <% end %>
           <% end %>
           <!-- ============== when to show hint ============== -->
@@ -2254,7 +2261,7 @@
         <% @c_hint_user = Hint.find(:first, :conditions => conditions_user) || Hint.new(conditions_user) %>
         <div class="progress_block">
           <!-- ============== hint ============== -->
-          <div class="tip_bubble_wrap" id="low_<%=  c_stick.stick.id %>" style="display: none;">
+          <div class="tip_bubble_wrap" id="trajectory_low_<%=  c_stick.stick.id %>" style="display: none;">
             <div class="triangle"></div>
             <div class="frame">
               <% if @is_admin_and_coach || @is_admin %>
@@ -2296,11 +2303,11 @@
           <% end %>
           <!-- ============== when to show hint ============== -->
           <% if @is_admin_and_coach || (@is_admin && @user_params.coach == current_user.id) || (@is_admin && @user_params.id == current_user.id) %>
-            <div class="notification" onclick="showHideElement('#low_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+            <div class="notification" onclick="showHideElement('#trajectory_low_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
           <% elsif @is_admin %>
           <% else %>
             <% if (@c_s_stick.trajectory_low.to_i < MAIN_STATISTIC_BAD_PROC) && (@c_s_stick.trajectory_low != nil) && @c_hint_user.trajectory_low_hint != nil %>
-              <div class="notification" onclick="showHideElement('#low_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+              <div class="notification" onclick="showHideElement('#trajectory_low_<%=  c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
             <% end %>
           <% end %>
           <!-- ============== when to show hint ============== -->
@@ -2315,6 +2322,8 @@
     <div class="bottom_line"></div>
   </div>
   <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- trajectory =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
 
 
 

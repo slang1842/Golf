@@ -556,59 +556,6 @@ class Statistic < ActiveRecord::Base
     end # end game
   end
 
-
-      
-=begin
-  def self.game_filter_statistic
-
-    @return = false
-    GameFilterStatistic.delete_all
-
-    @games = Game.order("date DESC")
-    @games.each do |c_game|
-
-      @avg_r_distance = []
-      @avg_p_distance = []
-      @hit_sum = 0
-      
-      PairHit.where(:game_id => c_game.id).each do |c_pairhit|
-        @avg_r_distance = @avg_r_distance.push(c_pairhit.hit_real.hit_distance)
-        @avg_p_distance = @avg_p_distance.push(c_pairhit.hit_planed.hit_distance)
-        @hit_sum = @hit_sum + 1
-      end # end PairHit
-
-      @GameFilterStatistic = GameFilterStatistic.new
-      @GameFilterStatistic.game_id = c_game.id
-      @GameFilterStatistic.user_id = c_game.user_id
-      @GameFilterStatistic.field_id = c_game.field_id
-      @GameFilterStatistic.hit_sum = @hit_sum
-
-
-      @avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round unless @avg_r_distance.size == 0
-      @avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round unless @avg_p_distance.size == 0
-
-      if @avg_r > @avg_p
-        @GameFilterStatistic.avg_r_distance = 100
-        @GameFilterStatistic.avg_p_distance = (@avg_p / @avg_r) * 100
-      elsif @avg_p < @avg_p
-        @GameFilterStatistic.avg_r_distance = 100
-        @GameFilterStatistic.avg_p_distance = (@avg_r / @avg_p) * 100
-      end unless @avg_r == nil or @avg_p == nil
-
-      
-      @GameFilterStatistic.place_from =  c_pairhit.hit_real.place_from
-      @GameFilterStatistic.stance = c_pairhit.hit_real.stance
-      @GameFilterStatistic.direction =  c_pairhit.hit_real.direction      
-      @GameFilterStatistic.temperature = Game.find(c_pairhit.hit_real.game_id).temperature
-      @GameFilterStatistic.trajectory = c_pairhit.hit_real.trajectory
-      @GameFilterStatistic.wind = c_pairhit.hit_real.wind
-      
-
-      @return = true if @GameFilterStatistic.save
-    end # end game
-    return @return
-  end
-=end
   
   def self.game_statistics_by_holes
     GameStatisticsByHoles.delete_all
