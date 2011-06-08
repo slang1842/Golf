@@ -206,7 +206,7 @@
     nick: "Nick"
     sex: "Sex"
     birth: "Birth"
-    country: "Valsts"
+    country: "Country"
     home_club: "Home Club"
     hcp: "HCP"
     measurement: "Measurement"
@@ -214,3 +214,4 @@
     profile_image: "Choose profile image"
     right_handed: "Handedness"
     update_sucessful: "Profile was successfully updated"
+    temperature: "Temperature scale"

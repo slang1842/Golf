@@ -9,7 +9,7 @@
 <%= f.hidden_field :hole_number, :value => active_hole %>
 <%= f.hidden_field :hit_number, :value => active_hit %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
-<div class="single_dropdown" style="width:90px">
+<div class="single_dropdown" style="width:90px height:60px">
           <p>Club</p>
             <div class="element">
               
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-<div class="single_dropdown" >
+<div class="single_dropdown" style="width:90px">
           <p> Stroke distance</p>
             <div class="element">
               <%= f.text_field :hit_distance %> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
