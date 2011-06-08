@@ -1,5 +1,5 @@
 
-      
+      <% game1 = game.game_type%>
       <div class="right_coll">
         <%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
         <input type="hidden" name="next_hit" id="nexthit" value=0>
@@ -37,8 +37,16 @@
         <% end %>
        </div>
               
-           
-        <% if active_hole != end_hole%>
+            <% if game1 == 2%>
+    <% last_hole_number = 18 %>
+    <% elsif game1 == 3%>
+    <% last_hole_number = 9 %>
+    <% elsif game1 == 1%>
+    <% last_hole_number = 9 %>
+    <% end %>
+    <% if active_hole.to_i != last_hole_number.to_i%> 
+   
+     
         <div class="button_wrap">
          <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Next hole</a>
         </div>
