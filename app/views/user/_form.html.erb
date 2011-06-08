@@ -63,7 +63,7 @@
           <p><%= f.label t "form.sex" %></p>
         </div>
         <div class="input">
-          <%= f.select(:sex, FORM_SEX,{}, { :class => 'dropdown3 user_select_field'}) %>
+          <%= f.select(:sex, FORM_SEX,{}, { :class => 'dropdown8 user_select_field'}) %>
         </div>
       </div>
 
@@ -81,7 +81,7 @@
           <p><%= f.label t "form.hcp" %></p>
         </div>
         <div class="input">
-          <%= f.select(:hcp, (0..36),{}, { :class => 'dropdown3 user_select_field'}) %>
+          <%= f.select(:hcp, (0..36),{}, { :class => 'dropdown8 user_select_field'}) %>
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@
           <p><%= f.label t "form.right_handed" %></p>
         </div>
         <div class="input">
-          <%= f.select(:right_handed, RIGHT_HANDED,{}, { :class => 'dropdown3'}) %>
+          <%= f.select(:right_handed, RIGHT_HANDED,{}, { :class => 'dropdown8'}) %>
         </div>
       </div>
 
@@ -102,7 +102,7 @@
           <p><%= f.label t "form.country" %></p>
         </div>
         <div class="input">
-          <%= f.collection_select :country_id, Country.all, :id, :name,{}, { :class => 'dropdown3'} %>
+          <%= f.collection_select :country_id, Country.all, :id, :name,{}, { :class => 'dropdown8'} %>
         </div>
       </div>
 
@@ -111,7 +111,7 @@
           <p><%= f.label t "form.measurement" %></p>
         </div>
         <div class="input">
-          <%= f.select(:measurement, MEASUREMENT,{}, { :class => 'dropdown3'}) %>
+          <%= f.select(:measurement, MEASUREMENT,{}, { :class => 'dropdown8'}) %>
         </div>
       </div>
 
@@ -120,7 +120,7 @@
           <p><%= f.label t "form.start_place" %></p>
         </div>
         <div class="input">
-          <%= f.select(:start_place_color, START_PLACE_COLORS_USER,{}, { :class => 'dropdown3'}) %>
+          <%= f.select(:start_place_color, START_PLACE_COLORS_USER,{}, { :class => 'dropdown8'}) %>
         </div>
       </div>
 
@@ -129,7 +129,7 @@
           <p><%= f.label t "form.temperature" %></p>
         </div>
         <div class="input">
-          <%= f.select(:temp_preference, TEMPERATURE,{}, { :class => 'dropdown3'}) %>
+          <%= f.select(:temp_preference, TEMPERATURE,{}, { :class => 'dropdown8'}) %>
         </div>
       </div>
 
@@ -142,7 +142,7 @@
               <p><%= f.label t "form.home_club", :id => "golf_club_label"%></p>
             </div>
             <div class="input" id = "golf_club_checkbox">
-              <%= f.collection_select(:golf_club_id, @golf_club, :id, :name, { :prompt => t(:notices_no_club)}, {:class => 'dropdown3'}) %>
+              <%= f.collection_select(:golf_club_id, @golf_club, :id, :name, { :prompt => t(:notices_no_club)}, {:class => 'dropdown8'}) %>
             </div>
           </div>
 
