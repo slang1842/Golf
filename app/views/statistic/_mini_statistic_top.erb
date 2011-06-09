@@ -74,21 +74,26 @@
   </div>
 
 
+
   <% if @user_params.golf_club && Field.where(:golf_club_id => @user_params.golf_club_id).count != 0 %>
     <div class="club_stats">
       <div class="info_text">
         <p>Your place in field <%= "''#{GolfClub.find(@user_params.golf_club_id)}''"  %> </p>
       </div>
       <div class="form_dropdowns">
+
+
         <% form_tag('/user_place_in_golf_club', :method => 'post', :remote => true, :id => "user_place_in_golf_club") do %>
           <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown5", :onchange => "user_place_in_golf_club()"} %>
           <%= select_tag("hcp", options_for_select(0..36), {:include_blank => "HCP", :id => "place_in_club_hcp", :class => "dropdown3", :onchange => "user_place_in_golf_club()"}) %>
           <%= hidden_field_tag "user_id", @user_params.id %>
         <% end %>
+
+
       </div>
-
-      <div id="user_place_in_golf_club_div">
-
+     
+        <div id="user_place_in_golf_club_div">
+          
         <!-- pec filtracijas saja diva paradas user saraksts-->
       </div>
 
@@ -105,5 +110,7 @@
       -->
     </div>
   <% end %>
+
+
 </div>
 

@@ -188,8 +188,13 @@ class StatisticController < ApplicationController
       @GSG = GameStatisticGeneral.where(:game_id => filtered_game.game_id).first
       @all_filter_game_progress_arr.push(@GSG.game_progress)
     end
-    @all_filter_game_progress = (@all_filter_game_progress_arr.sum / @all_filter_game_progress_arr.size)
-
+    @is_there_something_to_return = true
+    
+    if @all_filter_game_progress_arr.size == 0
+      @is_there_something_to_return = false
+    else
+      @all_filter_game_progress = (@all_filter_game_progress_arr.sum / @all_filter_game_progress_arr.size)
+    end
     
   end
 
@@ -197,12 +202,21 @@ class StatisticController < ApplicationController
     @hcp = params[:hcp]
     @field_id = params[:field_id]
     @user_id = params[:user_id]
+    @is_something_to_return = true
 
     @user_stats = StatisticUserProgres.where(:field_id => @field_id, :hcp => @hcp).first
-    @stats_arr = [@user_stats.num - 3, @user_stats.num - 2,@user_stats.num - 1,@user_stats.num, @user_stats.num + 1, @user_stats.num + 2, @user_stats.num + 3]
+    @stats_arr = []
+    @stats_arr.push([@user_stats.num - 3, @user_stats.num - 2,@user_stats.num - 1,@user_stats.num, @user_stats.num + 1, @user_stats.num + 2, @user_stats.num + 3]) if @user_stats
+    @stats_arr.push(@user_stats.num) if @user_stats
+    #@stats_arr = [@user_stats.num - 3, @user_stats.num - 2,@user_stats.num - 1,@user_stats.num, @user_stats.num + 1, @user_stats.num + 2, @user_stats.num + 3]
 
-    @stats_to_return = StatisticUserProgres.where('num IN  (?)', @stats_arr).order("num ASC") #DESC")
+    if @stats_arr.size == 0
+      @is_something_to_return = false
+    else
+      @stats_to_return = StatisticUserProgres.where('num IN  (?)', @stats_arr).order("num ASC") #DESC")
 
+    end
+    
    
   end
   
