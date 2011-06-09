@@ -1,0 +1,56 @@
+
+<% if current_user %>
+  <%= render :partial => 'share/header_menu' %>
+<% else %>
+<% end %>
+
+<%= form_for @user, :html => { :onsubmit=> "return check_bag_form();"}, :url => update_bag_user_path do |f|  %>
+
+  <div class="bag_wrap">
+
+    
+    <div class="clubs">
+      
+      
+        <div class="error">All fields are required</div>
+    
+      
+      <div class="heading"><p>Clubs</p></div>
+
+      <div id="sticks">
+        <% @users_sticks.each do |users_stick| %>
+          <%= render :partial => 'user/stick_form', :locals => {:users_stick => users_stick,  :f => f, :users_sticks_attributes => @sticks_attributes} %>
+        <% end %>
+      </div>
+
+      <div class="clear"></div>
+      <div class="element">
+        <%= link_to_function 'Add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :onclick=> 'init_dropdown()', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}).slideDown('fast')", :class => "gray_button" %>
+        <div class="clear"></div>
+      </div>
+
+    </div>
+
+    <div class="clubs">
+      <div class="heading"><p>Balls</p></div>
+
+      <div id="balls">
+        <% @balls.each do |ball| %>
+          <%= render :partial => 'user/ball_form', :locals => {:f => f, :ball => ball, :balls_attributes => @balls_attributes} %>
+        <% end %>
+      </div>
+
+      <div class="clear"></div>
+      <div class="element">
+        <%= link_to_function 'Add new', "jQuery('#balls').append(#{render(:partial => 'user/ball_form', :locals => {:f => f, :balls_attributes => @new_balls_attributes, :ball => Ball.new}).to_json}).slideDown('fast')", :class => "gray_button" %>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <div class="button_done">
+      <%= f.submit :class => 'green_button', :value => "Save" %> 
+    </div>
+
+  </div>
+<% end %>
+

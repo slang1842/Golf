@@ -1,0 +1,39 @@
+
+<%= form_for [:admin, @stick] do |f| %>
+
+
+  <div class="field">
+    <%= f.label :stick_type %><br />
+    <%= f.text_field :stick_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :distance %><br />
+    <%= f.text_field :distance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :degrees %><br />
+    <%= f.text_field :degrees %>
+  </div>
+
+  <div class="field">
+    <%= f.label :shaft %><br />
+    <%= f.text_field :shaft %>
+  </div>
+
+  <div class="field">
+    <%= f.label :shaft_strength %><br />
+    <%= f.text_field :shaft_strength %>
+  </div>
+
+  <div class="field">
+    <%= f.label :short_name %><br />
+    <%= f.text_field :short_name %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

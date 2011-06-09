@@ -1,0 +1,17 @@
+
+
+  <div class="left_coll">
+  <%= form_tag('/results_starter', :method => 'post', :remote => true, :id => "starter_form") do %>
+  <p>Stroke count?</p>  <%=select_tag :hits, options_for_select(1..10),{:class => 'dropdown2'}%>
+  <p>Putt count?</p> <%=select_tag "puts", options_for_select(0..10),{:class => 'dropdown2'}%>
+  <%= hidden_field_tag :game_id, game_id%>
+  <%= hidden_field_tag :active_hole, active_hole%>
+ <div class="clearblock_dropdowns"></div>
+
+ <%= link_to_function "Fill results", "$('#starter_form').submit()", {:class => "green_button"} %>
+   
+  <%end%>
+</div>
+
+        
+     

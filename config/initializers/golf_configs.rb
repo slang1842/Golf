@@ -8,7 +8,7 @@
 
 FORM_SEX = { "female" => "f", "male" => "m" }
 RIGHT_HANDED = { "Righthander" => true, "Lefthander" => false }
-MEASUREMENT = { "Meters" => "meters", "Foots" => "foots" }
+MEASUREMENT = { "Meters" => "meters", "Feet" => "foots" }
 TEMPERATURE = { "Celsium" => "celsium", "Fahrenheit" => "fahrenheit"}
 START_PLACE_COLORS = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4, "None" => 0 }
 START_PLACE_COLORS_USER = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4}

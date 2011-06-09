@@ -1,9 +1,10 @@
 .profile_info_input {
 	padding-top:5px;
 	padding-left:10px;
-	margin-top:10px;
+	/*margin-top:10px;*/
 	width:890px;
 	background-image:url(/images/bg_stripes.png);
+	overflow:hidden;
 }
 
 .profile_info_input h1 {
@@ -110,4 +111,8 @@
 	top:3px;
 	padding-bottom:2px;
 	padding-top:2px;
+}
+
+.button_done_newgame {
+	margin-bottom:20px;
 }

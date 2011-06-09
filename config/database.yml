@@ -22,7 +22,7 @@
   production:
     adapter: mysql
     encoding: utf8
-    database: golfcre_main
-    username: golfcre_root
-    password: G#s@8tZcU1#I
+    database: golfcreo_main
+    username: golfcreo_main
+    password: h.4SUWuSHHMy
     host: localhost

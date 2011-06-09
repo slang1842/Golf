@@ -1,0 +1,187 @@
+<%game1 = game.game_type%>
+<%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
+
+  <input type="hidden" name="next_hit" id="nexthit" value="0" />
+  <input type="hidden" name="form_id" id="formid" value="details"/>
+  <input type="hidden" name="active_hit" id="act_hit" value=<%=active_hit%>>
+  <input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
+  <%= game.hidden_field :active_hit, :value => active_hit%>
+
+
+  <%= game.fields_for :hits, hit_p_final do |f|%>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+    <div class="single_dropdown">
+      <p>Place</p>
+      <div class="element">
+        <%= f.select(:place_from, STATISTICS_PLACE_FROM, {:prompt => 'Select'}, {:id =>"place_from_old", :class => "dropdown6" })%>
+      </div>
+    </div>
+    <div class="single_dropdown" style="width:100px">
+      <p>Till hole</p>
+      <div class="element">
+        <%= f.text_field :distance_to_hole %> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+      </div>
+    </div>
+    <div class="single_dropdown">
+      <p>Stance</p>
+      <div class="element">
+        <%= f.select( :stance, STATISTICS_STANCE, {:prompt => 'Select'}, {:class => "dropdown6"}) %>
+      </div>
+    </div>
+    <div class="single_dropdown">
+      <p>Wind</p>
+      <div class="element">
+        <%= f.select(:wind, STATISTICS_WIND, {:prompt => 'Select'}, {:class => "dropdown6"})%>
+      </div>
+    </div>
+    <div class="single_dropdown">
+      <p>Difficulty</p>
+      <div class="element">
+        <%= f.select(:difficulty, STATISTICS_DIFFICULTY, {:prompt => 'Select'}, {:class => "dropdown6"})%>
+      </div>
+    </div>
+    <div class="input_wrap" >
+      <div class="heading_plan">
+        <p>Plan:</p>
+      </div>
+      <div class="single_dropdown">
+        <p>Land place</p>
+        <div class="element" style="heigth:60px">
+          <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6"}) %>
+        </div>
+      </div>
+      <div class="single_dropdown" style="width:100px">
+        <p>Stroke distance</p>
+        <div class="element" style="heigth:60px">
+          <%= f.text_field :hit_distance %>
+        </div>
+      </div>
+      <div class="single_dropdown">
+        <p>Club</p>
+        <div class="element" style="heigth:60px">
+          <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Izvēlies.."},{:class => "dropdown6 game_input_select", :id => "stick_type_old" }  %>
+        </div>
+      </div>
+      <div class="single_dropdown">
+        <p>Direction</p>
+        <div class="element" style="heigth:60px">
+          <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+        </div>
+      </div>
+      <div class="single_dropdown">
+        <p>Trajectory</p>
+        <div class="element" style="heigth:60px">
+          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+        </div>
+      </div>
+
+      <%= f.hidden_field :hole_number, :value => active_hole %>
+      <%= f.hidden_field :hit_number, :value => active_hit %>
+    </div>
+  <% end %>
+
+  <%= game.fields_for :hits, hit_r_final do |f|%>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+    <div class="input_wrap" style="height:45px">
+      <div class="heading_result">
+        <p>Result:</p>
+      </div>
+      <%= f.hidden_field :stick_id, :class => "stick_type_real" %>
+      <div class="single_dropdown">
+        <p>Land place</p>
+        <div class="element">
+          <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6"}) %>
+        </div>
+      </div>
+      <div class="single_dropdown" style="width:100px">
+        <p>Stroke distance</p>
+        <div class="element">
+          <%= f.text_field :hit_distance %>
+        </div>
+      </div>
+      <div class="single_dropdown">
+        <p>Misdirection</p>
+        <div class="element">
+          <%= f.select(:misdirection, STATISTICS_MISDIRECTION,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+        </div>
+      </div>
+      <div class="single_dropdown">
+        <p>Direction</p>
+        <div class="element">
+          <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+        </div>
+      </div>
+      <div class="single_dropdown">
+        <p>Trajectory</p>
+        <div class="element">
+          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+        </div>
+      </div>
+    </div>
+    <div class="input_wrap" style="height:250px">
+      <div class="radio_button_wrap">
+        <div class="heading"><p>Hit notes</p></div>
+        <div class="buttons">
+          <p>Motion was</p>
+
+          <% STATISTICS_MOTION_WAS.each do |stat|%>
+            <%= f.radio_button(:motion_was, stat[1])%> <%= stat[0] %></br>
+          <% end %>
+        </div>
+
+        <div class="buttons">
+          <p>Stroke was .. </p>
+          <% STATISTICS_HIT_WAS.each do |stat|%>
+            <%= f.radio_button(:hit_was, stat[1])%> <%= stat[0] %></br>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="textarea_wrap">
+        <p>Comment on hit</p>
+        <%= f.text_area(:comment,:cols => 20, :rows => 2) %>
+
+      </div>
+
+      <div class="single_dropdown" style="width:140px">
+        <p>Luck factor</p>
+        <div class="element">
+          <%= f.check_box :luck_factor %>
+        </div>
+      </div>
+      <%= f.hidden_field :hole_number, :value => active_hole %>
+      <%= f.hidden_field :hit_number, :value => active_hit %>
+    <%#= f.label :following_action%>
+    <%#= f.select(:following_action, STATISTICS_FOLLOWING_ACTION, :prompt => 'Select')%>
+
+    <% end %>
+    
+    
+   
+
+
+<% end %>
+ <% if game1 == 2%>
+    <% last_hole_number = 18 %>
+    <% elsif game1 == 3%>
+    <% last_hole_number = 9 %>
+    <% elsif game1 == 1%>
+    <% last_hole_number = 9 %>
+    <% end %>
+    <% if active_hole.to_i != last_hole_number.to_i%> 
+   
+      <div class="single_dropdown" style="float:right">
+        <div class="element">
+          <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" style="padding:5px; line-height:50px">Next&nbsp;hole</a>
+        </div>
+      </div>
+    <%end%>
+   
+    <div class="single_dropdown " style="float:right">
+      <div class="element" >
+        <div class="save_gif">
+        <a href="#" rel="save" class="gray_button saveswitch" style="padding:5px; line-height:50px">Save</a>
+         </div>
+      </div>
+    </div>
+  </div>

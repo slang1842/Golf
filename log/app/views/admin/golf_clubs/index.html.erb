@@ -1,0 +1,26 @@
+<h1>Listing golf clubs</h1>
+  
+  
+  <div class="table_listing"
+    <b>
+    <div class="row">
+      <div class="item">Name</div>
+      <div class="item">Region</div>
+      <div class="item">Accepted</div>
+      <div class="item">To Do</div>
+    </div>
+    </b>
+    <% @clubs.each do |club| %>
+    <div class="row">
+      <div class="item"><%= club.name %></div>
+      <div class="item"><%= club.city %></div>
+      <div class="item"><%= club.accepted %></div>
+      <div class="item"><%= link_to 'Edit', edit_admin_golf_club_path(club.id) %></div>
+    </div>
+    <% end %>
+
+  </div>
+
+
+
+

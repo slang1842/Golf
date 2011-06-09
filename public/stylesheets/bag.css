@@ -3,11 +3,11 @@
 }
 
 .bag_wrap .clubs {
-    margin: 0 0 50px 0;
+    margin: 0 0 0px 0;
 	margin-top:20px;
 	width:900px;
 	background-image:url(/images/bg_stripes.png);
-	
+	overflow:hidden;
 
 }
 
@@ -67,6 +67,8 @@
     width: 80px;
 	margin-right: auto;
 	margin-left: auto;
+	margin-bottom:20px;
+	margin-top:20px;
 }
 
 /*.bag_wrap .button_done a:hover {

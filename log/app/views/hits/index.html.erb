@@ -1,0 +1,29 @@
+<h1>Listing hits</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hits.each do |hit| %>
+  <tr>
+    game id <%= hit.game_id%>
+    hole num<%= hit.hole_number%>
+    hit num <%= hit.hit_number%>
+    hit type<%= hit.real_hit%>
+    hit distance<%= hit.hit_distance%>
+    hit placeform<%= hit.place_from%>
+    hit landplace<%= hit.land_place%>
+    hit wind<%= hit.wind%><br />
+    <td><%= link_to 'Show', hit %></td>
+    <td><%= link_to 'Edit', edit_hit_path(hit) %></td>
+    <td><%= link_to 'Destroy', hit, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

@@ -169,9 +169,9 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.string   "accepted",                    :default => "unknown"
     t.boolean  "active",                      :default => false
     t.date     "pay_banner_end_date"
-    t.boolean  "is_p_banner_disabled",        :default => false
-    t.boolean  "is_f_banner_disabled",        :default => false
-    t.boolean  "is_v_banner_disabled",        :default => false
+    t.boolean  "is_p_banner_disabled",        :default => true
+    t.boolean  "is_f_banner_disabled",        :default => true
+    t.boolean  "is_v_banner_disabled",        :default => true
     t.string   "image_v_file_name"
     t.string   "image_v_content_type"
     t.integer  "image_v_file_size"

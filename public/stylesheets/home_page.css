@@ -8,6 +8,7 @@
 	width:160px;
 	float:left;
 	margin-left:10px;
+	padding-bottom:20px;
 }
 
 .user_home_wrap .ads_wrap .single_ad {
@@ -82,7 +83,7 @@
 }
 
 .user_home_wrap  .top_wrap p {
-	font-size:15px;
+	font-size:14px;
 	color:#363636;
 	font-weight:normal;
 	line-height:18px;

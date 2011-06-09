@@ -55,7 +55,7 @@ Golf::Application.routes.draw do
   
   get "welcome/index"
   get "home/index"
-  get "user_sessions/new"
+  get "user_sessions/new", :as => 'new_user_session'
   #club
   match '/club/edit_fields/' => 'golf_club#edit_fields'
   match '/user/update_hints/:id' => 'user#update_hints'
