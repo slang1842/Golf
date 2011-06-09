@@ -51,7 +51,7 @@
 
 
 <% if current_user.golf_club %>
-  <%  if current_user.golf_club.is_p_banner_disabled == false %>
+  <%  if current_user.golf_club.is_p_banner_disabled == false%>
     <div class="club_banner">
       <img src="<%=current_user.golf_club.image_p.url%>" alt=""  width="900px" height="100px"/>
     </div>
@@ -59,6 +59,7 @@
     <div class="club_banner">
       <img src="<%=current_user.golf_club.image_f.url%>" alt=""  width="900px" height="100px"/>
     </div>
+  <% elsif current_user.golf_club.is_f_banner_disabled == true && current_user.golf_club.is_p_banner_disabled == true %>
   <%  end %>
 <%  end %>
 

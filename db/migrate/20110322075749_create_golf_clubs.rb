@@ -13,9 +13,9 @@ class CreateGolfClubs < ActiveRecord::Migration
       t.string       :accepted,                    :default => "unknown" # unknown, no, yes
       t.boolean      :active,                      :default => false
       t.date         :pay_banner_end_date
-      t.boolean      :is_p_banner_disabled,            :default => false
-      t.boolean      :is_f_banner_disabled,            :default => false
-      t.boolean      :is_v_banner_disabled,            :default => false
+      t.boolean      :is_p_banner_disabled,            :default => true
+      t.boolean      :is_f_banner_disabled,            :default => true
+      t.boolean      :is_v_banner_disabled,            :default => true
       
       #image_v
       t.string :image_v_file_name
