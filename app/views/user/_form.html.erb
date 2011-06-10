@@ -4,18 +4,28 @@
 <% end %>
 
 <div class="profile_info_input">
-  <div class="error">All fields are required</div>
+
   <br /><br />
 
 
   <% form_for(@user, :url => user_path, :html => { :multipart => true,  :onsubmit => "return check_user_form();"} ) do |f| %>
 
+    <div class="error">All fields are required</div>
+
     <% if @user.errors.any? %>
       <div class="error_default">
-        <span><%= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></span>
+        <span><%#= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></span>
         <ul>
+          <% @email_taken = false %>
           <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+            <% if  msg == "Email has already been taken" %>
+              <% @email_taken = true %>
+            <% else %>
+              <li><%= msg %></li>
+            <% end %>
+          <% end %>
+          <% if @email_taken == true %>
+            <li>Email has already been taken</li>
           <% end %>
         </ul>
       </div>
