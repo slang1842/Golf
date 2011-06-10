@@ -1,13 +1,16 @@
 <%= render :partial => 'share/header_menu' %>
 
-<% flash.each do |key, msg| %>
-  <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-  <%= content_tag :script, :type => "text/javascript" do -%>
-    setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
-  <% end %>
+
+<% if flash.count > 0 %>
+  <div class="info" style="display:block;">
+    <% flash.each do |key, msg| %>
+      <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+      <%= content_tag :script, :type => "text/javascript" do -%>
+        setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
-
-
 
 <div class="user_home_wrap">
   <div class="ads_wrap">
@@ -36,82 +39,82 @@
   <div class="main_content_wrap">
 
 
-      <% if current_user.admin == 0%>
-    <% if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil %>
-      
-      <% if current_user.coach != nil  %>
-        <% @recent_hint = Hint.where(:user_id => current_user.coach).order("updated_at").last %>
-      <% else %>
-        <% @recent_hint = Hint.find(:all, :order => "updated_at").last %>
-      <% end %>
+    <% if current_user.admin == 0%>
+      <% if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil %>
 
-      <% if @recent_hint != nil && @recent_hint.place_teebox_hint != nil %>
-        <div class="hints_wrap">
-          <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
-          <div class="text_wrap">
-            <p><%= @recent_hint.place_teebox_hint %> </p>
+        <% if current_user.coach != nil  %>
+          <% @recent_hint = Hint.where(:user_id => current_user.coach).order("updated_at").last %>
+        <% else %>
+          <% @recent_hint = Hint.find(:all, :order => "updated_at").last %>
+        <% end %>
+
+        <% if @recent_hint != nil && @recent_hint.place_teebox_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.place_teebox_hint %> </p>
+            </div>
+            <div class="clear"></div>
           </div>
-          <div class="clear"></div>
-        </div>
-      <% end %>
+        <% end %>
 
-      <% if @recent_hint != nil && @recent_hint.direction_fade_hint != nil %>
-        <div class="hints_wrap">
-          <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
-          <div class="text_wrap">
-            <p><%= @recent_hint.direction_fade_hint %> </p>
+        <% if @recent_hint != nil && @recent_hint.direction_fade_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.direction_fade_hint %> </p>
+            </div>
+            <div class="clear"></div>
           </div>
-          <div class="clear"></div>
-        </div>
-      <% end %>
+        <% end %>
 
-      <% if @recent_hint != nil && @recent_hint.temperature_cold_hint != nil %>
-        <div class="hints_wrap">
-          <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
-          <div class="text_wrap">
-            <p><%= @recent_hint.temperature_cold_hint %> </p>
+        <% if @recent_hint != nil && @recent_hint.temperature_cold_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.temperature_cold_hint %> </p>
+            </div>
+            <div class="clear"></div>
           </div>
-          <div class="clear"></div>
-        </div>
-      <% end %>
+        <% end %>
 
-      <% if @recent_hint != nil && @recent_hint.weather_wind_hint != nil %>
-        <div class="hints_wrap">
-          <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
-          <div class="text_wrap">
-            <p><%= @recent_hint.weather_wind_hint %> </p>
+        <% if @recent_hint != nil && @recent_hint.weather_wind_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.weather_wind_hint %> </p>
+            </div>
+            <div class="clear"></div>
           </div>
-          <div class="clear"></div>
-        </div>
-      <% end %>
+        <% end %>
 
-      <% if @recent_hint != nil && @recent_hint.trajectory_high_hint != nil %>
-        <div class="hints_wrap">
-          <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
-          <div class="text_wrap">
-            <p><%= @recent_hint.trajectory_high_hint %> </p>
+        <% if @recent_hint != nil && @recent_hint.trajectory_high_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.trajectory_high_hint %> </p>
+            </div>
+            <div class="clear"></div>
           </div>
-          <div class="clear"></div>
-        </div>
-      <% end %>
+        <% end %>
 
 
-      <% if @recent_hint != nil && @recent_hint.wind_from_front_hint != nil %>
-        <div class="hints_wrap">
-          <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
-          <div class="text_wrap">
-            <p><%= @recent_hint.wind_from_front_hint %> </p>
+        <% if @recent_hint != nil && @recent_hint.wind_from_front_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.wind_from_front_hint %> </p>
+            </div>
+            <div class="clear"></div>
           </div>
-          <div class="clear"></div>
+        <% end %>
+
+
+        <div class="button_wrap">
+          <a href="<%= main_statistic_path(:user_id => current_user.id) %>" class="green_button" >More Hints</a>
         </div>
+
       <% end %>
-
-
-      <div class="button_wrap">
-        <a href="<%= main_statistic_path(:user_id => current_user.id) %>" class="green_button" >More Hints</a>
-      </div>
-
-    <% end %>
 
     <% end %>
 

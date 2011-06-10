@@ -7,9 +7,6 @@ $(document).ready(function(){
 });
 
 function serialScroll() {
- 
-
-
   $('#slideshow').serialScroll({
     items:'li',
     prev:'.link_left_wrap a.prev',
@@ -25,27 +22,6 @@ function serialScroll() {
     jump: false //click on the images to scroll to them
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function fill_sticks_form(a) {
@@ -143,38 +119,33 @@ function check_user_form() {
       textEntered = false;
     }
   });
-                
   if (textEntered) {
     return true
   } else {
     $(".error").slideDown('slow');
     return false
   }
-   
 }
 
 function check_game_form() {
   textEntered = true
-
-   
-
   $(".game_input_select").each(function() {
     if (textEntered && $(this).val() == "") {
       textEntered = false;
     }
-  });
-                
+  });                
   if (textEntered) {
     return true
   } else {
     $(".error").slideDown('slow');
-    return false
-  
+    return false  
   }
-
 }
+
+
 function golf_club_checkbox(){
   $("#user_golf_club_id").toggle();
+  $("#user_golf_club_id").val("");
 }
 
 
