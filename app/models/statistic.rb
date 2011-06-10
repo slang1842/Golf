@@ -96,7 +96,9 @@ class Statistic < ActiveRecord::Base
             statistic.game_id = c_game.id
             statistic.field_id = c_field.id
             statistic.stick_id = user_stick.stick.id
-        
+
+
+
             #CALCULATE PLACE_FROM
             # ==========================================
             for place_from_num in 1..11 do
@@ -883,6 +885,9 @@ class Statistic < ActiveRecord::Base
           @u_statsProg.field_id = c_field.id
           @u_statsProg.hcp = c_user.hcp
 
+          @max_dist = Hit.where("real_hit = 'r' OR real_hit = 'rp'").where(:user_id => c_user.id).order("hit_distance DESC").first
+
+          @u_statsProg.max_distance = @max_dist.hit_distance
           @return = true if @u_statsProg.save
         end
 
