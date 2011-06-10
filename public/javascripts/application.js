@@ -8,7 +8,8 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
   bindSaveSwitch();
-});
+  });
+
 
 
 function bindHitFormPlan() {
@@ -93,6 +94,22 @@ function bindSaveSwitch() {
   });
 }
 
+function checkFieldName() {
+  textEntered = true
+     $(".field_name_field").each(function() {
+        if (textEntered && $(this).val() == "") {
+            textEntered = false;
+        }
+    });
+ if (textEntered) {
+      $('.error').hide();
+        $('form').submit(); 
+      }
+       else {
+        $(".error").slideDown('slow');
+        return false}
+  
+}
 // function check_game_form() {
 //     textEntered = true
 //        $(".game_input_select").each(function() {
