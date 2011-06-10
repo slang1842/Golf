@@ -49,7 +49,7 @@ class Statistic < ActiveRecord::Base
     p = planed.hit_distance
     r = real.hit_distance
     
-    unless p == nil or r == nil
+    unless p == nil or r == nil or p == 0 or r == 0
 
       #formula ir
       #

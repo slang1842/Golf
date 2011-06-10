@@ -1,2 +1,0 @@
-page['#games_list_div'].html render(:partial => 'games/index_partial', :locals => {:games => @games})
-page['#more_games_link'].html render(:partial => 'games/more_games_link', :locals => {:count => @count}) 

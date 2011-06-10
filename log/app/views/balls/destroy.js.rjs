@@ -1,1 +1,0 @@
-page["#ball_#{@ball_id}"].remove();
