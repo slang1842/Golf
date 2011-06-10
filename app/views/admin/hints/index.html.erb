@@ -1,22 +1,14 @@
 <h1>Listing Hints</h1>
+<br/>
 
-<table>
-  <tr>
-    <th>Text</th>
-	 <th>To Do</th>
-  </tr>
 
-<% @hints.each do |hint| %>
-  <tr>
-    <td><%= hint.text %></td>
-    <td><%= link_to 'Delete',[:admin, hint], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% @all_admins.each do |c_admin| %>
+
+  <div class="admin_list_admins">
+    <div class="item"><%= c_admin.first_name %></div> <div class="item"><%= c_admin.first_name %></div> 
+  </div>
+
+
 <% end %>
-</table>
-
-<br />
-
-
-
 
 
