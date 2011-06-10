@@ -9,4 +9,10 @@
       <p><a href="/club/edit">Edit club info</a>   </p>
     </div>
       </div>
+      <% flash.each do |key, msg| %>
+  <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+  <%= content_tag :script, :type => "text/javascript" do -%>
+    setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+  <% end %>
+<% end %>
 <%= render :partial => 'fields/list', :class => "green_button", :locals => {:golf_club => @golf_club, :fields => @golf_club.fields } %> 

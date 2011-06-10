@@ -39,8 +39,8 @@ class FieldsController < ApplicationController
     
     respond_to do |format|
       if @field.save
-        
-        format.html { redirect_back_or_default(golf_club_path) }
+     
+        format.html { redirect_to('/club/edit_fields', :notice => "Field was successfully created." )}
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @field.errors, :status => :unprocessable_entity }
@@ -57,7 +57,7 @@ class FieldsController < ApplicationController
        
     respond_to do |format|
       if @field.update_attributes(params[:field])
-        format.html { redirect_back_or_default(golf_club_path) }
+        format.html { redirect_to('/club/edit_fields', :notice => "Field was successfully updated.") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
