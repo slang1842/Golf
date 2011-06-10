@@ -1019,7 +1019,7 @@ a {
 
 .error, .error_default {
   border: 1px solid;
-  margin: 10px 0px;
+  margin: 16px 20px 10px 10px;
   padding:15px 10px 15px 50px;
   background-repeat: no-repeat;
   background-position: 10px center;
@@ -1068,8 +1068,9 @@ a {
   margin:10px;
   font-weight:bold;
 }
-}
-.login_button {
+
+
+.header_wrap .login_wrap a {
 	background-color: #88BB25;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;

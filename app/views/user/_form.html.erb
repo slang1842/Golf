@@ -5,9 +5,6 @@
 
 <div class="profile_info_input">
 
-  <br /><br />
-
-
   <% form_for(@user, :url => user_path, :html => { :multipart => true,  :onsubmit => "return check_user_form();"} ) do |f| %>
 
     <div class="error">All fields are required</div>

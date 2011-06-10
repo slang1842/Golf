@@ -883,6 +883,9 @@ class Statistic < ActiveRecord::Base
           @u_statsProg.field_id = c_field.id
           @u_statsProg.hcp = c_user.hcp
 
+          @max_dist = Hit.where("real_hit = 'r' OR real_hit = 'rp'").where(:user_id => c_user.id).order("hit_distance DESC").first
+
+          @u_statsProg.max_distance = @max_dist.hit_distance
           @return = true if @u_statsProg.save
         end
 
