@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :balls, :allow_destroy => true
   
   validates :first_name, :last_name, :nick, :birth, :presence => true
-  validates_uniqueness_of :email
+  validates :email, :uniqueness => true #, :message => '%{:email} has already been taken'
+
   
   validates :ball_manufacturer, :ball_type, :on => :bag, :presence => true
   validates :stick_type, :distance, :degrees, :shaft, :shaft_strength, :on => :bag, :presence => true

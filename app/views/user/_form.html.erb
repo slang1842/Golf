@@ -5,30 +5,21 @@
 
 <div class="profile_info_input">
   <div class="error">All fields are required</div>
-
-  <% if @user.errors.any? %>
-    <div class="error_default">
-      <span><%= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></span>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <% flash.each do |key, msg| %>
-    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-    <%= content_tag :script, :type => "text/javascript" do -%>
-      setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
-    <% end %>
-  <% end %>
-
-  <h1>Your profile</h1>
+  <br /><br />
 
 
   <% form_for(@user, :url => user_path, :html => { :multipart => true,  :onsubmit => "return check_user_form();"} ) do |f| %>
 
+    <% if @user.errors.any? %>
+      <div class="error_default">
+        <span><%= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></span>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <div class="left_wrap">
       <div class="single_element">
@@ -142,6 +133,7 @@
               <p><%= f.label t "form.home_club", :id => "golf_club_label"%></p>
             </div>
             <div class="input" id = "golf_club_checkbox">
+              <% @golf_club = GolfClub.where(:accepted => "yes") %>
               <%= f.collection_select(:golf_club_id, @golf_club, :id, :name, { :prompt => t(:notices_no_club)}, {:class => 'dropdown8'}) %>
             </div>
           </div>

@@ -15,7 +15,7 @@ class UserController < ApplicationController
 
   def edit
     @user = current_user
-    @golf_club = GolfClub.where(:accepted => "yes")
+    #@golf_club = GolfClub.where(:accepted => "yes")
   end                                      
 
   def create
@@ -24,17 +24,24 @@ class UserController < ApplicationController
     if  @user.add_club == true
       @user.add_club = false
       @add_golf_club = true
-    end            
-    if @user.save                        
-      if @add_golf_club == true
-        redirect_to new_golf_club_path
-      elsif @add_golf_club == false
-        redirect_to welcome_path
-      end      
-    else                                 
-      redirect_to new_user_path
-    end                                  
-  end                                      
+    end
+
+    respond_to do |format|
+      if @user.save
+        if @add_golf_club == true
+          redirect_to new_golf_club_path
+        elsif @add_golf_club == false
+          redirect_to welcome_path
+        end
+      else
+        #format.html { render :action => "new" }
+        #format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        format.html { render :action => "new" }
+        #redirect_to new_user_path
+        #render :action => "new"
+      end
+    end
+  end
 
   def update
     @golf_club_id = params[:user][:golf_club_id]
