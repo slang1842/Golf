@@ -23,7 +23,7 @@
 
 .bag_wrap .clubs .element {
 	float:left;
-	margin-left:10px;
+	margin-left:30px;
 	margin-right:10px;
 	margin-bottom:10px;
 }
@@ -74,3 +74,11 @@
 /*.bag_wrap .button_done a:hover {
     cursor: pointer;
 }*/
+
+.club_set .subitem label {
+	color: #898989;
+	font-size: 12px;
+	font-family: "Trebuchet MS";
+	font-weight: bold;
+	line-height: 14px;
+}

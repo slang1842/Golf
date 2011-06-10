@@ -197,8 +197,8 @@
     font-size:19px;
     color:#363636;
     width: auto;
-    margin: 5px  5px 5px 390px;
-    padding: 0 5px 5px 5px;
+    margin: 5px  5px 5px 109px;
+
     font-weight:bold;
     font-family:"Trebuchet MS";
     
@@ -232,6 +232,13 @@
   margin-left :0px;
   padding-left :10px !important; 
 }
+
+.background_fix2 {
+   background-image:url(img/bg_stripes.png);
+
+ 
+}
+
 .background_fix h1 {
   
    font-size:19px
@@ -446,4 +453,9 @@
 
 .button_done_newgame button {
   width:220px;
+}
+
+.club_form{
+  width:300px;
+  float:left;
 }

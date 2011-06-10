@@ -8,25 +8,29 @@
   <%=render :partial => 'games/hole_tab', :locals => {:holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :game_id => @game.id, :active_hole => @start_hole, :form_id => @form_id, :hits => @hitcount, :puts => @puts}%>
 </div>
 </div>
+</div>
    <div class="plan_input_wrap">
 
      <div class="error" style="max-width:250px float:right">Please, select club!</div>
 
      <div class="input_wrap">
+       
 <div id="hit_count_tab">
 <%= render :partial => 'games/hit_tab', :locals => {:game_id => @game.id, :active_hole => @active_hole, :active_hit => 1, :form_id => @form_id} %>
 </div>
+<div id="hit_edit_tab2">
 <div id="hit_edit_tab">
 
    <%= render :partial => 'games/hit_form_details', :locals => {:hit_r_final => @hit_r_final, :hit_p_final => @hit_p_final, :game => @game, :active_hit => @active_hit, :pair_hit => @pair_hit, :active_hole => @active_hole, :active_hit => @active_hit, :end_hole => @end_hole}%>
 </div>
+</div>
   </div>
-  </div>
-   </div>
+  
+  
    </div>
     <div class="game_input_image_wrap">
 <div id="hole_picture">
    <%= render :partial => 'games/hole_picture', :locals => {:hole => @hole} %>
 </div>
 </div>
-
+</div>

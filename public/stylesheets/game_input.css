@@ -1,4 +1,4 @@
-.game_input_wrap {
+
     width:656px;
     float:left;
 }
@@ -154,13 +154,14 @@
 .game_input_wrap .plan_input_wrap {
     width:656px;
     float:left;
+    background-image:url(img/bg_stripes.png);
 }
 
 .game_input_wrap .plan_input_wrap .input_wrap {
     width:656px;
     height:60px;
     background-image:url(img/bg_stripes.png);
-    margin-top:6px;
+    /*margin-top:6px;*/
 }
 
 .game_input_wrap .plan_input_wrap .input_wrap .stroke_switcher {
@@ -230,6 +231,10 @@
     padding-left:10px;
 }
 
+.game_input_checkbox {
+  width:15px !important;
+  height:15px !important;
+}
 .game_input_wrap .plan_input_wrap .input_wrap .heading_plan {
     width:131px;
     float:left;
@@ -302,4 +307,12 @@
     font-weight:bold;
     padding-left:10px;
     outline:none;
+}
+
+.result_button_wrap {
+   margin-right:80px;
+}
+
+.green_button_game_input{
+  
 }

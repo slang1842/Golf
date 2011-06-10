@@ -36,7 +36,7 @@
           
         <% end %>
        </div>
-              
+             <div class="result_button_wrap"> 
             <% if game1 == 2%>
     <% last_hole_number = 18 %>
     <% elsif game1 == 3%>
@@ -47,16 +47,16 @@
     <% if active_hole.to_i != last_hole_number.to_i%> 
    
      
-        <div class="button_wrap">
+        <div class="button_wrap" style="margin-right:0px; margin-left:20px">
          <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" >Next hole</a>
         </div>
          <%end%>
-        <div class="button_wrap ">
+        <div class="button_wrap " style="margin-right:0px">
           <div class="save_gif">
               <a href="#" rel="save" class="gray_button saveswitch" >Save</a>
             </div>
               </div>
-       
+       </div>
 <% end %>
 </div>
      

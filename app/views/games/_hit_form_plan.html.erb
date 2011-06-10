@@ -30,12 +30,14 @@
               <%= f.select( :land_place, PLANNED_LAND_PLACES, {:prompt => "Select"},{:class => 'dropdown6'}) %>
             </div>
         </div>
-<div class="single_dropdown ">
+        <div class="save_switch_p">
+<div class="single_dropdown " style="width:60px">
             <div class="element" >
               <div class="save_gif">
               <a href="#" rel="save" class="gray_button saveswitch" >Save</a>
               </div>
             </div>
+        </div>
         </div>
         <% if active_hole != end_hole%>
          <% if game1 == 2%>
@@ -47,11 +49,12 @@
     <% end %>
     <% if active_hole.to_i != last_hole_number.to_i%> 
    
-      
+      <div class="save_switch_p">
         <div class="single_dropdown">
             <div class="element">
               <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" >Next&nbsp;hole</a>
              </div>
+        </div>
         </div>
         <%end%>
          <%end%>
