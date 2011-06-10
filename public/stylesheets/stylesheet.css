@@ -1017,7 +1017,7 @@ a {
   font-size:20px;
 }
 
-.error, .error_default {
+.error, .error_default, .info {
   border: 1px solid;
   margin: 16px 20px 10px 10px;
   padding:15px 10px 15px 50px;
@@ -1027,7 +1027,7 @@ a {
   background-color: #FFBABA;
   background-image: url('/images/error.png');
 }
-.error {
+.error, .info {
   display: none;
 }
 
@@ -1037,6 +1037,12 @@ a {
 
 .error_default ul li {
   font-size: 14px;
+}
+
+.info {
+  color: #00529B;
+  background-color: #BDE5F8;
+  background-image: url('/images/info.png');
 }
 
 .club_banner {

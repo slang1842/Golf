@@ -582,10 +582,6 @@ class Statistic < ActiveRecord::Base
         @hit_p = @hits.where("real_hit = 'p' OR real_hit = 'pp'").order("hit_number")
         @hit_r = @hits.where("real_hit = 'r' OR real_hit = 'rp'").order("hit_number")
 
-
-
-        #"real_hit = 'r' OR real_hit = 'rp'"
-         
         game_s_holes.put_sum = @hit_r.where(:place_from => 1).count
         game_s_holes.gir_sum = @hit_r.where(:place_from => 1, :hit_number => 2).count
         game_s_holes.hit_sum = @hit_r.count
