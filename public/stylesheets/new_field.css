@@ -80,7 +80,7 @@
 	padding-left:10px;
 	background-image:url(img/bg_stripes.png);
 	width:420px;
-	margin-top:20px;
+	/*margin-top:20px;*/
 	float:left;
 	position:relative;
 	right:10px;
@@ -129,7 +129,7 @@
 }
 .new_field .holes .add_hole {
 	margin-top:10px;
-	margin-left:226px;
+/*	margin-left:226px;*/
 	margin-bottom:10px;
 }
 
@@ -141,7 +141,7 @@
 }
 
 .new_field .hit_places_wrap h1 {
-	padding-left:10px;
+	/*padding-left:10px;*/
 }
 
 .new_field .hit_places_wrap .single_wrap {
@@ -235,9 +235,7 @@
 
 .background_fix2 {
    background-image:url(img/bg_stripes.png);
-
- 
-}
+ }
 
 .background_fix h1 {
   
@@ -255,7 +253,7 @@
   height:24px;
   width:200px;
   font-family:"Trebuchet MS";
-  color:#898989;
+/*  color:#898989;*/
   font-weight:bold;
 }
 
@@ -361,7 +359,7 @@
 }
 .edit_field .holes .add_hole {
   margin-top:10px;
-  margin-left:226px;
+
   margin-bottom:10px;
 }
 

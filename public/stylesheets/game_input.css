@@ -314,5 +314,18 @@
 }
 
 .green_button_game_input{
+  border:none;
+  background-color:#b6d051;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  font-size:19px;
+  color:#363636;
+
+  padding-left:5px;
+  padding-right:5px;
+  font-weight:bold;
+  font-family:"Trebuchet MS";
   
+  display:inline-block;
 }

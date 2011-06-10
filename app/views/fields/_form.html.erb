@@ -12,8 +12,10 @@
     </div>
   <% end %>
 
-
+    
   <div class="background_fix" style="margin-top:0px ">
+    <div class="new_field_green_fees_wrap" style="float:left">
+      
     <div class="field_name">
       <div class="txt"><p>Field name</p></div>
       <div class="input"><%= f.text_field :name %><br /><br /></div>
@@ -42,8 +44,42 @@
       </div>
     </div>
 
+    
+  <div id="hit_places">
+    <div class="hit_places_wrap">
+
+      <h1>Start places</h1>
+
+      <div class="single_wrap">
+        <div class="txt two_lines"><p>Very short distance</p></div>
+        <div class="color_dropdown">
+          <%=  f.select( :very_short_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
+        </div>
+      </div>
+      <div class="single_wrap">
+        <div class="txt two_lines"><p>Short distance</p></div>
+        <div class="color_dropdown">
+          <%=  f.select( :short_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
+        </div>
+      </div>
+      <div class="single_wrap">
+        <div class="txt two_lines"><p>Normal distance</p></div>
+        <div class="color_dropdown">
+          <%=  f.select( :normal_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
+        </div>
+      </div>
+      <div class="single_wrap">
+        <div class="txt two_lines"><p>Long distance</p></div>
+        <div class="color_dropdown">
+          <%=  f.select( :long_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
 
+     <div class="new_field_holes_wrap" style="float:left" >
     <div class="holes">
       <h1>Holes</h1>
       <div class="headings"><p>PAR</p></div>
@@ -80,41 +116,11 @@
 
       </div>
     </div>
-  </div>
-
-
-  <div id="hit_places">
-    <div class="hit_places_wrap">
-
-      <h1>Start places</h1>
-
-      <div class="single_wrap">
-        <div class="txt two_lines"><p>Very short distance</p></div>
-        <div class="color_dropdown">
-          <%=  f.select( :very_short_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
-        </div>
-      </div>
-      <div class="single_wrap">
-        <div class="txt two_lines"><p>Short distance</p></div>
-        <div class="color_dropdown">
-          <%=  f.select( :short_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
-        </div>
-      </div>
-      <div class="single_wrap">
-        <div class="txt two_lines"><p>Normal distance</p></div>
-        <div class="color_dropdown">
-          <%=  f.select( :normal_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
-        </div>
-      </div>
-      <div class="single_wrap">
-        <div class="txt two_lines"><p>Long distance</p></div>
-        <div class="color_dropdown">
-          <%=  f.select( :long_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
-        </div>
-      </div>
     </div>
   </div>
-  <div class="green_button_save_field">
+
+<div class="clear"></div>
+  <div class="green_button_save_field" style="margin-left:275px">
     <%= f.submit %>
   </div>
 
