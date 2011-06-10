@@ -142,7 +142,9 @@ a:hover {text-decoration: underline; color: black;}
 }
 
 .admin_list_admins .item {
-
+  display: inline-block;
+  border-left: solid 1px grey;
+  padding: 2px 5px;
 }
 
 

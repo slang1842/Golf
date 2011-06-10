@@ -876,16 +876,16 @@ class Statistic < ActiveRecord::Base
         unless @user_progres_arr.size == 0
           @user_stats_progres_val = (@user_progres_arr.inject(0.0) { |sum, el| sum + el } / @user_progres_arr.size).round
 
-          @u_statsProg = StatisticUserProgres.new
-          @u_statsProg.user_progress = @user_stats_progres_val
-          @u_statsProg.user_id = c_user.id
-          @u_statsProg.field_id = c_field.id
-          @u_statsProg.hcp = c_user.hcp
+          @u_stats_prog = StatisticUserProgres.new
+          @u_stats_prog.user_progress = @user_stats_progres_val
+          @u_stats_prog.user_id = c_user.id
+          @u_stats_prog.field_id = c_field.id
+          @u_stats_prog.hcp = c_user.hcp
 
           @max_dist = Hit.where("real_hit = 'r' OR real_hit = 'rp'").where(:user_id => c_user.id).order("hit_distance DESC").first
 
-          @u_statsProg.max_distance = @max_dist.hit_distance
-          @return = true if @u_statsProg.save
+          @u_stats_prog.max_distance = @max_dist.hit_distance
+          @return = true if @u_stats_prog.save
         end
 
 
