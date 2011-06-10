@@ -96,7 +96,9 @@ class Statistic < ActiveRecord::Base
             statistic.game_id = c_game.id
             statistic.field_id = c_field.id
             statistic.stick_id = user_stick.stick.id
-        
+
+
+
             #CALCULATE PLACE_FROM
             # ==========================================
             for place_from_num in 1..11 do

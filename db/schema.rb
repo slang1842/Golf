@@ -300,6 +300,7 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.integer  "field_id"
     t.integer  "hcp"
     t.integer  "user_progress"
+    t.integer  "max_distance"
     t.integer  "num"
     t.datetime "created_at"
     t.datetime "updated_at"

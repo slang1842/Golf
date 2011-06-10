@@ -26,17 +26,19 @@ class UserController < ApplicationController
       @add_golf_club = true
     end
 
-    respond_to do |format|
-      if @user.save
-        if @add_golf_club == true
-          redirect_to new_golf_club_path
-        elsif @add_golf_club == false
-          redirect_to welcome_path
-        end
+    
+    if @user.save
+      #redirect_to welcome_path
+      if @add_golf_club == true
+        redirect_to new_golf_club_path
       else
-        #format.html { render :action => "new" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        redirect_to welcome_path
+      end
+    else
+      respond_to do |format|
         format.html { render :action => "new" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        #format.html { render :action => "new" }
       end
     end
   end
