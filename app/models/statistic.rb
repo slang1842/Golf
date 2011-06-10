@@ -569,11 +569,8 @@ class Statistic < ActiveRecord::Base
       @holes = Hole.where(:field_id => c_game.field_id)
       @holes.each do |c_hole|
        
-        @hits = Hit.where(
-          :game_id => c_game.id,
-          :user_id => c_game.user_id,
-          :hole_id => c_hole.id)
-        
+        @hits = Hit.where(:game_id => c_game.id , :user_id => c_game.user_id, :hole_number => c_hole.hole_number)
+
         game_s_holes = GameStatisticsByHoles.new
         game_s_holes.game_id = c_game.id #game_id
         game_s_holes.user_id = c_game.user_id #user_id
@@ -581,10 +578,14 @@ class Statistic < ActiveRecord::Base
 
         game_s_holes.hole_id = c_hole.id
         game_s_holes.hole_number = c_hole.hole_number
-       
-        @hit_p = Hit.where(:real_hit => "pp").order("hit_number")
-        @hit_r = Hit.where(:real_hit => "rp").order("hit_number")
 
+        @hit_p = @hits.where("real_hit = 'p' OR real_hit = 'pp'").order("hit_number")
+        @hit_r = @hits.where("real_hit = 'r' OR real_hit = 'rp'").order("hit_number")
+
+
+
+        #"real_hit = 'r' OR real_hit = 'rp'"
+         
         game_s_holes.put_sum = @hit_r.where(:place_from => 1).count
         game_s_holes.gir_sum = @hit_r.where(:place_from => 1, :hit_number => 2).count
         game_s_holes.hit_sum = @hit_r.count
@@ -601,7 +602,7 @@ class Statistic < ActiveRecord::Base
         @hit_p.each do |c_p_hit|
           begin
             @c_stick_id = Stick.find(c_p_hit.stick_id)
-            @stick_order_p_arr.push(@c_stick_id.short_name) unless @c_stick_id
+            @stick_order_p_arr.push(@c_stick_id.short_name) unless @c_stick_id == nil
           rescue
           end
         end
