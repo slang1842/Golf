@@ -154,18 +154,18 @@
 
   <div class="top_wrap">
     <h1>Top spēlētāji</h1>
-    <p>1. Vilhelms Purvītis</p>
-    <p>2. Kārlis Padegs</p>
-    <p>3. Valdemārs Tone</p>
-    <p>4. Maija Tabaka</p>
-    <p>5. Jānis Kalniņš</p>
+    <% @num1 = 1 %>
+    <% @top_users_progress.each do |top| %>
+      <p><%= @num1 %>. <%= User.find(top.user_id).first_name %> <%= User.find(top.user_id).last_name %></p>
+      <% @num1 = @num1 + 1%>
+    <% end %>
 
     <h1>Top distance</h1>
-    <p>1. Taigers Kalniņš</p>
-    <p>2. Jānis Vuds</p>
-    <p>3. Jānis Kalniņš</p>
-    <p>4. Jānis Kalniņš</p>
-    <p>5. Jānis Kalniņš</p>
+    <% @num2 = 1 %>
+    <% @max_hit.each do |distance| %>
+      <p><%= @num2 %>. <%= User.find(distance.user_id).first_name %> <%= User.find(distance.user_id).last_name %></p>
+      <% @num2 = @num2 + 1%>
+    <% end %>
 
 
 

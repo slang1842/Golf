@@ -3,7 +3,7 @@ html {
   font-family: Tahoma, Geneva, sans-serif;
 }
 
-
+input {margin: 0; padding: 0;}
 
 .page {
   background-color: #f5f5f5;

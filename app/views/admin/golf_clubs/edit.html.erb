@@ -7,6 +7,7 @@
 
 
     <div class="column">
+      <div class="item">Pievienoja:</div>
       <div class="item">Name:</div>
       <div class="item">Country:</div>
       <div class="item">Region:</div>
@@ -19,6 +20,8 @@
     </div>
 
     <div class="column">
+      <% @user = User.find(@golf_club.user_id) %>
+      <div class="item"><%= @user.first_name %> <%= @user.last_name %></div>
       <div class="item"><%= @golf_club.name%></div>
       <div class="item"><%= @golf_club.country.name%></div>
       <div class="item"><%= @golf_club.region%></div>
