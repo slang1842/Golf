@@ -153,25 +153,23 @@
   </div>
 
   <div class="top_wrap">
-    <h1>Top spēlētāji</h1>
-    <% @num1 = 1 %>
-    <% @top_users_progress.each do |top| %>
-      <p><%= @num1 %>. <%= User.find(top.user_id).first_name %> <%= User.find(top.user_id).last_name %></p>
-      <% @num1 = @num1 + 1%>
+    <% if @top_users_progress.count != 0 %>
+      <h1>Top spēlētāji</h1>
+      <% @num1 = 1 %>
+      <% @top_users_progress.each do |top| %>
+        <p><%= @num1 %>. <%= User.find(top.user_id).first_name %> <%= User.find(top.user_id).last_name %></p>
+        <% @num1 = @num1 + 1%>
+      <% end %>
     <% end %>
 
-    <h1>Top distance</h1>
-    <% @num2 = 1 %>
-    <% @max_hit.each do |distance| %>
-      <p><%= @num2 %>. <%= User.find(distance.user_id).first_name %> <%= User.find(distance.user_id).last_name %></p>
-      <% @num2 = @num2 + 1%>
+    <% if @max_hit.count != 0  %>
+      <h1>Top distance</h1>
+      <% @num2 = 1 %>
+      <% @max_hit.each do |distance| %>
+        <p><%= @num2 %>. <%= User.find(distance.user_id).first_name %> <%= User.find(distance.user_id).last_name %></p>
+        <% @num2 = @num2 + 1%>
+      <% end %>
     <% end %>
-
-
-
-
-
-
-
   </div>
+
 </div>
