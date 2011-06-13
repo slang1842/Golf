@@ -133,20 +133,44 @@ a:hover {text-decoration: underline; color: black;}
 .admin_list_admins {
   border: solid 1px grey;
   display: block;
-  float: left;
-  margin: 15px 5px 0 5px;
+  margin: 15px 2px 0 2px;
   padding: 2px 5px;
   width: 100%;
-
 
 }
 
 .admin_list_admins .item {
   display: inline-block;
   border-left: solid 1px grey;
-  padding: 2px 5px;
+  padding: 2px 0 2px 5px;
+  width: 120px;
 }
 
+.admin_hint_wrap {
+  display: block;
+  margin: 10px 0 10px 270px;
+  width: 500px;
+  border: solid 1px grey;
+}
+
+.admin_hint_wrap span {
+  display: block;
+  margin: 12px 5px;
+  text-decoration: underline;
+}
+
+.admin_hint_wrap .item {
+  display: block;
+  margin: 0 5px;
+  padding: 3px;
+  color: grey;
+
+}
+
+.admin_hint_wrap .item .subitem {
+  display: inline-block;
+  width: 200px;
+}
 
 /********************HINTS*************************/
 

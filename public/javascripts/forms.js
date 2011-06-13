@@ -1,5 +1,6 @@
 $(document).ready(function(){
   datapicker();
+  userdatapicker();
   timepicker();
   admintimepicker();
   gamedatepicker();
@@ -50,6 +51,16 @@ function datapicker() {
     changeMonth: true,
     changeYear: true,
     dateFormat: 'dd.mm.y',
+    yearRange: '1900:2011',
+    firstDay: 1
+  });
+}
+
+function userdatapicker() {
+  $( "#userdatapicker" ).datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: 'yy-mm-dd',
     yearRange: '1900:2011',
     firstDay: 1
   });
