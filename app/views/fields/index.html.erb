@@ -1,20 +1,26 @@
 <%= render :partial => 'share/header_menu' %>
 
-    
-      <div class="club_wrap">
-    <div class="club_info_wrap">
-      <h1><%=@golf_club.name%></h1>
-      <p><span class="gray"><%=@golf_club.city%>, <%=@golf_club.region%></span></p>
-      <p><span class="gray"><%=@golf_club.web_page%></span></p>
-      <p><a href="/club/edit">Edit club info</a>   </p>
-    </div>
-      </div>
-      <% flash.each do |key, msg| %>
-  <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-  <%= content_tag :script, :type => "text/javascript" do -%>
-    setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
-  <% end %>
+
+<div class="club_wrap">
+  <div class="club_info_wrap">
+    <h1><%=@golf_club.name%></h1>
+    <p><span class="gray"><%=@golf_club.city%>, <%=@golf_club.region%></span></p>
+    <p><span class="gray"><%=@golf_club.web_page%></span></p>
+    <p><a href="/club/edit">Edit club info</a>   </p>
+  </div>
+</div>
+
+<% if flash.count > 0 %>
+  <div class="info" style="display:block;">
+    <% flash.each do |key, msg| %>
+      <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+      <%= content_tag :script, :type => "text/javascript" do -%>
+        setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
+
 <div class="background_fix2" style="width:900px; overflow:hidden">
-<%= render :partial => 'fields/list', :class => "green_button", :locals => {:golf_club => @golf_club, :fields => @golf_club.fields } %> 
+  <%= render :partial => 'fields/list', :class => "green_button", :locals => {:golf_club => @golf_club, :fields => @golf_club.fields } %>
 </div>

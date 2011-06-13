@@ -1,9 +1,10 @@
- <div class="error" style="max-width:250px float:right">Please, enter field name!</div>
+<div class="error" style="max-width:250px float:right">Please, enter field name!</div>
 <%= form_for([:golf_club, @field], :html => {:multipart => true}) do |f| %>
-  <
-  % if @field.errors.any? %>
-    <div id="error_explanation">
+
+  <% if @field.errors.any? %>
+    <div class="error_default">
       <h2><%= pluralize(@field.errors.count, "error") %> prohibited this field from being saved:</h2>
+
       <ul>
         <% @field.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -22,122 +23,118 @@
       <% end %>
     </div>
   <% end %>
-    
+
   <div class="background_fix" style="margin-top:0px ">
     <div class="new_field_green_fees_wrap" style="float:left">
-      
-    <div class="field_name">
-      <div class="txt"><p>Field name</p></div>
-      <div class="input"><%= f.text_field (:name, {:class => "field_name_field"} )%><br /><br /></div>
 
-    </div>
-    <div class="clear"></div>
-    <div class="txt"><p>Green fees</p></div>
-    <div id="green_fees">
-      <div class="green_fee">
-        <div class="txt"><p>Green fee (What / When)</p></div>
-        <div class="txt"><p>Price</p></div>
-        <%if @field.green_fees.any? %>
-          <% @field.green_fees.each do |green_fee| %>
-            <%= render :partial => '/fields/new_green_fee', :locals => {:green_fee => green_fee, :f => f, :green_fee_attributes_name => @green_fee_attributes_name} %>
+      <div class="field_name">
+        <div class="txt"><p>Field name</p></div>
+        <div class="input"><%= f.text_field (:name, {:class => "field_name_field"} )%><br /><br /></div>
 
-          <% end %>
-        <%else%>
-          <%= render(:partial => '/fields/new_green_fee1', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name, :green_fee_value => 'Working days, 18 holes'})%>
-          <%= render(:partial => '/fields/new_green_fee1', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name, :green_fee_value => 'Weekend, 18 holes'})%>
-        <% end %>
       </div>
-    </div>
-    <div class="green_fee">
-      <div class="button_wrap">
-        <a onclick="<%="$('#green_fees').append(#{render(:partial => '/fields/new_green_fee', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name}).to_json})"%>" href="#" class="green_button">Pievienot vēl</a>
-      </div>
-    </div>
-
-    
-  <div id="hit_places">
-    <div class="hit_places_wrap">
-
-      <h1>Start places</h1>
-
-      <div class="single_wrap">
-        <div class="txt two_lines"><p>Very short distance</p></div>
-        <div class="color_dropdown">
-          <%=  f.select( :very_short_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
-        </div>
-      </div>
-      <div class="single_wrap">
-        <div class="txt two_lines"><p>Short distance</p></div>
-        <div class="color_dropdown">
-          <%=  f.select( :short_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
-        </div>
-      </div>
-      <div class="single_wrap">
-        <div class="txt two_lines"><p>Normal distance</p></div>
-        <div class="color_dropdown">
-          <%=  f.select( :normal_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
-        </div>
-      </div>
-      <div class="single_wrap">
-        <div class="txt two_lines"><p>Long distance</p></div>
-        <div class="color_dropdown">
-          <%=  f.select( :long_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
-
-     <div class="new_field_holes_wrap" style="float:left" >
-    <div class="holes">
-      <h1>Holes</h1>
-      <div class="headings"><p>PAR</p></div>
-      <div class="headings"><p>HCP</p></div>
       <div class="clear"></div>
+      <div class="txt"><p>Green fees</p></div>
+      <div id="green_fees">
+        <div class="green_fee">
+          <div class="txt"><p>Green fee (What / When)</p></div>
+          <div class="txt"><p>Price</p></div>
+          <%if @field.green_fees.any? %>
+            <% @field.green_fees.each do |green_fee| %>
+              <%= render :partial => '/fields/new_green_fee', :locals => {:green_fee => green_fee, :f => f, :green_fee_attributes_name => @green_fee_attributes_name} %>
 
-      <div id="holes">
-        <% @field.holes.each do |hole| %>
-          <%= render :partial => '/fields/new_hole', :locals => {:hole => hole, :f => f, :hole_attributes_name => @hole_attributes_name, :hole_number => hole.hole_number} %>
-
-          <% hole_number = hole.hole_number %>
-        <% end %>
+            <% end %>
+          <%else%>
+            <%= render(:partial => '/fields/new_green_fee1', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name, :green_fee_value => 'Working days, 18 holes'})%>
+            <%= render(:partial => '/fields/new_green_fee1', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name, :green_fee_value => 'Weekend, 18 holes'})%>
+          <% end %>
+        </div>
       </div>
-      <% hole_number ||= 0 %>
+      <div class="green_fee">
+        <div class="button_wrap">
+          <a onclick="<%="$('#green_fees').append(#{render(:partial => '/fields/new_green_fee', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name}).to_json})"%>" href="#" class="green_button">Pievienot vēl</a>
+        </div>
+      </div>
 
-      <div class="add_hole">
-        <script type="text/javascript">
-          function append_new_hole(x) {
-            var i = $('.current_hole_number:last').val();
-            if(i === undefined) {
-              i = 0;
-              i = parseInt(i);
-            }
-	           
-            i = parseInt(i) + 1;
-            $('#holes').append(x);
-            $('.current_hole_number:last').val(i);
-            $('.hole_number_text:last').replaceWith(i+'.');
-          }
-	        
-        </script>
 
-        <a href="#" onClick="append_new_hole(<%=render(:partial => '/fields/new_hole', :locals => {:f => f, :hole_attributes_name => @new_hole_attributes_name, :hole => Hole.new}).to_json %>)" class="green_button" style="margin-left:13px">+ Vēl vienu</a>
+      <div id="hit_places">
+        <div class="hit_places_wrap">
 
+          <h1>Start places</h1>
+
+          <div class="single_wrap">
+            <div class="txt two_lines"><p>Very short distance</p></div>
+            <div class="color_dropdown">
+              <%= f.select( :very_short_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
+            </div>
+          </div>
+          <div class="single_wrap">
+            <div class="txt two_lines"><p>Short distance</p></div>
+            <div class="color_dropdown">
+              <%= f.select( :short_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
+            </div>
+          </div>
+          <div class="single_wrap">
+            <div class="txt two_lines"><p>Normal distance</p></div>
+            <div class="color_dropdown">
+              <%= f.select( :normal_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
+            </div>
+          </div>
+          <div class="single_wrap">
+            <div class="txt two_lines"><p>Long distance</p></div>
+            <div class="color_dropdown">
+              <%= f.select( :long_distance, START_PLACE_COLORS, {:prompt => "Izvēlies.."},{:class => 'dropdown3'})%>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+
+    <div class="new_field_holes_wrap" style="float:left" >
+      <div class="holes">
+        <h1>Holes</h1>
+        <div class="headings"><p>PAR</p></div>
+        <div class="headings"><p>HCP</p></div>
+        <div class="clear"></div>
+
+        <div id="holes">
+          <% @field.holes.each do |hole| %>
+            <%= render :partial => '/fields/new_hole', :locals => {:hole => hole, :f => f, :hole_attributes_name => @hole_attributes_name, :hole_number => hole.hole_number} %>
+
+            <% hole_number = hole.hole_number %>
+          <% end %>
+        </div>
+        <% hole_number ||= 0 %>
+
+        <div class="add_hole">
+          <script type="text/javascript">
+            function append_new_hole(x) {
+              var i = $('.current_hole_number:last').val();
+              if(i === undefined) {
+                i = 0;
+                i = parseInt(i);
+              }
+
+              i = parseInt(i) + 1;
+              $('#holes').append(x);
+              $('.current_hole_number:last').val(i);
+              $('.hole_number_text:last').replaceWith(i+'.');
+            }
+
+          </script>
+
+          <a href="#" onClick="append_new_hole(<%=render(:partial => '/fields/new_hole', :locals => {:f => f, :hole_attributes_name => @new_hole_attributes_name, :hole => Hole.new}).to_json %>)" class="green_button" style="margin-left:13px">+ Vēl vienu</a>
+
+        </div>
+      </div>
     </div>
   </div>
 
-<div class="clear"></div>
+  <div class="clear"></div>
   <div class="green_button_save_field" >
-   
-  <%= f.submit "aa"%>
-<a href="#" class="green_button" style="margin-left:380px; margin-bottom:10px" onClick="checkFieldName()">Update Field</a>
-</div>
-
-
-
+    <a href="#" class="green_button" style="margin-left:380px; margin-bottom:10px" onClick="checkFieldName()">Update Field</a>
+    <%= link_to 'Back', edit_golf_club_path, :class => "green_button"%>
+  </div>
 
 <% end %>
 
