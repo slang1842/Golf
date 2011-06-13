@@ -30,7 +30,7 @@ a:hover {text-decoration: underline; color: black;}
 }
 
 .table_listing .row {border: solid 1px gray; margin: 5px; display: block;}
-.table_listing .item {margin: 4px 5px; padding: 0 0 0 5px; width: 260px; border-left: solid 1px gray; display:inline-block;}
+.table_listing .item {margin: 4px 5px; padding: 0 0 0 5px; width: 140px; border-left: solid 1px gray; display:inline-block;}
 
 .form_edit .column {margin: 0 5px 0 0; display: inline-block;}
 .form_edit .item {border-bottom: dotted 1px grey; margin: 2px 0 2px 0; padding: 2px 5px 2px 10px; display: block; height: 25px;}

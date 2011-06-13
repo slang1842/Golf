@@ -10,14 +10,12 @@
 
 
       <div class="error">
-
         <h2><%= pluralize(@golf_club.errors.count, "error") %> prohibited this golf_club from being saved:</h2>
         <ul>
           <% @golf_club.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
         </ul>
-
       <% end %>
     </div>
 

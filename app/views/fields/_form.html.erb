@@ -1,9 +1,9 @@
  <div class="error" style="max-width:250px float:right">Please, enter field name!</div>
 <%= form_for([:golf_club, @field], :html => {:multipart => true}) do |f| %>
-  <% if @field.errors.any? %>
+  <
+  % if @field.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@field.errors.count, "error") %> prohibited this field from being saved:</h2>
-
       <ul>
         <% @field.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -12,6 +12,16 @@
     </div>
   <% end %>
 
+  <% if flash.count > 0 %>
+    <div class="info" style="display:block;">
+      <% flash.each do |key, msg| %>
+        <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+        <%= content_tag :script, :type => "text/javascript" do -%>
+          setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
     
   <div class="background_fix" style="margin-top:0px ">
     <div class="new_field_green_fees_wrap" style="float:left">
@@ -122,7 +132,7 @@
 <div class="clear"></div>
   <div class="green_button_save_field" >
    
-  
+  <%= f.submit "aa"%>
 <a href="#" class="green_button" style="margin-left:380px; margin-bottom:10px" onClick="checkFieldName()">Update Field</a>
 </div>
 
