@@ -648,8 +648,12 @@ class Statistic < ActiveRecord::Base
         
         @all_hits = Hit.all
         @all_current_stick_hits = Hit.where(:stick_id => c_user_stick.stick_id, :game_id => c_game.id)
-        @avg = ((@all_current_stick_hits.count.to_f / @all_hits.count.to_f).to_f * 100).round
-        game_s_sticks.stick_usage = @avg
+
+        unless @all_current_stick_hits.count == 0 || @all_hits.count == 0
+          @avg = ((@all_current_stick_hits.count.to_f / @all_hits.count.to_f).to_f * 100).round
+          game_s_sticks.stick_usage = @avg
+        
+        end
         game_s_sticks.avg_distance = @all_current_stick_hits.average("hit_distance") #@all_current_stick_hits.count
         
         @return = true if game_s_sticks.save

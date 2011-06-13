@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     return user.stick.count > 0 && Statistic.where(:user_id == user.id).count > 0
   end
 
+
   def is_blocked
     if current_user
       if current_user.is_blocked
