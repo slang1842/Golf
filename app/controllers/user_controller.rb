@@ -54,7 +54,8 @@ class UserController < ApplicationController
         current_user.update_attributes(:add_club => false)
         redirect_to new_golf_club_path
       else
-        redirect_to welcome_path
+        redirect_to edit_user_path
+        flash[:notice] = "User updated"
       end
     else
       format.html { render :action => "edit" }

@@ -28,6 +28,17 @@
       </div>
     <% end %>
 
+    <% if flash.count > 0 %>
+      <div class="info" style="display:block;">
+        <% flash.each do |key, msg| %>
+          <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+          <%= content_tag :script, :type => "text/javascript" do -%>
+            setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
     <div class="left_wrap">
       <div class="single_element">
         <div class="text">
@@ -146,14 +157,14 @@
           </div>
 
           <div class="user_form_checkbox">
-          <div>
-            <p>* Dont see your club?</p>
+            <div>
+              <p>* Dont see your club?</p>
 
 
-            <p><%= f.check_box :add_club, {:onclick => "golf_club_checkbox()"} %> I will create new golf club</p>
+              <p><%= f.check_box :add_club, {:onclick => "golf_club_checkbox()"} %> I will create new golf club</p>
+            </div>
+
           </div>
-
-        </div>
         </div>
       </div>
 
