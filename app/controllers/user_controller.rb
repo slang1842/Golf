@@ -109,15 +109,8 @@ class UserController < ApplicationController
   end
   
   def update_hints
-    @user = User.find(params[:id])
-    #@user.coach = params[:coach]
-    #@user.admin = params[:admin]
-    #if  @user.update_attributes(params[:user])
-    #end
-    if  @user.update_attributes(params[:user]) #:coach => params[:coach], :admin => params[:admin])
-      puts "saved"
-    else
-      puts "NOT saved"
+    @user = User.find(params[:id])   
+    if  @user.update_attributes(params[:user])
     end
   end
   

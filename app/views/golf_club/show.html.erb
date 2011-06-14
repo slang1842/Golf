@@ -8,21 +8,11 @@
     var c_value = '#c_value_' + id
     var a_value = '#a_value_' + id
 
-    if ($(c_checkbox).attr("checked") == true)
-    {
-      $(c_value).val(id);
-    }
-    else { 
-      $(c_value).val("");
-    }
+    if ($(c_checkbox).attr("checked") == true) { $(c_value).val(id); }
+    else { $(c_value).val("");}
 
-    if ($(a_checkbox).attr("checked") == true)
-    {
-      $(a_value).val(1);
-    }
-    else {
-      $(a_value).val(0);
-    }
+    if ($(a_checkbox).attr("checked") == true){$(a_value).val(1); }
+    else {$(a_value).val(0);}
     
     $(form).submit();
   }

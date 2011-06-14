@@ -1017,37 +1017,6 @@ a {
   font-size:20px;
 }
 
-.error, .error_default, .info_message {
-  border: 1px solid;
-  margin: 16px 20px 10px 10px;
-  padding:15px 10px 15px 50px;
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  color: #D8000C;
-}
-.error, .info_message {
-  display: none;
-}
-
-.error, .error_default {
-  background-image: url('/images/error.png');
-  background-color: #FFBABA;
-}
-
-.error_default span {
-  font-size: 16px;
-}
-
-.error_default ul li {
-  font-size: 14px;
-}
-
-.info_message {
-  color: #00529B;
-  background-color: #BDE5F8;
-  background-image: url('/images/info.png');
-}
-
 .club_banner {
   width: 900px;
   height: 100px;
@@ -1111,3 +1080,56 @@ a {
   text-align:right;
   margin-right:30px;
 }
+
+/* ==== error, info messages ==== */
+
+.messages {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.messages_info, .messages_success, .messages_warning, .messages_error, .messages_validation {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid;
+  margin: 10px 0px;
+  padding: 15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+
+.messages_info {
+  color: #00529B;
+  background-color: #ADE1FA;
+  filter: url(images/info.png), progid:DXImageTransform.Microsoft.gradient(startColorstr='#BDE5F8', endColorstr='#a0defc');
+  background-image: url(images/info.png), -webkit-gradient(linear, left top, left bottom, from(#BDE5F8), to(#a0defc));
+  background-image: url(images/info.png), -moz-linear-gradient(top,  #BDE5F8,  #a0defc);
+}
+.messages_success {
+  color: #4F8A10;
+  background-color: #BEF7AC;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9f7ba', endColorstr='#b6f8a1');
+  background-image: url(images/success.png), -webkit-gradient(linear, left top, left bottom, from(#c9f7ba), to(#b6f8a1));
+  background-image: url(images/success.png), -moz-linear-gradient(top,  #c9f7ba,  #b6f8a1);
+}
+.messages_warning {
+  color: #9F6000;
+  background-color: #F6F4B0;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f5ba', endColorstr='#f6f3a6');
+  background-image: url(images/warning.png), -webkit-gradient(linear, left top, left bottom, from(#f7f5ba), to(#f6f3a6));
+  background-image: url(images/warning.png), -moz-linear-gradient(top,  #f7f5ba,  #f6f3a6);
+}
+.messages_error {
+  color: #D8000C;
+  background-color: #F5AFA7;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7c0ba', endColorstr='#f5a197');
+  background-image: url(images/error.png), -webkit-gradient(linear, left top, left bottom, from(#f7c0ba), to(#f5a197));
+  background-image: url(images/error.png), -moz-linear-gradient(top,  #f7c0ba,  #f5a197);
+}
+
+/* ==== error, info messages ==== */
+
