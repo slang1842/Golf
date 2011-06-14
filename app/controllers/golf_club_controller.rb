@@ -31,7 +31,7 @@ class GolfClubController < ApplicationController
       if @golf_club.save
         #current_user.admin = true
         #current_user.golf_club_id = @golf_club.id    
-        format.html { redirect_to(loged_in_path, :notice => "Golf club #{@golf_club.name} has been successfully created. Administrator will accept it.") }
+        format.html { redirect_to(loged_in_path, flash(:notice => "Golf club #{@golf_club.name} has been successfully created. Administrator will accept it.")) }
         format.xml  { render :xml => @golf_club, :status => :created, :location => @golf_club }
       else
         format.html { render :action => "new" }

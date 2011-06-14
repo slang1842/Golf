@@ -88,14 +88,14 @@ p
 
 /* ---- .styled_select ---- */
 .dropdown1, .dropdown2, .dropdown3, .dropdown4, .dropdown5, .dropdown6, .dropdown7, .dropdown8  {
-    border: solid 2px #D3D3D3;
-    font-size: 12px;
-    height: 24px;
-    background: #E0E0E0;
-    padding: 0;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+  border: solid 2px #D3D3D3;
+  font-size: 12px;
+  height: 24px;
+  background: #E0E0E0;
+  padding: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 
@@ -161,7 +161,7 @@ a {
   line-height:29px;
   padding-left:5px;
   padding-right:5px;
- 
+
   font-weight:bold;
   font-family:"Trebuchet MS";
   height:31px;
@@ -1017,18 +1017,21 @@ a {
   font-size:20px;
 }
 
-.error, .error_default, .info {
+.error, .error_default, .info_message {
   border: 1px solid;
   margin: 16px 20px 10px 10px;
   padding:15px 10px 15px 50px;
   background-repeat: no-repeat;
   background-position: 10px center;
   color: #D8000C;
-  background-color: #FFBABA;
-  background-image: url('/images/error.png');
 }
-.error, .info {
+.error, .info_message {
   display: none;
+}
+
+.error, .error_default {
+  background-image: url('/images/error.png');
+  background-color: #FFBABA;
 }
 
 .error_default span {
@@ -1077,20 +1080,20 @@ a {
 
 
 .header_wrap .login_wrap a {
-	background-color: #88BB25;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	font-size: 15px;
-	color: white;
-	line-height: 21px;
-	padding-left: 4px;
-	padding-right: 4px;
-	padding-bottom: 1px;
-	font-weight: bold;
-	font-family: "Trebuchet MS";
-	position: relative;
-	bottom: 1px;
+  background-color: #88BB25;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 15px;
+  color: white;
+  line-height: 21px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 1px;
+  font-weight: bold;
+  font-family: "Trebuchet MS";
+  position: relative;
+  bottom: 1px;
 }
 
 .save_switch {
@@ -1099,8 +1102,8 @@ a {
 }
 
 .save_switch_p {
- position:relative; 
- top:10px;
+  position:relative;
+  top:10px;
 }
 
 .user_form_checkbox {
