@@ -29,7 +29,7 @@
     <% end %>
 
     <% if flash.count > 0 %>
-      <div class="info" style="display:block;">
+      <div class="info_message" style="display:block;">
         <% flash.each do |key, msg| %>
           <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
           <%= content_tag :script, :type => "text/javascript" do -%>

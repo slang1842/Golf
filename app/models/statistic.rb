@@ -524,6 +524,9 @@ class Statistic < ActiveRecord::Base
       #@avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round unless @avg_p_distance.size == 0
       @avg_r = (@avg_r_distance.sum /  @avg_r_distance.size).to_i unless @avg_r_distance.size == 0
       @avg_p = (@avg_p_distance.sum /  @avg_p_distance.size).to_i unless @avg_p_distance.size == 0
+      @avg_p =  @avg_p_distance.inject{ |sum, el| sum + el }.to_f / @avg_p_distance.size
+      @avg_r =  @avg_r_distance.inject{ |sum, el| sum + el }.to_f / @avg_r_distance.size
+
 
       puts "@avg_r: #{@avg_r}"
       puts "@avg_p: #{@avg_p}"
@@ -533,20 +536,17 @@ class Statistic < ActiveRecord::Base
       puts "@avg_p.class: #{@avg_p.class}"
 
       
-      if @avg_r.to_i > @avg_p.to_i
-
+      if @avg_r > @avg_p
         puts "@avg_r > @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = (@avg_p / @avg_r) * 100
 
-      elsif @avg_p.to_i < @avg_p.to_i
-
+      elsif @avg_r < @avg_p
         puts "@avg_r < @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = (@avg_r / @avg_p) * 100
 
-      elsif @avg_p.to_i == @avg_r.to_i
-
+      elsif @avg_r == @avg_p
         puts "@avg_r = @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = 100
