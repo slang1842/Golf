@@ -1,10 +1,10 @@
 class AdminController < ApplicationController
   before_filter :require_super_admin, :except => :index
   skip_before_filter :require_no_super_admin
-  skip_before_filter :require_user, :only => :index
+  skip_before_filter :require_user #, :only => :index
   before_filter :require_user, :only => :index
     
-  def index
+  def index   
     if current_user
       unless current_user.is_super_admin
         current_user_session.destroy
