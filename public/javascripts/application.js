@@ -118,11 +118,16 @@ function checkFieldName() {
         }
     });
  if (textEntered) {
-      $('.error').hide();
+      $('.messages_error').hide();
         $('form').submit(); 
       }
        else {
-        $(".error").slideDown('slow');
+        if ($(".messages_error").css("display") == 'block' ) {
+      $(".messages_error").slideUp("fast").slideDown('slow');
+    } else {
+      $(".messages_info").slideUp("fast");
+      $(".messages_error").slideDown('slow');
+    }
         return false}
   
 }
