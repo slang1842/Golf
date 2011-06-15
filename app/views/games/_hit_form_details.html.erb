@@ -69,7 +69,12 @@
       <div class="single_dropdown">
         <p>Land place</p>
         <div class="element" style="heigth:60px">
+          <% if hit_p_final.place_from == 1%>
+          <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:prompt => 'Select'}, {:class => "dropdown6 land_place_dropdown"}) %>
+          <% else %> 
           <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6 land_place_dropdown"}) %>
+          <% end %>
+          
         </div>
       </div>
       <div class="single_dropdown" style="width:100px">
@@ -88,7 +93,11 @@
       <div class="single_dropdown" >
         <p>Direction</p>
         <div class="element" style="heigth:60px">
+          <% if hit_p_final.place_from == 1%>
+          <%= f.select(:direction, DIRECTION_SHORT,{:prompt => 'Select'}, {:class => "dropdown6 direction_swap"})%>
+          <% else %> 
           <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Select'}, {:class => "dropdown6 direction_swap"})%>
+          <% end %>
         </div>
       </div>
       <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
@@ -128,7 +137,11 @@
       <div class="single_dropdown">
         <p>Land place</p>
         <div class="element">
+         <% if hit_p_final.place_from == 1%>
+          <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:prompt => 'Select'}, {:class => "dropdown6 land_place_dropdown"}) %>
+          <% else %> 
           <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6 land_place_dropdown"}) %>
+          <% end %>
         </div>
       </div>
       <div class="single_dropdown" style="width:100px">
@@ -147,7 +160,12 @@
        <div class="single_dropdown" >
         <p>Misdirection</p>
         <div class="element">
+          
+          <% if hit_p_final.place_from == 1%>
+          <%= f.select(:direction, DIRECTION_SHORT,{:prompt => 'Select'}, {:class => "dropdown6 direction_swap"})%>
+          <% else %> 
           <%= f.select(:misdirection, STATISTICS_MISDIRECTION,{:prompt => 'Select'}, {:class => "dropdown6 direction_swap"})%>
+          <% end %>
         </div>
       </div>
       <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
