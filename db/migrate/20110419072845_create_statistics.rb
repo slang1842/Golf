@@ -61,7 +61,23 @@ class CreateStatistics < ActiveRecord::Migration
       t.integer     :wind_from_front  #From front
       t.integer     :wind_from_left   #From left
       t.integer     :wind_from_right  #From right
+
+      #==========================
+
+      t.integer     :strenght_light
+      t.integer     :strenght_normal
+      t.integer     :strenght_strong
+      t.integer     :strenght_very_strong
+
+      #==========================
+
+      t.integer     :slope_straight
+      t.integer     :slope_upward
+      t.integer     :slope_very_upward
+      t.integer     :slope_downward
+      t.integer     :slope_very_downward
       
+
       t.timestamps
     end
   end

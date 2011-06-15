@@ -196,47 +196,6 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.datetime "updated_at"
   end
 
-  create_table "hints", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "stick_id"
-    t.string   "place_teebox_hint"
-    t.string   "place_feairway_hint"
-    t.string   "place_next_fairway_hint"
-    t.string   "place_semi_raf_hint"
-    t.string   "place_raf_hint"
-    t.string   "place_for_green_hint"
-    t.string   "place_fairway_sand_hint"
-    t.string   "place_green_sand_hint"
-    t.string   "place_wood_hint"
-    t.string   "place_from_water_hint"
-    t.string   "stance_normal_hint"
-    t.string   "stance_right_leg_lower_hint"
-    t.string   "stance_left_leg_lower_hint"
-    t.string   "stance_ball_lower_hint"
-    t.string   "stance_ball_higher_hint"
-    t.string   "direction_straigth_hint"
-    t.string   "direction_fade_hint"
-    t.string   "direction_drow_hint"
-    t.string   "direction_slice_hint"
-    t.string   "direction_hook_hint"
-    t.string   "temperature_cold_hint"
-    t.string   "temperature_normal_hint"
-    t.string   "temperature_hot_hint"
-    t.string   "weather_normal_hint"
-    t.string   "weather_wind_hint"
-    t.string   "weather_rain_hint"
-    t.string   "weather_wind_and_rain_hint"
-    t.string   "trajectory_normal_hint"
-    t.string   "trajectory_high_hint"
-    t.string   "trajectory_low_hint"
-    t.string   "wind_from_behind_hint"
-    t.string   "wind_from_front_hint"
-    t.string   "wind_from_left_hint"
-    t.string   "wind_from_right_hint"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "hit_places", :force => true do |t|
     t.integer  "field_id"
     t.datetime "created_at"
@@ -379,7 +338,7 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.string   "last_name",                             :null => false
     t.string   "nick",                                  :null => false
     t.string   "sex",                                   :null => false
-    t.date     "birth",                                 :null => false
+    t.date     "birth"
     t.integer  "country_id"
     t.integer  "golf_club_id"
     t.integer  "hcp",                                   :null => false
