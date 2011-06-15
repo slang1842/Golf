@@ -44,7 +44,24 @@ class CreateHints < ActiveRecord::Migration
       t.string :wind_from_front_hint
       t.string :wind_from_left_hint
       t.string :wind_from_right_hint
-      
+
+      t.integer     :green_strength_light_hint
+      t.integer     :green_strength_normal_hint
+      t.integer     :green_strength_strong_hint
+      t.integer     :green_strength_very_strong_hint
+
+      t.integer     :green_direction_straight_hint
+      t.integer     :green_direction_to_right_hint
+      t.integer     :green_direction_to_left_hint
+      t.integer     :green_direction_more_to_right_hint
+      t.integer     :green_direction_more_to_left_hint
+
+      t.integer     :green_tilt_straight_hint
+      t.integer     :green_tilt_upward_hint
+      t.integer     :green_tilt_downward_hint
+      t.integer     :green_tilt_very_upward_hint
+      t.integer     :green_tilt_very_downward_hint
+
       t.timestamps
     end
   end

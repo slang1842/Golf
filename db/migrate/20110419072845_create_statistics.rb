@@ -85,8 +85,8 @@ class CreateStatistics < ActiveRecord::Migration
       #Kritums  (statistika: tilt)
       t.integer     :green_tilt_straight
       t.integer     :green_tilt_upward
-      t.integer     :green_tilt_very_upward
       t.integer     :green_tilt_downward
+      t.integer     :green_tilt_very_upward
       t.integer     :green_tilt_very_downward
 
       t.timestamps
