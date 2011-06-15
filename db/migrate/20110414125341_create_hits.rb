@@ -25,6 +25,8 @@ class CreateHits < ActiveRecord::Migration
       t.integer :pair_id
       t.integer :difficulty
       t.string :hole_comment
+      t.integer :slipums #izmainas 15.06.11
+      t.integer :kritums #izmainas 15.06.11
       
       t.timestamps
     end

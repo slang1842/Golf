@@ -14,7 +14,12 @@
         <div class="clear"></div>
         <div class="dropdowns_wrap">
           <% hits.each do |hit|%>
+          <% if hit.stick_id == 1 %>
+          <% hit_style = "putt_style" %>
+          <% end %>
+          <div class="<%=hit_style%>">
           <%=game.fields_for :hits, hit do |f|%>
+          
           <p><%=hit.hit_number%>.</p>
           <div class="element" style="height:45px">                    
                 <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Select"},{:class => "dropdown3"} %>
@@ -33,9 +38,10 @@
         <%= f.hidden_field :hole_number, :value => active_hole %>
         <%#= f.hidden_field :hit_number, :value => active_hit %>
          <% end %>
-          
+          </div>
         <% end %>
        </div>
+       
              <div class="result_button_wrap"> 
             <% if game1 == 2%>
     <% last_hole_number = 18 %>

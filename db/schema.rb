@@ -268,6 +268,8 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.integer  "pair_id"
     t.integer  "difficulty"
     t.string   "hole_comment"
+    t.integer  "slipums"
+    t.integer  "kritums"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -375,7 +377,7 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.string   "last_name",                             :null => false
     t.string   "nick",                                  :null => false
     t.string   "sex",                                   :null => false
-    t.date     "birth"
+    t.date     "birth",                                 :null => false
     t.integer  "country_id"
     t.integer  "golf_club_id"
     t.integer  "hcp",                                   :null => false

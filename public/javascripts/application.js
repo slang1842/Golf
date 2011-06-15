@@ -23,7 +23,7 @@ function bindHitFormPlan() {
     });
                 
     if (textEntered) {
-      $('.error').hide();
+      $('.messages_error').hide();
      $('#nexthole').val($(this).attr('rel'));
     $('.single_hole').replaceWith('<img src="/images/ajax-loader-small.gif" style="position:relative; top:18px; margin-left:7px;" />');
     var i = $('#stick_type_old').val();
@@ -32,7 +32,12 @@ function bindHitFormPlan() {
     return false;
     }
     else {
-        $(".error").slideDown('slow');
+        if ($(".messages_error").css("display") == 'block' ) {
+      $(".messages_error").slideUp("fast").slideDown('slow');
+    } else {
+      $(".messages_info").slideUp("fast");
+      $(".messages_error").slideDown('slow');
+    }
         return false}
   });
     
@@ -50,7 +55,7 @@ function bindHitSwitch() {
     });
                 
     if (textEntered) {
-      $('.error').hide();
+      $('.messages_error').hide();
      $('#nexthit').val($(this).attr('rel')); 
     $('.gif_placeholder').empty();
     $('.gif_placeholder').append('<img src="/images/ajax-loader.gif" />');
@@ -62,7 +67,12 @@ function bindHitSwitch() {
    
     }
     else {
-        $(".error").slideDown('slow');
+        if ($(".messages_error").css("display") == 'block' ) {
+      $(".messages_error").slideUp("fast").slideDown('slow');
+    } else {
+      $(".messages_info").slideUp("fast");
+      $(".messages_error").slideDown('slow');
+    }
         return false}
   });
 
@@ -80,7 +90,7 @@ function bindSaveSwitch() {
     });
                 
     if (textEntered) {
-      $('.error').hide();
+      $('.messages_error').hide();
      $('#nexthit').val($(this).attr('rel')); 
       var i = $('#stick_type_old').val();
     $('.stick_type_real').val(i);
@@ -89,7 +99,13 @@ function bindSaveSwitch() {
     return false;
     }
     else {
-        $(".error").slideDown('slow');
+      if ($(".messages_error").css("display") == 'block' ) {
+      $(".messages_error").slideUp("fast").slideDown('slow');
+    } else {
+      $(".messages_info").slideUp("fast");
+      $(".messages_error").slideDown('slow');
+    }
+       
         return false}
   });
 }
@@ -102,13 +118,30 @@ function checkFieldName() {
         }
     });
  if (textEntered) {
-      $('.error').hide();
+      $('.messages_error').hide();
         $('form').submit(); 
       }
        else {
-        $(".error").slideDown('slow');
+        if ($(".messages_error").css("display") == 'block' ) {
+      $(".messages_error").slideUp("fast").slideDown('slow');
+    } else {
+      $(".messages_info").slideUp("fast");
+      $(".messages_error").slideDown('slow');
+    }
         return false}
   
+}
+
+function swap_dropdowns(i) {
+  
+  if  (i == 1 || i == 7) {
+    $(".direction_dropdown").css({"display":"none"});
+    $(".slipums_dropdown").css({"display":"block"});
+  }
+  else {
+    $(".direction_dropdown").css({"display":"block"});
+    $(".slipums_dropdown").css({"display":"none"});
+  }
 }
 // function check_game_form() {
 //     textEntered = true

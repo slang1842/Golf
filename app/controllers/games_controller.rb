@@ -136,10 +136,12 @@ end
        if @active_hit == 0
         @active_hit = 1
       end
-      if @hitcount == nil
-        @hitcount = 0
-      end
       @puts = params[:puts].to_i
+      if @hitcount == nil || @hitcount == 0
+        @hitcount = 5
+        @puts = 2
+      end
+      
        @form_id = 'results'
       if @active_hole < @start_hole
         @active_hole = @start_hole
@@ -431,8 +433,36 @@ end
         @active_hole = @start_hole
       end    
       @hits = Hit.where(:game_id => game_id,:hole_number => @active_hole,:real_hit => 'r')  
+      if @hits.any?
       render 'results'
-   
+      else
+         @hitcount = 5
+         @puts = 2
+           b = @hitcount - @puts
+            a = (1..b)
+                 a.each do |i|
+                conditions = { :game_id => @game_id, 
+                              :hole_number => @next_hole,
+                              :hit_number => i, 
+                              :real_hit => 'r'}
+            @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+            #convert_to_feet(@hit)
+            end
+            
+          a = ((b+1)..@hitcount)
+          a.each do |i|
+              conditions = { :game_id => @game_id, 
+                             :hole_number => @next_hole,
+                             :hit_number => i, 
+                             :real_hit => 'r',
+                             :stick_id => 1 }
+              @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+                          #convert_to_feet(@hit)
+              end
+
+       @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r') 
+        render 'results'     
+     end
      end
      
      def get_details(form_id, game_id, next_hole, active_hit)
@@ -507,11 +537,12 @@ end
       
       @active_hole = next_hole
       @hitcount = hitcount
-       
+       @puts = puts
       if @hitcount == nil
-        @hitcount = 0
+        @hitcount = 5
+        @puts = 2
       end
-      @puts = puts
+      
        @form_id = 'results'
       if @active_hole.to_i < @start_hole.to_i
         @active_hole = @start_hole
