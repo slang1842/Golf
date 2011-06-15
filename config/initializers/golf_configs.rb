@@ -25,7 +25,13 @@ STATISTICS_DIFFICULTY = { "Easy" => 1, "Medium" => 2, "Hard" => 3}
 
 MAIN_STATISTIC_BAD_SIMBOL = "N/V"
 MAIN_STATISTIC_BAD_PROC = 45 # these are % to show red bar and hint
-#
+
+SLIPUMS = {"Straight" => 1, "To right" => 2, "To left" => 3, "More to right" => 4, "More to left" => 5}
+KRITUMS = {"Straight" => 1, "Upward" => 2, "Downward" => 3, "More upward" => 4, "More downward" => 5}
+STRENGTH = {"Light" => 1, "Normal" => 2, "Strong" => 3, "Very strong" => 4}
+MISTAKE = {"None" => 1, "Too close" => 2, "Too far" => 3, "Very close" => 4, "Very far" => 5}
+
+
 # !!! WARNING !!!
 # ========================================================
 # statistics must be specified as this for statistics to
@@ -40,12 +46,3 @@ STATISTICS_TEMPERATURE = {"Hot" => 1,"Normal" => 2,"Cold" => 3}
 STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
 STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "From right" => 3, "From left" => 4}
 PLANNED_LAND_PLACES_SHORT = {"Green" => 1, "Hole" => 11}
-
-#izmainas 15.06.11
-
-SLIPUMS = {"Straight" => 1, "To right" => 2, "To left" => 3, "More to right" => 4, "More to left" => 5}
-KRITUMS = {"Straight" => 1, "Upward" => 2, "Downward" => 3, "More upward" => 4, "More downward" => 5}
-STRENGTH = {"Light" => 1, "Normal" => 2, "Strong" => 3, "Very strong" => 4}
-MISTAKE = {"None" => 1, "Too close" => 2, "Too far" => 3, "Very close" => 4, "Very far" => 5}
-
-
