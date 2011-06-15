@@ -130,6 +130,7 @@ function check_user_form() {
       textEntered = false;
     }
   });
+
   if (textEntered) {
     return true
   } else {
@@ -143,24 +144,40 @@ function check_user_form() {
 }
 
 function check_game_form() {
+  
   var textEntered = true
-  $(".game_input_select").each(function() {
-    if (textEntered && $(this).val() == "") {
-      textEntered = false;
-    }
-  });                
-  if (textEntered) {
-    return true
-  } else {
-    $(".messages_error").slideDown('slow', function(){
-      $sleep(3, function(){
-        $(".messages_error").sideUp('slow')
-      })
-    });
-    return false  
-  }
-}
+  $(".game_input_select").each(function(){
 
+    if ($(this).val() == "") {
+      textEntered = false
+    }
+    else {
+      textEntered = true
+    }
+
+  })
+
+  if (textEntered == false) {
+
+    if ($(".messages_error").css("display") == 'block' ) {
+      $(".messages_error").slideUp("fast").slideDown('slow');
+    } else {
+      $(".messages_error").slideDown('slow');
+    }
+
+    $.wait(3000).then(function()
+    {
+      $(".messages_error").slideUp('slow');
+    });
+
+    
+    return false
+  }
+  else {  
+    return true
+  }
+
+}
 
 function golf_club_checkbox(){
   $("#user_golf_club_id").toggle();
@@ -192,3 +209,22 @@ function user_place_in_golf_club() {
   //$("#table_result_wrap_box").hide();
   $("#user_place_in_golf_club").submit();
 };
+
+
+
+/* === custom methodes ===*/
+
+$.wait = function(time) {
+  return $.Deferred(function(dfd) {
+    setTimeout(dfd.resolve, time);
+  });
+}
+
+//to use it
+//
+//  $.wait(3000).then(function()
+//  {
+//    alert("I slept for 3 seconds!");
+//  });
+
+/* === custom methodes ===*/
