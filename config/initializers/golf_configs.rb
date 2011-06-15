@@ -46,3 +46,4 @@ STATISTICS_TEMPERATURE = {"Hot" => 1,"Normal" => 2,"Cold" => 3}
 STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
 STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "From right" => 3, "From left" => 4}
 PLANNED_LAND_PLACES_SHORT = {"Green" => 1, "Hole" => 11}
+DIRECTION_SHORT = {"Straight" => 1, "To right" => 2, "More to right" => 4, "To left" => 3, "More to left" => 5}
