@@ -11,14 +11,16 @@
 </div>
 
 <% if flash.count > 0 %>
-  <div class="info" style="display:block;">
+ 
     <% flash.each do |key, msg| %>
-      <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-      <%= content_tag :script, :type => "text/javascript" do -%>
-        setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+    <div class="messages">
+      <%= content_tag :div, msg, :class => [  "messages_info"], :id => "notice_ #{key}" %>
+      <!-- <%= content_tag :script, :type => "text/javascript" do -%>
+              setTimeout("new Effect.Fade('notice_<%= key %>');", 15000); -->
+              </div>
       <% end %>
     <% end %>
-  </div>
+
 <% end %>
 
 <div class="background_fix2" style="width:900px; overflow:hidden">
