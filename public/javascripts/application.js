@@ -110,6 +110,18 @@ function checkFieldName() {
         return false}
   
 }
+
+function swap_dropdowns(i) {
+  
+  if  (i == 1 || i == 7) {
+    $(".direction_dropdown").css({"display":"none"});
+    $(".slipums_dropdown").css({"display":"block"});
+  }
+  else {
+    $(".direction_dropdown").css({"display":"block"});
+    $(".slipums_dropdown").css({"display":"none"});
+  }
+}
 // function check_game_form() {
 //     textEntered = true
 //        $(".game_input_select").each(function() {

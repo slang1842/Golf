@@ -41,4 +41,10 @@ STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
 STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "From right" => 3, "From left" => 4}
 
 
+#izmainas 15.06.11
+
+SLIPUMS = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3}
+KRITUMS = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3}
+
+
 
