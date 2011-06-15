@@ -64,7 +64,7 @@ class Statistic < ActiveRecord::Base
       @result = @result - calculate_diference(planed.hit_was, real.hit_was) unless calculate_diference(planed.hit_was, real.hit_was) == false
       @result = @result - calculate_diference(planed.motion_was, real.motion_was) unless calculate_diference(planed.motion_was, real.motion_was) == false
       @result = @result - calculate_diference(planed.misdirection, real.misdirection) unless calculate_diference(planed.misdirection, real.misdirection) == false
-        
+      
       if @result > 100
         return 100
       elsif @result < 1
