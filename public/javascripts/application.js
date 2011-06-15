@@ -135,6 +135,7 @@ function checkFieldName() {
 function swap_dropdowns(i) {
   
   if  (i == 1 || i == 7) {
+    $(".deselect option:selected").removeAttr("selected");
     $(".direction_dropdown").css({"display":"none"});
     $(".slipums_dropdown").css({"display":"block"});
     var options_green = {
@@ -162,6 +163,7 @@ function swap_dropdowns(i) {
 });
   }
   else {
+    $(".deselect option:selected").removeAttr("selected");
     $(".direction_dropdown").css({"display":"block"});
     $(".slipums_dropdown").css({"display":"none"});
     var options_green = {
