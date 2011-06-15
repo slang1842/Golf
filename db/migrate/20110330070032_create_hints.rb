@@ -10,6 +10,7 @@ class CreateHints < ActiveRecord::Migration
       t.string :place_semi_raf_hint
       t.string :place_raf_hint
       t.string :place_for_green_hint
+      t.string :place_green_hint
       t.string :place_fairway_sand_hint
       t.string :place_green_sand_hint
       t.string :place_wood_hint
