@@ -44,7 +44,7 @@ PLANNED_LAND_PLACES_SHORT = {"Green" => 1, "Hole" => 11}
 #izmainas 15.06.11
 
 SLIPUMS = {"Straight" => 1, "To right" => 2, "To left" => 3, "More to right" => 4, "More to left" => 5}
-KRITUMS = {"Straight" => 1, "Up" => 2, "Down" => 3, "More up" => 4, "More down" => 5}
+KRITUMS = {"Straight" => 1, "Upward" => 2, "Downward" => 3, "More upward" => 4, "More downward" => 5}
 STRENGTH = {"Light" => 1, "Normal" => 2, "Strong" => 3, "Very strong" => 4}
 MISTAKE = {"None" => 1, "Too close" => 2, "Too far" => 3, "Very close" => 4, "Very far" => 5}
 
