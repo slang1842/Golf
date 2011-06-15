@@ -39,12 +39,13 @@ STATISTICS_DIRECTION = {"Straigth" => 1, "Fade" => 2, "Drow" => 3, "Slice" => 4,
 STATISTICS_TEMPERATURE = {"Hot" => 1,"Normal" => 2,"Cold" => 3}
 STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
 STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "From right" => 3, "From left" => 4}
-
+PLANNED_LAND_PLACES_SHORT = {"Green" => 1, "Hole" => 11}
 
 #izmainas 15.06.11
 
-SLIPUMS = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3}
-KRITUMS = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3}
-
+SLIPUMS = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3, "rere" => 4, "ff" => 5}
+KRITUMS = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3, "rere" => 4, "ff" => 5}
+STRENGTH = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3, "wooooot" => 4}
+MISTAKE = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3, "wooooot" => 4, "ff" => 5}
 
 

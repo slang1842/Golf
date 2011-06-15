@@ -91,14 +91,20 @@
           <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Select'}, {:class => "dropdown6"})%>
         </div>
       </div>
-      <div class="single_dropdown" >
+      <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
        
         <p>Trajectory</p>
         <div class="element" style="heigth:60px">
           <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6"})%>
         </div>
       </div>
-      
+      <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
+       
+        <p>Strength</p>
+        <div class="element" style="heigth:60px">
+          <%= f.select(:strength, STRENGTH,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+        </div>
+      </div>
 </div>
       <%= f.hidden_field :hole_number, :value => active_hole %>
       <%= f.hidden_field :hit_number, :value => active_hit %>
@@ -106,6 +112,13 @@
   <% end %>
 
   <%= game.fields_for :hits, hit_r_final do |f|%>
+  <% if hit_p_final.place_from == 1 || hit_p_final.place_from == 7%>
+      <% style_for_direction = "display:none"%>
+      <% style_for_slipums = "" %>
+      <% else %>
+      <% style_for_slipums = "display:none" %>
+      <% style_for_direction = "" %>
+      <% end %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
     <div class="input_wrap" style="height:45px">
       <div class="heading_result">
@@ -115,7 +128,7 @@
       <div class="single_dropdown">
         <p>Land place</p>
         <div class="element">
-          <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6"}) %>
+          <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6 land_place_dropdown"}) %>
         </div>
       </div>
       <div class="single_dropdown" style="width:100px">
@@ -124,10 +137,16 @@
           <%= f.text_field :hit_distance %>
         </div>
       </div>
-      <div class="single_dropdown">
+      <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
         <p>Misdirection</p>
         <div class="element">
           <%= f.select(:misdirection, STATISTICS_MISDIRECTION,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+        </div>
+      </div>
+      <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
+        <p>Mistake</p>
+        <div class="element" style="heigth:60px">
+          <%= f.select(:mistake, MISTAKE,{:prompt => 'Select'}, {:class => "dropdown6"})%>
         </div>
       </div>
       <div class="single_dropdown">
@@ -136,13 +155,19 @@
           <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Select'}, {:class => "dropdown6"})%>
         </div>
       </div>
-      <div class="single_dropdown">
+      <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
         <p>Trajectory</p>
         <div class="element">
           <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6"})%>
         </div>
       </div>
-    
+      
+    <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
+        <p>Strength</p>
+        <div class="element" style="heigth:60px">
+          <%= f.select(:strength, STRENGTH,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+        </div>
+      </div>
     <div class="input_wrap" style="height:250px">
       <div class="radio_button_wrap">
         <div class="heading"><p>Notes on stroke</p></div>

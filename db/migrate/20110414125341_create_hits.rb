@@ -27,6 +27,8 @@ class CreateHits < ActiveRecord::Migration
       t.string :hole_comment
       t.integer :slipums #izmainas 15.06.11
       t.integer :kritums #izmainas 15.06.11
+      t.integer :strength
+      t.integer :mistake
       
       t.timestamps
     end

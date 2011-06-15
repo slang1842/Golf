@@ -270,6 +270,8 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.string   "hole_comment"
     t.integer  "slipums"
     t.integer  "kritums"
+    t.integer  "strength"
+    t.integer  "mistake"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

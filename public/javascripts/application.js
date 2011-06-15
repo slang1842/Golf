@@ -137,6 +137,14 @@ function swap_dropdowns(i) {
   if  (i == 1 || i == 7) {
     $(".direction_dropdown").css({"display":"none"});
     $(".slipums_dropdown").css({"display":"block"});
+    var options_green {
+      1 : "Straight"
+      2 : "To right"
+      4 : "More to right"
+      3 : "To left"
+      5 : "More to left"
+    }
+    $(".land_place_dropdown").
   }
   else {
     $(".direction_dropdown").css({"display":"block"});
