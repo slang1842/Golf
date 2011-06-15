@@ -23,7 +23,7 @@
             <p>Field</p>
           </div>
           <div class="input">
-            <%= f.collection_select( :field_id,  Field.all, :id, :name, {:prompt => "Izvēlies.."}, {:class => "dropdown3 game_input_select"} ) %>
+            <%= f.collection_select( :field_id,  Field.all, :id, :name, {:prompt => "select"}, {:class => "dropdown3 game_input_select"} ) %>
           </div>
         </div>
          <% if current_user.admin %>
