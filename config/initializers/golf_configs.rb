@@ -17,7 +17,7 @@ FIELD_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 WEATHER = { "Normal" => 1, "Wind" => 2, "Rain" => 3, "Wind and Rain" => 4}
 GAME_FORMAT = { "Training" => "t", "DM" => "d", "Tournament" => "tn"}
 GAME_TYPE = { "1-9" => 1, "10-18" => 2, "1-18" => 3}
-STATISTICS_MISDIRECTION = {"Hook" => 1, "Drow" => 2, "Straigth" => 3, "Fade" => 4, "Slice" => 5 }
+STATISTICS_MISDIRECTION = {"Straigth" => 1, "Fade" => 2, "Drow" => 3, "Slice" => 4, "Hook" => 5 }
 STATISTICS_HIT_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_MOTION_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_FOLLOWING_ACTION = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
@@ -27,7 +27,7 @@ MAIN_STATISTIC_BAD_SIMBOL = "N/V"
 MAIN_STATISTIC_BAD_PROC = 45 # these are % to show red bar and hint
 
 SLIPUMS = {"Straight" => 1, "To right" => 2, "To left" => 3, "More to right" => 4, "More to left" => 5}
-KRITUMS = {"Straight" => 1, "Upward" => 2, "Downward" => 3, "More upward" => 4, "More downward" => 5}
+KRITUMS = {"Straight" => 1, "Upward" => 2, "Downward" => 3, "Very upward" => 4, "Very downward" => 5}
 STRENGTH = {"Light" => 1, "Normal" => 2, "Strong" => 3, "Very strong" => 4}
 MISTAKE = {"None" => 1, "Too close" => 2, "Too far" => 3, "Very close" => 4, "Very far" => 5}
 

@@ -346,9 +346,9 @@ class Statistic < ActiveRecord::Base
             # ==========================================
             for wind_num in 1..4 do
               @all_pairs = PairHit.where(:user_id => c_user.id)
-          
+
               @result_arr = []
-        
+
               @all_pairs.each do |each_pair|
                 if each_pair.hit_planed.wind == wind_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
@@ -376,7 +376,141 @@ class Statistic < ActiveRecord::Base
               end
             end
             # ==========================================
-      
+
+
+            #GREEN_STRENGHT
+            # ==========================================
+            for strength_num in 1..4 do
+              @all_pairs = PairHit.where(:user_id => c_user.id)
+
+              @result_arr = []
+
+
+              @all_pairs.each do |each_pair|
+                if each_pair.hit_planed.wind == strength_num &&
+                    each_pair.hit_planed.stick_id == user_stick.stick.id &&
+                    each_pair.hit_planed.game.field_id == c_field.id &&
+                    (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7)
+
+                  @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+                  @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
+                end
+              end
+
+              case strength_num
+              when 1
+                if @result_arr.size != 0
+                  statistic.green_strength_light = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              when 2
+                if @result_arr.size != 0
+                  statistic.green_strength_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              when 3
+                if @result_arr.size != 0
+                  statistic.green_strength_strong
+                end
+              when 4
+                if @result_arr.size != 0
+                  statistic.green_strength_very_strong = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              end
+            end
+            # ==========================================
+
+
+            #green_direction
+            # ==========================================
+            for direction_num in 1..5 do
+              @all_pairs = PairHit.where(:user_id => c_user.id)
+
+              @result_arr = []
+
+
+              @all_pairs.each do |each_pair|
+                if each_pair.hit_planed.wind == direction_num &&
+                    each_pair.hit_planed.stick_id == user_stick.stick.id &&
+                    each_pair.hit_planed.game.field_id == c_field.id &&
+                    (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7)
+
+                  @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+                  @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
+                end
+              end
+
+              case direction_num
+              when 1
+                if @result_arr.size != 0
+                  statistic.green_direction_straight = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              when 2
+                if @result_arr.size != 0
+                  statistic.green_direction_to_right = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              when 3
+                if @result_arr.size != 0
+                  statistic.green_direction_to_left
+                end
+              when 4
+                if @result_arr.size != 0
+                  statistic.green_direction_more_to_right = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              when 5
+                if @result_arr.size != 0
+                  statistic.green_direction_more_to_left = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              end
+            end
+            # ==========================================
+
+
+
+            #tilt_direction
+            # ==========================================
+            for tilt_num in 1..5 do
+              @all_pairs = PairHit.where(:user_id => c_user.id)
+
+              @result_arr = []
+
+              @all_pairs.each do |each_pair|
+                if each_pair.hit_planed.wind == tilt_num &&
+                    each_pair.hit_planed.stick_id == user_stick.stick.id &&
+                    each_pair.hit_planed.game.field_id == c_field.id &&
+                    (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7)
+
+                  @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+                  @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
+                end
+              end
+
+              case tilt_num
+              when 1
+                if @result_arr.size != 0
+                  statistic.green_tilt_straight = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              when 2
+                if @result_arr.size != 0
+                  statistic.green_tilt_upward = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              when 3
+                if @result_arr.size != 0
+                  statistic.green_tilt_downward
+                end
+              when 4
+                if @result_arr.size != 0
+                  statistic.green_tilt_very_upward = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              when 5
+                if @result_arr.size != 0
+                  statistic.green_tilt_very_downward = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                end
+              end
+            end
+            # ==========================================
+
+
+
+
             @return = true if statistic.save
           end # end user
         end # ends game
@@ -511,15 +645,6 @@ class Statistic < ActiveRecord::Base
         end
       end # end pair hit
 
-      puts "----------------------"
-      puts "now the array:"
-      puts "@avg_r_distances: #{@avg_r_distance.join(".")}"
-      puts "@avg_p_distances: #{@avg_p_distance.join(".")}"
-      
-
-      puts ""
-      puts ""
-
       #@avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round unless @avg_r_distance.size == 0
       #@avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round unless @avg_p_distance.size == 0
       @avg_r = (@avg_r_distance.sum /  @avg_r_distance.size).to_i unless @avg_r_distance.size == 0
@@ -528,26 +653,15 @@ class Statistic < ActiveRecord::Base
       @avg_r =  @avg_r_distance.inject{ |sum, el| sum + el }.to_f / @avg_r_distance.size
 
 
-      puts "@avg_r: #{@avg_r}"
-      puts "@avg_p: #{@avg_p}"
-
-      puts ""
-      puts "@avg_r.class: #{@avg_r.class}"
-      puts "@avg_p.class: #{@avg_p.class}"
-
-      
       if @avg_r > @avg_p
-        puts "@avg_r > @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = (@avg_p / @avg_r) * 100
 
       elsif @avg_r < @avg_p
-        puts "@avg_r < @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = (@avg_r / @avg_p) * 100
 
       elsif @avg_r == @avg_p
-        puts "@avg_r = @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = 100
 

@@ -1100,30 +1100,30 @@ a {
 .messages_info {
   color: #00529B;
   background-color: #ADE1FA;
-  filter: url(images/info.png), progid:DXImageTransform.Microsoft.gradient(startColorstr='#BDE5F8', endColorstr='#a0defc');
-  background-image: url(images/info.png), -webkit-gradient(linear, left top, left bottom, from(#BDE5F8), to(#a0defc));
-  background-image: url(images/info.png), -moz-linear-gradient(top,  #BDE5F8,  #a0defc);
+  filter: url(/images/info.png), progid:DXImageTransform.Microsoft.gradient(startColorstr='#BDE5F8', endColorstr='#a0defc');
+  background-image: url(/images/info.png), -webkit-gradient(linear, left top, left bottom, from(#BDE5F8), to(#a0defc));
+  background-image: url(/images/info.png), -moz-linear-gradient(top,  #BDE5F8,  #a0defc);
 }
 .messages_success {
   color: #4F8A10;
   background-color: #BEF7AC;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9f7ba', endColorstr='#b6f8a1');
-  background-image: url(images/success.png), -webkit-gradient(linear, left top, left bottom, from(#c9f7ba), to(#b6f8a1));
-  background-image: url(images/success.png), -moz-linear-gradient(top,  #c9f7ba,  #b6f8a1);
+  background-image: url(/images/success.png), -webkit-gradient(linear, left top, left bottom, from(#c9f7ba), to(#b6f8a1));
+  background-image: url(/images/success.png), -moz-linear-gradient(top,  #c9f7ba,  #b6f8a1);
 }
 .messages_warning {
   color: #9F6000;
   background-color: #F6F4B0;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f5ba', endColorstr='#f6f3a6');
-  background-image: url(images/warning.png), -webkit-gradient(linear, left top, left bottom, from(#f7f5ba), to(#f6f3a6));
-  background-image: url(images/warning.png), -moz-linear-gradient(top,  #f7f5ba,  #f6f3a6);
+  background-image: url(/images/warning.png), -webkit-gradient(linear, left top, left bottom, from(#f7f5ba), to(#f6f3a6));
+  background-image: url(/images/warning.png), -moz-linear-gradient(top,  #f7f5ba,  #f6f3a6);
 }
 .messages_error {
   color: #D8000C;
   background-color: #F5AFA7;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7c0ba', endColorstr='#f5a197');
-  background-image: url(images/error.png), -webkit-gradient(linear, left top, left bottom, from(#f7c0ba), to(#f5a197));
-  background-image: url(images/error.png), -moz-linear-gradient(top,  #f7c0ba,  #f5a197);
+  background-image: url(/images/error.png), -webkit-gradient(linear, left top, left bottom, from(#f7c0ba), to(#f5a197));
+  background-image: url(/images/error.png), -moz-linear-gradient(top,  #f7c0ba,  #f5a197);
 }
 
 /* ==== error, info messages ==== */

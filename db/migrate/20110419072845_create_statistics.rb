@@ -64,19 +64,30 @@ class CreateStatistics < ActiveRecord::Migration
 
       #==========================
 
-      t.integer     :strenght_light
-      t.integer     :strenght_normal
-      t.integer     :strenght_strong
-      t.integer     :strenght_very_strong
+      #stiprums (statistika: strength)
+      t.integer     :green_strength_light
+      t.integer     :green_strength_normal
+      t.integer     :green_strength_strong
+      t.integer     :green_strength_very_strong
 
       #==========================
 
-      t.integer     :slope_straight
-      t.integer     :slope_upward
-      t.integer     :slope_very_upward
-      t.integer     :slope_downward
-      t.integer     :slope_very_downward
-      
+      #Slīpums
+      # tas pats kas direction/misdirection (statistika: slope)
+      t.integer     :green_direction_straight
+      t.integer     :green_direction_to_right
+      t.integer     :green_direction_to_left
+      t.integer     :green_direction_more_to_right
+      t.integer     :green_direction_more_to_left
+
+      #==========================
+
+      #Kritums  (statistika: tilt)
+      t.integer     :green_tilt_straight
+      t.integer     :green_tilt_upward
+      t.integer     :green_tilt_very_upward
+      t.integer     :green_tilt_downward
+      t.integer     :green_tilt_very_downward
 
       t.timestamps
     end
