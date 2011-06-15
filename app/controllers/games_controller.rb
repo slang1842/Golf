@@ -129,7 +129,7 @@ end
     
     def results
       @form_id = 'results'
-      game_holes
+       game_holes
       @active_hit = params[:active_hit].to_i
       @active_hole = params[:active_hole].to_i
       @hitcount = params[:hits].to_i
@@ -179,8 +179,8 @@ end
     end
     if params[:hits] == 'new'
          render '/games/hit_edit_results'
-       end
-     #comments(@hit, 'results')
+    
+      end
     end
     
     
@@ -229,7 +229,7 @@ end
          render '/games/hit_edit_details'
      
        end
-       
+      
      
     end
     
@@ -239,9 +239,11 @@ end
       @puts = params[:puts].to_i
       if @hitcount > 0 
        
-              @path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/' + @hitcount.to_s + '/'+ @puts.to_s
+              #@path = '/game_results' + '/' + params[:game_id].to_s + '/' + params[:active_hole].to_s + '/results/' + @hitcount.to_s + '/'+ @puts.to_s
               
-              redirect_to @path, :remote => :true
+              #redirect_to @path, :remote => :true
+              get_results_with_count(params[:game_id].to_s,params[:active_hole].to_s, @hitcount, @puts)
+              #get_results(params[:form_id], @game_id, @next_hole, @active_hit)
       
       
       end   
@@ -429,7 +431,7 @@ end
         @active_hole = @start_hole
       end    
       @hits = Hit.where(:game_id => game_id,:hole_number => @active_hole,:real_hit => 'r')  
-      render 'games/results'
+      render 'results'
    
      end
      
@@ -499,5 +501,54 @@ end
     conditions7 = {:field_id => @game.field_id, :hole_number => @active_hole}
   @hole = Hole.find(:first, :conditions => conditions7)
     end
+ def get_results_with_count(game_id, next_hole, hitcount, puts)
+      
+       get_game_holes(game_id, next_hole)
+      
+      @active_hole = next_hole
+      @hitcount = hitcount
+       
+      if @hitcount == nil
+        @hitcount = 0
+      end
+      @puts = puts
+       @form_id = 'results'
+      if @active_hole.to_i < @start_hole.to_i
+        @active_hole = @start_hole
+      end
+      
+      if @hitcount != 0
+           @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
+           @hits.each   do |f|
+            f.destroy
+            end
+           b = @hitcount - @puts
+            a = (1..b)
+                 a.each do |i|
+                conditions = { :game_id => @game.id, 
+                              :hole_number => @active_hole,
+                              :hit_number => i, 
+                              :real_hit => 'r'}
+            @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+            #convert_to_feet(@hit)
+            end
+            
+          a = ((b+1)..@hitcount)
+          a.each do |i|
+              conditions = { :game_id => @game.id, 
+                             :hole_number => @active_hole,
+                             :hit_number => i, 
+                             :real_hit => 'r',
+                             :stick_id => 1 }
+              @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+                          #convert_to_feet(@hit)
+              end
 
+       @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r') 
+       
+    else
+      @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
+    end
+    render 'games/results'
+    end
 end
