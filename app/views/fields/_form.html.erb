@@ -1,4 +1,8 @@
-<div class="error" style="max-width:250px float:right">Please, enter field name!</div>
+
+<div class="mesages">
+<div class="messages_error" style="display: none;">Please, enter field name!</div>
+</div>
+
 <%= form_for([:golf_club, @field], :html => {:multipart => true}) do |f| %>
 
   <% if @field.errors.any? %>
