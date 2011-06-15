@@ -1,5 +1,6 @@
 $(document).ready(function(){
   datapicker();
+  userdatapicker();
   timepicker();
   admintimepicker();
   gamedatepicker();
@@ -55,6 +56,16 @@ function datapicker() {
   });
 }
 
+function userdatapicker() {
+  $( "#userdatapicker" ).datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: 'yy-mm-dd',
+    yearRange: '1900:2011',
+    firstDay: 1
+  });
+}
+
 function admintimepicker() {
   $( "#admintimepicker" ).datepicker({
     changeMonth: true,
@@ -99,7 +110,7 @@ function check_bag_form() {
   if (textEntered) {
     return true
   } else {
-    $(".error").slideUp('fast').slideDown('slow');
+    $(".messages_error").slideUp('fast').slideDown('slow');
     return false
   }
    
@@ -122,7 +133,7 @@ function check_user_form() {
   if (textEntered) {
     return true
   } else {
-    $(".error").slideDown('slow');
+    $(".messages_error").slideDown('slow');
     return false
   }
 }
@@ -137,7 +148,11 @@ function check_game_form() {
   if (textEntered) {
     return true
   } else {
-    $(".error").slideDown('slow');
+    $(".messages_error").slideDown('slow', function(){
+      $sleep(3, function(){
+        $(".messages_error").sideUp('slow')
+      })
+    });
     return false  
   }
 }

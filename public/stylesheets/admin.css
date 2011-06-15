@@ -3,7 +3,7 @@ html {
   font-family: Tahoma, Geneva, sans-serif;
 }
 
-
+input {margin: 0; padding: 0;}
 
 .page {
   background-color: #f5f5f5;
@@ -30,7 +30,7 @@ a:hover {text-decoration: underline; color: black;}
 }
 
 .table_listing .row {border: solid 1px gray; margin: 5px; display: block;}
-.table_listing .item {margin: 4px 5px; padding: 0 0 0 5px; width: 260px; border-left: solid 1px gray; display:inline-block;}
+.table_listing .item {margin: 4px 5px; padding: 0 0 0 5px; width: 140px; border-left: solid 1px gray; display:inline-block;}
 
 .form_edit .column {margin: 0 5px 0 0; display: inline-block;}
 .form_edit .item {border-bottom: dotted 1px grey; margin: 2px 0 2px 0; padding: 2px 5px 2px 10px; display: block; height: 25px;}
@@ -133,18 +133,44 @@ a:hover {text-decoration: underline; color: black;}
 .admin_list_admins {
   border: solid 1px grey;
   display: block;
-  float: left;
-  margin: 15px 5px 0 5px;
+  margin: 15px 2px 0 2px;
   padding: 2px 5px;
   width: 100%;
-
 
 }
 
 .admin_list_admins .item {
+  display: inline-block;
+  border-left: solid 1px grey;
+  padding: 2px 0 2px 5px;
+  width: 120px;
+}
+
+.admin_hint_wrap {
+  display: block;
+  margin: 10px 0 10px 270px;
+  width: 500px;
+  border: solid 1px grey;
+}
+
+.admin_hint_wrap span {
+  display: block;
+  margin: 12px 5px;
+  text-decoration: underline;
+}
+
+.admin_hint_wrap .item {
+  display: block;
+  margin: 0 5px;
+  padding: 3px;
+  color: grey;
 
 }
 
+.admin_hint_wrap .item .subitem {
+  display: inline-block;
+  width: 200px;
+}
 
 /********************HINTS*************************/
 

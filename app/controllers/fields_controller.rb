@@ -1,14 +1,5 @@
 class FieldsController < ApplicationController
   
-  # def show
-  #   @field = Field.find(params[:id])
-  # 
-  #   respond_to do |format|
-  #     format.html
-  #     format.xml  { render :xml => @field }
-  #   end
-  # end
-
   def new
     @golf_club = current_user.golf_club
     @field = @golf_club.fields.new

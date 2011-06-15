@@ -524,6 +524,9 @@ class Statistic < ActiveRecord::Base
       #@avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round unless @avg_p_distance.size == 0
       @avg_r = (@avg_r_distance.sum /  @avg_r_distance.size).to_i unless @avg_r_distance.size == 0
       @avg_p = (@avg_p_distance.sum /  @avg_p_distance.size).to_i unless @avg_p_distance.size == 0
+      @avg_p =  @avg_p_distance.inject{ |sum, el| sum + el }.to_f / @avg_p_distance.size
+      @avg_r =  @avg_r_distance.inject{ |sum, el| sum + el }.to_f / @avg_r_distance.size
+
 
       puts "@avg_r: #{@avg_r}"
       puts "@avg_p: #{@avg_p}"
@@ -533,20 +536,17 @@ class Statistic < ActiveRecord::Base
       puts "@avg_p.class: #{@avg_p.class}"
 
       
-      if @avg_r.to_i > @avg_p.to_i
-
+      if @avg_r > @avg_p
         puts "@avg_r > @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = (@avg_p / @avg_r) * 100
 
-      elsif @avg_p.to_i < @avg_p.to_i
-
+      elsif @avg_r < @avg_p
         puts "@avg_r < @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = (@avg_r / @avg_p) * 100
 
-      elsif @avg_p.to_i == @avg_r.to_i
-
+      elsif @avg_r == @avg_p
         puts "@avg_r = @avg_p"
         @GameFilterStatistic.avg_r_distance = 100
         @GameFilterStatistic.avg_p_distance = 100
@@ -648,8 +648,12 @@ class Statistic < ActiveRecord::Base
         
         @all_hits = Hit.all
         @all_current_stick_hits = Hit.where(:stick_id => c_user_stick.stick_id, :game_id => c_game.id)
-        @avg = ((@all_current_stick_hits.count.to_f / @all_hits.count.to_f).to_f * 100).round
-        game_s_sticks.stick_usage = @avg
+
+        unless @all_current_stick_hits.count == 0 || @all_hits.count == 0
+          @avg = ((@all_current_stick_hits.count.to_f / @all_hits.count.to_f).to_f * 100).round
+          game_s_sticks.stick_usage = @avg
+        
+        end
         game_s_sticks.avg_distance = @all_current_stick_hits.average("hit_distance") #@all_current_stick_hits.count
         
         @return = true if game_s_sticks.save
@@ -876,16 +880,16 @@ class Statistic < ActiveRecord::Base
         unless @user_progres_arr.size == 0
           @user_stats_progres_val = (@user_progres_arr.inject(0.0) { |sum, el| sum + el } / @user_progres_arr.size).round
 
-          @u_statsProg = StatisticUserProgres.new
-          @u_statsProg.user_progress = @user_stats_progres_val
-          @u_statsProg.user_id = c_user.id
-          @u_statsProg.field_id = c_field.id
-          @u_statsProg.hcp = c_user.hcp
+          @u_stats_prog = StatisticUserProgres.new
+          @u_stats_prog.user_progress = @user_stats_progres_val
+          @u_stats_prog.user_id = c_user.id
+          @u_stats_prog.field_id = c_field.id
+          @u_stats_prog.hcp = c_user.hcp
 
           @max_dist = Hit.where("real_hit = 'r' OR real_hit = 'rp'").where(:user_id => c_user.id).order("hit_distance DESC").first
 
-          @u_statsProg.max_distance = @max_dist.hit_distance
-          @return = true if @u_statsProg.save
+          @u_stats_prog.max_distance = @max_dist.hit_distance
+          @return = true if @u_stats_prog.save
         end
 
 

@@ -1,11 +1,208 @@
 <h1>Listing Hints</h1>
 <br/>
 
+<script type="" >
+  function admin_show_c_hints(id, link) {
+
+  if ($("#" + id).css("display") == 'block' ) {
+  $("#" + id).slideUp("fast");
+  } else {
+  $("#" + id).slideDown("slow");
+  }
+  }
+</script>
+
+<div class="admin_list_admins">
+  <div class="item">Name</div>
+  <div class="item">Name</div>
+  <div class="item">To Do</div>
+</div>
 
 <% @all_admins.each do |c_admin| %>
 
   <div class="admin_list_admins">
-    <div class="item"><%= c_admin.first_name %></div> <div class="item"><%= c_admin.first_name %></div> 
+    <div class="item"><%= c_admin.first_name %></div>
+    <div class="item"><%= c_admin.last_name %></div>
+    <div class="item"><a href="#" onclick="admin_show_c_hints(<%= c_admin.id %>, this)">Hints</a></div>
+  </div>
+
+
+
+
+
+
+  <div id="<%= c_admin.id  %>" style="display: none;">
+
+    <% @all_sticks = Stick.all %>
+    <% @all_sticks.each do |c_stick| %>
+      <% @c_admin_hits = Hint.find(:first, :conditions => {:user_id => c_admin.id, :stick_id => c_stick.id}) %>
+
+
+      <% if @c_admin_hits %>
+
+        <div class="admin_hint_wrap">
+          <span><%= c_stick.stick_type %></span><hr/>
+
+
+          <span>Place From</span>
+          <div class="item">
+            <div class="subitem">Teebox:</div>
+            <div class="subitem"><%= @c_admin_hits.place_teebox_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Feairway:</div>
+            <div class="subitem"><%= @c_admin_hits.place_feairway_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Next Fairway:</div>
+            <div class="subitem"><%= @c_admin_hits.place_next_fairway_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Semi Raf:</div>
+            <div class="subitem"><%= @c_admin_hits.place_semi_raf_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Raf:</div>
+            <div class="subitem"><%= @c_admin_hits.place_raf_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">For Green:</div>
+            <div class="subitem"><%= @c_admin_hits.place_for_green_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Fairway Sand:</div>
+            <div class="subitem"><%= @c_admin_hits.place_fairway_sand_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Greeen Sand:</div>
+            <div class="subitem"><%= @c_admin_hits.place_green_sand_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Wood:</div>
+            <div class="subitem"><%= @c_admin_hits.place_wood_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Water:</div>
+            <div class="subitem"><%= @c_admin_hits.place_from_water_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+
+          <span>Stance</span>
+          <div class="item">
+            <div class="subitem">Normal:</div>
+            <div class="subitem"><%= @c_admin_hits.stance_normal_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Right Leg Lower:</div>
+            <div class="subitem"><%= @c_admin_hits.stance_right_leg_lower_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Left Leg Lower:</div>
+            <div class="subitem"><%= @c_admin_hits.stance_left_leg_lower_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Left Ball lower:</div>
+            <div class="subitem"><%= @c_admin_hits.stance_ball_lower_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Left Ball Higher:</div>
+            <div class="subitem"><%= @c_admin_hits.stance_ball_higher_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+
+          <span>Direction</span>
+          <div class="item">
+            <div class="subitem">Straigth:</div>
+            <div class="subitem"><%= @c_admin_hits.direction_straigth_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Fade:</div>
+            <div class="subitem"><%= @c_admin_hits.direction_fade_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Drow:</div>
+            <div class="subitem"><%= @c_admin_hits.direction_drow_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Slice:</div>
+            <div class="subitem"><%= @c_admin_hits.direction_slice_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Hook:</div>
+            <div class="subitem"><%= @c_admin_hits.direction_hook_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+
+          <span>Temperature</span>
+          <div class="item">
+            <div class="subitem">Cold:</div>
+            <div class="subitem"><%= @c_admin_hits.temperature_cold_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Normal:</div>
+            <div class="subitem"><%= @c_admin_hits.temperature_normal_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Hot:</div>
+            <div class="subitem"><%= @c_admin_hits.temperature_hot_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+
+          <span>weather</span>
+          <div class="item">
+            <div class="subitem">Normal:</div>
+            <div class="subitem"><%= @c_admin_hits.weather_normal_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Wind:</div>
+            <div class="subitem"><%= @c_admin_hits.weather_wind_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Rain:</div>
+            <div class="subitem"><%= @c_admin_hits.weather_rain_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Wind and Rain:</div>
+            <div class="subitem"><%= @c_admin_hits.weather_wind_and_rain_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+
+          <span>Trajectory</span>
+          <div class="item">
+            <div class="subitem">Normal:</div>
+            <div class="subitem"><%= @c_admin_hits.trajectory_normal_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">High:</div>
+            <div class="subitem"><%= @c_admin_hits.trajectory_high_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">Low:</div>
+            <div class="subitem"><%= @c_admin_hits.trajectory_low_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+
+          <span>Wind</span>
+          <div class="item">
+            <div class="subitem">From behind:</div>
+            <div class="subitem"><%= @c_admin_hits.wind_from_behind_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">From front:</div>
+            <div class="subitem"><%= @c_admin_hits.wind_from_front_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">From left:</div>
+            <div class="subitem"><%= @c_admin_hits.wind_from_left_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+          <div class="item">
+            <div class="subitem">From right:</div>
+            <div class="subitem"><%= @c_admin_hits.wind_from_right_hint.presence || MAIN_STATISTIC_BAD_SIMBOL %></div>
+          </div>
+        </div>
+      <% else %>
+        <div class="admin_hint_wrap">
+          <span><%= c_stick.stick_type %></span><hr/>
+          <div class="item">No Hints for <%= c_stick.stick_type %></div>
+        </div>
+      <% end %>
+    <% end %>
+
+
   </div>
 
 

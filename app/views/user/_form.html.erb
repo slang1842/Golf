@@ -7,24 +7,42 @@
 
   <% form_for(@user, :url => user_path, :html => { :multipart => true,  :onsubmit => "return check_user_form();"} ) do |f| %>
 
-    <div class="error">All fields are required</div>
+    <div class="messages">
+      <div class="messages_error" style="display: none;">All fields are required</div>
+    </div>
+
 
     <% if @user.errors.any? %>
-      <div class="error_default">
-        <span><%#= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></span>
-        <ul>
-          <% @email_taken = false %>
-          <% @user.errors.full_messages.each do |msg| %>
-            <% if  msg == "Email has already been taken" %>
-              <% @email_taken = true %>
-            <% else %>
-              <li><%= msg %></li>
+      <div class="messages">
+        <div class="messages_error" style="display: none;">
+          <span><%#= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></span>
+          <ul>
+            <% @email_taken = false %>
+            <% @user.errors.full_messages.each do |msg| %>
+              <% if  msg == "Email has already been taken" %>
+                <% @email_taken = true %>
+              <% else %>
+                <li><%= msg %></li>
+              <% end %>
+            <% end %>
+            <% if @email_taken == true %>
+              <li>Email has already been taken</li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <% if flash.count > 0 %>
+      <div class="messages">
+        <div class="messages_info">
+          <% flash.each do |key, msg| %>
+            <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+            <%= content_tag :script, :type => "text/javascript" do %>
+              setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
             <% end %>
           <% end %>
-          <% if @email_taken == true %>
-            <li>Email has already been taken</li>
-          <% end %>
-        </ul>
+        </div>
       </div>
     <% end %>
 
@@ -70,7 +88,7 @@
           <p><%= f.label t "form.birth" %></p>
         </div>
         <div class="input">
-          <%= f.text_field :birth, :id=> "datepicker", :class => "user_text_field" %>
+          <%= f.text_field :birth, :id=> "userdatapicker", :class => "user_text_field" %>
         </div>
       </div>
 
@@ -146,14 +164,14 @@
           </div>
 
           <div class="user_form_checkbox">
-          <div>
-            <p>* Dont see your club?</p>
+            <div>
+              <p>* Dont see your club?</p>
 
 
-            <p><%= f.check_box :add_club, {:onclick => "golf_club_checkbox()"} %> I will create new golf club</p>
+              <p><%= f.check_box :add_club, {:onclick => "golf_club_checkbox()"} %> I will create new golf club</p>
+            </div>
+
           </div>
-
-        </div>
         </div>
       </div>
 

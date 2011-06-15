@@ -54,7 +54,8 @@ class UserController < ApplicationController
         current_user.update_attributes(:add_club => false)
         redirect_to new_golf_club_path
       else
-        redirect_to welcome_path
+        redirect_to edit_user_path
+        flash[:notice] = "User updated"
       end
     else
       format.html { render :action => "edit" }
@@ -108,11 +109,9 @@ class UserController < ApplicationController
   end
   
   def update_hints
-    @user = User.find(params[:id])
-    @user.coach = params[:coach]
+    @user = User.find(params[:id])   
     if  @user.update_attributes(params[:user])
-     
     end
-      
   end
+  
 end

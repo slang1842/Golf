@@ -52,13 +52,19 @@ Golf::Application.routes.draw do
       get "show"
     end
   end
-  
+
+  #admin
+  #match "admin/users/:user_id" => "admin#", :as => 'give_admin_rights'
+
+
   get "welcome/index"
   get "home/index"
   get "user_sessions/new", :as => 'new_user_session'
+
   #club
   match '/club/edit_fields/' => 'golf_club#edit_fields'
   match '/user/update_hints/:id' => 'user#update_hints'
+
   #game
   match '/edit_field_by_id/:id' => 'fields#edit'
   match '/hole_switch/:game_id/:active_hole/:direction/:form_id/:hits/:puts' => 'games#hole_switch', :as => 'hole_switch'
@@ -78,6 +84,7 @@ Golf::Application.routes.draw do
   match '/hit_update/:game_id/' => 'games#hit_update'
   match '/print_game_plan/:game_id/' => 'games#print_game_plan', :as => 'print_game_plan'
   match '/single_game_statistics/:game_id' => 'games#get_stats', :as => 'get_stats'
+
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
   match '/welcome' => "welcome#index",        :as => :loged_in
@@ -97,6 +104,7 @@ Golf::Application.routes.draw do
     resources :users
     resources :hints
     resources :countries
+    match "admin/users/acc/:id" => "users#give_admin_rights", :as => 'give_admin_rights'
   end
   
   

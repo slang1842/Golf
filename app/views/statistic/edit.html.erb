@@ -103,7 +103,7 @@
               <% unless @stats.stick_progres == nil %>
                 <%  if @stats.stick_progres < MAIN_STATISTIC_BAD_PROC %>
                   <div class="progress_active bad" style="width:<%= "#{@stats.stick_progres}%;" %>"></div>
-                <%else%>
+                <%  else %>
                   <div class="progress_active normal" style="width:<%= "#{ @stats.stick_progres}%;"%>"></div>
                 <%end%>
               <%end%>
@@ -112,8 +112,8 @@
             <div class="info">
               <p>
                 USAGE:
-                <% unless @stats.usage == nil %>
-                  <%="#{@stats.usage}%" %>
+                <% if @stats.usage != nil %>
+                  <%=  "#{@stats.usage}%" %>
                 <% else %>
                   N/A
                 <% end %>

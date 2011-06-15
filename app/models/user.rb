@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :users_sticks, :allow_destroy => true
   accepts_nested_attributes_for :balls, :allow_destroy => true
   
-  validates :first_name, :last_name, :nick, :birth, :presence => true
+  validates :first_name, :last_name, :nick, :presence => true #:birth, :presence => true
   validates :email, :uniqueness => true #, :message => '%{:email} has already been taken'
 
   

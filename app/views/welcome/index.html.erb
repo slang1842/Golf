@@ -2,13 +2,15 @@
 
 
 <% if flash.count > 0 %>
-  <div class="info" style="display:block;">
-    <% flash.each do |key, msg| %>
-      <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-      <%= content_tag :script, :type => "text/javascript" do -%>
-        setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+  <div class="messages">
+    <div class="messages_info" style="display: none;">
+      <% flash.each do |key, msg| %>
+        <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+        <%= content_tag :script, :type => "text/javascript" do -%>
+          setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 <% end %>
 
@@ -153,25 +155,23 @@
   </div>
 
   <div class="top_wrap">
-    <h1>Top spēlētāji</h1>
-    <p>1. Vilhelms Purvītis</p>
-    <p>2. Kārlis Padegs</p>
-    <p>3. Valdemārs Tone</p>
-    <p>4. Maija Tabaka</p>
-    <p>5. Jānis Kalniņš</p>
+    <% if @top_users_progress.count != 0 %>
+      <h1>Top spēlētāji</h1>
+      <% @num1 = 1 %>
+      <% @top_users_progress.each do |top| %>
+        <p><%= @num1 %>. <%= User.find(top.user_id).first_name %> <%= User.find(top.user_id).last_name %></p>
+        <% @num1 = @num1 + 1%>
+      <% end %>
+    <% end %>
 
-    <h1>Top distance</h1>
-    <p>1. Taigers Kalniņš</p>
-    <p>2. Jānis Vuds</p>
-    <p>3. Jānis Kalniņš</p>
-    <p>4. Jānis Kalniņš</p>
-    <p>5. Jānis Kalniņš</p>
-
-
-
-
-
-
-
+    <% if @max_hit.count != 0  %>
+      <h1>Top distance</h1>
+      <% @num2 = 1 %>
+      <% @max_hit.each do |distance| %>
+        <p><%= @num2 %>. <%= User.find(distance.user_id).first_name %> <%= User.find(distance.user_id).last_name %></p>
+        <% @num2 = @num2 + 1%>
+      <% end %>
+    <% end %>
   </div>
+
 </div>

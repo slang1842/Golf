@@ -375,7 +375,7 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.string   "last_name",                             :null => false
     t.string   "nick",                                  :null => false
     t.string   "sex",                                   :null => false
-    t.date     "birth",                                 :null => false
+    t.date     "birth"
     t.integer  "country_id"
     t.integer  "golf_club_id"
     t.integer  "hcp",                                   :null => false

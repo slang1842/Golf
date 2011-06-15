@@ -17,7 +17,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string        :last_name,            :null => false
       t.string        :nick,                 :null => false
       t.string        :sex,                  :null => false
-      t.date          :birth,                :null => false
+      t.date          :birth#,                :null => false
       t.references    :country
       t.references    :golf_club
       t.integer       :hcp,                  :null => false

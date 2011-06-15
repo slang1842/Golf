@@ -4,6 +4,7 @@
   <div class="table_listing"
     <b>
     <div class="row">
+      <div class="item">Pievienoja</div>
       <div class="item">Name</div>
       <div class="item">Region</div>
       <div class="item">Accepted</div>
@@ -12,6 +13,8 @@
     </b>
     <% @clubs.each do |club| %>
     <div class="row">
+      <% @user = User.find(club.user_id) %>
+      <div class="item"><%= @user.first_name %> <%= @user.last_name %></div>
       <div class="item"><%= club.name %></div>
       <div class="item"><%= club.city %></div>
       <div class="item"><%= club.accepted %></div>
