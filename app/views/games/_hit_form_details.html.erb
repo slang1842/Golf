@@ -40,26 +40,26 @@
     <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
       <p>Wind</p>
       <div class="element">
-        <%= f.select(:wind, STATISTICS_WIND, {:prompt => 'Select'}, {:class => "dropdown6"})%>
+        <%= f.select(:wind, STATISTICS_WIND, {:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
       </div>
     </div>
     <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
       <p>Stance</p>
       <div class="element">
-        <%= f.select( :stance, STATISTICS_STANCE, {:prompt => 'Select'}, {:class => "dropdown6"}) %>
+        <%= f.select( :stance, STATISTICS_STANCE, {:prompt => 'Select'}, {:class => "dropdown6 deselect"}) %>
       </div>
     </div>
     <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
-        <p>Slipums</p>
+        <p>Slope</p>
         <div class="element" style="heigth:60px">
-          <%= f.select(:slipums, SLIPUMS,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+          <%= f.select(:slipums, SLIPUMS,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
       </div>
       <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
        
-        <p>Kritums</p>
+        <p>Tilt</p>
         <div class="element" style="heigth:60px">
-          <%= f.select(:kritums, KRITUMS,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+          <%= f.select(:kritums, KRITUMS,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
       </div>
     <div class="input_wrap" >
@@ -69,7 +69,7 @@
       <div class="single_dropdown">
         <p>Land place</p>
         <div class="element" style="heigth:60px">
-          <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6"}) %>
+          <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6 land_place_dropdown"}) %>
         </div>
       </div>
       <div class="single_dropdown" style="width:100px">
@@ -81,7 +81,7 @@
       <div class="single_dropdown">
         <p>Club</p>
         <div class="element" style="heigth:60px">
-          <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "select"},{:class => "dropdown6 game_input_select", :id => "stick_type_old" }  %>
+          <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Select"},{:class => "dropdown6 game_input_select", :id => "stick_type_old" }  %>
         </div>
       </div>
       
@@ -95,14 +95,14 @@
        
         <p>Trajectory</p>
         <div class="element" style="heigth:60px">
-          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
       </div>
       <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
        
         <p>Strength</p>
         <div class="element" style="heigth:60px">
-          <%= f.select(:strength, STRENGTH,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+          <%= f.select(:strength, STRENGTH,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
       </div>
 </div>
@@ -158,14 +158,14 @@
       <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
         <p>Trajectory</p>
         <div class="element">
-          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
       </div>
       
     <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
         <p>Strength</p>
         <div class="element" style="heigth:60px">
-          <%= f.select(:strength, STRENGTH,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+          <%= f.select(:strength, STRENGTH,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
       </div>
     <div class="input_wrap" style="height:250px">

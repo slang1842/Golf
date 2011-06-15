@@ -43,9 +43,9 @@ PLANNED_LAND_PLACES_SHORT = {"Green" => 1, "Hole" => 11}
 
 #izmainas 15.06.11
 
-SLIPUMS = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3, "rere" => 4, "ff" => 5}
-KRITUMS = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3, "rere" => 4, "ff" => 5}
-STRENGTH = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3, "wooooot" => 4}
-MISTAKE = {"asdf" => 1, "fefefef" => 2, "rerererre" => 3, "wooooot" => 4, "ff" => 5}
+SLIPUMS = {"Straight" => 1, "To right" => 2, "To left" => 3, "More to right" => 4, "More to left" => 5}
+KRITUMS = {"Straight" => 1, "Up" => 2, "Down" => 3, "More up" => 4, "More down" => 5}
+STRENGTH = {"Light" => 1, "Normal" => 2, "Strong" => 3, "Very strong" => 4}
+MISTAKE = {"None" => 1, "Too close" => 2, "Too far" => 3, "Very close" => 4, "Very far" => 5}
 
 
