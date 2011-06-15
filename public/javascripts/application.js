@@ -137,20 +137,64 @@ function swap_dropdowns(i) {
   if  (i == 1 || i == 7) {
     $(".direction_dropdown").css({"display":"none"});
     $(".slipums_dropdown").css({"display":"block"});
-    var options_green {
-      1 : "Straight"
-      2 : "To right"
-      4 : "More to right"
-      3 : "To left"
+    var options_green = {
+       
+      1 : "Straight",
+      2 : "To right",
+      4 : "More to right",
+      3 : "To left",
       5 : "More to left"
-    }
-    $(".land_place_dropdown").
+    };
+    var options_land_green = {
+      
+      11 : "Hole",
+      1 : "Green",
+          };
+    $(".land_place_dropdown").empty();
+    $(".direction_swap").empty();
+    $.each(options_green, function(val, text) {
+     $('.direction_swap').append(
+        $('<option></option>').val(val).html(text)
+    );
+});
+     $.each(options_land_green, function(val, text) {
+    $('.land_place_dropdown').append( new Option(text,val) );
+});
   }
   else {
     $(".direction_dropdown").css({"display":"block"});
     $(".slipums_dropdown").css({"display":"none"});
+    var options_green = {
+     1 : "Straight",
+     2 : "Fade", 
+     3 : "Drow", 
+     4 : "Slice",
+     5 : "Hook"  
+         };
+    var options_land_green = {
+     1 : "Green",
+     3 : "Fairway",
+     4 : "Next fairway",
+     6 : "Raf",
+     7 : "For green",
+     8 : "Fairway sand",
+     9 : "Green sand",
+     11 : "Hole",
+     5 : "Semi raf" 
+          };
+    $(".land_place_dropdown").empty();
+    $(".direction_swap").empty();
+    $.each(options_green, function(val, text) {
+     $('.direction_swap').append(
+        $('<option></option>').val(val).html(text)
+    );
+});
+     $.each(options_land_green, function(val, text) {
+    $('.land_place_dropdown').append( new Option(text,val) );
+});
   }
-}
+  }
+
 // function check_game_form() {
 //     textEntered = true
 //        $(".game_input_select").each(function() {
