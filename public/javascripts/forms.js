@@ -133,13 +133,17 @@ function check_user_form() {
   if (textEntered) {
     return true
   } else {
-    $(".messages_error").slideDown('slow');
+    $(".messages_error").slideDown('slow', function(){
+      $sleep(3, function(){
+        $(".messages_error").sideUp('slow')
+      })
+    });
     return false
   }
 }
 
 function check_game_form() {
-  textEntered = true
+  var textEntered = true
   $(".game_input_select").each(function() {
     if (textEntered && $(this).val() == "") {
       textEntered = false;
