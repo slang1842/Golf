@@ -82,6 +82,7 @@ function timepicker(){
     currentText: 'Now',
     closeText: 'Done',
     ampm: false,
+    dateFormat: 'yy-mm-dd',
     timeFormat: 'hh:mm tt',
     timeOnlyTitle: 'Choose Time',
     timeText: 'Time',
@@ -89,6 +90,7 @@ function timepicker(){
     minuteText: 'Minute',
     secondText: 'Second',
     firstDay: 1
+  //2011-06-14 00:00:00
   });
 }
 
@@ -115,65 +117,106 @@ function check_bag_form() {
   }
    
 }
-
+/*
 function check_user_form() {
   textEntered = true
 
   $(".user_text_field").each(function() {
-    if (textEntered && $(this).val().length == 0) {
+    if ($(this).val().length == 0) {
       textEntered = false;
-    }
-  });
-
-  $(".user_select_field").each(function() {
-    if (textEntered && $(this).val() == "") {
-      textEntered = false;
-    }
-  });
-
-  if (textEntered) {
-    return true
-  } else {
-    $(".messages_error").slideDown('slow', function(){
-      $sleep(3, function(){
-        $(".messages_error").sideUp('slow')
-      })
-    });
-    return false
-  }
-}
-
-function check_game_form() {
-  
-  var textEntered = true
-  $(".game_input_select").each(function(){
-
-    if ($(this).val() == "") {
-      textEntered = false
     }
     else {
       textEntered = true
     }
 
+    $(".user_select_field").each(function() {
+      if ($(this).val() == "") {
+        textEntered = false;
+      }
+      else {
+        textEntered = true
+      }
+    
+    });
+
+    if (textEntered) {
+      return true
+    } else {
+      $(".messages_error").slideDown('slow', function(){
+        $sleep(3, function(){
+          $(".messages_error").sideUp('slow')
+        })
+      });
+      return false
+    }
+  }
+ */
+
+function check_user_form() {
+  var textEntered = true
+  
+  
+  $(".user_text_field").each(function(){
+    if ($(this).val() == "") {
+      textEntered = false
+    }
   })
 
-  if (textEntered == false) {
+  $(".user_select_field").each(function(){
+    if ($(this).val() == "") {
+      textEntered = false
+    }
+  })
 
+  if ($("#user_first_name").val() == "") {
+    textEntered = false
+  }
+
+  if ($("#userdatapicker").val() == "") {
+    textEntered = false
+  }
+
+
+  if (textEntered == false) {    
+    if ($(".messages_error").css("display") == 'block' ) {
+      $(".messages_error").slideUp("fast").slideDown('slow');
+    } else {
+      $(".messages_info").slideUp("fast");
+      $(".messages_error").slideDown('slow');
+    }
+    return false
+  }
+  else {
+    return true
+  }
+
+
+}
+
+
+
+function check_game_form() {
+  var textEntered = true
+
+  $(".game_input_select").each(function(){
+    if ($(this).val() == "") {
+      textEntered = false
+    }
+  })
+
+  if ($("#game_field_id").val() == "") {
+    textEntered = false
+  }
+
+  if (textEntered == false) {
     if ($(".messages_error").css("display") == 'block' ) {
       $(".messages_error").slideUp("fast").slideDown('slow');
     } else {
       $(".messages_error").slideDown('slow');
     }
-
-    $.wait(3000).then(function()
-    {
-      $(".messages_error").slideUp('slow');
-    });
-
-    
     return false
   }
-  else {  
+  else {
     return true
   }
 

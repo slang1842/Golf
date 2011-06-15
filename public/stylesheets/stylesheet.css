@@ -1039,12 +1039,12 @@ a {
 }
 }
 .notice{
- /* color:#898989;
-   font-size:19px;
-   font-family:"Trebuchet MS";
-   line-height:14px;
-   margin:10px;
-   font-weight:bold;*/
+  /* color:#898989;
+    font-size:19px;
+    font-family:"Trebuchet MS";
+    line-height:14px;
+    margin:10px;
+    font-weight:bold;*/
 }
 
 
@@ -1084,11 +1084,6 @@ a {
 /* ==== error, info messages ==== */
 
 .messages {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .messages_info, .messages_success, .messages_warning, .messages_error, .messages_validation {
@@ -1096,10 +1091,10 @@ a {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid;
-  margin: 10px 0px;
   padding: 15px 10px 15px 50px;
   background-repeat: no-repeat;
   background-position: 10px center;
+  margin: 20px;
 }
 
 .messages_info {
