@@ -394,7 +394,6 @@
 
 
 
-
   </div>
   <div class="clear"></div>
   <div class="bottom_line"></div>
@@ -417,13 +416,182 @@
       <img src="/images/link_right_small.png" alt=""/>
     </div>
     <div class="info_wrap">
-      <img src="/images/table_icon_location.png" alt=""/>
+      <img src="/images/table_icon_stance.png" alt=""/>
       <div class="description">
         <p>Stance in wich the stroke was made</p>
       </div>
     </div>
   </span>
   <div class="single_situation" id="stance" >
+
+
+
+    <!-- ========================================= stance_normal ========================================= -->
+    <div class="name">
+      <p>Normal</p>
+    </div>
+    <% @user_sticks.each do |c_stick|%>
+      <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+      <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+      <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+      <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+      <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+      <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+          #===================================
+          :hint_id_prefix => "stance_normal_hint_",
+          :current_situation_hint => @c_hint_user.stance_normal_hint.to_s,
+          :current_situation => @c_s_stick.stance_normal.to_i,
+          #===================================
+          :user_sticks => @user_sticks,
+          :c_s_stick => @c_s_stick,
+          :c_stick => c_stick,
+          :statistic => @statistic,
+          :user_params => @user_params,
+          :c_hint_admin => @c_hint_admin,
+          :c_hint_user => @c_hint_user,
+          :is_admin_and_coach => @is_admin_and_coach,
+          :is_admin => @is_admin,
+          :current_club_trainer => @current_club_trainer })%>
+    <% end %>
+    <div class="clear"></div>
+    <!-- ========================================= stance_normal ========================================= -->
+
+
+
+
+
+
+    <!-- ========================================= stance_right_leg_lower ========================================= -->
+    <div class="name">
+      <p>Right Leg Lower</p>
+    </div>
+    <% @user_sticks.each do |c_stick|%>
+      <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+      <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+      <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+      <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+      <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+      <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+          #===================================
+          :hint_id_prefix => "stance_right_leg_lower_hint_",
+          :current_situation_hint => @c_hint_user.stance_right_leg_lower_hint.to_s,
+          :current_situation => @c_s_stick.stance_right_leg_lower.to_i,
+          #===================================
+          :user_sticks => @user_sticks,
+          :c_s_stick => @c_s_stick,
+          :c_stick => c_stick,
+          :statistic => @statistic,
+          :user_params => @user_params,
+          :c_hint_admin => @c_hint_admin,
+          :c_hint_user => @c_hint_user,
+          :is_admin_and_coach => @is_admin_and_coach,
+          :is_admin => @is_admin,
+          :current_club_trainer => @current_club_trainer })%>
+    <% end %>
+    <div class="clear"></div>
+    <!-- ========================================= stance_right_leg_lower ========================================= -->
+
+
+
+
+
+
+    <!-- ========================================= stance_left_leg_lower ========================================= -->
+    <div class="name">
+      <p>Left Leg Lower</p>
+    </div>
+    <% @user_sticks.each do |c_stick|%>
+      <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+      <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+      <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+      <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+      <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+      <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+          #===================================
+          :hint_id_prefix => "stance_left_leg_lower_hint_",
+          :current_situation_hint => @c_hint_user.stance_left_leg_lower_hint.to_s,
+          :current_situation => @c_s_stick.stance_left_leg_lower.to_i,
+          #===================================
+          :user_sticks => @user_sticks,
+          :c_s_stick => @c_s_stick,
+          :c_stick => c_stick,
+          :statistic => @statistic,
+          :user_params => @user_params,
+          :c_hint_admin => @c_hint_admin,
+          :c_hint_user => @c_hint_user,
+          :is_admin_and_coach => @is_admin_and_coach,
+          :is_admin => @is_admin,
+          :current_club_trainer => @current_club_trainer })%>
+    <% end %>
+    <div class="clear"></div>
+    <!-- ========================================= stance_left_leg_lower ========================================= -->
+
+
+
+    <!-- ========================================= stance_ball_lower ========================================= -->
+    <div class="name">
+      <p>Ball Lower</p>
+    </div>
+    <% @user_sticks.each do |c_stick|%>
+      <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+      <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+      <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+      <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+      <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+      <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+          #===================================
+          :hint_id_prefix => "stance_ball_lower_hint_",
+          :current_situation_hint => @c_hint_user.stance_ball_lower_hint.to_s,
+          :current_situation => @c_s_stick.stance_ball_lower.to_i,
+          #===================================
+          :user_sticks => @user_sticks,
+          :c_s_stick => @c_s_stick,
+          :c_stick => c_stick,
+          :statistic => @statistic,
+          :user_params => @user_params,
+          :c_hint_admin => @c_hint_admin,
+          :c_hint_user => @c_hint_user,
+          :is_admin_and_coach => @is_admin_and_coach,
+          :is_admin => @is_admin,
+          :current_club_trainer => @current_club_trainer })%>
+    <% end %>
+    <div class="clear"></div>
+    <!-- ========================================= stance_ball_lower ========================================= -->
+
+
+
+
+    <!-- ========================================= stance_ball_higher ========================================= -->
+    <div class="name">
+      <p>Ball Higher</p>
+    </div>
+    <% @user_sticks.each do |c_stick|%>
+      <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+      <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+      <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+      <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+      <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+      <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+          #===================================
+          :hint_id_prefix => "stance_ball_higher_hint_",
+          :current_situation_hint => @c_hint_user.stance_ball_higher_hint.to_s,
+          :current_situation => @c_s_stick.stance_ball_higher.to_i,
+          #===================================
+          :user_sticks => @user_sticks,
+          :c_s_stick => @c_s_stick,
+          :c_stick => c_stick,
+          :statistic => @statistic,
+          :user_params => @user_params,
+          :c_hint_admin => @c_hint_admin,
+          :c_hint_user => @c_hint_user,
+          :is_admin_and_coach => @is_admin_and_coach,
+          :is_admin => @is_admin,
+          :current_club_trainer => @current_club_trainer })%>
+    <% end %>
+    <div class="clear"></div>
+    <!-- ========================================= stance_ball_higher ========================================= -->
+
+
 
 
 
@@ -460,6 +628,184 @@
 
 
 
+      <!-- ========================================= direction_straigth ========================================= -->
+      <div class="name">
+        <p>Straigth</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "direction_straigth_hint_",
+            :current_situation_hint => @c_hint_user.direction_straigth_hint.to_s,
+            :current_situation => @c_s_stick.direction_straigth.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= direction_straigth ========================================= -->
+
+
+
+
+
+      <!-- ========================================= direction_fade ========================================= -->
+      <div class="name">
+        <p>Fade</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "direction_fade_hint_",
+            :current_situation_hint => @c_hint_user.direction_fade_hint.to_s,
+            :current_situation => @c_s_stick.direction_fade.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= direction_fade ========================================= -->
+
+
+
+
+
+
+
+      <!-- ========================================= direction_drow ========================================= -->
+      <div class="name">
+        <p>Drow</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "direction_drow_hint_",
+            :current_situation_hint => @c_hint_user.direction_drow_hint.to_s,
+            :current_situation => @c_s_stick.direction_drow.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= direction_drow ========================================= -->
+
+
+
+
+
+
+      <!-- ========================================= direction_slice ========================================= -->
+      <div class="name">
+        <p>Slice</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "direction_slice_hint_",
+            :current_situation_hint => @c_hint_user.direction_slice_hint.to_s,
+            :current_situation => @c_s_stick.direction_slice.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= direction_slice ========================================= -->
+
+
+
+
+
+
+      <!-- ========================================= direction_hook ========================================= -->
+      <div class="name">
+        <p>Hook</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "direction_hook_hint_",
+            :current_situation_hint => @c_hint_user.direction_hook_hint.to_s,
+            :current_situation => @c_s_stick.direction_hook.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= direction_hook ========================================= -->
+
+
+
+
+
+
+
+
+
     </div>
     <div class="clear"></div>
     <div class="bottom_line"></div>
@@ -490,6 +836,107 @@
 
 
 
+
+
+
+      <!-- ========================================= temperature_cold ========================================= -->
+      <div class="name">
+        <p>Cold</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "temperature_cold_hint_",
+            :current_situation_hint => @c_hint_user.temperature_cold_hint.to_s,
+            :current_situation => @c_s_stick.temperature_cold.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= temperature_cold ========================================= -->
+
+
+
+      <!-- ========================================= temperature_normal ========================================= -->
+      <div class="name">
+        <p>Normal</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "temperature_normal_hint_",
+            :current_situation_hint => @c_hint_user.temperature_normal_hint.to_s,
+            :current_situation => @c_s_stick.temperature_normal.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= temperature_normal ========================================= -->
+
+
+
+      <!-- ========================================= temperature_hot ========================================= -->
+      <div class="name">
+        <p>Normal</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "temperature_hot_hint_",
+            :current_situation_hint => @c_hint_user.temperature_hot_hint.to_s,
+            :current_situation => @c_s_stick.temperature_hot.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= temperature_hot ========================================= -->
+
+
+
+
+
     </div>
     <div class="clear"></div>
     <div class="bottom_line"></div>
@@ -514,6 +961,132 @@
       </div>
     </span>
     <div class="single_situation" id="weather" >
+
+
+      <!-- ========================================= weather_normal ========================================= -->
+      <div class="name">
+        <p>Normal</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "weather_normal_hint_",
+            :current_situation_hint => @c_hint_user.weather_normal_hint.to_s,
+            :current_situation => @c_s_stick.weather_normal.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= weather_normal ========================================= -->
+
+
+
+      <!-- ========================================= weather_wind ========================================= -->
+      <div class="name">
+        <p>Wind</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "weather_wind_hint_",
+            :current_situation_hint => @c_hint_user.weather_wind_hint.to_s,
+            :current_situation => @c_s_stick.weather_wind.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= weather_wind ========================================= -->
+
+
+      <!-- ========================================= weather_rain ========================================= -->
+      <div class="name">
+        <p>Rain</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "weather_rain_hint_",
+            :current_situation_hint => @c_hint_user.weather_rain_hint.to_s,
+            :current_situation => @c_s_stick.weather_rain.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= weather_rain ========================================= -->
+
+
+
+      <!-- ========================================= weather_wind_and_rain ========================================= -->
+      <div class="name">
+        <p>Wind and Rain</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "weather_wind_and_rain_hint_",
+            :current_situation_hint => @c_hint_user.weather_wind_and_rain_hint.to_s,
+            :current_situation => @c_s_stick.weather_wind_and_rain.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= weather_wind_and_rain ========================================= -->
 
 
 
@@ -544,6 +1117,103 @@
       </div>
     </span>
     <div class="single_situation" id="trajectory" >
+
+
+
+      <!-- ========================================= trajectory_normal ========================================= -->
+      <div class="name">
+        <p>Normal</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "trajectory_normal_hint_",
+            :current_situation_hint => @c_hint_user.trajectory_normal_hint.to_s,
+            :current_situation => @c_s_stick.trajectory_normal.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= trajectory_normal ========================================= -->
+
+
+
+      <!-- ========================================= trajectory_high ========================================= -->
+      <div class="name">
+        <p>High</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "trajectory_high_hint_",
+            :current_situation_hint => @c_hint_user.trajectory_high_hint.to_s,
+            :current_situation => @c_s_stick.trajectory_high.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= trajectory_high ========================================= -->
+
+
+
+      <!-- ========================================= trajectory_low ========================================= -->
+      <div class="name">
+        <p>Low</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "trajectory_low_hint_",
+            :current_situation_hint => @c_hint_user.trajectory_low_hint.to_s,
+            :current_situation => @c_s_stick.trajectory_low.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= trajectory_low ========================================= -->
+
 
 
 
@@ -579,6 +1249,138 @@
 
 
 
+      <!-- ========================================= wind_from_behind ========================================= -->
+      <div class="name">
+        <p>From Behind</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "wind_from_behind_hint_",
+            :current_situation_hint => @c_hint_user.wind_from_behind_hint.to_s,
+            :current_situation => @c_s_stick.wind_from_behind.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= wind_from_behind ========================================= -->
+
+
+
+
+      <!-- ========================================= wind_from_front ========================================= -->
+      <div class="name">
+        <p>From Front</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "wind_from_front_hint_",
+            :current_situation_hint => @c_hint_user.wind_from_front_hint.to_s,
+            :current_situation => @c_s_stick.wind_from_front.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= wind_from_front ========================================= -->
+
+
+
+      <!-- ========================================= wind_from_left ========================================= -->
+      <div class="name">
+        <p>From Left</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "wind_from_left_hint_",
+            :current_situation_hint => @c_hint_user.wind_from_left_hint.to_s,
+            :current_situation => @c_s_stick.wind_from_left.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= wind_from_left ========================================= -->
+
+
+
+
+      <!-- ========================================= wind_from_right ========================================= -->
+      <div class="name">
+        <p>From Right</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "wind_from_right_hint_",
+            :current_situation_hint => @c_hint_user.wind_from_right_hint.to_s,
+            :current_situation => @c_s_stick.wind_from_right.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= wind_from_right ========================================= -->
+
+
+
+
+
     </div>
     <div class="clear"></div>
     <div class="bottom_line"></div>
@@ -600,12 +1402,536 @@
       <div class="info_wrap">
         <img src="/images/table_icon_location.png" alt=""/>
         <div class="description">
-          <p>Wind during the game</p>
+          <p>Strength of the stroke</p>
         </div>
       </div>
     </span>
 
     <div class="single_situation" id="green_strength" >
+
+
+
+      <!-- ========================================= green_strength_light ========================================= -->
+      <div class="name">
+        <p>Light</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_strength_light_hint_",
+            :current_situation_hint => @c_hint_user.green_strength_light_hint.to_s,
+            :current_situation => @c_s_stick.green_strength_light.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_strength_light ========================================= -->
+
+
+
+      <!-- ========================================= green_strength_normal ========================================= -->
+      <div class="name">
+        <p>Normal</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_strength_normal_hint_",
+            :current_situation_hint => @c_hint_user.green_strength_normal_hint.to_s,
+            :current_situation => @c_s_stick.green_strength_normal.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_strength_normal ========================================= -->
+
+
+
+      <!-- ========================================= green_strength_strong ========================================= -->
+      <div class="name">
+        <p>Strong</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_strength_strong_hint_",
+            :current_situation_hint => @c_hint_user.green_strength_strong_hint.to_s,
+            :current_situation => @c_s_stick.green_strength_strong.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_strength_strong ========================================= -->
+
+
+
+
+      <!-- ========================================= green_strength_very_strong ========================================= -->
+      <div class="name">
+        <p>Very Strong</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_strength_very_strong_hint_",
+            :current_situation_hint => @c_hint_user.green_strength_very_strong_hint.to_s,
+            :current_situation => @c_s_stick.green_strength_very_strong.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_strength_very_strong ========================================= -->
+
+
+
+    </div>
+    <div class="clear"></div>
+    <div class="bottom_line"></div>
+  </div>
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_strength =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
+
+
+
+
+
+
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_direction =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+  <div class="clear"></div>
+  <div class="situation_type">
+    <span onclick="showHideElement('#green_direction')">
+      <div class="name_wrap">
+        <p>Slope</p>
+        <img src="/images/link_right_small.png" alt=""/>
+      </div>
+      <div class="info_wrap">
+        <img src="/images/table_icon_location.png" alt=""/>
+        <div class="description">
+          <p>Slope of the green</p>
+        </div>
+      </div>
+    </span>
+
+    <div class="single_situation" id="green_direction" >
+
+
+
+      <!-- ========================================= green_direction_straight ========================================= -->
+      <div class="name">
+        <p>Straight</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_direction_straight_hint_",
+            :current_situation_hint => @c_hint_user.green_direction_straight_hint.to_s,
+            :current_situation => @c_s_stick.green_direction_straight.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_straight ========================================= -->
+
+
+
+
+
+      <!-- ========================================= green_direction_to_right ========================================= -->
+      <div class="name">
+        <p>Right</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_direction_to_right_hint_",
+            :current_situation_hint => @c_hint_user.green_direction_to_right_hint.to_s,
+            :current_situation => @c_s_stick.green_direction_to_right.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_to_right ========================================= -->
+
+
+
+      <!-- ========================================= green_direction_to_left ========================================= -->
+      <div class="name">
+        <p>Left</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_direction_to_left_hint_",
+            :current_situation_hint => @c_hint_user.green_direction_to_left_hint.to_s,
+            :current_situation => @c_s_stick.green_direction_to_left.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_to_left ========================================= -->
+
+
+
+
+      <!-- ========================================= green_direction_more_to_right ========================================= -->
+      <div class="name">
+        <p>More to Right</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_direction_more_to_right_hint_",
+            :current_situation_hint => @c_hint_user.green_direction_more_to_right_hint.to_s,
+            :current_situation => @c_s_stick.green_direction_more_to_right.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_more_to_right ========================================= -->
+
+
+
+
+      <!-- ========================================= green_direction_more_to_left ========================================= -->
+      <div class="name">
+        <p>More to Left</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_direction_more_to_left_hint_",
+            :current_situation_hint => @c_hint_user.green_direction_more_to_left_hint.to_s,
+            :current_situation => @c_s_stick.green_direction_more_to_left.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_more_to_left ========================================= -->
+
+
+
+
+    </div>
+    <div class="clear"></div>
+    <div class="bottom_line"></div>
+  </div>
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_direction =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
+
+
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_tilt =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+  <div class="clear"></div>
+  <div class="situation_type">
+    <span onclick="showHideElement('#green_tilt')">
+      <div class="name_wrap">
+        <p>Tilt</p>
+        <img src="/images/link_right_small.png" alt=""/>
+      </div>
+      <div class="info_wrap">
+        <img src="/images/table_icon_location.png" alt=""/>
+        <div class="description">
+          <p>Tilt of the green</p>
+        </div>
+      </div>
+    </span>
+
+    <div class="single_situation" id="green_tilt" >
+
+
+
+
+      <!-- ========================================= green_tilt_straight ========================================= -->
+      <div class="name">
+        <p>Straight</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_tilt_straight_hint_",
+            :current_situation_hint => @c_hint_user.green_tilt_straight_hint.to_s,
+            :current_situation => @c_s_stick.green_tilt_straight.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_tilt_straight ========================================= -->
+
+
+
+
+
+
+      <!-- ========================================= green_tilt_upward ========================================= -->
+      <div class="name">
+        <p>Upward</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_tilt_upward_hint_",
+            :current_situation_hint => @c_hint_user.green_tilt_upward_hint.to_s,
+            :current_situation => @c_s_stick.green_tilt_upward.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_tilt_upward ========================================= -->
+
+
+
+
+
+      <!-- ========================================= green_tilt_downward ========================================= -->
+      <div class="name">
+        <p>Downward</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_tilt_downward_hint_",
+            :current_situation_hint => @c_hint_user.green_tilt_downward_hint.to_s,
+            :current_situation => @c_s_stick.green_tilt_downward.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_tilt_downward ========================================= -->
+
+
+
+
+
+      <!-- ========================================= green_tilt_very_upward ========================================= -->
+      <div class="name">
+        <p>Very Upward</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_tilt_very_upward_hint_",
+            :current_situation_hint => @c_hint_user.green_tilt_very_upward_hint.to_s,
+            :current_situation => @c_s_stick.green_tilt_very_upward.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_tilt_very_upward ========================================= -->
+
+
+
+      <!-- ========================================= green_tilt_very_downward ========================================= -->
+      <div class="name">
+        <p>Very Downward</p>
+      </div>
+      <% @user_sticks.each do |c_stick|%>
+        <% @c_s_stick = @statistic.find_by_stick_id(c_stick.stick.id) %>
+        <% @conditions_user = {:user_id => @user_params.coach, :stick_id => c_stick.stick.id} %>
+        <% @conditions_admin = {:user_id => current_user.id, :stick_id => c_stick.stick.id} %>
+        <% @c_hint_admin = Hint.find(:first, :conditions => @conditions_admin) || Hint.new(@conditions_admin) %>
+        <% @c_hint_user = Hint.find(:first, :conditions => @conditions_user) || Hint.new(@conditions_user) %>
+        <%= render(:partial => 'statistic/main_statistic_loop_form', :locals => {
+            #===================================
+            :hint_id_prefix => "green_tilt_very_downward_hint_",
+            :current_situation_hint => @c_hint_user.green_tilt_very_downward_hint.to_s,
+            :current_situation => @c_s_stick.green_tilt_very_downward.to_i,
+            #===================================
+            :user_sticks => @user_sticks,
+            :c_s_stick => @c_s_stick,
+            :c_stick => c_stick,
+            :statistic => @statistic,
+            :user_params => @user_params,
+            :c_hint_admin => @c_hint_admin,
+            :c_hint_user => @c_hint_user,
+            :is_admin_and_coach => @is_admin_and_coach,
+            :is_admin => @is_admin,
+            :current_club_trainer => @current_club_trainer })%>
+      <% end %>
+      <div class="clear"></div>
+      <!-- ========================================= green_tilt_very_downward ========================================= -->
 
 
 
@@ -615,7 +1941,9 @@
     <div class="clear"></div>
     <div class="bottom_line"></div>
   </div>
-  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_strength =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_tilt =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
 
 
 </div>
