@@ -91,5 +91,6 @@ DEPENDENCIES
   paperclip
   rails (= 3.0.7)
   rails3-generators
+  rake (= 0.8.7)
   ruby-mysql
   sqlite3

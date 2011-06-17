@@ -46,12 +46,17 @@
 
     <div class="contents_wrap">
 
-      <% flash.each do |key, msg| %>
-        <div class="error" style="display: block;">
-          <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-          <%= content_tag :script, :type => "text/javascript" do -%>
-            setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
-          <% end %>
+
+      <% if flash.count > 0 %>
+        <div class="messages">
+          <div class="messages_error">
+            <% flash.each do |key, msg| %>
+              <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+              <%= content_tag :script, :type => "text/javascript" do %>
+                setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+              <% end %>
+            <% end %>
+          </div>
         </div>
       <% end %>
 
@@ -62,7 +67,7 @@
       <div class="button">
         <a href="<%= new_user_path %>"><p>Start Now!</p></a>
       </div>
-      <%#=  link_to "create golf club", new_golf_club_path %>
+<%#=  link_to "create golf club", new_golf_club_path %>
       <img src="/images/promo_image.png" alt=""/>
       <div class="image"><img src="/images/games_icon.png" alt=""/></div>
       <div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>

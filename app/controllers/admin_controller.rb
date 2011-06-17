@@ -13,10 +13,4 @@ class AdminController < ApplicationController
       end
     end
   end
-
-  def update_hints
-    
-  end
-  
-
 end

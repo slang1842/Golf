@@ -48,9 +48,7 @@ class ApplicationController < ActionController::Base
     
   def require_super_admin
     if current_user
-      if current_user.is_super_admin
-        redirect_to admin_path
-      else
+      unless current_user.is_super_admin
         redirect_to welcome_path
       end
     else
