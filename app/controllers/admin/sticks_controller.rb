@@ -37,7 +37,7 @@ class Admin::SticksController < ApplicationController
     @stick.created_at = Time.now
     respond_to do |format|
       if @stick.save
-        format.html { redirect_back_or_default(admin_sticks_path) }
+        redirect_to(admin_sticks_path, :notice => 'Stick was successfully created.')
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @stick.errors, :status => :unprocessable_entity }
@@ -48,9 +48,9 @@ class Admin::SticksController < ApplicationController
   def update
     @stick = Stick.find(params[:id])
     if @stick.update_attributes(params[:stick])
-      redirect_to(admin_sticks_path, :notice => 'Golf club was successfully updated.')
+      redirect_to(admin_sticks_path, :notice => 'Stick was successfully updated.')
     else
-      redirect_to(admin_sticks_path, :notice => 'Golf club was not successfully updated.')
+      redirect_to(admin_sticks_path, :notice => 'Stick was not successfully updated.')
     end
   end
 
