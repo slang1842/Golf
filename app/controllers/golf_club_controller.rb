@@ -27,25 +27,21 @@ class GolfClubController < ApplicationController
     @golf_club = GolfClub.new(params[:golf_club])
     @golf_club.user = current_user
     
-    respond_to do |format|
-      if @golf_club.save
-        #current_user.admin = true
-        #current_user.golf_club_id = @golf_club.id    
-        format.html { redirect_to(loged_in_path, flash(:notice => "Golf club #{@golf_club.name} has been successfully created. Administrator will accept it.")) }
-        format.xml  { render :xml => @golf_club, :status => :created, :location => @golf_club }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @golf_club.errors, :status => :unprocessable_entity }
-      end
+   
+    if @golf_club.save
+      redirect_to loged_in_path
+      flash[:notice] = "Golf club #{@golf_club.name} has been successfully created. Administrator will accept it."
+    else
+      render :action => "new"       
     end
   end
 
 
   def show
-   @club = GolfClub.find(:first, :conditions => {:id => current_user.golf_club.id})
-   @users = User.find(:all, :conditions => {:golf_club_id => @club.id})
-   @users_w_no_coach = User.find(:all, :conditions => {:golf_club_id => @club.id, :coach => nil})
-   render '/golf_club/show'
+    @club = GolfClub.find(:first, :conditions => {:id => current_user.golf_club.id})
+    @users = User.find(:all, :conditions => {:golf_club_id => @club.id})
+    @users_w_no_coach = User.find(:all, :conditions => {:golf_club_id => @club.id, :coach => nil})
+    render '/golf_club/show'
   end
   
   def update
