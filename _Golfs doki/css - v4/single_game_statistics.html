@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang="en" lang="en">
+<head>
+<title>Golfs</title>
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="lv" />
+ 
+<link rel="stylesheet" href="stylesheet.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="single_game_statistics.css" type="text/css" media="screen" />
+<script type="text/javascript" src="toggle.js"></script>
+
+<link type="text/css" href="themes/base/jquery.ui.all.css" rel="stylesheet" />
+	<link type="text/css" href="themes/base/jquery.ui.selectmenu.css" rel="stylesheet" />
+	<script type="text/javascript" src="jquery-1.4.4.js"></script>
+	<script type="text/javascript" src="ui/jquery.ui.core.js"></script>
+	<script type="text/javascript" src="ui/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="ui/jquery.ui.position.js"></script>
+	
+	<script type="text/javascript" src="ui/jquery.ui.selectmenu.js"></script>
+
+	<script type="text/javascript">	
+		$(function(){			
+			$('select#dropdown1').selectmenu({
+				style:'popup',
+				width:120
+				
+			});
+			
+			$('select#dropdown2').selectmenu({
+				style:'popup',
+				width:50
+				
+			});
+			
+			$('select#dropdown3').selectmenu({
+				style:'popup',
+				width:110
+				
+			});
+			
+			$('select#dropdown4').selectmenu({
+				style:'popup',
+				width:81
+				
+			});
+			
+			$('select#dropdown4').selectmenu({
+				style:'popup',
+				width:140
+				
+			});
+			
+			$('select#dropdown5').selectmenu({
+				style:'popup',
+				width:130
+				
+			});
+						
+			$('select#speedAa').selectmenu({
+				style:'popup', 
+				maxHeight: 300,
+				wrapperElement: "<div class='wrap' />"
+			});
+			
+			$('select#speedB').selectmenu({
+				style:'popup', 
+				width: 300,
+				format: addressFormatting
+			});
+			
+			$('select#speedC').selectmenu();
+			
+			$('select#speedD').selectmenu({
+				menuWidth: 400,
+				format: addressFormatting
+			});
+			
+			$('select#filesC').selectmenu({
+				style:'popup', 
+				positionOptions: {
+					my: "left center",
+					at: "right center",
+					offset: "10 0"
+				}
+			});	
+		});		
+		
+		//a custom format option callback
+		var addressFormatting = function(text){
+			var newText = text;
+			//array of find replaces
+			var findreps = [
+				{find:/^([^\-]+) \- /g, rep: '<span class="ui-selectmenu-item-header">$1</span>'},
+				{find:/([^\|><]+) \| /g, rep: '<span class="ui-selectmenu-item-content">$1</span>'},
+				{find:/([^\|><\(\)]+) (\()/g, rep: '<span class="ui-selectmenu-item-content">$1</span>$2'},
+				{find:/([^\|><\(\)]+)$/g, rep: '<span class="ui-selectmenu-item-content">$1</span>'},
+				{find:/(\([^\|><]+\))$/g, rep: '<span class="ui-selectmenu-item-footer">$1</span>'}
+			];
+			
+			for(var i in findreps){
+				newText = newText.replace(findreps[i].find, findreps[i].rep);
+			}
+			return newText;
+		}	
+		
+	</script>
+	
+	
+</head>
+<body>
+<div class="site_wrapper">
+	<div class="header_wrap">
+		<div class="logo_wrap"></div>
+	</div>
+	
+	<div class="menu_wrap">
+		<div class="profile_info">
+			<div class="profile_image">
+				<img src="img/default_profile.png" alt=""/>
+			</div>
+			<div class="text">
+				<p>Artūrs<br>Pakalns<br>HCP : 36<br>Klubs "Viesturi"<br><a href="#">Labot profilu</a></p>
+			</div>
+		</div>
+		<div class="icon_wrap">
+			<div class="link_wrap">
+				<a href="#"><img src="img/home_icon.png"/><p>Sākums</p></a>
+			</div>
+			
+			<div class="link_wrap">
+				<a href="#"><img src="img/games_icon.png"/><p>Manas spēles</p></a>
+			</div>
+			
+			<div class="link_wrap">
+				<a href="#"><img src="img/bag_icon.png"/><p>Mana soma</p></a>
+			</div>
+			
+			<div class="link_wrap">
+				<a href="#"><img src="img/results_icon.png"/><p>Statistika</p></a>
+			</div>
+			
+			<div class="link_wrap">
+				<a href="#"><img src="img/club_icon.png"/><p>Mans klubs</p></a>
+			</div>
+			
+			<div class="link_wrap">
+				<a href="#"><img src="img/results_input_icon.png"/><p>Spēles rezultāti</p></a>
+			</div>
+			
+			<div class="link_wrap">
+				<a href="#"><img src="img/plan_icon.png"/><p>Spēles plāns</p></a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="single_stats_wrap">
+		<div class="description">	
+			<p>Spēle laukumā "Viesturi"</p>
+			<p>01.03.11</p>
+		</div>
+		<div class="total_hits_desc">
+			<p>Kopējais sitienu skaits</p>
+		</div>
+		<div class="value">
+			<p>87</p>
+		</div>
+		<div class="total_hits_desc one_line">
+			<p>GIR</p>
+		</div>
+		<div class="value">
+			<p>2</p>
+		</div>
+		<div class="total_hits_desc one_line">
+			<p>Puts</p>
+		</div>
+		<div class="value">
+			<p>2</p>
+		</div>
+		<div class="clear"></div>
+		<div class="table_wrap">
+			<div class="line">
+				<div class="desc_row">
+					<div class="selector">
+						<select size="1" name="type" id="dropdown3">
+									<option value="Driver">Nūjas</option>
+									<option value="2">Bedrītes</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="row" style="width:115px">
+					<p>Cik reizes plānoji sist</p>
+				</div>
+				<div class="row" style="width:115px">
+					<p>Cik reizes<br>siti</p>
+				</div>
+				<div class="row" style="width:115px">
+					<p>AVG<br>distance</p>
+				</div>
+				
+				<div class="clear"></div>
+			</div>
+			
+				<div class="line">
+					<div class="desc_row1">
+						<p>Iron</p>
+					</div>
+					
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+				</div>
+				
+				<div class="line">
+					<div class="desc_row1">
+						<p>Iron</p>
+					</div>
+					
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+				</div>
+				<div class="line">
+					<div class="desc_row1">
+						<p>Iron</p>
+					</div>
+					
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+				</div>
+				<div class="line">
+					<div class="desc_row1">
+						<p>Iron</p>
+					</div>
+					
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+				</div>
+		<div class="clear"></div>
+		</div>
+		
+		<div class="table_wrap">
+			<div class="line">
+				<div class="desc_row">
+					<div class="selector">
+						<select size="1" name="type" id="dropdown3">
+									<option value="Driver">Nūjas</option>
+									<option value="2">Bedrītes</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="row" style="width:115px">
+					<p>Ar cik plānoji izsist</p>
+				</div>
+				<div class="row" style="width:50px">
+					<p>Puts</p>
+				</div>
+				<div class="row" style="width:135px">
+					<p>Nūju secība</p>
+				</div>
+				
+				<div class="row" style="width:115px">
+					<p>Ar cik sanāca</p>
+				</div>
+				<div class="row" style="width:50px">
+					<p>Puts</p>
+				</div>
+				<div class="row" style="width:135px">
+					<p>Plānotā nūju secība</p>
+				</div>
+				
+				<div class="clear"></div>
+			</div>
+			
+				<div class="line">
+					<div class="desc_row1">
+						<p>1. bedrīte</p>
+					</div>
+					
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:50px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:135px">
+						<p class="sticks_font">D, I1, W3, I3, P</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:50px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:135px">
+						<p class="sticks_font">D, I1, W3, I3, P</p>
+					</div>
+				</div>
+				<div class="line">
+					<div class="desc_row1">
+						<p>1. bedrīte</p>
+					</div>
+					
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:50px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:135px">
+						<p class="sticks_font">D, I1, W3, I3, P</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:50px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:135px">
+						<p class="sticks_font">D, I1, W3, I3, P</p>
+					</div>
+				</div>
+				<div class="line">
+					<div class="desc_row1">
+						<p>1. bedrīte</p>
+					</div>
+					
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:50px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:135px">
+						<p class="sticks_font">D, I1, W3, I3, P</p>
+					</div>
+					<div class="row1" style="width:115px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:50px">
+						<p>5</p>
+					</div>
+					<div class="row1" style="width:135px">
+						<p class="sticks_font">D, I1, W3, I3, P</p>
+					</div>
+				</div>
+				
+		<div class="clear"></div>
+		</div>
+		
+		
+		
+		
+		
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+<div class="footer_wrap">
+		<p>Lorem ipsum 2011</p>
+	</div>
+	
+	
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<%= render :partial => 'share/header_menu' %>
+
+
+<% if flash.count > 0 %>
+  <div class="messages">
+    <div class="messages_info">
+      <% flash.each do |key, msg| %>
+        <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+        <%= content_tag :script, :type => "text/javascript" do %>
+          setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="user_home_wrap">
+  <div class="ads_wrap">
+    <% if current_user.golf_club %>
+      <% if current_user.golf_club.is_v_banner_disabled == false %>
+        <img src="<%=current_user.golf_club.image_v.url%>" width="160px" height="469px" alt=""/>
+      <%end%>
+    <%else%>
+      <img src="/images/ad_blank.png" width="160px" height="469px" alt=""/>
+    <%end%>
+    <div class="single_ad">
+      <p><b>Lorem ipsum - 50% ATLAIDE!</b><span class="gray"> Dolor sit amet, consecetur adipiscing alit.</span></p>
+    </div>
+
+    <div class="single_ad">
+      <p><b>Lorem ipsum - 50% ATLAIDE!</b><span class="gray"> Dolor sit amet, consecetur adipiscing alit.</span></p>
+    </div>
+
+    <div class="single_ad">
+      <p><b>Lorem ipsum - 50% ATLAIDE!</b><span class="gray"> Dolor sit amet, consecetur adipiscing alit.</span></p>
+    </div>
+
+  </div>
+
+
+  <div class="main_content_wrap">
+
+
+    <% if current_user.admin == 0%>
+      <% if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil %>
+
+        <% if current_user.coach != nil  %>
+          <% @recent_hint = Hint.where(:user_id => current_user.coach).order("updated_at").last %>
+        <% else %>
+          <% @recent_hint = Hint.find(:all, :order => "updated_at").last %>
+        <% end %>
+
+        <% if @recent_hint != nil && @recent_hint.place_teebox_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.place_teebox_hint %> </p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        <% end %>
+
+        <% if @recent_hint != nil && @recent_hint.direction_fade_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.direction_fade_hint %> </p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        <% end %>
+
+        <% if @recent_hint != nil && @recent_hint.temperature_cold_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.temperature_cold_hint %> </p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        <% end %>
+
+        <% if @recent_hint != nil && @recent_hint.weather_wind_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.weather_wind_hint %> </p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        <% end %>
+
+        <% if @recent_hint != nil && @recent_hint.trajectory_high_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.trajectory_high_hint %> </p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        <% end %>
+
+
+        <% if @recent_hint != nil && @recent_hint.wind_from_front_hint != nil %>
+          <div class="hints_wrap">
+            <div class="icon_wrap"><img src="/images/tip_icon_big.png" alt="" /></div>
+            <div class="text_wrap">
+              <p><%= @recent_hint.wind_from_front_hint %> </p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        <% end %>
+
+
+        <div class="button_wrap">
+          <a href="<%= main_statistic_path(:user_id => current_user.id) %>" class="green_button" >More Hints</a>
+        </div>
+
+      <% end %>
+
+    <% end %>
+
+    <div class="clear"></div>
+    <div class="news_wrap">
+      <div class="heading">
+        <h1>Golfa ziņas un jaunumi</h1>
+      </div>
+      <div class="single_news_article">
+        <p>Lorem ipsum dolor sit amet.<br />
+          <span class="gray">Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
+      </div>
+
+      <div class="single_news_article">
+        <p>Lorem ipsum dolor sit amet.<br />
+          <span class="gray">Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
+      </div>
+
+      <div class="single_news_article">
+        <p>Lorem ipsum dolor sit amet.<br />
+          <span class="gray">Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
+      </div>
+
+      <div class="single_news_article">
+        <p>Lorem ipsum dolor sit amet.<br />
+          <span class="gray">Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
+      </div>
+
+      <div class="single_news_article">
+        <p>Lorem ipsum dolor sit amet.<br />
+          <span class="gray">Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="top_wrap">
+    <% if @top_users_progress.count != 0 %>
+      <h1>Top spēlētāji</h1>
+      <% @num1 = 1 %>
+      <% @top_users_progress.each do |top| %>
+        <p><%= @num1 %>. <%= User.find(top.user_id).first_name %> <%= User.find(top.user_id).last_name %></p>
+        <% @num1 = @num1 + 1%>
+      <% end %>
+    <% end %>
+
+    <% if @max_hit.count != 0  %>
+      <h1>Top distance</h1>
+      <% @num2 = 1 %>
+      <% @max_hit.each do |distance| %>
+        <p><%= @num2 %>. <%= User.find(distance.user_id).first_name %> <%= User.find(distance.user_id).last_name %></p>
+        <% @num2 = @num2 + 1%>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

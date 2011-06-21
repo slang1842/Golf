@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: MyString
+  name: MyString
+  country: MyString
+  region: MyString
+  green_fee: MyString
+  city: MyString
+  web_page: MyString
+  start_place_by_level_low: MyString
+  start_place_by_level_medium: MyString
+  start_place_by_level_high: MyString
+
+two:
+  user: MyString
+  name: MyString
+  country: MyString
+  region: MyString
+  green_fee: MyString
+  city: MyString
+  web_page: MyString
+  start_place_by_level_low: MyString
+  start_place_by_level_medium: MyString
+  start_place_by_level_high: MyString

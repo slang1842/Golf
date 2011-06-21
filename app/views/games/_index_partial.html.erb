@@ -1,0 +1,35 @@
+<% @games.each do |game| %>
+  
+    <div class="single_game_wrap">
+      <div class="date_wrap">
+        <p><%=l game.date, :format => :game %></p>
+      </div>
+      <div class="field_name_wrap">
+        <% field = Field.find(:first, :conditions => {:id => game.field_id})%>
+        <p><%=field.name%></p>
+      </div>
+      <div class="links">
+        <% hit_planned = Hit.find(:first, :conditions => {:game_id => game.id, :real_hit => 'p'})%>
+        <% if hit_planned %>
+        <a href="<%='/game_plan/' + game.id.to_s + '/1/1/new'%>" class="green_button">Game plan</a>
+        <% else %>
+        <a href="<%='/game_plan/' + game.id.to_s + '/1/1/new'%>" class="gray_button">Game plan</a>
+        <% end %>
+        <% hit_real = Hit.find(:first, :conditions => {:game_id => game.id, :real_hit => 'r'})%>
+        <% if hit_real %>
+        <a href="<%='/game_results/' + game.id.to_s + '/1/results/new/0'%>" class="green_button">Results</a>
+               <% else %>
+        <a href="<%='/game_results/' + game.id.to_s + '/1/results/new/0'%>" class="gray_button">Results</a>
+        <% end %>
+         <% hit_d = Hit.find(:first, :conditions => {:game_id => game.id, :real_hit => 'rp'})%>
+        <% if hit_d %>
+        <a href="<%='/game_details/' + game.id.to_s + '/1/1/new/0'%>" class="green_button">Detailed results</a>
+        <% else %>
+        <a href="<%='/game_details/' + game.id.to_s + '/1/1/new/0'%>" class="gray_button">Detailed results</a>
+        <% end %>
+       
+        <a href="<%=get_stats_path(game.id)%>" class="green_button">Statistics</a>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <%end%>

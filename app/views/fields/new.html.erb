@@ -1,0 +1,19 @@
+<%= render :partial => 'share/header_menu' %>
+<div class="background_fix2" > 
+  <h1>New field</h1>
+
+  <% if flash.count > 0 %>
+    <div class="info" style="display:block;">
+      <% flash.each do |key, msg| %>
+        <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+        <%= content_tag :script, :type => "text/javascript" do -%>
+          setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+
+  <%= render 'form' %>
+</div> 
+

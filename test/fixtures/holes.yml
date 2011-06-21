@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  field: 
+  par: 1
+  hcp: 1
+  white: 1
+  blue: 1
+  red: 1
+
+two:
+  field: 
+  par: 1
+  hcp: 1
+  white: 1
+  blue: 1
+  red: 1

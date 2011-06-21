@@ -1,0 +1,53 @@
+
+        <div class="row" style="width:115px">
+          <p>Planned stroke count</p>
+        </div>
+        <div class="row" style="width:50px">
+          <p>Putts</p>
+        </div>
+        <div class="row" style="width:135px">
+          <p>Planned club sequence</p>
+        </div>
+        
+        <div class="row" style="width:115px">
+          <p>Actual stroke count</p>
+        </div>
+        <div class="row" style="width:50px">
+          <p>Putts</p>
+        </div>
+        <div class="row" style="width:135px">
+          <p>Club sequence</p>
+        </div>
+        
+        <div class="clear"></div>
+     
+      <% @holes_filtered.each do |hole|%>
+      <% @statistics = GameStatisticsByHoles.find(:first, :conditions => {:game_id => @game.id, :hole_number => hole.hole_number})%>
+      <% if @statistics%>
+        <div class="line">
+          <div class="desc_row1">
+            <p><%=hole.hole_number%>. bedrīte</p>
+          </div>
+          
+          <div class="row1" style="width:115px">
+            <p><%= @statistics.hit_p%></p>
+          </div>
+          <div class="row1" style="width:50px">
+            <p><%= @statistics.puts_p%></p>
+          </div>
+          <div class="row1" style="width:135px">
+            <p class="sticks_font"><%= @statistics.stick_order_p%></p>
+          </div>
+          <div class="row1" style="width:115px">
+            <p><%= @statistics.hit_r%></p>
+          </div>
+          <div class="row1" style="width:50px">
+            <p><%= @statistics.puts_r%></p>
+          </div>
+          <div class="row1" style="width:135px">
+            <p class="sticks_font"><%= @statistics.stick_order_r%></p>
+          </div>
+        </div>
+        <%end%>
+        <%end%>
+   

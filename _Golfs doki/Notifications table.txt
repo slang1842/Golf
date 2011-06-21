@@ -1,0 +1,7 @@
+Notifications table
+
+- to         :string	     (kam paredzeta: admin, user)
+- user_id    :integer  	     (tiek iestatis tikai ja userim)
+- unread     :boolean        (vai ir izlasita)
+- text       :string           (notif text)
+- 
