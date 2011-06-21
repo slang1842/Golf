@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 DynamicForm
 ===========
 
@@ -11,3 +12,18 @@ DynamicForm holds a few helpers method to help you deal with your models, they a
 It also adds f.error_messages and f.error_messages_on to your form builders.
 
 Copyright (c) 2010 David Heinemeier Hansson, released under the MIT license
+=======
+DynamicForm
+===========
+
+DynamicForm holds a few helpers method to help you deal with your models, they are:
+
+* input(record, method, options = {})
+* form(record, options = {})
+* error_message_on(object, method, options={})
+* error_messages_for(record, options={})
+
+It also adds f.error_messages and f.error_messages_on to your form builders.
+
+Copyright (c) 2010 David Heinemeier Hansson, released under the MIT license
+>>>>>>> dd9b17346bac93d3af265b2fb719c897b1b342d9
