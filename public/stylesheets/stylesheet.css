@@ -789,6 +789,7 @@ a {
   height:19px;
   left:85px;
   bottom:9px;
+  cursor: pointer;
 }
 
 .result_filtering {
