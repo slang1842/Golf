@@ -270,7 +270,7 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.integer  "land_place"
     t.integer  "stance"
     t.integer  "trajectory"
-    t.boolean  "luck_factor"
+    t.integer  "luck_factor"
     t.string   "comment"
     t.integer  "following_action"
     t.integer  "distance_to_hole"
@@ -296,6 +296,7 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.integer  "par",                :null => false
     t.integer  "hcp",                :null => false
     t.integer  "hole_number",        :null => false
+    t.integer  "distance"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

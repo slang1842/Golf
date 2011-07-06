@@ -107,12 +107,17 @@ end
       end
       conditions = { :game_id => @game.id, 
                :hole_number => @active_hole,
-               :hit_number => @active_hit, 
+               :hit_number => 1, 
                :real_hit => 'p',
                :user_id => current_user.id}
      
-     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+     
      #convert_to_feet(@hit)
+	 @hit = Hit.where(:game_id => @game.id,:hole_number => @active_hole, :real_hit => 'p', :user_id => current_user.id) 
+	if @hit[0] == nil
+	@hit = []
+	@hit = @hit << Hit.create(conditions)
+	end     
      @form_id = 'plan'
      if params[:hits] == 'new'
        render '/games/hit_edit'
@@ -223,6 +228,10 @@ end
      @pair_hit = PairHit.find(:first, :conditions => conditions3) || PairHit.create(conditions3)
      @hit_r_final.pair_id = @pair_hit.id
      @hit_p_final.pair_id = @pair_hit.id
+	if @active_hit.to_i == 1
+	@hit_r_final.update_attributes(:place_from => 2)
+	@hit_p_final.update_attributes(:place_from => 2)
+	end
      @hit_r_final.update_attributes(params[:pair_id])
      @hit_p_final.update_attributes(params[:pair_id])
      @pair_hit.update_attributes(params[:pair_hit])
@@ -388,6 +397,12 @@ end
     render 'games/print_game_plan', :layout => 'print'
     end
     
+def remove_hit
+	@hit = Hit.find_by_id(params[:active_hit])
+	if @hit.destroy	
+	get_plan('plan', params[:game_id], params[:hole_number], 1)
+	end
+	end	
     private
     def get_plan(form_id, game_id, next_hole, active_hit)
        @form_id = form_id
@@ -409,7 +424,13 @@ end
                :real_hit => 'p',
                :user_id => current_user.id}
      
-     @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
+
+ 	@hit = Hit.where(:game_id => @game.id,:hole_number => @active_hole, :real_hit => 'p', :user_id => current_user.id) 
+	if @hit.any?
+	else
+	@hit = []
+	@hit = @hit << Hit.create(conditions)
+	end     
      #convert_to_feet(@hit)
      @form_id = 'plan'
      
@@ -498,6 +519,10 @@ end
      @hit_p_final.pair_id = @pair_hit.id
      @hit_r_final.update_attributes(params[:pair_id])
      @hit_p_final.update_attributes(params[:pair_id])
+	if @active_hit.to_i == 1
+	@hit_r_final.update_attributes(:place_from => 2)
+	@hit_p_final.update_attributes(:place_from => 2)
+	end
      @pair_hit.update_attributes(params[:pair_hit])
      @form_id = 'details'
        render 'games/details'
@@ -582,4 +607,13 @@ end
     end
     render 'games/results'
     end
+	
+	
+	def add_planned_hit
+	@hit = Hit.create!(:game_id => params[:game_id], :hit_number => params[:active_hit].to_i + 1, :hole_number => params[:hole_number], :real_hit => 'p', :user_id => current_user.id )
+	get_plan('plan', params[:game_id], params[:hole_number], 1)
+	end
+
+
+	
 end

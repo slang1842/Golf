@@ -1,37 +1,70 @@
+<div class="right_coll" style="min-width:656px">
 <%game1 = game.game_type%>
-<%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
+<%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |g|%>
 
 <input type="hidden" name="next_hit" id="nexthit" value=0>
 <input type="hidden" name="form_id" id="formid" value="plan">
 <input type="hidden" name="active_hit" id="act_hit" value=<%=active_hit%>>
 <input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
-<%= game.hidden_field :active_hit, :value => active_hit%>
-<%= game.fields_for :hits, hit do |f|%>
-<%= f.hidden_field :hole_number, :value => active_hole %>
-<%= f.hidden_field :hit_number, :value => active_hit %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
-<div class="single_dropdown" style="width:90px height:60px">
+<div class="headings">
           <p>Club</p>
-            <div class="element">
-              
-<%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Select"},{:class => "dropdown6 game_input_select"}%>
-            </div>
+          <div class="heading1"><p>Hit distance(m)</p></div>
+          <div class="heading2"><p>Land place</p></div>
         </div>
+        <div class="clear"></div>
+<div class="dropdowns_wrap">
+<% hit.each do |hits| %>
 
-<div class="single_dropdown" style="width:90px">
-          <p> Stroke distance</p>
-            <div class="element">
-              <%= f.text_field :hit_distance %> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+<%= g.fields_for :hits, hits do |f|%>
+
+
+
+
+<%= f.hidden_field :hole_number, :value => active_hole %>
+
+<%= f.hidden_field :user_id, :value => current_user.id %>
+ <p><%=hits.hit_number%>.</p>
+          <div class="element" style="height:45px">                    
+                <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Select"},{:class => "dropdown3"} %>
+              </div>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <div class="element" >
+            <%= f.text_field :hit_distance%> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+          </div>
+          
+          <div class="element">
+              <%= f.select(:land_place, PLANNED_LAND_PLACES, {:prompt => "Select"}, {:class => "dropdown3"}) %>
+            
+          </div>
+        
+         
+      
+	
+<% end %>
+
+<% if hits == hit.last %>
+<div class="element">
+<%= link_to "Remove", remove_planned_hit_path(game.id, active_hole, hits.id.to_i), :remote => :true, :class => 'green_button' %>
+</div>
+<% end %>
+<div class="clear"></div>  
+
+<% end %>
+<div class="element ">
+		<%= link_to "+ add more",  add_planned_hit_path(game.id, active_hole, hit.count.to_i), :remote => :true, :class => 'green_button'%>
+             </div>
+</div>
+	<div class="dropdowns_wrap" style="padding-bottom:100px">
+	 <div class="save_switch_p">
+	<div  style="width:60px">	
+            <div class="element" >
+              <div class="save_gif">
+              <a href="#" rel="save" class="gray_button saveswitch" >Save</a>
+              </div>
             </div>
         </div>
-        <div class="single_dropdown" style="width:90px">
-          <p>Land place</p>
-            <div class="element">
-              <%= f.select( :land_place, PLANNED_LAND_PLACES, {:prompt => "Select"},{:class => 'dropdown6'}) %>
-            </div>
         </div>
-       
-        <% if active_hole != end_hole%>
+  <% if active_hole != end_hole%>
          <% if game1 == 2%>
     <% last_hole_number = 18 %>
     <% elsif game1 == 3%>
@@ -42,26 +75,16 @@
     <% if active_hole.to_i != last_hole_number.to_i%> 
    
       <div class="save_switch_p">
-        <div class="single_dropdown">
+
             <div class="element">
               <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" >Next&nbsp;hole</a>
              </div>
-        </div>
+       
         </div>
         <%end%>
          <%end%>
-<% end %>
-<% end %> 
- <div class="save_switch_p">
-<div class="single_dropdown " style="width:60px">
-            <div class="element" >
-              <div class="save_gif">
-              <a href="#" rel="save" class="gray_button saveswitch" >Save</a>
-              </div>
-            </div>
-        </div>
-        </div>
+	<% end %>
 
+</div>
+	</div>
 
-
- 

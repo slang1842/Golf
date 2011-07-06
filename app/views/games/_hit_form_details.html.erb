@@ -189,48 +189,45 @@
         </div>
       </div>
     <div class="input_wrap" style="height:250px">
-      <div class="radio_button_wrap">
-        <div class="heading"><p>Notes on stroke</p></div>
-        <div class="buttons">
+      
+        <div class="heading_result"><p>Notes on </br> stroke :</p></div>
+        <div class="single_dropdown">
           <p>Motion was</p>
 
-          <% STATISTICS_MOTION_WAS.each do |stat|%>
-            <%= f.radio_button(:motion_was, stat[1])%> <%= stat[0] %></br>
-          <% end %>
+         
+		 <%= f.select(:hit_was, STATISTICS_MOTION_WAS, {:prompt => 'Select'}, {:class => "dropdown6"} )%></br>
         </div>
 
-        <div class="buttons">
+        <div class="single_dropdown">
           <p>Stroke was .. </p>
-          <% STATISTICS_HIT_WAS.each do |stat|%>
-            <%= f.radio_button(:hit_was, stat[1])%> <%= stat[0] %></br>
-          <% end %>
+          
+            <%= f.select(:hit_was, STATISTICS_HIT_WAS, {:prompt => 'Select'}, {:class => "dropdown6"}) %></br>
+    
         </div>
-      </div>
-
+     
+<!--
       <div class="textarea_wrap">
         <p>Comment on hit</p>
         <%= f.text_area(:comment,:cols => 20, :rows => 2) %>
 
       </div>
-
+-->
       <div class="single_dropdown" style="width:140px">
         <p>Luck factor</p>
-        <div class="element input_checkbox">
-          <%= f.check_box (:luck_factor, {:class => "game_input_checkbox"} )%>
-        </div>
+        <%= f.select(:luck_factor, LUCK_FACTOR, {:prompt => 'Select'}, {:class => "dropdown6"}) %></br>
       </div>
       <%= f.hidden_field :hole_number, :value => active_hole %>
       <%= f.hidden_field :hit_number, :value => active_hit %>
     <%#= f.label :following_action%>
     <%#= f.select(:following_action, STATISTICS_FOLLOWING_ACTION, :prompt => 'Select')%>
-
-    <% end %>
+	<% end %>
+<%end%>   
     
     
    
 
 
-<% end %>
+
  <% if game1 == 2%>
     <% last_hole_number = 18 %>
     <% elsif game1 == 3%>

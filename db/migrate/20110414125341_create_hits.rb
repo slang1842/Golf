@@ -12,7 +12,7 @@ class CreateHits < ActiveRecord::Migration
       t.integer :land_place # vieta kur trapija
       t.integer :stance
       t.integer :trajectory
-      t.boolean :luck_factor
+      t.integer :luck_factor
       t.string  :comment
       t.integer :following_action
       t.integer :distance_to_hole #cik bija lidz bedritei

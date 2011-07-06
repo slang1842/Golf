@@ -1,11 +1,11 @@
   # Mysql version 3.x
   #   gem install sqlite3-ruby (not necessary on OS X Leopard)
   development:
-    adapter: mysql
+    #adapter: mysql
     encoding: utf8
     database: golfcre_development
-    username: golfcre_root
-    password: G#s@8tZcU1#I
+    username: root #golfcre_root
+    #password: G#s@8tZcU1#I
     host: localhost
 
   # Warning: The database defined as "test" will be erased and
