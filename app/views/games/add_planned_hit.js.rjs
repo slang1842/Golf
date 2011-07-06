@@ -1,3 +1,0 @@
-page['#planned_hit_form_#{params[:hit_number]} .add_hit'].remove()
-page['#planned_hit_form_#{params[:hit_number]}'].inserAfter(render :partial => '/games/single_planned_hit_form/', :locals => {:active_hole => params[:active_hole], :active_hit => params[:active_hit].to_i + 1, :game_id => params[:game_id]})
-
