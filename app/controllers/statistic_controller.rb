@@ -25,8 +25,11 @@ class StatisticController < ApplicationController
 
   def edit
     @user_params = User.find(params[:user_id])
+    
     @is_admin = true if current_user.admin == true
-    @is_admin_and_coach = true if current_user.admin == true && @user_params.coach == current_user.id
+    @is_coach = true if @user_params.coach == current_user.id
+    @has_couch = true unless (@user_params.coach == false || @user_params.coach == nil)
+    
     @current_club_trainer = User.find(@user_params.golf_club.user_id)
     @current_hints = Hint.where(:user_id => @current_club_trainer.id)
     @user_params_games_limited = Game.where(:user_id => @user_params.id).limit(100)

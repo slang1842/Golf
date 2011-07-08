@@ -20,7 +20,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new
   end
 
-  def create
+   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       redirect_back_or_default(welcome_path)

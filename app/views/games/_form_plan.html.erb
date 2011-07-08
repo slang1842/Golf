@@ -1,3 +1,8 @@
+<script>
+$(document).ready(function(){
+	$('#header_menu_div').html('<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "game_plan"} %>');
+}
+</script>
 <div class="mesages">
 <div class="messages_error" style="display: none;">Please, insert date, field, and holes!</div>
 </div>

@@ -1,9 +1,5 @@
 
-
-
-
-
-<%= render :partial => 'share/header_menu' %>
+<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "game_plan"} %>
 
 <div class="game_input_wrap">
     
@@ -27,7 +23,7 @@
 
 <div id="hit_edit_tab" >
   
-  <%=render :partial => 'games/hit_form_'+@form_id, :locals => { :active_hole => @active_hole, :active_hit => @active_hit, :hit => @hit, :hit_real => @hit_real, :hit_planned => @hit_planned, :game => @game, :game_id => @game.id, :end_hole => @end_hole}%>
+  <%=render :partial => 'games/hit_form_plan', :locals => { :active_hole => @active_hole, :active_hit => @active_hit, :hit => @hit, :hit_real => @hit_real, :hit_planned => @hit_planned, :game => @game, :game_id => @game.id, :end_hole => @end_hole}%>
 
 </div>
 </div>

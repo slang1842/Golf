@@ -1,3 +1,9 @@
+<script>
+$(document).ready(function(){
+	$('#header_menu_div').html('<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "game_plan"} %>');
+}
+</script>
+
 <div class="right_coll" style="min-width:656px">
 <%game1 = game.game_type%>
 <%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |g|%>

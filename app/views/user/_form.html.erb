@@ -1,6 +1,8 @@
 
+
+
 <% if current_user %>
-  <%= render :partial => 'share/header_menu' %>
+  <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => ""} %>
 <% end %>
 
 <div class="profile_info_input">
@@ -14,7 +16,7 @@
 
     <% if @user.errors.any? %>
       <div class="messages">
-        <div class="messages_error" style="display: none;">
+        <div class="messages_error" style="display: block;">
           <span><%#= pluralize(@user.errors.count, "error")%> <%= t "form.user_create_fail" %></span>
           <ul>
             <% @email_taken = false %>

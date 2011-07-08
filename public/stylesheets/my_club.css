@@ -39,8 +39,9 @@
 }
 
 .club_wrap .club_players_wrap .single_player_wrap .profile_info {
-	width:160px;
+	width:200px;
 	float:left;
+	margin-bottom:5px;
 }
 
 .club_wrap .club_players_wrap .single_player_wrap .profile_info .image {

@@ -1,3 +1,10 @@
+<script>
+$(document).ready(function(){
+	$('#header_menu_div').html('<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_games"} %>');
+}
+</script>
+
+
 <% @games.each do |game| %>
   
     <div class="single_game_wrap">

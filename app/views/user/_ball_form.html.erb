@@ -9,15 +9,15 @@
       </div>
 
       <div class="item">
-        <div class="subitem"><%= h.text_field :ball_manufacturer, :class => 'textbox4' %></div>
-        <div class="subitem"><%= h.text_field :ball_type, :class => 'textbox4' %></div> 
+        <div class="subitem"><%= h.select(:ball_manufacturer, BALL_MANUFACTURER,{}, { :class => 'dropdown8 user_select_field'}) %></div>
+        <div class="subitem"><%= h.select(:ball_type, BALL_TYPE,{}, { :class => 'dropdown8 user_select_field'}) %></div>
         <div class="subitem2">
           <% if ball.new_record? %>
             <a href="" OnClick="$(this).parent().parent().parent().slideUp('fast', function() { $(this).remove(); } ); return false;" class="gray_button" >cancel</a>
           <% else %>
             <%= link_to 'Destroy', ball, :confirm => 'Are you sure?', :remote => true, :method => :delete, :class => "gray_button" %>
           <% end %>
-        </div> 
+        </div>
       </div>
 
     </div>

@@ -1,7 +1,2 @@
-<<<<<<< HEAD
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
-=======
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
->>>>>>> dd9b17346bac93d3af265b2fb719c897b1b342d9

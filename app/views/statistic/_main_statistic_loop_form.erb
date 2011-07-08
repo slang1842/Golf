@@ -1,18 +1,19 @@
 
 <div class="progress_block">
   <!-- ============== hint ============== -->
-  <div class="tip_bubble_wrap" id="<%= hint_id_prefix %><%=  c_stick.stick.id %>" style="display: none;">
+  <div class="tip_bubble_wrap" id="<%= hint_id_prefix %><%=  c_stick.id %>" style="display: none;">
     <div class="triangle"></div>
     <div class="frame">
-      <% if is_admin_and_coach || is_admin %>
-        <% if user_params.id != current_user.id %>
+      <% if @is_admin || @is_coach %>
+        <% if @user_params.id != current_user.id %>
           <p><%= "Give hint to (#{current_club_trainer.first_name} #{current_club_trainer.last_name}) for this situation." %> </p>
-        <%  else %>
+        <% else %>
           <p>Give hint for this situation.</p>
         <% end %>
         <div class="tip">
           <%= form_for c_hint_admin, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path do |f|  %>
-            <%= f.text_area :wind_from_right_hint, :class => "textarea" %>
+            <%#= f.text_area :wind_from_right_hint, :class => "textarea" %>
+            <%= f.text_area textbox_hint_type, :class => "textarea" %>
             <%= f.hidden_field :stick_id %>
             <%= f.submit :class => "button_save" %>
           <% end %>
@@ -40,13 +41,10 @@
     <div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   <% end %>
   <!-- ============== when to show hint ============== -->
-  <% if is_admin_and_coach || (is_admin && user_params.coach == current_user.id) || (is_admin && user_params.id == current_user.id) %>
-    <div class="notification" onclick="showHideElement('#<%= hint_id_prefix %><%= c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
-  <% elsif is_admin %>
-  <% else %>
-    <% if (c_s_stick.wind_from_right.to_i < MAIN_STATISTIC_BAD_PROC) && (c_s_stick.wind_from_right != nil) && c_hint_user.wind_from_right_hint != nil %>
-      <div class="notification" onclick="showHideElement('#<%= hint_id_prefix c_stick.stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
-      <% end %>
-    <% end %>
+  <% if @is_admin %>
+    <div class="notification" onclick="showHideElement('#<%= hint_id_prefix %><%= c_stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+  <% elsif @has_couch && current_situation.to_i < MAIN_STATISTIC_BAD_PROC %>
+    <div class="notification" onclick="showHideElement('#<%= hint_id_prefix %><%= c_stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
+  <% end %>
   <!-- ============== when to show hint ============== -->
 </div>

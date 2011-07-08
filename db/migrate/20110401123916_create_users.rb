@@ -7,12 +7,15 @@ class CreateUsers < ActiveRecord::Migration
       t.string        :password_salt,        :null => false
       t.string        :persistence_token,    :null => false
       
+	  t.boolean     :new_user,            :default => true
+	  
       t.boolean       :add_club,             :default => false
       t.boolean       :admin,            	   :default => false 
       t.boolean       :is_super_admin,       :default => false
       t.boolean       :is_blocked,           :default => false
       t.integer       :coach,                :default => nil
       
+	  
       t.string        :first_name,           :null => false
       t.string        :last_name,            :null => false
       t.string        :nick,                 :null => false

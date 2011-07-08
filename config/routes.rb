@@ -84,10 +84,8 @@ Golf::Application.routes.draw do
   match '/hit_update/:game_id/' => 'games#hit_update'
   match '/print_game_plan/:game_id/' => 'games#print_game_plan', :as => 'print_game_plan'
   match '/single_game_statistics/:game_id' => 'games#get_stats', :as => 'get_stats'
-  #last updates for game
   match '/add_planned_hit/:game_id/:hole_number/:active_hit' => 'games#add_planned_hit', :as => 'add_planned_hit'
   match '/remove_planned_hit/:game_id/:hole_number/:active_hit' => 'games#remove_hit', :as => 'remove_planned_hit'
-  
 
   #welcome
   root :to => "welcome#welcome",              :as => :welcome

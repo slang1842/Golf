@@ -1,5 +1,4 @@
 
-
   <div class="left_coll">
 	<div class="messages_error" style="display:none"> Putts more than strokes!</div>
   <%= form_tag('/results_starter', :method => 'post', :remote => true, :id => "starter_form") do %>
@@ -18,7 +17,7 @@
 function check_strokes(){
 	var strokes = $('.strokes :selected').val();
 	var putts = $('.putts :selected').val();
-	if (strokes > putts) {
+	if (strokes >= putts) {
 		$('.left_coll .messages_error').hide();
        
       

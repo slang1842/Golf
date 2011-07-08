@@ -1,6 +1,6 @@
 
 <% if current_user %>
-  <%= render :partial => 'share/header_menu' %>
+  <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_bag"} %>
 <% else %>
 <% end %>
 
@@ -49,7 +49,7 @@
     </div>
 
     <div class="button_done">
-      <%= f.submit :class => 'green_button', :value => "Save" %>
+      <%= f.submit :class => 'green_button', :style => "cursor: pointer;", :value => "Save" %>
     </div>
 
   </div>

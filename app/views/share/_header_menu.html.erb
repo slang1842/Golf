@@ -13,16 +13,17 @@
         <%= link_to t("form.logout"), logout_path %>
       </p>
     </div>
+    <%# header_menu_active_class = "" %>
   </div>
   <div class="icon_wrap">
     <div class="link_wrap">
-      <a href="<%= loged_in_path %>"><img src="/images/home_icon.png" alt="" /><p>Home</p></a>
+      <a href="<%= loged_in_path %>"><div class="icon_home <%= "active" if header_menu_active_class == "home" %>" ></div><p>Home</p></a>
     </div>
     <div class="link_wrap">
-      <a href="<%= game_index_path%>"><img src="/images/games_icon.png" alt="" /><p>My games</p></a>
+      <a href="<%= game_index_path%>"><div class="icon_games <%= "active" if header_menu_active_class == "my_games" %>" ></div><p>My games</p></a>
     </div>
     <div class="link_wrap">
-      <a href="<%= bag_user_path %>"><img src="/images/bag_icon.png" alt="" /><p>My bag</p></a>
+      <a href="<%= bag_user_path %>"><div class="icon_bag <%= "active" if header_menu_active_class == "my_bag" %>" ></div><p>My bag</p></a>
     </div>
     <div class="link_wrap">
 
@@ -30,21 +31,21 @@
       <% unless current_user.golf_club == nil %>
         <% if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil%>
           <% @field_id = Field.where(:golf_club_id => current_user.golf_club.id).first %>
-          <a href="<%= main_statistic_path(:user_id => current_user.id) %>"><img src="/images/results_icon.png" alt="" /><p>Statistics</p></a>
+          <a href="<%= main_statistic_path(:user_id => current_user.id) %>"><div class="icon_results <%= "active" if header_menu_active_class == "statistic" %>" ></div><p>Statistics</p></a>
         <% end %>
       <% end %>
 
     </div>
     <% if current_user.get_administrate_golf_club  %>
       <div class="link_wrap">
-        <a href="<%= golf_club_path %>"><img src="/images/club_icon.png" alt="" /><p>My Club</p></a>
+        <a href="<%= golf_club_path %>"><div class="icon_club <%= "active" if header_menu_active_class == "my_club" %>" ></div><p>My Club</p></a>
       </div>
     <% end %>
     <div class="link_wrap">
-      <a href="<%= new_game_path('res')%>"><img src="/images/results_input_icon.png" alt="" /><p>Game result</p></a>
+      <a href="<%= new_game_path('res')%>"><div class="icon_results_input <%= "active" if header_menu_active_class == "game_results" %>" ></div><p>Game result</p></a>
     </div>
     <div class="link_wrap">
-      <a href="<%= new_game_path('plan') %>"><img src="/images/plan_icon.png" alt="" /><p>Game plan</p></a>
+      <a href="<%= new_game_path('plan')%>"><div class="icon_plan <%= "active" if header_menu_active_class == "game_plan" %>" ></div><p>Game plan</p></a>
     </div>
   </div>
 </div>

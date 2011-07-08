@@ -112,7 +112,7 @@ p
 }
 
 .dropdown2 {
-  width: 35px;
+  width: 45px;
 }
 
 .dropdown3 {
@@ -329,6 +329,95 @@ a {
   text-decoration:none;
 }
 
+/* -------------- hover effects in header -------------*/
+.menu_wrap .icon_wrap .link_wrap .icon_home {
+	background-image:url(/images/home_icon_light.png);
+	width:54px;
+	height:53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap a:hover .icon_home {
+	background-position: 0 -53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap .icon_games {
+	background-image:url(/images/games_icon_light.png);
+	width:54px;
+	height:53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap a:hover .icon_games {
+	background-position: 0 -53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap .icon_bag {
+	background-image:url(/images/bag_icon_light.png);
+	width:54px;
+	height:53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap a:hover .icon_bag {
+	background-position: 0 -53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap .icon_results {
+	background-image:url(/images/results_icon_light.png);
+	width:54px;
+	height:53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap a:hover .icon_results {
+	background-position: 0 -53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap .icon_club {
+	background-image:url(/images/club_icon_light.png);
+	width:54px;
+	height:53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap a:hover .icon_club {
+	background-position: 0 -53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap .icon_results_input {
+	background-image:url(/images/results_input_icon_light.png);
+	width:54px;
+	height:53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap a:hover .icon_results_input {
+	background-position: 0 -53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap .icon_plan {
+	background-image:url(/images/plan_icon_light.png);
+	width:54px;
+	height:53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap a:hover .icon_plan {
+	background-position: 0 -53px;
+}
+
+.menu_wrap .icon_wrap .link_wrap .active {
+	background-position: 0 -53px;
+}
+
+.icon_plan2 {
+	width:54px;
+	height:53px;
+	overflow:hidden;
+}
+
+.menu_wrap .icon_wrap .link_wrap a:hover img {
+	position:relative;
+	bottom:53px;
+}
+
+/*---------------end of hover effects in header------------------*/
+
+/*
 .menu_wrap .icon_wrap .link_wrap a:hover p{
   text-decoration:underline;
   color:#898989;
@@ -341,7 +430,7 @@ a {
   font-weight:bold;
   line-height:14px;
 }
-
+*/
 .short_statistics_wrap {
   margin-top:25px;
   height:86px;

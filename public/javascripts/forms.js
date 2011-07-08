@@ -1,11 +1,25 @@
-$(document).ready(function(){
+    $(document).ready(function(){
   datapicker();
   userdatapicker();
   timepicker();
   admintimepicker();
   gamedatepicker();
   serialScroll();
+a();
 });
+
+function a() {
+
+        if ( $("#user_add_club").attr('checked') )
+        {
+            $("#user_golf_club_id").hide();
+        }
+        else
+        {
+            $("#user_golf_club_id").show();
+        }
+}
+
 
 function serialScroll() {
   $('#slideshow').serialScroll({

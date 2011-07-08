@@ -17,7 +17,7 @@ FIELD_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 WEATHER = { "Normal" => 1, "Wind" => 2, "Rain" => 3, "Wind and Rain" => 4}
 GAME_FORMAT = { "Training" => "t", "DM" => "d", "Tournament" => "tn"}
 GAME_TYPE = { "1-9" => 1, "10-18" => 2, "1-18" => 3}
-STATISTICS_MISDIRECTION = {"Straigth" => 1, "Fade" => 2, "Drow" => 3, "Slice" => 4, "Hook" => 5 }
+STATISTICS_MISDIRECTION = {"More to left" => 1, "To left" => 2, "Straight" => 3, "To right" => 4, "More to right" => 5 }
 STATISTICS_HIT_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_MOTION_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_FOLLOWING_ACTION = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
@@ -32,6 +32,17 @@ STRENGTH = {"Light" => 1, "Normal" => 2, "Strong" => 3, "Very strong" => 4}
 MISTAKE = {"None" => 1, "Too close" => 2, "Too far" => 3, "Very close" => 4, "Very far" => 5}
 
 
+STICK_DEGREES = {"10x" => 1, "15x" => 2, "20x" => 3, "25x" => 4}
+STICK_SHAFT = {"Wood" => 1, "Metal" => 2, "Plastic" => 3}
+STICK_SHAFT_STRENGTH = {"Strong" => 1, "Wery Strong" => 2, "Medium" => 3}
+
+STICK_DEGREES_rev = {1 => "10x", 2 => "15x", 3 => "20x", 4 => "25x"}
+STICK_SHAFT_rev = {1 => "Wood", 2 => "Metal", 3 => "Plastic"}
+STICK_SHAFT_STRENGTH_rev = { 1 => "Strong", 2 => "Wery Strong", 3 => "Medium"}
+
+BALL_MANUFACTURER = {"ADIDAS" => 1, "Balls Masters" => 2, "Other" => 3}
+BALL_TYPE = {"apaļa" => 1, "spalvaina" => 2, "oranža" => 3}
+
 # !!! WARNING !!!
 # ========================================================
 # statistics must be specified as this for statistics to
@@ -44,7 +55,7 @@ STATISTICS_STANCE = {"Normal" => 1, "Right leg lower" => 2, "Left leg lower" => 
 STATISTICS_DIRECTION = {"Straigth" => 1, "Fade" => 2, "Drow" => 3, "Slice" => 4, "Hook" => 5 }
 STATISTICS_TEMPERATURE = {"Hot" => 1,"Normal" => 2,"Cold" => 3}
 STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
-STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "From right" => 3, "From left" => 4}
+STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "No wind" => 3, "From right" => 4, "From left" => 5}
 PLANNED_LAND_PLACES_SHORT = {"Green" => 1, "Hole" => 11}
 DIRECTION_SHORT = {"Straight" => 1, "To right" => 2, "More to right" => 4, "To left" => 3, "More to left" => 5}
 LUCK_FACTOR = {"No luck" => 1, "Very bad" => 2, "Bad luck" => 3, "Lucky" => 4, "Very lucky" => 5}

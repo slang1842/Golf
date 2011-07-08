@@ -55,7 +55,7 @@
       </div>
       <div class="green_fee">
         <div class="button_wrap">
-          <a onclick="<%="$('#green_fees').append(#{render(:partial => '/fields/new_green_fee', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name}).to_json})"%>" href="#" class="green_button">Pievienot vēl</a>
+          <div onclick="<%="$('#green_fees').append(#{render(:partial => '/fields/new_green_fee', :locals => {:f => f, :green_fee_attributes_name => @new_green_fee_attributes_name}).to_json})"%>" style="cursor: pointer;" class="green_button">+ add another</div>
         </div>
       </div>
 
@@ -100,7 +100,6 @@
         <div class="headings par"><p>PAR</p></div>
         <div class="headings hcp"><p>HCP</p></div>
 	<div class="headings distance"><p>Distance</p></div>
-	<div class="headings picture"><p>Picture</p></div>
         <div class="clear"></div>
 
         <div id="holes">
@@ -129,7 +128,7 @@
 
           </script>
 
-          <a href="#" onClick="append_new_hole(<%=render(:partial => '/fields/new_hole', :locals => {:f => f, :hole_attributes_name => @new_hole_attributes_name, :hole => Hole.new}).to_json %>)" class="green_button" style="margin-left:13px">+ Vēl vienu</a>
+          <div onClick="append_new_hole(<%=render(:partial => '/fields/new_hole', :locals => {:f => f, :hole_attributes_name => @new_hole_attributes_name, :hole => Hole.new}).to_json %>)" class="green_button" style="margin-left:13px; cursor: pointer;">+ add another</div>
 
         </div>
       </div>

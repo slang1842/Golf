@@ -1,14 +1,20 @@
-<%= render :partial => 'share/header_menu' %>
+<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "home"} %>
+
 
 
 <% if flash.count > 0 %>
   <div class="messages">
-    <div class="messages_info">
-      <% flash.each do |key, msg| %>
-        <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-        <%= content_tag :script, :type => "text/javascript" do %>
-          setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+    <div class="messages_info" style="display: block;">
+      <% flash.each do |msg| %>
+        <% if msg.to_s == "noticenew_user" %>
+          Congratulations! You have been successfully registered.<br /><br />
+          <a href="<%= new_game_path('res')%>">Fill Game Result</a>
+        <% elsif msg.to_s == "noticegolf_club" %>
+          Golf club has been successfully created. Administrator will accept it.
+        <% else %>
+          <% msg %>
         <% end %>
+
       <% end %>
     </div>
   </div>

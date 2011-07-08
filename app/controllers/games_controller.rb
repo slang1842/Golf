@@ -403,7 +403,14 @@ def remove_hit
 	get_plan('plan', params[:game_id], params[:hole_number], 1)
 	end
 	end	
-    private
+
+def add_planned_hit
+	@hit = Hit.create!(:game_id => params[:game_id], :hit_number => params[:active_hit].to_i + 1, :hole_number => params[:hole_number], :real_hit => 'p', :user_id => current_user.id )
+	get_plan('plan', params[:game_id], params[:hole_number], 1)
+end
+
+
+private
     def get_plan(form_id, game_id, next_hole, active_hit)
        @form_id = form_id
        @game_id = game_id
@@ -609,10 +616,6 @@ def remove_hit
     end
 	
 	
-	def add_planned_hit
-	@hit = Hit.create!(:game_id => params[:game_id], :hit_number => params[:active_hit].to_i + 1, :hole_number => params[:hole_number], :real_hit => 'p', :user_id => current_user.id )
-	get_plan('plan', params[:game_id], params[:hole_number], 1)
-	end
 
 
 	

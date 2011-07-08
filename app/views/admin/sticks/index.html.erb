@@ -1,7 +1,7 @@
 <h1>Listing sticks</h1>
 
-<div class="table_listing"
-     <b>
+<div class="table_listing">
+  <b>
     <div class="row">
       <div class="item">Stick Type</div>
       <div class="item">Distance</div>
@@ -16,9 +16,9 @@
     <div class="row">
       <div class="item"><%= stick.stick_type %></div>
       <div class="item"><%= stick.distance %></div>
-      <div class="item"><%= stick.degrees %></div>
-      <div class="item"><%= stick.shaft %></div>
-      <div class="item"><%= stick.shaft_strength %></div>
+      <div class="item"><%= STICK_DEGREES_rev[stick.degrees.to_i] %></div>
+      <div class="item"><%= STICK_SHAFT_rev[stick.shaft.to_i] %></div>
+      <div class="item"><%= STICK_SHAFT_STRENGTH_rev[stick.shaft_strength.to_i] %></div>
       <div class="item"><%= stick.short_name %></div>
       <div class="item"><%= link_to 'Edit', edit_admin_stick_path(stick.id) %></div>
     </div>
@@ -26,7 +26,7 @@
   <br />
   <%= link_to 'Add New Stick', new_admin_stick_path %>
 
-
+</div>
 
 
 
