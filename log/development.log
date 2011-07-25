@@ -28319,3 +28319,63 @@ Started GET "/club" for 127.0.0.1 at Mon Jul 25 14:21:07 +0300 2011
 Rendered share/_header_menu.html.erb (196.8ms)
 Rendered golf_club/show.html.erb within layouts/application (215.2ms)
 Completed 200 OK in 710ms (Views: 252.5ms | ActiveRecord: 106.7ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon Jul 25 14:39:52 +0300 2011
+  Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (62.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (5.6ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (35.8ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 11:39:53', `last_request_at` = '2011-07-25 11:39:53' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (87.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mStatisticUserProgres Load (1.3ms)[0m  SELECT `statistic_user_progres`.* FROM `statistic_user_progres` ORDER BY user_progress LIMIT 5
+  [1m[36mGolfClub Load (3.7ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (222.3ms)
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(DISTINCT user_id) FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') LIMIT 5
+  [1m[36mHit Load (0.2ms)[0m  [1mSELECT DISTINCT user_id FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') ORDER BY hit_distance LIMIT 5[0m
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Rendered welcome/index.html.erb within layouts/application (290.0ms)
+Completed 200 OK in 1023ms (Views: 318.4ms | ActiveRecord: 199.7ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon Jul 25 14:50:31 +0300 2011
+  Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (15.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (66.8ms)[0m  BEGIN
+  [1m[36mAREL (52.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 11:50:32', `last_request_at` = '2011-07-25 11:50:32' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (67.3ms)[0m  COMMIT
+  [1m[36mStatisticUserProgres Load (0.7ms)[0m  [1mSELECT `statistic_user_progres`.* FROM `statistic_user_progres` ORDER BY user_progress LIMIT 5[0m
+  [1m[35mGolfClub Load (1.8ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (204.2ms)
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(DISTINCT user_id) FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') LIMIT 5[0m
+  [1m[35mHit Load (0.4ms)[0m  SELECT DISTINCT user_id FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') ORDER BY hit_distance LIMIT 5
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Rendered welcome/index.html.erb within layouts/application (387.3ms)
+Completed 200 OK in 959ms (Views: 412.0ms | ActiveRecord: 210.1ms)
+
+
+Started GET "/club" for 127.0.0.1 at Mon Jul 25 14:50:34 +0300 2011
+  Processing by GolfClubController#show as HTML
+  [1m[36mUser Load (6.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 11:50:34', `last_request_at` = '2011-07-25 11:50:34' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (59.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mGolfClub Load (2.0ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`golf_club_id` = 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (74.9ms)
+Rendered golf_club/show.html.erb within layouts/application (88.7ms)
+Completed 200 OK in 629ms (Views: 112.2ms | ActiveRecord: 71.3ms)
