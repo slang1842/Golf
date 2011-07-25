@@ -1,0 +1,256 @@
+<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "statistic"} %>
+
+<!-- ================================= top mini stats ============================ -->
+<%= render :partial => 'statistic/mini_statistic_top' %>
+<!-- ============================ top mini stats ============================ -->
+
+<% @my_games_for_count = Game.where(:user_id => @user_params.id) %>
+<% if @my_games_for_count.count.to_i == 0 %>
+
+  <div id="main_stats_table_error_message" style='display: block;'>
+    <div class='messages'>
+      <div class='messages_error' style='display: block; margin-top: 25px; margin-bottom: 30px;'>
+        Statistic is not available because you have no games.<br/>
+        You can add games <a href="<%= new_game_path('plan')%>"><span style="text-decoration: underline; color: red;">here</span></a>
+      </div>
+    </div>
+  </div>
+<% else %>
+
+  <!-- ============================ games ============================ -->
+  <div class="game_list_percentage_wrap">
+    <div class="heading">
+      <p>Your Games:</p>
+    </div>
+    <div class="single_game_field" style="cursor: pointer;" onclick="document.location.href = '/games'">
+      <p>Previous Games</p>
+    </div>
+
+    <!--
+      <div class="link_left_wrap carousel-control previous carousel-previous">
+        <a href="#"><img src="/images/link_left_big.png" alt=""/></a>
+      </div>
+    -->
+    <!-- ============================================================================================================================================= -->
+    <!-- ============================================================================================================================================= -->
+
+
+    <div id="screen">
+
+      <div class="link_left_wrap carousel-control previous carousel-previous">
+        <a href="#" class="prev"><img src="/images/link_left_big.png" alt=""/></a>
+      </div>
+
+      <div id="slideshow">
+        <ul>
+          <% @user_params_games_limited.each do |user_params_games| %>
+            <li>
+              <a href="<%= get_stats_path(user_params_games.id) %>">
+                <div class="single_game_field">
+                  <%  @GSG = GameStatisticGeneral.where(:game_id => user_params_games.id).first %>
+
+                  <% if @GSG != nil %>
+                    <div class="percentage"><p><%= " #{@GSG.game_progress}%"%></p></div>
+                    <div class="date"><p><%= Game.find(user_params_games.id).updated_at.strftime("%m.%d.%Y") %> </p></div>
+                  <% else %>
+                    <div class="percentage"><p><%= MAIN_STATISTIC_BAD_SIMBOL %> </p></div>
+                    <div class="date"><p><%= Game.find(user_params_games.id).updated_at.strftime("%m.%d.%Y") %> </p></div>
+                  <% end %>
+
+                </div>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="link_right_wrap carousel-control next carousel-next">
+        <a href="#" class="next"><img src="/images/link_right_big.png" alt=""/></a>
+      </div>
+
+    </div>
+
+
+
+    <!-- ============================================================================================================================================= -->
+    <!-- ============================================================================================================================================= -->
+    <!--
+      <div class="link_right_wrap carousel-control next carousel-next">
+        <a href="#"><img src="/images/link_right_big.png" alt=""/></a>
+      </div>
+    -->
+  </div>
+  <!-- ============================ games ============================ -->
+
+
+  <div id="main_stats_table_error_message" style='display: none;'>
+    <div class='messages'>
+      <div class='messages_error' style='display: block; margin-top: 25px; margin-bottom: 30px;'>Statistic is not available for a moment. Please wait.</div>
+    </div>
+  </div>
+
+
+  <!-- ============================ sticks ============================ -->
+  <% begin %>
+    <div id="main_stats_table_wrap">
+      <div class="main_stats_table_wrap">
+
+
+
+
+        <div> <!-- MAIN statistikas divs -->
+
+          <% if @user_sticks.count > 0 && @statistic.count > 0 %>
+      <%#= if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil%>
+
+            <div class="clubs_wrap">
+              <div class="page_left">
+                <a href="#"><img src="/images/link_left_big.png" alt=""/></a>
+              </div>
+
+              <% @user_sticks.each do |stick| %>
+
+                <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => @user_params.id})%>
+
+                <div class="single_club_wrap">
+
+                  <div class="club_name">
+                    <p><%=  stick.stick.stick_type %></p>
+                  </div>
+
+                  <div class="progress_bar">
+                    <% unless @stats.stick_progres == nil %>
+                      <%  if @stats.stick_progres < MAIN_STATISTIC_BAD_PROC %>
+                        <div class="progress_active bad" style="width:<%= "#{@stats.stick_progres}%;" %>"></div>
+                      <%  else %>
+                        <div class="progress_active normal" style="width:<%= "#{ @stats.stick_progres}%;"%>"></div>
+                      <%end%>
+                    <%end%>
+                  </div>
+
+                  <div class="info">
+                    <p>
+                      USAGE:
+                      <% if @stats.usage != nil %>
+                        <%=  "#{@stats.usage}%" %>
+                      <% else %>
+                        N/A
+                      <% end %>
+                      <br />
+                      AVG:
+                      <% unless @stats.avg_distance == nil %>
+                        <%="#{@stats.avg_distance}m"%>
+                      <%  else %>
+                        N/A
+                      <% end %>
+                    </p>
+                  </div>
+                </div>
+
+
+              <% end %>
+
+
+
+
+              <div class="page_left">
+                <a href="#"><img src="/images/link_right_big.png" alt=""/></a>
+              </div>
+            </div>
+            <!-- ============================ sticks ============================ -->
+
+
+
+
+            <!-- ============================ main stats ============================ -->
+            <%= render :partial => 'statistic/main_statistic' %>
+            <!-- ============================ main stats ============================ -->
+
+
+
+            <div class="clear"></div>
+            <% if PairHit.where(:user_id => @user_params.id).count == 0 %>
+              <div style="display: block; border: solid 1px red; padding: 10px; margin: 10px;">
+                Filtering statistic is not available for the moment
+              </div>
+            <% else %>
+              <!-- ============================ filter stats ============================ -->
+              <div class="result_filtering">
+                <div class="dropdown_wrap">
+                  <h1>Filter results</h1><br />
+                  <div class="form_dropdowns">
+
+
+                    <div id="table_filter_wrap">
+                      <% form_tag('/filter_statistic', :method => 'post', :remote => true, :id => "filter_statistic_form") do %>
+
+                        <%= select_tag "field_id", options_from_collection_for_select(Field.where(:golf_club_id => @user_params.golf_club_id), "id", "name"), {:class => "dropdown7"} %>
+                        <div class="clearblock_dropdowns"></div>
+
+                        <%= select_tag("place_from", options_for_select(STATISTICS_PLACE_FROM), {:include_blank => "Place",:class => "dropdown7"}) %>
+                        <div class="clearblock_dropdowns"></div>
+
+                        <%= select_tag("stance", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown7"}) %>
+                        <div class="clearblock_dropdowns"></div>
+
+                        <%= select_tag("direction", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown7"}) %>
+                        <div class="clearblock_dropdowns"></div>
+
+                        <%= select_tag("temperature", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown7"}) %>
+                        <div class="clearblock_dropdowns"></div>
+
+                        <%= select_tag("weather", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown7"}) %>
+                        <div class="clearblock_dropdowns"></div>
+
+                        <%= select_tag("trajectory", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown7"}) %>
+                        <div class="clearblock_dropdowns"></div>
+
+                        <%= select_tag("wind", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown7"}) %>
+                        <div class="clearblock_dropdowns"></div>
+
+                        <input type="hidden" id="user_id_for_filter" value="<%=  @user_params.id %>"/>
+
+                        <%= hidden_field_tag "user_id", @user_params.id %>
+
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="filter_statistic">
+                  <%= render :partial => 'statistic/filter_statistic' %>
+                </div>
+              </div>
+              <!-- ============================ filter stats ============================ -->
+
+            <% end %>
+
+          <% else %>
+            <div class="messages">
+              <div class="messages_error" style="display: block; margin: 5px;">Stick statistic is not available for a moment. Please wait.</div>
+            </div>
+          <% end %>
+        </div> <!-- MAIN statistikas divs -->
+
+
+
+      </div>
+    </div>
+
+
+    <% @main_statistic_has_errors = 0 %>
+  <% rescue  %>
+    <% @main_statistic_has_errors = 1 %>
+  <% end %>
+
+  <script>
+    $(document).ready(function(){
+    var main_i = "<%= @main_statistic_has_errors.to_s %>"
+    if (main_i == 1) {
+    $('#main_stats_table_wrap').hide();
+    $('#main_stats_table_error_message').show();
+    }
+    });
+  </script>
+
+<% end %>

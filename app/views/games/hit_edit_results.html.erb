@@ -1,0 +1,39 @@
+
+<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "game_results"} %>
+
+
+
+<div class="game_input_wrap">
+    
+  
+    
+    
+    <!-- <div class="clear"></div> -->
+    <div class="holes_wrap">
+     <div id="hole_tab">
+  <%=render :partial => 'games/hole_tab', :locals => {:holes_filtered => @holes_filtered, :start_hole => @start_hole, :end_hole => @end_hole, :game_id => @game.id, :active_hole => @start_hole, :form_id => @form_id, :hits => @hitcount, :puts => @puts}%>
+    </div>
+    </div>
+    <div class="results_input_wrap">
+
+      <div class="messages">
+<div class="messages_error" style="display: none;">Please, select club!</div>
+</div>
+
+  <div id="hit_count_tab">
+  <%= render :partial => 'games/results_starter', :locals => {:game_id => @game.id, :active_hole => @active_hole} %>
+  </div>
+    
+    <div id="hit_edit_tab">
+  <% if @hits != nil %> 
+   <%= render :partial => 'games/hit_form_results', :locals => {:hits => @hits, :game => @game, :active_hole => @active_hole, :active_hit => 1, :end_hole => @end_hole}%>
+   <%end%>
+ </div>
+  </div>
+   </div>
+  <div class="game_input_image_wrap">
+    <div id="hole_picture" >
+   <%= render :partial => 'games/hole_picture', :locals => {:hole => @hole} %>
+</div>
+
+</div>

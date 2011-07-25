@@ -1,0 +1,1 @@
+page["#users_stick_#{@user_stick_id}"].remove();

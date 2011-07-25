@@ -1,0 +1,126 @@
+.splash_page_header {
+	width:900px;
+	background-image:url(/images/splash_page_header.png);
+	background-repeat:no-repeat;
+	position:relative;
+}
+
+.splash_page_header .comments_wrap {
+	width:222px;
+	margin-left:20px;
+	padding-top:105px;
+	float:left;
+}
+
+.splash_page_header .comments_wrap .single_comment_wrap {
+	width:222px;
+}
+
+.splash_page_header .comments_wrap .single_comment_wrap .image {
+	width:51px;
+	height:51px;
+	float:left;
+	margin-right:5px;
+}
+
+.splash_page_header .comments_wrap .single_comment_wrap .text {
+	float:left;
+	width:140px;
+}
+
+.splash_page_header .comments_wrap .single_comment_wrap .text p {
+	font-family:"Tahoma";
+	font-size:12px;
+	font-weight:normal;
+	line-height:14px;
+	margin-bottom:20px;
+}
+
+.splash_page_header .contents_wrap {
+	width:430px;
+	padding-top:122px;
+	float:left;
+}
+
+.splash_page_header .contents_wrap h1 {
+	font-size:32px;
+	color:#363636;
+}
+
+.splash_page_header .contents_wrap p {
+	font-size:19px;
+	color:#363636;
+	line-height:21px;
+	font-weight:normal;
+}
+
+.splash_page_header .contents_wrap .button {
+	margin-left:auto;
+	margin-right:auto;
+	width:207px;
+	height:72px;
+	background-image:url(/images/splash_page_button.png);
+	background-repeat:no-repeat;
+	text-align:center;
+}
+
+.splash_page_header .contents_wrap .button p {
+	line-height:72px;
+	color:#363636;
+	font-size:24px;
+	font-weight:bold;
+}
+
+.splash_page_header .contents_wrap .image {
+	width:54px;
+	height:53px;
+	float:left;
+	margin-right:2px;
+	margin-left:40px;
+	margin-bottom:20px;
+}
+
+.splash_page_header .contents_wrap .text{
+	width:300px;
+	float:left;
+}
+
+.splash_page_header .contents_wrap .text p {
+	font-weight:bold;
+}
+
+.splash_page_header .news_wrap {
+	width:200px;
+	margin-top:101px;
+	margin-left:10px;
+	float:left;
+}
+
+.splash_page_header .news_wrap p {
+	font-size:19px;
+	color:#363636;
+	line-height:21px;
+	font-weight:bold;
+}
+
+
+.splash_page_header .news_wrap .single_news {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.splash_page_header .news_wrap .single_news p {
+	font-family:"Tahoma";
+	font-size:12px;
+	font-weight:normal;
+	line-height:14px;
+}
+
+.splash_page_header .bg_image {
+	position:absolute;
+	background-image:url(/images/golfer_silhouette.png);
+	width:268px;
+	height:354px;
+	bottom:-25px;
+	right:0px;
+}

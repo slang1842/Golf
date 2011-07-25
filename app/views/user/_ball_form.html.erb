@@ -1,0 +1,25 @@
+<div id="<%= "ball_#{ball.id}" unless ball.new_record? %>">
+  <%= f.fields_for balls_attributes, ball do |h| %>
+    <%= h.hidden_field :id unless ball.new_record? %>
+
+    <div class="club_set">
+      <div class="item">
+        <div class="subitem"><%= h.label :ball_manufacturer %></div>
+        <div class="subitem"><%= h.label :ball_type %></div>
+      </div>
+
+      <div class="item">
+        <div class="subitem"><%= h.select(:ball_manufacturer, BALL_MANUFACTURER,{}, { :class => 'dropdown8 user_select_field'}) %></div>
+        <div class="subitem"><%= h.select(:ball_type, BALL_TYPE,{}, { :class => 'dropdown8 user_select_field'}) %></div>
+        <div class="subitem2">
+          <% if ball.new_record? %>
+            <a href="" OnClick="$(this).parent().parent().parent().slideUp('fast', function() { $(this).remove(); } ); return false;" class="gray_button" >cancel</a>
+          <% else %>
+            <%= link_to 'Destroy', ball, :confirm => 'Are you sure?', :remote => true, :method => :delete, :class => "gray_button" %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+</div>

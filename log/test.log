@@ -1,0 +1,160 @@
+Unable to load statistic_user_progre, underlying cause No such file to load -- statistic_user_progre 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:304:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:216:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:877:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:857:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/users_sticks_controller_test.rb:1:in `require'
+./test/functional/users_sticks_controller_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+Unable to load club, underlying cause No such file to load -- club 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:304:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:216:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:877:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:857:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/users_sticks_controller_test.rb:1:in `require'
+./test/functional/users_sticks_controller_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+Unable to load game_statistic, underlying cause No such file to load -- game_statistic 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:304:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:216:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:877:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:857:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/users_sticks_controller_test.rb:1:in `require'
+./test/functional/users_sticks_controller_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+Unable to load game_statistics_by_ball, underlying cause No such file to load -- game_statistics_by_ball 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:304:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:216:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:877:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:857:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/users_sticks_controller_test.rb:1:in `require'
+./test/functional/users_sticks_controller_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+Unable to load golf_club_banner, underlying cause No such file to load -- golf_club_banner 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:304:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:216:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:877:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:857:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/users_sticks_controller_test.rb:1:in `require'
+./test/functional/users_sticks_controller_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+Unable to load golfclub, underlying cause No such file to load -- golfclub 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:304:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:216:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:877:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:857:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/users_sticks_controller_test.rb:1:in `require'
+./test/functional/users_sticks_controller_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+Unable to load golf_club_pay_banner, underlying cause No such file to load -- golf_club_pay_banner 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:304:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:216:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:877:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:857:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/users_sticks_controller_test.rb:1:in `require'
+./test/functional/users_sticks_controller_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+Unable to load game_statistics_by_stick, underlying cause No such file to load -- game_statistics_by_stick 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:304:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:216:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:877:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:857:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/users_sticks_controller_test.rb:1:in `require'
+./test/functional/users_sticks_controller_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+Unable to load golf_club_pay__banner, underlying cause No such file to load -- golf_club_pay__banner 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:304:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:216:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:877:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:857:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/users_sticks_controller_test.rb:1:in `require'
+./test/functional/users_sticks_controller_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+Unable to load golf_club_free_banner, underlying cause No such file to load -- golf_club_free_banner 
+
+ /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:304:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.7/lib/active_support/dependencies.rb:216:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:877:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:874:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.7/lib/active_record/fixtures.rb:857:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/users_sticks_controller_test.rb:1:in `require'
+./test/functional/users_sticks_controller_test.rb:1
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5

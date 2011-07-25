@@ -1,0 +1,72 @@
+<script>
+$(document).ready(function(){
+	$('#header_menu_div').html('<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "game_results"} %>');
+}
+</script>
+      <% game1 = game.game_type%>
+      <div class="right_coll">
+        <%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
+        <input type="hidden" name="next_hit" id="nexthit" value=0>
+        <input type="hidden" name="form_id" id="formid" value="results">
+        <input type="hidden" name="active_hit" id="act_hit" value=1>
+        <input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
+        <div class="headings">
+          <p>Club</p>
+          <div class="heading1"><p>Hit distance(m)</p></div>
+          <div class="heading2"><p>Land place</p></div>
+        </div>
+        <div class="clear"></div>
+        <div class="dropdowns_wrap">
+          <% hits.each do |hit|%>
+          <% if hit.stick_id == 1 %>
+          <% hit_style = "putt_style" %>
+          <% end %>
+          <div class="<%=hit_style%>">
+          <%=game.fields_for :hits, hit do |f|%>
+          
+          <p><%=hit.hit_number%>.</p>
+          <div class="element" style="height:45px">                    
+                <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:prompt => "Select"},{:class => "dropdown3"} %>
+              </div>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <div class="element" >
+            <%= f.text_field :hit_distance%> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+          </div>
+          
+          <div class="element">
+              <%= f.select(:land_place, PLANNED_LAND_PLACES, {:prompt => "Select"}, {:class => "dropdown3"}) %>
+              </select>
+          </div>
+        
+        <div class="clear"></div>
+        <%= f.hidden_field :hole_number, :value => active_hole %>
+        <%#= f.hidden_field :hit_number, :value => active_hit %>
+         <% end %>
+          </div>
+        <% end %>
+       </div>
+       
+             <div class="result_button_wrap"> 
+            <% if game1 == 2%>
+    <% last_hole_number = 18 %>
+    <% elsif game1 == 3%>
+    <% last_hole_number = 9 %>
+    <% elsif game1 == 1%>
+    <% last_hole_number = 9 %>
+    <% end %>
+    <% if active_hole.to_i != last_hole_number.to_i%> 
+   
+     
+        <div class="button_wrap" style="margin-right:0px; margin-left:20px">
+         <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" >Next hole</a>
+        </div>
+         <%end%>
+        <div class="button_wrap " style="margin-right:0px">
+          <div class="save_gif">
+              <a href="#" rel="save" class="gray_button saveswitch" >Save</a>
+            </div>
+              </div>
+       </div>
+<% end %>
+</div>
+     

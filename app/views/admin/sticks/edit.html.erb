@@ -1,0 +1,39 @@
+
+<%= form_for [:admin, @stick] do |f| %>
+
+
+  <div class="field">
+    <%= f.label :stick_type %><br />
+    <%= f.text_field :stick_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :distance %><br />
+    <%= f.text_field :distance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :degrees %><br />
+    <%= f.select(:degrees, STICK_DEGREES,{}, { :class => 'dropdown8 user_select_field', :style => "width: 300px;"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :shaft %><br />
+    <%= f.select(:shaft, STICK_SHAFT,{}, { :class => 'dropdown8 user_select_field', :style => "width: 300px;"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :shaft_strength %><br />
+    <%= f .select(:shaft_strength, STICK_SHAFT_STRENGTH,{}, { :class => 'dropdown8 user_select_field', :style => "width: 300px;"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :short_name %><br />
+    <%= f.text_field :short_name %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<h1>Listing game_statistics</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @game_statistics.each do |game_statistic| %>
+  <tr>
+    <td><%= link_to 'Show', game_statistic %></td>
+    <td><%= link_to 'Edit', edit_game_statistic_path(game_statistic) %></td>
+    <td><%= link_to 'Destroy', game_statistic, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Game statistic', new_game_statistic_path %>

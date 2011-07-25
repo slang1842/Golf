@@ -1,0 +1,2 @@
+page['form'].submit()
+page['*'].html render('games/index')

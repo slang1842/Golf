@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @hint.user %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @hint.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_hint_path(@hint) %> |
+<%= link_to 'Back', hints_path %>

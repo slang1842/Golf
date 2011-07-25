@@ -1,0 +1,81 @@
+<% if current_user %>
+  <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_club"} %>
+<% end %>
+
+<div class="profile_info_input">
+  <div class="messages">
+    <div class="messages_error" style="display: none;">All fields are required</div>
+    <h1>Add club</h1>
+  </div>
+  <%= form_for(@golf_club, :html => { :onsubmit=> "return check_bag_form();"}, :url => golf_club_path ) do |f| %>
+
+    <div class="left_wrap">
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label :name %></p>
+        </div>
+        <div class="input">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.country" %></p>
+        </div>
+        <div class="input">
+          <%= f.collection_select :country_id, Country.all, :id, :name,{}, {:class=> "dropdown3"}%>
+        </div>
+      </div>
+
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label :region %></p>
+        </div>
+        <div class="input">
+          <%= f.text_field :region %>
+        </div>
+      </div>
+
+
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label :city %></p>
+        </div>
+        <div class="input">
+          <%= f.text_field :city %>
+        </div>
+      </div>
+
+
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label :web_page %></p>
+        </div>
+        <div class="input">
+          <%= f.text_field :web_page %>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+    <div class="button_done">
+      <div class="clear"></div>
+
+      <div class="actions">
+        <%= f.submit :class => 'green_button', :value => "Save" %>
+      </div>
+
+    </div>
+
+  <% end %>
+
+</div>
