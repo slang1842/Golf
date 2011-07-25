@@ -95,7 +95,7 @@ class Statistic < ActiveRecord::Base
             statistic.user_id = c_user.id
             statistic.game_id = c_game.id
             statistic.field_id = c_field.id
-            statistic.stick_id = user_stick.stick.id
+            statistic.stick_id = user_stick.stick_id
 
 
 
@@ -107,7 +107,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -171,7 +171,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -211,7 +211,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.direction == direction_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.direction == direction_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -251,7 +251,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -283,7 +283,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -318,7 +318,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -350,7 +350,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
 
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.wind == wind_num && each_pair.hit_planed.stick_id == user_stick.stick.id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.wind == wind_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -388,7 +388,7 @@ class Statistic < ActiveRecord::Base
 
               @all_pairs.each do |each_pair|
                 if each_pair.hit_planed.wind == strength_num &&
-                    each_pair.hit_planed.stick_id == user_stick.stick.id &&
+                    each_pair.hit_planed.stick_id == user_stick.stick_id &&
                     each_pair.hit_planed.game.field_id == c_field.id &&
                     (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7)
 
@@ -429,7 +429,7 @@ class Statistic < ActiveRecord::Base
 
               @all_pairs.each do |each_pair|
                 if each_pair.hit_planed.wind == direction_num &&
-                    each_pair.hit_planed.stick_id == user_stick.stick.id &&
+                    each_pair.hit_planed.stick_id == user_stick.stick_id &&
                     each_pair.hit_planed.game.field_id == c_field.id &&
                     (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7)
 
@@ -474,7 +474,7 @@ class Statistic < ActiveRecord::Base
 
               @all_pairs.each do |each_pair|
                 if each_pair.hit_planed.wind == tilt_num &&
-                    each_pair.hit_planed.stick_id == user_stick.stick.id &&
+                    each_pair.hit_planed.stick_id == user_stick.stick_id &&
                     each_pair.hit_planed.game.field_id == c_field.id &&
                     (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7)
 
