@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 67d71b73d952fb27eb42b1372deb5d643f7bdc11
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>Golf</name>
@@ -21,3 +25,31 @@
 		<nature>org.rubypeople.rdt.core.rubynature</nature>
 	</natures>
 </projectDescription>
+<<<<<<< HEAD
+=======
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Golf</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.aptana.ide.core.unifiedBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.rubypeople.rdt.core.rubybuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.aptana.ruby.core.rubynature</nature>
+		<nature>org.rubypeople.rdt.core.rubynature</nature>
+	</natures>
+</projectDescription>
+>>>>>>> dd9b17346bac93d3af265b2fb719c897b1b342d9
+>>>>>>> 67d71b73d952fb27eb42b1372deb5d643f7bdc11
