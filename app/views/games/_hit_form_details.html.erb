@@ -3,9 +3,9 @@
 
   <input type="hidden" name="next_hit" id="nexthit" value="0" />
   <input type="hidden" name="form_id" id="formid" value="details"/>
-  <input type="hidden" name="active_hit" id="act_hit" value=<%=active_hit%>/>
-  <input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>/>
-  <%= game.hidden_field :active_hit, :value => active_hit%>
+  <input type="hidden" name="active_hit" id="act_hit" value="<%=active_hit%>" />
+  <input type="hidden" name="next_hole" id="nexthole" value="<%=active_hole%>" />
+  <%= game.hidden_field :active_hit, :value => active_hit %>
 
 
   <%= game.fields_for :hits, hit_p_final do |f|%>

@@ -270,7 +270,7 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.integer  "land_place"
     t.integer  "stance"
     t.integer  "trajectory"
-    t.boolean  "luck_factor"
+    t.integer  "luck_factor"
     t.string   "comment"
     t.integer  "following_action"
     t.integer  "distance_to_hole"
@@ -400,7 +400,6 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.string   "crypted_password",                      :null => false
     t.string   "password_salt",                         :null => false
     t.string   "persistence_token",                     :null => false
-    t.boolean  "new_user",           :default => true
     t.boolean  "add_club",           :default => false
     t.boolean  "admin",              :default => false
     t.boolean  "is_super_admin",     :default => false
