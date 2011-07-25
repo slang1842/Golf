@@ -55,7 +55,7 @@ Golf::Application.routes.draw do
 
   #admin
   #match "admin/users/:user_id" => "admin#", :as => 'give_admin_rights'
-
+  match "admin/sticks" => "admin/sticks#index", :as => "admin_sticks"
 
   get "welcome/index"
   get "home/index"

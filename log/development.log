@@ -19503,3 +19503,1123 @@ Migrating to CreateGameFilterStatistics (20110606050327)
   [1m[35mSQL (1.1ms)[0m  SHOW KEYS FROM `users`
   [1m[36mSQL (1.4ms)[0m  [1mdescribe `users_sticks`[0m
   [1m[35mSQL (1.3ms)[0m  SHOW KEYS FROM `users_sticks`
+
+
+Started POST "/user" for 127.0.0.1 at Mon Jul 25 09:04:39 +0300 2011
+  Processing by UserController#update as HTML
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "user"=>{"birth"=>"2011-07-07", "add_club"=>"0", "nick"=>"user", "start_place_color"=>"4", "password_confirmation"=>"[FILTERED]", "country_id"=>"1", "temp_preference"=>"fahrenheit", "sex"=>"f", "last_name"=>"user", "right_handed"=>"true", "measurement"=>"meters", "golf_club_id"=>"", "password"=>"[FILTERED]", "first_name"=>"user", "hcp"=>"0", "email"=>"user@user.com"}}
+  [1m[35mUser Load (16.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '87da4619413ebe446cc2e93cc2b9b5211d934aaae3cd8a29d2823da6725557b5971ca5dd8f88382824c8a2c9ee3eecaa929bfd6d50a9c74e7928c93cb79f3b0e' LIMIT 1
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+Redirected to http://localhost:3000/register
+Completed 302 Found in 149ms
+
+
+Started GET "/register" for 127.0.0.1 at Mon Jul 25 09:04:39 +0300 2011
+  Processing by UserSessionsController#index as HTML
+  [1m[35mUser Load (4.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '87da4619413ebe446cc2e93cc2b9b5211d934aaae3cd8a29d2823da6725557b5971ca5dd8f88382824c8a2c9ee3eecaa929bfd6d50a9c74e7928c93cb79f3b0e' LIMIT 1
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+ApplicationController::require_no_user
+Rendered user_sessions/_form.html.erb (4.5ms)
+Rendered user_sessions/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 204ms (Views: 19.6ms | ActiveRecord: 28.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Jul 25 09:04:47 +0300 2011
+  Processing by WelcomeController#welcome as HTML
+  [1m[35mUser Load (4.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '87da4619413ebe446cc2e93cc2b9b5211d934aaae3cd8a29d2823da6725557b5971ca5dd8f88382824c8a2c9ee3eecaa929bfd6d50a9c74e7928c93cb79f3b0e' LIMIT 1
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+ApplicationController::require_no_user
+Rendered user_sessions/_form.html.erb (4.4ms)
+Rendered welcome/welcome.html.erb within layouts/welcome (8.3ms)
+Completed 200 OK in 135ms (Views: 70.6ms | ActiveRecord: 8.1ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Mon Jul 25 09:04:51 +0300 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"user_session"=>{"password"=>"[FILTERED]", "email"=>"user@user.com"}, "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓"}
+  [1m[35mUser Load (1.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '87da4619413ebe446cc2e93cc2b9b5211d934aaae3cd8a29d2823da6725557b5971ca5dd8f88382824c8a2c9ee3eecaa929bfd6d50a9c74e7928c93cb79f3b0e' LIMIT 1
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (2.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'user@user.com' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 63ms
+
+
+Started GET "/" for 127.0.0.1 at Mon Jul 25 09:04:51 +0300 2011
+  Processing by WelcomeController#welcome as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '87da4619413ebe446cc2e93cc2b9b5211d934aaae3cd8a29d2823da6725557b5971ca5dd8f88382824c8a2c9ee3eecaa929bfd6d50a9c74e7928c93cb79f3b0e' LIMIT 1[0m
+  [1m[35mUser Load (2.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+ApplicationController::require_no_user
+Rendered user_sessions/_form.html.erb (4.3ms)
+Rendered welcome/welcome.html.erb within layouts/welcome (8.3ms)
+Completed 200 OK in 140ms (Views: 10.5ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/user/new" for 127.0.0.1 at Mon Jul 25 09:04:55 +0300 2011
+  Processing by UserController#new as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '87da4619413ebe446cc2e93cc2b9b5211d934aaae3cd8a29d2823da6725557b5971ca5dd8f88382824c8a2c9ee3eecaa929bfd6d50a9c74e7928c93cb79f3b0e' LIMIT 1[0m
+  [1m[35mUser Load (1.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+ApplicationController::require_no_user
+  [1m[36mCountry Load (0.8ms)[0m  [1mSELECT `countries`.* FROM `countries`[0m
+  [1m[35mGolfClub Load (1.9ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`accepted` = 'yes'
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user__form_html_erb__772239324__613175948_448336 at /home/edgars/workspace/Golf/app/views/user/_form.html.erb:10)
+Rendered user/_form.html.erb (122.3ms)
+Rendered user_sessions/_form.html.erb (4.0ms)
+Rendered user/new.html.erb within layouts/application (138.2ms)
+Completed 200 OK in 288ms (Views: 139.6ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/user" for 127.0.0.1 at Mon Jul 25 09:05:31 +0300 2011
+  Processing by UserController#create as HTML
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "user"=>{"birth"=>"2011-07-14", "add_club"=>"0", "nick"=>"admin", "start_place_color"=>"4", "password_confirmation"=>"[FILTERED]", "temp_preference"=>"fahrenheit", "sex"=>"m", "last_name"=>"admin", "right_handed"=>"true", "measurement"=>"meters", "golf_club_id"=>"", "password"=>"[FILTERED]", "first_name"=>"admin", "hcp"=>"1", "email"=>"admin@admin.com"}}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '87da4619413ebe446cc2e93cc2b9b5211d934aaae3cd8a29d2823da6725557b5971ca5dd8f88382824c8a2c9ee3eecaa929bfd6d50a9c74e7928c93cb79f3b0e' LIMIT 1[0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+ApplicationController::require_no_user
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (15.5ms)[0m  SELECT 1 FROM `users` WHERE (`users`.`email` = BINARY 'admin@admin.com') LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT 1 FROM `users` WHERE (LOWER(`users`.`email`) = LOWER('admin@admin.com')) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 FROM `users` WHERE (LOWER(`users`.`email`) = LOWER('admin@admin.com')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT 1 FROM `users` WHERE (`users`.`persistence_token` = BINARY '73a2d8ea18a82110e0f568b35ec0e2d86d0db589cb0ee1cfd32c06a093bf87766ef23b351dd615912f73d3e5918b82d695f7d4a7f2cfca812782e452ab19c004') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '87da4619413ebe446cc2e93cc2b9b5211d934aaae3cd8a29d2823da6725557b5971ca5dd8f88382824c8a2c9ee3eecaa929bfd6d50a9c74e7928c93cb79f3b0e' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mSQL (3.2ms)[0m  describe `users`
+  [1m[36mAREL (6.7ms)[0m  [1mINSERT INTO `users` (`hcp`, `persistence_token`, `coach`, `nick`, `image_updated_at`, `admin`, `created_at`, `new_user`, `add_club`, `password_salt`, `failed_login_count`, `image_content_type`, `is_super_admin`, `last_login_ip`, `last_name`, `image_file_name`, `email`, `first_name`, `right_handed`, `country_id`, `temp_preference`, `start_place_color`, `birth`, `last_login_at`, `current_login_at`, `current_login_ip`, `updated_at`, `is_blocked`, `sex`, `golf_club_id`, `measurement`, `login_count`, `last_request_at`, `crypted_password`, `image_file_size`) VALUES (1, '73a2d8ea18a82110e0f568b35ec0e2d86d0db589cb0ee1cfd32c06a093bf87766ef23b351dd615912f73d3e5918b82d695f7d4a7f2cfca812782e452ab19c004', NULL, 'admin', NULL, 0, '2011-07-25 06:05:32', 1, 0, 'zyQeTJeSI8eZ5uMZXq9p', 0, NULL, 0, NULL, 'admin', NULL, 'admin@admin.com', 'admin', 1, NULL, 'fahrenheit', 4, '2011-07-14', NULL, '2011-07-25 06:05:32', '127.0.0.1', '2011-07-25 06:05:32', 0, 'm', NULL, 'meters', 1, '2011-07-25 06:05:32', '7aeb24feba1d8eb8c1c7b10e9809273b09b38babe73b7a02672c557b7ed4f7d56c06b06aa0a29268c9492db7f5476f29d84958b882befefb114d093f636a425d', NULL)[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (50.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 310ms
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon Jul 25 09:05:32 +0300 2011
+  Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '73a2d8ea18a82110e0f568b35ec0e2d86d0db589cb0ee1cfd32c06a093bf87766ef23b351dd615912f73d3e5918b82d695f7d4a7f2cfca812782e452ab19c004' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '73a2d8ea18a82110e0f568b35ec0e2d86d0db589cb0ee1cfd32c06a093bf87766ef23b351dd615912f73d3e5918b82d695f7d4a7f2cfca812782e452ab19c004' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:05:32', `last_request_at` = '2011-07-25 06:05:32' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (114.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mStatisticUserProgres Load (1.2ms)[0m  SELECT `statistic_user_progres`.* FROM `statistic_user_progres` ORDER BY user_progress LIMIT 5
+Rendered share/_header_menu.html.erb (7.7ms)
+  [1m[36mSQL (1.3ms)[0m  [1mSELECT COUNT(DISTINCT user_id) FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') LIMIT 5[0m
+Rendered welcome/index.html.erb within layouts/application (47.3ms)
+Completed 200 OK in 422ms (Views: 48.2ms | ActiveRecord: 204.8ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Mon Jul 25 09:05:44 +0300 2011
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (2.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`persistence_token` = '73a2d8ea18a82110e0f568b35ec0e2d86d0db589cb0ee1cfd32c06a093bf87766ef23b351dd615912f73d3e5918b82d695f7d4a7f2cfca812782e452ab19c004' LIMIT 1
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:05:44', `last_request_at` = '2011-07-25 06:05:44' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (38.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 186ms
+
+
+Started GET "/" for 127.0.0.1 at Mon Jul 25 09:05:44 +0300 2011
+  Processing by WelcomeController#welcome as HTML
+ApplicationController::require_no_user
+Rendered user_sessions/_form.html.erb (6.5ms)
+Rendered welcome/welcome.html.erb within layouts/welcome (11.9ms)
+Completed 200 OK in 108ms (Views: 15.9ms | ActiveRecord: 43.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Jul 25 09:06:27 +0300 2011
+  Processing by WelcomeController#welcome as HTML
+ApplicationController::require_no_user
+Rendered user_sessions/_form.html.erb (7.0ms)
+Rendered welcome/welcome.html.erb within layouts/welcome (12.7ms)
+Completed 200 OK in 65ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Mon Jul 25 09:06:30 +0300 2011
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"user_session"=>{"password"=>"[FILTERED]", "email"=>"admin@admin.com"}, "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓"}
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'admin@admin.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE `users` SET `current_login_at` = '2011-07-25 06:06:30', `login_count` = 2, `last_login_ip` = '127.0.0.1', `last_request_at` = '2011-07-25 06:06:30', `last_login_at` = '2011-07-25 06:05:32', `updated_at` = '2011-07-25 06:06:30' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (50.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 203ms
+
+
+Started GET "/" for 127.0.0.1 at Mon Jul 25 09:06:30 +0300 2011
+  Processing by WelcomeController#welcome as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:06:30', `last_request_at` = '2011-07-25 06:06:30' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (38.3ms)[0m  [1mCOMMIT[0m
+ApplicationController::require_no_user
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 190ms
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon Jul 25 09:06:30 +0300 2011
+  Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (2.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:06:30', `last_request_at` = '2011-07-25 06:06:30' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (37.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 161ms
+
+
+Started GET "/admin" for 127.0.0.1 at Mon Jul 25 09:06:30 +0300 2011
+  Processing by AdminController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 06:06:31', `updated_at` = '2011-07-25 06:06:31' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (51.6ms)[0m  [1mCOMMIT[0m
+Rendered admin/index.html.erb within layouts/admin (10.6ms)
+Completed 200 OK in 210ms (Views: 30.6ms | ActiveRecord: 192.3ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:06:31 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:06:31 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:06:31 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:06:32 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:06:32 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/golf_clubs" for 127.0.0.1 at Mon Jul 25 09:06:55 +0300 2011
+  Processing by Admin::GolfClubsController#index as HTML
+  [1m[35mUser Load (2.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:06:55', `last_request_at` = '2011-07-25 06:06:55' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (42.1ms)[0m  COMMIT
+  [1m[36mGolfClub Load (2.0ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs`[0m
+Rendered admin/golf_clubs/index.html.erb within layouts/admin (11.1ms)
+Completed 200 OK in 212ms (Views: 13.8ms | ActiveRecord: 47.1ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:06:55 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:06:55 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:06:56 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:06:56 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at Mon Jul 25 09:06:57 +0300 2011
+  Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:06:57', `last_request_at` = '2011-07-25 06:06:57' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (44.6ms)[0m  COMMIT
+  [1m[36mUser Load (22.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0[0m
+Rendered admin/users/index.html.erb within layouts/admin (36.7ms)
+Completed 200 OK in 285ms (Views: 16.9ms | ActiveRecord: 70.1ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:06:58 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:06:58 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:06:58 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:06:58 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:06:58 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:07:02 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (5.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:07:02', `updated_at` = '2011-07-25 06:07:02' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (45.5ms)[0m  COMMIT
+  [1m[36mStick Load (0.9ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (20.6ms)
+Completed 200 OK in 241ms (Views: 25.6ms | ActiveRecord: 52.0ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:07:03 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:07:03 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:07:03 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:07:03 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:07:05 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:07:05', `last_request_at` = '2011-07-25 06:07:05' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (68.8ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (67.6ms)
+Completed 200 OK in 308ms (Views: 70.0ms | ActiveRecord: 71.7ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:07:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:07:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:07:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:07:06 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:07:06 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:07:21 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Putter", "shaft"=>"strong", "shaft_strength"=>"strong", "short_name"=>"P1", "degrees"=>"125", "distance"=>"214"}}
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 06:07:21', `updated_at` = '2011-07-25 06:07:21' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (30.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `sticks` (`distance`, `shaft_strength`, `updated_at`, `shaft`, `stick_type`, `created_at`, `short_name`, `degrees`) VALUES (214, 'strong', '2011-07-25 06:07:21', 'strong', 'Putter', '2011-07-25 06:07:21', 'P1', 125)
+  [1m[36mSQL (40.5ms)[0m  [1mCOMMIT[0m
+Redirected to 
+Completed   in 247ms
+
+NoMethodError (undefined method `index_url' for #<Admin::SticksController:0xb6e981d8>):
+  app/controllers/admin/sticks_controller.rb:40:in `create'
+  app/controllers/admin/sticks_controller.rb:38:in `create'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.7ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.2ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:08:31 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Putter", "shaft"=>"strong", "shaft_strength"=>"strong", "short_name"=>"P1", "degrees"=>"125", "distance"=>"214"}}
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:08:31', `last_request_at` = '2011-07-25 06:08:31' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (54.4ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  describe `sticks`
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO `sticks` (`created_at`, `shaft_strength`, `updated_at`, `degrees`, `distance`, `short_name`, `shaft`, `stick_type`) VALUES ('2011-07-25 06:08:31', 'strong', '2011-07-25 06:08:31', 125, 214, 'P1', 'strong', 'Putter')[0m
+  [1m[35mSQL (29.0ms)[0m  COMMIT
+Rendered admin/sticks/index.html.erb within layouts/admin (24.9ms)
+Completed   in 295ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    12:       <div class="item">To Do</div>
+    13:     </div>
+    14:   </b>
+    15:   <% @sticks.each do |stick| %>
+    16:     <div class="row">
+    17:       <div class="item"><%= stick.stick_type %></div>
+    18:       <div class="item"><%= stick.distance %></div>
+  app/views/admin/sticks/index.html.erb:15:in `_app_views_admin_sticks_index_html_erb___620873967__614121358_0'
+  app/controllers/admin/sticks_controller.rb:40:in `create'
+  app/controllers/admin/sticks_controller.rb:38:in `create'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.4ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.4ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:08:38 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Putter", "shaft"=>"strong", "shaft_strength"=>"strong", "short_name"=>"P1", "degrees"=>"125", "distance"=>"214"}}
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 06:08:38', `updated_at` = '2011-07-25 06:08:38' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (28.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `sticks` (`short_name`, `shaft_strength`, `updated_at`, `shaft`, `stick_type`, `created_at`, `distance`, `degrees`) VALUES ('P1', 'strong', '2011-07-25 06:08:38', 'strong', 'Putter', '2011-07-25 06:08:38', 214, 125)
+  [1m[36mSQL (27.2ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (0.9ms)
+Completed   in 295ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    12:       <div class="item">To Do</div>
+    13:     </div>
+    14:   </b>
+    15:   <% @sticks.each do |stick| %>
+    16:     <div class="row">
+    17:       <div class="item"><%= stick.stick_type %></div>
+    18:       <div class="item"><%= stick.distance %></div>
+  app/views/admin/sticks/index.html.erb:15:in `_app_views_admin_sticks_index_html_erb___620873967__614185508_0'
+  app/controllers/admin/sticks_controller.rb:40:in `create'
+  app/controllers/admin/sticks_controller.rb:38:in `create'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.0ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.2ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:09:11 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (3.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:09:11', `last_request_at` = '2011-07-25 06:09:11' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (56.7ms)[0m  COMMIT
+  [1m[36mStick Load (1.0ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (84.9ms)
+Completed 200 OK in 394ms (Views: 87.2ms | ActiveRecord: 62.1ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:09:12 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:09:12 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:09:12 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:09:12 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:09:13 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin/sticks/3/edit" for 127.0.0.1 at Mon Jul 25 09:09:15 +0300 2011
+  Processing by Admin::SticksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:09:15', `last_request_at` = '2011-07-25 06:09:15' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (36.3ms)[0m  COMMIT
+  [1m[36mStick Load (1.1ms)[0m  [1mSELECT `sticks`.* FROM `sticks` WHERE `sticks`.`id` = 3 LIMIT 1[0m
+Rendered admin/sticks/edit.html.erb within layouts/admin (26.7ms)
+Completed 200 OK in 251ms (Views: 39.5ms | ActiveRecord: 40.3ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:09:15 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:09:15 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:09:15 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:09:16 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:11:13 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:11:14', `updated_at` = '2011-07-25 06:11:14' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (39.3ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (17.9ms)
+Completed 200 OK in 290ms (Views: 20.3ms | ActiveRecord: 42.4ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:11:14 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:11:14 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:11:14 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:11:15 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:11:15 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:11:16 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (23.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:11:16', `last_request_at` = '2011-07-25 06:11:16' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (51.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.0ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (20.7ms)
+Completed 200 OK in 261ms (Views: 23.0ms | ActiveRecord: 76.0ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:11:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:11:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:11:17 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:11:18 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:11:18 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:11:25 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:11:25', `last_request_at` = '2011-07-25 06:11:25' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (66.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.0ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (31.3ms)
+Completed 200 OK in 321ms (Views: 33.7ms | ActiveRecord: 70.6ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:11:25 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:11:25 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:11:25 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:11:26 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:11:26 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:11:59 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (4.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 06:11:59', `updated_at` = '2011-07-25 06:11:59' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (44.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.0ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (71.4ms)
+Completed 200 OK in 325ms (Views: 73.9ms | ActiveRecord: 51.3ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:12:00 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:12:00 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:12:00 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:12:01 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:12:01 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:12:04 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:12:04', `last_request_at` = '2011-07-25 06:12:04' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (60.9ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (17.1ms)
+Completed 200 OK in 281ms (Views: 19.5ms | ActiveRecord: 64.1ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:12:04 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:12:04 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:12:04 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:12:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:12:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:12:21 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"Strong", "short_name"=>"Weed", "degrees"=>"124", "distance"=>"212"}}
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:12:21', `last_request_at` = '2011-07-25 06:12:21' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (41.3ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (70.0ms)
+Completed 200 OK in 282ms (Views: 72.4ms | ActiveRecord: 45.2ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:12:21 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:12:21 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:12:21 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:12:22 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:12:28 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:12:28', `last_request_at` = '2011-07-25 06:12:28' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (34.0ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (20.3ms)
+Completed 200 OK in 249ms (Views: 22.7ms | ActiveRecord: 37.8ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:12:28 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:12:28 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:12:29 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:12:29 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:14:05 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mSQL (19.0ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (23.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:14:05', `last_request_at` = '2011-07-25 06:14:05' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (59.4ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (74.2ms)
+Completed 200 OK in 467ms (Views: 76.7ms | ActiveRecord: 102.6ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:14:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:14:05 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:14:06 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:14:06 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:14:06 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:14:08 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:14:08', `updated_at` = '2011-07-25 06:14:08' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (59.2ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (69.1ms)
+Completed 200 OK in 330ms (Views: 71.4ms | ActiveRecord: 62.2ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:14:08 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:14:08 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:14:08 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:14:09 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:14:09 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:14:19 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 06:14:19', `updated_at` = '2011-07-25 06:14:19' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (45.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (21.3ms)
+Completed 200 OK in 223ms (Views: 23.7ms | ActiveRecord: 49.4ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:14:20 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:14:20 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:14:20 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:14:21 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:14:21 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)

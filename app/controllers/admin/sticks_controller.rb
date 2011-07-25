@@ -37,7 +37,7 @@ class Admin::SticksController < ApplicationController
     @stick.created_at = Time.now
     respond_to do |format|
       if @stick.save
-        redirect_to(:index, :notice => 'Stick was successfully created.')
+        redirect_to(admin_sticks_path, :notice => 'Stick was successfully created.')
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @stick.errors, :status => :unprocessable_entity }
