@@ -149,7 +149,7 @@ function swap_dropdowns(i) {
     var options_land_green = {
       
       11 : "Hole",
-      1 : "Green",
+      1 : "Green"
           };
     $(".land_place_dropdown").empty();
     $(".direction_swap").empty();

@@ -26457,3 +26457,1826 @@ Rendered fields/_new_hole.html.erb (14.7ms)
 Rendered fields/_form.html.erb (59.4ms)
 Rendered fields/new.html.erb within layouts/application (248.9ms)
 Completed 200 OK in 585ms (Views: 257.2ms | ActiveRecord: 82.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Jul 25 13:37:45 +0300 2011
+  Processing by WelcomeController#welcome as HTML
+  [1m[36mUser Load (18.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (1.1ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:37:46', `last_request_at` = '2011-07-25 10:37:46' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (73.4ms)[0m  [1mCOMMIT[0m
+ApplicationController::require_no_user
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 528ms
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon Jul 25 13:37:46 +0300 2011
+  Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (3.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:37:47', `last_request_at` = '2011-07-25 10:37:47' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (78.3ms)[0m  COMMIT
+  [1m[36mStatisticUserProgres Load (0.7ms)[0m  [1mSELECT `statistic_user_progres`.* FROM `statistic_user_progres` ORDER BY user_progress LIMIT 5[0m
+  [1m[35mGolfClub Load (1.8ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (239.5ms)
+  [1m[36mSQL (51.5ms)[0m  [1mSELECT COUNT(DISTINCT user_id) FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') LIMIT 5[0m
+  [1m[35mHit Load (0.5ms)[0m  SELECT DISTINCT user_id FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') ORDER BY hit_distance LIMIT 5
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Rendered welcome/index.html.erb within layouts/application (361.8ms)
+Completed 200 OK in 793ms (Views: 333.5ms | ActiveRecord: 233.1ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon Jul 25 13:37:56 +0300 2011
+  Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 10:37:57', `updated_at` = '2011-07-25 10:37:57' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (32.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mStatisticUserProgres Load (1.1ms)[0m  SELECT `statistic_user_progres`.* FROM `statistic_user_progres` ORDER BY user_progress LIMIT 5
+  [1m[36mGolfClub Load (1.9ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (300.6ms)
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(DISTINCT user_id) FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') LIMIT 5
+  [1m[36mHit Load (0.4ms)[0m  [1mSELECT DISTINCT user_id FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') ORDER BY hit_distance LIMIT 5[0m
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Rendered welcome/index.html.erb within layouts/application (347.4ms)
+Completed 200 OK in 610ms (Views: 344.0ms | ActiveRecord: 42.3ms)
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Mon Jul 25 13:37:58 +0300 2011
+  Processing by GamesController#new as HTML
+  Parameters: {"form_id"=>"res"}
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:37:58', `last_request_at` = '2011-07-25 10:37:58' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (38.7ms)[0m  COMMIT
+  [1m[36mGolfClub Load (1.9ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (213.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (6.7ms)
+  [1m[35mField Load (0.9ms)[0m  SELECT `fields`.* FROM `fields`
+Rendered games/_form_res.html.erb (232.1ms)
+Rendered games/new.html.erb within layouts/application (460.3ms)
+Completed 200 OK in 734ms (Views: 482.9ms | ActiveRecord: 45.7ms)
+
+
+Started GET "/games" for 127.0.0.1 at Mon Jul 25 13:38:03 +0300 2011
+  Processing by GamesController#index as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 10:38:03', `updated_at` = '2011-07-25 10:38:03' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (30.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.6ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`user_id` = 2 ORDER BY created_at desc LIMIT 5
+  [1m[36mGolfClub Load (1.9ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (303.0ms)
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) FROM `games` WHERE `games`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (8.7ms)
+  [1m[36mField Load (1.1ms)[0m  [1mSELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1[0m
+  [1m[35mHit Load (2.2ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`real_hit` = 'p' LIMIT 1
+  [1m[36mHit Load (29.0ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`real_hit` = 'r' LIMIT 1[0m
+  [1m[35mHit Load (11.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1[0m
+  [1m[35mHit Load (2.8ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 1 AND `hits`.`real_hit` = 'p' LIMIT 1
+  [1m[36mHit Load (13.0ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 1 AND `hits`.`real_hit` = 'r' LIMIT 1[0m
+  [1m[35mHit Load (4.3ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 1 AND `hits`.`real_hit` = 'rp' LIMIT 1
+Rendered games/_index_partial.html.erb (256.1ms)
+  [1m[36mSQL (8.7ms)[0m  [1mSELECT COUNT(*) FROM `games` WHERE (`games`.user_id = 2)[0m
+Rendered games/index.html.erb within layouts/application (591.5ms)
+Completed 200 OK in 911ms (Views: 529.2ms | ActiveRecord: 112.4ms)
+
+
+Started GET "/game_details/2/1/1/new/0" for 127.0.0.1 at Mon Jul 25 13:38:07 +0300 2011
+  Processing by GamesController#details as HTML
+  Parameters: {"hits"=>"new", "active_hit"=>"1", "puts"=>"0", "active_hole"=>"1", "game_id"=>"2"}
+  [1m[35mUser Load (3.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:38:07', `last_request_at` = '2011-07-25 10:38:07' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (35.2ms)[0m  COMMIT
+  [1m[36mGame Load (2.7ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 2 LIMIT 1[0m
+  [1m[35mHole Load (1.4ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mHit Load (2.2ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.5ms)[0m  [1mdescribe `hits`[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO `hits` (`hole_id`, `real_hit`, `difficulty`, `stance`, `user_id`, `hit_number`, `strength`, `hit_was`, `direction`, `hole_comment`, `updated_at`, `land_place`, `hit_distance`, `game_id`, `hole_number`, `following_action`, `pair_id`, `created_at`, `luck_factor`, `place_from`, `slipums`, `comment`, `kritums`, `distance_to_hole`, `mistake`, `trajectory`, `wind`, `misdirection`, `stick_id`, `motion_was`) VALUES (NULL, 'rp', NULL, NULL, 2, 1, NULL, NULL, NULL, NULL, '2011-07-25 10:38:07', NULL, NULL, 2, 1, NULL, NULL, '2011-07-25 10:38:07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36mSQL (33.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mHit Load (4.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (1.5ms)[0m  INSERT INTO `hits` (`hole_id`, `real_hit`, `difficulty`, `stance`, `user_id`, `hit_number`, `strength`, `hit_was`, `direction`, `hole_comment`, `updated_at`, `land_place`, `hit_distance`, `game_id`, `hole_number`, `following_action`, `pair_id`, `created_at`, `luck_factor`, `place_from`, `slipums`, `comment`, `kritums`, `distance_to_hole`, `mistake`, `trajectory`, `wind`, `misdirection`, `stick_id`, `motion_was`) VALUES (NULL, 'pp', NULL, NULL, 2, 1, NULL, NULL, NULL, NULL, '2011-07-25 10:38:07', NULL, NULL, 2, 1, NULL, NULL, '2011-07-25 10:38:07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36mSQL (29.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mPairHit Load (0.9ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 2 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 15 AND `pair_hits`.`hit_real_id` = 14 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.3ms)[0m  describe `pair_hits`
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO `pair_hits` (`hit_planed_id`, `created_at`, `hit_real_id`, `users_stick_id`, `game_id`, `user_id`, `updated_at`) VALUES (15, '2011-07-25 10:38:07', 14, NULL, 2, 2, '2011-07-25 10:38:07')[0m
+  [1m[35mSQL (40.1ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `hits` SET `updated_at` = '2011-07-25 10:38:07', `pair_id` = 2, `place_from` = 2 WHERE `hits`.`id` = 14
+  [1m[36mSQL (29.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `hits` SET `updated_at` = '2011-07-25 10:38:07', `pair_id` = 2, `place_from` = 2 WHERE `hits`.`id` = 15[0m
+  [1m[35mSQL (21.4ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mGolfClub Load (2.0ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (226.4ms)
+  [1m[35mHole Load (1.3ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)
+Rendered games/_hole_tab.html.erb (107.8ms)
+Rendered games/_hit_tab.html.erb (0.7ms)
+  [1m[36mHit Load (2.9ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 2)[0m
+  [1m[35mStick Load (1.5ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (44.0ms)
+Rendered games/_hole_picture.html.erb (0.5ms)
+Rendered games/hit_edit_details.html.erb within layouts/application (434.4ms)
+Completed 200 OK in 1107ms (Views: 439.3ms | ActiveRecord: 225.1ms)
+
+
+Started POST "/hit_update/2/" for 127.0.0.1 at Mon Jul 25 13:38:28 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"333", "stick_id"=>"22", "strength"=>"", "hit_number"=>"1", "slipums"=>"", "id"=>"15", "user_id"=>"2", "place_from"=>"6", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1", "difficulty"=>"", "direction"=>"1", "land_place"=>"1"}, "1"=>{"stick_id"=>"22", "hit_distance"=>"222", "strength"=>"", "hit_number"=>"1", "id"=>"14", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1", "direction"=>"1", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"1", "misdirection"=>"3"}}, "active_hit"=>"1"}, "form_id"=>"details", "active_hit"=>"1/", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"1/", "next_hit"=>"next", "game_id"=>"2"}
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:38:28', `last_request_at` = '2011-07-25 10:38:28' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (106.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.3ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 2 LIMIT 1
+  [1m[36mHole Load (1.2ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mHit Load (19.0ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (15, 14) AND (`hits`.game_id = 2)[0m
+  [1m[35mAREL (0.7ms)[0m  UPDATE `games` SET `active_hit` = 1, `updated_at` = '2011-07-25 10:38:28' WHERE `games`.`id` = 2
+  [1m[36mAREL (0.8ms)[0m  [1mUPDATE `hits` SET `hit_distance` = 333, `land_place` = 1, `direction` = 1, `place_from` = 6, `updated_at` = '2011-07-25 10:38:28', `stick_id` = 22 WHERE `hits`.`id` = 15[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `hits` SET `hit_distance` = 222, `land_place` = 1, `misdirection` = 3, `direction` = 1, `updated_at` = '2011-07-25 10:38:28', `stick_id` = 22 WHERE `hits`.`id` = 14
+  [1m[36mSQL (47.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.6ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 2 LIMIT 1
+  [1m[36mHole Load (1.1ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mHit Load (2.5ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (2.5ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mHit Load (2.0ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.3ms)[0m  describe `hits`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `hits` (`hole_number`, `distance_to_hole`, `hit_distance`, `land_place`, `user_id`, `misdirection`, `stance`, `hole_comment`, `created_at`, `comment`, `hole_id`, `hit_number`, `motion_was`, `real_hit`, `difficulty`, `following_action`, `pair_id`, `hit_was`, `wind`, `game_id`, `slipums`, `direction`, `mistake`, `luck_factor`, `trajectory`, `place_from`, `updated_at`, `stick_id`, `strength`, `kritums`) VALUES (1, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2011-07-25 10:38:28', NULL, NULL, 2, NULL, 'rp', NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, '2011-07-25 10:38:28', NULL, NULL, NULL)[0m
+  [1m[35mSQL (49.8ms)[0m  COMMIT
+  [1m[36mHit Load (2.1ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `hits` (`hole_number`, `distance_to_hole`, `hit_distance`, `land_place`, `user_id`, `misdirection`, `stance`, `hole_comment`, `created_at`, `comment`, `hole_id`, `hit_number`, `motion_was`, `real_hit`, `difficulty`, `following_action`, `pair_id`, `hit_was`, `wind`, `game_id`, `slipums`, `direction`, `mistake`, `luck_factor`, `trajectory`, `place_from`, `updated_at`, `stick_id`, `strength`, `kritums`) VALUES (1, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2011-07-25 10:38:28', NULL, NULL, 2, NULL, 'pp', NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, '2011-07-25 10:38:28', NULL, NULL, NULL)[0m
+  [1m[35mSQL (34.3ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `hits` SET `place_from` = 1, `updated_at` = '2011-07-25 10:38:28' WHERE `hits`.`id` = 17
+  [1m[36mSQL (30.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPairHit Load (1.4ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 2 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 17 AND `pair_hits`.`hit_real_id` = 16 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  describe `pair_hits`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `pair_hits` (`hit_planed_id`, `updated_at`, `user_id`, `hit_real_id`, `created_at`, `game_id`, `users_stick_id`) VALUES (17, '2011-07-25 10:38:28', 2, 16, '2011-07-25 10:38:28', 2, NULL)[0m
+  [1m[35mSQL (19.3ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `hits` SET `pair_id` = 3, `updated_at` = '2011-07-25 10:38:28' WHERE `hits`.`id` = 16
+  [1m[36mSQL (21.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `hits` SET `pair_id` = 3, `updated_at` = '2011-07-25 10:38:28' WHERE `hits`.`id` = 17[0m
+  [1m[35mSQL (21.3ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+Rendered games/_hit_tab.html.erb (0.7ms)
+  [1m[36mHit Load (3.1ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 2)[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (182.4ms)
+  [1m[36mHole Load (1.6ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (14.7ms)
+Rendered games/_hole_picture.html.erb (0.4ms)
+Rendered games/details.js.rjs (210.3ms)
+Completed 200 OK in 1088ms (Views: 221.4ms | ActiveRecord: 386.8ms)
+
+
+Started POST "/hit_update/2/" for 127.0.0.1 at Mon Jul 25 13:38:39 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"33", "stick_id"=>"22", "strength"=>"", "hit_number"=>"2", "slipums"=>"", "id"=>"17", "user_id"=>"2", "place_from"=>"10", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1/", "difficulty"=>"", "direction"=>"1", "land_place"=>"1"}, "1"=>{"stick_id"=>"22", "hit_distance"=>"23", "strength"=>"", "hit_number"=>"2", "id"=>"16", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1/", "direction"=>"1", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"1"}}, "active_hit"=>"2"}, "form_id"=>"details", "active_hit"=>"2/", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"1//", "next_hit"=>"save", "game_id"=>"2"}
+  [1m[35mUser Load (3.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 10:38:40', `updated_at` = '2011-07-25 10:38:40' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (57.7ms)[0m  COMMIT
+  [1m[36mGame Load (1.3ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 2 LIMIT 1[0m
+  [1m[35mHole Load (1.2ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mHit Load (3.3ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (17, 16) AND (`hits`.game_id = 2)
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `games` SET `active_hit` = 2, `updated_at` = '2011-07-25 10:38:40' WHERE `games`.`id` = 2[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `hits` SET `place_from` = 10, `stick_id` = 22, `hit_distance` = 33, `land_place` = 1, `direction` = 1, `updated_at` = '2011-07-25 10:38:40' WHERE `hits`.`id` = 17
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `hits` SET `stick_id` = 22, `hit_distance` = 23, `land_place` = 1, `direction` = 1, `updated_at` = '2011-07-25 10:38:40' WHERE `hits`.`id` = 16[0m
+  [1m[35mSQL (30.3ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mGame Load (1.7ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 2 LIMIT 1[0m
+  [1m[35mHole Load (1.3ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mHit Load (4.3ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mHit Load (4.2ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mHit Load (3.1ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mHit Load (3.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `hits` SET `place_from` = 1, `updated_at` = '2011-07-25 10:38:40' WHERE `hits`.`id` = 17
+  [1m[36mSQL (34.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPairHit Load (0.8ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 2 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 17 AND `pair_hits`.`hit_real_id` = 16 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+Rendered games/_hit_tab.html.erb (0.7ms)
+  [1m[36mHit Load (2.8ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 2)[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (179.4ms)
+  [1m[36mHole Load (1.3ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (95.1ms)
+Rendered games/_hole_picture.html.erb (0.4ms)
+Rendered games/details.js.rjs (287.6ms)
+Completed 200 OK in 1027ms (Views: 295.4ms | ActiveRecord: 159.8ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon Jul 25 13:39:47 +0300 2011
+  Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:39:47', `last_request_at` = '2011-07-25 10:39:47' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (42.9ms)[0m  COMMIT
+  [1m[36mStatisticUserProgres Load (0.9ms)[0m  [1mSELECT `statistic_user_progres`.* FROM `statistic_user_progres` ORDER BY user_progress LIMIT 5[0m
+  [1m[35mGolfClub Load (2.0ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered share/_header_menu.html.erb (188.8ms)
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(DISTINCT user_id) FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') LIMIT 5
+  [1m[36mHit Load (0.8ms)[0m  [1mSELECT DISTINCT user_id FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') ORDER BY hit_distance LIMIT 5[0m
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Rendered welcome/index.html.erb within layouts/application (241.7ms)
+Completed 200 OK in 556ms (Views: 239.1ms | ActiveRecord: 54.0ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon Jul 25 13:40:34 +0300 2011
+  Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (9.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:40:34', `last_request_at` = '2011-07-25 10:40:34' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (62.8ms)[0m  COMMIT
+  [1m[36mStatisticUserProgres Load (0.7ms)[0m  [1mSELECT `statistic_user_progres`.* FROM `statistic_user_progres` ORDER BY user_progress LIMIT 5[0m
+  [1m[35mGolfClub Load (3.7ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered share/_header_menu.html.erb (188.8ms)
+  [1m[35mSQL (0.9ms)[0m  SELECT COUNT(DISTINCT user_id) FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') LIMIT 5
+  [1m[36mHit Load (0.8ms)[0m  [1mSELECT DISTINCT user_id FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') ORDER BY hit_distance LIMIT 5[0m
+  [1m[35mUser Load (3.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Rendered welcome/index.html.erb within layouts/application (318.6ms)
+Completed 200 OK in 618ms (Views: 312.1ms | ActiveRecord: 82.1ms)
+
+
+Started GET "/games" for 127.0.0.1 at Mon Jul 25 13:40:41 +0300 2011
+  Processing by GamesController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:40:41', `last_request_at` = '2011-07-25 10:40:41' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (35.8ms)[0m  COMMIT
+  [1m[36mGame Load (3.2ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`user_id` = 2 ORDER BY created_at desc LIMIT 5[0m
+  [1m[35mGolfClub Load (2.1ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered share/_header_menu.html.erb (273.2ms)
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) FROM `games` WHERE `games`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered share/_header_menu.html.erb (8.0ms)
+  [1m[35mField Load (1.4ms)[0m  SELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1
+  [1m[36mHit Load (3.5ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`real_hit` = 'p' LIMIT 1[0m
+  [1m[35mHit Load (3.0ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`real_hit` = 'r' LIMIT 1
+  [1m[36mHit Load (2.3ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1
+  [1m[36mHit Load (2.1ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 1 AND `hits`.`real_hit` = 'p' LIMIT 1[0m
+  [1m[35mHit Load (2.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 1 AND `hits`.`real_hit` = 'r' LIMIT 1
+  [1m[36mHit Load (2.1ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 1 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+Rendered games/_index_partial.html.erb (202.9ms)
+  [1m[35mSQL (17.5ms)[0m  SELECT COUNT(*) FROM `games` WHERE (`games`.user_id = 2)
+Rendered games/index.html.erb within layouts/application (525.3ms)
+Completed 200 OK in 864ms (Views: 495.8ms | ActiveRecord: 79.6ms)
+
+
+Started GET "/single_game_statistics/2" for 127.0.0.1 at Mon Jul 25 13:40:46 +0300 2011
+  Processing by GamesController#get_stats as HTML
+  Parameters: {"game_id"=>"2"}
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:40:47', `last_request_at` = '2011-07-25 10:40:47' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (39.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (2.6ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 2 LIMIT 1
+  [1m[36mHole Load (0.9ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mField Load (1.4ms)[0m  SELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1
+  [1m[36mGolfClub Load (3.4ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered share/_header_menu.html.erb (193.1ms)
+  [1m[36mGameStatisticGeneral Load (20.1ms)[0m  [1mSELECT `game_statistic_generals`.* FROM `game_statistic_generals` WHERE `game_statistic_generals`.`game_id` = 2 LIMIT 1[0m
+  [1m[35mHole Load (2.1ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)
+  [1m[36mGameStatisticsByHoles Load (2.8ms)[0m  [1mSELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 2 AND `game_statistics_by_holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mGameStatisticsByHoles Load (4.1ms)[0m  SELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 2 AND `game_statistics_by_holes`.`hole_number` = 2 LIMIT 1
+  [1m[36mGameStatisticsByHoles Load (17.8ms)[0m  [1mSELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 2 AND `game_statistics_by_holes`.`hole_number` = 3 LIMIT 1[0m
+  [1m[35mGameStatisticsByHoles Load (2.4ms)[0m  SELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 2 AND `game_statistics_by_holes`.`hole_number` = 4 LIMIT 1
+  [1m[36mGameStatisticsByHoles Load (2.5ms)[0m  [1mSELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 2 AND `game_statistics_by_holes`.`hole_number` = 5 LIMIT 1[0m
+Rendered game_statistics/_view_by_holes.html.erb (73.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 2 AND `game_statistics_by_holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 2 AND `game_statistics_by_holes`.`hole_number` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 2 AND `game_statistics_by_holes`.`hole_number` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 2 AND `game_statistics_by_holes`.`hole_number` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 2 AND `game_statistics_by_holes`.`hole_number` = 5 LIMIT 1
+Rendered game_statistics/_view_by_holes.html.erb (6.5ms)
+  [1m[36mUsersStick Load (1.0ms)[0m  [1mSELECT `users_sticks`.* FROM `users_sticks` WHERE `users_sticks`.`user_id` = 2[0m
+  [1m[35mGameStatisticsBySticks Load (1.0ms)[0m  SELECT `game_statistics_by_sticks`.* FROM `game_statistics_by_sticks` WHERE `game_statistics_by_sticks`.`game_id` = 2 AND `game_statistics_by_sticks`.`users_stick_id` = 1 LIMIT 1
+Rendered game_statistics/_view_by_sticks.html.erb (30.5ms)
+Rendered game_statistics/view.html.erb within layouts/application (486.4ms)
+Completed 200 OK in 831ms (Views: 462.5ms | ActiveRecord: 105.3ms)
+
+
+Started GET "/s" for 127.0.0.1 at Mon Jul 25 13:40:55 +0300 2011
+  Processing by StatisticController#statistics as HTML
+  [1m[36mUser Load (16.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 10:40:55', `updated_at` = '2011-07-25 10:40:55' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (37.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mGolfClub Load (3.9ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs`
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM `statistics`[0m
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0
+  [1m[36mField Load (17.0ms)[0m  [1mSELECT `fields`.* FROM `fields` WHERE `fields`.`golf_club_id` = 1[0m
+  [1m[35mGame Load (1.7ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`field_id` = 1
+  [1m[36mUsersStick Load (0.8ms)[0m  [1mSELECT `users_sticks`.* FROM `users_sticks` WHERE (`users_sticks`.user_id = 2)[0m
+  [1m[35mStick Load (1.5ms)[0m  SELECT `sticks`.* FROM `sticks` WHERE `sticks`.`id` = 22 LIMIT 1
+Completed   in 659ms
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/models/statistic.rb:98:in `main_statistics'
+  app/models/statistic.rb:92:in `main_statistics'
+  app/models/statistic.rb:90:in `main_statistics'
+  app/models/statistic.rb:89:in `main_statistics'
+  app/models/statistic.rb:84:in `main_statistics'
+  app/controllers/statistic_controller.rb:10:in `statistics'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.5ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.1ms)
+
+
+Started GET "/s" for 127.0.0.1 at Mon Jul 25 13:41:30 +0300 2011
+  Processing by StatisticController#statistics as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:41:30', `last_request_at` = '2011-07-25 10:41:30' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (54.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mGolfClub Load (3.8ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs`
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM `statistics`[0m
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0
+  [1m[36mField Load (0.8ms)[0m  [1mSELECT `fields`.* FROM `fields` WHERE `fields`.`golf_club_id` = 1[0m
+  [1m[35mGame Load (1.3ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`field_id` = 1
+Rendered statistic/statistics.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 564ms (Views: 36.7ms | ActiveRecord: 65.9ms)
+
+
+Started GET "/games" for 127.0.0.1 at Mon Jul 25 13:41:35 +0300 2011
+  Processing by GamesController#index as HTML
+  [1m[36mUser Load (23.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 10:41:35', `updated_at` = '2011-07-25 10:41:35' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (44.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (2.9ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`user_id` = 2 ORDER BY created_at desc LIMIT 5
+  [1m[36mGolfClub Load (2.1ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered share/_header_menu.html.erb (260.0ms)
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM `games` WHERE `games`.`user_id` = 2[0m
+Rendered games/index.html.erb within layouts/application (276.8ms)
+Completed 200 OK in 577ms (Views: 279.1ms | ActiveRecord: 74.3ms)
+
+
+Started GET "/game_new/res" for 127.0.0.1 at Mon Jul 25 13:41:37 +0300 2011
+  Processing by GamesController#new as HTML
+  Parameters: {"form_id"=>"res"}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 10:41:38', `updated_at` = '2011-07-25 10:41:38' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (57.9ms)[0m  COMMIT
+  [1m[36mGolfClub Load (2.0ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered share/_header_menu.html.erb (244.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered share/_header_menu.html.erb (6.0ms)
+  [1m[35mField Load (0.9ms)[0m  SELECT `fields`.* FROM `fields`
+Rendered games/_form_res.html.erb (132.1ms)
+Rendered games/new.html.erb within layouts/application (389.4ms)
+Completed 200 OK in 683ms (Views: 390.4ms | ActiveRecord: 64.1ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Mon Jul 25 13:41:41 +0300 2011
+  Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:41:41', `last_request_at` = '2011-07-25 10:41:41' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (30.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mStatisticUserProgres Load (0.9ms)[0m  SELECT `statistic_user_progres`.* FROM `statistic_user_progres` ORDER BY user_progress LIMIT 5
+  [1m[36mGolfClub Load (3.8ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered share/_header_menu.html.erb (221.8ms)
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(DISTINCT user_id) FROM `hits` WHERE (real_hit = 'p' OR real_hit = 'rp') LIMIT 5[0m
+Rendered welcome/index.html.erb within layouts/application (244.8ms)
+Completed 200 OK in 492ms (Views: 243.9ms | ActiveRecord: 39.2ms)
+
+
+Started GET "/games" for 127.0.0.1 at Mon Jul 25 13:41:41 +0300 2011
+  Processing by GamesController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:41:41', `last_request_at` = '2011-07-25 10:41:41' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (64.2ms)[0m  COMMIT
+  [1m[36mGame Load (1.2ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`user_id` = 2 ORDER BY created_at desc LIMIT 5[0m
+  [1m[35mGolfClub Load (2.1ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered share/_header_menu.html.erb (164.9ms)
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `games` WHERE `games`.`user_id` = 2
+Rendered games/index.html.erb within layouts/application (180.9ms)
+Completed 200 OK in 525ms (Views: 182.5ms | ActiveRecord: 71.1ms)
+
+
+Started GET "/game_new/plan" for 127.0.0.1 at Mon Jul 25 13:41:44 +0300 2011
+  Processing by GamesController#new as HTML
+  Parameters: {"form_id"=>"plan"}
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:41:44', `last_request_at` = '2011-07-25 10:41:44' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (39.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mGolfClub Load (3.2ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered share/_header_menu.html.erb (194.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered share/_header_menu.html.erb (6.1ms)
+  [1m[36mField Load (1.3ms)[0m  [1mSELECT `fields`.* FROM `fields`[0m
+Rendered games/_form_plan.html.erb (220.2ms)
+Rendered games/new.html.erb within layouts/application (435.4ms)
+Completed 200 OK in 693ms (Views: 434.9ms | ActiveRecord: 47.0ms)
+
+
+Started POST "/games" for 127.0.0.1 at Mon Jul 25 13:41:57 +0300 2011
+  Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"field_id"=>"1", "date"=>"2011-07-16 00:00", "user_id"=>"2", "game_format"=>"t", "start_place_colors"=>"4", "game_type"=>"1"}, "form_id"=>"plan", "commit"=>"Go!", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓"}
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:41:58', `last_request_at` = '2011-07-25 10:41:58' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (31.9ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  describe `games`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `games` (`temperature`, `start_place_colors`, `created_at`, `user_id`, `hit_direction`, `comment`, `field_quality`, `form`, `game_type`, `weather`, `game_format`, `date`, `active_hit`, `field_id`, `next_hole`, `green_quality`, `updated_at`) VALUES (NULL, 4, '2011-07-25 10:41:58', 2, NULL, NULL, NULL, NULL, 1, NULL, 't', '2011-07-16 00:00:00', NULL, 1, NULL, NULL, '2011-07-25 10:41:58')[0m
+  [1m[35mSQL (33.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/game_plan/3/1/1/new
+Completed 302 Found in 341ms
+
+
+Started GET "/game_plan/3/1/1/new" for 127.0.0.1 at Mon Jul 25 13:41:58 +0300 2011
+  Processing by GamesController#plan as HTML
+  Parameters: {"hits"=>"new", "active_hit"=>"1", "active_hole"=>"1", "game_id"=>"3"}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:41:58', `last_request_at` = '2011-07-25 10:41:58' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (67.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.4ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (0.9ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mHit Load (2.0ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'p'
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.1ms)[0m  describe `hits`
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `hits` (`created_at`, `trajectory`, `difficulty`, `slipums`, `pair_id`, `strength`, `comment`, `misdirection`, `following_action`, `hit_was`, `mistake`, `user_id`, `hole_comment`, `hole_id`, `motion_was`, `hole_number`, `distance_to_hole`, `kritums`, `game_id`, `stance`, `hit_number`, `updated_at`, `stick_id`, `wind`, `land_place`, `real_hit`, `luck_factor`, `direction`, `place_from`, `hit_distance`) VALUES ('2011-07-25 10:41:58', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, 1, NULL, NULL, 3, NULL, 1, '2011-07-25 10:41:58', NULL, NULL, NULL, 'p', NULL, NULL, NULL, NULL)[0m
+  [1m[35mSQL (35.7ms)[0m  COMMIT
+  [1m[36mGolfClub Load (1.9ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered share/_header_menu.html.erb (172.7ms)
+  [1m[36mHole Load (1.3ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (90.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered share/_header_menu.html.erb (6.2ms)
+  [1m[36mHit Load (2.3ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_plan.html.erb (19.5ms)
+Rendered games/_hole_picture.html.erb (0.8ms)
+Rendered games/hit_edit.html.erb within layouts/application (312.4ms)
+Completed 200 OK in 712ms (Views: 326.5ms | ActiveRecord: 121.1ms)
+
+
+Started GET "/user/bag" for 127.0.0.1 at Mon Jul 25 13:42:06 +0300 2011
+  Processing by UserController#bag as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 10:42:06', `updated_at` = '2011-07-25 10:42:06' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (35.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users_sticks` WHERE (`users_sticks`.user_id = 2)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `balls` WHERE (`balls`.user_id = 2)
+  [1m[36mGolfClub Load (3.1ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered share/_header_menu.html.erb (202.6ms)
+  [1m[36mUsersStick Load (1.6ms)[0m  [1mSELECT `users_sticks`.* FROM `users_sticks` WHERE (`users_sticks`.user_id = 2)[0m
+  [1m[35mStick Load (1.6ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered user/_stick_form.html.erb (19.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered user/_stick_form.html.erb (7.0ms)
+  [1m[35mBall Load (0.6ms)[0m  SELECT `balls`.* FROM `balls` WHERE (`balls`.user_id = 2)
+Rendered user/_ball_form.html.erb (5.1ms)
+Rendered user/_ball_form.html.erb (3.2ms)
+Rendered user/bag.html.erb within layouts/application (409.0ms)
+Completed 200 OK in 665ms (Views: 414.6ms | ActiveRecord: 48.8ms)
+
+
+Started GET "/sticks/2.json" for 127.0.0.1 at Mon Jul 25 13:42:11 +0300 2011
+  Processing by SticksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:42:11', `last_request_at` = '2011-07-25 10:42:11' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (41.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks` WHERE `sticks`.`id` = 2 LIMIT 1
+Completed 200 OK in 245ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user/update_bag" for 127.0.0.1 at Mon Jul 25 13:42:12 +0300 2011
+  Processing by UserController#update_bag as HTML
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "user"=>{"balls_attributes"=>{"1"=>{"id"=>"1", "ball_manufacturer"=>"2", "ball_type"=>"2"}}, "new_users_sticks_attributes"=>[{"stick_id"=>"2", "shaft"=>"3", "shaft_strength"=>"1", "degrees"=>"2", "distance"=>"223"}], "users_sticks_attributes"=>{"1"=>{"id"=>"1", "shaft"=>"3", "shaft_strength"=>"2", "degrees"=>"1", "distance"=>"212"}}}}
+  [1m[36mUser Load (3.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:42:13', `last_request_at` = '2011-07-25 10:42:13' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (39.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (3.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users_sticks` WHERE (`users_sticks`.user_id = 2)[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT COUNT(*) FROM `balls` WHERE (`balls`.user_id = 2)
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mBall Load (1.4ms)[0m  SELECT `balls`.* FROM `balls` WHERE `balls`.`id` IN (1) AND (`balls`.user_id = 2)
+  [1m[36mUsersStick Load (1.4ms)[0m  [1mSELECT `users_sticks`.* FROM `users_sticks` WHERE `users_sticks`.`id` IN (1) AND (`users_sticks`.user_id = 2)[0m
+  [1m[35mSQL (15.0ms)[0m  SELECT 1 FROM `users` WHERE (`users`.`email` = BINARY 'user@user.com') AND (`users`.id <> 2) LIMIT 1
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `users_sticks`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `users_sticks` (`distance`, `updated_at`, `created_at`, `degrees`, `shaft_strength`, `shaft`, `pair_hit_id`, `stick_id`, `user_id`) VALUES ('223', '2011-07-25 10:42:13', '2011-07-25 10:42:13', '2', '1', '3', NULL, 2, 2)
+[paperclip] Saving attachments.
+  [1m[36mSQL (68.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/user/bag
+Completed 302 Found in 437ms
+
+
+Started GET "/user/bag" for 127.0.0.1 at Mon Jul 25 13:42:13 +0300 2011
+  Processing by UserController#bag as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:42:13', `last_request_at` = '2011-07-25 10:42:13' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (56.4ms)[0m  COMMIT
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM `users_sticks` WHERE (`users_sticks`.user_id = 2)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `balls` WHERE (`balls`.user_id = 2)[0m
+  [1m[35mGolfClub Load (1.9ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (214.8ms)
+  [1m[36mUsersStick Load (1.2ms)[0m  [1mSELECT `users_sticks`.* FROM `users_sticks` WHERE (`users_sticks`.user_id = 2)[0m
+  [1m[35mStick Load (1.3ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered user/_stick_form.html.erb (20.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered user/_stick_form.html.erb (6.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered user/_stick_form.html.erb (6.7ms)
+  [1m[36mBall Load (0.6ms)[0m  [1mSELECT `balls`.* FROM `balls` WHERE (`balls`.user_id = 2)[0m
+Rendered user/_ball_form.html.erb (4.6ms)
+Rendered user/_ball_form.html.erb (3.3ms)
+Rendered user/bag.html.erb within layouts/application (396.6ms)
+Completed 200 OK in 818ms (Views: 395.2ms | ActiveRecord: 68.7ms)
+
+
+Started GET "/games" for 127.0.0.1 at Mon Jul 25 13:42:36 +0300 2011
+  Processing by GamesController#index as HTML
+  [1m[35mUser Load (2.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:42:36', `last_request_at` = '2011-07-25 10:42:36' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (47.8ms)[0m  COMMIT
+  [1m[36mGame Load (2.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`user_id` = 2 ORDER BY created_at desc LIMIT 5[0m
+  [1m[35mGolfClub Load (2.2ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (326.0ms)
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM `games` WHERE `games`.`user_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (11.2ms)
+  [1m[35mField Load (0.8ms)[0m  SELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1
+  [1m[36mHit Load (3.2ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`real_hit` = 'p' LIMIT 1[0m
+  [1m[35mHit Load (22.8ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`real_hit` = 'r' LIMIT 1
+  [1m[36mHit Load (10.7ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+Rendered games/_index_partial.html.erb (223.7ms)
+  [1m[35mSQL (0.8ms)[0m  SELECT COUNT(*) FROM `games` WHERE (`games`.user_id = 2)
+Rendered games/index.html.erb within layouts/application (576.1ms)
+Completed 200 OK in 864ms (Views: 538.8ms | ActiveRecord: 231.6ms)
+
+
+Started GET "/single_game_statistics/3" for 127.0.0.1 at Mon Jul 25 13:42:42 +0300 2011
+  Processing by GamesController#get_stats as HTML
+  Parameters: {"game_id"=>"3"}
+  [1m[36mUser Load (21.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 10:42:42', `updated_at` = '2011-07-25 10:42:42' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (51.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.5ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (1.2ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mField Load (0.8ms)[0m  SELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1
+  [1m[36mGolfClub Load (1.9ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (209.4ms)
+  [1m[35mGameStatisticGeneral Load (1.4ms)[0m  SELECT `game_statistic_generals`.* FROM `game_statistic_generals` WHERE `game_statistic_generals`.`game_id` = 3 LIMIT 1
+  [1m[36mHole Load (2.6ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+  [1m[35mGameStatisticsByHoles Load (1.2ms)[0m  SELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 3 AND `game_statistics_by_holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mGameStatisticsByHoles Load (1.2ms)[0m  [1mSELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 3 AND `game_statistics_by_holes`.`hole_number` = 2 LIMIT 1[0m
+  [1m[35mGameStatisticsByHoles Load (18.0ms)[0m  SELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 3 AND `game_statistics_by_holes`.`hole_number` = 3 LIMIT 1
+  [1m[36mGameStatisticsByHoles Load (2.5ms)[0m  [1mSELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 3 AND `game_statistics_by_holes`.`hole_number` = 4 LIMIT 1[0m
+  [1m[35mGameStatisticsByHoles Load (11.3ms)[0m  SELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 3 AND `game_statistics_by_holes`.`hole_number` = 5 LIMIT 1
+Rendered game_statistics/_view_by_holes.html.erb (68.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 3 AND `game_statistics_by_holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 3 AND `game_statistics_by_holes`.`hole_number` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 3 AND `game_statistics_by_holes`.`hole_number` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 3 AND `game_statistics_by_holes`.`hole_number` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `game_statistics_by_holes`.* FROM `game_statistics_by_holes` WHERE `game_statistics_by_holes`.`game_id` = 3 AND `game_statistics_by_holes`.`hole_number` = 5 LIMIT 1[0m
+Rendered game_statistics/_view_by_holes.html.erb (6.7ms)
+  [1m[35mUsersStick Load (2.3ms)[0m  SELECT `users_sticks`.* FROM `users_sticks` WHERE `users_sticks`.`user_id` = 2
+  [1m[36mGameStatisticsBySticks Load (1.0ms)[0m  [1mSELECT `game_statistics_by_sticks`.* FROM `game_statistics_by_sticks` WHERE `game_statistics_by_sticks`.`game_id` = 3 AND `game_statistics_by_sticks`.`users_stick_id` = 1 LIMIT 1[0m
+  [1m[35mGameStatisticsBySticks Load (10.1ms)[0m  SELECT `game_statistics_by_sticks`.* FROM `game_statistics_by_sticks` WHERE `game_statistics_by_sticks`.`game_id` = 3 AND `game_statistics_by_sticks`.`users_stick_id` = 2 LIMIT 1
+Rendered game_statistics/_view_by_sticks.html.erb (143.2ms)
+Rendered game_statistics/view.html.erb within layouts/application (467.6ms)
+Completed 200 OK in 949ms (Views: 417.4ms | ActiveRecord: 132.3ms)
+
+
+Started GET "/games" for 127.0.0.1 at Mon Jul 25 13:42:45 +0300 2011
+  Processing by GamesController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:42:45', `last_request_at` = '2011-07-25 10:42:45' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (36.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.3ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`user_id` = 2 ORDER BY created_at desc LIMIT 5
+  [1m[36mGolfClub Load (1.9ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (225.0ms)
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM `games` WHERE `games`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (10.9ms)
+  [1m[36mField Load (0.9ms)[0m  [1mSELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1[0m
+  [1m[35mHit Load (4.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`real_hit` = 'p' LIMIT 1
+  [1m[36mHit Load (3.8ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`real_hit` = 'r' LIMIT 1[0m
+  [1m[35mHit Load (2.8ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`real_hit` = 'rp' LIMIT 1
+Rendered games/_index_partial.html.erb (321.4ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `games` WHERE (`games`.user_id = 2)[0m
+Rendered games/index.html.erb within layouts/application (568.3ms)
+Completed 200 OK in 832ms (Views: 557.4ms | ActiveRecord: 126.5ms)
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Mon Jul 25 13:42:48 +0300 2011
+  Processing by GamesController#details as HTML
+  Parameters: {"hits"=>"new", "active_hit"=>"1", "puts"=>"0", "active_hole"=>"1", "game_id"=>"3"}
+  [1m[35mUser Load (2.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:42:49', `last_request_at` = '2011-07-25 10:42:49' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (45.3ms)[0m  COMMIT
+  [1m[36mGame Load (1.3ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.7ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mHit Load (4.0ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.3ms)[0m  [1mdescribe `hits`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `hits` (`difficulty`, `mistake`, `trajectory`, `user_id`, `place_from`, `hit_distance`, `created_at`, `game_id`, `hole_id`, `distance_to_hole`, `pair_id`, `direction`, `updated_at`, `wind`, `misdirection`, `luck_factor`, `slipums`, `stick_id`, `comment`, `hole_number`, `hit_number`, `kritums`, `real_hit`, `following_action`, `land_place`, `stance`, `strength`, `hit_was`, `hole_comment`, `motion_was`) VALUES (NULL, NULL, NULL, 2, NULL, NULL, '2011-07-25 10:42:49', 3, NULL, NULL, NULL, NULL, '2011-07-25 10:42:49', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 'rp', NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36mSQL (40.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHit Load (2.9ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO `hits` (`difficulty`, `mistake`, `trajectory`, `user_id`, `place_from`, `hit_distance`, `created_at`, `game_id`, `hole_id`, `distance_to_hole`, `pair_id`, `direction`, `updated_at`, `wind`, `misdirection`, `luck_factor`, `slipums`, `stick_id`, `comment`, `hole_number`, `hit_number`, `kritums`, `real_hit`, `following_action`, `land_place`, `stance`, `strength`, `hit_was`, `hole_comment`, `motion_was`) VALUES (NULL, NULL, NULL, 2, NULL, NULL, '2011-07-25 10:42:49', 3, NULL, NULL, NULL, NULL, '2011-07-25 10:42:49', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 'pp', NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+  [1m[36mSQL (39.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mPairHit Load (0.9ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 20 AND `pair_hits`.`hit_real_id` = 19 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  describe `pair_hits`
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO `pair_hits` (`hit_planed_id`, `updated_at`, `created_at`, `users_stick_id`, `hit_real_id`, `game_id`, `user_id`) VALUES (20, '2011-07-25 10:42:49', '2011-07-25 10:42:49', NULL, 19, 3, 2)[0m
+  [1m[35mSQL (28.6ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `hits` SET `place_from` = 2, `pair_id` = 4, `updated_at` = '2011-07-25 10:42:49' WHERE `hits`.`id` = 19
+  [1m[36mSQL (29.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `hits` SET `place_from` = 2, `pair_id` = 4, `updated_at` = '2011-07-25 10:42:49' WHERE `hits`.`id` = 20[0m
+  [1m[35mSQL (38.6ms)[0m  COMMIT
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mGolfClub Load (4.0ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (336.8ms)
+  [1m[35mHole Load (2.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)
+Rendered games/_hole_tab.html.erb (21.5ms)
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[36mHit Load (2.5ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (1.1ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (36.7ms)
+Rendered games/_hole_picture.html.erb (0.4ms)
+Rendered games/hit_edit_details.html.erb within layouts/application (413.0ms)
+Completed 200 OK in 1145ms (Views: 407.0ms | ActiveRecord: 256.4ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 13:43:02 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"1", "slipums"=>"", "id"=>"20", "user_id"=>"2", "place_from"=>"2", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1", "difficulty"=>"", "direction"=>"", "land_place"=>""}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"1", "id"=>"19", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1", "direction"=>"", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"", "misdirection"=>""}}, "active_hit"=>"1"}, "form_id"=>"details", "active_hit"=>"1/", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"1/", "next_hit"=>"save", "game_id"=>"3"}
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:43:02', `last_request_at` = '2011-07-25 10:43:02' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (42.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (2.2ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (0.8ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mHit Load (4.9ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (20, 19) AND (`hits`.game_id = 3)[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `games` SET `active_hit` = 1, `updated_at` = '2011-07-25 10:43:02' WHERE `games`.`id` = 3
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `hits` SET `stick_id` = 2, `updated_at` = '2011-07-25 10:43:02' WHERE `hits`.`id` = 20[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `hits` SET `stick_id` = 2, `updated_at` = '2011-07-25 10:43:02' WHERE `hits`.`id` = 19
+  [1m[36mSQL (36.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.5ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (1.0ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mHit Load (2.2ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (2.1ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mPairHit Load (0.8ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 20 AND `pair_hits`.`hit_real_id` = 19 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Rendered games/_hit_tab.html.erb (0.4ms)
+  [1m[36mHit Load (2.5ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (171.9ms)
+  [1m[36mHole Load (1.3ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (13.8ms)
+Rendered games/_hole_picture.html.erb (0.4ms)
+Rendered games/details.js.rjs (196.4ms)
+Completed 200 OK in 775ms (Views: 198.7ms | ActiveRecord: 105.8ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 13:43:11 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"1/", "slipums"=>"", "id"=>"20", "user_id"=>"2", "place_from"=>"1", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1/", "difficulty"=>"", "direction"=>"1", "land_place"=>"11"}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"1/", "id"=>"19", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1/", "direction"=>"1", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"11", "misdirection"=>"1"}}, "active_hit"=>"1/"}, "form_id"=>"details", "active_hit"=>"1//", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"1//", "next_hit"=>"save", "game_id"=>"3"}
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:43:11', `last_request_at` = '2011-07-25 10:43:11' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (29.7ms)[0m  COMMIT
+  [1m[36mGame Load (2.6ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (0.9ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mHit Load (2.4ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (20, 19) AND (`hits`.game_id = 3)
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `hits` SET `direction` = 1, `land_place` = 11, `updated_at` = '2011-07-25 10:43:11', `place_from` = 1 WHERE `hits`.`id` = 20[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `hits` SET `misdirection` = 1, `direction` = 1, `land_place` = 11, `updated_at` = '2011-07-25 10:43:11' WHERE `hits`.`id` = 19
+  [1m[36mSQL (33.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.5ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (1.1ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mHit Load (4.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (4.4ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mPairHit Load (1.1ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 20 AND `pair_hits`.`hit_real_id` = 19 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  COMMIT
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `hits` SET `updated_at` = '2011-07-25 10:43:12', `place_from` = 2 WHERE `hits`.`id` = 20
+  [1m[36mSQL (32.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[35mHit Load (2.9ms)[0m  SELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered games/_hit_form_details.html.erb (69.5ms)
+  [1m[35mHole Load (1.4ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)
+Rendered games/_hole_tab.html.erb (20.9ms)
+Rendered games/_hole_picture.html.erb (0.5ms)
+Rendered games/details.js.rjs (206.1ms)
+Completed 200 OK in 839ms (Views: 211.7ms | ActiveRecord: 125.6ms)
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Mon Jul 25 13:43:20 +0300 2011
+  Processing by GamesController#details as HTML
+  Parameters: {"hits"=>"new", "active_hit"=>"1", "puts"=>"0", "active_hole"=>"1", "game_id"=>"3"}
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:43:20', `last_request_at` = '2011-07-25 10:43:20' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (27.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (2.8ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (0.9ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mHit Load (2.2ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (2.2ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mPairHit Load (1.4ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 20 AND `pair_hits`.`hit_real_id` = 19 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mGolfClub Load (2.4ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (229.1ms)
+  [1m[35mHole Load (1.9ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)
+Rendered games/_hole_tab.html.erb (19.8ms)
+Rendered games/_hit_tab.html.erb (0.7ms)
+  [1m[36mHit Load (2.3ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (133.1ms)
+Rendered games/_hole_picture.html.erb (0.4ms)
+Rendered games/hit_edit_details.html.erb within layouts/application (400.5ms)
+Completed 200 OK in 859ms (Views: 396.6ms | ActiveRecord: 49.6ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 13:43:23 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"1", "slipums"=>"", "id"=>"20", "user_id"=>"2", "place_from"=>"2", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1", "difficulty"=>"", "direction"=>"1", "land_place"=>"11"}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"1", "id"=>"19", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1", "direction"=>"1", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"11", "misdirection"=>"1"}}, "active_hit"=>"1"}, "form_id"=>"details", "active_hit"=>"1/", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"2", "next_hit"=>"save", "game_id"=>"3"}
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:43:23', `last_request_at` = '2011-07-25 10:43:23' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (82.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.3ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (0.9ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mHit Load (3.6ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (20, 19) AND (`hits`.game_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.5ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 2 LIMIT 1
+  [1m[36mHit Load (2.2ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (5.0ms)[0m  [1mdescribe `hits`[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO `hits` (`hole_number`, `distance_to_hole`, `created_at`, `land_place`, `difficulty`, `trajectory`, `stick_id`, `hit_distance`, `comment`, `slipums`, `following_action`, `pair_id`, `real_hit`, `mistake`, `hit_number`, `direction`, `game_id`, `wind`, `luck_factor`, `user_id`, `hole_comment`, `strength`, `misdirection`, `hole_id`, `hit_was`, `stance`, `place_from`, `updated_at`, `motion_was`, `kritums`) VALUES (2, NULL, '2011-07-25 10:43:24', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'rp', NULL, 1, NULL, 3, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2011-07-25 10:43:24', NULL, NULL)
+  [1m[36mSQL (28.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mHit Load (3.0ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `hits` (`hole_number`, `distance_to_hole`, `created_at`, `land_place`, `difficulty`, `trajectory`, `stick_id`, `hit_distance`, `comment`, `slipums`, `following_action`, `pair_id`, `real_hit`, `mistake`, `hit_number`, `direction`, `game_id`, `wind`, `luck_factor`, `user_id`, `hole_comment`, `strength`, `misdirection`, `hole_id`, `hit_was`, `stance`, `place_from`, `updated_at`, `motion_was`, `kritums`) VALUES (2, NULL, '2011-07-25 10:43:24', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp', NULL, 1, NULL, 3, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2011-07-25 10:43:24', NULL, NULL)
+  [1m[36mSQL (33.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mPairHit Load (0.8ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 22 AND `pair_hits`.`hit_real_id` = 21 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.3ms)[0m  describe `pair_hits`
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `pair_hits` (`updated_at`, `user_id`, `hit_planed_id`, `hit_real_id`, `game_id`, `users_stick_id`, `created_at`) VALUES ('2011-07-25 10:43:24', 2, 22, 21, 3, NULL, '2011-07-25 10:43:24')[0m
+  [1m[35mSQL (32.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `hits` SET `pair_id` = 5, `updated_at` = '2011-07-25 10:43:24' WHERE `hits`.`id` = 21
+  [1m[36mSQL (37.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `hits` SET `pair_id` = 5, `updated_at` = '2011-07-25 10:43:24' WHERE `hits`.`id` = 22[0m
+  [1m[35mSQL (29.8ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `hits` SET `place_from` = 2, `updated_at` = '2011-07-25 10:43:24' WHERE `hits`.`id` = 21
+  [1m[36mSQL (30.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `hits` SET `place_from` = 2, `updated_at` = '2011-07-25 10:43:24' WHERE `hits`.`id` = 22[0m
+  [1m[35mSQL (30.5ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[36mHit Load (3.0ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (172.0ms)
+  [1m[36mHole Load (1.3ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (14.2ms)
+Rendered games/_hole_picture.html.erb (0.4ms)
+Rendered games/details.js.rjs (196.8ms)
+Completed 200 OK in 1026ms (Views: 198.6ms | ActiveRecord: 339.3ms)
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Mon Jul 25 13:44:39 +0300 2011
+  Processing by GamesController#details as HTML
+  Parameters: {"hits"=>"new", "active_hit"=>"1", "puts"=>"0", "active_hole"=>"1", "game_id"=>"3"}
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 10:44:39', `updated_at` = '2011-07-25 10:44:39' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (42.2ms)[0m  COMMIT
+  [1m[36mGame Load (1.2ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.8ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mHit Load (4.2ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mHit Load (3.9ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mPairHit Load (0.8ms)[0m  [1mSELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 20 AND `pair_hits`.`hit_real_id` = 19 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mGolfClub Load (2.8ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (214.8ms)
+  [1m[36mHole Load (1.8ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (99.9ms)
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[35mHit Load (2.6ms)[0m  SELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered games/_hit_form_details.html.erb (35.4ms)
+Rendered games/_hole_picture.html.erb (0.5ms)
+Rendered games/hit_edit_details.html.erb within layouts/application (368.2ms)
+Completed 200 OK in 1180ms (Views: 365.4ms | ActiveRecord: 68.6ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 13:44:44 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"1", "slipums"=>"", "id"=>"20", "user_id"=>"2", "place_from"=>"2", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1", "difficulty"=>"", "direction"=>"4", "land_place"=>"9"}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"1", "id"=>"19", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1", "direction"=>"4", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"9", "misdirection"=>"2"}}, "active_hit"=>"1"}, "form_id"=>"details", "active_hit"=>"1/", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"2", "next_hit"=>"save", "game_id"=>"3"}
+  [1m[35mUser Load (3.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:44:44', `last_request_at` = '2011-07-25 10:44:44' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (86.0ms)[0m  COMMIT
+  [1m[36mGame Load (2.5ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mHit Load (2.5ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (20, 19) AND (`hits`.game_id = 3)
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `hits` SET `land_place` = 9, `updated_at` = '2011-07-25 10:44:44', `direction` = 4 WHERE `hits`.`id` = 20[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `hits` SET `land_place` = 9, `updated_at` = '2011-07-25 10:44:44', `direction` = 4, `misdirection` = 2 WHERE `hits`.`id` = 19
+  [1m[36mSQL (39.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (3.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (1.7ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 2 LIMIT 1[0m
+  [1m[35mHit Load (3.4ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (4.2ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mPairHit Load (1.0ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 22 AND `pair_hits`.`hit_real_id` = 21 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+Rendered games/_hit_tab.html.erb (0.6ms)
+  [1m[36mHit Load (3.0ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (186.9ms)
+  [1m[36mHole Load (1.4ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (33.7ms)
+Rendered games/_hole_picture.html.erb (0.7ms)
+Rendered games/details.js.rjs (321.7ms)
+Completed 200 OK in 927ms (Views: 324.2ms | ActiveRecord: 157.3ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 13:46:02 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"1/", "slipums"=>"", "id"=>"22", "user_id"=>"2", "place_from"=>"2", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"2", "difficulty"=>"", "direction"=>"", "land_place"=>""}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"1/", "id"=>"21", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"2", "direction"=>"", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"", "misdirection"=>""}}, "active_hit"=>"1/"}, "form_id"=>"details", "active_hit"=>"1//", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"2/", "next_hit"=>"save", "game_id"=>"3"}
+  [1m[35mUser Load (2.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  BEGIN
+  [1m[36mAREL (0.9ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:46:03', `last_request_at` = '2011-07-25 10:46:03' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (40.7ms)[0m  COMMIT
+  [1m[36mGame Load (1.5ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.2ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mHit Load (2.3ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (22, 21) AND (`hits`.game_id = 3)
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `hits` SET `stick_id` = 2, `updated_at` = '2011-07-25 10:46:03' WHERE `hits`.`id` = 22[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `hits` SET `stick_id` = 2, `updated_at` = '2011-07-25 10:46:03' WHERE `hits`.`id` = 21
+  [1m[36mSQL (66.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (2.4ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (0.8ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 2 LIMIT 1[0m
+  [1m[35mHit Load (2.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (2.0ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mPairHit Load (1.4ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 22 AND `pair_hits`.`hit_real_id` = 21 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[36mHit Load (3.2ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (1.4ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (164.9ms)
+  [1m[36mHole Load (1.3ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (21.4ms)
+Rendered games/_hole_picture.html.erb (0.6ms)
+Rendered games/details.js.rjs (198.2ms)
+Completed 200 OK in 906ms (Views: 199.4ms | ActiveRecord: 134.5ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 13:46:13 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"1//", "slipums"=>"", "id"=>"22", "user_id"=>"2", "place_from"=>"2", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"2/", "difficulty"=>"", "direction"=>"", "land_place"=>""}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"1//", "id"=>"21", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"2/", "direction"=>"", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"", "misdirection"=>""}}, "active_hit"=>"1//"}, "form_id"=>"details", "active_hit"=>"1///", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"2//", "next_hit"=>"save", "game_id"=>"3"}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 10:46:13', `updated_at` = '2011-07-25 10:46:13' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (52.4ms)[0m  COMMIT
+  [1m[36mGame Load (2.5ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (0.8ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHit Load (3.4ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (22, 21) AND (`hits`.game_id = 3)
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (1.4ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 2 LIMIT 1[0m
+  [1m[35mHit Load (3.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (2.9ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mPairHit Load (0.6ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 22 AND `pair_hits`.`hit_real_id` = 21 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[36mHit Load (2.5ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (158.6ms)
+  [1m[36mHole Load (1.3ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (21.9ms)
+Rendered games/_hole_picture.html.erb (0.9ms)
+Rendered games/details.js.rjs (194.2ms)
+Completed 200 OK in 674ms (Views: 196.6ms | ActiveRecord: 77.2ms)
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Mon Jul 25 13:48:56 +0300 2011
+  Processing by GamesController#details as HTML
+  Parameters: {"hits"=>"new", "active_hit"=>"1", "puts"=>"0", "active_hole"=>"1", "game_id"=>"3"}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 10:48:56', `updated_at` = '2011-07-25 10:48:56' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (52.8ms)[0m  COMMIT
+  [1m[36mGame Load (1.2ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mHit Load (4.4ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mHit Load (17.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mPairHit Load (0.6ms)[0m  [1mSELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 20 AND `pair_hits`.`hit_real_id` = 19 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mGolfClub Load (3.7ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (243.4ms)
+  [1m[36mHole Load (1.2ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (98.6ms)
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[35mHit Load (5.3ms)[0m  SELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)
+  [1m[36mStick Load (1.2ms)[0m  [1mSELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered games/_hit_form_details.html.erb (44.0ms)
+Rendered games/_hole_picture.html.erb (0.4ms)
+Rendered games/hit_edit_details.html.erb within layouts/application (403.5ms)
+Completed 200 OK in 1010ms (Views: 397.6ms | ActiveRecord: 95.1ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 13:49:02 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"1", "slipums"=>"", "id"=>"20", "user_id"=>"2", "place_from"=>"2", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1", "difficulty"=>"", "direction"=>"4", "land_place"=>"9"}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"1", "id"=>"19", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1", "direction"=>"4", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"9", "misdirection"=>"2"}}, "active_hit"=>"1"}, "form_id"=>"details", "active_hit"=>"1/", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"2", "next_hit"=>"next", "game_id"=>"3"}
+  [1m[35mUser Load (3.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:49:02', `last_request_at` = '2011-07-25 10:49:02' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (80.0ms)[0m  COMMIT
+  [1m[36mGame Load (2.7ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.7ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mHit Load (2.5ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (20, 19) AND (`hits`.game_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (0.9ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 2 LIMIT 1[0m
+  [1m[35mHit Load (1.9ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (4.0ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mHit Load (4.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.0ms)[0m  describe `hits`
+  [1m[36mAREL (23.9ms)[0m  [1mINSERT INTO `hits` (`slipums`, `updated_at`, `land_place`, `direction`, `pair_id`, `wind`, `comment`, `difficulty`, `hole_id`, `user_id`, `hit_distance`, `strength`, `kritums`, `misdirection`, `mistake`, `stick_id`, `stance`, `hit_number`, `distance_to_hole`, `following_action`, `real_hit`, `luck_factor`, `hole_number`, `place_from`, `created_at`, `motion_was`, `game_id`, `hit_was`, `trajectory`, `hole_comment`) VALUES (NULL, '2011-07-25 10:49:02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, 'rp', NULL, 2, NULL, '2011-07-25 10:49:02', NULL, 3, NULL, NULL, NULL)[0m
+  [1m[35mSQL (76.0ms)[0m  COMMIT
+  [1m[36mHit Load (2.2ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `hits` (`slipums`, `updated_at`, `land_place`, `direction`, `pair_id`, `wind`, `comment`, `difficulty`, `hole_id`, `user_id`, `hit_distance`, `strength`, `kritums`, `misdirection`, `mistake`, `stick_id`, `stance`, `hit_number`, `distance_to_hole`, `following_action`, `real_hit`, `luck_factor`, `hole_number`, `place_from`, `created_at`, `motion_was`, `game_id`, `hit_was`, `trajectory`, `hole_comment`) VALUES (NULL, '2011-07-25 10:49:02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, 'pp', NULL, 2, NULL, '2011-07-25 10:49:02', NULL, 3, NULL, NULL, NULL)[0m
+  [1m[35mSQL (33.5ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mPairHit Load (0.9ms)[0m  [1mSELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 24 AND `pair_hits`.`hit_real_id` = 23 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `pair_hits`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `pair_hits` (`game_id`, `user_id`, `updated_at`, `created_at`, `hit_planed_id`, `hit_real_id`, `users_stick_id`) VALUES (3, 2, '2011-07-25 10:49:02', '2011-07-25 10:49:02', 24, 23, NULL)
+  [1m[36mSQL (28.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `hits` SET `updated_at` = '2011-07-25 10:49:02', `pair_id` = 6 WHERE `hits`.`id` = 23[0m
+  [1m[35mSQL (21.5ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `hits` SET `updated_at` = '2011-07-25 10:49:02', `pair_id` = 6 WHERE `hits`.`id` = 24
+  [1m[36mSQL (20.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+Rendered games/_hit_tab.html.erb (0.6ms)
+  [1m[35mHit Load (3.3ms)[0m  SELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)
+  [1m[36mStick Load (0.9ms)[0m  [1mSELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered games/_hit_form_details.html.erb (184.1ms)
+  [1m[35mHole Load (1.4ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)
+Rendered games/_hole_tab.html.erb (16.1ms)
+Rendered games/_hole_picture.html.erb (0.5ms)
+Rendered games/details.js.rjs (213.9ms)
+Completed 200 OK in 975ms (Views: 216.4ms | ActiveRecord: 325.8ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 13:49:11 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"2", "slipums"=>"", "id"=>"24", "user_id"=>"2", "place_from"=>"", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"2", "difficulty"=>"", "direction"=>"", "land_place"=>""}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"2", "id"=>"23", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"2", "direction"=>"", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"", "misdirection"=>""}}, "active_hit"=>"2"}, "form_id"=>"details", "active_hit"=>"2/", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"2/", "next_hit"=>"save", "game_id"=>"3"}
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (90.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:49:11', `last_request_at` = '2011-07-25 10:49:11' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (28.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.4ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (1.1ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mHit Load (2.6ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (24, 23) AND (`hits`.game_id = 3)[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `games` SET `active_hit` = 2, `updated_at` = '2011-07-25 10:49:11' WHERE `games`.`id` = 3
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `hits` SET `stick_id` = 2, `updated_at` = '2011-07-25 10:49:11' WHERE `hits`.`id` = 24[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `hits` SET `stick_id` = 2, `updated_at` = '2011-07-25 10:49:11' WHERE `hits`.`id` = 23
+  [1m[36mSQL (35.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.6ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (1.0ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 2 LIMIT 1[0m
+  [1m[35mHit Load (2.3ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (2.3ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mHit Load (2.3ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (2.3ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 2 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPairHit Load (1.0ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 24 AND `pair_hits`.`hit_real_id` = 23 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+Rendered games/_hit_tab.html.erb (0.7ms)
+  [1m[36mHit Load (3.9ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (73.8ms)
+  [1m[36mHole Load (1.4ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (16.0ms)
+Rendered games/_hole_picture.html.erb (0.5ms)
+Rendered games/details.js.rjs (200.3ms)
+Completed 200 OK in 726ms (Views: 202.2ms | ActiveRecord: 185.3ms)
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Mon Jul 25 13:49:44 +0300 2011
+  Processing by GamesController#details as HTML
+  Parameters: {"hits"=>"new", "active_hit"=>"1", "puts"=>"0", "active_hole"=>"1", "game_id"=>"3"}
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 10:49:44', `updated_at` = '2011-07-25 10:49:44' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (40.8ms)[0m  COMMIT
+  [1m[36mGame Load (1.8ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mHit Load (2.1ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mHit Load (2.1ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mPairHit Load (0.9ms)[0m  [1mSELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 20 AND `pair_hits`.`hit_real_id` = 19 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mGolfClub Load (2.3ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (209.1ms)
+  [1m[36mHole Load (1.2ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (15.0ms)
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[35mHit Load (2.9ms)[0m  SELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)
+  [1m[36mStick Load (1.4ms)[0m  [1mSELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered games/_hit_form_details.html.erb (128.3ms)
+Rendered games/_hole_picture.html.erb (0.4ms)
+Rendered games/hit_edit_details.html.erb within layouts/application (371.7ms)
+Completed 200 OK in 942ms (Views: 371.9ms | ActiveRecord: 62.2ms)
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Mon Jul 25 13:57:45 +0300 2011
+  Processing by GamesController#details as HTML
+  Parameters: {"hits"=>"new", "active_hit"=>"1", "puts"=>"0", "active_hole"=>"1", "game_id"=>"3"}
+  [1m[35mUser Load (3.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 10:57:45', `updated_at` = '2011-07-25 10:57:45' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (49.5ms)[0m  COMMIT
+  [1m[36mGame Load (1.9ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.8ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mHit Load (1.9ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mHit Load (1.9ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mPairHit Load (0.8ms)[0m  [1mSELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 20 AND `pair_hits`.`hit_real_id` = 19 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mGolfClub Load (3.7ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (212.2ms)
+  [1m[36mHole Load (1.2ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (14.2ms)
+Rendered games/_hit_tab.html.erb (0.9ms)
+  [1m[35mHit Load (4.4ms)[0m  SELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)
+  [1m[36mStick Load (1.1ms)[0m  [1mSELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered games/_hit_form_details.html.erb (136.7ms)
+Rendered games/_hole_picture.html.erb (0.7ms)
+Rendered games/hit_edit_details.html.erb within layouts/application (392.3ms)
+Completed 200 OK in 905ms (Views: 385.4ms | ActiveRecord: 74.9ms)
+
+
+Started GET "/club" for 127.0.0.1 at Mon Jul 25 13:58:12 +0300 2011
+  Processing by GolfClubController#show as HTML
+  [1m[35mUser Load (3.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 10:58:12', `updated_at` = '2011-07-25 10:58:12' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (48.0ms)[0m  COMMIT
+  [1m[36mGolfClub Load (1.9ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`golf_club_id` = 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (159.7ms)
+Rendered golf_club/show.html.erb within layouts/application (181.1ms)
+Completed 200 OK in 474ms (Views: 184.8ms | ActiveRecord: 57.5ms)
+
+
+Started GET "/club/edit_fields" for 127.0.0.1 at Mon Jul 25 13:58:16 +0300 2011
+  Processing by GolfClubController#edit_fields as HTML
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 10:58:16', `last_request_at` = '2011-07-25 10:58:16' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (46.2ms)[0m  COMMIT
+  [1m[36mGolfClub Load (2.2ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (69.8ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `fields` WHERE (`fields`.golf_club_id = 1)[0m
+  [1m[35mField Load (0.7ms)[0m  SELECT `fields`.* FROM `fields` WHERE (`fields`.golf_club_id = 1)
+Rendered fields/_list.html.erb (107.2ms)
+Rendered fields/index.html.erb within layouts/application (206.5ms)
+Completed 200 OK in 659ms (Views: 212.6ms | ActiveRecord: 53.4ms)
+
+
+Started GET "/edit_field_by_id/1" for 127.0.0.1 at Mon Jul 25 13:58:20 +0300 2011
+  Processing by FieldsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 10:58:20', `last_request_at` = '2011-07-25 10:58:20' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (35.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mField Load (1.4ms)[0m  SELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1
+  [1m[36mSQL (32.8ms)[0m  [1mSELECT COUNT(*) FROM `holes` WHERE (`holes`.field_id = 1)[0m
+  [1m[35mSQL (30.7ms)[0m  SELECT COUNT(*) FROM `hit_places` WHERE (`hit_places`.field_id = 1)
+  [1m[36mSQL (22.2ms)[0m  [1mSELECT COUNT(*) FROM `green_fees` WHERE (`green_fees`.field_id = 1)[0m
+  [1m[35mGolfClub Load (4.0ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+Rendered share/_header_menu.html.erb (168.5ms)
+Rendered fields/edit.html.erb within layouts/application (195.2ms)
+Completed   in 706ms
+
+ActionView::Template::Error (undefined local variable or method `header_menu_active_class' for #<#<Class:0xb685341c>:0xb6850140>):
+    17:   </div>
+    18:   <div class="icon_wrap">
+    19:     <div class="link_wrap">
+    20:       <a href="<%= loged_in_path %>"><div class="icon_home <%= "active" if header_menu_active_class == "home" %>" ></div><p>Home</p></a>
+    21:     </div>
+    22:     <div class="link_wrap">
+    23:       <a href="<%= game_index_path%>"><div class="icon_games <%= "active" if header_menu_active_class == "my_games" %>" ></div><p>My games</p></a>
+  app/views/share/_header_menu.html.erb:20:in `_app_views_share__header_menu_html_erb___249915155__616414708_2437216'
+  app/views/fields/edit.html.erb:1:in `_app_views_fields_edit_html_erb___307833589__616405378_0'
+  app/controllers/fields_controller.rb:21:in `edit'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.0ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (38.8ms)
+
+
+Started GET "/edit_field_by_id/1" for 127.0.0.1 at Mon Jul 25 13:59:02 +0300 2011
+  Processing by FieldsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 10:59:02', `updated_at` = '2011-07-25 10:59:02' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (60.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mField Load (0.9ms)[0m  SELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `holes` WHERE (`holes`.field_id = 1)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `hit_places` WHERE (`hit_places`.field_id = 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `green_fees` WHERE (`green_fees`.field_id = 1)[0m
+  [1m[35mGolfClub Load (2.0ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (231.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `green_fees` WHERE (`green_fees`.field_id = 1)[0m
+  [1m[35mGreenFee Load (1.9ms)[0m  SELECT `green_fees`.* FROM `green_fees` WHERE (`green_fees`.field_id = 1)
+Rendered fields/_new_green_fee.html.erb (1.7ms)
+Rendered fields/_new_green_fee.html.erb (1.7ms)
+Rendered fields/_new_green_fee.html.erb (1.7ms)
+  [1m[36mHole Load (1.5ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE (`holes`.field_id = 1)[0m
+Rendered fields/_new_hole.html.erb (7.3ms)
+Rendered fields/_new_hole.html.erb (9.0ms)
+Rendered fields/_new_hole.html.erb (7.3ms)
+Rendered fields/_new_hole.html.erb (84.1ms)
+Rendered fields/_new_hole.html.erb (4.9ms)
+Rendered fields/_new_hole.html.erb (4.5ms)
+Rendered fields/_form.html.erb (265.4ms)
+Rendered fields/edit.html.erb within layouts/application (509.9ms)
+Completed 200 OK in 967ms (Views: 508.1ms | ActiveRecord: 72.5ms)
+
+
+Started POST "/club/fields/1" for 127.0.0.1 at Mon Jul 25 14:00:11 +0300 2011
+  Processing by FieldsController#update as HTML
+  Parameters: {"authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "id"=>"1", "field"=>{"name"=>"Laukums 1", "normal_distance"=>"4", "very_short_distance"=>"3", "holes_attributes"=>{"1"=>{"par"=>"1", "id"=>"1", "hole_number"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0xb6772e08 @tempfile=#<File:/tmp/RackMultipart20110725-1051-17wr6d7-0>, @headers="Content-Disposition: form-data; name=\"field[holes_attributes][1][image]\"; filename=\"cat2.jpg\"\r\nContent-Type: image/jpeg\r\n", @content_type="image/jpeg", @original_filename="cat2.jpg">, "hcp"=>"0", "distance"=>"4"}, "2"=>{"par"=>"1", "id"=>"2", "hole_number"=>"2", "image"=>#<ActionDispatch::Http::UploadedFile:0xb6772b74 @tempfile=#<File:/tmp/RackMultipart20110725-1051-1qvwzpo-0>, @headers="Content-Disposition: form-data; name=\"field[holes_attributes][2][image]\"; filename=\"cat-facts.jpg\"\r\nContent-Type: image/jpeg\r\n", @content_type="image/jpeg", @original_filename="cat-facts.jpg">, "hcp"=>"0", "distance"=>"3"}, "3"=>{"par"=>"1", "id"=>"3", "hole_number"=>"3", "image"=>#<ActionDispatch::Http::UploadedFile:0xb6772958 @tempfile=#<File:/tmp/RackMultipart20110725-1051-vfcomp-0>, @headers="Content-Disposition: form-data; name=\"field[holes_attributes][3][image]\"; filename=\"cat-picture-full.jpg\"\r\nContent-Type: image/jpeg\r\n", @content_type="image/jpeg", @original_filename="cat-picture-full.jpg">, "hcp"=>"1", "distance"=>"2"}, "4"=>{"par"=>"1", "id"=>"4", "hole_number"=>"4", "image"=>#<ActionDispatch::Http::UploadedFile:0xb6772610 @tempfile=#<File:/tmp/RackMultipart20110725-1051-15dyv2-0>, @headers="Content-Disposition: form-data; name=\"field[holes_attributes][4][image]\"; filename=\"Cat_pictures2.jpg\"\r\nContent-Type: image/jpeg\r\n", @content_type="image/jpeg", @original_filename="Cat_pictures2.jpg">, "hcp"=>"1", "distance"=>"4"}, "5"=>{"par"=>"3", "id"=>"5", "hole_number"=>"5", "image"=>#<ActionDispatch::Http::UploadedFile:0xb6772408 @tempfile=#<File:/tmp/RackMultipart20110725-1051-63tlp7-0>, @headers="Content-Disposition: form-data; name=\"field[holes_attributes][5][image]\"; filename=\"cat-picture-full.jpg\"\r\nContent-Type: image/jpeg\r\n", @content_type="image/jpeg", @original_filename="cat-picture-full.jpg">, "hcp"=>"11", "distance"=>"5"}}, "short_distance"=>"4", "green_fees_attributes"=>{"1"=>{"price"=>"21", "title"=>"Working days, 18 holes", "id"=>"1"}, "2"=>{"price"=>"54", "title"=>"Weekend, 18 holes", "id"=>"2"}}, "long_distance"=>"3"}}
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 11:00:11', `last_request_at` = '2011-07-25 11:00:11' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (48.2ms)[0m  COMMIT
+  [1m[36mField Load (0.8ms)[0m  [1mSELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mHole Load (1.7ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`id` IN (1, 2, 3, 4, 5) AND (`holes`.field_id = 1)[0m
+  [1m[35mGreenFee Load (1.2ms)[0m  SELECT `green_fees`.* FROM `green_fees` WHERE `green_fees`.`id` IN (1, 2) AND (`green_fees`.field_id = 1)
+  [1m[36mGolfClub Load (4.0ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `holes` SET `image_file_size` = 444808, `image_file_name` = 'cat2.jpg', `image_updated_at` = '2011-07-25 11:00:12', `updated_at` = '2011-07-25 11:00:12', `image_content_type` = 'image/jpeg' WHERE `holes`.`id` = 1
+[paperclip] Saving attachments.
+[paperclip] saving /home/edgars/workspace/Golf/public/hole/images/1_original.jpg
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE `holes` SET `image_file_size` = 23861, `image_file_name` = 'cat-facts.jpg', `image_updated_at` = '2011-07-25 11:00:12', `updated_at` = '2011-07-25 11:00:12', `image_content_type` = 'image/jpeg' WHERE `holes`.`id` = 2[0m
+[paperclip] Saving attachments.
+[paperclip] saving /home/edgars/workspace/Golf/public/hole/images/2_original.jpg
+  [1m[35mAREL (0.5ms)[0m  UPDATE `holes` SET `image_file_size` = 66837, `image_file_name` = 'cat-picture-full.jpg', `image_updated_at` = '2011-07-25 11:00:12', `updated_at` = '2011-07-25 11:00:12', `image_content_type` = 'image/jpeg' WHERE `holes`.`id` = 3
+[paperclip] Saving attachments.
+[paperclip] saving /home/edgars/workspace/Golf/public/hole/images/3_original.jpg
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `holes` SET `image_file_size` = 164366, `image_file_name` = 'Cat_pictures2.jpg', `image_updated_at` = '2011-07-25 11:00:12', `updated_at` = '2011-07-25 11:00:12', `image_content_type` = 'image/jpeg' WHERE `holes`.`id` = 4[0m
+[paperclip] Saving attachments.
+[paperclip] saving /home/edgars/workspace/Golf/public/hole/images/4_original.jpg
+  [1m[35mAREL (0.4ms)[0m  UPDATE `holes` SET `image_file_size` = 66837, `image_file_name` = 'cat-picture-full.jpg', `image_updated_at` = '2011-07-25 11:00:12', `updated_at` = '2011-07-25 11:00:12', `image_content_type` = 'image/jpeg' WHERE `holes`.`id` = 5
+[paperclip] Saving attachments.
+[paperclip] saving /home/edgars/workspace/Golf/public/hole/images/5_original.jpg
+  [1m[36mSQL (35.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/club/edit_fields
+Completed 302 Found in 885ms
+
+
+Started GET "/club/edit_fields" for 127.0.0.1 at Mon Jul 25 14:00:12 +0300 2011
+  Processing by GolfClubController#edit_fields as HTML
+  [1m[35mUser Load (3.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 11:00:12', `updated_at` = '2011-07-25 11:00:12' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (82.8ms)[0m  COMMIT
+  [1m[36mGolfClub Load (3.7ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (151.7ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `fields` WHERE (`fields`.golf_club_id = 1)[0m
+  [1m[35mField Load (0.7ms)[0m  SELECT `fields`.* FROM `fields` WHERE (`fields`.golf_club_id = 1)
+Rendered fields/_list.html.erb (15.3ms)
+Rendered fields/index.html.erb within layouts/application (195.0ms)
+Completed 200 OK in 626ms (Views: 197.5ms | ActiveRecord: 189.5ms)
+
+
+Started GET "/games" for 127.0.0.1 at Mon Jul 25 14:00:24 +0300 2011
+  Processing by GamesController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 11:00:24', `last_request_at` = '2011-07-25 11:00:24' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (64.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (13.7ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`user_id` = 2 ORDER BY created_at desc LIMIT 5
+  [1m[36mGolfClub Load (2.1ms)[0m  [1mSELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `statistics`[0m
+Rendered share/_header_menu.html.erb (301.4ms)
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `games` WHERE `games`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (8.5ms)
+  [1m[36mField Load (0.8ms)[0m  [1mSELECT `fields`.* FROM `fields` WHERE `fields`.`id` = 1 LIMIT 1[0m
+  [1m[35mHit Load (2.8ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`real_hit` = 'p' LIMIT 1
+  [1m[36mHit Load (2.7ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`real_hit` = 'r' LIMIT 1[0m
+  [1m[35mHit Load (4.2ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`real_hit` = 'rp' LIMIT 1
+Rendered games/_index_partial.html.erb (182.1ms)
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT COUNT(*) FROM `games` WHERE (`games`.user_id = 2)[0m
+Rendered games/index.html.erb within layouts/application (512.7ms)
+Completed 200 OK in 801ms (Views: 505.5ms | ActiveRecord: 95.9ms)
+
+
+Started GET "/game_details/3/1/1/new/0" for 127.0.0.1 at Mon Jul 25 14:00:27 +0300 2011
+  Processing by GamesController#details as HTML
+  Parameters: {"hits"=>"new", "active_hit"=>"1", "puts"=>"0", "active_hole"=>"1", "game_id"=>"3"}
+  [1m[35mUser Load (2.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (7.6ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 11:00:28', `last_request_at` = '2011-07-25 11:00:28' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (40.8ms)[0m  COMMIT
+  [1m[36mGame Load (1.3ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.2ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mHit Load (4.3ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mHit Load (2.5ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mPairHit Load (1.0ms)[0m  [1mSELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 20 AND `pair_hits`.`hit_real_id` = 19 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mGolfClub Load (3.9ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs` WHERE `golf_clubs`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT COUNT(*) FROM `statistics`
+Rendered share/_header_menu.html.erb (205.5ms)
+  [1m[36mHole Load (3.5ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (24.2ms)
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[35mHit Load (3.4ms)[0m  SELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)
+  [1m[36mStick Load (1.5ms)[0m  [1mSELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered games/_hit_form_details.html.erb (128.9ms)
+Rendered games/_hole_picture.html.erb (1.0ms)
+Rendered games/hit_edit_details.html.erb within layouts/application (377.7ms)
+Completed 200 OK in 845ms (Views: 368.9ms | ActiveRecord: 76.7ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 14:10:18 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"1", "slipums"=>"", "id"=>"20", "user_id"=>"2", "place_from"=>"2", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1", "difficulty"=>"", "direction"=>"4", "land_place"=>"9"}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"1", "id"=>"19", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1", "direction"=>"4", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"9", "misdirection"=>"2"}}, "active_hit"=>"1"}, "form_id"=>"details", "active_hit"=>"1/", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"1/", "next_hit"=>"save", "game_id"=>"3"}
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 11:10:18', `last_request_at` = '2011-07-25 11:10:18' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (57.9ms)[0m  COMMIT
+  [1m[36mGame Load (1.2ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHit Load (2.3ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (20, 19) AND (`hits`.game_id = 3)
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `games` SET `active_hit` = 1, `updated_at` = '2011-07-25 11:10:19' WHERE `games`.`id` = 3[0m
+  [1m[35mSQL (64.8ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  COMMIT
+  [1m[36mGame Load (2.2ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (0.9ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mHit Load (1.9ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mHit Load (2.0ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mPairHit Load (0.7ms)[0m  [1mSELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 20 AND `pair_hits`.`hit_real_id` = 19 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[35mHit Load (2.7ms)[0m  SELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered games/_hit_form_details.html.erb (167.2ms)
+  [1m[35mHole Load (1.4ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)
+Rendered games/_hole_tab.html.erb (109.4ms)
+Rendered games/_hole_picture.html.erb (1.2ms)
+Rendered games/details.js.rjs (290.0ms)
+Completed 200 OK in 854ms (Views: 293.0ms | ActiveRecord: 146.1ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 14:12:09 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"1/", "slipums"=>"", "id"=>"20", "user_id"=>"2", "place_from"=>"2", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1/", "difficulty"=>"", "direction"=>"4", "land_place"=>"9"}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"1/", "id"=>"19", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1/", "direction"=>"4", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"9", "misdirection"=>"2"}}, "active_hit"=>"1/"}, "form_id"=>"details", "active_hit"=>"1//", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"1//", "next_hit"=>"next", "game_id"=>"3"}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 11:12:09', `updated_at` = '2011-07-25 11:12:09' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (38.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (2.4ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (0.8ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mHit Load (21.7ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (20, 19) AND (`hits`.game_id = 3)[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (0.9ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1
+  [1m[36mHit Load (1.8ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mHit Load (1.8ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mHit Load (1.9ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (3.0ms)[0m  [1mdescribe `hits`[0m
+  [1m[35mAREL (26.2ms)[0m  INSERT INTO `hits` (`difficulty`, `trajectory`, `slipums`, `pair_id`, `comment`, `misdirection`, `luck_factor`, `direction`, `hole_comment`, `hit_number`, `created_at`, `hit_was`, `hole_id`, `stance`, `stick_id`, `distance_to_hole`, `updated_at`, `hole_number`, `user_id`, `mistake`, `motion_was`, `game_id`, `hit_distance`, `kritums`, `real_hit`, `place_from`, `strength`, `land_place`, `following_action`, `wind`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2011-07-25 11:12:09', NULL, NULL, NULL, NULL, NULL, '2011-07-25 11:12:09', 1, 2, NULL, NULL, 3, NULL, NULL, 'rp', NULL, NULL, NULL, NULL, NULL)
+  [1m[36mSQL (46.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mHit Load (1.9ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `hits` (`difficulty`, `trajectory`, `slipums`, `pair_id`, `comment`, `misdirection`, `luck_factor`, `direction`, `hole_comment`, `hit_number`, `created_at`, `hit_was`, `hole_id`, `stance`, `stick_id`, `distance_to_hole`, `updated_at`, `hole_number`, `user_id`, `mistake`, `motion_was`, `game_id`, `hit_distance`, `kritums`, `real_hit`, `place_from`, `strength`, `land_place`, `following_action`, `wind`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2011-07-25 11:12:09', NULL, NULL, NULL, NULL, NULL, '2011-07-25 11:12:09', 1, 2, NULL, NULL, 3, NULL, NULL, 'pp', NULL, NULL, NULL, NULL, NULL)
+  [1m[36mSQL (30.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `hits` SET `updated_at` = '2011-07-25 11:12:09', `place_from` = 9 WHERE `hits`.`id` = 26[0m
+  [1m[35mSQL (30.2ms)[0m  COMMIT
+  [1m[36mPairHit Load (1.4ms)[0m  [1mSELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 26 AND `pair_hits`.`hit_real_id` = 25 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `pair_hits`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `pair_hits` (`user_id`, `updated_at`, `users_stick_id`, `hit_planed_id`, `hit_real_id`, `game_id`, `created_at`) VALUES (2, '2011-07-25 11:12:09', NULL, 26, 25, 3, '2011-07-25 11:12:09')
+  [1m[36mSQL (29.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `hits` SET `pair_id` = 7, `updated_at` = '2011-07-25 11:12:09' WHERE `hits`.`id` = 25[0m
+  [1m[35mSQL (28.9ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `hits` SET `pair_id` = 7, `updated_at` = '2011-07-25 11:12:09' WHERE `hits`.`id` = 26
+  [1m[36mSQL (30.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+Rendered games/_hit_tab.html.erb (0.5ms)
+  [1m[35mHit Load (3.5ms)[0m  SELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)
+  [1m[36mStick Load (0.9ms)[0m  [1mSELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))[0m
+Rendered games/_hit_form_details.html.erb (155.5ms)
+  [1m[35mHole Load (2.4ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)
+Rendered games/_hole_tab.html.erb (22.1ms)
+Rendered games/_hole_picture.html.erb (1.3ms)
+Rendered games/details.js.rjs (193.6ms)
+Completed 200 OK in 993ms (Views: 195.3ms | ActiveRecord: 313.3ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 14:12:20 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"2", "slipums"=>"", "id"=>"26", "user_id"=>"2", "place_from"=>"9", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1//", "difficulty"=>"", "direction"=>"", "land_place"=>""}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"2", "id"=>"25", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1//", "direction"=>"", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"", "misdirection"=>""}}, "active_hit"=>"2"}, "form_id"=>"details", "active_hit"=>"2/", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"1///", "next_hit"=>"save", "game_id"=>"3"}
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 11:12:21', `last_request_at` = '2011-07-25 11:12:21' WHERE `users`.`id` = 2
+[paperclip] Saving attachments.
+  [1m[36mSQL (42.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.3ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (1.3ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mHit Load (4.6ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (26, 25) AND (`hits`.game_id = 3)[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `games` SET `updated_at` = '2011-07-25 11:12:21', `active_hit` = 2 WHERE `games`.`id` = 3
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `hits` SET `stick_id` = 2, `updated_at` = '2011-07-25 11:12:21' WHERE `hits`.`id` = 26[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `hits` SET `stick_id` = 2, `updated_at` = '2011-07-25 11:12:21' WHERE `hits`.`id` = 25
+  [1m[36mSQL (41.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mGame Load (1.4ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (0.9ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mHit Load (2.0ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (2.0ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mHit Load (2.0ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (2.0ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mPairHit Load (0.8ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 26 AND `pair_hits`.`hit_real_id` = 25 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+Rendered games/_hit_tab.html.erb (0.6ms)
+  [1m[36mHit Load (3.4ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (171.7ms)
+  [1m[36mHole Load (1.3ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (14.3ms)
+Rendered games/_hole_picture.html.erb (1.0ms)
+Rendered games/details.js.rjs (198.2ms)
+Completed 200 OK in 743ms (Views: 199.8ms | ActiveRecord: 114.1ms)
+
+
+Started POST "/hit_update/3/" for 127.0.0.1 at Mon Jul 25 14:12:28 +0300 2011
+  Processing by GamesController#hit_update as JS
+  Parameters: {"game"=>{"hits_attributes"=>{"0"=>{"kritums"=>"", "wind"=>"", "hit_distance"=>"", "stick_id"=>"2", "strength"=>"", "hit_number"=>"2/", "slipums"=>"", "id"=>"26", "user_id"=>"2", "place_from"=>"9", "stance"=>"", "trajectory"=>"", "distance_to_hole"=>"", "hole_number"=>"1///", "difficulty"=>"", "direction"=>"", "land_place"=>""}, "1"=>{"stick_id"=>"2", "hit_distance"=>"", "strength"=>"", "hit_number"=>"2/", "id"=>"25", "user_id"=>"2", "trajectory"=>"", "mistake"=>"", "hole_number"=>"1///", "direction"=>"", "hit_was"=>"", "luck_factor"=>"", "land_place"=>"", "misdirection"=>""}}, "active_hit"=>"2/"}, "form_id"=>"details", "active_hit"=>"2//", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "next_hole"=>"1////", "next_hit"=>"save", "game_id"=>"3"}
+  [1m[35mUser Load (2.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 11:12:28', `last_request_at` = '2011-07-25 11:12:28' WHERE `users`.`id` = 2[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (42.3ms)[0m  COMMIT
+  [1m[36mGame Load (1.1ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mHole Load (1.5ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 0 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mHit Load (4.5ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`id` IN (26, 25) AND (`hits`.game_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `games`.* FROM `games` WHERE `games`.`id` = 3 LIMIT 1
+  [1m[36mHole Load (0.9ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND `holes`.`hole_number` = 1 LIMIT 1[0m
+  [1m[35mHit Load (1.9ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (1.9ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 1 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mHit Load (1.9ms)[0m  SELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'rp' LIMIT 1
+  [1m[36mHit Load (1.8ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE `hits`.`game_id` = 3 AND `hits`.`hole_number` = 1 AND `hits`.`hit_number` = 2 AND `hits`.`user_id` = 2 AND `hits`.`real_hit` = 'pp' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mPairHit Load (0.7ms)[0m  SELECT `pair_hits`.* FROM `pair_hits` WHERE `pair_hits`.`game_id` = 3 AND `pair_hits`.`user_id` = 2 AND `pair_hits`.`hit_planed_id` = 26 AND `pair_hits`.`hit_real_id` = 25 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+Rendered games/_hit_tab.html.erb (0.6ms)
+  [1m[36mHit Load (3.2ms)[0m  [1mSELECT `hits`.* FROM `hits` WHERE (`hits`.game_id = 3)[0m
+  [1m[35mStick Load (1.2ms)[0m  SELECT `sticks`.* FROM `sticks` INNER JOIN `users_sticks` ON `sticks`.id = `users_sticks`.stick_id WHERE ((`users_sticks`.user_id = 2))
+Rendered games/_hit_form_details.html.erb (169.9ms)
+  [1m[36mHole Load (2.5ms)[0m  [1mSELECT `holes`.* FROM `holes` WHERE `holes`.`field_id` = 1 AND (`holes`.`hole_number` BETWEEN 1 AND 9)[0m
+Rendered games/_hole_tab.html.erb (20.2ms)
+Rendered games/_hole_picture.html.erb (0.9ms)
+Rendered games/details.js.rjs (203.2ms)
+Completed 200 OK in 731ms (Views: 204.8ms | ActiveRecord: 71.0ms)
