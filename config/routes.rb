@@ -53,10 +53,9 @@ Golf::Application.routes.draw do
     end
   end
 
-  #admin
-  #match "admin/users/:user_id" => "admin#", :as => 'give_admin_rights'
-  match "admin/sticks" => "admin/sticks#index", :as => "admin_sticks"
-
+ 
+  
+  
   get "welcome/index"
   get "home/index"
   get "user_sessions/new", :as => 'new_user_session'
@@ -97,8 +96,15 @@ Golf::Application.routes.draw do
   match '/login' => "user_sessions#new",      :as => :login
   match '/logout' => "user_sessions#destroy", :as => :logout
   
-  #user profiles
-  match '/admin' => "admin#index",          :as => :admin
+  #admin
+  match '/admin' => "admin#index",                 :as => :admin
+  match '/sticks-list' => "admin/sticks#index",    :as => :admin_list_sticks
+
+  
+  #match "admin/users/:user_id" => "admin#", :as => 'give_admin_rights'
+  #  match "admin/sticks" => "admin/sticks#index", :as => "admin_sticks"
+  #  post "admin/sticks/create"  => "admin/sticks#create", :as => "create_admin_stick"
+  #  match "admin/sticks/new" => "admin/sticks#new"
   
   namespace "admin" do
     resources :golf_clubs

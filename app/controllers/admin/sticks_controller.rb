@@ -4,19 +4,21 @@ class Admin::SticksController < ApplicationController
   skip_before_filter :require_no_super_admin
   
   def index
+    puts "============================================"
+    puts "============================================"
     @sticks = Stick.find(:all)
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @sticks }
-    end
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.xml  { render :xml => @sticks }
+#    end
   end
   
   def show
     @sticks = Stick.find(:all)
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @sticks }
-    end
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.xml  { render :xml => @sticks }
+#    end
   end
   
   def edit
@@ -25,23 +27,23 @@ class Admin::SticksController < ApplicationController
   
   def new
     @stick = Stick.new
-    @stick.created_at = Time.now
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @stick }
-    end
+    #@stick.created_at = Time.now
+    #respond_to do |format|
+    #  format.html
+    #  format.xml  { render :xml => @stick }
+    #end
   end
   
   def  create
+    puts "========================="
     @stick = Stick.new(params[:stick])
-    @stick.created_at = Time.now
-    respond_to do |format|
-      if @stick.save
-        redirect_to(admin_sticks_path, :notice => 'Stick was successfully created.')
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @stick.errors, :status => :unprocessable_entity }
-      end
+    #@stick.created_at = Time.now
+    if @stick.save
+      puts "saved"
+      redirect_to(admin_sticks_path, :notice => 'Stick was successfully created.')
+    else
+      puts "unsaved"
+      redirect_to(admin_sticks_path, :notice => 'Stick was NOT successfully created.')
     end
   end
   
@@ -53,5 +55,27 @@ class Admin::SticksController < ApplicationController
       redirect_to(admin_sticks_path, :notice => 'Stick was not successfully updated.')
     end
   end
+  
+  
+  #  def index
+  #    
+  #    @countries = Country.find(:all)
+  #    
+  #    respond_to do |format|
+  #      format.html # index.html.erb
+  #      format.xml  { render :xml => @coutries }
+  #    end
+  #  end
+  #  
+  #  def new
+  #    @country = Country.new
+  #  end
+  #  
+  # 
+  #  def create 
+  #    @country = Country.new(params[:country])
+  #    @country.save
+  #    redirect_to(admin_countries_path, :notice => 'Golf club was successfully updated.')   
+  #  end
 
 end

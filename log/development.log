@@ -20623,3 +20623,2954 @@ ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.
   
 
 Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Mon Jul 25 09:25:56 +0300 2011
+  Processing by AdminController#index as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 06:25:57', `updated_at` = '2011-07-25 06:25:57' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (51.5ms)[0m  [1mCOMMIT[0m
+Rendered admin/index.html.erb within layouts/admin (17.9ms)
+Completed 200 OK in 286ms (Views: 21.7ms | ActiveRecord: 56.5ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:25:57 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:25:57 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:25:57 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:25:58 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:25:58 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:25:59 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:25:59', `updated_at` = '2011-07-25 06:25:59' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (66.9ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (21.2ms)
+Completed 200 OK in 242ms (Views: 23.7ms | ActiveRecord: 70.7ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:26:00 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:26:00 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:26:00 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:26:01 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:26:01 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:26:17 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (3.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (43.9ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:26:17', `updated_at` = '2011-07-25 06:26:17' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (73.2ms)[0m  COMMIT
+  [1m[36mStick Load (1.4ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.3ms)
+Completed 200 OK in 383ms (Views: 13.5ms | ActiveRecord: 122.1ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:26:18 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:26:18 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:26:18 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:26:18 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:26:19 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (4.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:26:19', `updated_at` = '2011-07-25 06:26:19' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (41.4ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (17.9ms)
+Completed 200 OK in 246ms (Views: 20.4ms | ActiveRecord: 46.8ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:26:20 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:26:20 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:26:20 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:26:20 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:26:20 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:26:30 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Putter", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"strong", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 06:26:31', `updated_at` = '2011-07-25 06:26:31' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (52.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (11.0ms)
+Completed 200 OK in 335ms (Views: 13.2ms | ActiveRecord: 56.7ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:26:31 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:26:31 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:26:31 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:26:32 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:26:32 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:26:36 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:26:36', `last_request_at` = '2011-07-25 06:26:36' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (29.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (11.8ms)
+Completed 200 OK in 238ms (Views: 14.8ms | ActiveRecord: 33.3ms)
+
+
+Started GET "/stylesheets/scaffold.css" for 127.0.0.1 at Mon Jul 25 09:26:37 +0300 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:26:37 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:26:37 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/admin.js" for 127.0.0.1 at Mon Jul 25 09:26:37 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/jquery.maxlength.js" for 127.0.0.1 at Mon Jul 25 09:26:37 +0300 2011
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.maxlength.js"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:28:41 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:28:41', `last_request_at` = '2011-07-25 06:28:41' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (48.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.7ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (10.8ms)
+Completed 200 OK in 343ms (Views: 13.3ms | ActiveRecord: 53.6ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:28:54 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 06:28:54', `updated_at` = '2011-07-25 06:28:54' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (62.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (10.5ms)
+Completed 200 OK in 265ms (Views: 12.9ms | ActiveRecord: 67.7ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:28:56 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:28:56', `last_request_at` = '2011-07-25 06:28:56' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (55.3ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (17.9ms)
+Completed 200 OK in 357ms (Views: 20.7ms | ActiveRecord: 58.6ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:29:16 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:29:16', `updated_at` = '2011-07-25 06:29:16' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (56.1ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (13.8ms)
+Completed 200 OK in 333ms (Views: 16.3ms | ActiveRecord: 60.3ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:33:37 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:33:37', `last_request_at` = '2011-07-25 06:33:37' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (66.9ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (26.5ms)
+Completed   in 306ms
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    5:   <p class="alert"><%= alert %></p>
+    6: 
+    7: 
+    8:   <% if @user.errors.any? %>
+    9:     <div class="messages">
+    10:       <div class="messages_error" style="display: block;">
+    11:         <ul>
+  app/views/admin/sticks/index.html.erb:8:in `_app_views_admin_sticks_index_html_erb___620873967__612758548_0'
+  app/controllers/admin/sticks_controller.rb:8:in `index'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (93.3ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (98.8ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:34:03 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:34:03', `last_request_at` = '2011-07-25 06:34:03' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (63.6ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (1.5ms)
+Completed   in 237ms
+
+ActionView::Template::Error (undefined method `errors' for []:Array):
+    5:   <p class="alert"><%= alert %></p>
+    6: 
+    7: 
+    8:   <% if @sticks.errors.any? %>
+    9:     <div class="messages">
+    10:       <div class="messages_error" style="display: block;">
+    11:         <ul>
+  app/views/admin/sticks/index.html.erb:8:in `_app_views_admin_sticks_index_html_erb___620873967__612740038_0'
+  app/controllers/admin/sticks_controller.rb:8:in `index'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.5ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.9ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:34:41 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (4.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:34:42', `updated_at` = '2011-07-25 06:34:42' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (59.7ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (1.0ms)
+Completed   in 328ms
+
+ActionView::Template::Error (undefined method `errors' for []:Array):
+    5:   <p class="alert"><%= alert %></p>
+    6: 
+    7: 
+    8:   <% if @sticks.errors.any? %>
+    9:     <div class="messages">
+    10:       <div class="messages_error" style="display: block;">
+    11:         <ul>
+  app/views/admin/sticks/index.html.erb:8:in `_app_views_admin_sticks_index_html_erb___620873967__612562258_0'
+  app/controllers/admin/sticks_controller.rb:8:in `index'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.7ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.5ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:34:52 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:34:52', `last_request_at` = '2011-07-25 06:34:52' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (54.4ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (19.0ms)
+Completed 200 OK in 286ms (Views: 78.3ms | ActiveRecord: 58.2ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:35:39 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:35:40', `updated_at` = '2011-07-25 06:35:40' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (42.8ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (16.3ms)
+Completed 200 OK in 251ms (Views: 18.5ms | ActiveRecord: 45.8ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:35:50 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:35:50', `last_request_at` = '2011-07-25 06:35:50' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (82.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (11.0ms)
+Completed 200 OK in 278ms (Views: 13.4ms | ActiveRecord: 86.4ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:39:42 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:39:42', `last_request_at` = '2011-07-25 06:39:42' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (77.0ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (16.8ms)
+Completed 200 OK in 357ms (Views: 19.1ms | ActiveRecord: 80.1ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:39:50 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:39:50', `updated_at` = '2011-07-25 06:39:50' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (64.6ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (10.8ms)
+Completed 200 OK in 259ms (Views: 13.3ms | ActiveRecord: 68.4ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:55:34 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (3.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:55:35', `last_request_at` = '2011-07-25 06:55:35' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (62.3ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.2ms)
+Completed 200 OK in 282ms (Views: 13.6ms | ActiveRecord: 67.0ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:56:30 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (3.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:56:31', `updated_at` = '2011-07-25 06:56:31' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (52.6ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.3ms)
+Completed 200 OK in 258ms (Views: 13.9ms | ActiveRecord: 57.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:56:34 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:56:34', `updated_at` = '2011-07-25 06:56:34' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (103.3ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (31.0ms)
+Completed 200 OK in 392ms (Views: 34.0ms | ActiveRecord: 106.4ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:56:39 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:56:39', `last_request_at` = '2011-07-25 06:56:39' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (92.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (10.8ms)
+Completed 200 OK in 275ms (Views: 13.4ms | ActiveRecord: 96.4ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:57:33 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:57:33', `last_request_at` = '2011-07-25 06:57:33' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (64.8ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (84.4ms)
+Completed 200 OK in 362ms (Views: 86.6ms | ActiveRecord: 67.9ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:57:37 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (4.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 06:57:37', `last_request_at` = '2011-07-25 06:57:37' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (49.7ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.3ms)
+Completed 200 OK in 338ms (Views: 14.1ms | ActiveRecord: 55.7ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:57:49 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:57:49', `updated_at` = '2011-07-25 06:57:49' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (52.3ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (25.1ms)
+Completed 200 OK in 246ms (Views: 27.3ms | ActiveRecord: 55.3ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 09:58:28 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (4.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 06:58:28', `last_request_at` = '2011-07-25 06:58:28' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (47.5ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (91.0ms)
+Completed 200 OK in 370ms (Views: 93.9ms | ActiveRecord: 53.2ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 09:58:33 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 06:58:34', `updated_at` = '2011-07-25 06:58:34' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (51.4ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (15.6ms)
+Completed 200 OK in 263ms (Views: 19.8ms | ActiveRecord: 55.3ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:00:24 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:00:25', `last_request_at` = '2011-07-25 07:00:25' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (53.5ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (26.2ms)
+Completed 200 OK in 263ms (Views: 28.4ms | ActiveRecord: 56.3ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:00:28 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:00:29', `updated_at` = '2011-07-25 07:00:29' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (43.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.4ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (2.6ms)
+Completed   in 251ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"sticks"}):
+    47:     </div>
+    48:   <% end %>
+    49:   <br />
+    50:   <%= link_to 'Add New Stick', new_admin_stick_path %>
+    51: 
+    52: </div>
+    53: 
+  app/views/admin/sticks/index.html.erb:50:in `_app_views_admin_sticks_index_html_erb___620873967__612756518_0'
+  app/controllers/admin/sticks_controller.rb:10:in `index'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (105.0ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (110.1ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:00:35 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:00:36', `updated_at` = '2011-07-25 07:00:36' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (67.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.7ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (1.6ms)
+Completed   in 253ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"stick"}):
+    47:     </div>
+    48:   <% end %>
+    49:   <br />
+    50:   <%= link_to 'Add New Stick', new_admin_stick_path %>
+    51: 
+    52: </div>
+    53: 
+  app/views/admin/sticks/index.html.erb:50:in `_app_views_admin_sticks_index_html_erb___620873967__612685458_0'
+  app/controllers/admin/sticks_controller.rb:10:in `index'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.9ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.1ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:00:38 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:00:38', `updated_at` = '2011-07-25 07:00:38' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (121.9ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (27.7ms)
+Completed 200 OK in 442ms (Views: 99.6ms | ActiveRecord: 126.1ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:00:41 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (3.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:00:41', `last_request_at` = '2011-07-25 07:00:41' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (31.5ms)[0m  COMMIT
+  [1m[36mStick Load (1.4ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (1.5ms)
+Completed   in 238ms
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"stick"}):
+    47:     </div>
+    48:   <% end %>
+    49:   <br />
+    50:   <%= link_to 'Add New Stick', new_admin_stick_path %>
+    51: 
+    52: </div>
+    53: 
+  app/views/admin/sticks/index.html.erb:50:in `_app_views_admin_sticks_index_html_erb___620873967__612772888_0'
+  app/controllers/admin/sticks_controller.rb:10:in `index'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.2ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:01:35 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:01:36', `updated_at` = '2011-07-25 07:01:36' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (52.2ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (10.8ms)
+Completed 200 OK in 251ms (Views: 13.0ms | ActiveRecord: 56.5ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:01:38 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:01:38', `last_request_at` = '2011-07-25 07:01:38' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (39.1ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (34.2ms)
+Completed 200 OK in 336ms (Views: 36.7ms | ActiveRecord: 42.2ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:01:42 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:01:42', `updated_at` = '2011-07-25 07:01:42' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (26.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (12.3ms)
+Completed 200 OK in 262ms (Views: 15.0ms | ActiveRecord: 30.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:02:04 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:02:05', `last_request_at` = '2011-07-25 07:02:05' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (42.7ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (32.2ms)
+Completed 200 OK in 303ms (Views: 36.3ms | ActiveRecord: 45.8ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:02:08 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:02:08', `updated_at` = '2011-07-25 07:02:08' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (56.3ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.3ms)
+Completed 200 OK in 265ms (Views: 13.7ms | ActiveRecord: 60.2ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:02:39 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (3.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:02:40', `updated_at` = '2011-07-25 07:02:40' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (43.1ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.4ms)
+Completed 200 OK in 256ms (Views: 13.8ms | ActiveRecord: 47.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:02:42 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:02:42', `updated_at` = '2011-07-25 07:02:42' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (32.3ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (1.5ms)
+Completed   in 229ms
+
+ActionView::Template::Error (undefined method `model_name' for String:Class):
+    1: 
+    2: <%= form_for [:admin, create_admin_stick_path] do |f| %>
+    3: 
+    4: 
+    5:   <div class="field">
+  app/views/admin/sticks/new.html.erb:2:in `_app_views_admin_sticks_new_html_erb___463080854__613163008_0'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (73.1ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (78.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:02:54 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (27.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:02:54', `updated_at` = '2011-07-25 07:02:54' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (54.4ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (32.3ms)
+Completed   in 378ms
+
+ActionView::Template::Error (undefined method `/admin/sticks/create_sticks_path' for #<#<Class:0xb6ea359c>:0xb6ea1940>):
+    1: 
+    2: <%= form_for [create_admin_stick_path, @stick] do |f| %>
+    3: 
+    4: 
+    5:   <div class="field">
+  app/views/admin/sticks/new.html.erb:2:in `_app_views_admin_sticks_new_html_erb___463080854__613091018_0'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.0ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.3ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:02:59 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:02:59', `last_request_at` = '2011-07-25 07:02:59' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (52.2ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (29.3ms)
+Completed   in 366ms
+
+ActionView::Template::Error (undefined method `create_admin_stick_path_sticks_path' for #<#<Class:0xb6f78a30>:0xb6f7559c>):
+    1: 
+    2: <%= form_for [:create_admin_stick_path, @stick] do |f| %>
+    3: 
+    4: 
+    5:   <div class="field">
+  app/views/admin/sticks/new.html.erb:2:in `_app_views_admin_sticks_new_html_erb___463080854__612655698_0'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.9ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (37.4ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:03:08 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:03:08', `updated_at` = '2011-07-25 07:03:08' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (32.9ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (90.6ms)
+Completed 200 OK in 312ms (Views: 94.3ms | ActiveRecord: 36.3ms)
+
+
+Started POST "/sticks" for 127.0.0.1 at Mon Jul 25 10:03:13 +0300 2011
+
+AbstractController::ActionNotFound (The action 'create' could not be found for SticksController):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:04:08 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (3.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:04:08', `updated_at` = '2011-07-25 07:04:08' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (47.0ms)[0m  COMMIT
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_admin_sticks_new_html_erb___463080854__612613398_0 at /home/edgars/workspace/Golf/app/views/admin/sticks/new.html.erb:2)
+Rendered admin/sticks/new.html.erb within layouts/admin (30.3ms)
+Completed 200 OK in 264ms (Views: 32.7ms | ActiveRecord: 50.8ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:04:19 +0300 2011
+
+ActionController::RoutingError (No route matches "/admin/sticks/new"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:04:26 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:04:26', `updated_at` = '2011-07-25 07:04:26' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (39.1ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_admin_sticks_new_html_erb___463080854__612824038_0 at /home/edgars/workspace/Golf/app/views/admin/sticks/new.html.erb:2)
+Rendered admin/sticks/new.html.erb within layouts/admin (33.4ms)
+Completed 200 OK in 267ms (Views: 36.1ms | ActiveRecord: 42.2ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:04:30 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (3.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:04:31', `last_request_at` = '2011-07-25 07:04:31' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (36.5ms)[0m  COMMIT
+  [1m[36mStick Load (1.4ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (83.8ms)
+Completed 200 OK in 329ms (Views: 87.4ms | ActiveRecord: 42.3ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:04:33 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (3.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:04:34', `updated_at` = '2011-07-25 07:04:34' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (42.4ms)[0m  COMMIT
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_admin_sticks_new_html_erb___463080854__612141168_0 at /home/edgars/workspace/Golf/app/views/admin/sticks/new.html.erb:2)
+Rendered admin/sticks/new.html.erb within layouts/admin (31.8ms)
+Completed 200 OK in 358ms (Views: 35.5ms | ActiveRecord: 46.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:06:41 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:06:41', `updated_at` = '2011-07-25 07:06:41' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (43.0ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (26.8ms)
+Completed 200 OK in 249ms (Views: 29.3ms | ActiveRecord: 45.9ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:06:44 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mAREL (1.0ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:06:44', `last_request_at` = '2011-07-25 07:06:44' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (43.9ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (13.7ms)
+Completed 200 OK in 247ms (Views: 16.7ms | ActiveRecord: 48.6ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:07:19 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:07:20', `updated_at` = '2011-07-25 07:07:20' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (56.6ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.0ms)
+Completed 200 OK in 265ms (Views: 13.3ms | ActiveRecord: 60.0ms)
+
+
+Started GET "/admin/stick/new" for 127.0.0.1 at Mon Jul 25 10:07:22 +0300 2011
+
+ActionController::RoutingError (uninitialized constant Admin::StickController):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/stick/new" for 127.0.0.1 at Mon Jul 25 10:07:26 +0300 2011
+
+ActionController::RoutingError (No route matches "/admin/stick/new"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/stick/new" for 127.0.0.1 at Mon Jul 25 10:07:28 +0300 2011
+
+ActionController::RoutingError (No route matches "/admin/stick/new"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:07:31 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (5.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:07:31', `updated_at` = '2011-07-25 07:07:31' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (63.1ms)[0m  COMMIT
+  [1m[36mStick Load (2.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (13.9ms)
+Completed 200 OK in 297ms (Views: 16.8ms | ActiveRecord: 71.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:07:32 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:07:33', `last_request_at` = '2011-07-25 07:07:33' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (40.4ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (27.6ms)
+Completed 200 OK in 293ms (Views: 30.3ms | ActiveRecord: 43.6ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:09:38 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:09:39', `updated_at` = '2011-07-25 07:09:39' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (46.5ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (9.2ms)
+Completed   in 273ms
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: 
+    2: <%= form_for [:admin,@stick] do |f| %>
+    3:   <% if @country.errors.any? %>
+    4:     <div id="error_explanation">
+    5:       <h2><%= pluralize(@country.errors.count, "error") %> prohibited this golf_club from being saved:</h2>
+    6:       <ul>
+  app/views/admin/sticks/new.html.erb:3:in `_app_views_admin_sticks_new_html_erb___463080854__612917558_0'
+  app/views/admin/sticks/new.html.erb:2:in `_app_views_admin_sticks_new_html_erb___463080854__612917558_0'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (108.0ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (113.9ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:09:40 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:09:40', `last_request_at` = '2011-07-25 07:09:40' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (60.7ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.4ms)
+Completed 200 OK in 260ms (Views: 13.9ms | ActiveRecord: 64.4ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:09:43 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (5.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:09:43', `last_request_at` = '2011-07-25 07:09:43' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (38.7ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (15.4ms)
+Completed   in 255ms
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: 
+    2: <%= form_for [:admin,@stick] do |f| %>
+    3:   <% if @country.errors.any? %>
+    4:     <div id="error_explanation">
+    5:       <h2><%= pluralize(@country.errors.count, "error") %> prohibited this golf_club from being saved:</h2>
+    6:       <ul>
+  app/views/admin/sticks/new.html.erb:3:in `_app_views_admin_sticks_new_html_erb___463080854__612693908_0'
+  app/views/admin/sticks/new.html.erb:2:in `_app_views_admin_sticks_new_html_erb___463080854__612693908_0'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.9ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.2ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:09:54 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (4.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:09:54', `updated_at` = '2011-07-25 07:09:54' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (83.7ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (47.7ms)
+Completed 200 OK in 386ms (Views: 55.1ms | ActiveRecord: 88.5ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:09:58 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.8ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:09:58', `last_request_at` = '2011-07-25 07:09:58' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (36.3ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.7ms)
+Completed 200 OK in 290ms (Views: 14.7ms | ActiveRecord: 40.6ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:10:58 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:10:59', `updated_at` = '2011-07-25 07:10:59' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (51.4ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.1ms)
+Completed 200 OK in 255ms (Views: 13.6ms | ActiveRecord: 55.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:11:02 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (3.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:11:02', `updated_at` = '2011-07-25 07:11:02' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (41.1ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (29.8ms)
+Completed 200 OK in 272ms (Views: 32.1ms | ActiveRecord: 44.8ms)
+
+
+Started POST "/admin/sticks/create_admin_stick_path" for 127.0.0.1 at Mon Jul 25 10:11:06 +0300 2011
+
+ActionController::RoutingError (No route matches "/admin/sticks/create_admin_stick_path"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:11:23 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (5.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:11:23', `last_request_at` = '2011-07-25 07:11:23' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (48.9ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (83.7ms)
+Completed 200 OK in 320ms (Views: 86.1ms | ActiveRecord: 54.6ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:11:25 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:11:25', `updated_at` = '2011-07-25 07:11:25' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (48.2ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.3ms)
+Completed 200 OK in 246ms (Views: 13.6ms | ActiveRecord: 52.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:12:31 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (3.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:12:31', `last_request_at` = '2011-07-25 07:12:31' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (77.3ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (14.3ms)
+Completed 200 OK in 296ms (Views: 16.7ms | ActiveRecord: 81.1ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:12:33 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:12:33', `last_request_at` = '2011-07-25 07:12:33' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (54.0ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (22.1ms)
+Completed 200 OK in 270ms (Views: 28.7ms | ActiveRecord: 57.7ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:12:37 +0300 2011
+
+ActionController::RoutingError (No route matches "/admin/sticks/new"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:12:56 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:12:57', `last_request_at` = '2011-07-25 07:12:57' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (47.6ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (25.3ms)
+Completed 200 OK in 266ms (Views: 27.8ms | ActiveRecord: 50.8ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:14:05 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:14:05', `updated_at` = '2011-07-25 07:14:05' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (46.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (13.9ms)
+Completed 200 OK in 277ms (Views: 16.3ms | ActiveRecord: 50.1ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:14:07 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:14:07', `last_request_at` = '2011-07-25 07:14:07' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (39.6ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (34.9ms)
+Completed 200 OK in 272ms (Views: 37.3ms | ActiveRecord: 42.6ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:14:11 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (5.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:14:11', `updated_at` = '2011-07-25 07:14:11' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (32.1ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.7ms)
+Completed 200 OK in 249ms (Views: 14.1ms | ActiveRecord: 38.6ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:29:22 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (3.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:29:22', `updated_at` = '2011-07-25 07:29:22' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (78.5ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (15.9ms)
+Completed 200 OK in 326ms (Views: 19.2ms | ActiveRecord: 83.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:29:29 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (3.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:29:29', `last_request_at` = '2011-07-25 07:29:29' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (53.4ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (96.8ms)
+Completed 200 OK in 339ms (Views: 99.4ms | ActiveRecord: 57.8ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:29:33 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (3.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:29:33', `last_request_at` = '2011-07-25 07:29:33' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (48.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (12.7ms)
+Completed 200 OK in 343ms (Views: 15.4ms | ActiveRecord: 53.5ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:30:36 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:30:36', `last_request_at` = '2011-07-25 07:30:36' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (46.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.7ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (11.6ms)
+Completed 200 OK in 249ms (Views: 14.3ms | ActiveRecord: 51.5ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:30:53 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:30:53', `updated_at` = '2011-07-25 07:30:53' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (48.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (11.3ms)
+Completed 200 OK in 250ms (Views: 13.8ms | ActiveRecord: 52.4ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:30:57 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:30:57', `last_request_at` = '2011-07-25 07:30:57' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (37.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (29.0ms)
+Completed 200 OK in 255ms (Views: 31.8ms | ActiveRecord: 43.4ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:49:06 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mSQL (68.8ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (3.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:49:06', `updated_at` = '2011-07-25 07:49:06' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (77.1ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (21.7ms)
+Completed 200 OK in 483ms (Views: 51.5ms | ActiveRecord: 150.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:49:08 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (3.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:49:08', `updated_at` = '2011-07-25 07:49:08' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (44.3ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (29.8ms)
+Completed 200 OK in 311ms (Views: 32.5ms | ActiveRecord: 48.7ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:49:12 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:49:12', `last_request_at` = '2011-07-25 07:49:12' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (44.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.5ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (13.8ms)
+Completed 200 OK in 243ms (Views: 17.2ms | ActiveRecord: 49.6ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:49:47 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:49:47', `updated_at` = '2011-07-25 07:49:47' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (44.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.7ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (74.1ms)
+Completed 200 OK in 281ms (Views: 76.6ms | ActiveRecord: 47.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:49:49 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:49:49', `last_request_at` = '2011-07-25 07:49:49' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (41.2ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (17.6ms)
+Completed 200 OK in 293ms (Views: 20.0ms | ActiveRecord: 44.2ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:49:53 +0300 2011
+
+ActionController::RoutingError (No route matches "/admin/sticks/new"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:51:08 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:51:08', `updated_at` = '2011-07-25 07:51:08' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (60.7ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (14.9ms)
+Completed 200 OK in 252ms (Views: 17.6ms | ActiveRecord: 64.0ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:51:10 +0300 2011
+
+ActionController::RoutingError (No route matches "/admin/sticks/new"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:51:19 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:51:19', `last_request_at` = '2011-07-25 07:51:19' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (37.7ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (22.0ms)
+Completed 200 OK in 241ms (Views: 26.2ms | ActiveRecord: 40.6ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:51:22 +0300 2011
+
+ActionController::RoutingError (No route matches "/admin/sticks/new"):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:51:59 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  Parameters: {"commit"=>"Save Create admin stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "create_admin_stick"=>{"stick_type"=>"o", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (4.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:51:59', `updated_at` = '2011-07-25 07:51:59' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (75.2ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (15.6ms)
+Completed 200 OK in 349ms (Views: 18.9ms | ActiveRecord: 80.7ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:52:19 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  Parameters: {"commit"=>"Save Create admin stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "create_admin_stick"=>{"stick_type"=>"o", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:52:19', `updated_at` = '2011-07-25 07:52:19' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (70.5ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (13.4ms)
+Completed 200 OK in 335ms (Views: 15.9ms | ActiveRecord: 75.2ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:52:26 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  Parameters: {"commit"=>"Save Create admin stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "create_admin_stick"=>{"stick_type"=>"o", "shaft"=>"asf", "shaft_strength"=>"asf", "short_name"=>"af", "degrees"=>"asf", "distance"=>"saf"}}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:52:26', `last_request_at` = '2011-07-25 07:52:26' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (56.3ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (14.8ms)
+Completed 200 OK in 278ms (Views: 17.9ms | ActiveRecord: 59.6ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:54:16 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  Parameters: {"commit"=>"Save Create admin stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "create_admin_stick"=>{"stick_type"=>"o", "shaft"=>"asf", "shaft_strength"=>"asf", "short_name"=>"af", "degrees"=>"asf", "distance"=>"saf"}}
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:54:16', `updated_at` = '2011-07-25 07:54:16' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (52.1ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (14.6ms)
+Completed 200 OK in 279ms (Views: 16.9ms | ActiveRecord: 55.6ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:54:30 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  Parameters: {"commit"=>"Save Create admin stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "create_admin_stick"=>{"stick_type"=>"o", "shaft"=>"sss", "shaft_strength"=>"sss", "short_name"=>"sss", "degrees"=>"123", "distance"=>"123"}}
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:54:30', `updated_at` = '2011-07-25 07:54:30' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (50.7ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (78.1ms)
+Completed 200 OK in 314ms (Views: 80.4ms | ActiveRecord: 53.9ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:54:53 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  Parameters: {"commit"=>"Save Create admin stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "create_admin_stick"=>{"stick_type"=>"o", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:54:53', `last_request_at` = '2011-07-25 07:54:53' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (55.8ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (15.6ms)
+Completed 200 OK in 351ms (Views: 18.3ms | ActiveRecord: 59.2ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:55:20 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  Parameters: {"commit"=>"Save Create admin stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "create_admin_stick"=>{"stick_type"=>"o", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:55:21', `last_request_at` = '2011-07-25 07:55:21' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (51.8ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (19.7ms)
+Completed 200 OK in 247ms (Views: 22.1ms | ActiveRecord: 55.0ms)
+
+
+Started POST "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:55:43 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  Parameters: {"commit"=>"Save Create admin stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "create_admin_stick"=>{"stick_type"=>"o", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:55:44', `updated_at` = '2011-07-25 07:55:44' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (53.8ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (24.0ms)
+Completed 200 OK in 255ms (Views: 26.3ms | ActiveRecord: 56.9ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:55:47 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:55:47', `last_request_at` = '2011-07-25 07:55:47' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (49.5ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (18.2ms)
+Completed 200 OK in 279ms (Views: 20.8ms | ActiveRecord: 53.7ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:57:05 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (4.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:57:06', `updated_at` = '2011-07-25 07:57:06' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (78.8ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (20.6ms)
+Completed 200 OK in 390ms (Views: 23.1ms | ActiveRecord: 84.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:57:08 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (4.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:57:08', `last_request_at` = '2011-07-25 07:57:08' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (58.9ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (24.9ms)
+Completed 200 OK in 349ms (Views: 27.3ms | ActiveRecord: 63.9ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:57:11 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:57:12', `updated_at` = '2011-07-25 07:57:12' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (54.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (33.9ms)
+Completed 200 OK in 299ms (Views: 37.7ms | ActiveRecord: 58.5ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:57:43 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:57:43', `last_request_at` = '2011-07-25 07:57:43' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (99.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (12.0ms)
+Completed 200 OK in 335ms (Views: 14.7ms | ActiveRecord: 102.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:57:46 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:57:46', `updated_at` = '2011-07-25 07:57:46' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (54.7ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (84.0ms)
+Completed 200 OK in 336ms (Views: 86.3ms | ActiveRecord: 58.3ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:57:50 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (3.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:57:50', `updated_at` = '2011-07-25 07:57:50' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (48.5ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.3ms)
+Completed 200 OK in 229ms (Views: 14.0ms | ActiveRecord: 53.9ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:58:03 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (5.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:58:04', `last_request_at` = '2011-07-25 07:58:04' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (57.7ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.4ms)
+Completed 200 OK in 252ms (Views: 14.0ms | ActiveRecord: 64.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:58:05 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:58:05', `last_request_at` = '2011-07-25 07:58:05' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (71.1ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (36.3ms)
+Completed 200 OK in 281ms (Views: 39.4ms | ActiveRecord: 74.5ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:58:10 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (20.9ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:58:10', `updated_at` = '2011-07-25 07:58:10' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (81.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mROLLBACK[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (19.7ms)
+Completed   in 350ms
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    3: <%= form_for [:admin, @stick] do |f| %>
+    4:   <% if @stick.errors.any? %>
+    5:     <div id="error_explanation">
+    6:       <h2><%= pluralize(@country.errors.count, "error") %> prohibited this golf_club from being saved:</h2>
+    7:       <ul>
+    8:       <% @country.errors.full_messages.each do |msg| %>
+    9:         <li><%= msg %></li>
+  app/views/admin/sticks/new.html.erb:6:in `_app_views_admin_sticks_new_html_erb___463080854__614047648_0'
+  app/views/admin/sticks/new.html.erb:3:in `_app_views_admin_sticks_new_html_erb___463080854__614047648_0'
+  app/controllers/admin/sticks_controller.rb:44:in `create'
+  app/controllers/admin/sticks_controller.rb:40:in `create'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (88.0ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (98.8ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:58:34 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:58:34', `last_request_at` = '2011-07-25 07:58:34' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (59.5ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  ROLLBACK
+Rendered admin/sticks/new.html.erb within layouts/admin (2.9ms)
+Completed   in 301ms
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    3: <%= form_for [:admin, @stick] do |f| %>
+    4:   <% if @stick.errors.any? %>
+    5:     <div id="error_explanation">
+    6:       <h2><%= pluralize(@country.errors.count, "error") %> prohibited this golf_club from being saved:</h2>
+    7:       <ul>
+    8:       <% @country.errors.full_messages.each do |msg| %>
+    9:         <li><%= msg %></li>
+  app/views/admin/sticks/new.html.erb:6:in `_app_views_admin_sticks_new_html_erb___463080854__613954598_0'
+  app/views/admin/sticks/new.html.erb:3:in `_app_views_admin_sticks_new_html_erb___463080854__613954598_0'
+  app/controllers/admin/sticks_controller.rb:44:in `create'
+  app/controllers/admin/sticks_controller.rb:40:in `create'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.4ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.5ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:58:41 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (4.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 07:58:41', `last_request_at` = '2011-07-25 07:58:41' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (43.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mROLLBACK[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (3.3ms)
+Completed   in 257ms
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    3: <%= form_for [:admin, @stick] do |f| %>
+    4:   <% if @stick.errors.any? %>
+    5:     <div id="error_explanation">
+    6:       <h2><%= pluralize(@country.errors.count, "error") %> prohibited this golf_club from being saved:</h2>
+    7:       <ul>
+    8:       <% @country.errors.full_messages.each do |msg| %>
+    9:         <li><%= msg %></li>
+  app/views/admin/sticks/new.html.erb:6:in `_app_views_admin_sticks_new_html_erb___463080854__613722358_0'
+  app/views/admin/sticks/new.html.erb:3:in `_app_views_admin_sticks_new_html_erb___463080854__613722358_0'
+  app/controllers/admin/sticks_controller.rb:44:in `create'
+  app/controllers/admin/sticks_controller.rb:40:in `create'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.4ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.5ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:58:54 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:58:54', `last_request_at` = '2011-07-25 07:58:54' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (47.0ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  ROLLBACK
+Rendered admin/sticks/new.html.erb within layouts/admin (17.7ms)
+Completed 200 OK in 345ms (Views: 20.0ms | ActiveRecord: 50.4ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:58:58 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:58:59', `updated_at` = '2011-07-25 07:58:59' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (39.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mROLLBACK[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (20.5ms)
+Completed 200 OK in 264ms (Views: 23.0ms | ActiveRecord: 43.1ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at Mon Jul 25 10:59:03 +0300 2011
+  Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 07:59:04', `updated_at` = '2011-07-25 07:59:04' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (34.5ms)[0m  COMMIT
+  [1m[36mUser Load (18.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0[0m
+Rendered admin/users/index.html.erb within layouts/admin (32.8ms)
+Completed 200 OK in 275ms (Views: 39.1ms | ActiveRecord: 56.1ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:59:04 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:59:04', `last_request_at` = '2011-07-25 07:59:04' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (37.3ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (17.3ms)
+Completed 200 OK in 230ms (Views: 20.5ms | ActiveRecord: 41.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 10:59:07 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 07:59:07', `last_request_at` = '2011-07-25 07:59:07' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (47.5ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (25.7ms)
+Completed 200 OK in 253ms (Views: 28.2ms | ActiveRecord: 50.5ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 10:59:14 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 07:59:14', `updated_at` = '2011-07-25 07:59:14' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (47.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mROLLBACK[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (23.5ms)
+Completed 200 OK in 269ms (Views: 26.0ms | ActiveRecord: 50.6ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:00:07 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:00:08', `last_request_at` = '2011-07-25 08:00:08' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (75.8ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.3ms)
+Completed 200 OK in 314ms (Views: 13.9ms | ActiveRecord: 79.7ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:00:10 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:00:10', `last_request_at` = '2011-07-25 08:00:10' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (52.9ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (24.0ms)
+Completed 200 OK in 329ms (Views: 26.4ms | ActiveRecord: 56.0ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:00:14 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"", "shaft_strength"=>"", "short_name"=>"", "degrees"=>"", "distance"=>""}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:00:14', `updated_at` = '2011-07-25 08:00:14' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (56.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mROLLBACK[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (16.9ms)
+Completed 200 OK in 261ms (Views: 19.2ms | ActiveRecord: 59.8ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:18:31 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:18:31', `updated_at` = '2011-07-25 08:18:31' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (59.0ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (12.1ms)
+Completed 200 OK in 358ms (Views: 76.1ms | ActiveRecord: 62.8ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:18:34 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:18:35', `updated_at` = '2011-07-25 08:18:35' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (48.9ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (32.3ms)
+Completed 200 OK in 267ms (Views: 34.9ms | ActiveRecord: 52.2ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:18:48 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"2", "shaft_strength"=>"2", "short_name"=>"2", "degrees"=>"2", "distance"=>"214"}}
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:18:48', `updated_at` = '2011-07-25 08:18:48' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (40.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (20.3ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (98.8ms)[0m  INSERT INTO `sticks` (`shaft`, `degrees`, `distance`, `stick_type`, `shaft_strength`, `created_at`, `short_name`, `updated_at`) VALUES ('2', 2, 214, 'Orion', '2', '2011-07-25 08:18:48', '2', '2011-07-25 08:18:48')
+  [1m[36mSQL (46.2ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (1.3ms)
+Completed   in 428ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    22:       <div class="item">To Do</div>
+    23:     </div>
+    24:   </b>
+    25:   <% @sticks.each do |stick| %>
+    26:     <div class="row">
+    27:       <div class="item"><%= stick.stick_type %></div>
+    28:       <div class="item"><%= stick.distance %></div>
+  app/views/admin/sticks/index.html.erb:25:in `_app_views_admin_sticks_index_html_erb___620873967__614167828_0'
+  app/controllers/admin/sticks_controller.rb:43:in `create'
+  app/controllers/admin/sticks_controller.rb:40:in `create'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.6ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (24.0ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:19:07 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:19:07', `updated_at` = '2011-07-25 08:19:07' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (62.0ms)[0m  COMMIT
+  [1m[36mStick Load (1.3ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (32.3ms)
+Completed 200 OK in 286ms (Views: 35.7ms | ActiveRecord: 67.0ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:19:56 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:19:56', `last_request_at` = '2011-07-25 08:19:56' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (74.6ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (90.4ms)
+Completed 200 OK in 361ms (Views: 93.3ms | ActiveRecord: 78.2ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:19:58 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (3.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:19:58', `updated_at` = '2011-07-25 08:19:58' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (32.7ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (34.1ms)
+Completed 200 OK in 334ms (Views: 36.6ms | ActiveRecord: 37.2ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:20:08 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (4.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:20:09', `last_request_at` = '2011-07-25 08:20:09' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (32.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.1ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO `sticks` (`degrees`, `distance`, `updated_at`, `short_name`, `shaft`, `shaft_strength`, `created_at`, `stick_type`) VALUES (125, 212, '2011-07-25 08:20:09', 'Weed', '436', 'strong', '2011-07-25 08:20:09', 'Orion')
+  [1m[36mSQL (28.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/sticks
+Completed 406 Not Acceptable in 260ms
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:20:14 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (3.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:20:14', `updated_at` = '2011-07-25 08:20:14' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (36.8ms)[0m  COMMIT
+  [1m[36mStick Load (1.4ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (24.5ms)
+Completed 200 OK in 281ms (Views: 27.7ms | ActiveRecord: 112.2ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:21:53 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (4.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:21:54', `updated_at` = '2011-07-25 08:21:54' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (52.0ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (30.4ms)
+Completed 200 OK in 273ms (Views: 32.7ms | ActiveRecord: 58.2ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:21:56 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:21:56', `last_request_at` = '2011-07-25 08:21:56' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (54.9ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (31.8ms)
+Completed 200 OK in 345ms (Views: 34.3ms | ActiveRecord: 58.0ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:22:04 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:22:05', `updated_at` = '2011-07-25 08:22:05' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (27.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.6ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `sticks` (`shaft`, `stick_type`, `shaft_strength`, `short_name`, `distance`, `degrees`, `updated_at`, `created_at`) VALUES ('436', 'Orion', 'strong', 'Weed', 212, 125, '2011-07-25 08:22:05', '2011-07-25 08:22:05')
+  [1m[36mSQL (32.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 406 Not Acceptable in 252ms
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:23:02 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:23:03', `updated_at` = '2011-07-25 08:23:03' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (57.2ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (25.6ms)
+Completed   in 279ms
+
+ActionView::Template::Error (No route matches {:controller=>"admin"}):
+    58: 
+    59:       <div class="menu">
+    60:         <ul class="navigation">
+    61:           <li><%= link_to "Home", admin_path %></li>
+    62:           <li><%= link_to "Golf clubs", admin_golf_clubs_path %></li>
+    63:           <li><%= link_to "Sticks", admin_sticks_path %></li>
+    64:           <li><%= link_to "Users",admin_users_path %></li>
+  app/views/layouts/admin.html.erb:61:in `_app_views_layouts_admin_html_erb___986257465__613326298_0'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.9ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (80.3ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:23:08 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:23:08', `updated_at` = '2011-07-25 08:23:08' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (44.0ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (26.1ms)
+Completed   in 245ms
+
+ActionView::Template::Error (No route matches {:controller=>"admin"}):
+    58: 
+    59:       <div class="menu">
+    60:         <ul class="navigation">
+    61:           <li><%= link_to "Home", admin_path %></li>
+    62:           <li><%= link_to "Golf clubs", admin_golf_clubs_path %></li>
+    63:           <li><%= link_to "Sticks", admin_sticks_path %></li>
+    64:           <li><%= link_to "Users",admin_users_path %></li>
+  app/views/layouts/admin.html.erb:61:in `_app_views_layouts_admin_html_erb___986257465__613455508_0'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.1ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.3ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:23:43 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (5.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:23:44', `updated_at` = '2011-07-25 08:23:44' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (46.5ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (100.4ms)
+Completed 200 OK in 354ms (Views: 102.8ms | ActiveRecord: 52.1ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:23:52 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (4.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:23:52', `updated_at` = '2011-07-25 08:23:52' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (48.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.4ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (24.9ms)
+Completed 200 OK in 276ms (Views: 28.7ms | ActiveRecord: 55.4ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:24:09 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:24:09', `updated_at` = '2011-07-25 08:24:09' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (41.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.9ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (14.1ms)
+Completed 200 OK in 263ms (Views: 16.5ms | ActiveRecord: 46.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:24:11 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.9ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:24:11', `updated_at` = '2011-07-25 08:24:11' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (42.9ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (24.9ms)
+Completed 200 OK in 269ms (Views: 27.5ms | ActiveRecord: 46.5ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:24:22 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:24:22', `updated_at` = '2011-07-25 08:24:22' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (64.7ms)[0m  COMMIT
+  [1m[36mStick Load (0.7ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (15.8ms)
+Completed 200 OK in 267ms (Views: 18.2ms | ActiveRecord: 68.5ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:24:48 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:24:48', `last_request_at` = '2011-07-25 08:24:48' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (49.4ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (99.2ms)
+Completed 200 OK in 338ms (Views: 102.2ms | ActiveRecord: 52.8ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:24:55 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"a", "shaft"=>"1", "shaft_strength"=>"1", "short_name"=>"1", "degrees"=>"125", "distance"=>"1"}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:24:55', `updated_at` = '2011-07-25 08:24:55' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (47.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.4ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (11.0ms)
+Completed 200 OK in 304ms (Views: 14.4ms | ActiveRecord: 52.3ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:25:19 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (3.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:25:20', `updated_at` = '2011-07-25 08:25:20' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (69.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (11.4ms)
+Completed 200 OK in 307ms (Views: 14.4ms | ActiveRecord: 74.6ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:25:29 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:25:30', `last_request_at` = '2011-07-25 08:25:30' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (53.1ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (26.4ms)
+Completed 200 OK in 271ms (Views: 28.9ms | ActiveRecord: 56.7ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:25:39 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"124", "distance"=>"212"}}
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:25:39', `last_request_at` = '2011-07-25 08:25:39' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (51.2ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  describe `sticks`
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `sticks` (`shaft`, `updated_at`, `distance`, `created_at`, `stick_type`, `short_name`, `degrees`, `shaft_strength`) VALUES ('436', '2011-07-25 08:25:39', 212, '2011-07-25 08:25:39', 'Orion', 'Weed', 124, 'strong')[0m
+  [1m[35mSQL (36.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/sticks/list
+Completed 406 Not Acceptable in 331ms
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:25:58 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (5.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:25:58', `last_request_at` = '2011-07-25 08:25:58' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (46.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.0ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (103.6ms)
+Completed 200 OK in 377ms (Views: 106.0ms | ActiveRecord: 52.7ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:26:46 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (4.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:26:47', `last_request_at` = '2011-07-25 08:26:47' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (54.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (0.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (93.9ms)
+Completed 200 OK in 367ms (Views: 96.4ms | ActiveRecord: 60.6ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:26:49 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:26:49', `last_request_at` = '2011-07-25 08:26:49' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (58.0ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (33.8ms)
+Completed 200 OK in 291ms (Views: 37.8ms | ActiveRecord: 61.6ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:26:58 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[35mUser Load (3.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:26:58', `updated_at` = '2011-07-25 08:26:58' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (38.4ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.3ms)[0m  describe `sticks`
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `sticks` (`degrees`, `created_at`, `distance`, `short_name`, `shaft_strength`, `shaft`, `updated_at`, `stick_type`) VALUES (125, '2011-07-25 08:26:58', 212, 'Weed', 'strong', '436', '2011-07-25 08:26:58', 'Orion')[0m
+  [1m[35mSQL (46.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/sticks-list
+Completed 406 Not Acceptable in 303ms
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:27:13 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:27:13', `updated_at` = '2011-07-25 08:27:13' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (32.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `sticks` (`shaft_strength`, `created_at`, `stick_type`, `degrees`, `updated_at`, `shaft`, `distance`, `short_name`) VALUES ('strong', '2011-07-25 08:27:14', 'Orion', 125, '2011-07-25 08:27:14', '436', 212, 'Weed')
+  [1m[36mSQL (30.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/sticks-list
+Completed 406 Not Acceptable in 290ms
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:27:15 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:27:15', `updated_at` = '2011-07-25 08:27:15' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (51.4ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (29.1ms)
+Completed 200 OK in 368ms (Views: 32.1ms | ActiveRecord: 148.2ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:27:18 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:27:18', `last_request_at` = '2011-07-25 08:27:18' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (39.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.3ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `sticks` (`updated_at`, `distance`, `degrees`, `shaft`, `shaft_strength`, `stick_type`, `created_at`, `short_name`) VALUES ('2011-07-25 08:27:18', 212, 125, '436', 'strong', 'Orion', '2011-07-25 08:27:18', 'Weed')
+  [1m[36mSQL (29.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/sticks-list
+Completed 406 Not Acceptable in 269ms
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:27:40 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:27:40', `last_request_at` = '2011-07-25 08:27:40' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (51.4ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  describe `sticks`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `sticks` (`shaft_strength`, `distance`, `short_name`, `shaft`, `stick_type`, `created_at`, `degrees`, `updated_at`) VALUES ('strong', 212, 'Weed', '436', 'Orion', '2011-07-25 08:27:40', 125, '2011-07-25 08:27:40')[0m
+  [1m[35mSQL (41.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/sticks-list
+Completed 406 Not Acceptable in 319ms
+
+
+Started GET "/admin/golf_clubs" for 127.0.0.1 at Mon Jul 25 11:27:43 +0300 2011
+  Processing by Admin::GolfClubsController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:27:43', `updated_at` = '2011-07-25 08:27:43' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (64.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mGolfClub Load (2.0ms)[0m  SELECT `golf_clubs`.* FROM `golf_clubs`
+Rendered admin/golf_clubs/index.html.erb within layouts/admin (13.4ms)
+Completed 200 OK in 376ms (Views: 28.1ms | ActiveRecord: 137.9ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:27:43 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:27:44', `last_request_at` = '2011-07-25 08:27:44' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (76.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.4ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (27.8ms)
+Completed 200 OK in 307ms (Views: 30.7ms | ActiveRecord: 156.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:27:48 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:27:48', `last_request_at` = '2011-07-25 08:27:48' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (40.4ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (88.0ms)
+Completed 200 OK in 329ms (Views: 90.8ms | ActiveRecord: 44.7ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:28:06 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (3.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:28:06', `last_request_at` = '2011-07-25 08:28:06' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (55.5ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (27.4ms)
+Completed 200 OK in 395ms (Views: 39.6ms | ActiveRecord: 59.6ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:28:14 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"1", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:28:14', `last_request_at` = '2011-07-25 08:28:14' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (51.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (23.0ms)[0m  INSERT INTO `sticks` (`degrees`, `updated_at`, `short_name`, `created_at`, `distance`, `shaft`, `shaft_strength`, `stick_type`) VALUES (125, '2011-07-25 08:28:14', 'Weed', '2011-07-25 08:28:14', 212, '1', 'strong', 'Orion')
+  [1m[36mSQL (71.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/sticks-list
+Completed 406 Not Acceptable in 335ms
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:28:30 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:28:30', `updated_at` = '2011-07-25 08:28:30' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (42.2ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (93.0ms)
+Completed 200 OK in 372ms (Views: 95.4ms | ActiveRecord: 45.4ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:28:32 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"1", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:28:33', `updated_at` = '2011-07-25 08:28:33' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (44.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.8ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (1.6ms)[0m  INSERT INTO `sticks` (`updated_at`, `stick_type`, `distance`, `degrees`, `shaft`, `shaft_strength`, `created_at`, `short_name`) VALUES ('2011-07-25 08:28:33', 'Orion', 212, 125, '1', 'strong', '2011-07-25 08:28:33', 'Weed')
+  [1m[36mSQL (63.7ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (1.1ms)
+Completed   in 445ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    22:       <div class="item">To Do</div>
+    23:     </div>
+    24:   </b>
+    25:   <% @sticks.each do |stick| %>
+    26:     <div class="row">
+    27:       <div class="item"><%= stick.stick_type %></div>
+    28:       <div class="item"><%= stick.distance %></div>
+  app/views/admin/sticks/index.html.erb:25:in `_app_views_admin_sticks_index_html_erb___620873967__613418038_0'
+  app/controllers/admin/sticks_controller.rb:45:in `create'
+  app/controllers/admin/sticks_controller.rb:41:in `create'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (19.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:28:40 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:28:40', `updated_at` = '2011-07-25 08:28:40' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (52.2ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (94.3ms)
+Completed 200 OK in 380ms (Views: 97.6ms | ActiveRecord: 55.2ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:28:42 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"1", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:28:42', `last_request_at` = '2011-07-25 08:28:42' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (54.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.9ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO `sticks` (`degrees`, `short_name`, `shaft`, `updated_at`, `stick_type`, `shaft_strength`, `distance`, `created_at`) VALUES (125, 'Weed', '1', '2011-07-25 08:28:42', 'Orion', 'strong', 212, '2011-07-25 08:28:42')
+  [1m[36mSQL (65.4ms)[0m  [1mCOMMIT[0m
+Redirected to 
+Completed   in 431ms
+
+NoMethodError (undefined method `index_url' for #<Admin::SticksController:0xb6b55890>):
+  app/controllers/admin/sticks_controller.rb:45:in `create'
+  app/controllers/admin/sticks_controller.rb:41:in `create'
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.6ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:28:55 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"1", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:28:56', `last_request_at` = '2011-07-25 08:28:56' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (39.1ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  describe `sticks`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `sticks` (`short_name`, `shaft`, `updated_at`, `created_at`, `degrees`, `shaft_strength`, `stick_type`, `distance`) VALUES ('Weed', '1', '2011-07-25 08:28:56', '2011-07-25 08:28:56', 125, 'strong', 'Orion', 212)[0m
+  [1m[35mSQL (57.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/sticks-list
+Completed 406 Not Acceptable in 327ms
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:31:41 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:31:41', `updated_at` = '2011-07-25 08:31:41' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (72.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.5ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (38.8ms)
+Completed 200 OK in 349ms (Views: 41.3ms | ActiveRecord: 76.9ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:35:17 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (3.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (37.0ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:35:17', `last_request_at` = '2011-07-25 08:35:17' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (55.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.4ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (22.8ms)
+Completed 200 OK in 318ms (Views: 27.1ms | ActiveRecord: 97.3ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:35:49 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:35:50', `last_request_at` = '2011-07-25 08:35:50' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (56.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.4ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (32.4ms)
+Completed 200 OK in 290ms (Views: 34.8ms | ActiveRecord: 61.2ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:35:52 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:35:52', `last_request_at` = '2011-07-25 08:35:52' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (65.0ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (91.1ms)
+Completed 200 OK in 365ms (Views: 93.9ms | ActiveRecord: 69.9ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:36:01 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[35mUser Load (2.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:36:01', `last_request_at` = '2011-07-25 08:36:01' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (42.0ms)[0m  COMMIT
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  describe `sticks`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `sticks` (`updated_at`, `shaft`, `created_at`, `short_name`, `degrees`, `stick_type`, `distance`, `shaft_strength`) VALUES ('2011-07-25 08:36:02', '436', '2011-07-25 08:36:02', 'Weed', 125, 'Orion', 212, 'strong')[0m
+  [1m[35mSQL (40.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/sticks-list
+Completed 406 Not Acceptable in 347ms
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:36:20 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:36:20', `last_request_at` = '2011-07-25 08:36:20' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (41.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (2.0ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (27.2ms)
+Completed 200 OK in 287ms (Views: 29.8ms | ActiveRecord: 47.2ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:36:53 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:36:54', `updated_at` = '2011-07-25 08:36:54' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (40.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.4ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (30.4ms)
+Completed 200 OK in 314ms (Views: 34.8ms | ActiveRecord: 44.6ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:36:55 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:36:55', `last_request_at` = '2011-07-25 08:36:55' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (50.3ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (94.0ms)
+Completed 200 OK in 347ms (Views: 97.3ms | ActiveRecord: 55.1ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:37:04 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[35mUser Load (5.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:37:04', `last_request_at` = '2011-07-25 08:37:04' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (36.1ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.9ms)[0m  describe `sticks`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `sticks` (`stick_type`, `distance`, `degrees`, `shaft`, `shaft_strength`, `created_at`, `updated_at`, `short_name`) VALUES ('Orion', 212, 125, '436', 'strong', '2011-07-25 08:37:04', '2011-07-25 08:37:04', 'Weed')[0m
+  [1m[35mSQL (29.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/sticks
+Completed 406 Not Acceptable in 343ms
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:37:23 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:37:24', `updated_at` = '2011-07-25 08:37:24' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (35.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.8ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (30.0ms)
+Completed 200 OK in 265ms (Views: 32.4ms | ActiveRecord: 114.9ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:38:28 +0300 2011
+
+SyntaxError (/home/edgars/workspace/Golf/app/controllers/admin/sticks_controller.rb:93: syntax error, unexpected kEND, expecting $end):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.6ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:38:30 +0300 2011
+
+SyntaxError (/home/edgars/workspace/Golf/app/controllers/admin/sticks_controller.rb:93: syntax error, unexpected kEND, expecting $end):
+  
+
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /home/edgars/.rvm/gems/ruby-1.8.7-p352@rails/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:38:40 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:38:40', `updated_at` = '2011-07-25 08:38:40' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (51.4ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (112.1ms)
+Completed 200 OK in 410ms (Views: 119.5ms | ActiveRecord: 54.7ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:38:42 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:38:43', `updated_at` = '2011-07-25 08:38:43' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (29.4ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  describe `sticks`
+  [1m[36mAREL (14.3ms)[0m  [1mINSERT INTO `sticks` (`degrees`, `short_name`, `stick_type`, `distance`, `updated_at`, `shaft`, `shaft_strength`, `created_at`) VALUES (125, 'Weed', 'Orion', 212, '2011-07-25 08:38:43', '436', 'strong', '2011-07-25 08:38:43')[0m
+  [1m[35mSQL (73.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/sticks
+Completed 302 Found in 394ms
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:38:43 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:38:43', `last_request_at` = '2011-07-25 08:38:43' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (47.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (2.0ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (27.0ms)
+Completed 200 OK in 298ms (Views: 30.0ms | ActiveRecord: 174.4ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:39:03 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:39:03', `last_request_at` = '2011-07-25 08:39:03' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (72.9ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (28.4ms)
+Completed 200 OK in 311ms (Views: 31.4ms | ActiveRecord: 75.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:39:04 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (3.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:39:05', `updated_at` = '2011-07-25 08:39:05' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (45.0ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (23.6ms)
+Completed 200 OK in 263ms (Views: 26.1ms | ActiveRecord: 48.7ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:39:12 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"Weed", "degrees"=>"125", "distance"=>"212"}}
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `last_request_at` = '2011-07-25 08:39:13', `updated_at` = '2011-07-25 08:39:13' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (49.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `sticks` (`created_at`, `shaft_strength`, `degrees`, `distance`, `short_name`, `shaft`, `stick_type`, `updated_at`) VALUES ('2011-07-25 08:39:13', 'strong', 125, 212, 'Weed', '436', 'Orion', '2011-07-25 08:39:13')
+  [1m[36mSQL (59.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/sticks
+Completed 302 Found in 343ms
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:39:13 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (58.2ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:39:13', `last_request_at` = '2011-07-25 08:39:13' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (80.7ms)[0m  COMMIT
+  [1m[36mStick Load (2.1ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (29.1ms)
+Completed 200 OK in 381ms (Views: 31.7ms | ActiveRecord: 144.1ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:40:00 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:40:00', `last_request_at` = '2011-07-25 08:40:00' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (53.6ms)[0m  COMMIT
+  [1m[36mStick Load (1.6ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (29.7ms)
+Completed 200 OK in 296ms (Views: 32.1ms | ActiveRecord: 58.1ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:40:13 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:40:14', `updated_at` = '2011-07-25 08:40:14' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (42.0ms)[0m  COMMIT
+  [1m[36mStick Load (0.9ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (11.1ms)
+Completed 200 OK in 258ms (Views: 13.8ms | ActiveRecord: 45.9ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:40:17 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (4.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:40:17', `updated_at` = '2011-07-25 08:40:17' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (46.8ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (48.3ms)
+Completed 200 OK in 340ms (Views: 84.8ms | ActiveRecord: 52.2ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:40:40 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Putter", "shaft"=>"436", "shaft_strength"=>"strong", "short_name"=>"P1", "degrees"=>"124", "distance"=>"214"}}
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:40:40', `last_request_at` = '2011-07-25 08:40:40' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (43.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `sticks`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `sticks` (`created_at`, `short_name`, `shaft_strength`, `updated_at`, `degrees`, `shaft`, `distance`, `stick_type`) VALUES ('2011-07-25 08:40:40', 'P1', 'strong', '2011-07-25 08:40:40', 124, '436', 214, 'Putter')
+  [1m[36mSQL (53.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/sticks
+Completed 302 Found in 312ms
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:40:40 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (3.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:40:41', `updated_at` = '2011-07-25 08:40:41' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (75.7ms)[0m  COMMIT
+  [1m[36mStick Load (62.2ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (31.3ms)
+Completed 200 OK in 373ms (Views: 43.9ms | ActiveRecord: 142.3ms)
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:42:27 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:42:28', `updated_at` = '2011-07-25 08:42:28' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (56.0ms)[0m  COMMIT
+  [1m[36mStick Load (0.8ms)[0m  [1mSELECT `sticks`.* FROM `sticks`[0m
+Rendered admin/sticks/index.html.erb within layouts/admin (35.6ms)
+Completed 200 OK in 393ms (Views: 38.1ms | ActiveRecord: 60.0ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:42:30 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `updated_at` = '2011-07-25 08:42:30', `last_request_at` = '2011-07-25 08:42:30' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (48.1ms)[0m  COMMIT
+Rendered admin/sticks/new.html.erb within layouts/admin (30.5ms)
+Completed 200 OK in 264ms (Views: 48.0ms | ActiveRecord: 51.4ms)
+
+
+Started GET "/admin/sticks/new" for 127.0.0.1 at Mon Jul 25 11:43:08 +0300 2011
+  Processing by Admin::SticksController#new as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:43:08', `last_request_at` = '2011-07-25 08:43:08' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (62.5ms)[0m  [1mCOMMIT[0m
+Rendered admin/sticks/new.html.erb within layouts/admin (27.6ms)
+Completed 200 OK in 333ms (Views: 29.9ms | ActiveRecord: 65.8ms)
+
+
+Started POST "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:43:21 +0300 2011
+  Processing by Admin::SticksController#create as HTML
+  Parameters: {"commit"=>"Create Stick", "authenticity_token"=>"ZmFT2qJjtLejGe3hbA1OewaOuZee7URhJUdHNRzGtCI=", "utf8"=>"✓", "stick"=>{"stick_type"=>"Orion", "shaft"=>"1", "shaft_strength"=>"3", "short_name"=>"Weed", "degrees"=>"3", "distance"=>"212"}}
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2011-07-25 08:43:21', `updated_at` = '2011-07-25 08:43:21' WHERE `users`.`id` = 1[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (36.1ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  describe `sticks`
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `sticks` (`degrees`, `short_name`, `shaft_strength`, `created_at`, `stick_type`, `distance`, `shaft`, `updated_at`) VALUES (3, 'Weed', '3', '2011-07-25 08:43:21', 'Orion', 212, '1', '2011-07-25 08:43:21')[0m
+  [1m[35mSQL (44.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/sticks
+Completed 302 Found in 280ms
+
+
+Started GET "/admin/sticks" for 127.0.0.1 at Mon Jul 25 11:43:21 +0300 2011
+  Processing by Admin::SticksController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE `users` SET `updated_at` = '2011-07-25 08:43:22', `last_request_at` = '2011-07-25 08:43:22' WHERE `users`.`id` = 1
+[paperclip] Saving attachments.
+  [1m[36mSQL (54.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mStick Load (1.0ms)[0m  SELECT `sticks`.* FROM `sticks`
+Rendered admin/sticks/index.html.erb within layouts/admin (89.6ms)
+Completed 200 OK in 319ms (Views: 92.2ms | ActiveRecord: 144.2ms)
