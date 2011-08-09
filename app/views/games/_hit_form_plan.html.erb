@@ -1,8 +1,4 @@
-<script>
-$(document).ready(function(){
-	$('#header_menu_div').html('<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "game_plan"} %>');
-}
-</script>
+
 
 <div class="right_coll" style="min-width:656px">
 <%game1 = game.game_type%>
@@ -39,7 +35,7 @@ $(document).ready(function(){
           </div>
           
           <div class="element">
-              <%= f.select(:land_place, PLANNED_LAND_PLACES, {:prompt => "Select"}, {:class => "dropdown3"}) %>
+              <%= f.select(:land_place, PLANNED_LAND_PLACES_SHORT, {:prompt => "Select"}, {:class => "dropdown3"}) %>
             
           </div>
         

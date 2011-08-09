@@ -85,7 +85,7 @@ Golf::Application.routes.draw do
   match '/single_game_statistics/:game_id' => 'games#get_stats', :as => 'get_stats'
   match '/add_planned_hit/:game_id/:hole_number/:active_hit' => 'games#add_planned_hit', :as => 'add_planned_hit'
   match '/remove_planned_hit/:game_id/:hole_number/:active_hit' => 'games#remove_hit', :as => 'remove_planned_hit'
-
+	match '/games/switch_colors/:id' => 'games#switch_hit_places'
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
   match '/welcome' => "welcome#index",        :as => :loged_in

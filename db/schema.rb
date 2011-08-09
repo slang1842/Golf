@@ -254,6 +254,8 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
 
   create_table "hit_places", :force => true do |t|
     t.integer  "field_id"
+    t.integer  "place"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -197,6 +197,29 @@ function swap_dropdowns(i) {
   }
   }
 
+
+function switchStartPlaceValues(field_id){
+			$.ajax('/games/switch_colors/' + field_id);
+
+}
+
+function swapDirectionValue(sel_val){
+	switch (sel_val){
+			case '1': res_val = 1; break;
+			case '2': res_val = 3; break;
+			case '3': res_val = 2; break;
+			case '4': res_val = 5; break;
+			case '5': res_val = 4; break;
+			}
+	$('.direction_val_swap').val(res_val);
+}
+
+function setDistanceByClub(sel_val){
+		$.getJSON('/sticks/' + sel_val + '.json', function(data) {
+    if ($('.distance_plan').val().length == 0 ){$('.distance_plan').val(data.stick.distance);}
+		if ($('.distance_result').val().length == 0){ $('.distance_result').val(data.stick.distance);}
+	  });
+}
 // function check_game_form() {
 //     textEntered = true
 //        $(".game_input_select").each(function() {

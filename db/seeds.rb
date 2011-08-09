@@ -48,5 +48,9 @@ Stick.create(:id => 4,
   :short_name => "W",
   :shaft_strength => "medium strong")
 
+HitPlace.create(:name => "Red")
+HitPlace.create(:name => "Green")
+HitPlace.create(:name => "Black")
+HitPlace.create(:name => "Yellow")
 
 

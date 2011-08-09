@@ -1,7 +1,4 @@
-<% if current_user %>
-  <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "game_results"} %>
-  <% else %>
-<% end %>
+
 
 
 <%= render :partial => 'form_' + params[:form_id].to_s %>

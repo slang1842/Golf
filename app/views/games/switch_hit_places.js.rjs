@@ -1,0 +1,1 @@
+page[".start_place_colors"].replaceWith render(:partial => "games/start_place_dropdown", :locals => {:hit_places => @places})
