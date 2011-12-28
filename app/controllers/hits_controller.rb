@@ -86,23 +86,15 @@ class HitsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
- def convert_to_feet(hit)
-    if current_user.measurement == 'foots' && hit.hit_distance != nil
-      @a = hit.hit_distance
-      @b = hit.distance_to_hole
-      hit.hit_distance = @a.to_i / 0.3048
-      hit.distance_to_hole = @b.to_i / 0.3048
-      hit.update_attributes(params [:hit])
-    end
-  end
+
   def convert_to_m(hit)
-      if current_user.measurement == 'foots' && hit.hit_distance != nil
-      @a = hit.hit_distance
-      @b = hit.distance_to_hole
-      hit.hit_distance = @a.to_i * 0.3048
-      hit.distance_to_hole = @b.to_i * 0.3048
-      hit.update_attributes(params [:hit])
+			hit_distance = hit.hit_distance
+			distance_to_hole = hit.distance_to_hole
+			measurement = currrent_user.measurement
+      if hit_hit_distance != nil
+      hit.hit_distance = Stick.convert_distance_to_meters(measurement, hit_distance)
+      hit.distance_to_hole = Stick.convert_distance_to_meters(measurement, distance_to_hole)
+      hit.save!
     end
   end
 end

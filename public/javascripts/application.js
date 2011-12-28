@@ -220,6 +220,21 @@ function setDistanceByClub(sel_val){
 		if ($('.distance_result').val().length == 0){ $('.distance_result').val(data.stick.distance);}
 	  });
 }
+
+function swapDistanceColor(color_no, distance_type){
+	var header = "." + distance_type + "_distance_header";
+	var textfield = "." + distance_type + "_distance";
+	if (color_no == 1){ $(header).text("Red");
+										 $(header + "," +  textfield).show();}
+	if (color_no == 2){ $(header).text('Green'); 
+										 $(header + "," + textfield).show();}
+	if (color_no == 3){ $(header).text('Black'); 
+										 $(header + "," + textfield).show();}
+	if (color_no == 4){ $(header).text('Yellow');
+										 $(header).show();}
+	if (color_no == 0){ $(header + "," +  textfield).hide(); }
+		
+}
 // function check_game_form() {
 //     textEntered = true
 //        $(".game_input_select").each(function() {

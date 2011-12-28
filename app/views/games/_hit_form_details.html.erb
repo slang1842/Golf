@@ -26,7 +26,7 @@
     <div class="single_dropdown" style="width:100px">
       <p>Till hole</p>
       <div class="element">
-        <%= f.text_field :distance_to_hole %> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+        <%= f.text_field :distance_to_hole, {:value => shorten_2(hit_p_final.distance_to_hole)}%> 
       </div>
     </div>
     <div class="single_dropdown">
@@ -80,7 +80,7 @@
       <div class="single_dropdown" style="width:100px">
         <p>Stroke distance</p>
         <div class="element" style="heigth:60px">
-          <%= f.text_field :hit_distance, :class => "distance_plan" %>
+          <%= f.text_field :hit_distance, {:class => "distance_plan", :value => shorten_2(hit_p_final.hit_distance)} %>
         </div>
       </div>
       <div class="single_dropdown">
@@ -147,7 +147,7 @@
       <div class="single_dropdown" style="width:100px">
         <p>Stroke distance</p>
         <div class="element">
-          <%= f.text_field :hit_distance, :class => "distance_result" %>
+          <%= f.text_field :hit_distance, {:class => "distance_result", :value => shorten_2(hit_r_final.hit_distance)} %>
         </div>
       </div>
 

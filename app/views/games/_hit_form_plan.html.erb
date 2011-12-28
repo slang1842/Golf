@@ -10,7 +10,7 @@
 <input type="hidden" name="next_hole" id="nexthole" value=<%=active_hole%>>
 <div class="headings">
           <p>Club</p>
-          <div class="heading1"><p>Hit distance(m)</p></div>
+          <div class="heading1"><p>Hit distance</p></div>
           <div class="heading2"><p>Land place</p></div>
         </div>
         <div class="clear"></div>
@@ -31,7 +31,7 @@
               </div>
           <%= f.hidden_field :user_id, :value => current_user.id %>
           <div class="element" >
-            <%= f.text_field :hit_distance%> <%#= if current_user.measurement == 'foots' then 'ft' else 'm' end%>
+            <%= f.text_field :hit_distance, {:value => shorten_2(hits.hit_distance)}%> 
           </div>
           
           <div class="element">

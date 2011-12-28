@@ -8,7 +8,7 @@
 
 FORM_SEX = { "female" => "f", "male" => "m" }
 RIGHT_HANDED = { "Righthander" => true, "Lefthander" => false }
-MEASUREMENT = { "Meters" => "meters", "Feet" => "foots" }
+MEASUREMENT = { "Meters" => "m", "Feet" => "ft", "Yards" => "yd" }
 TEMPERATURE = { "Celsium" => "celsium", "Fahrenheit" => "fahrenheit"}
 START_PLACE_COLORS = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4, "None" => 0 }
 START_PLACE_COLORS_USER = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4}
@@ -34,14 +34,14 @@ MISTAKE = {"None" => 1, "Too close" => 2, "Too far" => 3, "Very close" => 4, "Ve
 
 STICK_DEGREES = {"10x" => 1, "15x" => 2, "20x" => 3, "25x" => 4}
 STICK_SHAFT = {"Wood" => 1, "Metal" => 2, "Plastic" => 3}
-STICK_SHAFT_STRENGTH = {"Strong" => 1, "Wery Strong" => 2, "Medium" => 3}
+STICK_SHAFT_STRENGTH = {"Strong" => 1, "Very Strong" => 2, "Medium" => 3}
 
 STICK_DEGREES_rev = {1 => "10x", 2 => "15x", 3 => "20x", 4 => "25x"}
 STICK_SHAFT_rev = {1 => "Wood", 2 => "Metal", 3 => "Plastic"}
-STICK_SHAFT_STRENGTH_rev = { 1 => "Strong", 2 => "Wery Strong", 3 => "Medium"}
+STICK_SHAFT_STRENGTH_rev = { 1 => "Strong", 2 => "Very Strong", 3 => "Medium"}
 
 BALL_MANUFACTURER = {"ADIDAS" => 1, "Balls Masters" => 2, "Other" => 3}
-BALL_TYPE = {"apaļa" => 1, "spalvaina" => 2, "oranža" => 3}
+BALL_TYPE = {"apaļa" => 1, "zaļa" => 2, "oranža" => 3}
 
 # !!! WARNING !!!
 # ========================================================
@@ -53,7 +53,7 @@ PLANNED_LAND_PLACES = {"Green" => 1,"Fairway" => 3, "Next fairway" => 4,"Raf" =>
 STATISTICS_PLACE_FROM = {"Green" => 1, "Teebox" => 2, "Fairway" => 3, "Next fairway" => 4, "Semi raf" => 5, "Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Wood" => 10, "From water" => 11 }
 PLANNED_LAND_PLACES_FOR_PRINT = { 1 => "Green",3 => "Fairway",  4 => "Next fairway", 6  => "Raf",   7 => "For green",  8  => "Fairway sand",  9  => "Green sand",   11 => "Hole",   5 => "Semi raf"}
 STATISTICS_STANCE = {"Normal" => 1, "Right leg lower" => 2, "Left leg lower" => 3, "Ball lower" => 4, "Ball higher" => 5}
-STATISTICS_DIRECTION = {"Straigth" => 1, "Fade" => 2, "Drow" => 3, "Slice" => 4, "Hook" => 5 }
+STATISTICS_DIRECTION = {"Straight" => 1, "Fade" => 2, "Drow" => 3, "Slice" => 4, "Hook" => 5 }
 STATISTICS_TEMPERATURE = {"Hot" => 1,"Normal" => 2,"Cold" => 3}
 STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
 STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "No wind" => 3, "From right" => 4, "From left" => 5}

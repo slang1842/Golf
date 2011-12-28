@@ -105,6 +105,7 @@ class GamesController < ApplicationController
 			@hit = @hit << Hit.create(conditions)
 		end     
     @form_id = 'plan'
+		convert_from_m(@hit)
     if params[:hits] == 'new'
     	render '/games/hit_edit'
     else
@@ -165,6 +166,11 @@ class GamesController < ApplicationController
     else
       @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
     end
+
+		@hits.each do |hit|
+     convert_from_m(hit)
+		end
+
     if params[:hits] == 'new'
          render '/games/hit_edit_results'  
     end
@@ -204,11 +210,13 @@ class GamesController < ApplicationController
 		if @active_hit.to_i == 1
 			@hit_r_final.update_attributes(:place_from => 2)
 			@hit_p_final.update_attributes(:place_from => 2)
-			@hit_p_final.update_attributes(:distance_to_hole => @hole.distance)
+			@hit_p_final.update_attributes(:distance_to_hole => Hole.get_proper_distance(@hole.id, @game.start_place_colors))
 		end
     @hit_r_final.update_attributes(params[:pair_id])
     @hit_p_final.update_attributes(params[:pair_id])
     @pair_hit.update_attributes(params[:pair_hit])
+		convert_from_m(@hit_r_final)
+		convert_from_m(@hit_p_final)
     @form_id = 'details'
     if params[:hits] == 'new'
     	render '/games/hit_edit_details'
@@ -223,25 +231,6 @@ class GamesController < ApplicationController
     end   
   end
        
-  def convert_to_feet(hit)
-    if current_user.measurement == 'foots' && hit.hit_distance != nil
-      @a = hit.hit_distance
-      @b = hit.distance_to_hole
-      hit.hit_distance = @a.to_i / 0.3048
-      hit.distance_to_hole = @b.to_i / 0.3048
-      hit.update_attributes(params [:hit])
-    end
-  end
-
-  def convert_to_m(hit)
-      if current_user.measurement == 'foots' && hit.hit_distance != nil 
-      @a = hit.hit_distance
-      @b = hit.distance_to_hole
-      hit.hit_distance = @a.to_i * 0.3048
-      hit.distance_to_hole = @b.to_i * 0.3048
-      hit.update_attributes(params [:hit])
-    end
-  end
 
   def fix_params(active_hole, active_hit, game_id, hole_distance)
     conditions6 = { :game_id => game_id, 
@@ -272,20 +261,24 @@ class GamesController < ApplicationController
     @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
    	place_from = @hit_real_prev.land_place
     wind = @hit_planned_prev.wind
-		puts @hit_planned_prev.hit_distance
-		distance_to_hole = (@hit_planned_prev.distance_to_hole - @hit_planned_prev.hit_distance).abs
+		distance_to_hole = (@hit_planned_prev.distance_to_hole - @hit_real_prev.hit_distance).abs
    	@hit_planned.update_attributes({:place_from => place_from, :wind => wind, :distance_to_hole => distance_to_hole})
     @hit_r_final = @hit_real
     @hit_p_final = @hit_planned
 	end
  
   def hit_update
-   @next_hole = params[:next_hole].to_s
-     require_game_owner
-      if @game.update_attributes(params[:game])
-      end
-		  if @game.update_attributes(params[:hits])
-		  end
+		@next_hole = params[:next_hole].to_s
+    require_game_owner
+    if @game.update_attributes(params[:game])
+    end
+		#ugly fix
+			@hit1 = Hit.find_by_id(params[:game][:hits_attributes][:"0"][:id])
+			@hit2 = Hit.find_by_id(params[:game][:hits_attributes][:"1"][:id])
+			convert_to_m(@hit1) if @hit1
+			convert_to_m(@hit2) if @hit2
+		#end of ugly fix	
+
    @game_id = params[:game_id]
    @active_hit = params[:next_hit].to_s
    @active_hit1 = params[:active_hit]
@@ -386,7 +379,8 @@ private
 		else
 			@hit = []
 			@hit = @hit << Hit.create(conditions)
-		end     
+		end
+		@hit.each {|h| convert_from_m(h)}     
     @form_id = 'plan'
     render 'games/plan'
 	end
@@ -436,6 +430,7 @@ private
                           #convert_to_feet(@hit)
            end
      	@hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r') 
+			@hits.each {|h| convert_from_m(h)}
       render 'results'     
   	end
 	end
@@ -480,6 +475,8 @@ private
 	 end
    	@pair_hit.update_attributes(params[:pair_hit])
    	@form_id = 'details'
+		convert_from_m(@hit_p_final)
+		convert_from_m(@hit_r_final)
     render 'games/details'
 	end
      
@@ -550,7 +547,29 @@ private
     else
       @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
     end
+		@hits.each {|h| convert_from_m(h)}
     render 'games/results'
 	end
+
+	def convert_to_m(hit)
+			hit_distance = hit.hit_distance 
+			distance_to_hole = hit.distance_to_hole 
+			measurement = current_user.measurement
+      hit.hit_distance = Stick.convert_distance_to_meters(measurement, hit_distance) if hit_distance
+      hit.distance_to_hole = Stick.convert_distance_to_meters(measurement, distance_to_hole) if distance_to_hole
+			puts "TO METERS"
+    	hit.save!
+
+  end
+	
+	def convert_from_m(hit)
+			hit_distance = hit.hit_distance 
+			distance_to_hole = hit.distance_to_hole 
+			measurement = current_user.measurement
+      hit.hit_distance = Stick.convert_distance_from_meters(measurement, hit_distance) if hit_distance
+      hit.distance_to_hole = Stick.convert_distance_from_meters(measurement, distance_to_hole) if distance_to_hole
+			puts "FROM METERS"
+
+  end
 
  end

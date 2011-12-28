@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110606050327) do
+ActiveRecord::Schema.define(:version => 20111228083938) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
   create_table "fields", :force => true do |t|
     t.integer  "golf_club_id"
     t.string   "name",                :null => false
-    t.integer  "very_short_distance"
-    t.integer  "short_distance"
-    t.integer  "normal_distance"
-    t.integer  "long_distance"
+    t.string   "very_short_distance"
+    t.string   "short_distance"
+    t.string   "normal_distance"
+    t.string   "long_distance"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -275,8 +275,8 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.integer  "luck_factor"
     t.string   "comment"
     t.integer  "following_action"
-    t.integer  "distance_to_hole"
-    t.integer  "hit_distance"
+    t.float    "distance_to_hole"
+    t.float    "hit_distance"
     t.integer  "wind"
     t.integer  "hit_was"
     t.integer  "motion_was"
@@ -295,16 +295,20 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
 
   create_table "holes", :force => true do |t|
     t.integer  "field_id"
-    t.integer  "par",                :null => false
-    t.integer  "hcp",                :null => false
-    t.integer  "hole_number",        :null => false
-    t.integer  "distance"
+    t.integer  "par",                 :null => false
+    t.integer  "hcp",                 :null => false
+    t.integer  "hole_number",         :null => false
+    t.float    "distance"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "very_short_distance"
+    t.float    "short_distance"
+    t.float    "normal_distance"
+    t.float    "long_distance"
   end
 
   create_table "pair_hits", :force => true do |t|
@@ -388,7 +392,7 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
 
   create_table "sticks", :force => true do |t|
     t.string   "stick_type",     :null => false
-    t.integer  "distance",       :null => false
+    t.float    "distance",       :null => false
     t.integer  "degrees",        :null => false
     t.string   "shaft",          :null => false
     t.string   "shaft_strength", :null => false
@@ -441,7 +445,7 @@ ActiveRecord::Schema.define(:version => 20110606050327) do
     t.integer  "user_id"
     t.integer  "stick_id"
     t.integer  "pair_hit_id"
-    t.string   "distance",       :null => false
+    t.float    "distance",       :null => false
     t.string   "degrees",        :null => false
     t.string   "shaft",          :null => false
     t.string   "shaft_strength", :null => false

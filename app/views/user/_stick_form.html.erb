@@ -17,7 +17,7 @@
         <% else %>
           <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select type"},{:class => "dropdown5", :onchange => "fill_sticks_form(this)"} %></div>
         <% end %>
-        <div class="subitem"><%= h.text_field :distance, :class => 'distance  textbox2' %></div>
+        <div class="subitem"><%= h.text_field :distance, {:class => 'distance  textbox2', :value => convert_distance(users_stick.distance)} %></div>
         <div class="subitem"><%= h.select(:degrees, STICK_DEGREES,{}, { :class => 'dropdown8 user_select_field degrees'}) %></div>
         <div class="subitem"><%= h.select(:shaft, STICK_SHAFT,{}, { :class => 'dropdown8 user_select_field shaft'}) %></div>
         <div class="subitem"><%= h.select(:shaft_strength, STICK_SHAFT_STRENGTH,{}, { :class => 'dropdown8 user_select_field shaft_strength'}) %></div>

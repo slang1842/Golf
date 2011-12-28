@@ -1,15 +1,13 @@
 <div class="green_fee">
-<% green_fee ||= GreenFee.new %>
-<%= f.fields_for green_fee_attributes_name, green_fee do |gf| %>
-<%= gf.hidden_field :id unless green_fee.new_record? %>
-
-
-          <div class="clear"></div>
-          <div class="inputs">
-            <%= gf.text_field :title, :class => "text", :value => green_fee_value %>
-           <%= gf.text_field :price, :class => "price" %>
+	<% green_fee ||= GreenFee.new %>
+	<%= f.fields_for green_fee_attributes_name, green_fee do |gf| %>
+		<%= gf.hidden_field :id unless green_fee.new_record? %>
+         <div class="clear"></div>
+         <div class="inputs">
+         	<%= gf.text_field :title, :class => "text", :value => green_fee_value %>
+           	<%= gf.text_field :price, :class => "price" %>
             <div class="clear"></div>
           </div>
           
-         <% end %>
-         </div>
+        <% end %>
+ </div>

@@ -18,7 +18,13 @@
 
       <%= h.select( :hcp, (0..36), {:prompt => ' '}, {:class => 'dropdown2'})%>
     
-      <%= h.text_field :distance, :class => 'price'%>
+      <%= h.text_field :very_short_distance, {:class => 'price very_short_distance', :value => convert_distances(hole.very_short_distance), :style => return_style(field.very_short_distance)}%>
+
+			<%= h.text_field :short_distance, {:class => 'price short_distance', :value => convert_distances(hole.short_distance), :style => return_style(field.short_distance)}%>
+     
+			<%= h.text_field :normal_distance, {:class => 'price normal_distance', :value => convert_distances(hole.normal_distance), :style => return_style(field.normal_distance)}%>
+
+			<%= h.text_field :long_distance, {:class => 'price long_distance', :value => convert_distances(hole.long_distance), :style => return_style(field.long_distance)}%>
    
     <div class="file_upload_input"> <%= h.file_field( :image,{:class => "hole_file_field"}) %></div>
     <!-- <a href="#" class="green_button" onclick="$('.field_hole_image').click();">Augaupldt bildi</a>
