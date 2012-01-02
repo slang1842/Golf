@@ -36,12 +36,12 @@
 
       </div>
     </div>
-    <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
+    <!--<div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
       <p>Wind</p>
       <div class="element">
         <%= f.select(:wind, STATISTICS_WIND, {:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
       </div>
-    </div>
+    </div>-->
     <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
       <p>Stance</p>
       <div class="element">
@@ -54,13 +54,13 @@
         <%= f.select(:slipums, SLIPUMS,{:prompt => 'Select'}, {:class => "dropdown6 deselect", :onchange => "swapDirectionValue(this.value);"})%>
       </div>
     </div>
-    <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
+    <!--<div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
 
       <p>Tilt</p>
       <div class="element" style="heigth:60px">
         <%= f.select(:kritums, KRITUMS,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
       </div>
-    </div>
+    </div>-->
     <div class="input_wrap" >
       <div class="heading_plan">
         <p>Plan:</p>
@@ -90,7 +90,7 @@
         </div>
       </div>
 
-      <div class="single_dropdown" >
+ <!--<div class="single_dropdown" >
         <p>Direction</p>
         <div class="element" style="heigth:60px">
           <% if hit_p_final.place_from == 1%>
@@ -99,21 +99,21 @@
             <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Select'}, {:class => "dropdown6 direction_swap direction_val_swap"})%>
           <% end %>
         </div>
-      </div>
-      <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
+      </div>-->
+      <div class="single_dropdown " style="<%#=style_for_direction%>" >
 
         <p>Trajectory</p>
         <div class="element" style="heigth:60px">
-          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
+          <%= f.select(:trajectory, STATISTICS_TRAJECTORY_NEW,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
       </div>
-      <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
+      <!--<div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
 
         <p>Strength</p>
         <div class="element" style="heigth:60px">
           <%= f.select(:strength, STRENGTH,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
-      </div>
+      </div>-->
     </div>
     <%= f.hidden_field :hole_number, :value => active_hole %>
     <%= f.hidden_field :hit_number, :value => active_hit %>
@@ -168,26 +168,26 @@
           <% end %>
         </div>
       </div>
-      <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
+      <!--<div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
         <p>Direction</p>
         <div class="element">
           <%= f.select(:direction, STATISTICS_DIRECTION,{:prompt => 'Select'}, {:class => "dropdown6 direction_swap "})%>
         </div>
-      </div>
+      </div>-->
 
       <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
         <p>Trajectory</p>
         <div class="element">
-          <%= f.select(:trajectory, STATISTICS_TRAJECTORY,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
+          <%= f.select(:trajectory, STATISTICS_TRAJECTORY_NEW,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
       </div>
 
-      <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
+     <!-- <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
         <p>Strength</p>
         <div class="element" style="heigth:60px">
           <%= f.select(:strength, STRENGTH,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
-      </div>
+      </div>-->
       <div class="input_wrap" style="height:250px">
 
         <div class="heading_result"><p>Notes on </br> stroke :</p></div>

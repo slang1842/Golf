@@ -1,0 +1,2 @@
+page["#email_input_fields"].show()
+page["#login_fields"].hide()

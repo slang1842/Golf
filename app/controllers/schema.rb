@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120101164550) do
+ActiveRecord::Schema.define(:version => 20111228083938) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -71,6 +71,11 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.boolean  "stance_left_leg_lower",  :default => false
     t.boolean  "stance_ball_lower",      :default => false
     t.boolean  "stance_ball_higher",     :default => false
+    t.boolean  "direction_straigth",     :default => false
+    t.boolean  "direction_fade",         :default => false
+    t.boolean  "direction_drow",         :default => false
+    t.boolean  "direction_slice",        :default => false
+    t.boolean  "direction_hook",         :default => false
     t.boolean  "temperature_cold",       :default => false
     t.boolean  "temperature_normal",     :default => false
     t.boolean  "temperature_hot",        :default => false
@@ -87,10 +92,6 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.boolean  "wind_from_right",        :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "trajectory_fade"
-    t.boolean  "trajectory_drow"
-    t.boolean  "trajectory_slice"
-    t.boolean  "trajectory_hook"
   end
 
   create_table "game_statistic_generals", :force => true do |t|
@@ -214,6 +215,11 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.string   "stance_left_leg_lower_hint"
     t.string   "stance_ball_lower_hint"
     t.string   "stance_ball_higher_hint"
+    t.string   "direction_straigth_hint"
+    t.string   "direction_fade_hint"
+    t.string   "direction_drow_hint"
+    t.string   "direction_slice_hint"
+    t.string   "direction_hook_hint"
     t.string   "temperature_cold_hint"
     t.string   "temperature_normal_hint"
     t.string   "temperature_hot_hint"
@@ -238,22 +244,16 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.integer  "green_direction_more_to_right_hint"
     t.integer  "green_direction_more_to_left_hint"
     t.integer  "green_tilt_straight_hint"
+    t.integer  "green_tilt_upward_hint"
+    t.integer  "green_tilt_downward_hint"
+    t.integer  "green_tilt_very_upward_hint"
+    t.integer  "green_tilt_very_downward_hint"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "trajectory_fade_hint"
-    t.string   "trajectory_drow_hint"
-    t.string   "trajectory_slice_hint"
-    t.string   "trajectory_hook_hint"
-    t.string   "green_direction_upward_hint"
-    t.string   "green_direction_downward_hint"
-    t.string   "green_direction_very_upward_hint"
-    t.string   "green_direction_very_downward_hint"
   end
 
   create_table "hit_places", :force => true do |t|
     t.integer  "field_id"
-    t.integer  "place"
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -270,7 +270,7 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.integer  "land_place"
     t.integer  "stance"
     t.integer  "trajectory"
-    t.integer  "luck_factor"
+    t.boolean  "luck_factor"
     t.string   "comment"
     t.integer  "following_action"
     t.float    "distance_to_hole"
@@ -351,6 +351,11 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.integer  "stance_left_leg_lower"
     t.integer  "stance_ball_lower"
     t.integer  "stance_ball_higher"
+    t.integer  "direction_straigth"
+    t.integer  "direction_fade"
+    t.integer  "direction_drow"
+    t.integer  "direction_slice"
+    t.integer  "direction_hook"
     t.integer  "temperature_cold"
     t.integer  "temperature_normal"
     t.integer  "temperature_hot"
@@ -374,16 +379,13 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.integer  "green_direction_to_left"
     t.integer  "green_direction_more_to_right"
     t.integer  "green_direction_more_to_left"
+    t.integer  "green_tilt_straight"
+    t.integer  "green_tilt_upward"
+    t.integer  "green_tilt_downward"
+    t.integer  "green_tilt_very_upward"
+    t.integer  "green_tilt_very_downward"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "trajectory_fade"
-    t.integer  "trajectory_drow"
-    t.integer  "trajectory_slice"
-    t.integer  "trajectory_hook"
-    t.integer  "green_direction_downward"
-    t.integer  "green_direction_upward"
-    t.integer  "green_direction_very_upward"
-    t.integer  "green_direction_very_downward"
   end
 
   create_table "sticks", :force => true do |t|
@@ -402,6 +404,7 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.string   "crypted_password",                      :null => false
     t.string   "password_salt",                         :null => false
     t.string   "persistence_token",                     :null => false
+    t.boolean  "new_user",           :default => true
     t.boolean  "add_club",           :default => false
     t.boolean  "admin",              :default => false
     t.boolean  "is_super_admin",     :default => false
@@ -432,7 +435,6 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "perishable_token",   :default => "",    :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

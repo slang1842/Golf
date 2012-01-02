@@ -91,7 +91,7 @@
 
 
   <!-- ============================ sticks ============================ -->
-  <% begin %>
+  <% #begin %>
     <div id="main_stats_table_wrap">
       <div class="main_stats_table_wrap">
 
@@ -193,8 +193,8 @@
                         <%= select_tag("stance", options_for_select(STATISTICS_STANCE), {:include_blank => "Stance",:class => "dropdown7"}) %>
                         <div class="clearblock_dropdowns"></div>
 
-                        <%= select_tag("direction", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown7"}) %>
-                        <div class="clearblock_dropdowns"></div>
+                     <!--   <%= select_tag("direction", options_for_select(STATISTICS_DIRECTION), {:include_blank => "Direction",:class => "dropdown7"}) %>
+                        <div class="clearblock_dropdowns"></div>-->
 
                         <%= select_tag("temperature", options_for_select(STATISTICS_TEMPERATURE), {:include_blank => "Temperature",:class => "dropdown7"}) %>
                         <div class="clearblock_dropdowns"></div>
@@ -202,11 +202,11 @@
                         <%= select_tag("weather", options_for_select(WEATHER), {:include_blank => "Weather",:class => "dropdown7"}) %>
                         <div class="clearblock_dropdowns"></div>
 
-                        <%= select_tag("trajectory", options_for_select(STATISTICS_TRAJECTORY), {:include_blank => "Trajectory",:class => "dropdown7"}) %>
+                       <%= select_tag("trajectory", options_for_select(STATISTICS_TRAJECTORY_NEW), {:include_blank => "Trajectory",:class => "dropdown7"}) %>
                         <div class="clearblock_dropdowns"></div>
 
-                        <%= select_tag("wind", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown7"}) %>
-                        <div class="clearblock_dropdowns"></div>
+                        <!--<%= select_tag("wind", options_for_select(STATISTICS_WIND), {:include_blank => "Wind",:class => "dropdown7"}) %>
+                        <div class="clearblock_dropdowns"></div>-->
 
                         <input type="hidden" id="user_id_for_filter" value="<%=  @user_params.id %>"/>
 
@@ -239,9 +239,9 @@
 
 
     <% @main_statistic_has_errors = 0 %>
-  <% rescue  %>
-    <% @main_statistic_has_errors = 1 %>
-  <% end %>
+  <%# rescue  %>
+    <%# @main_statistic_has_errors = 1 %>
+  <%# end %>
 
   <script>
     $(document).ready(function(){

@@ -1,4 +1,5 @@
 Golf::Application.routes.draw do
+	default_url_options :host => "localhost:3000"
   resources :game_statistics
 
   resources :games
@@ -11,6 +12,7 @@ Golf::Application.routes.draw do
   resources :hints
   resources :user_sessions
   resources :pair_hits
+	resources :password_resets
    
   #statistics
   #================
@@ -115,6 +117,7 @@ Golf::Application.routes.draw do
     match "admin/users/acc/:id" => "users#give_admin_rights", :as => 'give_admin_rights'
   end
   
+ match "reset_password" => "password_resets#update"
   
     
   # match '/' => "user_sessions#index",         :as => :login

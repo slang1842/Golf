@@ -1,0 +1,66 @@
+
+
+
+
+
+<div class="profile_info_input">
+
+  <% if flash.count > 0 %>
+        <div class="messages">
+          <div class="messages_error">
+            <% flash.each do |key, msg| %>
+              <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+              <%= content_tag :script, :type => "text/javascript" do %>
+                setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+    <div class="left_wrap">
+      	<%= form_tag("/reset_password", :method => "post", :name => "reset_password_form") do %>
+					<%= hidden_field_tag :id, @user.perishable_token%>
+					<%=fields_for :user, @user do |f|%>
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.password_new" %></p>
+        </div>
+        <div class="input">
+          <%= f.password_field :password, :class => "user_text_field" %>
+        </div>
+      </div>
+
+      <div class="single_element">
+        <div class="text">
+          <p><%= f.label t "form.password_confirmation_new"%></p>
+        </div>
+        <div class="input">
+          <%= f.password_field :password_confirmation,  :class => "user_text_field" %>
+        </div>
+      </div>
+  	 <div class="login_wrap input_wrap">
+  	  <a href="#" onclick="document.reset_password_form.submit()" class="main_login_button" >Reset password</a>
+   	 	<button type="submit" style="display: none;"></button>
+ 		 </div>
+    <%end%>
+		<%end%>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

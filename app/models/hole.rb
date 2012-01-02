@@ -15,18 +15,20 @@ class Hole < ActiveRecord::Base
 		self.long_distance = Stick.convert_distance_to_meters(self.field.golf_club.user.measurement, self.long_distance)
 	end
 
-  def self.get_proper_distance(hole_id, start_color)
-    hole = self.find(hole_id)
-    field = hole.field
+  def get_proper_distance(game_id)
+    game = Game.find_by_id(game_id)
+		start_color = game.start_place_colors
+    field = self.field
     if start_color.to_i == field.very_short_distance.to_i
-      distance = hole.very_short_distance
+      distance = self.very_short_distance
     elsif start_color.to_i == field.short_distance.to_i
-      distance = hole.short_distance
+      distance = self.short_distance
     elsif start_color.to_i == field.normal_distance.to_i
-      distance = hole.normal_distance
+      distance = self.normal_distance
     elsif start_color.to_i == field.long_distance.to_i
-      distance = hole.long_distance
+      distance = self.long_distance
     end
+		puts distance
     return distance
   end
   #GAME_HOLE_FILTER = {

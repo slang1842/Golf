@@ -78,7 +78,7 @@ class StatisticController < ApplicationController
     @temperature = params[:temperature]
     @trajectory = params[:trajectory]
     @weather = params[:weather]
-    @wind = params[:wind]
+    #@wind = params[:wind]
     @field = params[:field_id]
     @user_id = params[:user_id]
 
@@ -123,18 +123,18 @@ class StatisticController < ApplicationController
       @filtered_games = @filtered_games.where(:stance_ball_higher => true)
     end
 
-    case @trajectory.to_i
-    when 1
-      @filtered_games = @filtered_games.where(:direction_straigth => true)
-    when 2
-      @filtered_games = @filtered_games.where(:direction_fade => true)
-    when 3
-      @filtered_games = @filtered_games.where(:direction_drow => true)
-    when 4
-      @filtered_games = @filtered_games.where(:direction_slice => true)
-    when 5
-      @filtered_games = @filtered_games.where(:direction_hook => true)
-    end
+    #case @trajectory.to_i
+    #when 1
+    #  @filtered_games = @filtered_games.where(:direction_straigth => true)
+    #when 2
+    #  @filtered_games = @filtered_games.where(:direction_fade => true)
+    #when 3
+    #  @filtered_games = @filtered_games.where(:direction_drow => true)
+    #when 4
+    #  @filtered_games = @filtered_games.where(:direction_slice => true)
+    #when 5
+    #  @filtered_games = @filtered_games.where(:direction_hook => true)
+    #end
 
     case @temperature.to_i
     when 1
@@ -157,24 +157,32 @@ class StatisticController < ApplicationController
     end
 
     case @trajectory.to_i
-    when 1
+    when 5
       @filtered_games = @filtered_games.where(:trajectory_normal => true)
-    when 2
+    when 10
       @filtered_games = @filtered_games.where(:trajectory_high => true)
-    when 3
+    when 9
       @filtered_games = @filtered_games.where(:trajectory_low => true)
+    when 1
+      @filtered_games = @filtered_games.where(:trajectory_hook => true)
+    when 2
+      @filtered_games = @filtered_games.where(:trajectory_slice => true)
+    when 3
+      @filtered_games = @filtered_games.where(:trajectory_drow => true)
+    when 4
+      @filtered_games = @filtered_games.where(:trajectory_fade => true)
     end
 
-    case @wind.to_i
-    when 1
-      @filtered_games = @filtered_games.where(:wind_from_behind => true)
-    when 2
-      @filtered_games = @filtered_games.where(:wind_from_front => true)
-    when 3
-      @filtered_games = @filtered_games.where(:wind_from_left => true)
-    when 4
-      @filtered_games = @filtered_games.where(:wind_from_right => true)
-    end
+    #case @wind.to_i
+    #when 1
+    #  @filtered_games = @filtered_games.where(:wind_from_behind => true)
+    #when 2
+    #  @filtered_games = @filtered_games.where(:wind_from_front => true)
+    #when 3
+    #  @filtered_games = @filtered_games.where(:wind_from_left => true)
+    #when 4
+    #  @filtered_games = @filtered_games.where(:wind_from_right => true)
+    #end
   
     @filtered_games = @filtered_games
 

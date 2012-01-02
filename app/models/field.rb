@@ -22,8 +22,11 @@ class Field < ActiveRecord::Base
 		arr = arr.uniq
 		hash_final = []
 		arr.each do |h|
-			hash_final << HitPlace.find_by_id(h)
+			if h.to_i != 0
+				hash_final << HitPlace.find_by_id(h)
+			end
 		end
+		puts hash_final
 		return hash_final
 	end
 end

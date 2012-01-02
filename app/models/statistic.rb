@@ -46,35 +46,65 @@ class Statistic < ActiveRecord::Base
   end
   
   def self.calculate_current_statistics(planed, real) # p = planed, r = Real
-    p = planed.hit_distance
-    r = real.hit_distance
-    
-    unless p == nil or r == nil or p == 0 or r == 0
-
-      #formula ir
-      #
-      #              | R - P |
-      # result = 1 - -------- * 100
-      #                  P
-      #
-      
-      @result = ((1 - ((r.to_f - p.to_f).abs / p.to_f)).round(2) * 100).round
-       
-      @result = @result - calculate_diference(planed.trajectory, real.trajectory) unless calculate_diference(planed.trajectory, real.trajectory) == false
-      @result = @result - calculate_diference(planed.hit_was, real.hit_was) unless calculate_diference(planed.hit_was, real.hit_was) == false
-      @result = @result - calculate_diference(planed.motion_was, real.motion_was) unless calculate_diference(planed.motion_was, real.motion_was) == false
-      @result = @result - calculate_diference(planed.misdirection, real.misdirection) unless calculate_diference(planed.misdirection, real.misdirection) == false
-      
-      if @result > 100
+      # Calculable values differ if hit was done from "green" or "for green"     
+      result = calculate_distance_ratio(planed.hit_distance, real.hit_distance)
+      if planed.place_from == 1 || planed.place_from == 7
+         result = result - detect_failed_stroke(real.misdirection, 3) # 3 is for misdirection "straight"
+         result = result - detect_failed_stroke(real.mistake, 1) # 1 is for mistake "none"
+      else
+        result = result - detect_failed_stroke(real.misdirection, 3)
+        result = result - calculate_success_ratio_for_trajectory(real.trajectory, planed.trajectory) if real.trajectory && planed.trajectory
+      end
+      if result > 100
         return 100
-      elsif @result < 1
+      elsif result < 1
         return 1
       else
-        return @result
+        return result
       end
-    end    
+      
+  end
+
+  def self.calculate_success_ratio_for_trajectory(real_pt, planned_pt)
+    diff = (real_pt - planned_pt).abs 
+    if diff < 5
+      result = diff * 15
+    else
+      if planned_pt == 5 || real_pt == 5
+        diff = diff - 5
+        result = diff.abs * 15
+      else
+        result = 15
+      end
+    end
+    return result
   end
   
+  def self.detect_failed_stroke(actual_pt, success_pt)
+    if actual_pt == success_pt
+      return 0
+    else
+      return 15
+    end
+  end
+	
+  def self.calculate_success_ratio(planned_pts, real_pts, total_pts)
+
+		distance_ratio = ((1 - (distance_real.to_f - distance_planned.to_f).abs / distance_planned).to_f.round(2) * 100).round
+		planned_ratio = ((((planned_pts - real_pts) / total_pts).abs.round(2)) * 100).round
+		result = planned_ratio
+		if result < 1
+			result = 1
+		end
+
+	return result
+
+	end
+
+  def self.calculate_distance_ratio(distance_planned, distance_real)
+    distance_ratio = ((1 - (distance_real.to_f - distance_planned.to_f).abs / distance_planned).to_f.round(2) * 100).round
+    return distance_ratio
+  end
   
   def self.main_statistics
 
@@ -83,26 +113,103 @@ class Statistic < ActiveRecord::Base
 
     User.where(:is_super_admin => false).each do |c_user|
 
-      
-      #Field.where(:golf_club_id => c_user.golf_club_id).each do |c_field|
+			c_user.users_sticks.each do |user_stick|
+			statistic = Statistic.new
+      statistic.user_id = c_user.id
+			statistic.stick_id = user_stick.stick_id
+
+				#these variables have to be defined somewhere, hence the mess                       
+									@statistic_place_teebox = 0
+									@statistic_place_teebox_count = 1        
+                  @statistic_place_feairway = 0
+									 @statistic_place_feairway_count = 1             					
+                  @statistic_place_next_fairway = 0
+									@statistic_place_next_fairway_count = 1        
+                  @statistic_place_semi_raf = 0
+									@statistic_place_semi_raf_count = 1          
+                  @statistic_place_raf = 0
+									@statistic_place_raf_count = 1            
+                  @statistic_place_for_green = 0 
+									@statistic_place_for_green_count = 1         
+                  @statistic_place_green = 0 
+									@statistic_place_green_count = 1           
+                  @statistic_place_fairway_sand = 0
+									@statistic_place_fairway_sand_count = 1           
+                  @statistic_place_green_sand = 0
+									@statistic_place_green_sand_count = 1             
+                  @statistic_place_wood = 0 
+									@statistic_place_wood_count = 1			        
+                  @statistic_place_from_water = 0
+									@statistic_place_from_water_count = 1             
+                  @statistic_stance_normal = 0
+									@statistic_stance_normal_count = 1          
+                  @statistic_stance_right_leg_lower = 0
+									@statistic_stance_right_leg_lower_count = 1               
+                  @statistic_stance_left_leg_lower = 0
+									@statistic_stance_right_leg_lower_count = 1                   
+                  @statistic_stance_ball_lower = 0
+									@statistic_stance_ball_lower_count = 1             
+                  @statistic_stance_ball_higher = 0
+									@statistic_stance_ball_higher_count = 1           
+                  @statistic_temperature_hot = 0
+									@statistic_temperature_hot_count = 1             
+                  @statistic_temperature_normal = 0
+									@statistic_temperature_normal_count = 1       
+                  @statistic_temperature_cold = 0
+									@statistic_temperature_cold_count = 1        
+                  @statistic_weather_normal = 0
+									@statistic_weather_normal_count = 1            
+                  @statistic_weather_wind = 0
+									@statistic_weather_wind_count = 1           
+                  @statistic_weather_rain = 0 
+									@statistic_weather_rain_count = 1
+                  @statistic_weather_wind_and_rain = 0
+									@statistic_weather_wind_and_rain_count = 1            
+                  @statistic_trajectory_normal = 0 
+									@statistic_trajectory_normal_count = 1        
+                  @statistic_trajectory_high = 0
+									@statistic_trajectory_high_count = 1            
+                  @statistic_trajectory_low = 0
+									@statistic_trajectory_low_count = 1          
+                  @statistic_trajectory_drow = 0
+									@statistic_trajectory_drow_count = 1          
+                  @statistic_trajectory_hook = 0 
+									@statistic_trajectory_hook_count = 1  
+                  @statistic_trajectory_fade = 0
+									@statistic_trajectory_fade_count = 1    
+                  @statistic_trajectory_slice = 0
+									@statistic_trajectory_slice_count = 1            
+                  @statistic_green_direction_straight = 0
+									@statistic_green_direction_straight_count = 1                
+                  @statistic_green_direction_to_right = 0
+									@statistic_green_direction_to_right_count = 1            
+                  @statistic_green_direction_to_left = 0
+									@statistic_green_direction_to_left_count = 1          
+                  @statistic_green_direction_more_to_right = 0
+									@statistic_green_direction_more_to_right_count = 1           
+                  @statistic_green_direction_more_to_left = 0
+									@statistic_green_direction_more_to_left_count = 1      
+                  @statistic_green_direction_upward = 0
+									@statistic_green_direction_upward_count = 1              
+                  @statistic_green_direction_downward = 0
+									@statistic_green_direction_downward_count = 1     
+                  @statistic_green_direction_very_upward = 0
+									@statistic_green_direction_very_upward_count = 1
+                  @statistic_green_direction_very_downward = 0
+									@statistic_green_direction_very_downward_count = 1
+         # continue!
+
 
       Field.where(:golf_club_id => c_user.golf_club_id).each do |c_field|
         Game.where(:field_id => c_field.id).each do |c_game|
-
-          c_user.users_sticks.each do |user_stick|
-        
-            statistic = Statistic.new
-            statistic.user_id = c_user.id
-            statistic.game_id = c_game.id
-            statistic.field_id = c_field.id
-            statistic.stick_id = user_stick.stick_id
-
-
-
+			      #statistic.game_id = c_game.id
+            #statistic.field_id = c_field.id
+						@all_pairs = PairHit.where(:user_id => c_user.id, :game_id => c_game.id)
+						
             #CALCULATE PLACE_FROM
             # ==========================================
             for place_from_num in 1..11 do
-              @all_pairs = PairHit.where(:user_id => c_user.id, :game_id => c_game.id)
+           
           
               @result_arr = []
         
@@ -115,48 +222,59 @@ class Statistic < ActiveRecord::Base
 
               case place_from_num
               when 1
-                if @result_arr.size != 0
-                  statistic.place_teebox = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                if @result_arr.size != 0                  
+									@statistic_place_teebox += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_place_teebox_count += @result_arr.size
                 end
               when 2
                 if @result_arr.size != 0
-                  statistic.place_feairway = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
+                  @statistic_place_feairway += @result_arr.inject(0.0) { |sum, el| sum + el }
+									 @statistic_place_feairway_count += @result_arr.size               
+								end
               when 3
                 if @result_arr.size != 0
-                  statistic.place_next_fairway = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_place_next_fairway += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_place_next_fairway_count += @result_arr.size
                 end
               when 4
                 if @result_arr.size != 0
-                  statistic.place_semi_raf = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_place_semi_raf += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_place_semi_raf_count += @result_arr.size
                 end
               when 5
                 if @result_arr.size != 0
-                  statistic.place_raf = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_place_raf += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_place_raf_count += @result_arr.size
                 end
               when 6
                 if @result_arr.size != 0
-                  statistic.place_for_green = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_place_for_green += @result_arr.inject(0.0) { |sum, el| sum + el } 
+									@statistic_place_for_green_count += @result_arr.size
                 end
               when 7
                 if @result_arr.size != 0
-                  statistic.place_green = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_place_green += @result_arr.inject(0.0) { |sum, el| sum + el } 
+									@statistic_place_green_count += @result_arr.size
                 end
               when 8
                 if @result_arr.size != 0
-                  statistic.place_fairway_sand = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_place_fairway_sand += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_place_fairway_sand_count += @result_arr.size
                 end
               when 9
                 if @result_arr.size != 0
-                  statistic.place_green_sand = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_place_green_sand += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_place_green_sand_count += @result_arr.size
                 end
               when 11
                 if @result_arr.size != 0
-                  statistic.place_wood = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_place_wood += @result_arr.inject(0.0) { |sum, el| sum + el } 
+									@statistic_place_wood_count += @result_arr.size			
                 end
               when 11
                 if @result_arr.size != 0
-                  statistic.place_from_water = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_place_from_water += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_place_from_water_count += @result_arr.size
                 end
               end
             end
@@ -166,7 +284,7 @@ class Statistic < ActiveRecord::Base
             #CALCULATE STANCE
             # ==========================================
             for stance_num in 1..5 do
-              @all_pairs = PairHit.where(:user_id => c_user.id)
+              
           
               @result_arr = []
         
@@ -180,73 +298,40 @@ class Statistic < ActiveRecord::Base
               case stance_num
               when 1
                 if @result_arr.size != 0
-                  statistic.stance_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_stance_normal += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_stance_normal_count += @result_arr.size
                 end
               when 2
                 if @result_arr.size != 0
-                  statistic.stance_right_leg_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_stance_right_leg_lower += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_stance_right_leg_lower_count += @result_arr.size
                 end
               when 3
                 if @result_arr.size != 0
-                  statistic.stance_left_leg_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_stance_left_leg_lower += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_stance_right_leg_lower_count += @result_arr.size
                 end
               when 4
                 if @result_arr.size != 0
-                  statistic.stance_ball_lower = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_stance_ball_lower += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_stance_ball_lower_count += @result_arr.size
                 end
               when 5
                 if @result_arr.size != 0
-                  statistic.stance_ball_higher = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_stance_ball_higher += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_stance_ball_higher_count += @result_arr.size
                 end
               end
             end
             # ==========================================
         
-        
-            #CALCULATE DIRECTION
-            # ==========================================
-            for direction_num in 1..5 do
-              @all_pairs = PairHit.where(:user_id => c_user.id)
-          
-              @result_arr = []
-        
-              @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.direction == direction_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
-                  @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
-                  @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-                end
-              end
-
-              case direction_num
-              when 1
-                if @result_arr.size != 0
-                  statistic.direction_straigth = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 2
-                if @result_arr.size != 0
-                  statistic.direction_fade = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 3
-                if @result_arr.size != 0
-                  statistic.direction_drow = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 4
-                if @result_arr.size != 0
-                  statistic.direction_slice = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 5
-                if @result_arr.size != 0
-                  statistic.direction_hook = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              end
-            end
-            # ==========================================
+    
         
         
             #CALCULATE TEMPERATURE
             # ==========================================
             for temperature_num in 1..3 do
-              @all_pairs = PairHit.where(:user_id => c_user.id)
+              
           
               @result_arr = []
         
@@ -260,15 +345,18 @@ class Statistic < ActiveRecord::Base
               case temperature_num
               when 1
                 if @result_arr.size != 0
-                  statistic.temperature_hot = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_temperature_hot += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_temperature_hot_count += @result_arr.size
                 end
               when 2
                 if @result_arr.size != 0
-                  statistic.temperature_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_temperature_normal += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_temperature_normal_count += @result_arr.size
                 end
               when 3
                 if @result_arr.size != 0
-                  statistic.temperature_cold = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_temperature_cold += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_temperature_cold_count += @result_arr.size
                 end
               end
             end
@@ -278,7 +366,7 @@ class Statistic < ActiveRecord::Base
             #CALCULATE WEATHER
             # ==========================================
             for weather_num in 1..4 do
-              @all_pairs = PairHit.where(:user_id => c_user.id)
+              
           
               @result_arr = []
         
@@ -292,19 +380,23 @@ class Statistic < ActiveRecord::Base
               case weather_num
               when 1
                 if @result_arr.size != 0
-                  statistic.weather_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_weather_normal += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_weather_normal_count += @result_arr.size
                 end
               when 2
                 if @result_arr.size != 0
-                  statistic.weather_wind = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_weather_wind += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_weather_wind_count += @result_arr.size
                 end
               when 3
                 if @result_arr.size != 0
-                  statistic.weather_rain = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_weather_rain += @result_arr.inject(0.0) { |sum, el| sum + el } 
+									@statistic_weather_rain_count += @result_arr.size
                 end
               when 4
                 if @result_arr.size != 0
-                  statistic.weather_wind_and_rain = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_weather_wind_and_rain += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_weather_wind_and_rain_count += @result_arr.size
                 end
               end
             end
@@ -312,8 +404,8 @@ class Statistic < ActiveRecord::Base
         
             #CALCULATE TRAJECTORY
             # ==========================================
-            for trajectory_num in 1..3 do
-              @all_pairs = PairHit.where(:user_id => c_user.id)
+            for trajectory_num in 1..10 do
+              
           
               @result_arr = []
         
@@ -325,113 +417,61 @@ class Statistic < ActiveRecord::Base
               end
 
               case trajectory_num
-              when 1
+              when 5
                 unless @result_arr.size == 0
-                  statistic.trajectory_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round unless false
+                  @statistic_trajectory_normal += @result_arr.inject(0.0) { |sum, el| sum + el } unless false
+									@statistic_trajectory_normal_count += @result_arr.size
                 end
-              when 2
+              when 10
                 if @result_arr.size != 0
-                  statistic.trajectory_high = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_trajectory_high += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_trajectory_high_count += @result_arr.size
+                end
+              when 9
+                if @result_arr.size != 0
+                  @statistic_trajectory_low += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_trajectory_low_count += @result_arr.size
                 end
               when 3
                 if @result_arr.size != 0
-                  statistic.trajectory_low = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_trajectory_drow += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_trajectory_drow_count += @result_arr.size
                 end
+              when 1
+                if @result_arr.size != 0
+                  @statistic_trajectory_hook += @result_arr.inject(0.0) { |sum, el| sum + el } 
+									@statistic_trajectory_hook_count += @result_arr.size
+                end
+              when 4
+                if @result_arr.size != 0
+                  @statistic_trajectory_fade += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_trajectory_fade_count += @result_arr.size
+                end
+              when 2
+                if @result_arr.size != 0
+                  @statistic_trajectory_slice += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_trajectory_slice_count += @result_arr.size 
+                end
+
               end
             end
             # ==========================================
         
-        
-            #CALCULATE WIND
-            # ==========================================
-            for wind_num in 1..4 do
-              @all_pairs = PairHit.where(:user_id => c_user.id)
-
-              @result_arr = []
-
-              @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.wind == wind_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
-                  @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
-                  @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-                end
-              end
-
-              case wind_num
-              when 1
-                if @result_arr.size != 0
-                  statistic.wind_from_behind = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 2
-                if @result_arr.size != 0
-                  statistic.wind_from_front = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 3
-                if @result_arr.size != 0
-                  statistic.wind_from_right
-                end
-              when 4
-                if @result_arr.size != 0
-                  statistic.wind_from_right = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              end
-            end
-            # ==========================================
-
-
-            #GREEN_STRENGHT
-            # ==========================================
-            for strength_num in 1..4 do
-              @all_pairs = PairHit.where(:user_id => c_user.id)
-
-              @result_arr = []
-
-
-              @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.wind == strength_num &&
-                    each_pair.hit_planed.stick_id == user_stick.stick_id &&
-                    each_pair.hit_planed.game.field_id == c_field.id &&
-                    (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7)
-
-                  @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
-                  @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-                end
-              end
-
-              case strength_num
-              when 1
-                if @result_arr.size != 0
-                  statistic.green_strength_light = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 2
-                if @result_arr.size != 0
-                  statistic.green_strength_normal = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 3
-                if @result_arr.size != 0
-                  statistic.green_strength_strong
-                end
-              when 4
-                if @result_arr.size != 0
-                  statistic.green_strength_very_strong = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              end
-            end
-            # ==========================================
+       
 
 
             #green_direction
             # ==========================================
-            for direction_num in 1..5 do
-              @all_pairs = PairHit.where(:user_id => c_user.id)
+            for direction_num in 1..12 do
+              
 
               @result_arr = []
 
 
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.wind == direction_num &&
-                    each_pair.hit_planed.stick_id == user_stick.stick_id &&
+                if  each_pair.hit_planed.stick_id == user_stick.stick_id &&
                     each_pair.hit_planed.game.field_id == c_field.id &&
-                    (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7)
+                    (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7) && each_pair.hit_planed.slipums == direction_num
 
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
@@ -439,25 +479,50 @@ class Statistic < ActiveRecord::Base
               end
 
               case direction_num
+              when 5
+                if @result_arr.size != 0
+                  @statistic_green_direction_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_straight_count += @result_arr.size
+                end
               when 1
                 if @result_arr.size != 0
-                  statistic.green_direction_straight = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_green_direction_to_right += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_to_right_count += @result_arr.size
                 end
               when 2
                 if @result_arr.size != 0
-                  statistic.green_direction_to_right = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_green_direction_to_left += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_to_left_count += @result_arr.size
                 end
               when 3
                 if @result_arr.size != 0
-                  statistic.green_direction_to_left
+                  @statistic_green_direction_more_to_right += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_more_to_right_count += @result_arr.size
                 end
               when 4
                 if @result_arr.size != 0
-                  statistic.green_direction_more_to_right = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_green_direction_more_to_left += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_more_to_left_count += @result_arr.size
                 end
-              when 5
+              when 9
                 if @result_arr.size != 0
-                  statistic.green_direction_more_to_left = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
+                  @statistic_green_direction_upward += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_upward_count += @result_arr.size
+                end
+              when 10
+                if @result_arr.size != 0
+                  @statistic_green_direction_downward += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_downward_count += @result_arr.size
+                end
+              when 11
+                if @result_arr.size != 0
+                  @statistic_green_direction_very_upward += @result_arr.inject(0.0) { |sum, el| sum + el }
+									 @statistic_green_direction_very_upward_count += @result_arr.size
+                end
+              when 12
+                if @result_arr.size != 0
+                  @statistic_green_direction_very_downward += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_very_downward_count += @result_arr.size
                 end
               end
             end
@@ -465,63 +530,80 @@ class Statistic < ActiveRecord::Base
 
 
 
-            #tilt_direction
-            # ==========================================
-            for tilt_num in 1..5 do
-              @all_pairs = PairHit.where(:user_id => c_user.id)
-
-              @result_arr = []
-
-              @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.wind == tilt_num &&
-                    each_pair.hit_planed.stick_id == user_stick.stick_id &&
-                    each_pair.hit_planed.game.field_id == c_field.id &&
-                    (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7)
-
-                  @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
-                  @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-                end
-              end
-
-              case tilt_num
-              when 1
-                if @result_arr.size != 0
-                  statistic.green_tilt_straight = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 2
-                if @result_arr.size != 0
-                  statistic.green_tilt_upward = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 3
-                if @result_arr.size != 0
-                  statistic.green_tilt_downward
-                end
-              when 4
-                if @result_arr.size != 0
-                  statistic.green_tilt_very_upward = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              when 5
-                if @result_arr.size != 0
-                  statistic.green_tilt_very_downward = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-                end
-              end
-            end
-            # ==========================================
+           
 
 
 
 
-            @return = true if statistic.save
-          end # end user
-        end # ends game
-      end # end field
-    end # end stick
+           # @return = true if statistic.save
+          end # end game
+        end # ends field
+
+				#calculating average statistics per situation
+				statistic.green_direction_very_downward = calculate_avg(@statistic_green_direction_very_downward, @statistic_green_direction_very_downward_count)
+				statistic.green_direction_very_upward = calculate_avg(@statistic_green_direction_very_upward, @statistic_green_direction_very_upward_count)
+				statistic.green_direction_downward = calculate_avg(@statistic_green_direction_downward, @statistic_green_direction_downward_count)
+				statistic.green_direction_more_to_left = calculate_avg(@statistic_green_direction_more_to_left, @statistic_green_direction_more_to_left_count)
+				statistic.green_direction_upward = calculate_avg(@statistic_green_direction_upward, @statistic_green_direction_upward_count)
+				statistic.green_direction_more_to_right = calculate_avg(@statistic_green_direction_more_to_right, @statistic_green_direction_more_to_right_count)
+				statistic.green_direction_to_right = calculate_avg(@statistic_green_direction_to_right, @statistic_green_direction_to_right_count)
+ 				statistic.green_direction_to_left = calculate_avg(@statistic_green_direction_to_left, @statistic_green_direction_to_left_count)
+				statistic.green_direction_straight = calculate_avg(@statistic_green_direction_straight, @statistic_green_direction_straight_count)
+
+				statistic.trajectory_slice = calculate_avg(@statistic_trajectory_slice, @statistic_trajectory_slice_count)
+				statistic.trajectory_drow = calculate_avg(@statistic_trajectory_drow, @statistic_trajectory_drow_count)
+				statistic.trajectory_hook = calculate_avg(@statistic_trajectory_hook, @statistic_trajectory_hook_count)
+				statistic.trajectory_normal = calculate_avg(@statistic_trajectory_normal, @statistic_trajectory_normal_count)
+				statistic.trajectory_high = calculate_avg(@statistic_trajectory_high, @statistic_trajectory_high_count)
+				statistic.trajectory_low = calculate_avg(@statistic_trajectory_low, @statistic_trajectory_low_count)
+				statistic.trajectory_fade = calculate_avg(@statistic_trajectory_fade, @statistic_trajectory_fade_count)
+
+				statistic.weather_wind_and_rain = calculate_avg(@statistic_weather_wind_and_rain, @statistic_weather_wind_and_rain_count)
+				statistic.weather_wind = calculate_avg(@statistic_weather_wind, @statistic_weather_wind_count)
+				statistic.weather_rain = calculate_avg(@statistic_weather_rain, @statistic_weather_rain_count)
+				statistic.weather_normal = calculate_avg(@statistic_weather_normal, @statistic_weather_normal_count)
+
+				statistic.temperature_cold = calculate_avg(@statistic_temperature_cold, @statistic_temperature_cold_count)
+				statistic.temperature_normal = calculate_avg(@statistic_temperature_normal, @statistic_temperature_normal_count)
+				statistic.temperature_hot = calculate_avg(@statistic_temperature_hot, @statistic_temperature_hot_count)
+
+				statistic.stance_ball_higher = calculate_avg(@statistic_stance_ball_higher, @statistic_stance_ball_higher_count)
+				statistic.stance_ball_lower = calculate_avg(@statistic_stance_ball_lower, @statistic_stance_ball_lower_count)
+				statistic.stance_left_leg_lower = calculate_avg(@statistic_stance_left_leg_lower, @statistic_stance_left_leg_lower_count)
+				statistic.stance_right_leg_lower = calculate_avg(@statistic_stance_right_leg_lower, @statistic_stance_right_leg_lower_count)
+				statistic.stance_normal = calculate_avg(@statistic_stance_normal, @statistic_stance_normal_count) 
+
+				statistic.place_teebox = calculate_avg(@statistic_place_teebox, @statistic_place_teebox_count) 
+			  statistic.place_feairway = calculate_avg(@statistic_place_feairway, @statistic_place_feairway_count)
+			  statistic.place_next_fairway = calculate_avg(@statistic_place_next_fairway, @statistic_place_next_fairway_count)
+			  statistic.place_semi_raf = calculate_avg(@statistic_place_semi_raf, @statistic_place_semi_raf_count) 
+			  statistic.place_raf = calculate_avg(@statistic_place_raf, @statistic_place_raf_count)
+			  statistic.place_for_green = calculate_avg(@statistic_place_for_green, @statistic_place_for_green_count)
+			  statistic.place_green = calculate_avg(@statistic_place_green, @statistic_place_green_count)
+			  statistic.place_fairway_sand = calculate_avg(@statistic_place_fairway_sand, @statistic_place_fairway_sand_count)
+		    statistic.place_green_sand = calculate_avg(@statistic_place_green_sand, @statistic_place_green_sand_count) 
+		    statistic.place_wood = calculate_avg(@statistic_place_wood, @statistic_place_wood_count)
+		    statistic.place_from_water = calculate_avg(@statistic_place_from_water, @statistic_place_from_water_count)
+				statistic.save!				
+
+      end # end stick
+    end # end user
    
-    return @return
+    return true
   end
   
 
-
+def self.calculate_avg(total_sum, total_count)
+	if total_count == nil then total_count = 1 end
+	percentage = total_sum / total_count
+	if percentage == 0  
+	 return 0 
+	elsif percentage > 100
+		return 100
+	else
+	 return percentage.round
+  end		
+end
 
   #================================================
   # Game statistics
@@ -591,18 +673,18 @@ class Statistic < ActiveRecord::Base
           @GameFilterStatistic.stance_ball_higher = true
         end
 
-        case c_pair.hit_planed.direction
-        when 1
-          @GameFilterStatistic.direction_straigth = true
-        when 2
-          @GameFilterStatistic.direction_fade = true
-        when 3
-          @GameFilterStatistic.direction_drow = true
-        when 4
-          @GameFilterStatistic.direction_slice = true
-        when 5
-          @GameFilterStatistic.direction_hook = true
-        end
+       # case c_pair.hit_planed.direction
+       # when 1
+          #@GameFilterStatistic.direction_straigth = true
+       # when 2
+          #@GameFilterStatistic.direction_fade = true
+       # when 3
+          #@GameFilterStatistic.direction_drow = true
+       # when 4
+          #@GameFilterStatistic.direction_slice = true
+       # when 5
+          #@GameFilterStatistic.direction_hook = true
+       # end
 
         case Game.find(c_pair.hit_planed.game_id).temperature
         when 1
@@ -626,23 +708,31 @@ class Statistic < ActiveRecord::Base
 
         case c_pair.hit_planed.trajectory
         when 1
-          @GameFilterStatistic.trajectory_normal = true
+          @GameFilterStatistic.trajectory_hook = true
         when 2
-          @GameFilterStatistic.trajectory_high = true
+          @GameFilterStatistic.trajectory_slice = true
         when 3
+          @GameFilterStatistic.trajectory_drow = true
+         when 4
+          @GameFilterStatistic.trajectory_fade = true
+        when 5
+          @GameFilterStatistic.trajectory_normal = true
+        when 9
           @GameFilterStatistic.trajectory_low = true
+        when 10
+          @GameFilterStatistic.trajectory_high = true
         end
 
-        case c_pair.hit_planed.wind
-        when 1
-          @GameFilterStatistic.wind_from_behind = true
-        when 2
-          @GameFilterStatistic.wind_from_front = true
-        when 3
-          @GameFilterStatistic.wind_from_left = true
-        when 4
-          @GameFilterStatistic.wind_from_right = true
-        end
+      #  case c_pair.hit_planed.wind
+      #  when 1
+      #    @GameFilterStatistic.wind_from_behind = true
+      #  when 2
+      #    @GameFilterStatistic.wind_from_front = true
+      #  when 3
+      #    @GameFilterStatistic.wind_from_left = true
+      #  when 4
+      #    @GameFilterStatistic.wind_from_right = true
+      #  end
       end # end pair hit
 
       #@avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round unless @avg_r_distance.size == 0
@@ -808,11 +898,11 @@ class Statistic < ActiveRecord::Base
           @user_progres_arr.push(c_stat.stance_ball_lower) unless c_stat.stance_ball_lower == nil
           @user_progres_arr.push(c_stat.stance_ball_higher) unless c_stat.stance_ball_higher == nil
 
-          @user_progres_arr.push(c_stat.direction_straigth) unless c_stat.direction_straigth == nil
-          @user_progres_arr.push(c_stat.direction_fade) unless c_stat.direction_fade == nil
-          @user_progres_arr.push(c_stat.direction_drow) unless c_stat.direction_drow == nil
-          @user_progres_arr.push(c_stat.direction_slice) unless c_stat.direction_slice == nil
-          @user_progres_arr.push(c_stat.direction_hook) unless c_stat.direction_hook == nil
+         # @user_progres_arr.push(c_stat.direction_straigth) unless c_stat.direction_straigth == nil
+         # @user_progres_arr.push(c_stat.direction_fade) unless c_stat.direction_fade == nil
+         # @user_progres_arr.push(c_stat.direction_drow) unless c_stat.direction_drow == nil
+         # @user_progres_arr.push(c_stat.direction_slice) unless c_stat.direction_slice == nil
+         # @user_progres_arr.push(c_stat.direction_hook) unless c_stat.direction_hook == nil
 
           @user_progres_arr.push(c_stat.temperature_cold) unless c_stat.temperature_cold == nil
           @user_progres_arr.push(c_stat.temperature_normal) unless c_stat.temperature_normal == nil
@@ -826,11 +916,15 @@ class Statistic < ActiveRecord::Base
           @user_progres_arr.push(c_stat.trajectory_normal) unless c_stat.trajectory_normal == nil
           @user_progres_arr.push(c_stat.trajectory_high) unless c_stat.trajectory_high == nil
           @user_progres_arr.push(c_stat.trajectory_low) unless c_stat.trajectory_low == nil
+          @user_progres_arr.push(c_stat.trajectory_hook) unless c_stat.trajectory_hook == nil
+          @user_progres_arr.push(c_stat.trajectory_slice) unless c_stat.trajectory_slice == nil
+          @user_progres_arr.push(c_stat.trajectory_drow) unless c_stat.trajectory_drow == nil
+          @user_progres_arr.push(c_stat.trajectory_fade) unless c_stat.trajectory_fade == nil
 
-          @user_progres_arr.push(c_stat.wind_from_behind) unless c_stat.wind_from_behind == nil
-          @user_progres_arr.push(c_stat.wind_from_front) unless c_stat.wind_from_front == nil
-          @user_progres_arr.push(c_stat.wind_from_left) unless c_stat.wind_from_left == nil
-          @user_progres_arr.push(c_stat.wind_from_right) unless c_stat.wind_from_right == nil
+#          @user_progres_arr.push(c_stat.wind_from_behind) unless c_stat.wind_from_behind == nil
+#          @user_progres_arr.push(c_stat.wind_from_front) unless c_stat.wind_from_front == nil
+#          @user_progres_arr.push(c_stat.wind_from_left) unless c_stat.wind_from_left == nil
+#          @user_progres_arr.push(c_stat.wind_from_right) unless c_stat.wind_from_right == nil
         end # end statistic
 
         @GameStatisticsGeneral = GameStatisticGeneral.new
@@ -965,11 +1059,11 @@ class Statistic < ActiveRecord::Base
           @user_progres_arr.push(c_stat.stance_ball_lower) unless c_stat.stance_ball_lower == nil
           @user_progres_arr.push(c_stat.stance_ball_higher) unless c_stat.stance_ball_higher == nil
 
-          @user_progres_arr.push(c_stat.direction_straigth) unless c_stat.direction_straigth == nil
-          @user_progres_arr.push(c_stat.direction_fade) unless c_stat.direction_fade == nil
-          @user_progres_arr.push(c_stat.direction_drow) unless c_stat.direction_drow == nil
-          @user_progres_arr.push(c_stat.direction_slice) unless c_stat.direction_slice == nil
-          @user_progres_arr.push(c_stat.direction_hook) unless c_stat.direction_hook == nil
+         # @user_progres_arr.push(c_stat.direction_straigth) unless c_stat.direction_straigth == nil
+         # @user_progres_arr.push(c_stat.direction_fade) unless c_stat.direction_fade == nil
+         # @user_progres_arr.push(c_stat.direction_drow) unless c_stat.direction_drow == nil
+         # @user_progres_arr.push(c_stat.direction_slice) unless c_stat.direction_slice == nil
+         # @user_progres_arr.push(c_stat.direction_hook) unless c_stat.direction_hook == nil
         
           @user_progres_arr.push(c_stat.temperature_cold) unless c_stat.temperature_cold == nil
           @user_progres_arr.push(c_stat.temperature_normal) unless c_stat.temperature_normal == nil
@@ -983,11 +1077,17 @@ class Statistic < ActiveRecord::Base
           @user_progres_arr.push(c_stat.trajectory_normal) unless c_stat.trajectory_normal == nil
           @user_progres_arr.push(c_stat.trajectory_high) unless c_stat.trajectory_high == nil
           @user_progres_arr.push(c_stat.trajectory_low) unless c_stat.trajectory_low == nil
+          @user_progres_arr.push(c_stat.trajectory_drow) unless c_stat.trajectory_drow == nil
+          @user_progres_arr.push(c_stat.trajectory_hook) unless c_stat.trajectory_hook == nil
+          @user_progres_arr.push(c_stat.trajectory_slice) unless c_stat.trajectory_slice == nil
+          @user_progres_arr.push(c_stat.trajectory_fade) unless c_stat.trajectory_fade == nil
+        
+                    
 
-          @user_progres_arr.push(c_stat.wind_from_behind) unless c_stat.wind_from_behind == nil
-          @user_progres_arr.push(c_stat.wind_from_front) unless c_stat.wind_from_front == nil
-          @user_progres_arr.push(c_stat.wind_from_left) unless c_stat.wind_from_left == nil
-          @user_progres_arr.push(c_stat.wind_from_right) unless c_stat.wind_from_right == nil
+#        	@user_progres_arr.push(c_stat.wind_from_behind) unless c_stat.wind_from_behind == nil
+#          @user_progres_arr.push(c_stat.wind_from_front) unless c_stat.wind_from_front == nil
+#          @user_progres_arr.push(c_stat.wind_from_left) unless c_stat.wind_from_left == nil
+#          @user_progres_arr.push(c_stat.wind_from_right) unless c_stat.wind_from_right == nil
 
         end # end statistic
         

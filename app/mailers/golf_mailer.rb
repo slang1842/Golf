@@ -1,5 +1,5 @@
 class GolfMailer < ActionMailer::Base
-  default :from => "from@example.com"
+  default :from => "zapte7@gmail.com"
   
   def send_hint(recipient, subject, message, sent_at = Time.now)
       @subject = subject
@@ -10,5 +10,15 @@ class GolfMailer < ActionMailer::Base
       @body["email"] = 'sender@yourdomain.com'
       @body["message"] = message
       @headers = {}
-   end
+  end
+
+	def password_reset_instructions(user)  
+		@subject = "Password Reset Instructions"   
+		@recipients = user.email  
+		@sent_on = Time.now  
+		@body['title'] = 'Golf'
+		@link = edit_password_reset_url(user.perishable_token)
+		mail(:to => @recipients, :subject => @subject, :host => "localhost:3000")  
+	end  
+
 end

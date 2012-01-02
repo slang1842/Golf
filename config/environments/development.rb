@@ -25,5 +25,10 @@ Golf::Application.configure do
   
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
+	config.action_mailer.default_url_options = { :host => "localhost:3000" }
+	config.action_mailer.delivery_method = :sendmail
+	config.action_mailer.sendmail_settings = {:location => '/usr/sbin/sendmail', :arguments => '-i'} 
+
+
 end
 

@@ -26,7 +26,7 @@ STATISTICS_DIFFICULTY = { "Easy" => 1, "Medium" => 2, "Hard" => 3}
 MAIN_STATISTIC_BAD_SIMBOL = "N/V"
 MAIN_STATISTIC_BAD_PROC = 45 # these are % to show red bar and hint
 
-SLIPUMS = {"Straight" => 1, "To right" => 2, "To left" => 3, "More to right" => 4, "More to left" => 5}
+SLIPUMS = {"Straight" => 5, "To right" => 1, "To left" => 2, "More to right" => 3, "More to left" => 4, "Upward" => 9, "Downward" => 10, "Very upward" => 11, "Very downward" => 12}
 KRITUMS = {"Straight" => 1, "Upward" => 2, "Downward" => 3, "Very upward" => 4, "Very downward" => 5}
 STRENGTH = {"Light" => 1, "Normal" => 2, "Strong" => 3, "Very strong" => 4}
 MISTAKE = {"None" => 1, "Too close" => 2, "Too far" => 3, "Very close" => 4, "Very far" => 5}
@@ -56,6 +56,10 @@ STATISTICS_STANCE = {"Normal" => 1, "Right leg lower" => 2, "Left leg lower" => 
 STATISTICS_DIRECTION = {"Straight" => 1, "Fade" => 2, "Drow" => 3, "Slice" => 4, "Hook" => 5 }
 STATISTICS_TEMPERATURE = {"Hot" => 1,"Normal" => 2,"Cold" => 3}
 STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
+
+# new values for merged categories 30.12.2011
+STATISTICS_TRAJECTORY_NEW = {"Hook" => 1, "Slice" => 2, "Drow" => 3, "Fade" => 4, "Normal" => 5, "Low" => 9, "High" => "10" }
+
 STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "No wind" => 3, "From right" => 4, "From left" => 5}
 PLANNED_LAND_PLACES_SHORT = {"Green" => 1, "Fairway" => 3, "Hole" => 11}
 DIRECTION_SHORT = {"Straight" => 1, "To right" => 2, "More to right" => 4, "To left" => 3, "More to left" => 5}

@@ -33,4 +33,9 @@ class User < ActiveRecord::Base
   has_attached_file :image, :default_url => '/images/anonymous_icon.png',
               :url => "/user/:attachment/:id_:style.:extension",
               :path => ":rails_root/public/user/:attachment/:id_:style.:extension"
+
+	def deliver_password_reset_instructions!  
+		reset_perishable_token!  
+		GolfMailer.deliver_password_reset_instructions(self)  
+	end  
 end

@@ -210,7 +210,7 @@ class GamesController < ApplicationController
 		if @active_hit.to_i == 1
 			@hit_r_final.update_attributes(:place_from => 2)
 			@hit_p_final.update_attributes(:place_from => 2)
-			@hit_p_final.update_attributes(:distance_to_hole => Hole.get_proper_distance(@hole.id, @game.start_place_colors))
+			@hit_p_final.update_attributes(:distance_to_hole => @hole.get_proper_distance(@game.id))
 		end
     @hit_r_final.update_attributes(params[:pair_id])
     @hit_p_final.update_attributes(params[:pair_id])
@@ -260,9 +260,8 @@ class GamesController < ApplicationController
     @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
     @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
    	place_from = @hit_real_prev.land_place
-    wind = @hit_planned_prev.wind
 		distance_to_hole = (@hit_planned_prev.distance_to_hole - @hit_real_prev.hit_distance).abs
-   	@hit_planned.update_attributes({:place_from => place_from, :wind => wind, :distance_to_hole => distance_to_hole})
+   	@hit_planned.update_attributes({:place_from => place_from, :distance_to_hole => distance_to_hole})
     @hit_r_final = @hit_real
     @hit_p_final = @hit_planned
 	end
@@ -471,7 +470,8 @@ private
    if @active_hit.to_i == 1
 	 	@hit_r_final.update_attributes(:place_from => 2)
 		@hit_p_final.update_attributes(:place_from => 2)
-		@hit_p_final.update_attributes(:distance_to_hole => @hole.distance)
+		distance = @hole.get_proper_distance(@game_id)
+		@hit_p_final.update_attributes(:distance_to_hole => distance)
 	 end
    	@pair_hit.update_attributes(params[:pair_hit])
    	@form_id = 'details'
