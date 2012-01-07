@@ -46,15 +46,10 @@ class Statistic < ActiveRecord::Base
   end
   
   def self.calculate_current_statistics(planed, real) # p = planed, r = Real
-      # Calculable values differ if hit was done from "green" or "for green"     
+           
       result = calculate_distance_ratio(planed.hit_distance, real.hit_distance)
-      if planed.place_from == 1 || planed.place_from == 7
-         result = result - detect_failed_stroke(real.misdirection, 3) # 3 is for misdirection "straight"
-         result = result - detect_failed_stroke(real.mistake, 1) # 1 is for mistake "none"
-      else
-        result = result - detect_failed_stroke(real.misdirection, 3)
-        result = result - calculate_success_ratio_for_trajectory(real.trajectory, planed.trajectory) if real.trajectory && planed.trajectory
-      end
+         result = result - detect_failed_stroke(real.misdirection, 2) # 3 is for misdirection "straight"
+         result = result - detect_failed_stroke(real.mistake, 2) # 1 is for mistake "none"   
       if result > 100
         return 100
       elsif result < 1
@@ -192,22 +187,33 @@ class Statistic < ActiveRecord::Base
 									@statistic_trajectory_slice_count = 1            
                   @statistic_green_direction_straight = 0
 									@statistic_green_direction_straight_count = 1                
-                  @statistic_green_direction_to_right = 0
-									@statistic_green_direction_to_right_count = 1            
-                  @statistic_green_direction_to_left = 0
-									@statistic_green_direction_to_left_count = 1          
-                  @statistic_green_direction_more_to_right = 0
-									@statistic_green_direction_more_to_right_count = 1           
-                  @statistic_green_direction_more_to_left = 0
-									@statistic_green_direction_more_to_left_count = 1      
-                  @statistic_green_direction_upward = 0
-									@statistic_green_direction_upward_count = 1              
-                  @statistic_green_direction_downward = 0
-									@statistic_green_direction_downward_count = 1     
-                  @statistic_green_direction_very_upward = 0
-									@statistic_green_direction_very_upward_count = 1
-                  @statistic_green_direction_very_downward = 0
-									@statistic_green_direction_very_downward_count = 1
+                  @statistic_green_direction_upward_right = 0
+									@statistic_green_direction_upward_right_count = 1            
+                  @statistic_green_direction_upward_left = 0
+									@statistic_green_direction_upward_left_count = 1          
+                  @statistic_green_direction_downward_right = 0
+									@statistic_green_direction_downward_right_count = 1           
+                  @statistic_green_direction_downward_left = 0
+									@statistic_green_direction_downward_left_count = 1      
+                  @statistic_green_direction_upward_straight = 0
+									@statistic_green_direction_upward_straight_count = 1              
+                  @statistic_green_direction_downward_straight = 0
+									@statistic_green_direction_downward_straight_count = 1  
+									@statistic_green_trajectory_straight = 0
+									@statistic_green_trajectory_straight_count = 1                
+                  @statistic_green_trajectory_upward_right = 0
+									@statistic_green_trajectory_upward_right_count = 1            
+                  @statistic_green_trajectory_upward_left = 0
+									@statistic_green_trajectory_upward_left_count = 1          
+                  @statistic_green_trajectory_downward_right = 0
+									@statistic_green_trajectory_downward_right_count = 1           
+                  @statistic_green_trajectory_downward_left = 0
+									@statistic_green_trajectory_downward_left_count = 1      
+                  @statistic_green_trajectory_upward_straight = 0
+									@statistic_green_trajectory_upward_straight_count = 1              
+                  @statistic_green_trajectory_downward_straight = 0
+									@statistic_green_trajectory_downward_straight_count = 1     
+              		
          # continue!
 
 
@@ -463,6 +469,43 @@ class Statistic < ActiveRecord::Base
                   @statistic_trajectory_slice += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_trajectory_slice_count += @result_arr.size 
                 end
+							when 12
+                if @result_arr.size != 0
+                  @statistic_green_trajectory_upward_right += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_trajectory_upward_right_count += @result_arr.size
+                end
+              when 13
+                if @result_arr.size != 0
+                  @statistic_green_trajectory_downward_right += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_trajectory_downward_right_count += @result_arr.size
+                end
+              when 14
+                if @result_arr.size != 0
+                  @statistic_green_trajectory_upward_left += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_trajectory_upward_left_count += @result_arr.size
+                end
+              when 15
+                if @result_arr.size != 0
+                  @statistic_green_trajectory_downward_left += @result_arr.inject(0.0) { |sum, el| sum + el } 
+									@statistic_green_trajectory_downward_left_count += @result_arr.size
+                end
+              when 16
+                if @result_arr.size != 0
+                  @statistic_green_trajectory_upward_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_trajectory_upwrads_straight_count += @result_arr.size
+                end
+
+							when 17
+                if @result_arr.size != 0
+                  @statistic_green_trajectory_downward_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_trajectory_downward_straight_count += @result_arr.size
+                end
+							when 18
+                if @result_arr.size != 0
+                  @statistic_green_trajectory_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_trajectory_straight_count += @result_arr.size
+                end
+  
 
               end
             end
@@ -488,52 +531,41 @@ class Statistic < ActiveRecord::Base
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
               end
-
               case direction_num
-              when 5
+              when 6
                 if @result_arr.size != 0
-                  @statistic_green_direction_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_direction_straight_count += @result_arr.size
-                end
-              when 1
-                if @result_arr.size != 0
-                  @statistic_green_direction_to_right += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_direction_to_right_count += @result_arr.size
+                  @statistic_green_direction_upward_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_upward_straight_count += @result_arr.size
                 end
               when 2
                 if @result_arr.size != 0
-                  @statistic_green_direction_to_left += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_direction_to_left_count += @result_arr.size
-                end
-              when 3
-                if @result_arr.size != 0
-                  @statistic_green_direction_more_to_right += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_direction_more_to_right_count += @result_arr.size
+                  @statistic_green_direction_upward_right += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_upward_right_count += @result_arr.size
                 end
               when 4
                 if @result_arr.size != 0
-                  @statistic_green_direction_more_to_left += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_direction_more_to_left_count += @result_arr.size
+                  @statistic_green_direction_upward_left += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_upward_left_count += @result_arr.size
                 end
-              when 9
+              when 3
                 if @result_arr.size != 0
-                  @statistic_green_direction_upward += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_direction_upward_count += @result_arr.size
+                  @statistic_green_direction_downward_right += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_downward_right_count += @result_arr.size
                 end
-              when 10
+              when 5
                 if @result_arr.size != 0
-                  @statistic_green_direction_downward += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_direction_downward_count += @result_arr.size
+                  @statistic_green_direction_downward_left += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_downwardleft_count += @result_arr.size
                 end
-              when 11
+              when 7
                 if @result_arr.size != 0
-                  @statistic_green_direction_very_upward += @result_arr.inject(0.0) { |sum, el| sum + el }
-									 @statistic_green_direction_very_upward_count += @result_arr.size
+                  @statistic_green_direction_downward_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
+									@statistic_green_direction_downward__straight_count += @result_arr.size
                 end
-              when 12
+              when 1
                 if @result_arr.size != 0
-                  @statistic_green_direction_very_downward += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_direction_very_downward_count += @result_arr.size
+                  @statistic_green_direction_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
+									 @statistic_green_direction_straight_count += @result_arr.size
                 end
               end
             end
@@ -551,14 +583,12 @@ class Statistic < ActiveRecord::Base
         end # ends field
 
 				#calculating average statistics per situation
-				statistic.green_direction_very_downward = calculate_avg(@statistic_green_direction_very_downward, @statistic_green_direction_very_downward_count)
-				statistic.green_direction_very_upward = calculate_avg(@statistic_green_direction_very_upward, @statistic_green_direction_very_upward_count)
-				statistic.green_direction_downward = calculate_avg(@statistic_green_direction_downward, @statistic_green_direction_downward_count)
-				statistic.green_direction_more_to_left = calculate_avg(@statistic_green_direction_more_to_left, @statistic_green_direction_more_to_left_count)
-				statistic.green_direction_upward = calculate_avg(@statistic_green_direction_upward, @statistic_green_direction_upward_count)
-				statistic.green_direction_more_to_right = calculate_avg(@statistic_green_direction_more_to_right, @statistic_green_direction_more_to_right_count)
-				statistic.green_direction_to_right = calculate_avg(@statistic_green_direction_to_right, @statistic_green_direction_to_right_count)
- 				statistic.green_direction_to_left = calculate_avg(@statistic_green_direction_to_left, @statistic_green_direction_to_left_count)
+				statistic.green_direction_downward_right = calculate_avg(@statistic_green_direction_downward_right, @statistic_green_direction_downward_right_count)
+				statistic.green_direction_upward_right = calculate_avg(@statistic_green_direction_upward_right, @statistic_green_direction_upward_right_count)
+				statistic.green_direction_downward_straight = calculate_avg(@statistic_green_direction_downward_straight, @statistic_green_direction_downward_straight_count)
+				statistic.green_direction_downward_left = calculate_avg(@statistic_green_direction_downward_left, @statistic_green_direction_downward_left_count)
+				statistic.green_direction_upward_left = calculate_avg(@statistic_green_direction_upward_left, @statistic_green_direction_upward_left_count)
+				statistic.green_direction_upward_straight = calculate_avg(@statistic_green_direction_upward_straight, @statistic_green_direction_upward_straight_count)
 				statistic.green_direction_straight = calculate_avg(@statistic_green_direction_straight, @statistic_green_direction_straight_count)
 
 				statistic.trajectory_slice = calculate_avg(@statistic_trajectory_slice, @statistic_trajectory_slice_count)
@@ -568,6 +598,14 @@ class Statistic < ActiveRecord::Base
 				statistic.trajectory_high = calculate_avg(@statistic_trajectory_high, @statistic_trajectory_high_count)
 				statistic.trajectory_low = calculate_avg(@statistic_trajectory_low, @statistic_trajectory_low_count)
 				statistic.trajectory_fade = calculate_avg(@statistic_trajectory_fade, @statistic_trajectory_fade_count)
+				statistic.green_trajectory_straight = calculate_avg(@statistic_green_trajectory_straight, @statistic_green_trajectory_straight_count)
+statistic.green_trajectory_upward_straight = calculate_avg(@statistic_green_trajectory_upward_straight, @statistic_green_trajectory_upward_straight_count)
+statistic.green_trajectory_upward_left = calculate_avg(@statistic_green_trajectory_upward_left, @statistic_green_trajectory_upward_left_count)
+statistic.green_trajectory_upward_right = calculate_avg(@statistic_green_trajectory_upward_right, @statistic_green_trajectory_upward_right_count)
+statistic.green_trajectory_downward_straight = calculate_avg(@statistic_green_trajectory_downward_straight, @statistic_green_trajectory_downward_straight_count)
+statistic.green_trajectory_downward_left = calculate_avg(@statistic_green_trajectory_downward_left, @statistic_green_trajectory_downward_left_count)
+statistic.green_trajectory_downward_right = calculate_avg(@statistic_green_trajectory_downward_right, @statistic_green_trajectory_downward_right_count)
+
 
 				statistic.weather_wind_and_rain = calculate_avg(@statistic_weather_wind_and_rain, @statistic_weather_wind_and_rain_count)
 				statistic.weather_wind = calculate_avg(@statistic_weather_wind, @statistic_weather_wind_count)
@@ -732,6 +770,20 @@ end
           @GameFilterStatistic.trajectory_low = true
         when 10
           @GameFilterStatistic.trajectory_high = true
+				when 12
+          @GameFilterStatistic.green_trajectory_upward_right = true
+        when 13
+          @GameFilterStatistic.green_trajectory_downward_right = true
+        when 14
+          @GameFilterStatistic.green_trajectory_upward_right = true
+         when 15
+          @GameFilterStatistic.green_trajectory_downward_left = true
+        when 16
+          @GameFilterStatistic.green_trajectory_upward_right = true
+        when 17
+          @GameFilterStatistic.green_trajectory_downward_straight = true
+        when 18
+          @GameFilterStatistic.green_trajectory_straight = true
         end
 
       #  case c_pair.hit_planed.wind

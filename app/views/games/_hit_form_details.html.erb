@@ -13,7 +13,7 @@
     <div class="single_dropdown">
       <p>Place</p>
       <div class="element">
-        <%= f.select(:place_from, STATISTICS_PLACE_FROM, {:prompt => 'Select'}, {:id =>"place_from_old", :class => "dropdown6 place_from_dropdown", :onchange => "swap_dropdowns(this.value)" })%>
+        <%= f.select(:place_from, STATISTICS_PLACE_FROM, {}, {:id =>"place_from_old", :class => "dropdown6 place_from_dropdown", :onchange => "swap_dropdowns(this.value)" })%>
       </div>
       <% if hit_p_final.place_from == 1 || hit_p_final.place_from == 7%>
         <% style_for_direction = "display:none"%>
@@ -32,7 +32,7 @@
     <div class="single_dropdown">
       <p>Difficulty</p>
       <div class="element">
-        <%= f.select(:difficulty, STATISTICS_DIFFICULTY, {:prompt => 'Select'}, {:class => "dropdown6"})%>
+        <%= f.select(:difficulty, STATISTICS_DIFFICULTY, {:selected => 2}, {:class => "dropdown6"})%>
 
       </div>
     </div>
@@ -45,13 +45,13 @@
     <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
       <p>Stance</p>
       <div class="element">
-        <%= f.select( :stance, STATISTICS_STANCE, {:prompt => 'Select'}, {:class => "dropdown6 deselect"}) %>
+        <%= f.select( :stance, STATISTICS_STANCE, {:selected => 1}, {:class => "dropdown6 deselect"}) %>
       </div>
     </div>
     <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
       <p>Slope</p>
       <div class="element" style="heigth:60px">
-        <%= f.select(:slipums, SLIPUMS,{:prompt => 'Select'}, {:class => "dropdown6 deselect", :onchange => "swapDirectionValue(this.value);"})%>
+        <%= f.select(:slipums, SLIPUMS,{:selected => 1}, {:class => "dropdown6 deselect" })%>
       </div>
     </div>
     <!--<div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
@@ -68,7 +68,7 @@
       <div class="single_dropdown">
         <p>Land place</p>
         <div class="element" style="heigth:60px">
-					 <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:prompt => 'Select'}, {:class => "dropdown6 land_place_dropdown"}) %>         
+					 <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:selected => 1}, {:class => "dropdown6 land_place_dropdown"}) %>         
  					<!--	<% if hit_p_final.place_from == 1%>
          
           <% else %>
@@ -100,11 +100,16 @@
           <% end %>
         </div>
       </div>-->
+			<% if hit_p_final.place_from == 1 || hit_p_final.place_from == 7 %>
+				<% dropd_values = STATISTICS_TRAJECTORY_GREEN %>
+			<% else %>
+				<% dropd_values = STATISTICS_TRAJECTORY_NEW %>
+			<% end %>
       <div class="single_dropdown " style="<%#=style_for_direction%>" >
 
         <p>Trajectory</p>
         <div class="element" style="heigth:60px">
-          <%= f.select(:trajectory, STATISTICS_TRAJECTORY_NEW,{:prompt => 'Select'}, {:class => "dropdown6 deselect direction_swap"})%>
+          <%= f.select(:trajectory, dropd_values,{:selected => 5}, {:class => "dropdown6 deselect direction_swap"})%>
         </div>
       </div>
       <!--<div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
@@ -138,9 +143,9 @@
         <p>Land place</p>
         <div class="element">
           <% if hit_p_final.place_from == 1%>
-            <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:prompt => 'Select'}, {:class => "dropdown6 land_place_dropdown"}) %>
+            <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:selected => 1}, {:class => "dropdown6 land_place_dropdown"}) %>
           <% else %>
-            <%= f.select( :land_place, PLANNED_LAND_PLACES,{:prompt => 'Select'}, {:class => "dropdown6 land_place_dropdown"}) %>
+            <%= f.select( :land_place, PLANNED_LAND_PLACES,{:selected => 1}, {:class => "dropdown6 land_place_dropdown"}) %>
           <% end %>
         </div>
       </div>
@@ -154,18 +159,15 @@
       <div class="single_dropdown">
         <p>Mistake</p>
         <div class="element" style="heigth:60px">
-          <%= f.select(:mistake, MISTAKE,{:prompt => 'Select'}, {:class => "dropdown6"})%>
+          <%= f.select(:mistake, MISTAKE,{:selected => 2}, {:class => "dropdown6"})%>
         </div>
       </div>
       <div class="single_dropdown" >
         <p>Misdirection</p>
         <div class="element">
 
-          <% if hit_p_final.place_from == 1 || hit_p_final.place_from == 7 %>
-            <%= f.select(:direction, DIRECTION_SHORT,{:prompt => 'Select'}, {:class => "dropdown6"})%>
-          <% else %>
-            <%= f.select(:misdirection, STATISTICS_MISDIRECTION,{:prompt => 'Select'}, {:class => "dropdown6 "})%>
-          <% end %>
+            <%= f.select(:misdirection, STATISTICS_MISDIRECTION,{:selected => 2}, {:class => "dropdown6 "})%>
+ 
         </div>
       </div>
       <!--<div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
@@ -201,7 +203,7 @@
         <div class="single_dropdown">
           <p>Stroke was .. </p>
 
-          <%= f.select(:hit_was, STATISTICS_HIT_WAS, {:prompt => 'Select'}, {:class => "dropdown6"}) %></br>
+          <%= f.select(:hit_was, STATISTICS_HIT_WAS, {:selected => 3}, {:class => "dropdown6"}) %></br>
 
         </div>
 
@@ -214,7 +216,7 @@
         -->
         <div class="single_dropdown" style="width:140px">
           <p>Luck factor</p>
-          <%= f.select(:luck_factor, LUCK_FACTOR, {:prompt => 'Select'}, {:class => "dropdown6"}) %></br>
+          <%= f.select(:luck_factor, LUCK_FACTOR, {:selected => 1}, {:class => "dropdown6"}) %></br>
         </div>
         <%= f.hidden_field :hole_number, :value => active_hole %>
         <%= f.hidden_field :hit_number, :value => active_hit %>

@@ -140,13 +140,13 @@ function swap_dropdowns(i) {
     $(".slipums_dropdown").css({"display":"block"});
     var options_green = {
        
-      1 : "Straight",
-      2 : "Upwards right",
-      4 : "Downwards right",
-      3 : "Upwards left",
-      5 : "Upwards left",
-			6 : "Upwards straight",
-			7 : "Downwards straight"
+      5 : "Normal",
+      12 : "Upwards right",
+      13 : "Downwards right",
+      14 : "Upwards left",
+      15 : "Downwards left",
+			16 : "Upwards straight",
+			17 : "Downwards straight"
 
     };
     var options_land_green = {

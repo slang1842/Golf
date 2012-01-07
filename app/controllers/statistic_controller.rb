@@ -77,6 +77,7 @@ class StatisticController < ApplicationController
     @stance = params[:stance]
     @temperature = params[:temperature]
     @trajectory = params[:trajectory]
+		@green_trajectory = params[:trajectory_on_green]
     @weather = params[:weather]
     #@wind = params[:wind]
     @field = params[:field_id]
@@ -171,6 +172,23 @@ class StatisticController < ApplicationController
       @filtered_games = @filtered_games.where(:trajectory_drow => true)
     when 4
       @filtered_games = @filtered_games.where(:trajectory_fade => true)
+    end
+
+		case @green_trajectory.to_i
+    when 18
+      @filtered_games = @filtered_games.where(:green_trajectory_straight => true)
+    when 12
+      @filtered_games = @filtered_games.where(:green_trajectory_upward_right => true)
+    when 13
+      @filtered_games = @filtered_games.where(:green_trajectory_downward_right => true)
+    when 14
+      @filtered_games = @filtered_games.where(:green_trajectory_upward_left => true)
+    when 15
+      @filtered_games = @filtered_games.where(:green_trajectory_downward_left => true)
+    when 16
+      @filtered_games = @filtered_games.where(:green_trajectory_upward_straight => true)
+    when 17
+      @filtered_games = @filtered_games.where(:green_trajectory_downward_straight => true)
     end
 
     #case @wind.to_i

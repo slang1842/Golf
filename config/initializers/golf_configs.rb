@@ -21,12 +21,12 @@ STATISTICS_MISDIRECTION = { "Left" => 1, "Good direction" => 2, "Right" => 3}
 STATISTICS_HIT_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_MOTION_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_FOLLOWING_ACTION = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
-STATISTICS_DIFFICULTY = { "Easy" => 1, "Medium" => 2, "Hard" => 3}
+STATISTICS_DIFFICULTY = { "Easy" => 1, "Normal" => 2, "Hard" => 3}
 
 MAIN_STATISTIC_BAD_SIMBOL = "N/V"
 MAIN_STATISTIC_BAD_PROC = 45 # these are % to show red bar and hint
 
-SLIPUMS = {"Straight" => 5, "To right" => 1, "To left" => 2, "More to right" => 3, "More to left" => 4, "Upward" => 9, "Downward" => 10, "Very upward" => 11, "Very downward" => 12}
+SLIPUMS = {"Straight" => 1, "Upwards right" => 2, "Downwards right" => 3, "Upwards left" => 4, "Downwards left" => 5, "Upwards straight" => 6, "Downwards straight" => 7}
 KRITUMS = {"Straight" => 1, "Upward" => 2, "Downward" => 3, "Very upward" => 4, "Very downward" => 5}
 STRENGTH = {"Light" => 1, "Normal" => 2, "Strong" => 3, "Very strong" => 4}
 MISTAKE = {"Good distance" => 2, "Too close" => 1, "Too far" => 3}
@@ -59,6 +59,7 @@ STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
 
 # new values for merged categories 30.12.2011
 STATISTICS_TRAJECTORY_NEW = {"Hook" => 1, "Slice" => 2, "Drow" => 3, "Fade" => 4, "Normal" => 5, "Low" => 9, "High" => 10 }
+STATISTICS_TRAJECTORY_GREEN = {"Straight" => 18, "Upwards right" => 12, "Downwards right" => 13, "Upwards left" => 14, "Downwards left" => 15, "Upwards straight" => 16, "Downwards straight" => 17}
 
 STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "No wind" => 3, "From right" => 4, "From left" => 5}
 PLANNED_LAND_PLACES_SHORT = {"Green" => 1, "Fairway" => 3, "Hole" => 11}

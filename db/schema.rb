@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120101164550) do
+ActiveRecord::Schema.define(:version => 20120107110241) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -55,42 +55,49 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.integer  "avg_r_distance"
     t.integer  "avg_p_distance"
     t.integer  "hit_progress"
-    t.boolean  "place_teebox",           :default => false
-    t.boolean  "place_feairway",         :default => false
-    t.boolean  "place_next_fairway",     :default => false
-    t.boolean  "place_semi_raf",         :default => false
-    t.boolean  "place_raf",              :default => false
-    t.boolean  "place_for_green",        :default => false
-    t.boolean  "place_green",            :default => false
-    t.boolean  "place_fairway_sand",     :default => false
-    t.boolean  "place_green_sand",       :default => false
-    t.boolean  "place_wood",             :default => false
-    t.boolean  "place_from_water",       :default => false
-    t.boolean  "stance_normal",          :default => false
-    t.boolean  "stance_right_leg_lower", :default => false
-    t.boolean  "stance_left_leg_lower",  :default => false
-    t.boolean  "stance_ball_lower",      :default => false
-    t.boolean  "stance_ball_higher",     :default => false
-    t.boolean  "temperature_cold",       :default => false
-    t.boolean  "temperature_normal",     :default => false
-    t.boolean  "temperature_hot",        :default => false
-    t.boolean  "weather_normal",         :default => false
-    t.boolean  "weather_wind",           :default => false
-    t.boolean  "weather_rain",           :default => false
-    t.boolean  "weather_wind_and_rain",  :default => false
-    t.boolean  "trajectory_normal",      :default => false
-    t.boolean  "trajectory_high",        :default => false
-    t.boolean  "trajectory_low",         :default => false
-    t.boolean  "wind_from_behind",       :default => false
-    t.boolean  "wind_from_front",        :default => false
-    t.boolean  "wind_from_left",         :default => false
-    t.boolean  "wind_from_right",        :default => false
+    t.boolean  "place_teebox",                       :default => false
+    t.boolean  "place_feairway",                     :default => false
+    t.boolean  "place_next_fairway",                 :default => false
+    t.boolean  "place_semi_raf",                     :default => false
+    t.boolean  "place_raf",                          :default => false
+    t.boolean  "place_for_green",                    :default => false
+    t.boolean  "place_green",                        :default => false
+    t.boolean  "place_fairway_sand",                 :default => false
+    t.boolean  "place_green_sand",                   :default => false
+    t.boolean  "place_wood",                         :default => false
+    t.boolean  "place_from_water",                   :default => false
+    t.boolean  "stance_normal",                      :default => false
+    t.boolean  "stance_right_leg_lower",             :default => false
+    t.boolean  "stance_left_leg_lower",              :default => false
+    t.boolean  "stance_ball_lower",                  :default => false
+    t.boolean  "stance_ball_higher",                 :default => false
+    t.boolean  "temperature_cold",                   :default => false
+    t.boolean  "temperature_normal",                 :default => false
+    t.boolean  "temperature_hot",                    :default => false
+    t.boolean  "weather_normal",                     :default => false
+    t.boolean  "weather_wind",                       :default => false
+    t.boolean  "weather_rain",                       :default => false
+    t.boolean  "weather_wind_and_rain",              :default => false
+    t.boolean  "trajectory_normal",                  :default => false
+    t.boolean  "trajectory_high",                    :default => false
+    t.boolean  "trajectory_low",                     :default => false
+    t.boolean  "wind_from_behind",                   :default => false
+    t.boolean  "wind_from_front",                    :default => false
+    t.boolean  "wind_from_left",                     :default => false
+    t.boolean  "wind_from_right",                    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "trajectory_fade"
     t.boolean  "trajectory_drow"
     t.boolean  "trajectory_slice"
     t.boolean  "trajectory_hook"
+    t.boolean  "green_trajectory_straight"
+    t.boolean  "green_trajectory_downward_straight"
+    t.boolean  "green_trajectory_upward_straight"
+    t.boolean  "green_trajectory_upward_left"
+    t.boolean  "green_trajectory_upward_right"
+    t.boolean  "green_trajectory_downward_left"
+    t.boolean  "green_trajectory_downward_right"
   end
 
   create_table "game_statistic_generals", :force => true do |t|
@@ -244,10 +251,19 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.string   "trajectory_drow_hint"
     t.string   "trajectory_slice_hint"
     t.string   "trajectory_hook_hint"
-    t.string   "green_direction_upward_hint"
-    t.string   "green_direction_downward_hint"
-    t.string   "green_direction_very_upward_hint"
-    t.string   "green_direction_very_downward_hint"
+    t.string   "green_direction_upward_straight_hint"
+    t.string   "green_direction_downward_straight_hint"
+    t.string   "green_direction_upward_left_hint"
+    t.string   "green_direction_downward_left_hint"
+    t.string   "green_direction_downward_right_hint"
+    t.string   "green_direction_upward_right_hint"
+    t.string   "green_trajectory_upward_straight_hint"
+    t.string   "green_trajectory_downward_right_hint"
+    t.string   "green_trajectory_downward_left_hint"
+    t.string   "green_trajectory_upward_right_hint"
+    t.string   "green_trajectory_upward_left_hint"
+    t.string   "green_trajectory_downward_straight_hint"
+    t.string   "green_trajectory_straight_hint"
   end
 
   create_table "hit_places", :force => true do |t|
@@ -380,10 +396,19 @@ ActiveRecord::Schema.define(:version => 20120101164550) do
     t.integer  "trajectory_drow"
     t.integer  "trajectory_slice"
     t.integer  "trajectory_hook"
-    t.integer  "green_direction_downward"
-    t.integer  "green_direction_upward"
-    t.integer  "green_direction_very_upward"
-    t.integer  "green_direction_very_downward"
+    t.integer  "green_direction_downward_straight"
+    t.integer  "green_direction_upward_straight"
+    t.integer  "green_direction_upward_left"
+    t.integer  "green_direction_downward_left"
+    t.integer  "green_direction_downward_right"
+    t.integer  "green_direction_upward_right"
+    t.integer  "green_trajectory_upward_straight"
+    t.integer  "green_trajectory_downward_right"
+    t.integer  "green_trajectory_downward_left"
+    t.integer  "green_trajectory_upward_right"
+    t.integer  "green_trajectory_upward_left"
+    t.integer  "green_trajectory_downward_straight"
+    t.integer  "green_trajectory_straight"
   end
 
   create_table "sticks", :force => true do |t|
