@@ -141,10 +141,13 @@ function swap_dropdowns(i) {
     var options_green = {
        
       1 : "Straight",
-      2 : "To right",
-      4 : "More to right",
-      3 : "To left",
-      5 : "More to left"
+      2 : "Upwards right",
+      4 : "Downwards right",
+      3 : "Upwards left",
+      5 : "Upwards left",
+			6 : "Upwards straight",
+			7 : "Downwards straight"
+
     };
     var options_land_green = {
       
@@ -167,11 +170,13 @@ function swap_dropdowns(i) {
     $(".direction_dropdown").css({"display":"block"});
     $(".slipums_dropdown").css({"display":"none"});
     var options_green = {
-     1 : "Straight",
-     2 : "Fade", 
+     5 : "Normal",
+     4 : "Fade", 
      3 : "Drow", 
-     4 : "Slice",
-     5 : "Hook"  
+     2 : "Slice",
+     1 : "Hook",
+		 9 : "Low",
+		 10 : "High" 
          };
     var options_land_green = {
      1 : "Green",
@@ -182,7 +187,8 @@ function swap_dropdowns(i) {
      8 : "Fairway sand",
      9 : "Green sand",
      11 : "Hole",
-     5 : "Semi raf" 
+     5 : "Semi raf",
+		 10 : "Wood" 
           };
     $(".land_place_dropdown").empty();
     $(".direction_swap").empty();

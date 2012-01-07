@@ -104,7 +104,7 @@
 
         <p>Trajectory</p>
         <div class="element" style="heigth:60px">
-          <%= f.select(:trajectory, STATISTICS_TRAJECTORY_NEW,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
+          <%= f.select(:trajectory, STATISTICS_TRAJECTORY_NEW,{:prompt => 'Select'}, {:class => "dropdown6 deselect direction_swap"})%>
         </div>
       </div>
       <!--<div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
@@ -151,7 +151,7 @@
         </div>
       </div>
 
-      <div class="single_dropdown slipums_dropdown" style=<%=style_for_slipums%>>
+      <div class="single_dropdown">
         <p>Mistake</p>
         <div class="element" style="heigth:60px">
           <%= f.select(:mistake, MISTAKE,{:prompt => 'Select'}, {:class => "dropdown6"})%>
@@ -162,9 +162,9 @@
         <div class="element">
 
           <% if hit_p_final.place_from == 1 || hit_p_final.place_from == 7 %>
-            <%= f.select(:direction, DIRECTION_SHORT,{:prompt => 'Select'}, {:class => "dropdown6 direction_swap"})%>
+            <%= f.select(:direction, DIRECTION_SHORT,{:prompt => 'Select'}, {:class => "dropdown6"})%>
           <% else %>
-            <%= f.select(:misdirection, STATISTICS_MISDIRECTION,{:prompt => 'Select'}, {:class => "dropdown6 direction_swap"})%>
+            <%= f.select(:misdirection, STATISTICS_MISDIRECTION,{:prompt => 'Select'}, {:class => "dropdown6 "})%>
           <% end %>
         </div>
       </div>
@@ -175,7 +175,7 @@
         </div>
       </div>-->
 
-      <div class="single_dropdown direction_dropdown" style=<%=style_for_direction%>>
+      <div class="single_dropdown " style="display:none">
         <p>Trajectory</p>
         <div class="element">
           <%= f.select(:trajectory, STATISTICS_TRAJECTORY_NEW,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
@@ -190,13 +190,13 @@
       </div>-->
       <div class="input_wrap" style="height:250px">
 
-        <div class="heading_result"><p>Notes on </br> stroke :</p></div>
-        <div class="single_dropdown">
+        <div class="heading_result"><p>Note:</p></div>
+      <!--  <div class="single_dropdown">
           <p>Motion was</p>
 
 
           <%= f.select(:hit_was, STATISTICS_MOTION_WAS, {:prompt => 'Select'}, {:class => "dropdown6"} )%></br>
-        </div>
+        </div> -->
 
         <div class="single_dropdown">
           <p>Stroke was .. </p>

@@ -66,18 +66,22 @@ class Statistic < ActiveRecord::Base
   end
 
   def self.calculate_success_ratio_for_trajectory(real_pt, planned_pt)
-    diff = (real_pt - planned_pt).abs 
-    if diff < 5
-      result = diff * 15
-    else
-      if planned_pt == 5 || real_pt == 5
-        diff = diff - 5
-        result = diff.abs * 15
-      else
-        result = 15
-      end
-    end
-    return result
+		if real_pt != nil && planned_pt != nil 
+    	diff = (real_pt - planned_pt).abs 
+    	if diff < 5
+      	result = diff * 15
+    	else
+      	if planned_pt == 5 || real_pt == 5
+      	  diff = diff - 5
+      	  result = diff.abs * 15
+     		else
+        	result = 15
+      	end
+    	end
+    	return result
+		else
+			return 0
+		end
   end
   
   def self.detect_failed_stroke(actual_pt, success_pt)
@@ -89,10 +93,13 @@ class Statistic < ActiveRecord::Base
   end
 	
   def self.calculate_success_ratio(planned_pts, real_pts, total_pts)
-
-		distance_ratio = ((1 - (distance_real.to_f - distance_planned.to_f).abs / distance_planned).to_f.round(2) * 100).round
-		planned_ratio = ((((planned_pts - real_pts) / total_pts).abs.round(2)) * 100).round
-		result = planned_ratio
+		if planned_pts != nil && real_pts != nil
+			distance_ratio = ((1 - (distance_real.to_f - distance_planned.to_f).abs / distance_planned).to_f.round(2) * 100).round
+			planned_ratio = ((((planned_pts - real_pts) / total_pts).abs.round(2)) * 100).round
+			result = planned_ratio
+		else 
+			result = 0
+		end
 		if result < 1
 			result = 1
 		end
@@ -102,7 +109,11 @@ class Statistic < ActiveRecord::Base
 	end
 
   def self.calculate_distance_ratio(distance_planned, distance_real)
-    distance_ratio = ((1 - (distance_real.to_f - distance_planned.to_f).abs / distance_planned).to_f.round(2) * 100).round
+		if distance_planned != nil && distance_real != nil
+    	distance_ratio = ((1 - (distance_real.to_f - distance_planned.to_f).abs / distance_planned).to_f.round(2) * 100).round
+		else
+			distance_ratio = 0
+		end
     return distance_ratio
   end
   

@@ -17,7 +17,7 @@ FIELD_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 WEATHER = { "Normal" => 1, "Wind" => 2, "Rain" => 3, "Wind and Rain" => 4}
 GAME_FORMAT = { "Training" => "t", "DM" => "d", "Tournament" => "tn"}
 GAME_TYPE = { "1-9" => 1, "10-18" => 2, "1-18" => 3}
-STATISTICS_MISDIRECTION = {"More to left" => 1, "To left" => 2, "Straight" => 3, "To right" => 4, "More to right" => 5 }
+STATISTICS_MISDIRECTION = { "Left" => 1, "Good direction" => 2, "Right" => 3}
 STATISTICS_HIT_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_MOTION_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_FOLLOWING_ACTION = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
@@ -29,7 +29,7 @@ MAIN_STATISTIC_BAD_PROC = 45 # these are % to show red bar and hint
 SLIPUMS = {"Straight" => 5, "To right" => 1, "To left" => 2, "More to right" => 3, "More to left" => 4, "Upward" => 9, "Downward" => 10, "Very upward" => 11, "Very downward" => 12}
 KRITUMS = {"Straight" => 1, "Upward" => 2, "Downward" => 3, "Very upward" => 4, "Very downward" => 5}
 STRENGTH = {"Light" => 1, "Normal" => 2, "Strong" => 3, "Very strong" => 4}
-MISTAKE = {"None" => 1, "Too close" => 2, "Too far" => 3, "Very close" => 4, "Very far" => 5}
+MISTAKE = {"Good distance" => 2, "Too close" => 1, "Too far" => 3}
 
 
 STICK_DEGREES = {"10x" => 1, "15x" => 2, "20x" => 3, "25x" => 4}
@@ -49,7 +49,7 @@ BALL_TYPE = {"apaļa" => 1, "zaļa" => 2, "oranža" => 3}
 # work correctly .!!!!!
 # ========================================================
 #PLANNED_LAND_PLACES = {"Green" => 1,"Fairway" => 3, "Next fairway" => 4,"Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Hole" => 11, "Semi raf" => 5 }
-PLANNED_LAND_PLACES = {"Green" => 1,"Fairway" => 3, "Next fairway" => 4,"Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Hole" => 11, "Semi raf" => 5 }
+PLANNED_LAND_PLACES = {"Green" => 1,"Fairway" => 3, "Next fairway" => 4,"Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Hole" => 11, "Semi raf" => 5, "Wood" => 10 }
 STATISTICS_PLACE_FROM = {"Green" => 1, "Teebox" => 2, "Fairway" => 3, "Next fairway" => 4, "Semi raf" => 5, "Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Wood" => 10, "From water" => 11 }
 PLANNED_LAND_PLACES_FOR_PRINT = { 1 => "Green",3 => "Fairway",  4 => "Next fairway", 6  => "Raf",   7 => "For green",  8  => "Fairway sand",  9  => "Green sand",   11 => "Hole",   5 => "Semi raf"}
 STATISTICS_STANCE = {"Normal" => 1, "Right leg lower" => 2, "Left leg lower" => 3, "Ball lower" => 4, "Ball higher" => 5}
@@ -58,9 +58,9 @@ STATISTICS_TEMPERATURE = {"Hot" => 1,"Normal" => 2,"Cold" => 3}
 STATISTICS_TRAJECTORY = { "Normal" => 1, "High" => 2, "Low" => 3 }
 
 # new values for merged categories 30.12.2011
-STATISTICS_TRAJECTORY_NEW = {"Hook" => 1, "Slice" => 2, "Drow" => 3, "Fade" => 4, "Normal" => 5, "Low" => 9, "High" => "10" }
+STATISTICS_TRAJECTORY_NEW = {"Hook" => 1, "Slice" => 2, "Drow" => 3, "Fade" => 4, "Normal" => 5, "Low" => 9, "High" => 10 }
 
 STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "No wind" => 3, "From right" => 4, "From left" => 5}
 PLANNED_LAND_PLACES_SHORT = {"Green" => 1, "Fairway" => 3, "Hole" => 11}
 DIRECTION_SHORT = {"Straight" => 1, "To right" => 2, "More to right" => 4, "To left" => 3, "More to left" => 5}
-LUCK_FACTOR = {"No luck" => 1, "Very bad" => 2, "Bad luck" => 3, "Lucky" => 4, "Very lucky" => 5}
+LUCK_FACTOR = {"Good luck" => 1, "Bad luck" => 2}
