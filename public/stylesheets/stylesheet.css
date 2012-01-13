@@ -614,8 +614,12 @@ a {
   border-radius: 2px;
 }
 
-.main_stats_table_wrap .clubs_wrap .single_club_wrap .progress_bar .normal {
+.main_stats_table_wrap .clubs_wrap .single_club_wrap .progress_bar .good {
   background-image:url(/images/progress_bar_bg_green.png);
+}
+
+.main_stats_table_wrap .clubs_wrap .single_club_wrap .progress_bar .normal {
+  background-image:url(/images/progress_bar_bg_yellow.png);
 }
 
 .main_stats_table_wrap .clubs_wrap .single_club_wrap .progress_bar .bad {
@@ -859,8 +863,13 @@ a {
   color:#363636;
 }
 
-.main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .normal {
+.main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .good {
   background-image:url(/images/progress_bar_bg_green.png);
+}
+
+
+.main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .normal {
+  background-image:url(/images/progress_bar_bg_yellow.png);
 }
 
 .main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .bad {
@@ -946,9 +955,25 @@ a {
   border-radius: 5px;
 }
 
-.result_filtering .table_wrap .filter_bar .unfilled .filled {
+.result_filtering .table_wrap .filter_bar .unfilled .good {
   height:29px;
   background-image:url(/images/bg_stripes_green.png);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.result_filtering .table_wrap .filter_bar .unfilled .bad {
+  height:29px;
+  background-image:url(/images/bg_stripes_red.png);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.result_filtering .table_wrap .filter_bar .unfilled .normal {
+  height:29px;
+  background-image:url(/images/bg_stripes_yellow.png);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;

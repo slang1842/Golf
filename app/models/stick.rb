@@ -4,7 +4,7 @@ class Stick < ActiveRecord::Base
   has_many :users, :through => :users_sticks
   has_many :hits
   
-  validates :stick_type, :distance, :degrees, :shaft, :shaft_strength, :short_name, :presence => true
+  validates :stick_type, :distance, :shaft, :shaft_strength, :short_name, :presence => true
 
 	def self.convert_distance_to_meters (measurement_type, distance)
 		puts "TO METERS"

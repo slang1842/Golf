@@ -12,10 +12,12 @@
       <%= f.text_field :distance %>
     </div>
 
-    <div class="field">
+   <!-- <div class="field">
       <%= f.label :degrees %><br />
       <%= f.select(:degrees, STICK_DEGREES,{}, { :class => 'dropdown8 user_select_field', :style => "width: 300px;"}) %>
-    </div>
+    </div>-->
+			
+			<%= f.hidden_field :degrees, :value => 5 %>
 
     <div class="field">
       <%= f.label :shaft %><br />

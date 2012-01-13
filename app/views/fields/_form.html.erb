@@ -3,7 +3,7 @@
 <div class="messages_error" style="display: none;">Please, enter field name!</div>
 </div>
 
-<%= form_for([:golf_club, @field], :html => {:multipart => true}) do |f| %>
+<%= form_for([:golf_club, @field], :html => {:multipart => true, :class => "edit_field"}) do |f| %>
 
   <% if @field.errors.any? %>
     <div class="error_default">
@@ -62,33 +62,49 @@
 
       <div id="hit_places">
         <div class="hit_places_wrap">
-
-          <h1>Start places</h1>
-
+					<div class="heading_places"><h1>Start places</h1></div>
+					<span class="little_headings">Use this distance?</span>	
+					<div class="clear"></div>
           <div class="single_wrap">
             <div class="txt two_lines"><p>Very short distance</p></div>
             <div class="color_dropdown">
-              <%= f.select( :very_short_distance, START_PLACE_COLORS, {:prompt => 'select'},{:class => 'dropdown3', :onchange => "swapDistanceColor(this.value, 'very_short');"})%>
+              <%= f.select( :very_short_distance, START_PLACE_COLORS_USER, {:prompt => 'Select'},{:class => 'dropdown3 very_short_dropdown', :disabled => return_disabled(@field.very_short_distance), :onchange => "swapDistanceColor(this.value, 'very_short');"})%>
             </div>
           </div>
+					<div class="enable_wrap">
+						<%= render_checkbox('very_short', @field.very_short_distance)%>
+		  		</div>
+					<div class="clear"></div>
           <div class="single_wrap">
             <div class="txt two_lines"><p>Short distance</p></div>
             <div class="color_dropdown">
-              <%= f.select( :short_distance, START_PLACE_COLORS, {:prompt => 'select'},{:class => 'dropdown3', :onchange => "swapDistanceColor(this.value, 'short');"})%>
+              <%= f.select( :short_distance, START_PLACE_COLORS_USER, {:prompt => 'Select'},{:class => 'dropdown3 short_dropdown', :disabled => return_disabled(@field.short_distance), :onchange => "swapDistanceColor(this.value, 'short');"})%>
             </div>
           </div>
+					<div class="enable_wrap">
+						<%= render_checkbox('short', @field.short_distance)%>
+		  		</div>
+					<div class="clear"></div>
           <div class="single_wrap">
             <div class="txt two_lines"><p>Normal distance</p></div>
             <div class="color_dropdown">
-              <%= f.select( :normal_distance, START_PLACE_COLORS, {:prompt => 'select'},{:class => 'dropdown3', :onchange => "swapDistanceColor(this.value, 'normal');"})%>
+              <%= f.select( :normal_distance, START_PLACE_COLORS_USER, {:prompt => 'Select'},{:class => 'dropdown3 normal_dropdown', :disabled => return_disabled(@field.normal_distance), :onchange => "swapDistanceColor(this.value, 'normal');"})%>
             </div>
           </div>
+					<div class="enable_wrap">
+							<%= render_checkbox('normal', @field.normal_distance)%>
+		  		</div>
+					<div class="clear"></div>
           <div class="single_wrap">
             <div class="txt two_lines"><p>Long distance</p></div>
             <div class="color_dropdown">
-              <%= f.select( :long_distance, START_PLACE_COLORS, {:prompt => 'select'},{:class => 'dropdown3', :onchange => "swapDistanceColor(this.value, 'long');"})%>
+              <%= f.select( :long_distance, START_PLACE_COLORS_USER, {:prompt => 'Select'},{:class => 'dropdown3 long_dropdown', :disabled => return_disabled(@field.long_distance), :onchange => "swapDistanceColor(this.value, 'long');"})%>
             </div>
           </div>
+					<div class="enable_wrap">
+						<%= render_checkbox('long', @field.long_distance)%>
+		 			 </div>
+		  		<div class="clear"></div>
         </div>
       </div>
     </div>
@@ -147,3 +163,7 @@
 <% end %>
 
 <div class="pusher"></div>
+
+
+
+

@@ -10,7 +10,6 @@ class FieldsController < ApplicationController
 
   def edit
     @field = Field.find(params[:id])
-    
     @hole_attributes_name = "holes_attributes[]"
     @new_hole_attributes_name = (@field.holes.count > 0) ? "new_holes_attributes[]" : @hole_attributes_name
     @hit_place_attributes_name = "hit_places_attributes[]"
@@ -46,6 +45,10 @@ class FieldsController < ApplicationController
     params[:field] = merge_hash(params[:field], "hit_places_attributes", "new_hit_places_attributes")
     params[:field] = merge_hash(params[:field], "green_fees_attributes", "new_green_fees_attributes")
        
+		@field.short_distance = 0 unless params[:field][:short_distance] 
+		@field.very_short_distance = 0 unless params[:field][:very_short_distance] 
+		@field.normal_distance = 0 unless params[:field][:normal_distance] 
+		@field.long_distance = 0 unless params[:field][:long_distance] 
     respond_to do |format|
       if @field.update_attributes(params[:field])
         format.html { redirect_to('/club/edit_fields', :notice => "Field was successfully updated.") }
@@ -67,4 +70,5 @@ class FieldsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

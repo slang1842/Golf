@@ -17,6 +17,8 @@
       </div>
 
       <div class="heading"><p>Clubs</p></div>
+			
+			<div class="heading"><div class="gray_heading"><p> Your current measurement preference is <%= return_distance_name(@user.measurement)%>.</p></div></div>
 
       <div id="sticks">
         <% @users_sticks.each do |users_stick| %>

@@ -30,7 +30,7 @@
   <%  unless current_situation == 0 %>
     <!-- ============== show progress ============== -->
     <div class="progress_bar">
-      <div class="progress_active <%= current_situation.to_i < MAIN_STATISTIC_BAD_PROC ? "bad" : "normal" %>" style="width:<%= "#{current_situation}%"%>">
+      <div class="progress_active <%= swap_bar_color(current_situation) %>" style="width:<%= "#{current_situation}%"%>">
         <div class="percentage">
           <p><%= "#{current_situation}%"%></p>
         </div>

@@ -241,6 +241,31 @@ function swapDistanceColor(color_no, distance_type){
 	if (color_no == 0){ $(header + "," +  textfield).hide(); }
 		
 }
+
+function toggleDistanceColor(distance_type, enable){
+	var header = "." + distance_type + "_distance_header";
+	var textfield = "." + distance_type + "_distance";
+	var dropdown = "." + distance_type + "_dropdown";
+	if (enable == true) {
+		$(dropdown).attr("disabled", false);
+		}
+	else {
+		$(header).hide();
+		$(textfield).hide();
+		$(dropdown).attr("disabled", true);
+		$(dropdown).val(0);
+	}
+}
+
+function clearGreenTrajectoryDropdown() {
+	$('.green_trajectory').children(':first').attr("selected", "selected");
+
+}
+
+function clearFairwayTrajectoryDropdown() {
+	$('.fairway_trajectory').children(':first').attr("selected", "selected");
+
+}		
 // function check_game_form() {
 //     textEntered = true
 //        $(".game_input_select").each(function() {

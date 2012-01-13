@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107110241) do
+ActiveRecord::Schema.define(:version => 20120110165100) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -468,7 +468,7 @@ ActiveRecord::Schema.define(:version => 20120107110241) do
     t.integer  "stick_id"
     t.integer  "pair_hit_id"
     t.float    "distance",       :null => false
-    t.string   "degrees",        :null => false
+    t.integer  "degrees",        :null => false
     t.string   "shaft",          :null => false
     t.string   "shaft_strength", :null => false
     t.datetime "created_at"

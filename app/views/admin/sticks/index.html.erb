@@ -10,7 +10,7 @@
     <div class="row">
       <div class="item">Stick Type</div>
       <div class="item">Distance</div>
-      <div class="item">Degrees</div>
+     <!-- <div class="item">Degrees</div>-->
       <div class="item">Shaft</div>
       <div class="item">Shaft Strenght</div>
       <div class="item">Stick Short Name</div>
@@ -21,7 +21,7 @@
     <div class="row">
       <div class="item"><%= stick.stick_type %></div>
       <div class="item"><%= number_with_precision(stick.distance, :precision=> 2)%></div>
-      <div class="item"><%= STICK_DEGREES_rev[stick.degrees.to_i] %></div>
+     <!-- <div class="item"><%= STICK_DEGREES_rev[stick.degrees.to_i] %></div>-->
       <div class="item"><%= STICK_SHAFT_rev[stick.shaft.to_i] %></div>
       <div class="item"><%= STICK_SHAFT_STRENGTH_rev[stick.shaft_strength.to_i] %></div>
       <div class="item"><%= stick.short_name %></div>

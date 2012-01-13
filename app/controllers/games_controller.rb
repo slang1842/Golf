@@ -260,7 +260,11 @@ class GamesController < ApplicationController
     @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
     @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
    	place_from = @hit_real_prev.land_place
-		distance_to_hole = (@hit_planned_prev.distance_to_hole - @hit_real_prev.hit_distance).abs
+		if @hit_real_prev.hit_distance
+			distance_to_hole = (@hit_planned_prev.distance_to_hole - @hit_real_prev.hit_distance).abs  
+		else 
+			distance_to_hole = 0
+	  end
    	@hit_planned.update_attributes({:place_from => place_from, :distance_to_hole => distance_to_hole})
     @hit_r_final = @hit_real
     @hit_p_final = @hit_planned
@@ -493,6 +497,7 @@ private
         @start_hole = 1
         @end_hole = 9
       when 2
+
         hole_num = 10..18
         @start_hole = 10 
         @end_hole = 18

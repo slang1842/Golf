@@ -46,18 +46,19 @@ class Statistic < ActiveRecord::Base
   end
   
   def self.calculate_current_statistics(planed, real) # p = planed, r = Real
-           
-      result = calculate_distance_ratio(planed.hit_distance, real.hit_distance)
-         result = result - detect_failed_stroke(real.misdirection, 2) # 3 is for misdirection "straight"
-         result = result - detect_failed_stroke(real.mistake, 2) # 1 is for mistake "none"   
-      if result > 100
-        return 100
-      elsif result < 1
-        return 1
-      else
-        return result
-      end
-      
+      if planed.hit_distance.to_i != 0 && real.hit_distance.to_i != 0 && real.misdirection.to_i != 0 && real.mistake.to_i != 0    
+      	result = calculate_distance_ratio(planed.hit_distance, real.hit_distance)
+        	 result = result - detect_failed_stroke(real.misdirection, 2) # 3 is for misdirection "straight"
+        	 result = result - detect_failed_stroke(real.mistake, 2) # 1 is for mistake "none"   
+      	if result > 100
+        	result = 100
+      	elsif result < 1
+        	result = 1
+      	end
+			else
+				result = false
+			end
+  	return result
   end
 
   def self.calculate_success_ratio_for_trajectory(real_pt, planned_pt)
@@ -555,12 +556,12 @@ class Statistic < ActiveRecord::Base
               when 5
                 if @result_arr.size != 0
                   @statistic_green_direction_downward_left += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_direction_downwardleft_count += @result_arr.size
+									@statistic_green_direction_downward_left_count += @result_arr.size
                 end
               when 7
                 if @result_arr.size != 0
                   @statistic_green_direction_downward_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_direction_downward__straight_count += @result_arr.size
+									@statistic_green_direction_downward_straight_count += @result_arr.size
                 end
               when 1
                 if @result_arr.size != 0
@@ -656,173 +657,32 @@ end
 
   #================================================
   # Game statistics
-  def self.game_filter_statistic
-    @return = false
-    GameFilterStatistic.delete_all
+  def self.game_filter_statistic(user_id, place_from, stance, temperature, trajectory, field_id, weather)
+		@games = Game.where('games.user_id = ? AND games.temperature IN(?) AND games.field_id = ? AND games.weather IN(?)', user_id, temperature, field_id, weather)
+		@game_id_arr = []
+		if @games.count != 0 
+			@games.each {|game| @game_id_arr << game.id }
+		
+			@pair_hits = PairHit.where('pair_hits.game_id IN(?)', @game_id_arr).joins('INNER JOIN hits ON hits.id = pair_hits.hit_planed_id').where('hits.place_from IN(?) AND hits.stance IN(?) AND hits.trajectory IN(?)', place_from, stance, trajectory)
 
-    @games = Game.order("date DESC")
-    @games.each do |c_game|
+			@result_arr = []
+      @result_sum = 0  
+  	  @pair_hits.each do |each_pair|
+  	     @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
+				 puts @add_to_arr
+  	     @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
+			end
+			if @result_arr.size != 0
+			 	@result_arr.each {|element| @result_sum += element}
+			 	@final_result = calculate_avg(@result_sum, @result_arr.size)
+			else
+			 @final_result = false
+			end
+		else 
+			@final_result = false
+		end
+		return @final_result
 
-      @GameFilterStatistic = GameFilterStatistic.new
-      @GameFilterStatistic.game_id = c_game.id
-      @GameFilterStatistic.user_id = c_game.user_id
-      @GameFilterStatistic.field_id = c_game.field_id
-
-      @avg_r_distance = []
-      @avg_p_distance = []
-      @hit_sum = 0
-
-      PairHit.where(:game_id => c_game.id).each do |c_pair|
-
-        puts "======================="
-        puts "c_pair.hit_real.hit_distance #{c_pair.hit_real.hit_distance}"
-        puts "c_pair.hit_planed.hit_distance #{c_pair.hit_planed.hit_distance}"
-        
-        @avg_r_distance = @avg_r_distance.push(c_pair.hit_real.hit_distance) unless c_pair.hit_real.hit_distance == nil
-        @avg_p_distance = @avg_p_distance.push(c_pair.hit_planed.hit_distance)unless c_pair.hit_planed.hit_distance == nil
-        @hit_sum = @hit_sum + 1
-
-       
-        
-        case c_pair.hit_planed.place_from
-        when 1
-          @GameFilterStatistic.place_green = true
-        when 2
-          @GameFilterStatistic.place_teebox = true
-        when 3
-          @GameFilterStatistic.place_feairway = true
-        when 4
-          @GameFilterStatistic.place_next_fairway = true
-        when 5
-          @GameFilterStatistic.place_semi_raf = true
-        when 6
-          @GameFilterStatistic.place_raf = true
-        when 7
-          @GameFilterStatistic.place_for_green = true
-        when 8
-          @GameFilterStatistic.place_fairway_sand = true
-        when 9
-          @GameFilterStatistic.place_green_sand = true
-        when 10
-          @GameFilterStatistic.place_wood = true
-        when 11
-          @GameFilterStatistic.place_from_water = true
-        end
-
-        case c_pair.hit_planed.stance
-        when 1
-          @GameFilterStatistic.stance_normal = true
-        when 2
-          @GameFilterStatistic.stance_right_leg_lower = true
-        when 3
-          @GameFilterStatistic.stance_left_leg_lower = true
-        when 4
-          @GameFilterStatistic.stance_ball_lower = true
-        when 5
-          @GameFilterStatistic.stance_ball_higher = true
-        end
-
-       # case c_pair.hit_planed.direction
-       # when 1
-          #@GameFilterStatistic.direction_straigth = true
-       # when 2
-          #@GameFilterStatistic.direction_fade = true
-       # when 3
-          #@GameFilterStatistic.direction_drow = true
-       # when 4
-          #@GameFilterStatistic.direction_slice = true
-       # when 5
-          #@GameFilterStatistic.direction_hook = true
-       # end
-
-        case Game.find(c_pair.hit_planed.game_id).temperature
-        when 1
-          @GameFilterStatistic.temperature_hot = true
-        when 2
-          @GameFilterStatistic.temperature_normal = true
-        when 3
-          @GameFilterStatistic.temperature_cold = true
-        end
-
-        case Game.find(c_pair.hit_planed.game_id).weather
-        when 1
-          @GameFilterStatistic.weather_normal = true
-        when 2
-          @GameFilterStatistic.weather_wind = true
-        when 3
-          @GameFilterStatistic.weather_rain = true
-        when 4
-          @GameFilterStatistic.weather_wind_and_rain = true
-        end
-
-        case c_pair.hit_planed.trajectory
-        when 1
-          @GameFilterStatistic.trajectory_hook = true
-        when 2
-          @GameFilterStatistic.trajectory_slice = true
-        when 3
-          @GameFilterStatistic.trajectory_drow = true
-         when 4
-          @GameFilterStatistic.trajectory_fade = true
-        when 5
-          @GameFilterStatistic.trajectory_normal = true
-        when 9
-          @GameFilterStatistic.trajectory_low = true
-        when 10
-          @GameFilterStatistic.trajectory_high = true
-				when 12
-          @GameFilterStatistic.green_trajectory_upward_right = true
-        when 13
-          @GameFilterStatistic.green_trajectory_downward_right = true
-        when 14
-          @GameFilterStatistic.green_trajectory_upward_right = true
-         when 15
-          @GameFilterStatistic.green_trajectory_downward_left = true
-        when 16
-          @GameFilterStatistic.green_trajectory_upward_right = true
-        when 17
-          @GameFilterStatistic.green_trajectory_downward_straight = true
-        when 18
-          @GameFilterStatistic.green_trajectory_straight = true
-        end
-
-      #  case c_pair.hit_planed.wind
-      #  when 1
-      #    @GameFilterStatistic.wind_from_behind = true
-      #  when 2
-      #    @GameFilterStatistic.wind_from_front = true
-      #  when 3
-      #    @GameFilterStatistic.wind_from_left = true
-      #  when 4
-      #    @GameFilterStatistic.wind_from_right = true
-      #  end
-      end # end pair hit
-
-      #@avg_r = (@avg_r_distance.inject(0.0) { |sum, el| sum + el } / @avg_r_distance.size).round unless @avg_r_distance.size == 0
-      #@avg_p = (@avg_p_distance.inject(0.0) { |sum, el| sum + el } / @avg_p_distance.size).round unless @avg_p_distance.size == 0
-      @avg_r = (@avg_r_distance.sum /  @avg_r_distance.size).to_i unless @avg_r_distance.size == 0
-      @avg_p = (@avg_p_distance.sum /  @avg_p_distance.size).to_i unless @avg_p_distance.size == 0
-      @avg_p =  @avg_p_distance.inject{ |sum, el| sum + el }.to_f / @avg_p_distance.size
-      @avg_r =  @avg_r_distance.inject{ |sum, el| sum + el }.to_f / @avg_r_distance.size
-
-
-      if @avg_r > @avg_p
-        @GameFilterStatistic.avg_r_distance = 100
-        @GameFilterStatistic.avg_p_distance = (@avg_p / @avg_r) * 100
-
-      elsif @avg_r < @avg_p
-        @GameFilterStatistic.avg_r_distance = 100
-        @GameFilterStatistic.avg_p_distance = (@avg_r / @avg_p) * 100
-
-      elsif @avg_r == @avg_p
-        @GameFilterStatistic.avg_r_distance = 100
-        @GameFilterStatistic.avg_p_distance = 100
-
-      end #unless @avg_r == nil or @avg_p == nil
-
-      @GameFilterStatistic.hit_sum = @hit_sum
-      @GameFilterStatistic.save
-    end # end game
   end
 
   

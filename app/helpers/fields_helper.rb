@@ -45,4 +45,33 @@ module FieldsHelper
 		return color
 	end
 
+	def return_disabled(distance)
+		if distance.to_i > 0
+			return false
+		else 
+			return true
+		end
+	end
+
+	def return_checked(distance)
+		if distance.to_i != 0
+			return true
+		else
+			return false
+		end
+	end
+
+	def render_checkbox(distance_type, distance_value)
+		distance_type = "'" + distance_type + "'"
+		puts distance_value.to_i
+		if distance_value.to_i > 0
+			enabled = 'checked="yes"'
+		else
+			enabled = ""
+		end
+	buttons = '
+							<input type="checkbox"  name="state" ' + enabled + '" onclick="toggleDistanceColor(' + distance_type + ', this.checked);"/>
+							'
+		raw buttons
+	end
 end

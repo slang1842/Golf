@@ -12,7 +12,6 @@ class StatisticController < ApplicationController
       Statistic.game_statistics_by_sticks &&
       Statistic.game_statistics_by_holes &&
       Statistic.user_progres &&
-      Statistic.game_filter_statistic &&
       Statistic.game_statistics_general
     #/
   end
@@ -72,152 +71,29 @@ class StatisticController < ApplicationController
   end
 
   def filter_statistic
-    @place_from = params[:place_from]
-    @direction = params[:direction]
-    @stance = params[:stance]
-    @temperature = params[:temperature]
-    @trajectory = params[:trajectory]
-		@green_trajectory = params[:trajectory_on_green]
-    @weather = params[:weather]
-    #@wind = params[:wind]
-    @field = params[:field_id]
-    @user_id = params[:user_id]
-
- 
-    @filtered_games = GameFilterStatistic.where(:user_id => @user_id).order("created_at DESC").limit(8)
-
-    case @place_from.to_i
-    when 1
-      @filtered_games = @filtered_games.where(:place_green => true)
-    when 2
-      @filtered_games = @filtered_games.where(:place_teebox => true)
-    when 3
-      @filtered_games = @filtered_games.where(:place_feairway => true)
-    when 4
-      @filtered_games = @filtered_games.where(:place_next_fairway => true)
-    when 5
-      @filtered_games = @filtered_games.where(:place_semi_raf => true)
-    when 6
-      @filtered_games = @filtered_games.where(:place_raf => true)
-    when 7
-      @filtered_games = @filtered_games.where(:place_for_green => true)
-    when 8
-      @filtered_games = @filtered_games.where(:place_fairway_sand => true)
-    when 9
-      @filtered_games = @filtered_games.where(:place_green_sand => true)
-    when 10
-      @filtered_games = @filtered_games.where(:place_wood => true)
-    when 11
-      @filtered_games = @filtered_games.where(:place_from_water => true)
-    end
-
-    case @stance.to_i
-    when 1
-      @filtered_games = @filtered_games.where(:stance_normal => true)
-    when 2
-      @filtered_games = @filtered_games.where(:stance_right_leg_lower => true)
-    when 3
-      @filtered_games = @filtered_games.where(:stance_left_leg_lower => true)
-    when 4
-      @filtered_games = @filtered_games.where(:stance_ball_lower => true)
-    when 5
-      @filtered_games = @filtered_games.where(:stance_ball_higher => true)
-    end
-
-    #case @trajectory.to_i
-    #when 1
-    #  @filtered_games = @filtered_games.where(:direction_straigth => true)
-    #when 2
-    #  @filtered_games = @filtered_games.where(:direction_fade => true)
-    #when 3
-    #  @filtered_games = @filtered_games.where(:direction_drow => true)
-    #when 4
-    #  @filtered_games = @filtered_games.where(:direction_slice => true)
-    #when 5
-    #  @filtered_games = @filtered_games.where(:direction_hook => true)
-    #end
-
-    case @temperature.to_i
-    when 1
-      @filtered_games = @filtered_games.where(:temperature_hot => true)
-    when 2
-      @filtered_games = @filtered_games.where(:temperature_normal => true)
-    when 3
-      @filtered_games = @filtered_games.where(:temperature_cold => true)
-    end
-
-    case @weather.to_i
-    when 1
-      @filtered_games = @filtered_games.where(:weather_normal => true)
-    when 2
-      @filtered_games = @filtered_games.where(:weather_wind => true)
-    when 3
-      @filtered_games = @filtered_games.where(:weather_rain => true)
-    when 4
-      @filtered_games = @filtered_games.where(:weather_wind_and_rain => true)
-    end
-
-    case @trajectory.to_i
-    when 5
-      @filtered_games = @filtered_games.where(:trajectory_normal => true)
-    when 10
-      @filtered_games = @filtered_games.where(:trajectory_high => true)
-    when 9
-      @filtered_games = @filtered_games.where(:trajectory_low => true)
-    when 1
-      @filtered_games = @filtered_games.where(:trajectory_hook => true)
-    when 2
-      @filtered_games = @filtered_games.where(:trajectory_slice => true)
-    when 3
-      @filtered_games = @filtered_games.where(:trajectory_drow => true)
-    when 4
-      @filtered_games = @filtered_games.where(:trajectory_fade => true)
-    end
-
-		case @green_trajectory.to_i
-    when 18
-      @filtered_games = @filtered_games.where(:green_trajectory_straight => true)
-    when 12
-      @filtered_games = @filtered_games.where(:green_trajectory_upward_right => true)
-    when 13
-      @filtered_games = @filtered_games.where(:green_trajectory_downward_right => true)
-    when 14
-      @filtered_games = @filtered_games.where(:green_trajectory_upward_left => true)
-    when 15
-      @filtered_games = @filtered_games.where(:green_trajectory_downward_left => true)
-    when 16
-      @filtered_games = @filtered_games.where(:green_trajectory_upward_straight => true)
-    when 17
-      @filtered_games = @filtered_games.where(:green_trajectory_downward_straight => true)
-    end
-
-    #case @wind.to_i
-    #when 1
-    #  @filtered_games = @filtered_games.where(:wind_from_behind => true)
-    #when 2
-    #  @filtered_games = @filtered_games.where(:wind_from_front => true)
-    #when 3
-    #  @filtered_games = @filtered_games.where(:wind_from_left => true)
-    #when 4
-    #  @filtered_games = @filtered_games.where(:wind_from_right => true)
-    #end
-  
-    @filtered_games = @filtered_games
+    if params[:place_from] != "" then place_from = params[:place_from] else place_from = (0..20) end
+    if params[:stance] != "" then stance = params[:stance] else stance = (0..20) end
+    if params[:temperature] != "" then temperature = params[:temperature] else temperature = (0..4) end
+    if params[:trajectory] != "" then trajectory = params[:trajectory] else trajectory = (0..20) end
+		if params[:trajectory_on_green] != "" && trajectory == (0..20) then trajectory = params[:trajectory_on_green] else trajectory = (0..20) end
+    if params[:weather] != "" then weather = params[:weather] else weather = (0..20) end
+    if params[:field_id] != "" then field_id = params[:field_id] else field_id = (0..20) end
+		@result = Statistic.game_filter_statistic(params[:user_id], place_from, stance, temperature, trajectory, field_id, weather)
 
 
-    @all_filter_game_progress_arr = []
+   # @all_filter_game_progress_arr = []
     
-    @filtered_games.each do |filtered_game|
-      @GSG = GameStatisticGeneral.where(:game_id => filtered_game.game_id).first
-      @all_filter_game_progress_arr.push(@GSG.game_progress)
-    end
-    @is_there_something_to_return = true
+    #@filtered_games.each do |filtered_game|
+     # @GSG = GameStatisticGeneral.where(:game_id => filtered_game.game_id).first
+     # @all_filter_game_progress_arr.push(@GSG.game_progress)
+    #end
+    #@is_there_something_to_return = true
     
-    if @all_filter_game_progress_arr.size == 0
-      @is_there_something_to_return = false
-    else
-      @all_filter_game_progress = (@all_filter_game_progress_arr.sum / @all_filter_game_progress_arr.size)
-    end
+   # if @all_filter_game_progress_arr.size == 0
+   #   @is_there_something_to_return = false
+   # else
+   #   @all_filter_game_progress = (@all_filter_game_progress_arr.sum / @all_filter_game_progress_arr.size)
+   # end
     
   end
 

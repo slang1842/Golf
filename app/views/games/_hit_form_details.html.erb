@@ -66,7 +66,7 @@
         <p>Plan:</p>
       </div>
       <div class="single_dropdown">
-        <p>Land place</p>
+        <p>Actual place</p>
         <div class="element" style="heigth:60px">
 					 <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:selected => 1}, {:class => "dropdown6 land_place_dropdown"}) %>         
  					<!--	<% if hit_p_final.place_from == 1%>
@@ -78,7 +78,7 @@
         </div>
       </div>
       <div class="single_dropdown" style="width:100px">
-        <p>Stroke distance</p>
+        <p>Actual distance</p>
         <div class="element" style="heigth:60px">
           <%= f.text_field :hit_distance, {:class => "distance_plan", :value => shorten_2(hit_p_final.hit_distance)} %>
         </div>
@@ -140,7 +140,7 @@
       </div>
       <%= f.hidden_field :stick_id, :class => "stick_type_real" %>
       <div class="single_dropdown">
-        <p>Land place</p>
+        <p>Actual place</p>
         <div class="element">
           <% if hit_p_final.place_from == 1%>
             <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:selected => 1}, {:class => "dropdown6 land_place_dropdown"}) %>
@@ -150,7 +150,7 @@
         </div>
       </div>
       <div class="single_dropdown" style="width:100px">
-        <p>Stroke distance</p>
+        <p>Actual distance</p>
         <div class="element">
           <%= f.text_field :hit_distance, {:class => "distance_result", :value => shorten_2(hit_r_final.hit_distance)} %>
         </div>
@@ -190,7 +190,7 @@
           <%= f.select(:strength, STRENGTH,{:prompt => 'Select'}, {:class => "dropdown6 deselect"})%>
         </div>
       </div>-->
-      <div class="input_wrap" style="height:250px">
+      <div class="input_wrap" style="height:150px">
 
         <div class="heading_result"><p>Note:</p></div>
       <!--  <div class="single_dropdown">
@@ -216,7 +216,7 @@
         -->
         <div class="single_dropdown" style="width:140px">
           <p>Luck factor</p>
-          <%= f.select(:luck_factor, LUCK_FACTOR, {:selected => 1}, {:class => "dropdown6"}) %></br>
+          <%= f.select(:luck_factor, LUCK_FACTOR, {:selected => 2}, {:class => "dropdown6"}) %></br>
         </div>
         <%= f.hidden_field :hole_number, :value => active_hole %>
         <%= f.hidden_field :hit_number, :value => active_hit %>
@@ -224,7 +224,7 @@
     <%#= f.select(:following_action, STATISTICS_FOLLOWING_ACTION, :prompt => 'Select')%>
       <% end %>
     <%end%>
-
+ </div>
 
 
 
@@ -237,22 +237,47 @@
     <% elsif game1 == 1%>
       <% last_hole_number = 9 %>
     <% end %>
+		<% if active_hit.to_i != 1 %>
+			<div class="navigation_buttons" style="margin-top:20px">
+				<div class="save_switch" style="margin:0px">
+      	  <div class="single_dropdown" style="height:35px">
+      	    <div class="element">
+							<a href="#" rel="prev" class="hit_switch gray_button" > Previous&nbsp;stroke </a>
+      	    </div>
+      	  </div>
+     	 </div>
+			</div>
+			<div class="navigation_buttons">
+		<% else %>
+			<div class="navigation_buttons" style="margin-top:20px">
+		<% end %>
+		<div class="save_switch" style="margin:0px">
+        <div class="single_dropdown" style="height:35px">
+          <div class="element">
+						<a href="#" rel="next" class="hit_switch green_button" > Next&nbsp;stroke </a>
+          </div>
+        </div>
+      </div>
+		</div>
     <% if active_hole.to_i != last_hole_number.to_i%>
-      <div class="save_switch">
-        <div class="single_dropdown" style="float:right">
+		<div class="navigation_buttons">
+      <div class="save_switch" style="margin:0px">
+        <div class="single_dropdown" style="height:35px">
           <div class="element">
             <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" >Next&nbsp;hole</a>
           </div>
         </div>
       </div>
+		</div>
     <%end%>
-    <div class="save_switch">
-      <div class="single_dropdown " style="float:right">
-        <div class="element" >
-          <div class="save_gif">
-            <a href="#" rel="save" class="gray_button saveswitch" >Save</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+		<div class="navigation_buttons" style="padding-bottom:15px; height:50px">
+    	<div class="save_switch" style="margin:0px">
+      	<div class="single_dropdown " style="height:35px">
+      	  <div class="element" >
+      	    <div class="save_gif">
+      	      <a href="#" rel="save" class="gray_button saveswitch" >Save&nbsp;game</a>
+      	    </div>
+      	  </div>
+     	 </div>
+    	</div>
+		</div> 	
