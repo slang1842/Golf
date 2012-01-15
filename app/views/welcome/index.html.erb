@@ -129,34 +129,26 @@
     <div class="clear"></div>
     <div class="news_wrap">
       <div class="heading">
-        <h1>Golfa ziņas un jaunumi</h1>
+        <h1>Golf news</h1>
+				<a href="/announcement/all/filter" data-remote="true">All</a>
+				<a href="/announcement/my_feed/filter" data-remote="true">From my club</a>
+				<a href="/announcement/by_admin/filter" data-remote="true">Global news</a>
       </div>
-      <div class="single_news_article">
-        <p>Lorem ipsum dolor sit amet.<br />
-          <span class="gray">Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-      </div>
-
-      <div class="single_news_article">
-        <p>Lorem ipsum dolor sit amet.<br />
-          <span class="gray">Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-      </div>
-
-      <div class="single_news_article">
-        <p>Lorem ipsum dolor sit amet.<br />
-          <span class="gray">Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-      </div>
-
-      <div class="single_news_article">
-        <p>Lorem ipsum dolor sit amet.<br />
-          <span class="gray">Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-      </div>
-
-      <div class="single_news_article">
-        <p>Lorem ipsum dolor sit amet.<br />
-          <span class="gray">Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-      </div>
-
-
+			<div id="announcements">
+			<% @announcements.each do |announcement| %>
+			<div id="announcement_<%=announcement.id%>">
+				<div class="small_article">
+      	<div class="single_news_article">
+					<a href="/announcement/<%= announcement.id%>/expand" data-remote="true" class="heading"><%= announcement.header %></a>
+					<div class="clear"></div>
+					<img src="<%=announcement.image.url%>" alt="" class="small"/>
+					<p><%= chars_for_heading(announcement.body, 250) %></p>
+					<a href="/announcement/<%= announcement.id%>/expand" data-remote="true">Read more</a>
+      	</div>
+				</div>
+			</div>
+      <% end %>
+			</div>
     </div>
   </div>
 
@@ -181,3 +173,16 @@
   </div>
 
 </div>
+
+
+  <script type="text/javascript">
+    $(window).bind('scroll', function () {
+    if ($(window).scrollTop() == $(document).height() - $(window).height()){
+    $(window).unbind('scroll');
+    $.get("/announcement/load_more");
+    }
+    });
+
+ 
+  </script>
+

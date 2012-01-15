@@ -65,3 +65,5 @@ STATISTICS_WIND = {"From behind" => 1, "From front" => 2, "No wind" => 3, "From 
 PLANNED_LAND_PLACES_SHORT = {"Green" => 1, "Fairway" => 3, "Hole" => 11}
 DIRECTION_SHORT = {"Straight" => 1, "To right" => 2, "More to right" => 4, "To left" => 3, "More to left" => 5}
 LUCK_FACTOR = {"Good luck" => 1, "Neutral luck" => 2, "Bad luck" => 3}
+
+ADMIN_GOLF_CLUB_ID = 999

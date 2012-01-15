@@ -114,12 +114,26 @@ Golf::Application.routes.draw do
     resources :users
     resources :hints
     resources :countries
+		resources :announcements
     match "admin/users/acc/:id" => "users#give_admin_rights", :as => 'give_admin_rights'
   end
   
  match "reset_password" => "password_resets#update"
   
-    
+  #announcements
+
+	match '/announcement/:id/edit' => "announcement#edit"
+	match '/announcements/:id/update' => "announcement#update", :as => "announcement_update"
+	match '/announcement/:id/destroy' => "announcement#destroy"
+	match '/golf_club_news' => "announcement#index_for_owner"
+	match '/announcement/load_more' => "announcement#load_more" 
+	match '/announcement/:id/expand' => "announcement#expand"
+	match '/announcement/:filter_options/filter' => "announcement#filter"
+	match '/announcements/new' => "announcement#new"
+	match '/announcements/create' => "announcement#create"
+
+	match '/admin/announcements/:id/update' => "admin/announcements#update"
+
   # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

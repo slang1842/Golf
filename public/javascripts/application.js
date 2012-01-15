@@ -283,3 +283,42 @@ function clearFairwayTrajectoryDropdown() {
 // 
 // 
 // }
+
+function closeExpandedAnnouncement(article_id) {
+	var exp_div = "#announcement_" + article_id + " .expanded";
+	var small_div = "#announcement_" + article_id + " .small_article";
+	$(exp_div).empty();
+	$(small_div).show();	
+}
+
+
+function maxlen(class_name, field_class) {
+	var fieldname = "." + field_class;
+	$(fieldname).live('keyup', function(e) {
+				var status_div = "." + class_name;
+        var maxCharacters = $(fieldname).attr('maxlen');
+        charactersLength = $(fieldname).val().length;
+   			if (charactersLength > maxCharacters) {
+				var new_val = $(fieldname).val().slice(0, maxCharacters);
+				$(fieldname).val(new_val);
+				}
+				var chars_left = maxCharacters - charactersLength;
+				if (chars_left < 0 ){chars_left = 0;}
+		$(status_div).text("You have " + chars_left + " characters left");		
+  });
+
+}
+
+function maxlen_without_deleting(class_name, field_class) {
+	var fieldname = "." + field_class;
+	$(fieldname).live('keyup', function(e) {
+				var status_div = "." + class_name;
+        var maxCharacters = $(fieldname).attr('maxlen');
+        charactersLength = $(fieldname).val().length;		
+				var chars_left = maxCharacters - charactersLength;
+				if (chars_left < 0 ){chars_left = 0;}
+		$(status_div).text("You have " + chars_left + " characters left for the heading part.");		
+  });
+
+}
+

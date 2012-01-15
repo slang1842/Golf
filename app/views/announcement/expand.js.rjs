@@ -1,0 +1,2 @@
+page["#announcement_#{@announcement.id} .small_article"].hide()
+page["#announcement_#{@announcement.id}"].append render(:partial => "announcement/expanded", :locals => {:announcement => @announcement})

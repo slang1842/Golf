@@ -1,0 +1,20 @@
+
+<% if announcements %>
+	<% announcements.each do |announcement| %>
+				<div id="announcement_<%=announcement.id%>">
+					<div class="small_article">
+  	    	<div class="single_news_article">
+						<a href="/announcement/<%= announcement.id%>/expand" data-remote="true" class="heading"><%= announcement.header %></a>
+						<div class="clear"></div>
+						<img src="<%=announcement.image.url%>" alt="" class="small"/>
+						<p><%= chars_for_heading(announcement.body, 250)%></p>
+						<a href="/announcement/<%= announcement.id%>/expand" data-remote="true">Read more</a>
+  	    	</div>
+					</div>
+				</div>
+   <% end %>
+<% else %>
+	<div class="small_article">
+		<p>  </p>
+	</div>
+<% end %>

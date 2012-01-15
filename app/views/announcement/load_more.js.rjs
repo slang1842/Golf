@@ -1,0 +1,1 @@
+page["#announcements"].append render(:partial => "announcement/loop", :locals => {:announcements => @announcements})

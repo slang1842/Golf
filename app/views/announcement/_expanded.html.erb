@@ -1,0 +1,14 @@
+<div class="expanded">
+ 	<div class="single_news_article">
+		<a href="#" class="heading"><%= announcement.header %></a>
+		<div class="clear"></div>
+		<img src="<%= announcement.image.url%>" alt="" class="big"/>
+		<p><%= text_with_links(announcement.body)%></p>
+		<p></p>
+		<a href="#" onclick="closeExpandedAnnouncement(<%= announcement.id %>);"><b>Close</b></a> 
+		<% if current_user.id == announcement.user.id %>
+			<a href="/announcement/<%=announcement.id%>/edit">Edit</a>
+			<a href="/announcement/<%=announcement.id%>/destroy" onclick="if (confirm('Do you really want to delete this article?')) { window.location.href = this.href } return false;">Delete</a>
+		<% end %>
+  </div>
+</div>

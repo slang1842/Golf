@@ -1,0 +1,17 @@
+
+<div class="table_listing">
+     <b>
+    <div class="row">
+      <div class="item">Heading</div>
+      <div class="item">Actions</div>
+			 <div class="item"><a href="<%= new_admin_announcement_path%>"> New article </a></div>
+    </div>
+  </b>
+  <% @announcements.each do |ann| %>
+    <div class="row">
+      <div class="item"><%= ann.header %></div>
+		  <div class="item"><%= link_to "Edit", edit_admin_announcement_path(ann.id) %> </div>
+		  <div class="item"><%= link_to "Delete", "/admin/announcements/#{ann.id}", :method => "delete"%> </div>
+    </div>
+  <% end %>
+</div>
