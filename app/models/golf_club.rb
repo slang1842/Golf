@@ -21,5 +21,10 @@ class GolfClub < ActiveRecord::Base
   has_attached_file :image_v,
     :url => "/images/golf_club/v_banner/:attachment/:id_:style.:extension",
     :path => ":rails_root/public/images/golf_club/v_banner/:attachment/:id_:style.:extension"
+
+  has_attached_file :image_t,
+    :url => "/images/golf_club/t_banner/:attachment/:id_:style.:extension",
+    :path => ":rails_root/public/images/golf_club/t_banner/:attachment/:id_:style.:extension"
+
   
 end

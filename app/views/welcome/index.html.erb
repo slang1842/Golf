@@ -29,17 +29,16 @@
     <%else%>
       <img src="/images/ad_blank.png" width="160px" height="469px" alt=""/>
     <%end%>
-    <div class="single_ad">
-      <p><b>Lorem ipsum - 50% ATLAIDE!</b><span class="gray"> Dolor sit amet, consecetur adipiscing alit.</span></p>
-    </div>
-
-    <div class="single_ad">
-      <p><b>Lorem ipsum - 50% ATLAIDE!</b><span class="gray"> Dolor sit amet, consecetur adipiscing alit.</span></p>
-    </div>
-
-    <div class="single_ad">
-      <p><b>Lorem ipsum - 50% ATLAIDE!</b><span class="gray"> Dolor sit amet, consecetur adipiscing alit.</span></p>
-    </div>
+	<% if @side_ads %>
+		<% @side_ads.each do |ad| %>
+		<div onclick="window.open ('<%=ad.link%>')" style="cursor:pointer">
+	 	<div class="single_ad">
+    	  <p><b><%=ad.header%></b>
+			<span class="gray"><%=ad.body%></span></p>
+   	 </div>
+		</div>
+		<% end %>
+   <% end %>
 
   </div>
 
@@ -174,12 +173,12 @@
 
 </div>
 
-
+<div id="autoload_params" style="display:none">true</div>
   <script type="text/javascript">
     $(window).bind('scroll', function () {
     if ($(window).scrollTop() == $(document).height() - $(window).height()){
-    $(window).unbind('scroll');
-    $.get("/announcement/load_more");
+		if ($("#autoload_params").text() == "true"){
+    $.get("/announcement/load_more");}
     }
     });
 

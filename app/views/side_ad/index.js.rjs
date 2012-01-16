@@ -1,0 +1,2 @@
+page[".club_players_wrap"].remove()
+page[".side_ad_wrap"].html render(:partial => "side_ad/index", :locals => {:side_ads => @side_ads})

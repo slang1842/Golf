@@ -16,11 +16,11 @@ function bindHitFormPlan() {
 
   $('.hole_switch').live('click', function() {
     textEntered = true
-    $(".game_input_select").each(function() {
-        if (textEntered && $(this).val() == "") {
-            textEntered = false;
-        }
-    });
+    //$(".game_input_select").each(function() {
+    //    if (textEntered && $(this).val() == "") {
+    //        textEntered = false;
+     //   }
+    //});
                 
     if (textEntered) {
       $('.messages_error').hide();
@@ -48,11 +48,11 @@ function bindHitFormPlan() {
 function bindHitSwitch() {
   $('.hit_switch').live('click', function() {
     textEntered = true
-    $(".game_input_select").each(function() {
-        if (textEntered && $(this).val() == "") {
-            textEntered = false;
-        }
-    });
+   // $(".game_input_select").each(function() {
+    //    if (textEntered && $(this).val() == "") {
+     //       textEntered = false;
+      //  }
+    //});
                 
     if (textEntered) {
       $('.messages_error').hide();
@@ -83,11 +83,11 @@ function bindSaveSwitch() {
   $('.saveswitch').live('click', function() {
     
     textEntered = true
-     $(".game_input_select").each(function() {
-        if (textEntered && $(this).val() == "") {
+    // $(".game_input_select").each(function() {
+      //  if (textEntered && $(this).val() == "") {
             textEntered = false;
-        }
-    });
+       // }
+   // });
                 
     if (textEntered) {
       $('.messages_error').hide();
@@ -319,6 +319,28 @@ function maxlen_without_deleting(class_name, field_class) {
 				if (chars_left < 0 ){chars_left = 0;}
 		$(status_div).text("You have " + chars_left + " characters left for the heading part.");		
   });
-
 }
+
+function showHideHitSwitch(sel_val){
+	if (sel_val == 11) { $(".next_stroke_switch").hide();}
+	else {$(".next_stroke_switch").show();}
+}
+
+function check_link(class_name, field_class) {
+		var fieldname = "." + field_class;
+		$(fieldname).live('keyup', function(e) {
+				var status_div = "." + class_name;
+        var link = $(fieldname).val();
+				if ( link.substring(0, 7) != "http://"){
+		$(status_div).text("You have to enter link that starts with http://");}
+				else {$(status_div).text("");}		
+  });
+}
+
+
+
+
+
+
+
 

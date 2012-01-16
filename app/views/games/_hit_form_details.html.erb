@@ -143,9 +143,9 @@
         <p>Actual place</p>
         <div class="element">
           <% if hit_p_final.place_from == 1%>
-            <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:selected => 1}, {:class => "dropdown6 land_place_dropdown"}) %>
+            <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:selected => 1}, {:class => "dropdown6 land_place_dropdown", :onchange => "showHideHitSwitch(this.value);"}) %>
           <% else %>
-            <%= f.select( :land_place, PLANNED_LAND_PLACES,{:selected => 1}, {:class => "dropdown6 land_place_dropdown"}) %>
+            <%= f.select( :land_place, PLANNED_LAND_PLACES,{:selected => 1}, {:class => "dropdown6 land_place_dropdown", :onchange => "showHideHitSwitch(this.value);"}) %>
           <% end %>
         </div>
       </div>
@@ -251,7 +251,7 @@
 		<% else %>
 			<div class="navigation_buttons" style="margin-top:20px">
 		<% end %>
-		<div class="save_switch" style="margin:0px">
+		<div class="save_switch next_stroke_switch" style="margin:0px">
         <div class="single_dropdown" style="height:35px">
           <div class="element">
 						<a href="#" rel="next" class="hit_switch green_button" > Next&nbsp;stroke </a>

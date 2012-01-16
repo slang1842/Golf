@@ -64,6 +64,15 @@
       </div>
     </div>
 
+		<div class="banner_box">
+      <div class="banner_title" onclick="">Golf Club header banner</div>
+      <div class="banner_wrap">
+        <%= image_tag(@golf_club.image_t.url) %>
+        <%= f.file_field :image_t %>
+        <%= f.check_box :is_t_banner_disabled %> Disable
+      </div>
+    </div>
+
 
   </div>
 

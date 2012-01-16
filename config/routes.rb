@@ -13,6 +13,7 @@ Golf::Application.routes.draw do
   resources :user_sessions
   resources :pair_hits
 	resources :password_resets
+	resources :side_ad
    
   #statistics
   #================
@@ -133,6 +134,8 @@ Golf::Application.routes.draw do
 	match '/announcements/create' => "announcement#create"
 
 	match '/admin/announcements/:id/update' => "admin/announcements#update"
+
+	
 
   # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:

@@ -1,1 +1,2 @@
 page["#announcements"].html render(:partial => "announcement/loop", :locals => {:announcements => @announcements})
+page["#autoload_params"].html("true")

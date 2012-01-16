@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115145249) do
+ActiveRecord::Schema.define(:version => 20120116220858) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -205,6 +205,11 @@ ActiveRecord::Schema.define(:version => 20120115145249) do
     t.datetime "image_p_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_t_file_name"
+    t.string   "image_t_content_type"
+    t.integer  "image_t_file_size"
+    t.datetime "image_t_updated_at"
+    t.boolean  "is_t_banner_disabled"
   end
 
   create_table "green_fees", :force => true do |t|
@@ -344,6 +349,16 @@ ActiveRecord::Schema.define(:version => 20120115145249) do
     t.integer  "users_stick_id"
     t.integer  "user_id"
     t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "side_ads", :force => true do |t|
+    t.integer  "golf_club_id"
+    t.string   "header"
+    t.string   "body"
+    t.string   "link"
+    t.boolean  "to_be_shown"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

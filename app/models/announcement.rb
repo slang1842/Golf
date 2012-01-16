@@ -16,7 +16,7 @@ class Announcement < ActiveRecord::Base
 
 	scope :my_feed, lambda {|limit, offset, club_id| where("announcements.golf_club_id = ?", club_id).offset(offset).limit(limit).order("announcements.created_at desc")}
 
-	scope :by_admin, lambda {|limit, offset| where("announcements.golf_club_id IN = ?", ADMIN_GOLF_CLUB_ID).limit(limit).offset(offset).order("announcements.created_at desc")}
+	scope :by_admin, lambda {|limit, offset| where("announcements.golf_club_id = ?", ADMIN_GOLF_CLUB_ID).limit(limit).offset(offset).order("announcements.created_at desc")}
 
 	def self.convert_to_header(full_text, header_length)
 		header = truncate(full_text, header_length, "...")

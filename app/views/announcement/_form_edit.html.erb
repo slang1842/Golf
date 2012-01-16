@@ -11,12 +11,12 @@
 	<div class="add_article">
 		
 		<label>Heading:</label>
-		<%= a.text_field :header, :class => "announcement_heading_field" %>
-		<span class="counter heading_counter">60 zīmes palikušas</span>
+		<%= a.text_field :header, :class => "announcement_heading_field", :maxlen => 60, :onkeyup => "maxlen('chars_left_header', 'announcement_heading_field');" %>
+		<span class="counter heading_counter chars_left_header"></span>
 		<div class="clear"></div>
 		<label>Article:</label>
-		<%= a.text_area :body, {:class => "announcement_body_field"}%>
-		<span class="counter2 body_counter">60 zīmes palikušas</span>
+		<%= a.text_area :body, {:rows => 2, :cols => 20, :class => "announcement_body_field", :maxlen => 250, :onkeyup => "maxlen_without_deleting('chars_left_body', 'announcement_body_field')"}%>
+		<span class="counter2 body_counter chars_left_body"></span>
 		<div class="clear"></div>
 		<label>Image:</label>
 		<%= a.file_field :image, :class => "article_file_field" %>

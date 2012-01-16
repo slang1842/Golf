@@ -1,0 +1,1 @@
+page[".side_ad_wrap"].html render(:partial => "side_ad/create_form", :locals => {:side_ad => @side_ad})

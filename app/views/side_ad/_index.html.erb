@@ -1,0 +1,6 @@
+<p><a href="/side_ad/new" data-remote="true" class="green_button"> New ad </a></p>
+
+<h> List of advertisements </h>
+<% side_ads.each do |ad| %>
+	<p><%=ad.header%> | <%= link_to "Delete", "/side_ad/#{ad.id}", :confirm => 'Are you sure you want to delete this ad?', :method => 'delete', :reomte => true %> | <%= link_to "Edit", edit_side_ad_path(ad.id), :remote => true %> </p>
+<% end %>

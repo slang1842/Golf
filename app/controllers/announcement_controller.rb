@@ -56,7 +56,11 @@ class AnnouncementController < ApplicationController
 			when 'admin'
 				@announcements = Announcement.by_admin(5, session[:announcement_offset])
 			end
-		session[:announcement_offset] += 5
+			@i = 0 
+		@announcements.each do |ann| 
+			@i += 1
+		end
+		session[:announcement_offset] += @i
 		respond_to :js
 	end
 
@@ -73,9 +77,14 @@ class AnnouncementController < ApplicationController
 				@announcements = Announcement.for_newsfeed(5, session[:announcement_offset], current_user.golf_club_id)
 			when 'my_feed'
 				@announcements = Announcement.my_feed(5, session[:announcement_offset], current_user.golf_club_id)
-			when 'admin'
+			when 'by_admin'
 				@announcements = Announcement.by_admin(5, session[:announcement_offset])
 			end
+			@i = 0 
+		@announcements.each do |ann| 
+			@i += 1
+		end
+		session[:announcement_offset] += @i
 		respond_to :js
 	end
 
