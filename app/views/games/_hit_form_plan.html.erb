@@ -46,14 +46,14 @@
 
 <% if hits == hit.last %>
 <div class="element">
-<%= link_to "Remove", remove_planned_hit_path(game.id, active_hole, hits.id.to_i), :remote => :true, :class => 'green_button' %>
+<a href="#" class="green_button" id="remove_hit"> Remove </a>
 </div>
 <% end %>
 <div class="clear"></div>  
 
 <% end %>
 <div class="element ">
-		<%= link_to "+ add more",  add_planned_hit_path(game.id, active_hole, hit.count.to_i), :remote => :true, :class => 'green_button'%>
+		<a href="#" class="green_button" id="add_hit"> + add more </a>
              </div>
 </div>
 	<div class="dropdowns_wrap" style="padding-bottom:100px">

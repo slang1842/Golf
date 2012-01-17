@@ -9,8 +9,26 @@ $(document).ready(function() {
 $(document).ready(function() {
   bindSaveSwitch();
   });
+$(document).ready(function() {
+  bindAddSwitch();
+  });
+$(document).ready(function() {
+  bindRemoveSwitch();
+  });
 
+function bindAddSwitch(){
+	$("#add_hit").live('click', function() {
+			$('#formid').val("add_hit");
+			$('#hit_form').submit();
+			});
+}
 
+function bindRemoveSwitch(){
+	$("#remove_hit").live('click', function() {
+			$('#formid').val("remove_hit");
+			$('#hit_form').submit();
+			});
+}
 
 function bindHitFormPlan() {
 
@@ -85,7 +103,7 @@ function bindSaveSwitch() {
     textEntered = true
     // $(".game_input_select").each(function() {
       //  if (textEntered && $(this).val() == "") {
-            textEntered = false;
+            //textEntered = false;
        // }
    // });
                 

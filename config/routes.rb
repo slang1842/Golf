@@ -135,7 +135,7 @@ Golf::Application.routes.draw do
 
 	match '/admin/announcements/:id/update' => "admin/announcements#update"
 
-	
+	match "/side_ad/:id/update" => "side_ad#update"
 
   # match '/' => "user_sessions#index",         :as => :login
   # Sample of regular route:

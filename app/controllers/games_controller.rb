@@ -100,12 +100,12 @@ class GamesController < ApplicationController
                :real_hit => 'p',
                :user_id => current_user.id}
  	 	@hit = Hit.where(:game_id => @game.id,:hole_number => @active_hole, :real_hit => 'p', :user_id => current_user.id) 
-		if @hit[0] == nil
+		unless @hit.any?
 			@hit = []
 			@hit = @hit << Hit.create(conditions)
 		end     
     @form_id = 'plan'
-		convert_from_m(@hit)
+		convert_from_m(@hit[0])
     if params[:hits] == 'new'
     	render '/games/hit_edit'
     else
@@ -276,10 +276,13 @@ class GamesController < ApplicationController
     if @game.update_attributes(params[:game])
     end
 		#ugly fix
-			@hit1 = Hit.find_by_id(params[:game][:hits_attributes][:"0"][:id])
-			@hit2 = Hit.find_by_id(params[:game][:hits_attributes][:"1"][:id])
+		i = 0
+		while params[:game][:hits_attributes][:"#{i}"] != nil
+			puts params[:game][:hits_attributes][:"#{i}"]
+			@hit1 = Hit.find_by_id(params[:game][:hits_attributes][:"#{i}"][:id])
 			convert_to_m(@hit1) if @hit1
-			convert_to_m(@hit2) if @hit2
+			i += 1
+		end
 		#end of ugly fix	
 
    @game_id = params[:game_id]
@@ -300,6 +303,10 @@ class GamesController < ApplicationController
      	  get_results(params[:form_id], @game_id, @next_hole, @active_hit)
      elsif params[:form_id].to_s == 'details'
         get_details(params[:form_id], @game_id, @next_hole, @active_hit)
+		 elsif params[:form_id].to_s == 'add_hit'
+				add_planned_hit(@game_id, @next_hole, @active_hit)
+		 elsif params[:form_id].to_s == 'remove_hit'
+				remove_hit(@game_id, @next_hole)		
      end
   end
  
@@ -342,17 +349,6 @@ class GamesController < ApplicationController
     render 'games/print_game_plan', :layout => 'print'
   end
     
-	def remove_hit
-		@hit = Hit.find_by_id(params[:active_hit])
-		if @hit.destroy	
-			get_plan('plan', params[:game_id], params[:hole_number], 1)
-		end
-	end	
-
-	def add_planned_hit
-		@hit = Hit.create!(:game_id => params[:game_id], :hit_number => params[:active_hit].to_i + 1, :hole_number => params[:hole_number], :real_hit => 'p', :user_id => current_user.id )
-		get_plan('plan', params[:game_id], params[:hole_number], 1)
-	end
 
 	def switch_hit_places
 		@places = Field.get_hit_place_colors(params[:id])
@@ -360,6 +356,21 @@ class GamesController < ApplicationController
 	end
 
 private
+	def remove_hit(game_id, hole_number)
+		@hit = Hit.where(:game_id => game_id, :hole_number => hole_number).last
+		if @hit.destroy	
+			get_plan('plan', game_id, hole_number, 1)
+		end
+	end	
+
+	def add_planned_hit(game_id, hole_number, hit_number)
+		require_game_owner
+		#end of ugly fix	
+		@hit_last = Hit.where(:game_id => game_id, :hole_number => hole_number).last
+		@hit = Hit.create!(:game_id => game_id, :hit_number => @hit_last.hit_number.to_i + 1, :hole_number => hole_number, :real_hit => 'p', :user_id => current_user.id )
+		get_plan('plan', game_id, hole_number, 1)
+	end	
+
   def get_plan(form_id, game_id, next_hole, active_hit)
   	@form_id = form_id
     @game_id = game_id

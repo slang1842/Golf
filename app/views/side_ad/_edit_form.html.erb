@@ -1,5 +1,5 @@
 
-<%= form_for :side_ad, side_ad, :url => "/side_ad/#{side_ad.id.to_s}", :method => 'put', :html => {:class => "ad_form", :remote => true} do |a| %>
+<%= form_for :side_ad, :as => side_ad, :url => "/side_ad/#{side_ad.id.to_s}/update", :method => 'put', :html => {:class => "ad_form", :remote => true} do |a| %>
 	<div class="add_article">
 		
 		<label>Heading:</label>
