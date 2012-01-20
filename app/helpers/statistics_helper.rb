@@ -11,4 +11,9 @@ module StatisticsHelper
 
 	end
 
+	def fetch_coach(user_id)
+		user = User.find(user_id)
+		raw user.first_name + " " + user.last_name
+	end
+
 end

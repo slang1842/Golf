@@ -34,7 +34,7 @@
       
 
       <% @users.each do |user| %>
-        <%if user.id != @club.user_id %>
+        
           <div class="single_player_wrap">
             <div class="profile_info">
               <div class="image">
@@ -46,14 +46,14 @@
                   <p><%=user.last_name%></p></a>
                 <p><span class="gray">HCP:</span> <%=user.hcp%></p>
 
-
+<%if user.id != @club.user_id %>
                 <%= form_for(user, :url => ('/user/update_hints/' + user.id.to_s), :html => {:class => "edit_user_" + user.id.to_s}, :remote => :true) do |u|%>
                   <%= u.hidden_field(:coach, {:id => "c_value_#{user.id.to_s}"})%>
                   <%= u.hidden_field(:admin, {:id => "a_value_#{user.id.to_s}"})%>
                   <p><%=user.email%></p>
                 
                 <p><%= u.check_box :admin, :onchange => "change_coach('#{user.id.to_s}')" %> <%= u.label "Give acc" %></p>
-                <p><%= u.check_box :coach, :onchange => "change_coach('#{user.id.to_s}')" %> <%= u.label "Give Hint" %></p>
+                <p><%= u.check_box :coach, :onchange => "change_coach('#{user.id.to_s}')" %> <%= u.label "Give Hint" %></p><% end %>
                 
                
               <%end%>
@@ -112,7 +112,7 @@
             <img src="images/my_club_gradient.png" alt=""/>
           </div>
 
-        <% end %>
+      
       <% end %>
     </div>
 

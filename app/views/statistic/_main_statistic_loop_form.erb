@@ -6,20 +6,24 @@
     <div class="frame">
       <% if @is_admin || @is_coach %>
         <% if @user_params.id != current_user.id %>
-          <p><%= "Give hint to (#{current_club_trainer.first_name} #{current_club_trainer.last_name}) for this situation." %> </p>
+          <p><%= "Give hint to (#{@user_params.first_name} #{@user_params.last_name}) for this situation." %> </p>
         <% else %>
           <p>Give hint for this situation.</p>
         <% end %>
         <div class="tip">
-          <%= form_for c_hint_admin, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path do |f|  %>
+          <%= form_for c_hint_user, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path do |f|  %>
             <%#= f.text_area :wind_from_right_hint, :class => "textarea" %>
-            <%= f.text_area textbox_hint_type, :class => "textarea" %>
+						<% if current_situation_hint == "" %>
+            	<%= f.text_area textbox_hint_type, :class => "textarea", :value => current_situation_hint_admin %>
+						<% else %>
+							<%= f.text_area textbox_hint_type, :class => "textarea" %>
+						<% end %>
             <%= f.hidden_field :stick_id %>
             <%= f.submit :class => "button_save" %>
           <% end %>
         </div>
       <% else %>
-        <p><%= "Coach #{user_params.first_name} #{user_params.last_name} hint for this situation."  %></p>
+        <p><%= "Coach #{fetch_coach(user_params.coach)} hint for this situation."  %></p>
         <div class="tip">
           <p><%= current_situation_hint %></p>
         </div>
@@ -43,7 +47,7 @@
   <!-- ============== when to show hint ============== -->
   <% if @is_admin %>
     <div class="notification" onclick="showHideElement('#<%= hint_id_prefix %><%= c_stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
-  <% elsif @has_couch && current_situation.to_i < MAIN_STATISTIC_BAD_PROC %>
+  <% elsif @has_couch && current_situation_hint != "" %>
     <div class="notification" onclick="showHideElement('#<%= hint_id_prefix %><%= c_stick.id %>')"><img src="/images/tip_icon.png" alt=""/></div>
   <% end %>
   <!-- ============== when to show hint ============== -->
