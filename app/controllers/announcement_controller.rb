@@ -50,7 +50,7 @@ class AnnouncementController < ApplicationController
 	def load_more
 		case session[:newsfeed_filter]
 			when 'all'
-				@announcements = Announcement.for_newsfeed(5, session[:announcement_offset], current_user.golf_club_id)
+				@announcements = Announcement.for_newsfeed(5, session[:announcement_offset], GolfClub.club_id_array_by_country(current_user.country_id))
 			when 'my_feed'
 				@announcements = Announcement.my_feed(5, session[:announcement_offset], current_user.golf_club_id)
 			when 'admin'
@@ -74,7 +74,7 @@ class AnnouncementController < ApplicationController
 		session[:announcement_offset] = 0
 		case session[:newsfeed_filter]
 			when 'all'
-				@announcements = Announcement.for_newsfeed(5, session[:announcement_offset], current_user.golf_club_id)
+				@announcements = Announcement.for_newsfeed(5, session[:announcement_offset], GolfClub.club_id_array_by_country(current_user.country_id))
 			when 'my_feed'
 				@announcements = Announcement.my_feed(5, session[:announcement_offset], current_user.golf_club_id)
 			when 'by_admin'

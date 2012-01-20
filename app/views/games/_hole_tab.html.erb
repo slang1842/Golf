@@ -10,11 +10,11 @@
   </div>
   <% holes_filtered.each do |f|%>
     <% if f.hole_number.to_i < active_hole.to_i %>
-      <a href="#" rel="<%=f.hole_number%>" class="hole_switch" data_remote_true ><div class="single_hole done"><p><%=f.hole_number%></p></div></a>
+      <a href="#" rel="<%=f.hole_number%>" class="hole_switch" data_remote_true ><div class="single_hole <%= render_hole_color(f.hole_number)%>"><p><%=f.hole_number%></p></div></a>
     <% elsif f.hole_number.to_i == active_hole.to_i %>
       <a href="#" rel="<%=f.hole_number%>" class="hole_switch" data_remote_true><div class="single_hole active"><p><%=f.hole_number%></p></div></a>
     <% else %>
-      <a href="#" rel="<%=f.hole_number%>" class="hole_switch" data_remote_true><div class="single_hole empty"><p><%=f.hole_number%></p></div></a>
+      <a href="#" rel="<%=f.hole_number%>" class="hole_switch" data_remote_true><div class="single_hole <%=render_hole_color(f.hole_number)%>"><p><%=f.hole_number%></p></div></a>
 
     <% end %>
 

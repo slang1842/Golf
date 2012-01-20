@@ -12,7 +12,7 @@ class WelcomeController < ApplicationController
 		
       @top_users_progress = StatisticUserProgres.find(:all, :order => 'user_progress', :limit => 5)
       @max_hit = Hit.where("real_hit = 'p' OR real_hit = 'rp'").order('hit_distance').select("DISTINCT user_id").limit(5)
-			@announcements = Announcement.latest(5, current_user.golf_club_id)
+			@announcements = Announcement.for_newsfeed(5, 0, GolfClub.club_id_array_by_country(current_user.country_id))
 			fetch_announcements
 			fetch_side_ads
 			render( :layout => 'layouts/application' )

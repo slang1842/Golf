@@ -8,14 +8,18 @@
 		<div class="clear"></div>
 		<label>Text:</label>
 		<%= a.text_field :body, :class => "announcement_body_field", :maxlen => 60, :onkeyup => "maxlen('chars_left_body', 'announcement_body_field')"%>
-		<span class="counter2 body_counter chars_left_body"></span>
+		<span class="counter body_counter chars_left_body"></span>
+		<div class="clear"></div>
 		<label>Link:</label>
 		<%= a.text_field :link, :class => "announcement_link_field", :maxlen => 100, :onkeyup => "check_link('chars_left_link', 'announcement_link_field')"%>
-		<span class="counter3 body_counter chars_left_link"></span>
+		<span class="counter body_counter chars_left_link"></span>
 		<div class="clear"></div>
-		<label>Show on first page?:</label>
-		Yes <%= a.radio_button :to_be_shown, "true" %>
-		No <%= a.radio_button :to_be_shown, "false" %>
+		<label style="width:200px">Show on first page?:</label>
+		<div class="clear"></div>
+		<label style="width:20px">Yes</label> 
+		<%= a.radio_button :to_be_shown, "true", :class => "radio" %>
+		<label style="width:20px">No</label>
+		 <%= a.radio_button :to_be_shown, "false", :class => "radio" %>
 		<div class="clear"></div>
 		<a href="#" class="green_button" onclick="$('.ad_form').submit();">Save</a>
 <% end %>

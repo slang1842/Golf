@@ -59,6 +59,10 @@
     background-image:url(img/circle_done.png);
 }
 
+.game_input_wrap .holes_wrap .half_done {
+		background-image:url(img/circle_half_done.png);
+}
+
 .game_input_wrap .holes_wrap .active {
     background-image:url(img/circle_active.png);
 }

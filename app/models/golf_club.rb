@@ -9,6 +9,14 @@ class GolfClub < ActiveRecord::Base
   def to_s
     self.name
   end
+
+	def self.club_id_array_by_country(country_id)
+		clubs = where(:country_id => country_id)
+		return_arr = []
+		clubs.each {|club| return_arr << club.id.to_i }
+		puts return_arr
+		return return_arr
+	end
   
   has_attached_file :image_f,
     :url => "/images/golf_club/f_banner/:attachment/:id_:style.:extension",

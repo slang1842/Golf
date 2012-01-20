@@ -20,6 +20,15 @@
 	font-family:"Trebuchet MS";
 }
 
+.add_article .radio {
+	margin-top:10px;
+	width:30px;
+	font-size:14px;
+	color:#363636;
+	font-family:"Trebuchet MS";
+	float:left;
+}
+
 .add_article textarea {
 	margin-top:10px;
 	width:396px;

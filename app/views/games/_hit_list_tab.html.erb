@@ -1,0 +1,20 @@
+<div class="tabs_wrap">
+
+  <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+<div class="hits_wrap">
+  <div class="heading_wrap">
+    <p>Strokes</p>
+  </div>
+  <% hits.each do |hit|%>
+    <% if hit.hit_number.to_i != active_hit.to_i %>
+      <a href="#" class="" onclick="switchHit(<%=hit.hit_number%>, <%=game_id%>)"><div class="single_stroke <%= render_hit_color(hit.hit_number)%>"><p><%=return_stick_name(hit.hit_number)%> - <%= render_hit_color(hit.hit_number)%></p></div></a>
+    <% else %>
+      <a href="#" class="" onclick="switchHit(<%=hit.hit_number%>, <%=game_id%>)"><div class="single_stroke active"><p><b><%=return_stick_name(hit.hit_number)%> - current</b></p></div></a>
+    <% end %>
+
+  <% end %>
+
+</div> 

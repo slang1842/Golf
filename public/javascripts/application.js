@@ -355,6 +355,10 @@ function check_link(class_name, field_class) {
   });
 }
 
+function switchHit(rel_value, game_id){
+	$("#nexthit").val(rel_value);
+	$("#hit_form").submit();
+}
 
 
 
