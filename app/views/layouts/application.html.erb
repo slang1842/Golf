@@ -59,14 +59,15 @@
 
     <div class="site_wrapper">
       <div class="header_wrap">
-				
+			<% if current_user %>	
 					<% if current_user.golf_club.is_t_banner_disabled == false %>
 						<div class="header_banner">
 							<%= image_tag(current_user.golf_club.image_t.url)%>
 						</div>
 					<% else %>
 						<div class="logo_wrap"></div>				
-					<% end %>  
+					<% end %>
+			<% end %>  
         <div class="login_wrap">
           <% unless current_user %>
             <%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>

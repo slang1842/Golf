@@ -12,6 +12,7 @@
         <% end %>
         <div class="tip">
           <%= form_for c_hint_user, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
             <%#= f.text_area :wind_from_right_hint, :class => "textarea" %>
 						<% if current_situation_hint == "" %>
             	<%= f.text_area textbox_hint_type, :class => "textarea", :value => current_situation_hint_admin %>

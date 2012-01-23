@@ -14,36 +14,19 @@
   </div>
 
   <div class="splash_page_header">
+		<% if @users %>
     <div class="comments_wrap">
+		 <% @users.each do |user| %>
       <div class="single_comment_wrap">	
-        <div class="image"><img src="/images/default_profile.png" alt=""/></div>
+        <div class="image"><img src="<%= user.image.url %>" alt=""/></div>
         <div class="text">
-          <p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
+          <p><%= user.first_name %>: <span class="gray">| Country : <%= user.country.name%>  <% if user.golf_club%> | Golf club : <%= user.golf_club.name%> <% end %> | HCP : <%= user.hcp%></span></p>
         </div>
       </div>
-
-      <div class="single_comment_wrap">	
-        <div class="image"><img src="/images/default_profile.png" alt=""/></div>
-        <div class="text">
-          <p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
-        </div>
-      </div>
-
-      <div class="single_comment_wrap">	
-        <div class="image"><img src="/images/default_profile.png" alt=""/></div>
-        <div class="text">
-          <p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
-        </div>
-      </div>
-
-      <div class="single_comment_wrap">	
-        <div class="image"><img src="/images/default_profile.png" alt=""/></div>
-        <div class="text">
-          <p>Emīls: <span class="gray">Lorem ipsum sit amet, adipiscing alit! Lorem ipsum dolor sit amet, adipiscing alit!</span></p>
-        </div>
-      </div>
+		<% end %>
+      
     </div>
-
+		<% end %>
     <div class="contents_wrap">
 
 
@@ -81,26 +64,13 @@
 
     <div class="news_wrap">
       <p>Golfa ziņas un jaunumi</p>
-      <div class="single_news">
-        <p>Lorem ipsum dolor sit amet.<br><span class="gray">
-				Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
+			<% @announcements.each do |ann| %>
+				<div class="single_news" onclick="window.location.href='/user/new';" style="cursor:pointer">
+        <p><%=ann.header%><br><span class="gray">
+				<%= chars_for_heading(ann.body, 250)%></span></p>
       </div>
-
-      <div class="single_news">
-        <p>Lorem ipsum dolor sit amet.<br><span class="gray">
-				Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-      </div>
-
-      <div class="single_news">
-        <p>Lorem ipsum dolor sit amet.<br><span class="gray">
-				Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-      </div>
-
-      <div class="single_news">
-        <p>Lorem ipsum dolor sit amet.<br><span class="gray">
-				Consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit. Lorem ipsum dolor sit amet, consecetur alit.</span></p>
-      </div>
-
+			<% end %>
+      
 
     </div>
     <div class="clear"></div>

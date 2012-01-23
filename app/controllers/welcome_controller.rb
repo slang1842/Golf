@@ -20,8 +20,11 @@ class WelcomeController < ApplicationController
 	end
 
 	def welcome
+		@announcements = Announcement.by_admin(4,0)
+		@users = User.latest
     store_location
     render( :layout => 'layouts/welcome' )
+		
   end
 
 	private

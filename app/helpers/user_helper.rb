@@ -1,5 +1,6 @@
 module UserHelper
 
+=begin
 	def convert_distance(distance)
 		if distance	
 			case current_user.measurement
@@ -16,7 +17,7 @@ module UserHelper
 		end
 					
 	end		
-
+=begin
 	def return_distance_name(distance_type)
 		case distance_type
 			when "m"
@@ -31,5 +32,5 @@ module UserHelper
 		return distance
 
 	end
-
+=end
 end

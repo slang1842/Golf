@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :golf_club
+	belongs_to :country	
   has_many :users_sticks, :dependent => :destroy
   has_many :sticks, :through => :users_sticks
   has_many :balls
@@ -15,6 +16,8 @@ class User < ActiveRecord::Base
   
   validates :ball_manufacturer, :ball_type, :on => :bag, :presence => true
   validates :stick_type, :distance, :degrees, :shaft, :shaft_strength, :on => :bag, :presence => true
+	
+	scope :latest, where("users.image_file_name IS NOT NULL").limit(4).order("users.created_at desc") 
   
   acts_as_authentic do |c| 
     c.login_field = :email

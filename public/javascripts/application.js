@@ -15,6 +15,29 @@ $(document).ready(function() {
 $(document).ready(function() {
   bindRemoveSwitch();
   });
+$(document).ready(function() {
+  bindDistanceFields();
+  });
+
+function bindDistanceFields() {
+	$(".distance_result").keyup( function(){
+		var diff = $(".distance_result").val() - $(".distance_plan").val();
+		if (diff > 0 ) {diff = 3;}
+		if (diff == 0 ) {diff = 2;}
+		if (diff < 0) {diff = 1;}
+		$(".mistake").val(diff);
+		});
+	$(".distance_plan").keyup( function(){
+		var diff = $(".distance_result").val() - $(".distance_plan").val();
+		if (diff > 0 ) {diff = 3;}
+		if (diff == 0 ) {diff = 2;}
+		if (diff < 0) {diff = 1;}
+		$(".mistake").val(diff);
+		});
+
+
+}
+
 
 function bindAddSwitch(){
 	$("#add_hit").live('click', function() {

@@ -105,6 +105,7 @@ class GamesController < ApplicationController
 			@hit = @hit << Hit.create(conditions)
 		end     
     @form_id = 'plan'
+		create_hole_colors_for_plan
 		convert_from_m(@hit[0])
     if params[:hits] == 'new'
     	render '/games/hit_edit'
@@ -263,13 +264,16 @@ class GamesController < ApplicationController
     @hit_planned_prev = Hit.find(:first, :conditions => conditions5)
     @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
     @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
-   	place_from = @hit_real_prev.land_place
-		if @hit_real_prev.hit_distance != nil && @hit_planned_prev.distance_to_hole != nil
-			distance_to_hole = (@hit_planned_prev.distance_to_hole - @hit_real_prev.hit_distance).abs  
-		else 
-			distance_to_hole = 0
-	  end
-   	@hit_planned.update_attributes({:place_from => place_from, :distance_to_hole => distance_to_hole})
+   	set_land_place
+		set_distance_to_hole
+		
+		set_hole_and_putter
+		if @hit_planned.distance_to_hole != nil && @hit_planned.stick_id == nil && @hit_planned.hit_distance == nil
+			@hit_planned.hit_distance = @hit_planned.distance_to_hole
+			find_proper_stick
+		end
+		@hit_planned.save
+		@hit_real.save
     @hit_r_final = @hit_real
     @hit_p_final = @hit_planned
 	end
@@ -340,6 +344,18 @@ class GamesController < ApplicationController
     conditions7 = {:field_id => @game.field_id, :hole_number => @active_hole}
   	@hole = Hole.find(:first, :conditions => conditions7)
   end
+	
+	def create_hole_colors_for_plan
+		@holes.each do |hole|
+			hits = Hit.where(:game_id => @game.id, :hole_number => hole.hole_number, :real_hit => 'p').last
+			if hits
+				if hits.land_place == 11 then res = 2 else	res = 1	end
+			else
+				res = nil
+			end
+			session[:hole_statuses][:"#{hole.hole_number}"] = res		
+		end		
+	end
 
 	def fetch_hole_colors
 		session[:hole_statuses] = {}
@@ -359,7 +375,7 @@ class GamesController < ApplicationController
 		end
 	end
 
-
+	
 	def check_hole_status(game_id, hole_number)
 		status = true
 		@planned_hits = Hit.where(:game_id => game_id, :hole_number => hole_number, :real_hit => "pp")
@@ -464,6 +480,7 @@ private
     @next_hole = next_hole
     @active_hit = active_hit
     get_game_holes(game_id, next_hole)
+		create_hole_colors_for_plan
     if @active_hit == 0
   	  @active_hit = 1
     end
@@ -555,7 +572,6 @@ private
                }
    if @active_hit.to_i != 1 
    	fix_params(@active_hole, @active_hit, @game_id, @hole.distance)
-		puts 'nooot'
    else
 		update_hole_colors(@active_hole, @game_id)
    	@hit_r_final = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
@@ -587,7 +603,6 @@ private
 		if @hit_r_final.land_place == 11
 			check_hole_status(@game.id, @active_hole)
 		end
-		puts @hits
     render 'games/details'
 	end
      
@@ -684,4 +699,41 @@ private
 
   end
 
+	def find_proper_stick
+			sticks = current_user.sticks
+			difference = 9999
+			stickid = 0
+			desired_distance = @hit_planned.hit_distance
+			sticks.each do |stick|
+				diff = (desired_distance - stick.distance).abs
+				if difference > diff
+					difference = diff
+					stickid = stick.id
+				end
+			end		
+		@hit_planned.update_attributes(:stick_id => stickid)
+	end
+	
+	def set_hole_and_putter
+		if @hit_planned.place_from == 1 || @hit_planned.place_from == 7
+			if @hit_planned.stick_id == nil
+				@hit_planned.land_place = 11
+				@hit_planned.stick_id = 1		
+			end
+		end
+	end
+
+	def set_land_place
+		if @hit_planned.place_from == nil
+			 @hit_planned.place_from = @hit_real_prev.land_place 					
+		end
+	end
+
+	def set_distance_to_hole
+		if @hit_real_prev.hit_distance != nil && @hit_planned_prev.distance_to_hole != nil
+			@hit_planned.distance_to_hole = (@hit_planned_prev.distance_to_hole - @hit_real_prev.hit_distance).abs  
+		else 
+			@hit_planned.distance_to_hole = 0
+	  end
+	end
  end

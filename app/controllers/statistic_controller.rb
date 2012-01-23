@@ -64,7 +64,7 @@ class StatisticController < ApplicationController
   end
 
   def update_hints
-    conditions = {:user_id => current_user.id, :stick_id => params[:hint][:stick_id]}
+    conditions = {:user_id => params[:hint][:user_id], :stick_id => params[:hint][:stick_id]}
     @hint = Hint.find(:first, :conditions => conditions) || Hint.new(conditions)
     @hint.update_attributes(params[:hint])
     redirect_back

@@ -68,7 +68,7 @@
       <div class="single_dropdown">
         <p>Actual place</p>
         <div class="element" style="heigth:60px">
-					 <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:selected => 1}, {:class => "dropdown6 land_place_dropdown"}) %>         
+					 <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT, {:prompt => "Select"}, {:class => "dropdown6 land_place_dropdown"}) %>         
  					<!--	<% if hit_p_final.place_from == 1%>
          
           <% else %>
@@ -142,10 +142,10 @@
       <div class="single_dropdown">
         <p>Actual place</p>
         <div class="element">
-          <% if hit_p_final.place_from == 1%>
+          <% if hit_p_final.place_from == 1 && hit_r_final.land_place == nil %>
             <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT,{:selected => 1}, {:class => "dropdown6 land_place_dropdown", :onchange => "showHideHitSwitch(this.value);"}) %>
           <% else %>
-            <%= f.select( :land_place, PLANNED_LAND_PLACES,{:selected => 1}, {:class => "dropdown6 land_place_dropdown", :onchange => "showHideHitSwitch(this.value);"}) %>
+            <%= f.select( :land_place, PLANNED_LAND_PLACES, {:prompt => "Select"}, {:class => "dropdown6 land_place_dropdown", :onchange => "showHideHitSwitch(this.value);"}) %>
           <% end %>
         </div>
       </div>
@@ -159,7 +159,7 @@
       <div class="single_dropdown">
         <p>Mistake</p>
         <div class="element" style="heigth:60px">
-          <%= f.select(:mistake, MISTAKE,{:selected => 2}, {:class => "dropdown6"})%>
+          <%= f.select(:mistake, MISTAKE,{:selected => 2}, {:class => "dropdown6 mistake"})%>
         </div>
       </div>
       <div class="single_dropdown" >
