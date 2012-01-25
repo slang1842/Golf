@@ -116,15 +116,12 @@ class Statistic < ActiveRecord::Base
   def self.main_statistics
 
     @return = false
-    Statistic.delete_all
-
     User.where(:is_super_admin => false).each do |c_user|
-
+			StandardStatistic.calculate_user_stats(c_user.id)
 			c_user.users_sticks.each do |user_stick|
-			statistic = Statistic.new
-      statistic.user_id = c_user.id
-			statistic.stick_id = user_stick.stick_id
-
+			statistic = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, user_stick.stick_id)
+			hit = Hit.where(:user_id => c_user.id, :stick_id => user_stick.id, :real_hit => 'pp').order('updated_at DESC').first
+			if hit != nil && hit.updated_at > statistic.updated_at
 				#these variables have to be defined somewhere, hence the mess                       
 									@statistic_place_teebox = 0
 									@statistic_place_teebox_count = 1        
@@ -216,8 +213,7 @@ class Statistic < ActiveRecord::Base
 									@statistic_green_trajectory_downward_straight_count = 1     
               		
          # continue!
-
-
+			
       Field.where(:golf_club_id => c_user.golf_club_id).each do |c_field|
         Game.where(:field_id => c_field.id).each do |c_game|
 			      #statistic.game_id = c_game.id
@@ -635,7 +631,7 @@ statistic.green_trajectory_downward_right = calculate_avg(@statistic_green_traje
 		    statistic.place_wood = calculate_avg(@statistic_place_wood, @statistic_place_wood_count)
 		    statistic.place_from_water = calculate_avg(@statistic_place_from_water, @statistic_place_from_water_count)
 				statistic.save!				
-
+			 end
       end # end stick
     end # end user
    
@@ -687,8 +683,7 @@ end
 
   
   def self.game_statistics_by_holes
-    GameStatisticsByHoles.delete_all
-    @return = false
+    @return = true
     
     @games = Game.all
     @games.each do |c_game|
@@ -698,9 +693,9 @@ end
        
         @hits = Hit.where(:game_id => c_game.id , :user_id => c_game.user_id, :hole_number => c_hole.hole_number)
 
-        game_s_holes = GameStatisticsByHoles.new
-        game_s_holes.game_id = c_game.id #game_id
-        game_s_holes.user_id = c_game.user_id #user_id
+        game_s_holes = GameStatisticsByHoles.find_or_create_by_user_id_and_game_id(c_game.user_id, c_game.id)
+        #game_s_holes.game_id = c_game.id #game_id
+        #game_s_holes.user_id = c_game.user_id #user_id
         game_s_holes.field_id = c_game.field_id #field_id
 
         game_s_holes.hole_id = c_hole.id
@@ -751,8 +746,7 @@ end
   
   
   def self.game_statistics_by_sticks
-    GameStatisticsBySticks.delete_all
-    @return = false
+    @return = true
     
     @games = Game.all
     @games.each do |c_game|
@@ -761,10 +755,10 @@ end
       @user_sticks = UsersStick.where(:user_id => c_game.user_id)
       @user_sticks.each do |c_user_stick|
       
-        game_s_sticks = GameStatisticsBySticks.new
-        game_s_sticks.game_id = c_game.id
+        game_s_sticks = GameStatisticsBySticks.find_or_create_by_game_id_and_users_stick_id(c_game.id, c_user_stick.id)
+       # game_s_sticks.game_id = c_game.id
         game_s_sticks.fields_id = c_game.field_id
-        game_s_sticks.users_stick_id = c_user_stick.id
+        #game_s_sticks.users_stick_id = c_user_stick.id
         game_s_sticks.user_id = @user.id
 
         @hit_p = Hit.where("real_hit = 'p' OR real_hit = 'pp'").where(:stick_id => c_user_stick.stick_id, :game_id => c_game.id).order("hit_number ASC")
@@ -874,50 +868,45 @@ end
   
   
   def self.all_sticks_statistics
-    AllStickStatistic.delete_all
-    
-    @return = false
+    @return = true
     
     @users = User.all
     @users.each do |c_user|
-     
+      @all_pair_hits = PairHit.where(:user_id == c_user.id)
       @users_stick = UsersStick.where(:user_id => c_user.id)
+			@all_hits = Hit.where(:user_id => c_user.id, :real_hit => 'rp')
       @users_stick.each do |c_users_stick|
     
-        @AllStickStatistics = AllStickStatistic.new
-        
-        @all_hits = Hit.where(:user_id => c_user.id)
-        @all_c_hits = Hit.where(:user_id => c_user.id, :stick_id => c_users_stick.stick.id)
-        
-        @AllStickStatistics.user_id = c_user.id
-        @AllStickStatistics.stick_id = c_users_stick.stick.id
-        @AllStickStatistics.avg_distance = @all_c_hits.average("hit_distance")
+        @AllStickStatistics = AllStickStatistic.find_or_create_by_user_id_and_stick_id(c_user.id, c_users_stick.stick.id)
+				last_hit = Hit.where(:user_id => c_user.id, :stick_id => c_users_stick.stick.id, :real_hit => 'rp').order("updated_at DESC").first
+				if last_hit != nil && last_hit.updated_at > @AllStickStatistics.updated_at
+        	@all_c_hits = Hit.where(:user_id => c_user.id, :stick_id => c_users_stick.stick.id, :real_hit => 'rp')
+    	    @AllStickStatistics.avg_distance = @all_c_hits.average("hit_distance")
 
-        unless @all_hits.count == 0 || @all_c_hits == 0
-          @AllStickStatistics.usage = (((@all_c_hits.count).to_f / (@all_hits.count).to_f).to_f * 100).round
-        end
+    			unless @all_hits.count == 0 || @all_c_hits == 0
+       	 	  @AllStickStatistics.usage = (((@all_c_hits.count).to_f / (@all_hits.count).to_f).to_f * 100).round
+       	 	end
+       		@stats = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, c_users_stick.stick.id)
+        	@result_arr = []
 
-        @all_pair_hits = PairHit.where(:user_id == c_user.id)
+        	@stats.attributes.each_pair do |name, value|
+						if value.class.to_s == "Fixnum"
+							if name.to_s != "id" || name.to_s != "game_id" || name.to_s != "field_id" || name.to_s != "user_id" || name.to_s != "stick_id" 
+        	     @result_arr.push(value) if value.to_i > 0
+							end
+        	  end
+       	 	end
 
-
-
-        @result_arr = []
-
-        @all_pair_hits.each do |c_pair_hit|
-          if c_pair_hit.hit_real.stick_id == c_users_stick.stick.id
-            @add_to_arr = calculate_current_statistics(c_pair_hit.hit_planed, c_pair_hit.hit_real)
-            @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-          end
-        end
-
-        if @result_arr.size == 0
+       	 if @result_arr.size == 0
           @AllStickStatistics.stick_progres = 0
-        else
-          @AllStickStatistics.stick_progres = (@result_arr.inject(0.0) { |sum, el| sum + el } / @result_arr.size).round
-        end
+        	else
+						sum = 0
+						@result_arr.each {|arr| sum += arr.to_i }
+        	  @AllStickStatistics.stick_progres = calculate_avg(sum, @result_arr.size)
+       	 end
 
-        @return = true if @AllStickStatistics.save
-
+      	 @AllStickStatistics.save!
+				end
       end
     end # ends user stick
    

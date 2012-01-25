@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120120064804) do
+ActiveRecord::Schema.define(:version => 20120124193518) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -359,6 +359,30 @@ ActiveRecord::Schema.define(:version => 20120120064804) do
     t.string   "body"
     t.string   "link"
     t.boolean  "to_be_shown"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "standard_statistics", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "total_stroke_count"
+    t.integer  "total_putt_count"
+    t.integer  "total_game_count"
+    t.integer  "total_hole_count"
+    t.integer  "total_stableford"
+    t.integer  "total_gir_putts"
+    t.integer  "pars"
+    t.integer  "boogies"
+    t.integer  "eagles"
+    t.integer  "birdies"
+    t.integer  "double_boogies"
+    t.integer  "others"
+    t.integer  "total_gir"
+    t.decimal  "sbf_avg_per_hole",   :precision => 6, :scale => 3
+    t.decimal  "sbf_avg_per_game",   :precision => 6, :scale => 3
+    t.decimal  "avg_putts",          :precision => 6, :scale => 3
+    t.decimal  "gir_percentage",     :precision => 6, :scale => 3
+    t.decimal  "gir_putt_ratio",     :precision => 6, :scale => 3
     t.datetime "created_at"
     t.datetime "updated_at"
   end

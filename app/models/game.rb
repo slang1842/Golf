@@ -7,5 +7,7 @@ class Game < ActiveRecord::Base
   belongs_to :user
   belongs_to :field
   has_many :holes, :through => :field
+
+	
   
 end

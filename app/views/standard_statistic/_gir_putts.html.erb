@@ -1,0 +1,65 @@
+<h>Gir/Putts</h>
+<div class="single_stats_wrap">
+	<div class="table_wrap">
+			<div class="line">
+        <div class="row" style="width:90px">
+          <p>Place</p>
+        </div>
+				 <div class="row" style="width:90px">
+          <p>HCP</p>
+        </div>
+        <div class="row" style="width:90px">
+          <p>Name</p>
+        </div>
+        <div class="row" style="width:90px">
+          <p>Total</p>
+        </div>
+        <div class="row" style="width:90px">
+          <p>GIR</p>
+        </div>
+				<div class="row" style="width:90px">
+          <p>GIR/Putts</p>
+        </div> 
+				<div class="row" style="width:90px">
+          <p>Average</p>
+        </div>        
+			</div>
+        <div class="clear"></div>
+     <% i = 1%>
+      <% statistics.each do |stat|%>
+      <% stat_user = stat.user%>
+			<% if stat_user == user%>
+        <% style = "background-color:yellow" %>
+			<% else %>
+				<% style = "" %>				
+			<% end %>
+					<div class="line">
+					<div class="row1" style="width:90px;<%=style%>">
+            <p><%= i%>.</p>
+          </div>
+					<div class="row1" style="width:90px;<%=style%>">
+            <p><%= stat_user.hcp%></p>
+          </div>
+          <div class="row1" style="width:90px;<%=style%>">
+            <p><%= stat_user.first_name%> <%=stat_user.last_name%></p>
+          </div>
+          
+          <div class="row1" style="width:90px;<%=style%>">
+            <p><%= stat.total_hole_count %></p>
+          </div>
+						
+          <div class="row1" style="width:90px;<%=style%>">
+            <p><%= stat.total_gir %></p>
+          </div>
+					
+          <div class="row1" style="width:90px;<%=style%>">
+            <p><%= stat.total_gir_putts %></p>
+          </div>
+					<div class="row1" style="width:90px;<%=style%>">
+            <p><%= stat.gir_putt_ratio %></p>
+          </div>
+        </div>
+       <% i += 1%>
+       <%end%>
+	</div>
+</div>

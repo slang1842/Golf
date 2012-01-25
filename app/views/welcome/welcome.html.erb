@@ -18,7 +18,7 @@
     <div class="comments_wrap">
 		 <% @users.each do |user| %>
       <div class="single_comment_wrap">	
-        <div class="image"><img src="<%= user.image.url %>" alt=""/></div>
+        <div class="image"><img src="<%= user.image.url %>" width="61px" alt=""/></div>
         <div class="text">
           <p><%= user.first_name %>: <span class="gray">| Country : <%= user.country.name%>  <% if user.golf_club%> | Golf club : <%= user.golf_club.name%> <% end %> | HCP : <%= user.hcp%></span></p>
         </div>

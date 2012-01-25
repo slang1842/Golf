@@ -14,6 +14,7 @@ class GolfClub < ActiveRecord::Base
 		clubs = where(:country_id => country_id)
 		return_arr = []
 		clubs.each {|club| return_arr << club.id.to_i }
+		return_arr << ADMIN_GOLF_CLUB_ID
 		puts return_arr
 		return return_arr
 	end

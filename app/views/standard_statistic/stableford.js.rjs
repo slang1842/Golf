@@ -1,0 +1,1 @@
+page["#statistic_container"].html render(:partial => "standard_statistic/stableford", :locals => {:user => @user_params, :statistics => @statistics})

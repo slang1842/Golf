@@ -1,0 +1,15 @@
+<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "statistic"} %>
+
+<!-- ================================= top mini stats ============================ -->
+<%= render :partial => 'statistic/mini_statistic_top' %>
+
+<div class="short_statistics_wrap">
+<a href="/standard_statistic/stableford/<%=@user_params.id%>" class="green_button" data-remote="true"> Stableford</a> 
+<a href="/standard_statistic/gir/<%=@user_params.id%>" class="green_button" data-remote="true"> GIR</a>
+<a href="/standard_statistic/putts/<%=@user_params.id%>" class="green_button" data-remote="true"> Puttering</a>
+<a href="/standard_statistic/gir_putts/<%=@user_params.id%>" class="green_button" data-remote="true"> Gir/Putts</a>
+</div>
+
+<div id="statistic_container">
+	<%= render :partial => "standard_statistic/gir", :locals => {:user => @user_params, :statistics => @statistics}%>
+</div>

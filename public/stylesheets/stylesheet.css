@@ -508,9 +508,9 @@ a {
 }
 
 .game_list_percentage_wrap {
-  height:72px;
+  height:100px;
   width:900px;
-  margin-top:25px;
+  /*margin-top:25px;*/
   background-image:url(/images/bg_stripes.png);
 }
 

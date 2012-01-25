@@ -1,0 +1,1 @@
+page["#game_stats"].html render(:partial => "game_statistics/view", :locals => {:field => @field, :game => @game, :holes_filtered => @holes_filtered})

@@ -1,0 +1,101 @@
+<h> Stableford</h>
+<div class="single_stats_wrap">
+	<div class="table_wrap">
+			<div class="line">
+        <div class="row" style="width:60px">
+          <p>Place</p>
+        </div>
+				 <div class="row" style="width:60px">
+          <p>HCP</p>
+        </div>
+        <div class="row" style="width:60px">
+          <p>Name</p>
+        </div>
+        <div class="row" style="width:60px">
+          <p>Eagles</p>
+        </div>
+        <div class="row" style="width:60px">
+          <p>Birdies</p>
+        </div>
+				<div class="row" style="width:60px">
+          <p>Pars</p>
+        </div>
+				<div class="row" style="width:60px">
+          <p>Boogies</p>
+        </div>       
+				<div class="row" style="width:60px">
+          <p>Doubles</p>
+        </div>   
+				<div class="row" style="width:60px">
+          <p>Others</p>
+        </div> 
+				<div class="row" style="width:60px">
+          <p>Holes</p>
+        </div> 
+				<div class="row" style="width:60px">
+          <p>Games</p>
+        </div> 
+				<div class="row" style="width:60px">
+          <p>Sbf/hole</p>
+        </div> 
+				<div class="row" style="width:60px">
+          <p>Sbf/game</p>
+        </div>
+			</div>
+        <div class="clear"></div>
+     <% i = 1%>
+      <% statistics.each do |stat|%>
+      <% stat_user = stat.user%>
+			<% if stat_user == user%>
+        <% style = "background-color:yellow" %>
+			<% else %>
+				<% style = "" %>				
+			<% end %>
+					<div class="line">
+					<div class="row1" style="width:60px;<%=style%>">
+            <p><%= i%>.</p>
+          </div>
+					<div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat_user.hcp%></p>
+          </div>
+          <div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat_user.first_name%> <%=stat_user.last_name%></p>
+          </div>
+          
+          <div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat.eagles %></p>
+          </div>
+					
+          <div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat.birdies %></p>
+          </div>	
+          <div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat.pars %></p>
+          </div>
+					
+          <div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat.boogies %></p>
+          </div>
+					<div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat.double_boogies %></p>
+          </div>
+					<div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat.others %></p>
+          </div>
+					<div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat.total_hole_count %></p>
+          </div>
+					<div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat.total_game_count %></p>
+          </div>
+					<div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat.sbf_avg_per_hole %></p>
+          </div>
+					<div class="row1" style="width:60px;<%=style%>">
+            <p><%= stat.sbf_avg_per_game %></p>
+          </div>
+        </div>
+       <% i += 1%>
+       <%end%>
+	</div>
+</div>

@@ -18,9 +18,15 @@ class GamesController < ApplicationController
  end
   
 	def get_stats
-	 	@game_holes   
+		@game_holes
 	  @field = Field.find(:first, :conditions => {:id => @game.field_id})
 	  render '/game_statistics/view/'
+	end
+
+	def get_stats_remote
+		 @game_holes
+		 @field = Field.find(:first, :conditions => {:id => @game.field_id})
+		 respond_to :js
 	end
   
 	def more_games  
@@ -718,7 +724,6 @@ private
 		if @hit_planned.place_from == 1 || @hit_planned.place_from == 7
 			if @hit_planned.stick_id == nil
 				@hit_planned.land_place = 11
-				@hit_planned.stick_id = 1		
 			end
 		end
 	end

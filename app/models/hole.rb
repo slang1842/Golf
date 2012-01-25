@@ -31,6 +31,11 @@ class Hole < ActiveRecord::Base
 		puts distance
     return distance
   end
+
+	def self.fetch_par(field_id, hole_number)
+		hole = Hole.where({:field_id => field_id, :hole_number => hole_number}).first
+		return hole.par
+	end
   #GAME_HOLE_FILTER = {
    # "3" => {:hole_number == (1..18)}
     #"2" => {:hole_number == (10..18)}
