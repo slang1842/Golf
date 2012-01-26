@@ -26,12 +26,16 @@ class Hit < ActiveRecord::Base
 				altered_hits = Hit.where("hits.game_id = ? AND hits.hit_number > ? AND hits.real_hit IN(?) AND hits.hole_number = ?", game_id, active_hit.to_i, ["pp", "rp", "penalty", "penalty_r"], hole_number).order("hits.hit_number asc")
 				if altered_hits.any?
 					i = active_hit.to_i
+					hit_number = active_hit.to_i
 					altered_hits.each do |hit|
 						hit.update_attributes(:hit_number => i)
 						i += 1
 					end
+				else
+					hit_number = active_hit.to_i - 1 
 		  	end
 			end
+			return hit_number
 		end
 
 

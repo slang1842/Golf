@@ -284,9 +284,9 @@ class GamesController < ApplicationController
      if params[:form_id].to_s == 'plan'
      		get_plan(params[:form_id], @game_id, @next_hole, @active_hit)
 		 elsif params[:next_hit].to_s == 'delete'
-				Hit.remove_detailed_hit(params[:active_hit], @game_id, @next_hole.to_i)
+				active_hit = Hit.remove_detailed_hit(params[:active_hit], @game_id, @next_hole.to_i)
 				create_hit_colors(@game_id, @next_hole.to_i)
-				get_details(params[:form_id], @game_id, @next_hole, params[:active_hit])
+				get_details(params[:form_id], @game_id, @next_hole, active_hit)
 		 elsif params[:next_hit].to_s == 'penalty'
 				Hit.create_penalty(@game_id, params[:active_hit], @next_hole)
 				create_hit_colors(@game_id, @next_hole.to_i)
