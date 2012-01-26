@@ -112,7 +112,7 @@ class GamesController < ApplicationController
 		end     
     @form_id = 'plan'
 		create_hole_colors_for_plan
-		convert_from_m(@hit[0])
+		Hit.convert_from_m(@hit[0], current_user.measurement)
     if params[:hits] == 'new'
     	render '/games/hit_edit'
     else
@@ -175,7 +175,7 @@ class GamesController < ApplicationController
     end
 
 		@hits.each do |hit|
-     convert_from_m(hit)
+     Hit.convert_from_m(hit, current_user.measurement)
 		end
 
     if params[:hits] == 'new'
@@ -191,22 +191,11 @@ class GamesController < ApplicationController
     if @active_hit.to_i == 0
     	@active_hit = 1
     end   
-    conditions2 = { :game_id => @game.id, 
-               :hole_number => @active_hole,
-               :hit_number => @active_hit, 
-               :real_hit => 'pp',
-               :user_id => current_user.id}
-    conditions1 = { :game_id => @game.id, 
-               :hole_number => @active_hole,
-               :hit_number => @active_hit, 
-               :real_hit => 'rp',
-               :user_id => current_user.id
-               }
     if @active_hit.to_i != 1
     	fix_params(@active_hole, @active_hit, @game.id)
     else
-      @hit_r_final = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
-      @hit_p_final = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2) 
+      @hit_r_final = Hit.fetch_final_real(@game.id, @active_hole, @active_hit, current_user.id)
+   	  @hit_p_final = Hit.fetch_final_planned(@game.id, @active_hole, @active_hit, current_user.id) 
     end
     conditions3 = { :hit_planed_id => @hit_p_final.id,
                                :hit_real_id => @hit_r_final.id,
@@ -224,8 +213,8 @@ class GamesController < ApplicationController
     @hit_r_final.update_attributes(params[:pair_id])
     @hit_p_final.update_attributes(params[:pair_id])
     @pair_hit.update_attributes(params[:pair_hit])
-		convert_from_m(@hit_r_final)
-		convert_from_m(@hit_p_final)
+		Hit.convert_from_m(@hit_r_final, current_user.measurement)
+		Hit.convert_from_m(@hit_p_final, current_user.measurement)
     @form_id = 'details'
 		create_hit_colors(@game.id, @active_hole)
 		puts @hits
@@ -244,44 +233,23 @@ class GamesController < ApplicationController
        
 
   def fix_params(active_hole, active_hit, game_id, hole_distance)
-    conditions6 = { :game_id => game_id, 
-               :hole_number => active_hole,
-               :hit_number => active_hit.to_i - 1, 
-               :real_hit => 'rp',
-               :user_id => current_user.id}
-    conditions5 = {:game_id => game_id, 
-               :hole_number => active_hole,
-               :hit_number => active_hit.to_i - 1, 
-               :real_hit => 'pp',
-               :user_id => current_user.id
-                 }
-    conditions2 = { :game_id => game_id, 
-               :hole_number => active_hole,
-               :hit_number => active_hit, 
-               :real_hit => 'pp',
-               :user_id => current_user.id}
-    conditions1 = { :game_id => game_id, 
-               :hole_number => active_hole,
-               :hit_number => active_hit, 
-               :real_hit => 'rp',
-               :user_id => current_user.id
-               }       
-    @hit_real_prev = Hit.find(:first, :conditions => conditions6)
-    @hit_planned_prev = Hit.find(:first, :conditions => conditions5)
-    @hit_real = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
-    @hit_planned = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
-   	set_land_place
-		set_distance_to_hole
-		
-		set_hole_and_putter
-		if @hit_planned.distance_to_hole != nil && @hit_planned.stick_id == nil && @hit_planned.hit_distance == nil
-			@hit_planned.hit_distance = @hit_planned.distance_to_hole
-			find_proper_stick
+ 		@hit_real_prev = Hit.fetch_real_prev(active_hole, active_hit, game_id, current_user.id)
+		@hit_planned_prev = Hit.fetch_planned_prev(active_hole, active_hit, game_id, current_user.id)
+		@hit_real = Hit.fetch_real(active_hole, active_hit, game_id, current_user.id)
+		@hit_planned = Hit.fetch_planned(active_hole, active_hit, game_id, current_user.id)
+		unless @hit_planned.real_hit.to_s == 'penalty'
+			set_land_place
+			set_distance_to_hole
+			set_hole_and_putter
+			if @hit_planned.distance_to_hole != nil && @hit_planned.stick_id == nil && @hit_planned.hit_distance == nil
+				@hit_planned.hit_distance = @hit_planned.distance_to_hole
+				find_proper_stick
+			end
+			@hit_planned.save
+			@hit_real.save
 		end
-		@hit_planned.save
-		@hit_real.save
-    @hit_r_final = @hit_real
-    @hit_p_final = @hit_planned
+		@hit_r_final = @hit_real
+		@hit_p_final = @hit_planned
 	end
  
   def hit_update
@@ -294,7 +262,7 @@ class GamesController < ApplicationController
 		while params[:game][:hits_attributes][:"#{i}"] != nil
 			puts params[:game][:hits_attributes][:"#{i}"]
 			@hit1 = Hit.find_by_id(params[:game][:hits_attributes][:"#{i}"][:id])
-			convert_to_m(@hit1) if @hit1
+			Hit.convert_to_m(@hit1, @hit1.user.measurement) if @hit1
 			i += 1
 		end
 		#end of ugly fix	
@@ -315,6 +283,18 @@ class GamesController < ApplicationController
      end
      if params[:form_id].to_s == 'plan'
      		get_plan(params[:form_id], @game_id, @next_hole, @active_hit)
+		 elsif params[:next_hit].to_s == 'delete'
+				Hit.remove_detailed_hit(params[:active_hit], @game_id, @next_hole.to_i)
+				create_hit_colors(@game_id, @next_hole.to_i)
+				get_details(params[:form_id], @game_id, @next_hole, params[:active_hit])
+		 elsif params[:next_hit].to_s == 'penalty'
+				Hit.create_penalty(@game_id, params[:active_hit], @next_hole)
+				create_hit_colors(@game_id, @next_hole.to_i)
+				get_details(params[:form_id], @game_id, @next_hole, params[:active_hit])
+		 elsif params[:next_hit].to_s == 'remove_penalty'
+				Hit.remove_penalty(@game_id, params[:active_hit], @next_hole)
+				create_hit_colors(@game_id, @next_hole.to_i)
+				get_details(params[:form_id], @game_id, @next_hole, params[:active_hit])
      elsif params[:form_id].to_s == 'results'
      	  get_results(params[:form_id], @game_id, @next_hole, @active_hit)
      elsif params[:form_id].to_s == 'details'
@@ -401,7 +381,7 @@ class GamesController < ApplicationController
 	def create_hit_colors(game_id, hole_number)
 		session[:hit_statuses] = {}
 		session[:stick_names] = {}
-		@hits = Hit.where(:game_id => game_id, :hole_number => hole_number, :real_hit => "pp")
+		@hits = Hit.where("hits.game_id = ? AND hits.hole_number = ? AND hits.real_hit IN(?)", game_id, hole_number, ["pp", "penalty"]).order("hits.hit_number asc")
 			@hits.each do |planned|
 			pair = PairHit.find_by_hit_planed_id(planned.id)
 			real = Hit.find_by_id(pair.hit_real_id)
@@ -411,15 +391,15 @@ class GamesController < ApplicationController
 
 
 	def update_hit_colors(game_id, hole_number, hit_number)
-		planned = Hit.where(:game_id => game_id, :hole_number => hole_number, :real_hit => "pp", :hit_number => hit_number).last
-		real = Hit.where(:game_id => game_id, :hole_number => hole_number, :real_hit => "rp", :hit_number => hit_number).last
+		planned = Hit.where("hits.game_id = ? AND hits.hole_number = ? AND hits.real_hit IN(?)", game_id, hole_number, ["pp", "penalty"]).last
+		real = Hit.where("hits.game_id = ? AND hits.hole_number = ? AND hits.real_hit IN(?)", game_id, hole_number, ["pp", "penalty_r"]).last
 		check_and_update_color(real, planned)
 	end
 
 
 	def check_and_update_color(real, planned)
 		if session.present?
-			if check_hits(real, planned) == true
+			if check_hits(real, planned) == true || check_hits(real, planned) == "penalty"
 				session[:hit_statuses][:"#{planned.hit_number}"] = 1
 			else
 				session[:hit_statuses][:"#{planned.hit_number}"] = nil
@@ -429,7 +409,9 @@ class GamesController < ApplicationController
 				session[:stick_names][:"#{planned.hit_number}"] = stick.short_name
 			else
 				session[:stick_names][:"#{planned.hit_number}"] = nil
-				puts session[:hit_statuses][:"#{planned.hit_number}"]
+			end
+			if planned.real_hit == "penalty"
+				session[:stick_names][:"#{planned.hit_number}"] = "penalty"
 			end
 		end
 	end
@@ -437,10 +419,13 @@ class GamesController < ApplicationController
 
 	def check_hits(real, planned)
 			if planned.place_from != nil && planned.land_place != nil && planned.stance != nil && planned.trajectory != nil && planned.hit_distance != nil && real.land_place != nil && real.luck_factor != nil && real.hit_distance != nil && real.misdirection != nil && real.mistake != nil && planned.stick_id != nil
-				return true
+				return_ = true
+			elsif planned.real_hit.to_s == "penalty"
+				return_ = "penalty"
 			else
-				return false
+				return_ = false
 		end
+		return return_
 	end
 
 
@@ -465,6 +450,9 @@ class GamesController < ApplicationController
 	end
 
 private
+
+
+		
 	def remove_hit(game_id, hole_number)
 		@hit = Hit.where(:game_id => game_id, :hole_number => hole_number).last
 		if @hit.destroy	
@@ -504,7 +492,7 @@ private
 			@hit = []
 			@hit = @hit << Hit.create(conditions)
 		end
-		@hit.each {|h| convert_from_m(h)}     
+		@hit.each {|h| Hit.convert_from_m(h, current_user.measurement)}     
     @form_id = 'plan'
     render 'games/plan'
 	end
@@ -554,7 +542,7 @@ private
                           #convert_to_feet(@hit)
            end
      	@hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r') 
-			@hits.each {|h| convert_from_m(h)}
+			@hits.each {|h| Hit.convert_from_m(h, current_user.measurement)}
       render 'results'     
   	end
 	end
@@ -565,23 +553,12 @@ private
     @next_hole = next_hole
     @active_hit = active_hit
 	  get_game_holes(@game_id, @next_hole)
-    conditions2 = { :game_id => @game_id, 
-   		         :hole_number => @active_hole,
-               :hit_number => @active_hit, 
-               :real_hit => 'pp',
-               :user_id => current_user.id}
-    conditions1 = { :game_id => @game.id, 
-               :hole_number => @active_hole,
-               :hit_number => @active_hit, 
-               :real_hit => 'rp',
-               :user_id => current_user.id
-               }
    if @active_hit.to_i != 1 
    	fix_params(@active_hole, @active_hit, @game_id, @hole.distance)
    else
 		update_hole_colors(@active_hole, @game_id)
-   	@hit_r_final = Hit.find(:first, :conditions => conditions1) || Hit.create(conditions1)
-    @hit_p_final = Hit.find(:first, :conditions => conditions2) || Hit.create(conditions2)
+   	@hit_r_final = Hit.fetch_final_real(@game_id, @active_hole, @active_hit, current_user.id)
+    @hit_p_final = Hit.fetch_final_planned(@game_id, @active_hole, @active_hit, current_user.id)
    end
    conditions3 = { :hit_planed_id => @hit_p_final.id,
                       :hit_real_id => @hit_r_final.id,
@@ -590,8 +567,6 @@ private
    @pair_hit = PairHit.find(:first, :conditions => conditions3) || PairHit.create(conditions3)
    @hit_r_final.pair_id = @pair_hit.id
    @hit_p_final.pair_id = @pair_hit.id
-   @hit_r_final.update_attributes(params[:pair_id])
-   @hit_p_final.update_attributes(params[:pair_id])
    if @active_hit.to_i == 1
 		create_hit_colors(@game_id, @active_hole)
 	 	@hit_r_final.update_attributes(:place_from => 2)
@@ -604,12 +579,16 @@ private
 	 end
    	@pair_hit.update_attributes(params[:pair_hit])
    	@form_id = 'details'
-		convert_from_m(@hit_p_final)
-		convert_from_m(@hit_r_final)
+		Hit.convert_from_m(@hit_p_final, current_user.measurement)
+		Hit.convert_from_m(@hit_r_final, current_user.measurement)
 		if @hit_r_final.land_place == 11
 			check_hole_status(@game.id, @active_hole)
 		end
-    render 'games/details'
+		if @hit_r_final.real_hit.to_s == "rp"
+    	render 'games/details'
+		else
+			render 'games/details_disabled'
+		end
 	end
      
      
@@ -680,30 +659,10 @@ private
     else
       @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
     end
-		@hits.each {|h| convert_from_m(h)}
+		@hits.each {|h| Hit.convert_from_m(h, current_user.measurement)}
     render 'games/results'
 	end
 
-	def convert_to_m(hit)
-			hit_distance = hit.hit_distance 
-			distance_to_hole = hit.distance_to_hole 
-			measurement = current_user.measurement
-      hit.hit_distance = Stick.convert_distance_to_meters(measurement, hit_distance) if hit_distance
-      hit.distance_to_hole = Stick.convert_distance_to_meters(measurement, distance_to_hole) if distance_to_hole
-			puts "TO METERS"
-    	hit.save!
-
-  end
-	
-	def convert_from_m(hit)
-			hit_distance = hit.hit_distance 
-			distance_to_hole = hit.distance_to_hole 
-			measurement = current_user.measurement
-      hit.hit_distance = Stick.convert_distance_from_meters(measurement, hit_distance) if hit_distance
-      hit.distance_to_hole = Stick.convert_distance_from_meters(measurement, distance_to_hole) if distance_to_hole
-			puts "FROM METERS"
-
-  end
 
 	def find_proper_stick
 			sticks = current_user.sticks

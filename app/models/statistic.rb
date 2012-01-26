@@ -46,10 +46,14 @@ class Statistic < ActiveRecord::Base
   end
   
   def self.calculate_current_statistics(planed, real) # p = planed, r = Real
+		if planed.real_hit == "penalty"
+			result = 1
+		else
       if planed.hit_distance.to_i != 0 && real.hit_distance.to_i != 0 && real.misdirection.to_i != 0 && real.mistake.to_i != 0    
       	result = calculate_distance_ratio(planed.hit_distance, real.hit_distance)
         	 result = result - detect_failed_stroke(real.misdirection, 2) # 3 is for misdirection "straight"
-        	 result = result - detect_failed_stroke(real.mistake, 2) # 1 is for mistake "none"   
+        	 result = result - detect_failed_stroke(real.mistake, 2) # 1 is for mistake "none"  
+					 result = result - compare_land_places(real.land_place, planed.land_place) 
       	if result > 100
         	result = 100
       	elsif result < 1
@@ -58,8 +62,22 @@ class Statistic < ActiveRecord::Base
 			else
 				result = false
 			end
+		end
   	return result
   end
+
+	def self.compare_land_places(real_place, planned_place)
+		if real_place != planned_place
+			if real_place == 12 || real_place == 13
+				result = 10
+			else
+				result = 30
+			end
+		else
+			result = 0
+		end
+		return result
+	end	
 
   def self.calculate_success_ratio_for_trajectory(real_pt, planned_pt)
 		if real_pt != nil && planned_pt != nil 
@@ -703,7 +721,7 @@ end
 
         @hit_p = @hits.where("real_hit = 'p' OR real_hit = 'pp'").order("hit_number")
         @hit_r = @hits.where("real_hit = 'r' OR real_hit = 'rp'").order("hit_number")
-
+				
         game_s_holes.put_sum = @hit_r.where(:place_from => 1).count
         game_s_holes.gir_sum = @hit_r.where(:place_from => 1, :hit_number => 2).count
         game_s_holes.hit_sum = @hit_r.count
@@ -761,8 +779,8 @@ end
         #game_s_sticks.users_stick_id = c_user_stick.id
         game_s_sticks.user_id = @user.id
 
-        @hit_p = Hit.where("real_hit = 'p' OR real_hit = 'pp'").where(:stick_id => c_user_stick.stick_id, :game_id => c_game.id).order("hit_number ASC")
-        @hit_r = Hit.where("real_hit = 'r' OR real_hit = 'rp'").where(:stick_id => c_user_stick.stick_id, :game_id => c_game.id).order("hit_number ASC")
+        @hit_p = Hit.where("real_hit = 'p' OR real_hit = 'pp' OR real_hit = 'penalty'").where(:stick_id => c_user_stick.stick_id, :game_id => c_game.id).order("hit_number ASC")
+        @hit_r = Hit.where("real_hit = 'r' OR real_hit = 'rp' OR real_hit = 'penalty_r'").where(:stick_id => c_user_stick.stick_id, :game_id => c_game.id).order("hit_number ASC")
         
         game_s_sticks.hits_p = @hit_p.count
         game_s_sticks.hits_r = @hit_r.count
@@ -852,6 +870,8 @@ end
         @GameStatisticsGeneral.put_sum = @global_hits.where(:place_from => 1).count #put_sum
         @GameStatisticsGeneral.gir_sum = @global_hits.where(:land_place => 1, :hit_number => 1).count #gir_sum
 
+
+
         @user_stats_progres_val = (@user_progres_arr.inject(0.0) { |sum, el| sum + el } / @user_progres_arr.size).round unless @user_progres_arr.size == 0
         @GameStatisticsGeneral.game_progress = @user_stats_progres_val
 
@@ -872,14 +892,14 @@ end
     
     @users = User.all
     @users.each do |c_user|
-      @all_pair_hits = PairHit.where(:user_id == c_user.id)
+      #@all_pair_hits = PairHit.where(:user_id == c_user.id)
       @users_stick = UsersStick.where(:user_id => c_user.id)
 			@all_hits = Hit.where(:user_id => c_user.id, :real_hit => 'rp')
       @users_stick.each do |c_users_stick|
     
         @AllStickStatistics = AllStickStatistic.find_or_create_by_user_id_and_stick_id(c_user.id, c_users_stick.stick.id)
 				last_hit = Hit.where(:user_id => c_user.id, :stick_id => c_users_stick.stick.id, :real_hit => 'rp').order("updated_at DESC").first
-				if last_hit != nil && last_hit.updated_at > @AllStickStatistics.updated_at
+				#if last_hit != nil && last_hit.updated_at > @AllStickStatistics.updated_at
         	@all_c_hits = Hit.where(:user_id => c_user.id, :stick_id => c_users_stick.stick.id, :real_hit => 'rp')
     	    @AllStickStatistics.avg_distance = @all_c_hits.average("hit_distance")
 
@@ -896,10 +916,11 @@ end
 							end
         	  end
        	 	end
-
+				@result_arr.each {|arr| puts arr }
        	 if @result_arr.size == 0
           @AllStickStatistics.stick_progres = 0
         	else
+						
 						sum = 0
 						@result_arr.each {|arr| sum += arr.to_i }
         	  @AllStickStatistics.stick_progres = calculate_avg(sum, @result_arr.size)
@@ -907,7 +928,7 @@ end
 
       	 @AllStickStatistics.save!
 				end
-      end
+      #end
     end # ends user stick
    
     return @return

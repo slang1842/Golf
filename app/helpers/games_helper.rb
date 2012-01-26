@@ -39,6 +39,8 @@ module GamesHelper
 		name = session[:stick_names][:"#{hit_number.to_s}"]
 		if name == nil	
 			name = hit_number.to_s + "."
+		else
+			name = hit_number.to_s + "." + name
 		end
 		raw name
 	end

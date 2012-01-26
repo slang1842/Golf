@@ -26,12 +26,13 @@ def self.calculate_user_stats(user_id)
 			end
 			game_id_array.uniq!
 			statistic.total_game_count = game_id_array.size
-			statistic.sbf_avg_per_hole = (statistic.total_stableford / holes.count)
-			statistic.sbf_avg_per_game = (statistic.total_stableford / holes.count)
+			statistic.sbf_avg_per_hole = (statistic.total_stableford.to_f / holes.count)
+			statistic.sbf_avg_per_game = (statistic.total_stableford.to_f / holes.count)
 			statistic.total_hole_count = holes.count
-			statistic.avg_putts = (statistic.total_putt_count / statistic.total_hole_count)
-			statistic.gir_percentage = ((statistic.total_gir / statistic.total_hole_count) * 100)
-			statistic.gir_putt_ratio = (statistic.total_gir_putts / statistic.total_gir)
+			statistic.save
+			statistic.avg_putts = (statistic.total_putt_count.to_f / statistic.total_hole_count)
+			statistic.gir_percentage = ((statistic.total_gir.to_f / statistic.total_hole_count) * 100)
+			statistic.gir_putt_ratio = (statistic.total_gir_putts.to_f / statistic.total_gir)
 			statistic.save!
 		end
 	end
@@ -61,6 +62,7 @@ def calculate_stableford(total_strokes, par, hcp)
 		sbf = 0
 	end
 	self.total_stableford += sbf
+	self.save
 end
 
 def calculate_GIR(par, hcp, strokes_non_putts, strokes_putts)
@@ -69,6 +71,7 @@ def calculate_GIR(par, hcp, strokes_non_putts, strokes_putts)
 		self.total_gir += 1
 		self.total_gir_putts += strokes_putts
 	end
+	self.save
 end
 
 def set_zeros
