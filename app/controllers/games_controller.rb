@@ -290,7 +290,7 @@ class GamesController < ApplicationController
 		 elsif params[:next_hit].to_s == 'penalty'
 				Hit.create_penalty(@game_id, params[:active_hit], @next_hole)
 				create_hit_colors(@game_id, @next_hole.to_i)
-				get_details(params[:form_id], @game_id, @next_hole, params[:active_hit])
+				get_details(params[:form_id], @game_id, @next_hole, params[:active_hit].to_i + 1)
 		 elsif params[:next_hit].to_s == 'remove_penalty'
 				Hit.remove_penalty(@game_id, params[:active_hit], @next_hole)
 				create_hit_colors(@game_id, @next_hole.to_i)
