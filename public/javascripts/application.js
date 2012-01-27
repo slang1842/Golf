@@ -18,7 +18,13 @@ $(document).ready(function() {
 $(document).ready(function() {
   bindDistanceFields();
   });
-
+$(document).ready(function() {
+  $("#sticks_row").jScrollPane({hideFocus: true});
+	$("#stats_div").jScrollPane({hideFocus: true});
+  });
+$(document).ready(function() {
+  bindScrollTriangles();
+  });
 function bindDistanceFields() {
 	$(".distance_result").keyup( function(){
 		var diff = $(".distance_result").val() - $(".distance_plan").val();
@@ -34,10 +40,24 @@ function bindDistanceFields() {
 		if (diff < 0) {diff = 1;}
 		$(".mistake").val(diff);
 		});
-
-
 }
 
+function bindScrollTriangles() {
+	$("#triangle_left").live('click', function(){
+		var api1 = $("#sticks_row").data('jsp');
+		var api2 = $("#stats_div").data('jsp');
+		api1.scrollByX(-110);
+		api2.scrollByX(-110);		
+		return false;
+		});
+	$("#triangle_right").live('click', function(){
+		var api1 = $("#sticks_row").data('jsp');
+		var api2 = $("#stats_div").data('jsp');
+		api1.scrollByX(110);
+		api2.scrollByX(110);		
+		return false;
+		});
+}
 
 function bindAddSwitch(){
 	$("#add_hit").live('click', function() {

@@ -36,15 +36,16 @@
 
 
         <div> <!-- MAIN statistikas divs -->
-
+				
           <% if @user_sticks.count > 0 && @statistic.count > 0 %>
       <%#= if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil%>
 
             <div class="clubs_wrap">
               <div class="page_left">
-                <a href="#"><img src="/images/link_left_big.png" alt=""/></a>
+                <a href="#" id="triangle_left"><img src="/images/link_left_big.png" alt=""/></a>
               </div>
-
+						<div id="sticks_row" style="overflow:hidden; height:60px; width:660px; float:left">
+							<div style="width:<%= @user_sticks.count.to_i * 110 %>px">
               <% @user_sticks.each do |stick| %>
 
                 <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => @user_params.id})%>
@@ -82,23 +83,24 @@
 
 
               <% end %>
-
-
+						</div>
+					</div>
 
 
               <div class="page_left">
-                <a href="#"><img src="/images/link_right_big.png" alt=""/></a>
+                <a href="#" id="triangle_right"><img src="/images/link_right_big.png" alt=""/></a>
               </div>
-            </div>
+            
+				</div>
             <!-- ============================ sticks ============================ -->
 
 
 
-
+						<div id="stats_div" style="width:812px; overflow-x:hidden; overflow-y:visible; position:relative; left:0px; top:10px">
             <!-- ============================ main stats ============================ -->
             <%= render :partial => 'statistic/main_statistic' %>
             <!-- ============================ main stats ============================ -->
-
+						</div>
 
 
             <div class="clear"></div>

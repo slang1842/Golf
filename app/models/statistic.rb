@@ -68,11 +68,7 @@ class Statistic < ActiveRecord::Base
 
 	def self.compare_land_places(real_place, planned_place)
 		if real_place != planned_place
-			if real_place == 12 || real_place == 13
-				result = 10
-			else
 				result = 30
-			end
 		else
 			result = 0
 		end
@@ -99,10 +95,13 @@ class Statistic < ActiveRecord::Base
   end
   
   def self.detect_failed_stroke(actual_pt, success_pt)
-    if actual_pt == success_pt
+		diff = actual_pt - success_pt
+    if diff.abs == 0
       return 0
-    else
+    elsif diff.abs == 1
       return 15
+		else
+			return 30
     end
   end
 	

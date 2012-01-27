@@ -1,12 +1,12 @@
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- Place =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 <div class="clear"></div>
-<div class="situation_type">
+<div class="situation_type" style="width:<%= @user_sticks.count.to_i * 111  + 250%>px" >
   <span onclick="showHideElement('#place')">
     <div class="name_wrap">
       <p>Place</p>
       <img src="/images/link_right_small.png" alt=""/>
     </div>
-    <div class="info_wrap">
+    <div class="info_wrap"  style="width:<%= @user_sticks.count.to_i * 111 %>px">
       <img src="/images/table_icon_place.png" alt=""/>
       <div class="description">
         <p>Place, where the hit took place</p>
@@ -16,7 +16,7 @@
   <div class="single_situation" id="place" >
 
 
-
+ <div class="clear"></div>
     <!-- ========================================= place_teebox ========================================= -->
     <div class="name">
       <p>Teebox</p>
@@ -431,13 +431,13 @@
 
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- stance =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 <div class="clear"></div>
-<div class="situation_type">
+<div class="situation_type" style="width:<%= @user_sticks.count.to_i * 111  + 250%>px">
   <span onclick="showHideElement('#stance')">
     <div class="name_wrap">
       <p>Stance</p>
       <img src="/images/link_right_small.png" alt=""/>
     </div>
-    <div class="info_wrap">
+    <div class="info_wrap"  style="width:<%= @user_sticks.count.to_i * 111 %>px">
       <img src="/images/table_icon_stance.png" alt=""/>
       <div class="description">
         <p>Stance in wich the stroke was made</p>
@@ -447,7 +447,7 @@
   <div class="single_situation" id="stance" >
 
 
-
+<div class="clear"></div>
     <!-- ========================================= stance_normal ========================================= -->
     <div class="name">
       <p>Normal</p>
@@ -637,13 +637,13 @@
 
 
 	 <div class="clear"></div>
-  <div class="situation_type">
+  <div class="situation_type" style="width:<%= @user_sticks.count.to_i * 111  + 250%>px">
     <span onclick="showHideElement('#trajectory')">
       <div class="name_wrap">
         <p>Trajectory</p>
         <img src="/images/link_right_small.png" alt=""/>
       </div>
-      <div class="info_wrap">
+      <div class="info_wrap"  style="width:<%= @user_sticks.count.to_i * 111 %>px">
         <img src="/images/table_icon_trajectory.png" alt=""/>
         <div class="description">
           <p>Trajectory of the ball</p>
@@ -653,7 +653,7 @@
     <div class="single_situation" id="trajectory" >
 
 
-
+<div class="clear"></div>
       <!-- ========================================= trajectory_normal ========================================= -->
       <div class="name">
         <p>Normal</p>
@@ -920,13 +920,13 @@
   <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- direction/trajectory =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 
  <div class="clear"></div>
-  <div class="situation_type">
+  <div class="situation_type" style="width:<%= @user_sticks.count.to_i * 111  + 250%>px">
     <span onclick="showHideElement('#green_trajectory')">
       <div class="name_wrap">
         <p>Green traj.</p>
         <img src="/images/link_right_small.png" alt=""/>
       </div>
-      <div class="info_wrap">
+      <div class="info_wrap"  style="width:<%= @user_sticks.count.to_i * 111 %>px">
         <img src="/images/table_icon_green_direction.png" alt=""/>
         <div class="description">
           <p>Green trajectory of the ball</p>
@@ -936,7 +936,7 @@
     <div class="single_situation" id="green_trajectory" >
 
 
-
+<div class="clear"></div>
       <!-- ========================================= green_trajectory_straight ========================================= -->
       <div class="name">
         <p>Straight</p>
@@ -1207,13 +1207,13 @@
 
   <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- temperature =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
   <div class="clear"></div>
-  <div class="situation_type">
+  <div class="situation_type" style="width:<%= @user_sticks.count.to_i * 111  + 250%>px">
     <span onclick="showHideElement('#temperature')">
       <div class="name_wrap">
         <p>Temperature</p>
         <img src="/images/link_right_small.png" alt=""/>
       </div>
-      <div class="info_wrap">
+      <div class="info_wrap"  style="width:<%= @user_sticks.count.to_i * 111 %>px">
         <img src="/images/table_icon_temperature.png" alt=""/>
         <div class="description">
           <p>Temperature during the game</p>
@@ -1226,7 +1226,7 @@
 
 
 
-
+<div class="clear"></div>
       <!-- ========================================= temperature_cold ========================================= -->
       <div class="name">
         <p>Cold</p>
@@ -1341,13 +1341,13 @@
 
   <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- weather =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
   <div class="clear"></div>
-  <div class="situation_type">
+  <div class="situation_type" style="width:<%= @user_sticks.count.to_i * 111  + 250%>px">
     <span onclick="showHideElement('#weather')">
       <div class="name_wrap">
         <p>Weather</p>
         <img src="/images/link_right_small.png" alt=""/>
       </div>
-      <div class="info_wrap">
+      <div class="info_wrap"  style="width:<%= @user_sticks.count.to_i * 111 %>px">
         <img src="/images/table_icon_weather.png" alt=""/>
         <div class="description">
           <p>Weather during the game</p>
@@ -1356,7 +1356,7 @@
     </span>
     <div class="single_situation" id="weather" >
 
-
+<div class="clear"></div>
       <!-- ========================================= weather_normal ========================================= -->
       <div class="name">
         <p>Normal</p>
@@ -1529,13 +1529,13 @@
 <!----SLOPE + direction -->
   <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_direction =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
   <div class="clear"></div>
-  <div class="situation_type">
+  <div class="situation_type" style="width:<%= @user_sticks.count.to_i * 111  + 250%>px">
     <span onclick="showHideElement('#green_direction')">
       <div class="name_wrap">
         <p>Slope</p>
         <img src="/images/link_right_small.png" alt=""/>
       </div>
-      <div class="info_wrap">
+      <div class="info_wrap"  style="width:<%= @user_sticks.count.to_i * 111 %>px">
         <img src="/images/table_icon_slope.png" alt=""/>
         <div class="description">
           <p>Slope of the green</p>

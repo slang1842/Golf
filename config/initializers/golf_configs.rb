@@ -17,7 +17,7 @@ FIELD_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 WEATHER = { "Normal" => 1, "Wind" => 2, "Rain" => 3, "Wind and Rain" => 4}
 GAME_FORMAT = { "Training" => "t", "DM" => "d", "Tournament" => "tn"}
 GAME_TYPE = { "1-9" => 1, "10-18" => 2, "1-18" => 3}
-STATISTICS_MISDIRECTION = { "Left" => 1, "Good direction" => 2, "Right" => 3}
+STATISTICS_MISDIRECTION = { "Too left" => 0, "Left" => 1, "Good direction" => 2, "Right" => 3, "Too Right" => 4}
 STATISTICS_HIT_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_MOTION_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_FOLLOWING_ACTION = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
@@ -50,7 +50,7 @@ BALL_TYPE = {"apaļa" => 1, "zaļa" => 2, "oranža" => 3}
 # ========================================================
 #PLANNED_LAND_PLACES = {"Green" => 1,"Fairway" => 3, "Next fairway" => 4,"Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Hole" => 11, "Semi raf" => 5 }
 PLANNED_LAND_PLACES = {"Green" => 1,"Fairway" => 3, "Next fairway" => 4,"Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Hole" => 11, "Semi raf" => 5, "Wood" => 10 }
-REAL_LAND_PLACES = {"Green" => 1,"Fairway" => 3, "Next fairway" => 4,"Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Hole" => 11, "Semi raf" => 5, "Wood" => 10, "To left" => 12, "To right" => 13 }
+REAL_LAND_PLACES = {"Green" => 1,"Fairway" => 3, "Next fairway" => 4,"Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Hole" => 11, "Semi raf" => 5, "Wood" => 10 }
 STATISTICS_PLACE_FROM = {"Green" => 1, "Teebox" => 2, "Fairway" => 3, "Next fairway" => 4, "Semi raf" => 5, "Raf" => 6, "For green" => 7, "Fairway sand" => 8, "Green sand" => 9, "Wood" => 10, "From water" => 11 }
 PLANNED_LAND_PLACES_FOR_PRINT = { 1 => "Green",3 => "Fairway",  4 => "Next fairway", 6  => "Raf",   7 => "For green",  8  => "Fairway sand",  9  => "Green sand",   11 => "Hole",   5 => "Semi raf"}
 STATISTICS_STANCE = {"Normal" => 1, "Right leg lower" => 2, "Left leg lower" => 3, "Ball lower" => 4, "Ball higher" => 5}

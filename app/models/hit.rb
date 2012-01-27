@@ -23,11 +23,18 @@ class Hit < ActiveRecord::Base
 					if pair then pair.each {|p| p.destroy} end
 			  	hit.destroy
 				end
-				altered_hits = Hit.where("hits.game_id = ? AND hits.hit_number > ? AND hits.real_hit IN(?) AND hits.hole_number = ?", game_id, active_hit.to_i, ["pp", "rp", "penalty", "penalty_r"], hole_number).order("hits.hit_number asc")
+				altered_hits = Hit.where("hits.game_id = ? AND hits.hit_number > ? AND hits.real_hit IN(?) AND hits.hole_number = ?", game_id, active_hit.to_i, ["pp", "penalty"], hole_number).order("hits.hit_number asc")
+				altered_real_hits = Hit.where("hits.game_id = ? AND hits.hit_number > ? AND hits.real_hit IN(?) AND hits.hole_number = ?", game_id, active_hit.to_i, ["rp", "penalty_r"], hole_number).order("hits.hit_number asc")
 				if altered_hits.any?
 					i = active_hit.to_i
 					hit_number = active_hit.to_i
 					altered_hits.each do |hit|
+						hit.update_attributes(:hit_number => i)
+						i += 1
+					end
+					i = active_hit.to_i
+					hit_number = active_hit.to_i
+					altered_real_hits.each do |hit|
 						hit.update_attributes(:hit_number => i)
 						i += 1
 					end
@@ -141,8 +148,9 @@ class Hit < ActiveRecord::Base
 	def self.create_penalty(game_id, active_hit, hole_number)
 		hit_real = Hit.where(:game_id => game_id, :hit_number => active_hit, :hole_number => hole_number, :real_hit => 'rp').first
 		hit_planned = Hit.where(:game_id => game_id, :hit_number => active_hit, :hole_number => hole_number, :real_hit => 'pp').first
-		hit_real_prev = Hit.where(:game_id => game_id, :hit_number => (active_hit.to_i - 1), :hole_number => hole_number, :real_hit => 'rp').first
-		hit_planned_prev = Hit.where(:game_id => game_id, :hit_number => (active_hit.to_i - 1), :hole_number => hole_number, :real_hit => 'pp').first
+		hit_real_prev = Hit.where(:game_id => game_id, :hit_number => (active_hit.to_i - 1), :hole_number => hole_number, :real_hit => 'rp').first || 
+		hit_real_prev = Hit.where(:game_id => game_id, :hit_number => (active_hit.to_i - 1), :hole_number => hole_number, :real_hit => 'penalty_r').first
+		hit_planned_prev = Hit.where(:game_id => game_id, :hit_number => (active_hit.to_i - 1), :hole_number => hole_number, :real_hit => 'pp').first || Hit.where(:game_id => game_id, :hit_number => (active_hit.to_i - 1), :hole_number => hole_number, :real_hit => 'penalty').first
 		penalty_p = hit_planned_prev.clone
 		penalty_p.hit_number = hit_planned.hit_number
 		penalty_p.real_hit = "penalty"
