@@ -12,4 +12,16 @@ class PairHit < ActiveRecord::Base
   belongs_to :Hit
   belongs_to :hit_planed, :class_name => "Hit", :foreign_key => 'hit_planed_id'
   belongs_to :hit_real, :class_name => 'Hit', :foreign_key => 'hit_real_id'
+
+	def self.sanitize_self
+		pairs = PairHit.find(:all)
+		pairs.each do |pair|
+			hit_r = pair.hit_real
+			hit_p = pair.hit_planed
+			if hit_r == nil || hit_p == nil
+				pair.destroy
+			end
+		end
+	end
+
 end

@@ -100,15 +100,24 @@ module GamesHelper
 		raw return_text
 	end
 
-	def fetch_color_for_details_button(game_id)
+	def fetch_color_for_details_button(game)
 		return_text = "gray_button"
-		status_holes = StatusHole.where(:game_id => game_id)
-		if status_holes.any?
-			status_holes.each do |hole|
-				if hole.completeness.to_i == 2 then return_text = "green_button" else return_text = "yellow_button" end
-			end
+		if game.complete == true
+			return_text = "green_button"
 		else
-			return_text = "gray_button"
+			status_holes = StatusHole.where(:game_id => game.id)
+			if status_holes.any?
+				status_holes.each do |hole|
+					if hole.completeness.to_i == 2 then return_text = "green_button" else return_text = "yellow_button" end
+				end
+				if return_text == "green_button"
+					game.update_attributes(:complete => 1)
+				elsif return_text == "yellow_button"
+					
+				else
+				return_text = "gray_button"
+				end
+			end
 		end
 		raw return_text		
 	end

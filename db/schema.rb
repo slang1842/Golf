@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120124193518) do
+ActiveRecord::Schema.define(:version => 20120128001452) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(:version => 20120124193518) do
     t.string   "form"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "complete"
   end
 
   create_table "golf_clubs", :force => true do |t|
@@ -359,6 +360,40 @@ ActiveRecord::Schema.define(:version => 20120124193518) do
     t.string   "body"
     t.string   "link"
     t.boolean  "to_be_shown"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "single_field_statistic_by_sticks", :force => true do |t|
+    t.integer  "single_field_statistic_id"
+    t.integer  "field_id"
+    t.integer  "users_stick_id"
+    t.integer  "total_distance"
+    t.integer  "total_strokes"
+    t.decimal  "avg_distance",              :precision => 6, :scale => 3
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "single_field_statistics", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "field_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "single_field_statistics_by_holes", :force => true do |t|
+    t.integer  "single_field_statistic_id"
+    t.integer  "field_id"
+    t.integer  "hole_number"
+    t.integer  "total_strokes"
+    t.integer  "total_putts"
+    t.integer  "best_strokes"
+    t.integer  "best_putts"
+    t.integer  "worst_strokes"
+    t.integer  "worst_putts"
+    t.decimal  "avg_strokes",               :precision => 6, :scale => 3
+    t.decimal  "avg_putts",                 :precision => 6, :scale => 3
     t.datetime "created_at"
     t.datetime "updated_at"
   end

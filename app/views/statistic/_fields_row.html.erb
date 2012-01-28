@@ -1,0 +1,32 @@
+
+  <div class="game_list_percentage_wrap">
+    
+    <div id="screen">
+
+      <div class="link_left_wrap carousel-control previous carousel-previous">
+        <a href="#" class="prev"><img src="/images/link_left_big.png" alt=""/></a>
+      </div>
+      <div id="slideshow">
+        <ul>
+          <% @user_params_fields_limited.each do |user_params_fields| %>
+            <li>
+              <a href="<%= get_stats_remote_path(user_params_fields.id) %>" data-remote="true">
+                <div class="single_game_field">
+                
+                    <div class="date"><p><%= user_params_fields.field.name %> in "<%= user_params_fields.field.golf_club.name%>"</p></div>
+
+                </div>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="link_right_wrap carousel-control next carousel-next">
+        <a href="#" class="next"><img src="/images/link_right_big.png" alt=""/></a>
+      </div>
+    </div>
+  </div>
+<div id="field_stats"></div>
+
+
+

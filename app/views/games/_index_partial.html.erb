@@ -23,8 +23,8 @@ $(document).ready(function(){
                <% else %>
         <a href="<%='/game_results/' + game.id.to_s + '/1/results/new/0'%>" class="gray_button">Results</a>
         <% end %> -->
-        <a href="<%='/game_details/' + game.id.to_s + '/1/1/new/0'%>" class="<%=fetch_color_for_details_button(game.id)%>">Detailed results</a>           
-        <a href="<%=get_stats_path(game.id)%>" class="green_button">Statistics</a>
+        <a href="<%='/game_details/' + game.id.to_s + '/1/1/new/0'%>" class="<%=fetch_color_for_details_button(game)%>">Detailed results</a>           
+       
       </div>
       <div class="clear"></div>
     </div>

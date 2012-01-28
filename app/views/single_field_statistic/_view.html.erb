@@ -1,0 +1,86 @@
+
+<div class="single_stats_wrap" style="margin-bottom:60px">
+	<div class="table_wrap">
+			<div class="line">
+        <div class="row" style="width:20px">
+          <p></p>
+        </div>
+				 <div class="row" style="width:90px">
+          <p>Best strokes</p>
+        </div>
+        <div class="row" style="width:90px">
+          <p>Best putts</p>
+        </div>
+        <div class="row" style="width:90px">
+          <p>Average strokes</p>
+        </div>
+        <div class="row" style="width:90px">
+          <p>Average putts</p>
+        </div>
+				<div class="row" style="width:90px">
+          <p>Worst strokes</p>
+        </div>
+				<div class="row" style="width:90px">
+          <p>Worst putts</p>
+        </div>         
+			</div>
+				<% stats_by_holes.each do |stat|%>
+        <div class="clear"></div>
+					<div class="line">
+					<div class="row1" style="width:20px;">
+            <p><%= stat.hole_number%>.</p>
+          </div>
+					<div class="row1" style="width:90px;">
+            <p><%= stat.best_strokes%></p>
+          </div>
+          <div class="row1" style="width:90px;">
+            <p><%= stat.best_putts%> </p>
+          </div>
+          
+          <div class="row1" style="width:90px;">
+            <p><%= stat.avg_strokes %></p>
+          </div>
+						
+          <div class="row1" style="width:90px;">
+            <p><%= stat.avg_putts %></p>
+          </div>
+					
+          <div class="row1" style="width:90px;">
+            <p><%= stat.worst_strokes %></p>
+          </div>
+					 <div class="row1" style="width:90px;">
+            <p><%= stat.worst_putts %></p>
+          </div>
+        </div>
+       <%end%>
+	</div>
+
+	<div class="table_wrap">
+			<div class="line">
+        
+				 <div class="row" style="width:90px">
+          <p>Club</p>
+        </div>
+        <div class="row" style="width:90px">
+          <p>Average distance</p>
+        </div>
+        <div class="row" style="width:90px">
+          <p>Total strokes</p>
+        </div>  
+			</div>
+				<% stats_by_sticks.each do |stat|%>
+        <div class="clear"></div>
+					<div class="line">
+					<div class="row1" style="width:90px;">
+            <p><%= stat.users_stick.stick.stick_type%></p>
+          </div>
+					<div class="row1" style="width:90px;">
+            <p><%= stat.avg_distance%></p>
+          </div>
+          <div class="row1" style="width:90px;">
+            <p><%= stat.total_strokes%> </p>
+          </div>
+        </div>
+       <%end%>
+	</div>
+</div>

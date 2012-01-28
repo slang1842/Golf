@@ -375,6 +375,7 @@ class GamesController < ApplicationController
 			statushole.completeness = 2
 			statushole.save!
 			session[:hole_statuses][:"#{hole_number}"] = 2
+			check_for_game_completeness(game_id)
 		end
 	end	
 
@@ -700,4 +701,18 @@ private
 			@hit_planned.distance_to_hole = 0
 	  end
 	end
- end
+	
+	def check_for_game_completeness(game_id)
+		status_holes = StatusHole.where(:game_id => game_id)
+			if status_holes.any?
+				status_holes.each do |hole|
+					if hole.completeness.to_i == 2 then return_text = "green_button" else return_text = "yellow_button" end
+				end
+				if return_text == "green_button"
+					game = Game.find(game_id)
+					game.update_attributes(:complete => 1)
+				end
+		end
+	end
+ 
+end

@@ -25,7 +25,7 @@ Golf::Application.routes.draw do
   match '/user_place_in_golf_club' => 'statistic#user_place_in_golf_club'
 
   match 'statistic/get_mini_statistic_by_field/:field_id/:user_id' => 'statistic#get_statistic_by_field'
-	match '/statistic/by_games/:user_id' => "statistic#by_games"
+	match '/statistic/by_fields/:user_id' => "statistic#by_fields"
   resource :statistic, :controller => "statistic" do
     member do
       match 'user/:user_id/' => 'statistic#edit', :as => "main"
@@ -87,7 +87,7 @@ Golf::Application.routes.draw do
   match '/hit_update/:game_id/' => 'games#hit_update'
   match '/print_game_plan/:game_id/' => 'games#print_game_plan', :as => 'print_game_plan'
   match '/single_game_statistics/:game_id' => 'games#get_stats', :as => 'get_stats'
-	match '/single_game_statistics_r/:game_id' => 'games#get_stats_remote', :as => 'get_stats_remote'
+	match '/single_game_statistics_r/:stat_id' => 'single_field_statistic#get_stats_remote', :as => 'get_stats_remote'
   match '/add_planned_hit/:game_id/:hole_number/:active_hit' => 'games#add_planned_hit', :as => 'add_planned_hit'
   match '/remove_planned_hit/:game_id/:hole_number/:active_hit' => 'games#remove_hit', :as => 'remove_planned_hit'
 	match '/games/switch_colors/:id' => 'games#switch_hit_places'
@@ -119,6 +119,7 @@ Golf::Application.routes.draw do
     resources :countries
 		resources :announcements
     match "admin/users/acc/:id" => "users#give_admin_rights", :as => 'give_admin_rights'
+		match "/sanitize_pairs" => "sticks#sanitize_pairs"
   end
   
  match "reset_password" => "password_resets#update"

@@ -1,0 +1,1 @@
+page["#field_stats"].html render(:partial => "single_field_statistic/view", :locals => {:field_stats => @stats, :stats_by_sticks => @stats_by_sticks, :stats_by_holes => @stats_by_holes})

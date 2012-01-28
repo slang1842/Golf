@@ -3,23 +3,20 @@ class StatisticController < ApplicationController
   respond_to :json, :html, :js
 
   def statistics
-    #redirect_to view_statistic_path if Statistic.game_statistics_by_holes
-
-    #/
+		if SingleFieldStatistic.calculate_stats == true
+    	end
     redirect_to view_statistic_path if Statistic.check_golf_club_pay_banner_time_limit && 
       Statistic.main_statistics &&
       Statistic.all_sticks_statistics &&
-      Statistic.game_statistics_by_sticks &&
-      Statistic.game_statistics_by_holes &&
       Statistic.user_progres &&
-      Statistic.game_statistics_general
-    #/
+      Statistic.game_statistics_general 
+			
   end
       
   def view
     @statistic = Statistic.find(:all)
-    @GameStatisticsByHoles = GameStatisticsByHoles.all
-    @GameStatisticsBySticks = GameStatisticsBySticks.all
+    #@GameStatisticsByHoles = GameStatisticsByHoles.all
+    #@GameStatisticsBySticks = GameStatisticsBySticks.all
   end
 
   def edit
@@ -118,9 +115,9 @@ class StatisticController < ApplicationController
    
   end
 
-	def by_games
+	def by_fields
 		@user_params = User.find(params[:user_id])
-		@user_params_games_limited = Game.where(:user_id => params[:user_id]).limit(100)
+		@user_params_fields_limited = SingleFieldStatistic.where(:user_id => params[:user_id]).limit(100)
 	end
   
 end

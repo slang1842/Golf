@@ -34,6 +34,11 @@ class Admin::SticksController < ApplicationController
     #end
   end
   
+	def sanitize_pairs
+		PairHit.sanitize_self
+		redirect_to(admin_sticks_path, :notice => 'Success!')
+	end
+
   def  create
     puts "========================="
     @stick = Stick.new(params[:stick])
