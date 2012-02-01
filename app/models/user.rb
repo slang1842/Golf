@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :hits
   has_many :pair_hits
   has_many :games
+	has_many :hints
+	has_many :statistics
+	has_many :single_field_statistics
   accepts_nested_attributes_for :users_sticks, :allow_destroy => true
   accepts_nested_attributes_for :balls, :allow_destroy => true
   

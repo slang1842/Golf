@@ -26,6 +26,7 @@ Golf::Application.routes.draw do
 
   match 'statistic/get_mini_statistic_by_field/:field_id/:user_id' => 'statistic#get_statistic_by_field'
 	match '/statistic/by_fields/:user_id' => "statistic#by_fields"
+	match '/render_single_stats/:user_id/:stick_id' => 'statistic#render_single_stats'
   resource :statistic, :controller => "statistic" do
     member do
       match 'user/:user_id/' => 'statistic#edit', :as => "main"
@@ -120,6 +121,7 @@ Golf::Application.routes.draw do
 		resources :announcements
     match "admin/users/acc/:id" => "users#give_admin_rights", :as => 'give_admin_rights'
 		match "/sanitize_pairs" => "sticks#sanitize_pairs"
+		match "/reset_stats" => "sticks#reset_stats"
   end
   
  match "reset_password" => "password_resets#update"

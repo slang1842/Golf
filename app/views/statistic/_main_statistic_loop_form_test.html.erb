@@ -1,0 +1,47 @@
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= textbox_hint_type %><%= statistics.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistics.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(stat_type) == "" %>
+            	<%= f.text_area textbox_hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area textbox_hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(stat_type) != ""%>
+    	<div class="notification" onclick="$('#<%= textbox_hint_type %><%= statistics.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+

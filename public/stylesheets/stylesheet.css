@@ -653,6 +653,7 @@ a {
 }
 
 .main_stats_table_wrap .situation_type {
+	margin-left:160px
 }
 
 .main_stats_table_wrap .situation_type span {
@@ -685,7 +686,7 @@ a {
 .main_stats_table_wrap .situation_type .info_wrap {
   float:left;
   height:37px;
-  width:665px;
+  width:300px;
   background-color:#e2e2e2;
   border:1px solid #cacaca;
   border-left:none;
@@ -719,7 +720,7 @@ a {
 }
 
 .main_stats_table_wrap .situation_type .single_situation {
-  display: none;
+  /*display: none;*/
 }
 
 .main_stats_table_wrap .situation_type .single_situation .name p {

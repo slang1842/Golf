@@ -3,13 +3,11 @@ class StatisticController < ApplicationController
   respond_to :json, :html, :js
 
   def statistics
-		if SingleFieldStatistic.calculate_stats == true
-    	end
     redirect_to view_statistic_path if Statistic.check_golf_club_pay_banner_time_limit && 
-      Statistic.main_statistics &&
-      Statistic.all_sticks_statistics &&
-      Statistic.user_progres &&
-      Statistic.game_statistics_general 
+      Statistic.main_statistics #&&
+      #Statistic.all_sticks_statistics &&
+      #Statistic.user_progres &&
+      #Statistic.game_statistics_general 
 			
   end
       
@@ -19,20 +17,34 @@ class StatisticController < ApplicationController
     #@GameStatisticsBySticks = GameStatisticsBySticks.all
   end
 
-  def edit
+  def edit_old
     @user_params = User.find(params[:user_id])
+		
+		@user_params_hints = @user_params.hints
     
     @is_admin = true if current_user.admin == true
     @is_coach = true if @user_params.coach == current_user.id
     @has_couch = true unless (@user_params.coach == false || @user_params.coach == nil)
-    
+    @coach_hints = current_user.hints
     @current_club_trainer = User.find(@user_params.golf_club.user_id)
-    @current_hints = Hint.where(:user_id => @current_club_trainer.id)
-
-    @user_sticks = UsersStick.where(:user_id => @user_params.id).order("@user_params.stick_type ASC")
+    @user_sticks = UsersStick.where(:user_id => @user_params.id).includes(:stick)
     @statistic = Statistic.where(:user_id => @user_params.id)
-
-
+		@combined_hash = []
+		@user_sticks.each do |stick|
+			inner_arr = []
+			inner_arr << stick
+			inner_arr << @statistic.find_by_stick_id(stick.stick_id)
+			user_hint = @user_params_hints.find_by_stick_id(stick.stick_id) 
+			user_hint = Hint.create(:user_id => params[:user_id], :stick_id => stick.stick_id) if user_hint == nil
+			inner_arr << user_hint
+			adm_hint = @coach_hints.find_by_stick_id(stick.stick_id)
+			adm_hint = Hint.create(:user_id => current_user.id, :stick_id => stick.stick_id) if adm_hint == nil
+			inner_arr << adm_hint
+			@combined_hash << inner_arr
+			end
+		end
+	
+		
     # ======== mini stats menu
    # @GameStatisticsByHoles = GameStatisticsByHoles.where(:user_id => params[:user_id]) #.order("field_id ASC")
     
@@ -45,17 +57,40 @@ class StatisticController < ApplicationController
    # @top_sticks = GameStatisticsBySticks.where(:user_id => params[:user_id]).order('hits_r').limit(3) 
     # ======== mini stats menu
       
-    store_location
+   # store_location
 
-    unless @is_admin
-      if @user_params.id != current_user.id
-        render_404
-      end
+   # unless @is_admin
+    #  if @user_params.id != current_user.id
+     #   render_404
+     # end
       
-    end
-  end
+   # end
+  # end
+		def edit
+			@user_params = User.find(params[:user_id])
+			@user_params_hints = @user_params.hints
+			@is_admin = true if current_user.admin == true
+ 		   @is_coach = true if @user_params.coach == current_user.id
+  	  @has_couch = true unless (@user_params.coach == false || @user_params.coach == nil)
+  	  @coach_hints = current_user.hints
+  	  @current_club_trainer = User.find(@user_params.golf_club.user_id)
 
-  def update
+  	  @user_sticks = UsersStick.where(:user_id => @user_params.id).includes(:stick)
+  	  @statistic = Statistic.where(:user_id => @user_params.id)
+		end
+
+		def render_single_stats
+			@user_params = User.find(params[:user_id])
+			@user_params_hint = @user_params.hints.where(:stick_id => params[:stick_id]).first || Hint.create({:user_id => params[:user_id], :stick_id => params[:stick_id]})
+			@is_admin = true if current_user.admin == true
+ 		   @is_coach = true if @user_params.coach == current_user.id
+  	  @has_couch = true unless (@user_params.coach == false || @user_params.coach == nil)
+			@coach_hint = current_user.hints.where(:stick_id => params[:stick_id]).first || Hint.create({:user_id => current_user.id, :stick_id => params[:stick_id]})
+			@statistic = @user_params.statistics.where(:stick_id => params[:stick_id]).first
+			respond_to :js
+		end
+  
+	def update
     Hint.update_attributes(params[:c_hint])
   end
 

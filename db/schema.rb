@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120128001452) do
+ActiveRecord::Schema.define(:version => 20120131132447) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -496,6 +496,7 @@ ActiveRecord::Schema.define(:version => 20120128001452) do
     t.integer  "green_trajectory_upward_left"
     t.integer  "green_trajectory_downward_straight"
     t.integer  "green_trajectory_straight"
+    t.boolean  "calculated"
   end
 
   create_table "status_holes", :force => true do |t|

@@ -1,5 +1,5 @@
 class Statistic < ActiveRecord::Base
-  has_many    :users
+  belongs_to   :user
   has_many    :hits
   has_many    :fields
   belongs_to  :hole
@@ -133,12 +133,11 @@ class Statistic < ActiveRecord::Base
   def self.main_statistics
 
     @return = false
-    User.where(:is_super_admin => false).each do |c_user|
+    User.where(:is_super_admin => false).includes("statistics").includes("sticks").includes("hits").each do |c_user|
 			StandardStatistic.calculate_user_stats(c_user.id)
 			c_user.users_sticks.each do |user_stick|
 			statistic = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, user_stick.stick_id)
-			hit = Hit.where(:user_id => c_user.id, :stick_id => user_stick.id, :real_hit => 'pp').order('updated_at DESC').first
-			if hit != nil && hit.updated_at > statistic.updated_at
+			if statistic.calculated == false || statistic.calculated == nil
 				#these variables have to be defined somewhere, hence the mess                       
 									@statistic_place_teebox = 0
 									@statistic_place_teebox_count = 1        
@@ -231,11 +230,9 @@ class Statistic < ActiveRecord::Base
               		
          # continue!
 			
-      Field.where(:golf_club_id => c_user.golf_club_id).each do |c_field|
-        Game.where(:field_id => c_field.id).each do |c_game|
 			      #statistic.game_id = c_game.id
             #statistic.field_id = c_field.id
-						@all_pairs = PairHit.where(:user_id => c_user.id, :game_id => c_game.id)
+						@all_pairs = PairHit.where(:user_id => c_user.id).includes([:hit_planed, :hit_real])
 						
             #CALCULATE PLACE_FROM
             # ==========================================
@@ -245,7 +242,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick_id 
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -320,7 +317,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick_id 
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -367,7 +364,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick_id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -402,7 +399,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick_id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -441,7 +438,7 @@ class Statistic < ActiveRecord::Base
               @result_arr = []
         
               @all_pairs.each do |each_pair|
-                if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick_id && each_pair.hit_planed.game.field_id == c_field.id
+                if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick_id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
                 end
@@ -538,7 +535,6 @@ class Statistic < ActiveRecord::Base
 
               @all_pairs.each do |each_pair|
                 if  each_pair.hit_planed.stick_id == user_stick.stick_id &&
-                    each_pair.hit_planed.game.field_id == c_field.id &&
                     (each_pair.hit_planed.place_from == 1 || each_pair.hit_planed.place_from == 7) && each_pair.hit_planed.slipums == direction_num
 
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
@@ -593,8 +589,8 @@ class Statistic < ActiveRecord::Base
 
 
            # @return = true if statistic.save
-          end # end game
-        end # ends field
+           # end game
+         # ends field
 
 				#calculating average statistics per situation
 				statistic.green_direction_downward_right = calculate_avg(@statistic_green_direction_downward_right, @statistic_green_direction_downward_right_count)
@@ -647,7 +643,11 @@ statistic.green_trajectory_downward_right = calculate_avg(@statistic_green_traje
 		    statistic.place_green_sand = calculate_avg(@statistic_place_green_sand, @statistic_place_green_sand_count) 
 		    statistic.place_wood = calculate_avg(@statistic_place_wood, @statistic_place_wood_count)
 		    statistic.place_from_water = calculate_avg(@statistic_place_from_water, @statistic_place_from_water_count)
-				statistic.save!				
+				statistic.update_attributes(:calculated => true)
+				statistic.save!
+				Statistic.all_stick_statistics(statistic, c_user)	
+				Statistic.user_progres(statistic)			
+				SingleFieldStatistic.calculate_stats(c_user)
 			 end
       end # end stick
     end # end user
@@ -658,13 +658,14 @@ statistic.green_trajectory_downward_right = calculate_avg(@statistic_green_traje
 
 def self.calculate_avg(total_sum, total_count)
 	if total_count == nil then total_count = 1 end
-	percentage = total_sum / total_count
-	if percentage == 0  
+	percentage = total_sum.to_f / total_count.to_f
+	if percentage < 1  
 	 return 0 
 	elsif percentage > 100
 		return 100
 	else
-	 return percentage.round
+	puts percentage.round
+	 return percentage.round.to_i		
   end		
 end
 
@@ -730,12 +731,6 @@ end
           @user_progres_arr.push(c_stat.stance_ball_lower) unless c_stat.stance_ball_lower == nil
           @user_progres_arr.push(c_stat.stance_ball_higher) unless c_stat.stance_ball_higher == nil
 
-         # @user_progres_arr.push(c_stat.direction_straigth) unless c_stat.direction_straigth == nil
-         # @user_progres_arr.push(c_stat.direction_fade) unless c_stat.direction_fade == nil
-         # @user_progres_arr.push(c_stat.direction_drow) unless c_stat.direction_drow == nil
-         # @user_progres_arr.push(c_stat.direction_slice) unless c_stat.direction_slice == nil
-         # @user_progres_arr.push(c_stat.direction_hook) unless c_stat.direction_hook == nil
-
           @user_progres_arr.push(c_stat.temperature_cold) unless c_stat.temperature_cold == nil
           @user_progres_arr.push(c_stat.temperature_normal) unless c_stat.temperature_normal == nil
           @user_progres_arr.push(c_stat.temperature_hot) unless c_stat.temperature_hot == nil
@@ -753,10 +748,7 @@ end
           @user_progres_arr.push(c_stat.trajectory_drow) unless c_stat.trajectory_drow == nil
           @user_progres_arr.push(c_stat.trajectory_fade) unless c_stat.trajectory_fade == nil
 
-#          @user_progres_arr.push(c_stat.wind_from_behind) unless c_stat.wind_from_behind == nil
-#          @user_progres_arr.push(c_stat.wind_from_front) unless c_stat.wind_from_front == nil
-#          @user_progres_arr.push(c_stat.wind_from_left) unless c_stat.wind_from_left == nil
-#          @user_progres_arr.push(c_stat.wind_from_right) unless c_stat.wind_from_right == nil
+
         end # end statistic
 
         @GameStatisticsGeneral = GameStatisticGeneral.new
@@ -784,28 +776,16 @@ end
   end
   
   
-  def self.all_sticks_statistics
-    @return = true
-    
-    @users = User.all
-    @users.each do |c_user|
-      #@all_pair_hits = PairHit.where(:user_id == c_user.id)
-      @users_stick = UsersStick.where(:user_id => c_user.id)
-			@all_hits = Hit.where(:user_id => c_user.id, :real_hit => 'rp')
-      @users_stick.each do |c_users_stick|
-    
-        @AllStickStatistics = AllStickStatistic.find_or_create_by_user_id_and_stick_id(c_user.id, c_users_stick.stick.id)
-				last_hit = Hit.where(:user_id => c_user.id, :stick_id => c_users_stick.stick.id, :real_hit => 'rp').order("updated_at DESC").first
-				#if last_hit != nil && last_hit.updated_at > @AllStickStatistics.updated_at
-        	@all_c_hits = Hit.where(:user_id => c_user.id, :stick_id => c_users_stick.stick.id, :real_hit => 'rp')
+  def self.all_sticks_statistics(statistic, user)
+        @AllStickStatistics = AllStickStatistic.find_or_create_by_user_id_and_stick_id(user.id, statistic.stick_id)
+        	@all_c_hits = user.hits.where(:user_id => c_user.id, :stick_id => c_users_stick.stick.id, :real_hit => ['rp', 'penalty_r'])
     	    @AllStickStatistics.avg_distance = @all_c_hits.average("hit_distance")
 
     			unless @all_hits.count == 0 || @all_c_hits == 0
        	 	  @AllStickStatistics.usage = (((@all_c_hits.count).to_f / (@all_hits.count).to_f).to_f * 100).round
        	 	end
-       		@stats = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, c_users_stick.stick.id)
-        	@result_arr = []
 
+        	@result_arr = []					
         	@stats.attributes.each_pair do |name, value|
 						if value.class.to_s == "Fixnum"
 							if name.to_s != "id" || name.to_s != "game_id" || name.to_s != "field_id" || name.to_s != "user_id" || name.to_s != "stick_id" 
@@ -813,21 +793,15 @@ end
 							end
         	  end
        	 	end
-				@result_arr.each {|arr| puts arr }
        	 if @result_arr.size == 0
           @AllStickStatistics.stick_progres = 0
         	else
-						
 						sum = 0
 						@result_arr.each {|arr| sum += arr.to_i }
         	  @AllStickStatistics.stick_progres = calculate_avg(sum, @result_arr.size)
        	 end
 
       	 @AllStickStatistics.save!
-				end
-      #end
-    end # ends user stick
-   
     return @return
   end
 
@@ -855,21 +829,11 @@ end
     return @return
   end
 
-  def self.user_progres
-
-    StatisticUserProgres.delete_all
-
-    @return = false
-    @users = User.all
-
-    @users.each do |c_user|
-
-      Field.all.each do |c_field|
-        @Statistic = Statistic.where(:field_id => c_field.id, :user_id => c_user.id)
+  def self.user_progres(statistic)
         
         @user_progres_arr = []
 
-        @Statistic.each do |c_stat|
+        statistic.each do |c_stat|
         
           @user_progres_arr.push(c_stat.place_teebox) unless c_stat.place_teebox == nil
           @user_progres_arr.push(c_stat.place_feairway) unless c_stat.place_feairway == nil
@@ -889,12 +853,7 @@ end
           @user_progres_arr.push(c_stat.stance_ball_lower) unless c_stat.stance_ball_lower == nil
           @user_progres_arr.push(c_stat.stance_ball_higher) unless c_stat.stance_ball_higher == nil
 
-         # @user_progres_arr.push(c_stat.direction_straigth) unless c_stat.direction_straigth == nil
-         # @user_progres_arr.push(c_stat.direction_fade) unless c_stat.direction_fade == nil
-         # @user_progres_arr.push(c_stat.direction_drow) unless c_stat.direction_drow == nil
-         # @user_progres_arr.push(c_stat.direction_slice) unless c_stat.direction_slice == nil
-         # @user_progres_arr.push(c_stat.direction_hook) unless c_stat.direction_hook == nil
-        
+       
           @user_progres_arr.push(c_stat.temperature_cold) unless c_stat.temperature_cold == nil
           @user_progres_arr.push(c_stat.temperature_normal) unless c_stat.temperature_normal == nil
           @user_progres_arr.push(c_stat.temperature_hot) unless c_stat.temperature_hot == nil
@@ -911,20 +870,13 @@ end
           @user_progres_arr.push(c_stat.trajectory_hook) unless c_stat.trajectory_hook == nil
           @user_progres_arr.push(c_stat.trajectory_slice) unless c_stat.trajectory_slice == nil
           @user_progres_arr.push(c_stat.trajectory_fade) unless c_stat.trajectory_fade == nil
-        
-                    
-
-#        	@user_progres_arr.push(c_stat.wind_from_behind) unless c_stat.wind_from_behind == nil
-#          @user_progres_arr.push(c_stat.wind_from_front) unless c_stat.wind_from_front == nil
-#          @user_progres_arr.push(c_stat.wind_from_left) unless c_stat.wind_from_left == nil
-#          @user_progres_arr.push(c_stat.wind_from_right) unless c_stat.wind_from_right == nil
 
         end # end statistic
         
         unless @user_progres_arr.size == 0
           @user_stats_progres_val = (@user_progres_arr.inject(0.0) { |sum, el| sum + el } / @user_progres_arr.size).round
 
-          @u_stats_prog = StatisticUserProgres.new
+          @u_stats_prog = StatisticUserProgres.find_or_create_by_user_id(statistic.user_id)
           @u_stats_prog.user_progress = @user_stats_progres_val
           @u_stats_prog.user_id = c_user.id
           @u_stats_prog.field_id = c_field.id
@@ -935,11 +887,6 @@ end
           @u_stats_prog.max_distance = @max_dist.hit_distance
           @return = true if @u_stats_prog.save
         end
-
-
-      end # ends field
-    end # end user
-
     @all_user_progress = StatisticUserProgres.order("user_progress")
     @num = 1
 
@@ -952,4 +899,5 @@ end
 
     return @return
   end
+
 end

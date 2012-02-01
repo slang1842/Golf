@@ -6,15 +6,15 @@ def self.calculate_user_stats(user_id)
 	statistic = StandardStatistic.find_or_create_by_user_id(user_id)	
 	user = User.find(user_id)
 	last_hole = StatusHole.fetch_last_hole(user_id)
-	if last_hole != false && (statistic.new_record? || last_hole.updated_at > statistic.updated_at)
+#	if last_hole != false && (statistic.new_record? || last_hole.updated_at > statistic.updated_at)
 		holes = StatusHole.fetch_finished_holes(user_id)
 		if holes.any?
 			statistic.set_zeros
 			game_id_array = []
 			holes.each do |hole|
 				game_id_array << hole.game_id
-				strokes_non_putts = Hit.non_putts(hole.game_id, hole.hole_number)
-				strokes_putts = Hit.putts(hole.game_id, hole.hole_number)
+				strokes_non_putts = hole.hits.where(:real_hit => ['rp', 'penalty_r'])
+				strokes_putts = hole.hits.where(:real_hit => ['pp', 'penalty'])
 				if strokes_non_putts.any? && strokes_putts.any?
 					statistic.total_stroke_count += (strokes_non_putts.count + strokes_putts.count)
 					statistic.total_putt_count += (strokes_putts.count)
@@ -32,10 +32,10 @@ def self.calculate_user_stats(user_id)
 			statistic.save
 			statistic.avg_putts = (statistic.total_putt_count.to_f / statistic.total_hole_count)
 			statistic.gir_percentage = ((statistic.total_gir.to_f / statistic.total_hole_count) * 100)
-			statistic.gir_putt_ratio = (statistic.total_gir_putts.to_f / statistic.total_gir)
+			statistic.gir_putt_ratio = (statistic.total_gir_putts.to_f / statistic.total_gir.to_f) unless statistic.total_gir == 0
 			statistic.save!
 		end
-	end
+
 end
 
 def calculate_stableford(total_strokes, par, hcp)

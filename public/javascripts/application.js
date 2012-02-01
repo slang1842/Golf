@@ -20,7 +20,7 @@ $(document).ready(function() {
   });
 $(document).ready(function() {
   $("#sticks_row").jScrollPane({hideFocus: true});
-	$("#stats_div").jScrollPane({hideFocus: true});
+//	$("#stats_div").jScrollPane({hideFocus: true});
   });
 $(document).ready(function() {
   bindScrollTriangles();
@@ -44,17 +44,26 @@ function bindDistanceFields() {
 
 function bindScrollTriangles() {
 	$("#triangle_left").live('click', function(){
-		var api1 = $("#sticks_row").data('jsp');
-		var api2 = $("#stats_div").data('jsp');
-		api1.scrollByX(-110);
-		api2.scrollByX(-110);		
+		var diff = $("#stats_div_inner").css("left");
+		diff = parseInt(diff.substr(0, diff.length - 2)) + 111 + "px";
+		if (diff != "111px"){
+			$("#stats_div_inner").css("left", diff);
+			var api1 = $("#sticks_row").data('jsp');
+			api1.scrollByX(-111);
+			$("#triangle_right").css("visibility", "visible");
+		}	else { $("#triangle_left").css("visibility", "hidden");}	
 		return false;
 		});
 	$("#triangle_right").live('click', function(){
-		var api1 = $("#sticks_row").data('jsp');
-		var api2 = $("#stats_div").data('jsp');
-		api1.scrollByX(110);
-		api2.scrollByX(110);		
+		var total_length = "-" + (parseInt($("#length_stats_div").css("width")) - 666 ) + "px";
+		var diff = $("#stats_div_inner").css("left");
+		diff = parseInt(diff.substr(0, diff.length - 2)) - 111 + "px";
+		if (parseInt(diff) > parseInt(total_length)){
+			$("#stats_div_inner").css("left", diff);
+			var api1 = $("#sticks_row").data('jsp');
+			api1.scrollByX(111);
+			$("#triangle_left").css("visibility", "visible");
+		}	else { $("#triangle_right").css("visibility", "hidden");}			
 		return false;
 		});
 }

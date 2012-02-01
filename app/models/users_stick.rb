@@ -3,6 +3,7 @@ class UsersStick < ActiveRecord::Base
   belongs_to :stick
   belongs_to :hits
   has_many   :pair_hits
+	
   validates :distance, :shaft, :shaft_strength, :presence => true
 	before_save :convert_to_m
 

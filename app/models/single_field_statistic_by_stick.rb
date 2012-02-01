@@ -4,23 +4,31 @@ class SingleFieldStatisticByStick < ActiveRecord::Base
 	belongs_to :field
 	belongs_to :users_stick
 	
-	def self.check_for_existence(stats)
-		stats.user.users_sticks.each do |stick|
+	def self.check_for_existence(stats, user)
+		all_stick_stats = stats.single_field_statistic_by_sticks
+		user.users_sticks.each do |stick|
 			conditions = {:single_field_statistic_id => stats.id, :field_id => stats.field_id, :users_stick_id => stick.id}
-			stick_stats = SingleFieldStatisticByStick.find(:first, :conditions => conditions) || SingleFieldStatisticByStick.new(conditions)
-			stick_stats.check_stats
+			stick_stats = all_stick_stats.find(:first, :conditions => conditions) || SingleFieldStatisticByStick.new(conditions)
+			SingleFieldStatisticByStick.check_stats(stick_stats, user)
 			stick_stats.save!
 		end
 	end
 
-	def check_stats
-		games_on_field = Game.where(:field_id => self.field_id)
+	def self.check_stats(stick_stats, user)
+		games_on_field = user.games.where(:field_id => stick_stats.field_id)
 		game_id_arr = []
 		games_on_field.each {|game| game_id_arr << game.id}
-		hits = Hit.where("hits.game_id IN(?) AND hits.stick_id = ? AND hits.real_hit IN(?)", game_id_arr, self.users_stick.stick.id, ["rp", "penalty_r"]).order("hits.updated_at desc")
+		hits = user.hits.where("hits.game_id IN(?) AND hits.stick_id = ? AND hits.real_hit IN(?)", game_id_arr, stick_stats.users_stick.stick.id, ["rp", "penalty_r"]).order("hits.updated_at desc")
 		if hits.any?
-			if self.new_record? || hits.first.updated_at > self.updated_at
-				self.calculate_stats(hits)
+			if stick_stats.new_record? || hits.first.updated_at > stick_stats.updated_at
+				stick_stats.total_strokes = 0
+				stick_stats.total_distance = 0
+				stick_stats.avg_distance = 0
+				stick_stats.set_to_zeros
+				stick_stats.total_strokes = hits.count
+				hits.each {|hit| stick_stats.total_distance += hit.hit_distance.to_i}
+				stick_stats.avg_distance = stick_stats.total_distance.to_f / stick_stats.total_strokes
+				stick_stats.save
 			end
 		end	
 	end

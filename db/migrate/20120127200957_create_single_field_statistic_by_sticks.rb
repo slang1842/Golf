@@ -2,7 +2,7 @@ class CreateSingleFieldStatisticBySticks < ActiveRecord::Migration
   def self.up
     create_table :single_field_statistic_by_sticks do |t|
 			t.references :single_field_statistic
-			t.references :field_id
+			t.references :field
 			t.references :users_stick
 			t.integer :total_distance
 			t.integer :total_strokes

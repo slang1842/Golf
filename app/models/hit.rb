@@ -3,6 +3,7 @@ class Hit < ActiveRecord::Base
   belongs_to :game
   belongs_to :field
   belongs_to :hole
+	belongs_to :status_hole
   
   #belongs_to :PairHit
   #belongs_to :hit_planed, :class => 'PairHit', :foreign_key => 'hit_planed_id'

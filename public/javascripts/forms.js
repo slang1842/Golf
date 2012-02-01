@@ -243,15 +243,12 @@ function golf_club_checkbox(){
 
 
 function showHideElement(whichLayer){
-	var api = $("#stats_div").data('jsp');
-		api.destroy();
-  if ($(whichLayer).css("display") == 'block' ) {
-    $(whichLayer).hide();
-  } else {
-    $(whichLayer).show();
-  }
-	$("#stats_div").jScrollPane({hideFocus: true});
+	//var api = $("#stats_div").data('jsp');
+	//	api.destroy();
+    $(whichLayer).toggle();
+	//$("#stats_div").jScrollPane({hideFocus: true});
 	//scrollpane.reinitialise({contentWidth: 812});
+		return false;
 }
     
     

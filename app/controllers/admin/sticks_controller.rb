@@ -39,6 +39,11 @@ class Admin::SticksController < ApplicationController
 		redirect_to(admin_sticks_path, :notice => 'Success!')
 	end
 
+	def reset_stats
+		Statistic.delete_all
+		redirect_to(admin_sticks_path, :notice => 'Success!')
+	end
+
   def  create
     puts "========================="
     @stick = Stick.new(params[:stick])

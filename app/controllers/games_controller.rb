@@ -186,6 +186,7 @@ class GamesController < ApplicationController
 	def details
   	game_holes
 		fetch_hole_colors
+		reset_stats
     @active_hole = params[:active_hole]
     @active_hit = params[:active_hit]
     if @active_hit.to_i == 0
@@ -705,14 +706,16 @@ private
 	def check_for_game_completeness(game_id)
 		status_holes = StatusHole.where(:game_id => game_id)
 			if status_holes.any?
+				game = Game.find(game_id)
 				status_holes.each do |hole|
-					if hole.completeness.to_i == 2 then return_text = "green_button" else return_text = "yellow_button" end
+					if hole.completeness.to_i == 2 then game.update_attributes(:complete => 1) else game.update_attributes(:complete => 0) end
 				end
-				if return_text == "green_button"
-					game = Game.find(game_id)
-					game.update_attributes(:complete => 1)
-				end
-		end
+			end
+	end
+
+	def reset_stats
+		stats = Statistic.find_by_user_id(current_user.id)
+		stats.update_attributes(:calculated => false)
 	end
  
 end

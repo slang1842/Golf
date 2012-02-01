@@ -42,15 +42,15 @@
 
             <div class="clubs_wrap">
               <div class="page_left">
-                <a href="#" id="triangle_left"><img src="/images/link_left_big.png" alt=""/></a>
+                <a href="#" id="triangle_left" style="visibility:hidden"><img src="/images/link_left_big.png" alt=""/></a>
               </div>
-						<div id="sticks_row" style="overflow:hidden; height:60px; width:660px; float:left">
-							<div style="width:<%= @user_sticks.count.to_i * 110 %>px">
+						<div id="sticks_row_" style="width:660px; float:left">
+							<div style="">
               <% @user_sticks.each do |stick| %>
 
                 <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => @user_params.id})%>
 
-                <div class="single_club_wrap">
+                <div class="single_club_wrap" style="margin-top:5px" onclick="$.get('/render_single_stats/<%=@user_params.id%>/<%=stick.stick_id%>'); return false;">
 
                   <div class="club_name">
                     <p><%=  stick.stick.stick_type %></p>
@@ -86,11 +86,11 @@
 						</div>
 					</div>
 
-
+						<% if @user_sticks.count > 6 %>
               <div class="page_left">
-                <a href="#" id="triangle_right"><img src="/images/link_right_big.png" alt=""/></a>
+                <a href="#" id="triangle_right" style="display:none"><img src="/images/link_right_big.png" alt=""/></a>
               </div>
-            
+            <% end %>
 				</div>
             <!-- ============================ sticks ============================ -->
 
@@ -98,7 +98,9 @@
 
 						<div id="stats_div" style="width:812px; overflow-x:hidden; overflow-y:visible; position:relative; left:0px; top:10px">
             <!-- ============================ main stats ============================ -->
-            <%= render :partial => 'statistic/main_statistic' %>
+            <div id="stats_div_inner" style="position:relative; left:0px">
+							<%#= render :partial => 'statistic/main_statistic_short' %>
+						</div>
             <!-- ============================ main stats ============================ -->
 						</div>
 
