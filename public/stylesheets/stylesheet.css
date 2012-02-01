@@ -686,7 +686,7 @@ a {
 .main_stats_table_wrap .situation_type .info_wrap {
   float:left;
   height:37px;
-  width:300px;
+  width:480px;
   background-color:#e2e2e2;
   border:1px solid #cacaca;
   border-left:none;
@@ -731,7 +731,7 @@ a {
 }
 
 .main_stats_table_wrap .situation_type .single_situation .progress_block {
-  width:110px;
+  width:480px;
   height:37px;
   border:1px solid #cacaca;
   border-left:none;
@@ -744,7 +744,7 @@ a {
 .main_stats_table_wrap .situation_type .single_situation .progress_block .tip_bubble_wrap {
   position:absolute;
   bottom:1px;
-  left:-13px;
+  left:181px;
   z-index:5;
 }
 
@@ -853,6 +853,8 @@ a {
   margin-top:12px;
   width:73px;
   height:13px;
+	position:relative;
+	left:170px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -861,6 +863,7 @@ a {
 
 .main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar .progress_active {
   height:13px;
+
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -902,7 +905,7 @@ a {
   position:absolute;
   width:19px;
   height:19px;
-  left:85px;
+  left:280px;
   bottom:9px;
   cursor: pointer;
 }

@@ -5,8 +5,7 @@ class SingleFieldStatisticsByHole < ActiveRecord::Base
 
 		def self.check_for_existence(parent_stats, user)
 			all_hole_stats = parent_stats.single_field_statistics_by_holes
-			field = parent_stats.field.includes("holes")
-			holes.holes.order("hole_number ASC").each do |hole|
+			parent_stats.field.holes.order("hole_number ASC").each do |hole|
 				conditions = {:hole_number => hole.hole_number, :single_field_statistic_id => parent_stats.id, :field_id => parent_stats.field_id}
 				stats = all_hole_stats.find(:first, :conditions => conditions) || SingleFieldStatisticsByHole.new(conditions)
 				stats.save!
@@ -22,7 +21,7 @@ class SingleFieldStatisticsByHole < ActiveRecord::Base
 			SingleFieldStatisticsByHole.calculate_stats(stats, statusholes, user)
 		end
 
-		def self.calculate_stats(stats, statusholes)
+		def self.calculate_stats(stats, statusholes, user)
 			stats.best_strokes = 999
 			stats.best_putts = 999
 			stats.worst_strokes = 0
@@ -43,8 +42,10 @@ class SingleFieldStatisticsByHole < ActiveRecord::Base
 				stats.total_putts += putts
 				stats.save!
 			end
-			stats.avg_strokes = stats.total_strokes.to_f / statusholes.count
-			stats.avg_putts = stats.total_putts.to_f / statusholes.count
+			if stats.best_putts == 999 then stats.best_putts = nil end
+			if stats.best_strokes == 999 then stats.best_strokes = nil end
+			stats.avg_strokes = stats.total_strokes.to_f / statusholes.count unless statusholes.count == 0
+			stats.avg_putts = stats.total_putts.to_f / statusholes.count unless statusholes.count == 0
 			stats.save!
 		end
 

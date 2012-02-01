@@ -27,7 +27,7 @@ class SingleFieldStatisticByStick < ActiveRecord::Base
 				stick_stats.set_to_zeros
 				stick_stats.total_strokes = hits.count
 				hits.each {|hit| stick_stats.total_distance += hit.hit_distance.to_i}
-				stick_stats.avg_distance = stick_stats.total_distance.to_f / stick_stats.total_strokes
+				stick_stats.avg_distance = stick_stats.total_distance.to_f / stick_stats.total_strokes.to_f unless stick_stats.total_strokes == 0
 				stick_stats.save
 			end
 		end	
@@ -37,7 +37,7 @@ class SingleFieldStatisticByStick < ActiveRecord::Base
 		self.set_to_zeros
 		self.total_strokes = hits.count
 		hits.each {|hit| self.total_distance += hit.hit_distance.to_i}
-		self.avg_distance = self.total_distance.to_f / self.total_strokes
+		self.avg_distance = self.total_distance.to_f / self.total_strokes 
 		self.save
 	end
 
