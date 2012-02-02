@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   
   validates :ball_manufacturer, :ball_type, :on => :bag, :presence => true
-  validates :stick_type, :distance, :degrees, :shaft, :shaft_strength, :on => :bag, :presence => true
+  validates :stick_type, :distance, :degrees, :shaft, :shaft_strength, :is_in_bag,{:on => :bag, :presence => true}
 	
 	scope :latest, where("users.image_file_name IS NOT NULL").limit(4).order("users.created_at desc") 
   

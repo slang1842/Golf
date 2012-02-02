@@ -8,6 +8,12 @@ class UsersSticksController < ApplicationController
     respond_to :js
 
   end
+
+	def create
+		@users_stick = UsersStick.new({:user_id => params[:user_id], :distance => 0, :shaft => 0, :degrees => 0, :shaft_strength => 0})
+		@users_stick.save(false)
+		respond_to :js
+	end
   
   def show
      @sticks = Sticks.find(params[:id])

@@ -1,0 +1,1 @@
+page["#sticks"].append render(:partial => "user/new_stick_form", :locals => {:users_stick => @users_stick, :users_sticks_attributes => "user[users_sticks_attributes][]"})

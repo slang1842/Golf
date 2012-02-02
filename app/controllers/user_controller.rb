@@ -85,6 +85,7 @@ class UserController < ApplicationController
   
   
   def update_bag
+		puts params[:user].inspect
     @user = current_user
     @users_sticks = current_user.users_sticks
     @user = User.find(current_user)

@@ -1,3 +1,4 @@
+
 <div id="<%= "users_stick_#{users_stick.id}" unless users_stick.new_record? %>"  >  
   <%= f.fields_for users_sticks_attributes, users_stick do |h| %>
     <%= h.hidden_field :id unless users_stick.new_record? %>
@@ -24,6 +25,7 @@
 				<%= h.hidden_field :degrees, :value => 5 %>
         <div class="subitem"><%= h.select(:shaft, STICK_SHAFT,{}, { :class => 'dropdown8 user_select_field shaft'}) %></div>
         <div class="subitem"><%= h.select(:shaft_strength, STICK_SHAFT_STRENGTH,{}, { :class => 'dropdown8 user_select_field shaft_strength'}) %></div>
+				
 				<div class="subitem"><%= h.check_box :is_in_bag, :class => "keep_in_bag_checkbox" %></div>
         <div class="subitem2">
 
