@@ -16,6 +16,11 @@ class GamesController < ApplicationController
       format.xml  { render :xml => @games }
     end
  end
+
+ def delete
+		Game.delete_with_stuff(params[:game_id])
+		respond_to :js
+ end
   
 	def get_stats
 		@game_holes
@@ -109,7 +114,8 @@ class GamesController < ApplicationController
 		unless @hit.any?
 			@hit = []
 			@hit = @hit << Hit.create(conditions)
-		end     
+		end 
+		@fetched_sticks = fetch_proper_clubs(current_user.sticks, current_user.users_sticks, @hit.stick_id)    
     @form_id = 'plan'
 		create_hole_colors_for_plan
 		Hit.convert_from_m(@hit[0], current_user.measurement)
@@ -218,7 +224,7 @@ class GamesController < ApplicationController
 		Hit.convert_from_m(@hit_p_final, current_user.measurement)
     @form_id = 'details'
 		create_hit_colors(@game.id, @active_hole)
-		puts @hits
+		@fetched_sticks = fetch_proper_clubs(current_user.sticks, current_user.users_sticks, @hit_p_final.stick_id)  
     if params[:hits] == 'new'
     	render '/games/hit_edit_details'
     end
@@ -557,6 +563,7 @@ private
 	  get_game_holes(@game_id, @next_hole)
    if @active_hit.to_i != 1 
    	fix_params(@active_hole, @active_hit, @game_id, @hole.distance)
+		update_hole_colors(@active_hole, @game_id)
    else
 		update_hole_colors(@active_hole, @game_id)
    	@hit_r_final = Hit.fetch_final_real(@game_id, @active_hole, @active_hit, current_user.id)
@@ -586,6 +593,7 @@ private
 		if @hit_r_final.land_place == 11
 			check_hole_status(@game.id, @active_hole)
 		end
+		@fetched_sticks = fetch_proper_clubs(current_user.sticks, current_user.users_sticks, @hit_p_final.stick_id)
 		if @hit_r_final.real_hit.to_s == "rp"
     	render 'games/details'
 		else
@@ -718,4 +726,13 @@ private
 		stats.update_attributes(:calculated => false)
 	end
  
+	def fetch_proper_clubs(sticks, usersticks, id_to_be_added)
+		stick_id_arr = []
+		usersticks.where(:is_in_bag => true).each {|stick| stick_id_arr << stick.stick_id}
+		stick_arr = sticks.where(:id => stick_id_arr)
+		stick_arr << sticks.where(:id => id_to_be_added).first if id_to_be_added != nil
+		stick_arr.uniq!
+		return stick_arr
+	end
+
 end

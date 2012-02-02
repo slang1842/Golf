@@ -249,37 +249,37 @@ class Statistic < ActiveRecord::Base
               end
 
               case place_from_num
-              when 1
+              when 2
                 if @result_arr.size != 0                  
 									@statistic_place_teebox += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_teebox_count += @result_arr.size
                 end
-              when 2
+              when 3
                 if @result_arr.size != 0
                   @statistic_place_feairway += @result_arr.inject(0.0) { |sum, el| sum + el }
 									 @statistic_place_feairway_count += @result_arr.size               
 								end
-              when 3
+              when 4
                 if @result_arr.size != 0
                   @statistic_place_next_fairway += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_next_fairway_count += @result_arr.size
                 end
-              when 4
+              when 5
                 if @result_arr.size != 0
                   @statistic_place_semi_raf += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_semi_raf_count += @result_arr.size
                 end
-              when 5
+              when 6
                 if @result_arr.size != 0
                   @statistic_place_raf += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_raf_count += @result_arr.size
                 end
-              when 6
+              when 7
                 if @result_arr.size != 0
                   @statistic_place_for_green += @result_arr.inject(0.0) { |sum, el| sum + el } 
 									@statistic_place_for_green_count += @result_arr.size
                 end
-              when 7
+              when 1
                 if @result_arr.size != 0
                   @statistic_place_green += @result_arr.inject(0.0) { |sum, el| sum + el } 
 									@statistic_place_green_count += @result_arr.size
@@ -294,7 +294,7 @@ class Statistic < ActiveRecord::Base
                   @statistic_place_green_sand += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_green_sand_count += @result_arr.size
                 end
-              when 11
+              when 10
                 if @result_arr.size != 0
                   @statistic_place_wood += @result_arr.inject(0.0) { |sum, el| sum + el } 
 									@statistic_place_wood_count += @result_arr.size			
@@ -643,12 +643,13 @@ statistic.green_trajectory_downward_right = calculate_avg(@statistic_green_traje
 		    statistic.place_green_sand = calculate_avg(@statistic_place_green_sand, @statistic_place_green_sand_count) 
 		    statistic.place_wood = calculate_avg(@statistic_place_wood, @statistic_place_wood_count)
 		    statistic.place_from_water = calculate_avg(@statistic_place_from_water, @statistic_place_from_water_count)
+				statistic.save!
 				statistic.update_attributes(:calculated => true)
 				statistic.save!
-				Statistic.all_stick_statistics(statistic, c_user)	
 				Statistic.user_progres(statistic)			
 				SingleFieldStatistic.calculate_stats(c_user)
 			 end
+				Statistic.all_stick_statistics(statistic, c_user)	
       end # end stick
     end # end user
    
@@ -789,20 +790,27 @@ end
        	 	end
 
         	result_arr = []					
+					final_val = 0
+					final_count = 0
         	statistic.attributes.each_pair do |name, value|
 						if value.class.to_s == "Fixnum"
-							if name.to_s != "id" || name.to_s != "game_id" || name.to_s != "field_id" || name.to_s != "user_id" || name.to_s != "stick_id" 
-        	     result_arr << value.to_i if value.to_i > 0 && value != nil
+							if name.to_sym != :id || name.to_sym != :game_id || name.to_sym != :field_id || name.to_sym != :user_id || name.to_s != "stick_id" 
+								puts "aaaaaa" 
+								puts name
+								puts value.to_i
+								final_val += value.to_i
+								final_count += 1
+        	     #result_arr << value.to_i if value.to_i > 0 && value != nil
 							end
         	  end
        	 	end
-       	 if result_arr.size == 0
+       	 #if result_arr.size == 0
           @AllStickStatistics.stick_progres = 0
-        	else
-						sum = 0
-						result_arr.each {|arr| sum += arr.to_i }
-        	  @AllStickStatistics.stick_progres = calculate_avg(sum, @result_arr.size)
-       	 end
+        	#else
+					#	sum = 0
+						#result_arr.each {|arr| sum += arr.to_i }
+        	  @AllStickStatistics.stick_progres = calculate_avg(final_val, final_count)
+       	 #end
 
       	 @AllStickStatistics.save!
     return @return

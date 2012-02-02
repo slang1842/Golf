@@ -86,7 +86,7 @@
       <div class="single_dropdown">
         <p>Club</p>
         <div class="element" style="heigth:60px">
-          <%= f.collection_select :stick_id, current_user.sticks, :id, :stick_type, {:include_blank => "Select"}, {:class => "dropdown6 game_input_select", :id => "stick_type_old", :onchange => "setDistanceByClub(this.value);", :disabled => true}  %>
+          <%= f.collection_select :stick_id, fetched_sticks, :id, :stick_type, {:include_blank => "Select"}, {:class => "dropdown6 game_input_select", :id => "stick_type_old", :onchange => "setDistanceByClub(this.value);", :disabled => true}  %>
         </div>
       </div>
 

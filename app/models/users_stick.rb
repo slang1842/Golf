@@ -11,4 +11,9 @@ class UsersStick < ActiveRecord::Base
 		self.distance = Stick.convert_distance_to_meters(self.user.measurement, self.distance.to_f)
 	end
 
+	def self.destroy(stick_id)
+		stick = UsersStick.find(stick_id)
+		stick.destroy
+	end	
+
 end

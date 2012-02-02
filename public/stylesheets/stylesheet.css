@@ -587,6 +587,10 @@ a {
   margin-top:18px;
 }
 
+.club_in_bag {
+  background-image:url(/images/single_club_bg_in_bag.png) !important;
+}
+
 .main_stats_table_wrap .clubs_wrap .single_club_wrap {
   float:left;
   background-image:url(/images/single_club_bg.png);
@@ -601,6 +605,7 @@ a {
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
 }
+
 
 .main_stats_table_wrap .clubs_wrap .single_club_wrap .club_name {
   margin-top:5px;

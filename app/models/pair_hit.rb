@@ -18,7 +18,8 @@ class PairHit < ActiveRecord::Base
 		pairs.each do |pair|
 			hit_r = pair.hit_real
 			hit_p = pair.hit_planed
-			if hit_r == nil || hit_p == nil
+			game = pair.game
+			if hit_r == nil || hit_p == nil || game == nil
 				pair.destroy
 			end
 		end

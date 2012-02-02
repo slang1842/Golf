@@ -23,7 +23,7 @@ Golf::Application.routes.draw do
   #end
   match '/filter_statistic' => 'statistic#filter_statistic'
   match '/user_place_in_golf_club' => 'statistic#user_place_in_golf_club'
-
+	match '/remove_user_stick/:id' => "users_sticks#destroy"
   match 'statistic/get_mini_statistic_by_field/:field_id/:user_id' => 'statistic#get_statistic_by_field'
 	match '/statistic/by_fields/:user_id' => "statistic#by_fields"
 	match '/render_single_stats/:user_id/:stick_id' => 'statistic#render_single_stats'
@@ -92,6 +92,7 @@ Golf::Application.routes.draw do
   match '/add_planned_hit/:game_id/:hole_number/:active_hit' => 'games#add_planned_hit', :as => 'add_planned_hit'
   match '/remove_planned_hit/:game_id/:hole_number/:active_hit' => 'games#remove_hit', :as => 'remove_planned_hit'
 	match '/games/switch_colors/:id' => 'games#switch_hit_places'
+	match '/delete_game/:game_id' => 'games#delete'
   #welcome
   root :to => "welcome#welcome",              :as => :welcome
   match '/welcome' => "welcome#index",        :as => :loged_in

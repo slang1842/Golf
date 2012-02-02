@@ -1,0 +1,2 @@
+
+page["#game_#{params[:game_id]}"].remove

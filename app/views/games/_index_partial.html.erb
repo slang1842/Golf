@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 <% @games.each do |game| %>
   
-    <div class="single_game_wrap">
+    <div class="single_game_wrap" id="game_<%= game.id%>">
       <div class="date_wrap">
         <p><%=l game.date, :format => :game %></p>
       </div>
@@ -23,7 +23,8 @@ $(document).ready(function(){
                <% else %>
         <a href="<%='/game_results/' + game.id.to_s + '/1/results/new/0'%>" class="gray_button">Results</a>
         <% end %> -->
-        <a href="<%='/game_details/' + game.id.to_s + '/1/1/new/0'%>" class="<%=fetch_color_for_details_button(game)%>">Detailed results</a>           
+        <a href="<%='/game_details/' + game.id.to_s + '/1/1/new/0'%>" class="<%=fetch_color_for_details_button(game)%>">Detailed results</a>
+				<a href="/delete_game/<%=game.id%>" class="gray_button" onclick="return confirm('Do you really want to delete this game?')" data-remote="true"> Delete</a>           
        
       </div>
       <div class="clear"></div>

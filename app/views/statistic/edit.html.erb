@@ -50,7 +50,7 @@
 
                 <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => @user_params.id})%>
 
-                <div class="single_club_wrap" style="margin-top:5px" onclick="$.get('/render_single_stats/<%=@user_params.id%>/<%=stick.stick_id%>'); return false;">
+                <div class="single_club_wrap <%= 'club_in_bag' if stick.is_in_bag %>" style="margin-top:5px" onclick="$.get('/render_single_stats/<%=@user_params.id%>/<%=stick.stick_id%>'); return false;">
 
                   <div class="club_name">
                     <p><%=  stick.stick.stick_type %></p>

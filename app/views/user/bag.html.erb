@@ -28,7 +28,7 @@
 
       <div class="clear"></div>
       <div class="element">
-        <%= link_to_function 'Add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :onclick=> 'init_dropdown()', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}).slideDown('fast')", :class => "gray_button" %>
+        <%= link_to_function 'Add new', "jQuery('#sticks').append(#{render(:partial => 'user/stick_form', :onclick=> 'init_dropdown()', :locals => {:f => f, :users_sticks_attributes => @new_sticks_attributes, :users_stick => UsersStick.new}).to_json}).slideDown('fast', alterClubDropdownValues());", :class => "gray_button" %>
         <div class="clear"></div>
       </div>
 

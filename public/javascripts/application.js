@@ -2,29 +2,53 @@
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function() {
   bindHitFormPlan();
-});
-$(document).ready(function() {
   bindHitSwitch();
-});
-$(document).ready(function() {
   bindSaveSwitch();
-  });
-$(document).ready(function() {
   bindAddSwitch();
-  });
-$(document).ready(function() {
   bindRemoveSwitch();
-  });
-$(document).ready(function() {
   bindDistanceFields();
-  });
-$(document).ready(function() {
-  $("#sticks_row").jScrollPane({hideFocus: true});
+  //$("#sticks_row").jScrollPane({hideFocus: true});
 //	$("#stats_div").jScrollPane({hideFocus: true});
-  });
-$(document).ready(function() {
   bindScrollTriangles();
+	bindBagCheckboxes();
   });
+
+function alterClubDropdownValues() {	
+	$(".club_id_dropdown").each(function() {
+		var i = $(this).val();
+		var option_name = '.new_stick_dropdown option[value="' + i + '"]:not(:selected)';
+		$(option_name).remove();
+	});
+	$(".new_stick_dropdown").each(function() {
+		var i = $(this).val();
+		var option_name = '.new_stick_dropdown option[value="' + i + '"]:not(:selected)';
+		$(option_name).remove();
+	});
+	return true
+}
+
+function bindBagCheckboxes() {
+	$(".keep_in_bag_checkbox").live('click', function(){
+			var z = $(this).attr("checked");
+			var i = 0;
+			var return_value = 0
+			$(".keep_in_bag_checkbox").each(function(){
+				var k = $(this).attr("checked");
+				if (k == true){ i++;};
+			});
+			if (i < 14) { return_value = true;}
+			else if (i == 14) {
+				if (z == true){return_value = false;}
+				else {return_value = true;}
+			}
+			else {return_value = false;}
+			if (return_value == true){ return true;}
+			else {$(".messages_error").text("You may have only 13 clubs in your bag.");
+					$(".messages_error").show();
+					return false;}		
+	});
+}
+
 function bindDistanceFields() {
 	$(".distance_result").keyup( function(){
 		var diff = $(".distance_result").val() - $(".distance_plan").val();

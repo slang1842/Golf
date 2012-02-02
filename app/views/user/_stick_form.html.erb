@@ -10,24 +10,28 @@
         <!--<div class="subitem"><%= h.label :degrees %></div>-->
         <div class="subitem"><%= h.label :shaft %></div>
         <div class="subitem"><%= h.label :shaft_strength %></div>
+				<div class="subitem"><%= h.label :keep_in_bag %></div>
       </div>
 
       <div class="item">
         <% if users_stick.id != nil %>
-          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select type"},{:class => "dropdown5", :onchange => "fill_sticks_form(this)", :disabled => "disabled" } %></div>
+          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select type"},{:class => "dropdown5 club_id_dropdown", :onchange => "fill_sticks_form(this)", :disabled => "disabled" } %></div>
         <% else %>
-          <div class="subitem"><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select type"},{:class => "dropdown5", :onchange => "fill_sticks_form(this)"} %></div>
+          <div class="subitem" ><%= h.collection_select :stick_id, Stick.all, :id, :stick_type, {:prompt => "Select type"},{:class => "dropdown5 new_stick_dropdown",  :onchange => "fill_sticks_form(this)"} %></div>
         <% end %>
         <div class="subitem"><%= h.text_field :distance, {:class => 'distance  textbox2', :value => convert_distance(users_stick.distance)} %></div>
         <!--<div class="subitem"><%= h.select(:degrees, STICK_DEGREES,{}, { :class => 'dropdown8 user_select_field degrees'}) %></div>-->
 				<%= h.hidden_field :degrees, :value => 5 %>
         <div class="subitem"><%= h.select(:shaft, STICK_SHAFT,{}, { :class => 'dropdown8 user_select_field shaft'}) %></div>
         <div class="subitem"><%= h.select(:shaft_strength, STICK_SHAFT_STRENGTH,{}, { :class => 'dropdown8 user_select_field shaft_strength'}) %></div>
+				<div class="subitem"><%= h.check_box :is_in_bag, :class => "keep_in_bag_checkbox" %></div>
         <div class="subitem2">
 
           <% if users_stick.new_record? %>
-            <a href="" OnClick="$(this).parent().parent().parent().slideUp('fast', function() { $(this).remove(); } ); return false;" class="gray_button">Cancel</a>
-          <% end %>
+            <a href="" OnClick="$(this).parent().parent().parent().slideUp('fast', function() { $(this).remove(); } );  return false;" class="gray_button">Remove</a>
+					<% else %>
+						 <!-- <a href="/remove_user_stick/<%=users_stick.id%>" class="gray_button" data-remote="true" onclick="return confirm('Do you really want to delete this club?')">Delete</a>  -->      
+					<% end %>
 
         </div>
       </div>
