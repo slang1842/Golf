@@ -1,0 +1,34 @@
+<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_games"} %>
+<div style="margin-left:20px;margin-top:5px"><%= game_header(@game.field.name, @game.date) %></div>
+<div class="messages_error" style="display: none;">Please, fill in all the information!</div>
+
+<div class="game_input_wrap">
+  <div class="holes_wrap">
+		
+  <div class="heading_wrap">
+    <p>Please, fill in the relevant information on holes!</p>
+  </div>
+<br/>
+<br/>
+<br/>
+<%=form_for( @game, :url => ('/game_details/update_holes/' + @game.id.to_s + '/'), :html => {:onsubmit => "return checkStrokeValues();"}) do |game|%>
+	<div style="float:left">
+  <% @statusholes.each do |hole|%>
+		<div class="clear"></div>
+		<div style="width:200px">
+   	<%= game.fields_for :status_holes, hole do |f|%>
+		
+      <div class="single_hole done"><p><%=hole.hole_number%></p></div>
+					<p>Strokes : <%= f.text_field :total_strokes_count, :class => "hole_text_field"%></p>
+					<p>Putts : <%= f.text_field :putts_count, :class => "hole_text_field" %></p>
+			
+		<% end %></div>
+   <% end %></div>
+
+<p>	<%= game.submit %></p>
+  <% end %>
+
+ 
+
+	</div>
+</div>

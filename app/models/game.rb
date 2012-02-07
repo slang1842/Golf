@@ -5,6 +5,7 @@ class Game < ActiveRecord::Base
 	has_many :status_holes
   accepts_nested_attributes_for :hits
   accepts_nested_attributes_for :pair_hits
+	accepts_nested_attributes_for :status_holes
   belongs_to :user
   belongs_to :field
   has_many :holes, :through => :field

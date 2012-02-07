@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120206162339) do
+ActiveRecord::Schema.define(:version => 20120207115947) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -526,6 +526,8 @@ ActiveRecord::Schema.define(:version => 20120206162339) do
     t.integer  "completeness"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "putts_count"
+    t.integer  "total_strokes_count"
   end
 
   create_table "sticks", :force => true do |t|

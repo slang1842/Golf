@@ -13,15 +13,15 @@ def self.calculate_user_stats(user_id)
 			game_id_array = []
 			holes.each do |hole|
 				game_id_array << hole.game_id
-				strokes_non_putts = hole.hits.where(:real_hit => ['rp', 'penalty_r'])
-				strokes_putts = hole.hits.where(:real_hit => ['pp', 'penalty'])
-				if strokes_non_putts.any? && strokes_putts.any?
-					statistic.total_stroke_count += (strokes_non_putts.count + strokes_putts.count)
-					statistic.total_putt_count += (strokes_putts.count)
+				strokes_non_putts = hole.total_strokes_count
+				strokes_putts = hole.putts_count
+				if strokes_non_putts != nil && strokes_putts != nil
+					statistic.total_stroke_count += (strokes_non_putts + strokes_putts)
+					statistic.total_putt_count += (strokes_putts)
 					par = Hole.fetch_par(hole.game.field_id, hole.hole_number)
 			
 					statistic.calculate_stableford(statistic.total_stroke_count, par, user.hcp.to_i)
-					statistic.calculate_GIR(par, user.hcp.to_i, strokes_non_putts.count, strokes_putts.count)
+					statistic.calculate_GIR(par, user.hcp.to_i, strokes_non_putts, strokes_putts)
 				end
 			end
 			game_id_array.uniq!

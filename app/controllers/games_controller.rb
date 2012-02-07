@@ -44,15 +44,6 @@ class GamesController < ApplicationController
             )
 	end
 
-  def show
-    @game = Game.find(params[:id])
-    store_location
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @game }
-    end
-  end
-
 	def new
     @game = Game.new
     respond_to do |format|
@@ -71,9 +62,22 @@ class GamesController < ApplicationController
 		if params[:form_id].to_s == 'plan'
     	@path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/1' + '/1' + '/new'
 		else
-			@path = '/game_details/' + @game.id.to_s + '/1' + '/1' + '/new/0'
+			@path = '/game_details/fill_holes/' + @game.id.to_s 
 		end
      redirect_to @path
+	end
+
+	def fill_hole_information
+		@game = Game.find(params[:game_id])
+		fetch_hole_colors
+	end
+
+	def update_holes
+		@game = Game.find(params[:game_id])
+		if @game.update_attributes(params[:game])
+			@path = '/game_details/' + @game.id.to_s + '/1' + '/1' + '/new/0'
+			redirect_to @path
+		end 
 	end
  
   def update
@@ -155,8 +159,7 @@ class GamesController < ApplicationController
 		if @active_hit.to_i == 1
 			update_hole_colors(@active_hole, @game.id)
 			@hit_r_final.update_attributes(:place_from => 2)
-			@hit_p_final.update_attributes(:place_from => 2)
-			@hit_p_final.update_attributes(:distance_to_hole => @hole.get_proper_distance(@game.id))
+			@hit_p_final.update_attributes(:distance_to_hole => @hole.get_proper_distance(@game.id), :place_from => 2)
 		end
     @hit_r_final.update_attributes(params[:pair_id])
     @hit_p_final.update_attributes(params[:pair_id])
@@ -165,7 +168,8 @@ class GamesController < ApplicationController
 		Hit.convert_from_m(@hit_p_final, current_user.measurement)
     @form_id = 'details'
 		create_hit_colors(@game.id, @active_hole)
-		@fetched_sticks = fetch_proper_clubs(current_user.sticks, current_user.users_sticks, @hit_p_final.stick_id)  
+		@fetched_sticks = fetch_proper_clubs(current_user.sticks, current_user.users_sticks, @hit_p_final.stick_id)
+		@status_hole = StatusHole.where(:hole_number => @hit_p_final.hole_number, :game_id => @hit_p_final.game_id).first  
     if params[:hits] == 'new'
     	render '/games/hit_edit_details'
     end
@@ -207,7 +211,7 @@ class GamesController < ApplicationController
 		end
 		#end of ugly fix	
 	 if params[:form_id].to_s == "details" then update_hit_colors(@game.id, @hit1.hole_number, @hit1.hit_number) end
-	 if params[:form_id].to_s == "details" then check_hole_status(@hit1.hole_number, @game.id) end
+	 if params[:form_id].to_s == "details" then check_hole_status( @game.id, @hit1.hole_number) end
    @game_id = params[:game_id]
    @active_hit = params[:next_hit].to_s
    @active_hit1 = params[:active_hit]
@@ -285,9 +289,10 @@ class GamesController < ApplicationController
 
 	def fetch_hole_colors
 		session[:hole_statuses] = {}
+		@statusholes = []
 		@holes.each do |hole|
 			statushole = StatusHole.find_or_create_by_game_id_and_hole_number({:game_id => @game.id, :hole_number => hole.hole_number})
-			
+			@statusholes << statushole
 			session[:hole_statuses][:"#{hole.hole_number}"] = statushole.completeness
 		end
 	end
@@ -311,9 +316,9 @@ class GamesController < ApplicationController
 			if check_hits(real, planned) then status = true else status = false end				
 		end	
 		if status == true
-			statushole = StatusHole.find_or_create_by_game_id_and_hole_number({:game_id => game_id, :hole_number => hole_number})
-			statushole.completeness = 2
-			statushole.save!
+			@statushole = StatusHole.find_or_create_by_game_id_and_hole_number({:game_id => game_id, :hole_number => hole_number})
+			@statushole.completeness = 2
+			@statushole.save!
 			session[:hole_statuses][:"#{hole_number}"] = 2
 			check_for_game_completeness(game_id)
 		end
@@ -479,6 +484,8 @@ private
 			check_hole_status(@game.id, @active_hole)
 		end
 		@fetched_sticks = fetch_proper_clubs(current_user.sticks, current_user.users_sticks, @hit_p_final.stick_id)
+		@status_hole = StatusHole.where(:hole_number => @hit_p_final.hole_number, :game_id => @game_id).first
+		if @hit_p_final.hit_number == @atatus_hole.total_strokes_count then @hit_r_final.update_attributes(:land_place => 11) end
 		if @hit_r_final.real_hit.to_s == "rp"
     	render 'games/details'
 		else
@@ -499,7 +506,6 @@ private
         @start_hole = 1
         @end_hole = 9
       when 2
-
         hole_num = 10..18
         @start_hole = 10 
         @end_hole = 18

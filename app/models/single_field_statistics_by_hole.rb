@@ -31,10 +31,10 @@ class SingleFieldStatisticsByHole < ActiveRecord::Base
 			stats.total_strokes = 0 
 			stats.avg_strokes = 0
 			statusholes.each do |hole|
-				hits = user.hits.where("hits.game_id = ? AND hits.hole_number = ? AND hits.real_hit IN(?) ", hole.game_id, hole.hole_number, ["rp", "penalty_r"]).count.to_i
-				stats.best_strokes = hits if stats.best_strokes > hits && hits != 0
-				stats.worst_strokes = hits if stats.worst_strokes < hits 
-				stats.total_strokes += hits
+				hits = hole.total_strokes_count
+				stats.best_strokes = hits if  hits != nil && stats.best_strokes > hits
+				stats.worst_strokes = hits if hits != nil && stats.worst_strokes < hits
+				stats.total_strokes += hits if hits !=  nil
 				stats.save!
 			end
 			if stats.best_strokes == 999 then stats.best_strokes = nil end

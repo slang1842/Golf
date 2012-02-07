@@ -166,7 +166,7 @@ class Hit < ActiveRecord::Base
 		return hit
 	end
 
-	def self.create_penalty(game_id, active_hit, hole_number)
+	def self.create_penalty_old(game_id, active_hit, hole_number)
 		hit_real = Hit.where(:game_id => game_id, :hit_number => active_hit.to_i, :hole_number => hole_number, :real_hit => 'rp').first || Hit.where(:game_id => game_id, :hit_number => active_hit.to_i, :hole_number => hole_number, :real_hit => 'penalty_r').first
 		hit_planned = Hit.where(:game_id => game_id, :hit_number => active_hit.to_i, :hole_number => hole_number, :real_hit => 'pp').first || Hit.where(:game_id => game_id, :hit_number => active_hit.to_i, :hole_number => hole_number, :real_hit => 'penalty').first
 		Hit.alter_hit_numbers(game_id, active_hit, hole_number)
@@ -188,6 +188,16 @@ class Hit < ActiveRecord::Base
 		hit_real.update_attributes(:real_hit => "rp")
 		hit_planned.update_attributes(:real_hit => "pp")
 	end
+
+	def self.create_penalty(game_id, active_hit, hole_number)
+		hit_real = Hit.where(:game_id => game_id, :hit_number => active_hit.to_i, :hole_number => hole_number, :real_hit => 'rp').first
+		hit_planned = Hit.where(:game_id => game_id, :hit_number => active_hit.to_i, :hole_number => hole_number, :real_hit => 'pp').first
+		hit_real.update_attributes(:real_hit => 'penalty_r')
+		hit_planned.update_attributes(:real_hit => 'penalty')
+		hit_real.save!
+		hit_planned.save!
+	end
+
 
 	def self.search_for_penalties(active_hole, active_hit, game_id, user_id, real_hit)
 		conditions = { :game_id => game_id, 

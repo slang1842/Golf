@@ -443,6 +443,15 @@ function swapActiveStick(stick_id) {
 	$("#stick_box_" + stick_id).addClass("club_active");
 }
 
+function checkStrokeValues() {
+	var has_input = true ;
+	$(".hole_text_field").each(function() {
+		if ($(this).val() == ''){ has_input = false;}
+	});
+	if (has_input == false){$(".messages_error").slideDown('slow');}
+	return has_input
+}
+
 
 
 
