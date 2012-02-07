@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201195001) do
+ActiveRecord::Schema.define(:version => 20120206162339) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -380,6 +380,26 @@ ActiveRecord::Schema.define(:version => 20120201195001) do
     t.integer  "field_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rank"
+    t.integer  "best_score_hole_1"
+    t.integer  "best_score_hole_2"
+    t.integer  "best_score_hole_3"
+    t.integer  "best_score_hole_4"
+    t.integer  "best_score_hole_5"
+    t.integer  "best_score_hole_6"
+    t.integer  "best_score_hole_7"
+    t.integer  "best_score_hole_8"
+    t.integer  "best_score_hole_9"
+    t.integer  "best_score_hole_10"
+    t.integer  "best_score_hole_11"
+    t.integer  "best_score_hole_12"
+    t.integer  "best_score_hole_13"
+    t.integer  "best_score_hole_14"
+    t.integer  "best_score_hole_15"
+    t.integer  "best_score_hole_16"
+    t.integer  "best_score_hole_17"
+    t.integer  "best_score_hole_18"
+    t.integer  "best_total_score"
   end
 
   create_table "single_field_statistics_by_holes", :force => true do |t|
@@ -396,6 +416,7 @@ ActiveRecord::Schema.define(:version => 20120201195001) do
     t.decimal  "avg_putts",                 :precision => 6, :scale => 3
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rank"
   end
 
   create_table "standard_statistics", :force => true do |t|

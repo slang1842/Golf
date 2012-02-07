@@ -436,6 +436,12 @@ function switchHit(rel_value, game_id){
 	$("#hit_form").submit();
 }
 
+function swapActiveStick(stick_id) {
+	$(".single_club_wrap").each(function(){
+		$(this).removeClass("club_active");
+	});
+	$("#stick_box_" + stick_id).addClass("club_active");
+}
 
 
 

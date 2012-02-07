@@ -587,11 +587,16 @@ a {
   margin-top:18px;
 }
 
+.club_active {
+  background-image:url(/images/single_club_bg_active.png) !important;
+}
+
 .club_in_bag {
   background-image:url(/images/single_club_bg_in_bag.png) !important;
 }
 
 .main_stats_table_wrap .clubs_wrap .single_club_wrap {
+	cursor:pointer;
   float:left;
   background-image:url(/images/single_club_bg.png);
   width:93px;

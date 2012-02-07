@@ -9,21 +9,16 @@
           <p>Best strokes</p>
         </div>
         <div class="row" style="width:90px">
-          <p>Best putts</p>
-        </div>
-        <div class="row" style="width:90px">
           <p>Average strokes</p>
-        </div>
-        <div class="row" style="width:90px">
-          <p>Average putts</p>
         </div>
 				<div class="row" style="width:90px">
           <p>Worst strokes</p>
-        </div>
+        </div>  
 				<div class="row" style="width:90px">
-          <p>Worst putts</p>
-        </div>         
+          <p>Rank</p>
+        </div>        
 			</div>
+				<% i = 0 %>
 				<% stats_by_holes.each do |stat|%>
         <div class="clear"></div>
 					<div class="line">
@@ -31,28 +26,36 @@
             <p><%= stat.hole_number%>.</p>
           </div>
 					<div class="row1" style="width:90px;">
-            <p><%= stat.best_strokes%></p>
+            <p><%= stat.best_strokes%></p><% i += stat.best_strokes.to_i %>
           </div>
-          <div class="row1" style="width:90px;">
-            <p><%= stat.best_putts%> </p>
-          </div>
-          
           <div class="row1" style="width:90px;">
             <p><%= stat.avg_strokes %></p>
           </div>
-						
-          <div class="row1" style="width:90px;">
-            <p><%= stat.avg_putts %></p>
-          </div>
-					
           <div class="row1" style="width:90px;">
             <p><%= stat.worst_strokes %></p>
           </div>
-					 <div class="row1" style="width:90px;">
-            <p><%= stat.worst_putts %></p>
+					<div class="row1" style="width:90px;">
+            <p><%= stat.rank %></p>
           </div>
         </div>
        <%end%>
+			<div class="line">
+				<div class="row" style="width:90px">
+          <p>Total strokes</p>
+        </div> 
+				<div class="row" style="width:90px">
+          <p>Rank in field</p>
+        </div> 
+			</div>
+			<div class="line">
+				<div class="row1" style="width:90px">
+          <p><%= i %></p>
+        </div> 
+				<div class="row" style="width:90px">
+          <p><%= field_stats.rank %></p>
+					<p><a href="/get_total_stats_by_field/<%=stats_by_sticks.first.single_field_statistic.user_id%>/<%=stats_by_sticks.first.field_id%>" data-remote="true">View in club context</a></p>
+        </div> 
+			</div>
 	</div>
 
 	<div class="table_wrap">

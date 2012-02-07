@@ -87,6 +87,7 @@ class StatisticController < ApplicationController
   	  @has_couch = true unless (@user_params.coach == false || @user_params.coach == nil)
 			@coach_hint = current_user.hints.where(:stick_id => params[:stick_id]).first || Hint.create({:user_id => current_user.id, :stick_id => params[:stick_id]})
 			@statistic = @user_params.statistics.where(:stick_id => params[:stick_id]).first
+			@stick = Stick.find(params[:stick_id])
 			respond_to :js
 		end
   

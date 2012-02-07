@@ -10,4 +10,10 @@ class SingleFieldStatisticController < ApplicationController
 		respond_to :js
 	end
 
+	def view_total_stats
+		@stats = SingleFieldStatistic.where(:field_id => params[:field_id]).order("rank asc").includes("user")
+		@user = User.find(params[:user_id])
+		respond_to :js
+	end
+
 end

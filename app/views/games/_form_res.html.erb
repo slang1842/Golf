@@ -1,4 +1,4 @@
-<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "game_results"} %>
+<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_games"} %>
 
 
 <div class="mesages">
@@ -18,7 +18,7 @@
       </ul>
     </div>
   <% end %>
-        <input type="hidden" name="form_id" id="formid" value="res">
+        <input type="hidden" name="form_id" id="formid" value="details">
         <%= f.hidden_field :user_id, :value => current_user.id%>
          <div class="left_wrap">
         <div class="single_element">

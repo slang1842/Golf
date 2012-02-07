@@ -1,1 +1,0 @@
-page["#statistic_container"].html render(:partial => "standard_statistic/gir_putts", :locals => {:user => @user_params, :statistics => @statistics})

@@ -1,4 +1,12 @@
+<script type="text/javascript">
+$(document).ready(function() {
+	swapActiveStick("<%=stick.id%>"); 
+  });
+
+</script>
+
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- Place =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+<p>Currently showing statistics for <%= stick.stick_type %></p>
 <div class="clear"></div>
 <div class="situation_type" style="" >
   <span onclick="showHideElement('#place')">

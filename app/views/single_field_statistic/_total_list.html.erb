@@ -1,0 +1,69 @@
+
+<div class="single_stats_wrap" style="margin-bottom:60px">
+	<div class="table_wrap">
+			<div class="line">
+				<div class="row" style="width:10px">
+          <p></p>
+        </div>
+        <div class="row" style="width:100px">
+          <p></p>
+        </div>
+				 <div class="row" style="width:270px">
+          <p>Holes</p>
+        </div>
+        <div class="row" style="width:90px">
+          <p>Total strokes</p>
+        </div>
+				<div class="row" style="width:90px">
+          <p>Rank</p>
+        </div>          
+			</div>
+			<div class="clear"></div>
+			<div class="line">
+				<div class="row" style="width:10px">
+          <p></p>
+        </div>
+        <div class="row" style="width:100px">
+          <p>Name</p>
+        </div>
+				<% z = 1%>
+				<% while z < 19 %>
+        	<div class="row" style="width:14px;">
+           	<p><%= z %></p>
+						<%z += 1%>
+         	</div>
+				<% end %>
+        <div class="row" style="width:90px">
+          <p></p>
+        </div>
+				<div class="row" style="width:90px">
+          <p></p>
+        </div>          
+			</div>
+				<% i = 1 %>
+				<% field_stats.each do |stat|%>
+				<% if stat.user == user then style = "background-color:yellow" end%>
+        <div class="clear"></div>
+					<div class="line" style="<%=style%>">
+						<div class="row1" style="width:10px;<%=style%>">
+          	  <p><%= i %>.</p> <% i += 1%>
+         		</div>
+						<div class="row1" style="width:100px;<%=style%>">
+            	<p><%= stat.user.first_name%> <%= stat.user.last_name%></p>
+          	</div>
+						<% z = 1%>
+						<% while z < 19 %>
+          	<div class="row1" style="width:14px;<%=style%>">
+            	<p><%= stat.send("best_score_hole_" + z.to_s) %></p>
+							<%z += 1%>
+          	</div>
+						<% end %>
+						<div class="row1" style="width:90px;<%=style%>">
+          		<p><%= stat.best_total_score%></p>
+        		</div>
+						<div class="row1" style="width:90px;<%=style%>">
+          		<p><%= stat.rank %></p>
+        		</div>  
+        	</div>
+       <%end%>
+</div>

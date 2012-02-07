@@ -1,0 +1,1 @@
+page["#field_stats"].html render(:partial => "single_field_statistic/total_list", :locals => {:field_stats => @stats, :user => @user})

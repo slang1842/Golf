@@ -795,22 +795,15 @@ end
         	statistic.attributes.each_pair do |name, value|
 						if value.class.to_s == "Fixnum"
 							if name.to_sym != :id || name.to_sym != :game_id || name.to_sym != :field_id || name.to_sym != :user_id || name.to_s != "stick_id" 
-								puts "aaaaaa" 
-								puts name
-								puts value.to_i
 								final_val += value.to_i
 								final_count += 1
-        	     #result_arr << value.to_i if value.to_i > 0 && value != nil
 							end
         	  end
        	 	end
-       	 #if result_arr.size == 0
+       	 
           @AllStickStatistics.stick_progres = 0
-        	#else
-					#	sum = 0
-						#result_arr.each {|arr| sum += arr.to_i }
         	  @AllStickStatistics.stick_progres = calculate_avg(final_val, final_count)
-       	 #end
+ 
 
       	 @AllStickStatistics.save!
     return @return
@@ -889,9 +882,9 @@ end
           @u_stats_prog.user_id = statistic.user_id
           @u_stats_prog.hcp = statistic.user.hcp
 
-          @max_dist = Hit.where("real_hit = 'r' OR real_hit = 'rp'").where(:user_id => statistic.user_id).order("hit_distance DESC").first
+          @max_dist = Hit.where(:real_hit => ["rp", "penalty_r"], :user_id => statistic.user_id).order("hit_distance DESC").first
 
-          @u_stats_prog.max_distance = @max_dist.hit_distance
+          @u_stats_prog.max_distance = @max_dist.hit_distance unless @max_dist == nil
           @return = true if @u_stats_prog.save
         end
     @all_user_progress = StatisticUserProgres.order("user_progress")

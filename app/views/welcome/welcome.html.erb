@@ -46,7 +46,10 @@
 
 
       <h1>Dolor sit. Lorem ipsum.</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit? Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit? Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris! <a href="#" onclick="$(this).fadeOut('slow'); $('#moretext').fadeIn('slow');  return false;">Tell me more!</a></p>
+			<div id="moretext" style="display:none">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit? Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris! </p>
+			</div>
       <div class="button">
         <a href="<%= new_user_path %>"><p>Start Now!</p></a>
       </div>

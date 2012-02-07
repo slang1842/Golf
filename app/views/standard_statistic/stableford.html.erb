@@ -1,3 +1,8 @@
+<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "statistic"} %>
+
+<!-- ================================= top mini stats ============================ -->
+<%= render :partial => 'statistic/mini_statistic_top' %>
+
 <h> Stableford</h>
 <div class="single_stats_wrap">
 	<div class="table_wrap">
@@ -44,9 +49,9 @@
 			</div>
         <div class="clear"></div>
      <% i = 1%>
-      <% statistics.each do |stat|%>
+      <% @statistics.each do |stat|%>
       <% stat_user = stat.user%>
-			<% if stat_user == user%>
+			<% if stat_user == @user_params%>
         <% style = "background-color:yellow" %>
 			<% else %>
 				<% style = "" %>				

@@ -68,7 +68,11 @@ class GamesController < ApplicationController
 	def create
   	@game = Game.new(params[:game])
     @game.save
-    @path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/1' + '/1' + '/new'
+		if params[:form_id].to_s == 'plan'
+    	@path = '/game_' + params[:form_id].to_s + '/' + @game.id.to_s + '/1' + '/1' + '/new'
+		else
+			@path = '/game_details/' + @game.id.to_s + '/1' + '/1' + '/new/0'
+		end
      redirect_to @path
 	end
  
@@ -115,7 +119,7 @@ class GamesController < ApplicationController
 			@hit = []
 			@hit = @hit << Hit.create(conditions)
 		end 
-		@fetched_sticks = fetch_proper_clubs(current_user.sticks, current_user.users_sticks, @hit.stick_id)    
+		#@fetched_sticks = fetch_proper_clubs(current_user.sticks, current_user.users_sticks, @hit.stick_id)    
     @form_id = 'plan'
 		create_hole_colors_for_plan
 		Hit.convert_from_m(@hit[0], current_user.measurement)
@@ -123,69 +127,6 @@ class GamesController < ApplicationController
     	render '/games/hit_edit'
     else
     	render 'games/plan'
-    end
-  end
-    
-	def res
-  	game_holes    
-    @active_hole = params[:active_hole]
-    render '/games/res_menu', :locals => {:game_id => params[:game_id], :active_hole => @active_hole}
-  end
-    
-  def results
-  	@form_id = 'results'
-    game_holes
-    @active_hit = params[:active_hit].to_i
-    @active_hole = params[:active_hole].to_i
-    @hitcount = params[:hits].to_i
-    if @active_hit == 0
-    	@active_hit = 1
-    end
-    @puts = params[:puts].to_i
-    if @hitcount == nil || @hitcount == 0
-    	@hitcount = 5
-      @puts = 2
-    end
-      
-    @form_id = 'results'
-    if @active_hole < @start_hole
-    	@active_hole = @start_hole
-    end
-    if @hitcount != 0
-       @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
-       @hits.each do |f|
-       	f.destroy
-       end
-       b = @hitcount - @puts
-       a = (1..b)
-       a.each do |i|
-       	 conditions = { :game_id => @game.id, 
-                              :hole_number => @active_hole,
-                              :hit_number => i, 
-                              :real_hit => 'r'}
-         @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-       end
-       a = ((b+1)..@hitcount)
-       a.each do |i|
-      	 conditions = { :game_id => @game.id, 
-                             :hole_number => @active_hole,
-                             :hit_number => i, 
-                             :real_hit => 'r',
-                             :stick_id => 1 }
-         @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-       end
-
-       @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')     
-    else
-      @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
-    end
-
-		@hits.each do |hit|
-     Hit.convert_from_m(hit, current_user.measurement)
-		end
-
-    if params[:hits] == 'new'
-         render '/games/hit_edit_results'  
     end
   end
     
@@ -230,14 +171,6 @@ class GamesController < ApplicationController
     end
 	end
        
-	def results_starter
-  	@hitcount = params[:hits].to_i
-    @puts = params[:puts].to_i
-    if @hitcount > 0 
-    	get_results_with_count(params[:game_id].to_s,params[:active_hole].to_s, @hitcount, @puts)
-    end   
-  end
-       
 
   def fix_params(active_hole, active_hit, game_id, hole_distance)
  		@hit_real_prev = Hit.fetch_real_prev(active_hole, active_hit, game_id, current_user.id)
@@ -274,6 +207,7 @@ class GamesController < ApplicationController
 		end
 		#end of ugly fix	
 	 if params[:form_id].to_s == "details" then update_hit_colors(@game.id, @hit1.hole_number, @hit1.hit_number) end
+	 if params[:form_id].to_s == "details" then check_hole_status(@hit1.hole_number, @game.id) end
    @game_id = params[:game_id]
    @active_hit = params[:next_hit].to_s
    @active_hit1 = params[:active_hit]
@@ -302,8 +236,6 @@ class GamesController < ApplicationController
 				Hit.remove_penalty(@game_id, params[:active_hit], @next_hole)
 				create_hit_colors(@game_id, @next_hole.to_i)
 				get_details(params[:form_id], @game_id, @next_hole, params[:active_hit])
-     elsif params[:form_id].to_s == 'results'
-     	  get_results(params[:form_id], @game_id, @next_hole, @active_hit)
      elsif params[:form_id].to_s == 'details'
         get_details(params[:form_id], @game_id, @next_hole, @active_hit)
 		 elsif params[:form_id].to_s == 'add_hit'
@@ -339,6 +271,7 @@ class GamesController < ApplicationController
   end
 	
 	def create_hole_colors_for_plan
+		session[:hole_statuses] = {}
 		@holes.each do |hole|
 			hits = Hit.where(:game_id => @game.id, :hole_number => hole.hole_number, :real_hit => 'p').last
 			if hits
@@ -505,55 +438,7 @@ private
     render 'games/plan'
 	end
     
-	def get_results(form_id, game_id, next_hole, active_hit)
-	  @form_id = form_id
-    @game_id = game_id
-    @next_hole = next_hole
-    @active_hit = active_hit
-    get_game_holes(@game_id, @next_hole)
-    @form_id = 'results'     
-    @active_hole = next_hole
-    if active_hit == 0
-	    @active_hit = 1
-      end
-      if @active_hole.to_i < @start_hole
-        @active_hole = @start_hole
-      end
-			@putts = Hit.where(:game_id => game_id,:hole_number => @active_hole, :real_hit => 'r', :stick_id => 1)
-      @hits = Hit.where(:game_id => game_id,:hole_number => @active_hole, :real_hit => 'r')  
-      if @hits.any?
-				@hitcount = @hits.length 
-				@puts = @putts.length
-	      render 'results'
-      else
-	      @hitcount = 5
-        @puts = 2
-        b = @hitcount - @puts
-        a = (1..b)
-        a.each do |i|
-	        conditions = { :game_id => @game_id, 
-                              :hole_number => @next_hole,
-                              :hit_number => i, 
-                              :real_hit => 'r'}
-	        @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-            #convert_to_feet(@hit)
-        	end
-            
-        a = ((b+1)..@hitcount)
-        a.each do |i|
-					conditions = { :game_id => @game_id, 
-                             :hole_number => @next_hole,
-                             :hit_number => i, 
-                             :real_hit => 'r',
-                             :stick_id => 1 }
-              @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-                          #convert_to_feet(@hit)
-           end
-     	@hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r') 
-			@hits.each {|h| Hit.convert_from_m(h, current_user.measurement)}
-      render 'results'     
-  	end
-	end
+	
      
 	def get_details(form_id, game_id, next_hole, active_hit)
 	  @form_id = form_id
@@ -563,9 +448,9 @@ private
 	  get_game_holes(@game_id, @next_hole)
    if @active_hit.to_i != 1 
    	fix_params(@active_hole, @active_hit, @game_id, @hole.distance)
-		update_hole_colors(@active_hole, @game_id)
+		#update_hole_colors(@active_hole, @game_id)
    else
-		update_hole_colors(@active_hole, @game_id)
+		#update_hole_colors(@active_hole, @game_id)
    	@hit_r_final = Hit.fetch_final_real(@game_id, @active_hole, @active_hit, current_user.id)
     @hit_p_final = Hit.fetch_final_planned(@game_id, @active_hole, @active_hit, current_user.id)
    end
@@ -629,50 +514,6 @@ private
 	  @hole = Hole.find(:first, :conditions => conditions7)
   end
 
-	def get_results_with_count(game_id, next_hole, hitcount, puts)    
-  	get_game_holes(game_id, next_hole)
-    @active_hole = next_hole
-    @hitcount = hitcount
-    @puts = puts
-    if @hitcount == nil
-    	@hitcount = 5
-      @puts = 2
-    end  
-   	@form_id = 'results'
-    if @active_hole.to_i < @start_hole.to_i
-    	@active_hole = @start_hole
-    end
-    if @hitcount != 0
-    	@hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
-      @hits.each   do |f|
-      	f.destroy
-      end
-      b = @hitcount - @puts
-      a = (1..b)
-      a.each do |i|
-      	conditions = { :game_id => @game.id, 
-                              :hole_number => @active_hole,
-                              :hit_number => i, 
-                              :real_hit => 'r'}
-     		@hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-      end
-      a = ((b + 1)..@hitcount)
-      a.each do |i|
-      	conditions = { :game_id => @game.id, 
-                             :hole_number => @active_hole,
-                             :hit_number => i, 
-                             :real_hit => 'r',
-                             :stick_id => 1 }
-        @hit = Hit.find(:first, :conditions => conditions) || Hit.create(conditions)
-      end
-			@hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r') 
-    else
-      @hits = Hit.where(:game_id => @game.id,:hole_number => @active_hole,:real_hit => 'r')
-    end
-		@hits.each {|h| Hit.convert_from_m(h, current_user.measurement)}
-    render 'games/results'
-	end
-
 
 	def find_proper_stick
 			sticks = current_user.sticks
@@ -712,18 +553,16 @@ private
 	end
 	
 	def check_for_game_completeness(game_id)
-		status_holes = StatusHole.where(:game_id => game_id)
-			if status_holes.any?
+		status_holes = StatusHole.where(:game_id => game_id, :completeness => [0, 1])
+			unless status_holes.any?
 				game = Game.find(game_id)
-				status_holes.each do |hole|
-					if hole.completeness.to_i == 2 then game.update_attributes(:complete => 1) else game.update_attributes(:complete => 0) end
-				end
+				 game.update_attributes(:complete => 1)
 			end
 	end
 
 	def reset_stats
 		stats = Statistic.find_by_user_id(current_user.id)
-		stats.update_attributes(:calculated => false)
+		stats.update_attributes(:calculated => false) if stats != nil
 	end
  
 	def fetch_proper_clubs(sticks, usersticks, id_to_be_added)

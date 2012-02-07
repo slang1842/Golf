@@ -8,26 +8,22 @@ end
 
 def gir
 	@user_params = User.find(params[:user_id])
-	@statistics = StandardStatistic.order("gir_percentage desc")
-	respond_to :js
+	@statistics = StandardStatistic.order("gir_percentage desc").includes("user")
 end
 
 def putts
 	@user_params = User.find(params[:user_id])
-	@statistics = StandardStatistic.order("avg_putts desc")
-	respond_to :js
+	@statistics = StandardStatistic.order("avg_putts desc").includes("user")
 end
 
 def stableford
 	@user_params = User.find(params[:user_id])
-	@statistics = StandardStatistic.order("sbf_avg_per_hole desc")
-	respond_to :js
+	@statistics = StandardStatistic.order("sbf_avg_per_hole desc").includes("user")
 end
 
 def gir_putts
 	@user_params = User.find(params[:user_id])
-	@statistics = StandardStatistic.order("gir_putt_ratio asc")
-	respond_to :js
+	@statistics = StandardStatistic.order("gir_putt_ratio asc").includes("user")
 end
 
 
