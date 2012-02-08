@@ -859,12 +859,13 @@ a {
 }
 
 .main_stats_table_wrap .situation_type .single_situation .progress_block  .progress_bar {
+	float:left;
   margin-left:20px;
   margin-top:12px;
   width:73px;
   height:13px;
 	position:relative;
-	left:170px;
+	left:0px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -1235,6 +1236,18 @@ a {
 	z-index:999;
 	overflow:hidden;
 }
+
+.stroke_stats {
+	position:relative;
+	left:10px;
+	top:5px;
+}
+.stroke_stats .single_item {
+	float:left;
+	font-size:8px;
+	width:70px;
+}
+
 
 /* ==== error, info messages ==== */
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120207115947) do
+ActiveRecord::Schema.define(:version => 20120208173909) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120207115947) do
     t.integer  "stick_progres"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "penalties"
   end
 
   create_table "announcements", :force => true do |t|
@@ -45,6 +46,26 @@ ActiveRecord::Schema.define(:version => 20120207115947) do
 
   create_table "countries", :force => true do |t|
     t.string   "name",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "failed_strokes", :force => true do |t|
+    t.integer  "statistic_id"
+    t.integer  "user_id"
+    t.integer  "stick_id"
+    t.integer  "top_strokes"
+    t.integer  "short_strokes"
+    t.integer  "long_strokes"
+    t.integer  "left_strokes"
+    t.integer  "more_left_strokes"
+    t.integer  "right_strokes"
+    t.integer  "more_right_strokes"
+    t.integer  "under_strokes"
+    t.integer  "ok_strokes"
+    t.integer  "total_strokes"
+    t.integer  "penalty_strokes"
+    t.string   "position_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -68,11 +68,11 @@ class StatisticController < ApplicationController
   # end
 		def edit
 			@user_params = User.find(params[:user_id])
-			@user_params_hints = @user_params.hints
+			#@user_params_hints = @user_params.hints
 			@is_admin = true if current_user.admin == true
  		   @is_coach = true if @user_params.coach == current_user.id
   	  @has_couch = true unless (@user_params.coach == false || @user_params.coach == nil)
-  	  @coach_hints = current_user.hints
+  	  #@coach_hints = current_user.hints
   	  @current_club_trainer = User.find(@user_params.golf_club.user_id)
 
   	  @user_sticks = UsersStick.where(:user_id => @user_params.id).includes(:stick)
@@ -80,13 +80,14 @@ class StatisticController < ApplicationController
 		end
 
 		def render_single_stats
-			@user_params = User.find(params[:user_id])
-			@user_params_hint = @user_params.hints.where(:stick_id => params[:stick_id]).first || Hint.create({:user_id => params[:user_id], :stick_id => params[:stick_id]})
+			@user_params = User.includes("statistics", "failed_strokes").find(params[:user_id])
+			#@user_params_hint = @user_params.hints.where(:stick_id => params[:stick_id]).first || Hint.create({:user_id => params[:user_id], :stick_id => params[:stick_id]})
 			@is_admin = true if current_user.admin == true
  		   @is_coach = true if @user_params.coach == current_user.id
   	  @has_couch = true unless (@user_params.coach == false || @user_params.coach == nil)
-			@coach_hint = current_user.hints.where(:stick_id => params[:stick_id]).first || Hint.create({:user_id => current_user.id, :stick_id => params[:stick_id]})
+			#@coach_hint = current_user.hints.where(:stick_id => params[:stick_id]).first || Hint.create({:user_id => current_user.id, :stick_id => params[:stick_id]})
 			@statistic = @user_params.statistics.where(:stick_id => params[:stick_id]).first
+			@failed_strokes = @user_params.failed_strokes.where(:statistic_id => @statistic.id)
 			@stick = Stick.find(params[:stick_id])
 			respond_to :js
 		end
@@ -153,7 +154,7 @@ class StatisticController < ApplicationController
 
 	def by_fields
 		@user_params = User.find(params[:user_id])
-		@user_params_fields_limited = SingleFieldStatistic.where(:user_id => params[:user_id]).limit(100)
+		@user_params_fields_limited = SingleFieldStatistic.where(:user_id => params[:user_id]).order("updated_at desc").limit(100)
 	end
   
 end

@@ -2,6 +2,7 @@ class Statistic < ActiveRecord::Base
   belongs_to   :user
   has_many    :hits
   has_many    :fields
+	has_many			:failed_strokes
   belongs_to  :hole
   scope :game, :joins => {:game => :hit}
   scope :stick, :joins => {:stick => :user_stick}
@@ -129,14 +130,38 @@ class Statistic < ActiveRecord::Base
 		end
     return distance_ratio
   end
-  
+ 
+	def self.check_for_failed_strokes(hit, failed_strokes)
+		if hit.mistake == 2 && hit.hit_was == 3 && hit.misdirection == 2
+			failed_strokes[:ok_strokes] += 1
+		else
+			failed_strokes[:top_strokes] += 1 if hit.hit_was == 4 && hit.hit_was == 2
+			failed_strokes[:under_strokes] += 1 if hit.hit_was == 1
+			failed_strokes[:right_strokes] += 1 if hit.misdirection == 3
+			failed_strokes[:more_right_strokes] += 1 if hit.misdirection == 4
+			failed_strokes[:left_strokes] += 1 if hit.misdirection == 1
+			failed_strokes[:more_left_strokes] += 1 if hit.misdirection == 0
+			failed_strokes[:long_strokes] += 1 if hit.mistake == 3
+			failed_strokes[:short_strokes] += 1 if hit.mistake == 1
+			failed_strokes[:penalty_strokes] += 1 if hit.real_hit == 'penalty_r'
+		end			
+		failed_strokes[:total_strokes] += 1
+		return failed_strokes
+	end
+
+
+
+ 
   def self.main_statistics
 
     @return = false
-    User.where(:is_super_admin => false).includes("statistics").includes("sticks").includes("hits").each do |c_user|
-			StandardStatistic.calculate_user_stats(c_user.id)
+    User.where(:is_super_admin => false).includes("statistics").includes("sticks").includes("hits").includes("failed_strokes").includes("all_stick_statistics").each do |c_user|
+			
 			c_user.users_sticks.each do |user_stick|
-			statistic = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, user_stick.stick_id)
+			statistic = c_user.statistics.detect {|s| s.user_id == c_user.id && s.stick_id == user_stick.stick_id}
+			if statistic == nil
+				statistic = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, user_stick.stick_id)
+			end
 			if statistic.calculated == false || statistic.calculated == nil
 				#these variables have to be defined somewhere, hence the mess                       
 									@statistic_place_teebox = 0
@@ -166,7 +191,7 @@ class Statistic < ActiveRecord::Base
                   @statistic_stance_right_leg_lower = 0
 									@statistic_stance_right_leg_lower_count = 1               
                   @statistic_stance_left_leg_lower = 0
-									@statistic_stance_right_leg_lower_count = 1                   
+									@statistic_stance_left_leg_lower_count = 1                   
                   @statistic_stance_ball_lower = 0
 									@statistic_stance_ball_lower_count = 1             
                   @statistic_stance_ball_higher = 0
@@ -238,13 +263,14 @@ class Statistic < ActiveRecord::Base
             # ==========================================
             for place_from_num in 1..11 do
            
-          
+          		failed_strokes = {:top_strokes => 0, :under_strokes => 0, :long_strokes => 0, :left_strokes => 0, :more_left_strokes => 0, :right_strokes => 0, :more_right_strokes => 0, :ok_strokes => 0, :total_strokes => 0, :short_strokes => 0, :penalty_strokes => 0}
+
               @result_arr = []
-        
               @all_pairs.each do |each_pair|
                 if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick_id 
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
 
@@ -253,56 +279,67 @@ class Statistic < ActiveRecord::Base
                 if @result_arr.size != 0                  
 									@statistic_place_teebox += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_teebox_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_teebox')
                 end
               when 3
                 if @result_arr.size != 0
                   @statistic_place_feairway += @result_arr.inject(0.0) { |sum, el| sum + el }
-									 @statistic_place_feairway_count += @result_arr.size               
+									 @statistic_place_feairway_count += @result_arr.size 
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_feairway')              
 								end
               when 4
                 if @result_arr.size != 0
                   @statistic_place_next_fairway += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_next_fairway_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_next_fairway')   
                 end
               when 5
                 if @result_arr.size != 0
                   @statistic_place_semi_raf += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_semi_raf_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_semi_raf')   
                 end
               when 6
                 if @result_arr.size != 0
                   @statistic_place_raf += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_raf_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_raf')   
                 end
               when 7
                 if @result_arr.size != 0
                   @statistic_place_for_green += @result_arr.inject(0.0) { |sum, el| sum + el } 
 									@statistic_place_for_green_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_for_green')   
                 end
               when 1
                 if @result_arr.size != 0
                   @statistic_place_green += @result_arr.inject(0.0) { |sum, el| sum + el } 
 									@statistic_place_green_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_green')   
                 end
               when 8
                 if @result_arr.size != 0
                   @statistic_place_fairway_sand += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_fairway_sand_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_fairway_sand')   
                 end
               when 9
                 if @result_arr.size != 0
                   @statistic_place_green_sand += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_green_sand_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_green_sand')   
                 end
               when 10
                 if @result_arr.size != 0
                   @statistic_place_wood += @result_arr.inject(0.0) { |sum, el| sum + el } 
-									@statistic_place_wood_count += @result_arr.size			
+									@statistic_place_wood_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_wood')   			
                 end
               when 11
                 if @result_arr.size != 0
                   @statistic_place_from_water += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_place_from_water_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'place_from_water')   
                 end
               end
             end
@@ -313,6 +350,7 @@ class Statistic < ActiveRecord::Base
             # ==========================================
             for stance_num in 1..5 do
               
+							failed_strokes = {:top_strokes => 0, :under_strokes => 0, :long_strokes => 0, :left_strokes => 0, :more_left_strokes => 0, :right_strokes => 0, :more_right_strokes => 0, :ok_strokes => 0, :total_strokes => 0, :short_strokes => 0, :penalty_strokes => 0}
           
               @result_arr = []
         
@@ -320,6 +358,7 @@ class Statistic < ActiveRecord::Base
                 if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick_id 
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
 
@@ -328,26 +367,31 @@ class Statistic < ActiveRecord::Base
                 if @result_arr.size != 0
                   @statistic_stance_normal += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_stance_normal_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'stance_normal')
                 end
               when 2
                 if @result_arr.size != 0
                   @statistic_stance_right_leg_lower += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_stance_right_leg_lower_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'stance_right_leg_lower')
                 end
               when 3
                 if @result_arr.size != 0
                   @statistic_stance_left_leg_lower += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_stance_right_leg_lower_count += @result_arr.size
+									@statistic_stance_left_leg_lower_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'stance_left_leg_lower')
                 end
               when 4
                 if @result_arr.size != 0
                   @statistic_stance_ball_lower += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_stance_ball_lower_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'stance_ball_lower')
                 end
               when 5
                 if @result_arr.size != 0
                   @statistic_stance_ball_higher += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_stance_ball_higher_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'stance_ball_higher')
                 end
               end
             end
@@ -360,13 +404,15 @@ class Statistic < ActiveRecord::Base
             # ==========================================
             for temperature_num in 1..3 do
               
-          
+	          failed_strokes = {:top_strokes => 0, :under_strokes => 0, :long_strokes => 0, :left_strokes => 0, :more_left_strokes => 0, :right_strokes => 0, :more_right_strokes => 0, :ok_strokes => 0, :total_strokes => 0, :short_strokes => 0, :penalty_strokes => 0}
+
               @result_arr = []
         
               @all_pairs.each do |each_pair|
                 if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick_id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
 
@@ -375,16 +421,19 @@ class Statistic < ActiveRecord::Base
                 if @result_arr.size != 0
                   @statistic_temperature_hot += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_temperature_hot_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'temperature_hot')
                 end
               when 2
                 if @result_arr.size != 0
                   @statistic_temperature_normal += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_temperature_normal_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'temperature_normal')
                 end
               when 3
                 if @result_arr.size != 0
                   @statistic_temperature_cold += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_temperature_cold_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'temperature_cold')
                 end
               end
             end
@@ -395,6 +444,7 @@ class Statistic < ActiveRecord::Base
             # ==========================================
             for weather_num in 1..4 do
               
+						failed_strokes = {:top_strokes => 0, :under_strokes => 0, :long_strokes => 0, :left_strokes => 0, :more_left_strokes => 0, :right_strokes => 0, :more_right_strokes => 0, :ok_strokes => 0, :total_strokes => 0, :short_strokes => 0, :penalty_strokes => 0}
           
               @result_arr = []
         
@@ -402,6 +452,7 @@ class Statistic < ActiveRecord::Base
                 if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick_id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
 
@@ -410,21 +461,25 @@ class Statistic < ActiveRecord::Base
                 if @result_arr.size != 0
                   @statistic_weather_normal += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_weather_normal_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'weather_normal')
                 end
               when 2
                 if @result_arr.size != 0
                   @statistic_weather_wind += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_weather_wind_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'weather_wind')
                 end
               when 3
                 if @result_arr.size != 0
                   @statistic_weather_rain += @result_arr.inject(0.0) { |sum, el| sum + el } 
 									@statistic_weather_rain_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'weather_rain')
                 end
               when 4
                 if @result_arr.size != 0
                   @statistic_weather_wind_and_rain += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_weather_wind_and_rain_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'weather_wind_and_rain')
                 end
               end
             end
@@ -434,6 +489,7 @@ class Statistic < ActiveRecord::Base
             # ==========================================
             for trajectory_num in 1..10 do
               
+							failed_strokes = {:top_strokes => 0, :under_strokes => 0, :long_strokes => 0, :left_strokes => 0, :more_left_strokes => 0, :right_strokes => 0, :more_right_strokes => 0, :ok_strokes => 0, :total_strokes => 0, :short_strokes => 0, :penalty_strokes => 0}
           
               @result_arr = []
         
@@ -441,6 +497,7 @@ class Statistic < ActiveRecord::Base
                 if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick_id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
 
@@ -449,72 +506,86 @@ class Statistic < ActiveRecord::Base
                 unless @result_arr.size == 0
                   @statistic_trajectory_normal += @result_arr.inject(0.0) { |sum, el| sum + el } unless false
 									@statistic_trajectory_normal_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'trajectory_normal')
                 end
               when 10
                 if @result_arr.size != 0
                   @statistic_trajectory_high += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_trajectory_high_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'trajectory_high')
                 end
               when 9
                 if @result_arr.size != 0
                   @statistic_trajectory_low += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_trajectory_low_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'trajectory_low')
                 end
               when 3
                 if @result_arr.size != 0
                   @statistic_trajectory_drow += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_trajectory_drow_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'trajectory_drow')
                 end
               when 1
                 if @result_arr.size != 0
                   @statistic_trajectory_hook += @result_arr.inject(0.0) { |sum, el| sum + el } 
 									@statistic_trajectory_hook_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'trajectory_hook')
                 end
               when 4
                 if @result_arr.size != 0
                   @statistic_trajectory_fade += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_trajectory_fade_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'trajectory_fade')
                 end
               when 2
                 if @result_arr.size != 0
                   @statistic_trajectory_slice += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_trajectory_slice_count += @result_arr.size 
+									@statistic_trajectory_slice_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'trajectory_slice') 
                 end
 							when 12
                 if @result_arr.size != 0
                   @statistic_green_trajectory_upward_right += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_trajectory_upward_right_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_trajectory_upward_right')
                 end
               when 13
                 if @result_arr.size != 0
                   @statistic_green_trajectory_downward_right += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_trajectory_downward_right_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_trajectory_downward_right')
                 end
               when 14
                 if @result_arr.size != 0
                   @statistic_green_trajectory_upward_left += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_trajectory_upward_left_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_trajectory_upward_left')
                 end
               when 15
                 if @result_arr.size != 0
                   @statistic_green_trajectory_downward_left += @result_arr.inject(0.0) { |sum, el| sum + el } 
 									@statistic_green_trajectory_downward_left_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_trajectory_downward_left')
                 end
               when 16
                 if @result_arr.size != 0
                   @statistic_green_trajectory_upward_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
-									@statistic_green_trajectory_upwrads_straight_count += @result_arr.size
+									@statistic_green_trajectory_upward_straight_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_trajectory_upward_straight')
                 end
 
 							when 17
                 if @result_arr.size != 0
                   @statistic_green_trajectory_downward_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_trajectory_downward_straight_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_trajectory_downward_straight')
                 end
 							when 18
                 if @result_arr.size != 0
                   @statistic_green_trajectory_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_trajectory_straight_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_trajectory_straight')
                 end
   
 
@@ -529,6 +600,7 @@ class Statistic < ActiveRecord::Base
             # ==========================================
             for direction_num in 1..12 do
               
+							failed_strokes = {:top_strokes => 0, :under_strokes => 0, :long_strokes => 0, :left_strokes => 0, :more_left_strokes => 0, :right_strokes => 0, :more_right_strokes => 0, :ok_strokes => 0, :total_strokes => 0, :short_strokes => 0, :penalty_strokes => 0}
 
               @result_arr = []
 
@@ -539,6 +611,7 @@ class Statistic < ActiveRecord::Base
 
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
               case direction_num
@@ -546,51 +619,47 @@ class Statistic < ActiveRecord::Base
                 if @result_arr.size != 0
                   @statistic_green_direction_upward_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_direction_upward_straight_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_direction_upward_straight')
                 end
               when 2
                 if @result_arr.size != 0
                   @statistic_green_direction_upward_right += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_direction_upward_right_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_direction_upward_right')
                 end
               when 4
                 if @result_arr.size != 0
                   @statistic_green_direction_upward_left += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_direction_upward_left_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_direction_upward_left')
                 end
               when 3
                 if @result_arr.size != 0
                   @statistic_green_direction_downward_right += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_direction_downward_right_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_direction_downward_right')
                 end
               when 5
                 if @result_arr.size != 0
                   @statistic_green_direction_downward_left += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_direction_downward_left_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_direction_downward_left')
                 end
               when 7
                 if @result_arr.size != 0
                   @statistic_green_direction_downward_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
 									@statistic_green_direction_downward_straight_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_direction_downward_straight')
                 end
               when 1
                 if @result_arr.size != 0
                   @statistic_green_direction_straight += @result_arr.inject(0.0) { |sum, el| sum + el }
 									 @statistic_green_direction_straight_count += @result_arr.size
+									FailedStroke.calculate_and_update(c_user.id, c_user.failed_strokes, statistic.stick_id, statistic.id, failed_strokes, 'green_direction_straight')
                 end
               end
             end
-            # ==========================================
 
-
-
-           
-
-
-
-
-           # @return = true if statistic.save
-           # end game
-         # ends field
 
 				#calculating average statistics per situation
 				statistic.green_direction_downward_right = calculate_avg(@statistic_green_direction_downward_right, @statistic_green_direction_downward_right_count)
@@ -648,6 +717,7 @@ statistic.green_trajectory_downward_right = calculate_avg(@statistic_green_traje
 				statistic.save!
 				Statistic.user_progres(statistic)			
 				SingleFieldStatistic.calculate_stats(c_user)
+				StandardStatistic.calculate_user_stats(c_user.id)
 			 end
 				Statistic.all_stick_statistics(statistic, c_user)	
       end # end stick
@@ -781,29 +851,36 @@ end
   
   
   def self.all_stick_statistics(statistic, user)
-        @AllStickStatistics = AllStickStatistic.find_or_create_by_user_id_and_stick_id(user.id, statistic.stick_id)
-        	@all_c_hits = user.hits.where(:stick_id => statistic.stick_id, :real_hit => ['rp', 'penalty_r'])
-    	    @AllStickStatistics.avg_distance = @all_c_hits.average("hit_distance")
-					@all_hits = user.hits
+        @AllStickStatistics = user.all_stick_statistics.detect {|a| a.user_id == user.id && a.stick_id == statistic.stick_id}
+				if @AllStickStatistics == nil
+					@AllStickStatistics = AllStickStatistic.create(:user_id => user.id, :stick_id => statistic.stick_id)
+				end
+        	@all_c_hits = user.hits.select {|h| h.stick_id == statistic.stick_id && (h.real_hit == 'rp' || h.real_hit ==  'penalty_r')}
+					@all_penalties = user.hits.select {|h| h.stick_id == statistic.stick_id &&  h.real_hit ==  'penalty_r'}
+    	    @AllStickStatistics.avg_distance = user.hits.where(:stick_id => statistic.stick_id, :real_hit => 'rp').average("hit_distance")
+					@all_hits = user.hits.select { |h| h.real_hit == 'rp' || h.real_hit == 'penalty_r'}
     			unless @all_hits.count == 0 || @all_c_hits.count == 0
        	 	  @AllStickStatistics.usage = (((@all_c_hits.count).to_f / (@all_hits.count).to_f).to_f * 100).round
-       	 	end
-
-        	result_arr = []					
-					final_val = 0
-					final_count = 0
-        	statistic.attributes.each_pair do |name, value|
-						if value.class.to_s == "Fixnum"
-							if name.to_sym != :id || name.to_sym != :game_id || name.to_sym != :field_id || name.to_sym != :user_id || name.to_s != "stick_id" 
-								final_val += value.to_i
-								final_count += 1
-							end
-        	  end
-       	 	end
+						if @all_penalties != nil
+							@AllStickStatistics.penalties = (((@all_penalties.count).to_f / (@all_hits.count).to_f).to_f * 100).round
+						end       	 	
+					end
+					stat_arr = [statistic.green_direction_downward_right, statistic.green_direction_upward_right, 		statistic.green_direction_downward_straight, statistic.green_direction_downward_left,  statistic.green_direction_upward_left, statistic.green_direction_upward_straight, 			statistic.green_direction_straight, statistic.trajectory_slice, statistic.trajectory_drow, 			statistic.trajectory_hook, statistic.trajectory_normal, statistic.trajectory_high, statistic.trajectory_low, 	statistic.trajectory_fade, statistic.green_trajectory_straight, statistic.green_trajectory_upward_straight, 
+statistic.green_trajectory_upward_left, statistic.green_trajectory_upward_right, statistic.green_trajectory_downward_straight, statistic.green_trajectory_downward_left, statistic.green_trajectory_downward_right, statistic.weather_wind_and_rain, statistic.weather_wind,		statistic.weather_rain, statistic.weather_normal, statistic.temperature_cold, statistic.temperature_normal, 		statistic.temperature_hot, statistic.stance_ball_higher, statistic.stance_ball_lower, 	statistic.stance_left_leg_lower, statistic.stance_right_leg_lower, statistic.stance_normal, statistic.place_teebox, statistic.place_feairway,   statistic.place_next_fairway, statistic.place_semi_raf, statistic.place_raf, statistic.place_for_green,   statistic.place_green, statistic.place_fairway_sand, statistic.place_from_water] 
+					total_count = 0
+					result_sum = 0
+        	stat_arr.each do |arr|
+						if arr != nil && arr != 0
+							total_count += 1
+							result_sum += arr
+						end
+					end
        	 
           @AllStickStatistics.stick_progres = 0
-        	  @AllStickStatistics.stick_progres = calculate_avg(final_val, final_count)
- 
+						if total_count != 0
+        	  	@AllStickStatistics.stick_progres = calculate_avg(result_sum, total_count)
+ 						end
+					
 
       	 @AllStickStatistics.save!
     return @return

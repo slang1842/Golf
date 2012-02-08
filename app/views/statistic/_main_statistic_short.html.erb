@@ -31,35 +31,13 @@ $(document).ready(function() {
     </div>
     <% hint_type = "place_teebox_hint" %>         
     <% stat_type = "place_teebox" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -73,9 +51,40 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
           
     <div class="clear"></div>
@@ -90,35 +99,13 @@ $(document).ready(function() {
     </div>
     <% hint_type = "place_feairway_hint"%>
     <% stat_type = "place_feairway" %>  
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -132,11 +119,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
-</div>        
-      
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
+</div>
+          
     <div class="clear"></div>
     <!-- ========================================= place_feairway ========================================= -->
 
@@ -149,35 +167,13 @@ $(document).ready(function() {
     </div>
      <% hint_type = "place_next_fairway_hint"%>
     <% stat_type = "place_next_fairway" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -191,10 +187,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= place_next_fairway ========================================= -->
 
@@ -207,35 +235,13 @@ $(document).ready(function() {
     </div>
    	 <% hint_type = "place_semi_raf_hint"%>
     <% stat_type = "place_semi_raf" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -249,10 +255,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= place_semi_raf ========================================= -->
 
@@ -266,35 +304,13 @@ $(document).ready(function() {
     </div>
      <% hint_type = "place_raf_hint"%>
     <% stat_type = "place_raf" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -308,10 +324,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= place_raf ========================================= -->
 
@@ -325,35 +373,13 @@ $(document).ready(function() {
     </div>
    	 <% hint_type = "place_for_green_hint"%>
     <% stat_type = "place_for_green" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -367,10 +393,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= place_for_green ========================================= -->
 
@@ -386,35 +444,13 @@ $(document).ready(function() {
     </div>
      <% hint_type = "place_green_hint"%>
     <% stat_type = "place_green" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -428,10 +464,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= place_green ========================================= -->
 
@@ -447,35 +515,13 @@ $(document).ready(function() {
     </div>
     <% hint_type = "place_fairway_sand_hint"%>
     <% stat_type = "place_fairway_sand" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -489,10 +535,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= place_fairway_sand ========================================= -->
 
@@ -510,35 +588,13 @@ $(document).ready(function() {
     </div>
    	 <% hint_type = "place_green_sand_hint"%>
     <% stat_type = "place_green_sand" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -552,10 +608,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= place_green_sand ========================================= -->
 
@@ -568,35 +656,13 @@ $(document).ready(function() {
     </div>
      <% hint_type = "place_wood_hint"%>
     <% stat_type = "place_wood" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -610,10 +676,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= place_wood ========================================= -->
 
@@ -627,35 +725,13 @@ $(document).ready(function() {
     </div>
    	 <% hint_type = "place_from_water_hint"%>
     <% stat_type = "place_from_water" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -669,10 +745,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= place_from_water ========================================= -->
 
@@ -717,35 +825,13 @@ $(document).ready(function() {
     </div>
      <% hint_type = "stance_normal_hint"%>
     <% stat_type = "stance_normal" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -759,10 +845,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= stance_normal ========================================= -->
 
@@ -777,35 +895,13 @@ $(document).ready(function() {
     </div>
     <% hint_type = "stance_right_leg_lower_hint"%>
     <% stat_type = "stance_right_leg_lower" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -819,10 +915,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= stance_right_leg_lower ========================================= -->
 
@@ -837,35 +965,13 @@ $(document).ready(function() {
     </div>
     <% hint_type = "stance_left_leg_lower_hint"%>
     <% stat_type = "stance_left_leg_lower" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -879,10 +985,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= stance_left_leg_lower ========================================= -->
 
@@ -894,35 +1032,13 @@ $(document).ready(function() {
     </div>
    <% hint_type = "stance_ball_lower_hint"%>
     <% stat_type = "stance_ball_lower" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -936,10 +1052,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
+          
     <div class="clear"></div>
     <!-- ========================================= stance_ball_lower ========================================= -->
 
@@ -952,35 +1100,13 @@ $(document).ready(function() {
     </div>
     <% hint_type = "stance_ball_higher_hint"%>
     <% stat_type = "stance_ball_higher" %>
-<div class="progress_block">
+		<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -994,11 +1120,42 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-</div>
+          
     <div class="clear"></div>
     <!-- ========================================= stance_ball_higher ========================================= -->
 
@@ -1011,6 +1168,7 @@ $(document).ready(function() {
   </div>
   <div class="clear"></div>
   <div class="bottom_line"></div>
+</div>
   <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- stance =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 
 
@@ -1039,35 +1197,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "trajectory_normal_hint"%>
    		 <% stat_type = "trajectory_normal" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1081,11 +1217,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= trajectory_normal ========================================= -->
 
 
@@ -1096,35 +1264,13 @@ $(document).ready(function() {
       </div>
        <% hint_type = "trajectory_high_hint"%>
    		 <% stat_type = "trajectory_high" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1138,11 +1284,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= trajectory_high ========================================= -->
 
 
@@ -1153,35 +1331,13 @@ $(document).ready(function() {
       </div>
        <% hint_type = "trajectory_low_hint"%>
    		 <% stat_type = "trajectory_low" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1195,11 +1351,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= trajectory_low ========================================= -->
 
 
@@ -1215,35 +1403,13 @@ $(document).ready(function() {
       </div>
        <% hint_type = "trajectory_fade_hint"%>
    		 <% stat_type = "trajectory_fade" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1257,11 +1423,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= direction_fade ========================================= -->
 
 
@@ -1276,35 +1474,13 @@ $(document).ready(function() {
       </div>
        <% hint_type = "trajectory_drow_hint"%>
    		 <% stat_type = "trajectory_drow" %>
-<div class="progress_block">
+				<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1318,11 +1494,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= direction_drow ========================================= -->
 
 
@@ -1336,35 +1544,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "trajectory_slice_hint"%>
    		 <% stat_type = "trajectory_slice" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1378,11 +1564,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= direction_slice ========================================= -->
 
 
@@ -1396,35 +1614,13 @@ $(document).ready(function() {
       </div>
        <% hint_type = "trajectory_hook_hint"%>
    		 <% stat_type = "trajectory_hook" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1438,11 +1634,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= direction_hook ========================================= -->
 
 
@@ -1483,35 +1711,13 @@ $(document).ready(function() {
       </div>
        <% hint_type = "green_trajectory_straight_hint"%>
    		 <% stat_type = "green_trajectory_straight" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1525,11 +1731,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= green_trajectory_straight ========================================= -->
 
 
@@ -1540,35 +1778,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "green_trajectory_upward_right_hint"%>
    		 <% stat_type = "green_trajectory_upward_right" %>
-     <div class="progress_block">
+     	<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1582,11 +1798,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= green_trajectory_upward_right ========================================= -->
 
 
@@ -1597,35 +1845,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "green_trajectory_upward_left_hint"%>
    		 <% stat_type = "green_trajectory_upward_left" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1639,11 +1865,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= green_trajectory_upward_left ========================================= -->
 
 
@@ -1659,35 +1917,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "green_trajectory_downward_left_hint"%>
    		 <% stat_type = "green_trajectory_downward_left" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1701,11 +1937,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= direction_downward_left ========================================= -->
 
 
@@ -1720,35 +1988,13 @@ $(document).ready(function() {
       </div>
     	<% hint_type = "green_trajectory_downward_right_hint"%>
    		 <% stat_type = "green_trajectory_downward_right" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1762,11 +2008,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= direction_downward_right ========================================= -->
 
 
@@ -1780,35 +2058,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "green_trajectory_downward_straight_hint"%>
    		 <% stat_type = "green_trajectory_downward_straight" %>
-<div class="progress_block">
+				<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1822,11 +2078,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= direction_downward_straight ========================================= -->
 
 
@@ -1840,35 +2128,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "green_trajectory_upward_straight_hint"%>
    		 <% stat_type = "green_trajectory_upward_straight" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1882,11 +2148,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= direction_upward_straight ========================================= -->
 
 
@@ -1934,35 +2232,13 @@ $(document).ready(function() {
       </div>
      	<% hint_type = "temperature_cold_hint"%>
    		 <% stat_type = "temperature_cold" %>
-<div class="progress_block">
+				<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -1976,11 +2252,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= temperature_cold ========================================= -->
 
 
@@ -1991,35 +2299,13 @@ $(document).ready(function() {
       </div>
        	<% hint_type = "temperature_normal_hint"%>
    		 <% stat_type = "temperature_normal" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2033,12 +2319,44 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
-      <!-- ========================================= temperature_normal ========================================= -->
+          
+    <div class="clear"></div>
+      <!-- =	======================================== temperature_normal ========================================= -->
 
 
 
@@ -2048,35 +2366,13 @@ $(document).ready(function() {
       </div>
        	<% hint_type = "temperature_hot_hint"%>
    		 <% stat_type = "temperature_hot" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2090,11 +2386,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= temperature_hot ========================================= -->
 
 
@@ -2133,35 +2461,13 @@ $(document).ready(function() {
       </div>
        	<% hint_type = "weather_normal_hint"%>
    		 <% stat_type = "weather_normal" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2175,11 +2481,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= weather_normal ========================================= -->
 
 
@@ -2190,35 +2528,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "weather_wind_hint"%>
    		 <% stat_type = "weather_wind" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2232,11 +2548,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= weather_wind ========================================= -->
 
 
@@ -2246,35 +2594,13 @@ $(document).ready(function() {
       </div>
      <% hint_type = "weather_rain_hint"%>
    		 <% stat_type = "weather_rain" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2288,11 +2614,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= weather_rain ========================================= -->
 
 
@@ -2303,35 +2661,13 @@ $(document).ready(function() {
       </div>
      	<% hint_type = "weather_wind_and_rain_hint"%>
    		 <% stat_type = "weather_wind_and_rain" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2345,11 +2681,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= weather_wind_and_rain ========================================= -->
 
 
@@ -2415,35 +2783,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "green_direction_straight_hint"%>
    		 <% stat_type = "green_direction_straight" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2457,11 +2803,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= green_direction_straight ========================================= -->
 
 
@@ -2474,35 +2852,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "green_direction_upward_right_hint"%>
    		 <% stat_type = "green_direction_upward_right" %>
-	<div class="progress_block">
+				<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2516,11 +2872,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= green_direction_upward_right ========================================= -->
 
 
@@ -2531,35 +2919,13 @@ $(document).ready(function() {
       </div>
        <% hint_type = "green_direction_upward_left_hint"%>
    		 <% stat_type = "green_direction_upward_left" %>
-			<div class="progress_block">
+						<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2573,11 +2939,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= green_direction_upward_left ========================================= -->
 
 
@@ -2589,35 +2987,13 @@ $(document).ready(function() {
       </div>
        <% hint_type = "green_direction_downward_right_hint"%>
    		 <% stat_type = "green_direction_downward_right" %>
-<div class="progress_block">
+			<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2631,11 +3007,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= green_direction_downward_right ========================================= -->
 
 
@@ -2647,35 +3055,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "green_direction_downward_left_hint"%>
    		 <% stat_type = "green_direction_downward_left" %>
-		<div class="progress_block">
+				<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2689,11 +3075,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= green_direction_downward_left ========================================= -->
 
 
@@ -2707,35 +3125,13 @@ $(document).ready(function() {
       </div>
       <% hint_type = "green_direction_upward_straight_hint"%>
    		 <% stat_type = "green_direction_upward_straight" %>
-			<div class="progress_block">
+					<div class="progress_block">
   <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2749,11 +3145,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= green_direction_upward_straight ========================================= -->
 
 
@@ -2771,30 +3199,8 @@ $(document).ready(function() {
   <div class="triangle"></div>
     <div class="frame">
 			<% curr_stats = statistic.send(stat_type)%>
-    		<% if is_admin || is_coach %>
-      		<% if stats_owner.id != current_user.id %>
-      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
-      	  <% else %>
-         		<p>Give  hint for this situation.</p>
-        	<% end %>
-        	<div class="tip">
-         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
-						<%= f.hidden_field :user_id, :value => @user_params.id %>
-						<% if owner_hint.send(hint_type) == "" %>
-            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
-						<% else %>
-							<%= f.text_area hint_type, :class => "textarea" %>
-						<% end %>
-            <%= f.hidden_field :stick_id %>
-            <%= f.submit :class => "button_save" %>
-          <% end %>
-        </div>
-   	   	<% else %>
-        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
-       		<div class="tip">
-          	<p><%= owner_hint.send(hint_type) %></p>
-        	</div>
-      	<% end %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == stat_type && stroke.statistic_id == statistic.id}%>
+    		
     	</div>
   	</div>
  	 	<% unless curr_stats == 0 %>
@@ -2808,11 +3214,43 @@ $(document).ready(function() {
  		<% else %>
     	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
   	<% end %>
-	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
-    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
-  	<% end %> 
+	<% if failed_strokes != nil && curr_stats != 0 %> 
+	<div class="stroke_stats">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Very left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Very right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			OK : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+<% end %>
 </div>
-      <div class="clear"></div>
+          
+    <div class="clear"></div>
       <!-- ========================================= green_direction_downward_straight ========================================= -->
 
 

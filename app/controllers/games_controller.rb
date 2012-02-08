@@ -235,7 +235,7 @@ class GamesController < ApplicationController
 		 elsif params[:next_hit].to_s == 'penalty'
 				Hit.create_penalty(@game_id, params[:active_hit], @next_hole)
 				create_hit_colors(@game_id, @next_hole.to_i)
-				get_details(params[:form_id], @game_id, @next_hole, params[:active_hit].to_i + 1)
+				get_details(params[:form_id], @game_id, @next_hole, params[:active_hit].to_i)
 		 elsif params[:next_hit].to_s == 'remove_penalty'
 				Hit.remove_penalty(@game_id, params[:active_hit], @next_hole)
 				create_hit_colors(@game_id, @next_hole.to_i)
@@ -484,8 +484,8 @@ private
 			check_hole_status(@game.id, @active_hole)
 		end
 		@fetched_sticks = fetch_proper_clubs(current_user.sticks, current_user.users_sticks, @hit_p_final.stick_id)
-		@status_hole = StatusHole.where(:hole_number => @hit_p_final.hole_number, :game_id => @game_id).first
-		if @hit_p_final.hit_number == @atatus_hole.total_strokes_count then @hit_r_final.update_attributes(:land_place => 11) end
+		@status_hole = StatusHole.where(:hole_number => @hit_p_final.hole_number, :game_id => @hit_r_final.game_id).first
+		if @hit_p_final.hit_number == @status_hole.total_strokes_count then @hit_r_final.update_attributes(:land_place => 11) end
 		if @hit_r_final.real_hit.to_s == "rp"
     	render 'games/details'
 		else

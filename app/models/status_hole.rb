@@ -7,7 +7,7 @@ def self.fetch_finished_holes(user_id)
 		games = Game.where(:user_id => user_id)
 		game_id_arr = []
 		games.each {|game| game_id_arr << game.id}
-		holes = where("status_holes.game_id IN(?)", game_id_arr)
+		holes = StatusHole.where("status_holes.game_id IN(?)", game_id_arr)
 		return holes
 	end
 

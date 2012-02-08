@@ -1,3 +1,6 @@
+Total strokes : <%=status_hole.total_strokes_count%>
+Putts : <%= status_hole.putts_count%>
+
 <%game1 = game.game_type%>
 <%=form_for( game, :url => ('/hit_update/' + game.id.to_s + '/'), :html => {:id => "hit_form"}, :remote => true) do |game|%>
 

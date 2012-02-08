@@ -3,6 +3,7 @@ class Stick < ActiveRecord::Base
   has_many :sticks
   has_many :users, :through => :users_sticks
   has_many :hits
+	has_many :failed_strokes
   
   validates :stick_type, :distance, :shaft, :shaft_strength, :short_name, :presence => true
 

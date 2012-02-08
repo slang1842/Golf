@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 	has_many :hints
 	has_many :statistics
 	has_many :single_field_statistics
+	has_many :all_stick_statistics
+	has_many :failed_strokes
   accepts_nested_attributes_for :users_sticks, :allow_destroy => true
   accepts_nested_attributes_for :balls, :allow_destroy => true
   

@@ -70,6 +70,12 @@
                       <% else %>
                         N/A
                       <% end %>
+											PENALTIES:
+											<% if @stats.penalties != nil %>
+                        <%=  "#{@stats.penalties}%" %>
+                      <% else %>
+                        N/A
+                      <% end %>
                       <br />
                       AVG:
                       <% unless @stats.avg_distance == nil %>

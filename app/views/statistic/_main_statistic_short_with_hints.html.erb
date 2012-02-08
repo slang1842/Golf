@@ -1,0 +1,2840 @@
+<script type="text/javascript">
+$(document).ready(function() {
+	swapActiveStick("<%=stick.id%>"); 
+  });
+
+</script>
+
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- Place =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+<p>Currently showing statistics for <%= stick.stick_type %></p>
+<div class="clear"></div>
+<div class="situation_type" style="" >
+  <span onclick="showHideElement('#place')">
+    <div class="name_wrap">
+      <p>Place</p>
+      <img src="/images/link_right_small.png" alt=""/>
+    </div>
+    <div class="info_wrap" id="length_stats_div" style="">
+      <img src="/images/table_icon_place.png" alt=""/>
+      <div class="description">
+        <p>Place, where the hit took place</p>
+      </div>
+    </div>
+  </span>
+  <div class="single_situation" id="place" >
+
+
+ <div class="clear"></div>
+    <!-- ========================================= place_teebox ========================================= -->
+    <div class="name">
+      <p>Teebox</p>
+    </div>
+    <% hint_type = "place_teebox_hint" %>         
+    <% stat_type = "place_teebox" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+          
+    <div class="clear"></div>
+    <!-- ========================================= place_teebox ========================================= -->
+
+
+
+
+    <!-- ========================================= place_feairway ========================================= -->
+    <div class="name">
+      <p>Fairway</p>
+    </div>
+    <% hint_type = "place_feairway_hint"%>
+    <% stat_type = "place_feairway" %>  
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>        
+      
+    <div class="clear"></div>
+    <!-- ========================================= place_feairway ========================================= -->
+
+
+
+
+    <!-- ========================================= place_next_fairway ========================================= -->
+    <div class="name">
+      <p>Next Feairway</p>
+    </div>
+     <% hint_type = "place_next_fairway_hint"%>
+    <% stat_type = "place_next_fairway" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= place_next_fairway ========================================= -->
+
+
+
+
+    <!-- ========================================= place_semi_raf ========================================= -->
+    <div class="name">
+      <p>Semi Raf</p>
+    </div>
+   	 <% hint_type = "place_semi_raf_hint"%>
+    <% stat_type = "place_semi_raf" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= place_semi_raf ========================================= -->
+
+
+
+
+
+    <!-- ========================================= place_raf ========================================= -->
+    <div class="name">
+      <p>Raf</p>
+    </div>
+     <% hint_type = "place_raf_hint"%>
+    <% stat_type = "place_raf" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= place_raf ========================================= -->
+
+
+
+
+
+    <!-- ========================================= place_for_green ========================================= -->
+    <div class="name">
+      <p>For Green</p>
+    </div>
+   	 <% hint_type = "place_for_green_hint"%>
+    <% stat_type = "place_for_green" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= place_for_green ========================================= -->
+
+
+
+
+
+
+
+    <!-- ========================================= place_green ========================================= -->
+    <div class="name">
+      <p>Green</p>
+    </div>
+     <% hint_type = "place_green_hint"%>
+    <% stat_type = "place_green" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= place_green ========================================= -->
+
+
+
+
+
+
+
+    <!-- ========================================= place_fairway_sand ========================================= -->
+    <div class="name">
+      <p>Fairway Sand</p>
+    </div>
+    <% hint_type = "place_fairway_sand_hint"%>
+    <% stat_type = "place_fairway_sand" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= place_fairway_sand ========================================= -->
+
+
+
+
+
+
+
+
+
+    <!-- ========================================= place_green_sand ========================================= -->
+    <div class="name">
+      <p>Green Sand</p>
+    </div>
+   	 <% hint_type = "place_green_sand_hint"%>
+    <% stat_type = "place_green_sand" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= place_green_sand ========================================= -->
+
+
+
+
+    <!-- ========================================= place_wood ========================================= -->
+    <div class="name">
+      <p>Wood</p>
+    </div>
+     <% hint_type = "place_wood_hint"%>
+    <% stat_type = "place_wood" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= place_wood ========================================= -->
+
+
+
+
+
+    <!-- ========================================= place_from_water ========================================= -->
+    <div class="name">
+      <p>From Water</p>
+    </div>
+   	 <% hint_type = "place_from_water_hint"%>
+    <% stat_type = "place_from_water" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= place_from_water ========================================= -->
+
+
+
+
+  </div>
+  <div class="clear"></div>
+  <div class="bottom_line"></div>
+</div>
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- place =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
+
+
+
+
+
+
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- stance =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+<div class="clear"></div>
+<div class="situation_type" style="">
+  <span onclick="showHideElement('#stance')">
+    <div class="name_wrap">
+      <p>Stance</p>
+      <img src="/images/link_right_small.png" alt=""/>
+    </div>
+    <div class="info_wrap"  style="">
+      <img src="/images/table_icon_stance.png" alt=""/>
+      <div class="description">
+        <p>Stance in wich the stroke was made</p>
+      </div>
+    </div>
+  </span>
+  <div class="single_situation" id="stance" >
+
+
+<div class="clear"></div>
+    <!-- ========================================= stance_normal ========================================= -->
+    <div class="name">
+      <p>Normal</p>
+    </div>
+     <% hint_type = "stance_normal_hint"%>
+    <% stat_type = "stance_normal" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= stance_normal ========================================= -->
+
+
+
+
+
+
+    <!-- ========================================= stance_right_leg_lower ========================================= -->
+    <div class="name">
+      <p>Right Leg Lower</p>
+    </div>
+    <% hint_type = "stance_right_leg_lower_hint"%>
+    <% stat_type = "stance_right_leg_lower" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= stance_right_leg_lower ========================================= -->
+
+
+
+
+
+
+    <!-- ========================================= stance_left_leg_lower ========================================= -->
+    <div class="name">
+      <p>Left Leg Lower</p>
+    </div>
+    <% hint_type = "stance_left_leg_lower_hint"%>
+    <% stat_type = "stance_left_leg_lower" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= stance_left_leg_lower ========================================= -->
+
+
+
+    <!-- ========================================= stance_ball_lower ========================================= -->
+    <div class="name">
+      <p>Ball Lower</p>
+    </div>
+   <% hint_type = "stance_ball_lower_hint"%>
+    <% stat_type = "stance_ball_lower" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= stance_ball_lower ========================================= -->
+
+
+
+
+    <!-- ========================================= stance_ball_higher ========================================= -->
+    <div class="name">
+      <p>Ball Higher</p>
+    </div>
+    <% hint_type = "stance_ball_higher_hint"%>
+    <% stat_type = "stance_ball_higher" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+</div>
+    <div class="clear"></div>
+    <!-- ========================================= stance_ball_higher ========================================= -->
+
+
+
+
+
+
+
+  </div>
+  <div class="clear"></div>
+  <div class="bottom_line"></div>
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- stance =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
+
+	 <div class="clear"></div>
+  <div class="situation_type" style="">
+    <span onclick="showHideElement('#trajectory')">
+      <div class="name_wrap">
+        <p>Trajectory</p>
+        <img src="/images/link_right_small.png" alt=""/>
+      </div>
+      <div class="info_wrap"  style="">
+        <img src="/images/table_icon_trajectory.png" alt=""/>
+        <div class="description">
+          <p>Trajectory of the ball</p>
+        </div>
+      </div>
+    </span>
+    <div class="single_situation" id="trajectory" >
+
+
+<div class="clear"></div>
+      <!-- ========================================= trajectory_normal ========================================= -->
+      <div class="name">
+        <p>Normal</p>
+      </div>
+      <% hint_type = "trajectory_normal_hint"%>
+   		 <% stat_type = "trajectory_normal" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= trajectory_normal ========================================= -->
+
+
+
+      <!-- ========================================= trajectory_high ========================================= -->
+      <div class="name">
+        <p>High</p>
+      </div>
+       <% hint_type = "trajectory_high_hint"%>
+   		 <% stat_type = "trajectory_high" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= trajectory_high ========================================= -->
+
+
+
+      <!-- ========================================= trajectory_low ========================================= -->
+      <div class="name">
+        <p>Low</p>
+      </div>
+       <% hint_type = "trajectory_low_hint"%>
+   		 <% stat_type = "trajectory_low" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= trajectory_low ========================================= -->
+
+
+
+
+
+
+
+
+      <!-- ========================================= trajectory_fade ========================================= -->
+      <div class="name">
+        <p>Fade</p>
+      </div>
+       <% hint_type = "trajectory_fade_hint"%>
+   		 <% stat_type = "trajectory_fade" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= direction_fade ========================================= -->
+
+
+
+
+
+
+
+      <!-- ========================================= trajectory_drow ========================================= -->
+      <div class="name">
+        <p>Drow</p>
+      </div>
+       <% hint_type = "trajectory_drow_hint"%>
+   		 <% stat_type = "trajectory_drow" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= direction_drow ========================================= -->
+
+
+
+
+
+
+      <!-- ========================================= trajectory_slice ========================================= -->
+      <div class="name">
+        <p>Slice</p>
+      </div>
+      <% hint_type = "trajectory_slice_hint"%>
+   		 <% stat_type = "trajectory_slice" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= direction_slice ========================================= -->
+
+
+
+
+
+
+      <!-- ========================================= trajectory_hook ========================================= -->
+      <div class="name">
+        <p>Hook</p>
+      </div>
+       <% hint_type = "trajectory_hook_hint"%>
+   		 <% stat_type = "trajectory_hook" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= direction_hook ========================================= -->
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="clear"></div>
+    <div class="bottom_line"></div>
+  </div>
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- direction/trajectory =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+ <div class="clear"></div>
+  <div class="situation_type" style="">
+    <span onclick="showHideElement('#green_trajectory')">
+      <div class="name_wrap">
+        <p>Green traj.</p>
+        <img src="/images/link_right_small.png" alt=""/>
+      </div>
+      <div class="info_wrap"  style="">
+        <img src="/images/table_icon_green_direction.png" alt=""/>
+        <div class="description">
+          <p>Green trajectory of the ball</p>
+        </div>
+      </div>
+    </span>
+    <div class="single_situation" id="green_trajectory" >
+
+
+<div class="clear"></div>
+      <!-- ========================================= green_trajectory_straight ========================================= -->
+      <div class="name">
+        <p>Straight</p>
+      </div>
+       <% hint_type = "green_trajectory_straight_hint"%>
+   		 <% stat_type = "green_trajectory_straight" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= green_trajectory_straight ========================================= -->
+
+
+
+      <!-- ========================================= green_trajectory_upward_right ========================================= -->
+      <div class="name">
+        <p>Upwards right</p>
+      </div>
+      <% hint_type = "green_trajectory_upward_right_hint"%>
+   		 <% stat_type = "green_trajectory_upward_right" %>
+     <div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= green_trajectory_upward_right ========================================= -->
+
+
+
+      <!-- ========================================= green_trajectory_upward_left ========================================= -->
+      <div class="name">
+        <p>Upwards left</p>
+      </div>
+      <% hint_type = "green_trajectory_upward_left_hint"%>
+   		 <% stat_type = "green_trajectory_upward_left" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= green_trajectory_upward_left ========================================= -->
+
+
+
+
+
+
+
+
+      <!-- ========================================= green_trajectory_downward_left ========================================= -->
+      <div class="name">
+        <p>Downwards left</p>
+      </div>
+      <% hint_type = "green_trajectory_downward_left_hint"%>
+   		 <% stat_type = "green_trajectory_downward_left" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= direction_downward_left ========================================= -->
+
+
+
+
+
+
+
+      <!-- ========================================= green_trajectory_downward_right ========================================= -->
+      <div class="name">
+        <p>Downwards right</p>
+      </div>
+    	<% hint_type = "green_trajectory_downward_right_hint"%>
+   		 <% stat_type = "green_trajectory_downward_right" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= direction_downward_right ========================================= -->
+
+
+
+
+
+
+      <!-- ========================================= green_trajectory_downward_straight ========================================= -->
+      <div class="name">
+        <p>Downwards straight</p>
+      </div>
+      <% hint_type = "green_trajectory_downward_straight_hint"%>
+   		 <% stat_type = "green_trajectory_downward_straight" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= direction_downward_straight ========================================= -->
+
+
+
+
+
+
+      <!-- ========================================= green_trajectory_upward_straight ========================================= -->
+      <div class="name">
+        <p>Upwards straight</p>
+      </div>
+      <% hint_type = "green_trajectory_upward_straight_hint"%>
+   		 <% stat_type = "green_trajectory_upward_straight" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= direction_upward_straight ========================================= -->
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="clear"></div>
+    <div class="bottom_line"></div>
+  </div>
+
+
+
+
+
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- temperature =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+  <div class="clear"></div>
+  <div class="situation_type" style="">
+    <span onclick="showHideElement('#temperature')">
+      <div class="name_wrap">
+        <p>Temperature</p>
+        <img src="/images/link_right_small.png" alt=""/>
+      </div>
+      <div class="info_wrap"  style="">
+        <img src="/images/table_icon_temperature.png" alt=""/>
+        <div class="description">
+          <p>Temperature during the game</p>
+        </div>
+      </div>
+    </span>
+    <div class="single_situation" id="temperature" >
+
+
+
+
+
+<div class="clear"></div>
+      <!-- ========================================= temperature_cold ========================================= -->
+      <div class="name">
+        <p>Cold</p>
+      </div>
+     	<% hint_type = "temperature_cold_hint"%>
+   		 <% stat_type = "temperature_cold" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= temperature_cold ========================================= -->
+
+
+
+      <!-- ========================================= temperature_normal ========================================= -->
+      <div class="name">
+        <p>Normal</p>
+      </div>
+       	<% hint_type = "temperature_normal_hint"%>
+   		 <% stat_type = "temperature_normal" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= temperature_normal ========================================= -->
+
+
+
+      <!-- ========================================= temperature_hot ========================================= -->
+      <div class="name">
+        <p>Hot</p>
+      </div>
+       	<% hint_type = "temperature_hot_hint"%>
+   		 <% stat_type = "temperature_hot" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= temperature_hot ========================================= -->
+
+
+
+
+
+    </div>
+    <div class="clear"></div>
+    <div class="bottom_line"></div>
+  </div>
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- temperature =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
+
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- weather =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+  <div class="clear"></div>
+  <div class="situation_type" style="">
+    <span onclick="showHideElement('#weather')">
+      <div class="name_wrap">
+        <p>Weather</p>
+        <img src="/images/link_right_small.png" alt=""/>
+      </div>
+      <div class="info_wrap"  style="">
+        <img src="/images/table_icon_weather.png" alt=""/>
+        <div class="description">
+          <p>Weather during the game</p>
+        </div>
+      </div>
+    </span>
+    <div class="single_situation" id="weather" >
+
+<div class="clear"></div>
+      <!-- ========================================= weather_normal ========================================= -->
+      <div class="name">
+        <p>Normal</p>
+      </div>
+       	<% hint_type = "weather_normal_hint"%>
+   		 <% stat_type = "weather_normal" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= weather_normal ========================================= -->
+
+
+
+      <!-- ========================================= weather_wind ========================================= -->
+      <div class="name">
+        <p>Wind</p>
+      </div>
+      <% hint_type = "weather_wind_hint"%>
+   		 <% stat_type = "weather_wind" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= weather_wind ========================================= -->
+
+
+      <!-- ========================================= weather_rain ========================================= -->
+      <div class="name">
+        <p>Rain</p>
+      </div>
+     <% hint_type = "weather_rain_hint"%>
+   		 <% stat_type = "weather_rain" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= weather_rain ========================================= -->
+
+
+
+      <!-- ========================================= weather_wind_and_rain ========================================= -->
+      <div class="name">
+        <p>Wind and Rain</p>
+      </div>
+     	<% hint_type = "weather_wind_and_rain_hint"%>
+   		 <% stat_type = "weather_wind_and_rain" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= weather_wind_and_rain ========================================= -->
+
+
+
+
+
+    </div>
+    <div class="clear"></div>
+    <div class="bottom_line"></div>
+  </div>
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- weather =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
+
+
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- trajectory =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+ 
+
+
+
+
+
+  
+
+
+
+
+
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_strength =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+  
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_strength =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
+
+
+
+
+
+<!----SLOPE + direction -->
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_direction =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+  <div class="clear"></div>
+  <div class="situation_type" style="">
+    <span onclick="showHideElement('#green_direction')">
+      <div class="name_wrap">
+        <p>Slope</p>
+        <img src="/images/link_right_small.png" alt=""/>
+      </div>
+      <div class="info_wrap"  style="">
+        <img src="/images/table_icon_slope.png" alt=""/>
+        <div class="description">
+          <p>Slope of the green</p>
+        </div>
+      </div>
+    </span>
+ <div class="clear"></div>
+    <div class="single_situation" id="green_direction" >
+
+
+
+      <!-- ========================================= green_direction_straight ========================================= -->
+      <div class="name">
+        <p>Straight</p>
+      </div>
+      <% hint_type = "green_direction_straight_hint"%>
+   		 <% stat_type = "green_direction_straight" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_straight ========================================= -->
+
+
+
+
+
+      <!-- ========================================= green_direction_upward_right ========================================= -->
+      <div class="name">
+        <p>Right</p>
+      </div>
+      <% hint_type = "green_direction_upward_right_hint"%>
+   		 <% stat_type = "green_direction_upward_right" %>
+	<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_upward_right ========================================= -->
+
+
+
+      <!-- ========================================= green_direction_upward_left ========================================= -->
+      <div class="name">
+        <p>Left</p>
+      </div>
+       <% hint_type = "green_direction_upward_left_hint"%>
+   		 <% stat_type = "green_direction_upward_left" %>
+			<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_upward_left ========================================= -->
+
+
+
+
+      <!-- ========================================= green_direction_downward_right ========================================= -->
+      <div class="name">
+        <p>More to Right</p>
+      </div>
+       <% hint_type = "green_direction_downward_right_hint"%>
+   		 <% stat_type = "green_direction_downward_right" %>
+<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_downward_right ========================================= -->
+
+
+
+
+      <!-- ========================================= green_direction_downward_left ========================================= -->
+      <div class="name">
+        <p>More to Left</p>
+      </div>
+      <% hint_type = "green_direction_downward_left_hint"%>
+   		 <% stat_type = "green_direction_downward_left" %>
+		<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_downward_left ========================================= -->
+
+
+
+
+
+
+      <!-- ========================================= green_direction_upward_straight ========================================= -->
+      <div class="name">
+        <p>Upward</p>
+      </div>
+      <% hint_type = "green_direction_upward_straight_hint"%>
+   		 <% stat_type = "green_direction_upward_straight" %>
+			<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_upward_straight ========================================= -->
+
+
+
+
+
+      <!-- ========================================= green_direction_downward_straight ========================================= -->
+      <div class="name">
+        <p>Downward</p>
+      </div>
+      <% hint_type = "green_direction_downward_straight_hint"%>
+   		 <% stat_type = "green_direction_downward_straight" %>
+			<div class="progress_block">
+  <div class="tip_bubble_wrap" id="<%= hint_type %><%= statistic.id %>" style="display: none;">
+  <div class="triangle"></div>
+    <div class="frame">
+			<% curr_stats = statistic.send(stat_type)%>
+    		<% if is_admin || is_coach %>
+      		<% if stats_owner.id != current_user.id %>
+      	  	<p><%= "Give hint to (#{stats_owner.first_name} #{stats_owner.last_name}) for this situation." %> </p>
+      	  <% else %>
+         		<p>Give  hint for this situation.</p>
+        	<% end %>
+        	<div class="tip">
+         	<%= form_for (owner_hint, :as => :hint, :html => { :onsubmit=> ""}, :url => update_hints_statistic_path) do |f|  %>
+						<%= f.hidden_field :user_id, :value => @user_params.id %>
+						<% if owner_hint.send(hint_type) == "" %>
+            	<%= f.text_area hint_type, :class => "textarea", :value => coach_hint.send(hint_type) %>
+						<% else %>
+							<%= f.text_area hint_type, :class => "textarea" %>
+						<% end %>
+            <%= f.hidden_field :stick_id %>
+            <%= f.submit :class => "button_save" %>
+          <% end %>
+        </div>
+   	   	<% else %>
+        	<p><%#= "Coach #{fetch_coach(stats_owner.coach)} hint for this situation."  %></p>
+       		<div class="tip">
+          	<p><%= owner_hint.send(hint_type) %></p>
+        	</div>
+      	<% end %>
+    	</div>
+  	</div>
+ 	 	<% unless curr_stats == 0 %>
+    	<div class="progress_bar">
+      	<div class="progress_active <%= swap_bar_color(curr_stats) %>" style="width:<%= "#{curr_stats}%"%>">
+      	  <div class="percentage">
+     	   		<p><%= curr_stats %>%</p>
+        	</div>
+      	</div>
+    	</div>
+ 		<% else %>
+    	<div class="no_value"><p><%= MAIN_STATISTIC_BAD_SIMBOL %></p></div>
+  	<% end %>
+	  <% if is_admin || has_couch && owner_hint.send(hint_type) != ""%>
+    	<div class="notification" onclick="$('#<%= hint_type %><%= statistic.id %>').toggle();"><img src="/images/tip_icon.png" alt=""/></div>
+  	<% end %> 
+</div>
+      <div class="clear"></div>
+      <!-- ========================================= green_direction_downward_straight ========================================= -->
+
+
+
+
+
+      <!-- ========================================= green_direction_very_upward ========================================= -->
+      
+      <!-- ========================================= green_direction_very_downward ========================================= -->
+
+
+    </div>
+    <div class="clear"></div>
+    <div class="bottom_line"></div>
+  </div>
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_direction =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+  <!----END OF SLOPE-->
+
+
+  <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- green_direction =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+
+
+
+</div>

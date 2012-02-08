@@ -28,5 +28,11 @@
   </div>
 <div id="field_stats"></div>
 
-
+<% if @user_params_fields_limited.first != nil %>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.get("<%= get_stats_remote_path(@user_params_fields_limited.first.id) %>");
+});
+</script>
+<% end %>
 

@@ -191,9 +191,15 @@ class Hit < ActiveRecord::Base
 
 	def self.create_penalty(game_id, active_hit, hole_number)
 		hit_real = Hit.where(:game_id => game_id, :hit_number => active_hit.to_i, :hole_number => hole_number, :real_hit => 'rp').first
+		hit_real_prev = Hit.where(:game_id => game_id, :hit_number => (active_hit.to_i - 1), :hole_number => hole_number, :real_hit => ['rp','penalty_r']).first
 		hit_planned = Hit.where(:game_id => game_id, :hit_number => active_hit.to_i, :hole_number => hole_number, :real_hit => 'pp').first
-		hit_real.update_attributes(:real_hit => 'penalty_r')
-		hit_planned.update_attributes(:real_hit => 'penalty')
+		hit_planned_prev = Hit.where(:game_id => game_id, :hit_number => (active_hit.to_i - 1), :hole_number => hole_number, :real_hit => ['pp', 'penalty']).first
+		idr = hit_real.id
+		idp = hit_planned.id
+		hit_real.attributes = hit_real_prev.attributes
+		hit_planned.attributes = hit_planned_prev.attributes
+		hit_real.update_attributes(:real_hit => 'penalty_r', :id => idr, :hit_number => active_hit.to_i)
+		hit_planned.update_attributes(:real_hit => 'penalty', :id => idp, :hit_number => active_hit.to_i)
 		hit_real.save!
 		hit_planned.save!
 	end
