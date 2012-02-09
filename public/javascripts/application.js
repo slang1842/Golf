@@ -248,16 +248,25 @@ function swap_dropdowns(i) {
       11 : "Hole",
       1 : "Green"
           };
+		var options_misdirection_green = {
+		 1 :	"Straight left",
+		 2 :	"As planned",
+		 3 :	"Straight right",
+		 5 :	"Straight"
+			};
+		
+		$(".misdirection").empty();
     $(".land_place_dropdown").empty();
     $(".direction_swap").empty();
     $.each(options_green, function(val, text) {
-     $('.direction_swap').append(
-        $('<option></option>').val(val).html(text)
-    );
-});
+     $('.direction_swap').append($('<option></option>').val(val).html(text));
+			});
      $.each(options_land_green, function(val, text) {
     $('.land_place_dropdown').append( new Option(text,val) );
-});
+			});
+		$.each(options_misdirection_green, function(val, text) {
+    	$('.misdirection').append( new Option(text,val) );
+		});
   }
   else {
     $(".deselect option:selected").removeAttr("selected");
@@ -284,16 +293,29 @@ function swap_dropdowns(i) {
      5 : "Semi raf",
 		 10 : "Wood" 
           };
+		var options_misdirection_green = {
+		 0 :	"Spin left",
+		 1 :	"Straight left",
+		 2 :	"As planned",
+		 3 :	"Straight right",
+		 4 :	"Spin right",
+		 5 :	"Straight"
+			};
+
     $(".land_place_dropdown").empty();
     $(".direction_swap").empty();
+		$(".misdirection").empty();
     $.each(options_green, function(val, text) {
-     $('.direction_swap').append(
+    	$('.direction_swap').append(
         $('<option></option>').val(val).html(text)
-    );
-});
-     $.each(options_land_green, function(val, text) {
-    $('.land_place_dropdown').append( new Option(text,val) );
-});
+    	);
+		});
+    $.each(options_land_green, function(val, text) {
+    	$('.land_place_dropdown').append( new Option(text,val) );
+		});
+		$.each(options_misdirection_green, function(val, text) {
+    	$('.misdirection').append( new Option(text,val) );
+		});
   }
   }
 

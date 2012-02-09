@@ -17,7 +17,7 @@ FIELD_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 WEATHER = { "Normal" => 1, "Wind" => 2, "Rain" => 3, "Wind and Rain" => 4}
 GAME_FORMAT = { "Training" => "t", "DM" => "d", "Tournament" => "tn"}
 GAME_TYPE = { "1-9" => 1, "10-18" => 2, "1-18" => 3}
-STATISTICS_MISDIRECTION = { "Spin left" => 0, "Straigth left" => 1, "As planned" => 2, "Straight right" => 3, "Spin right" => 4, "Straight" => 5}
+STATISTICS_MISDIRECTION = { "Spin left" => 0, "Straight left" => 1, "As planned" => 2, "Straight right" => 3, "Spin right" => 4, "Straight" => 5}
 STATISTICS_HIT_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_MOTION_WAS = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
 STATISTICS_FOLLOWING_ACTION = { "Under" => 1, "Miss" => 2, "Normal" => 3, "Top" => 4 }
