@@ -110,11 +110,11 @@ function bindHitFormPlan() {
 
   $('.hole_switch').live('click', function() {
     textEntered = true
-    //$(".game_input_select").each(function() {
-    //    if (textEntered && $(this).val() == "") {
-    //        textEntered = false;
-     //   }
-    //});
+    $(".checkable_dropdowns").each(function() {
+        if (textEntered && $(this).val() == "") {
+            textEntered = false;
+       }
+    });
                 
     if (textEntered) {
       $('.messages_error').hide();
@@ -142,11 +142,11 @@ function bindHitFormPlan() {
 function bindHitSwitch() {
   $('.hit_switch').live('click', function() {
     textEntered = true
-   // $(".game_input_select").each(function() {
-    //    if (textEntered && $(this).val() == "") {
-     //       textEntered = false;
-      //  }
-    //});
+    $(".checkable_dropdowns").each(function() {
+       if (textEntered && $(this).val() == "") {
+          textEntered = false;
+       }
+    });
                 
     if (textEntered) {
       $('.messages_error').hide();
@@ -177,11 +177,11 @@ function bindSaveSwitch() {
   $('.saveswitch').live('click', function() {
     
     textEntered = true
-    // $(".game_input_select").each(function() {
-      //  if (textEntered && $(this).val() == "") {
-            //textEntered = false;
-       // }
-   // });
+     $(".checkable_dropdowns").each(function() {
+        if (textEntered && $(this).val() == "") {
+             textEntered = false;
+       }
+    });
                 
     if (textEntered) {
       $('.messages_error').hide();

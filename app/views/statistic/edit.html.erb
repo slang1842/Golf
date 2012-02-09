@@ -1,3 +1,10 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$.get("/render_single_stats/<%=@user_params.id%>/999");
+
+});
+</script>
+
 <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "statistic"} %>
 
 <!-- ================================= top mini stats ============================ -->
@@ -64,19 +71,20 @@
 
                   <div class="info">
                     <p>
-                      USAGE:
-                      <% if @stats.usage != nil %>
-                        <%=  "#{@stats.usage}%" %>
+                      US:
+											<% if @stats.usage != nil %>
+                        <%="#{@stats.usage}%" %>
                       <% else %>
                         N/A
                       <% end %>
-											PENALTIES:
+											PN:
 											<% if @stats.penalties != nil %>
-                        <%=  "#{@stats.penalties}%" %>
+                        <%="#{@stats.penalties}%" %>
                       <% else %>
                         N/A
                       <% end %>
-                      <br />
+                     </p>
+										<p>
                       AVG:
                       <% unless @stats.avg_distance == nil %>
                         <%="#{@stats.avg_distance}m"%>
@@ -101,7 +109,7 @@
             <!-- ============================ sticks ============================ -->
 
 
-
+<div id="whole_table" style="display:none">
 						<div id="stats_div" style="width:812px; overflow-x:hidden; overflow-y:visible; position:relative; left:0px; top:10px">
             <!-- ============================ main stats ============================ -->
             <div id="stats_div_inner" style="position:relative; left:0px">
@@ -109,7 +117,7 @@
 						</div>
             <!-- ============================ main stats ============================ -->
 						</div>
-
+</div>
 						<br/>
             <div class="clear"></div>
           <!--  <% if PairHit.where(:user_id => @user_params.id).count == 0 %>

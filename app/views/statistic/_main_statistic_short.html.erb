@@ -1,19 +1,80 @@
 <script type="text/javascript">
 $(document).ready(function() {
-	swapActiveStick("<%=stick.id%>"); 
+	swapActiveStick("<%=if stick != nil then stick.id else 0 end%>"); 
+	$('#whole_table').fadeIn('slow');
   });
+
+
 
 </script>
 
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=- Place =-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
-<p>Currently showing statistics for <%= stick.stick_type %></p>
+
 <div class="clear"></div>
 <div class="situation_type" style="" >
+	
+	<span onclick="showHideElement('#whole_bag')">
+		<div class="name_wrap">
+      <p>Statistics type</p>
+     
+    </div>
+		<div class="info_wrap" id="length_stats_div" style="">
+      
+      <div class="description">
+        <p>Currently showing statistics for <%= if stick != nil then stick.stick_type else 'whole bag' end %></p>
+      </div>
+    </div>
+	</span>
+		<% if stick == nil %>
+	<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == 'bag_total' && stroke.statistic_id == statistic.id}%>
+	<div class="single_situation" id="whole_bag">
+		<div class="clear"></div>
+		<div class="name">
+			<p> </p>
+		</div>
+		<div class="progress_block">
+			<div class="stroke_stats" style="">
+		<div class="single_item">
+			Top : <%=failed_strokes.top_strokes%> %
+		</div>
+		<div class="single_item">
+			Under : <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes%> %
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Straight left : <%=failed_strokes.left_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%> %
+		</div>
+		<div class="single_item">
+			Straight right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+		<div class="single_item">
+			Straight : <%=failed_strokes.ok_strokes%> %
+		</div>
+	</div>	  
+		</div>
+	</div>
+	<% end %>
   <span onclick="showHideElement('#place')">
+		 
     <div class="name_wrap">
       <p>Place</p>
       <img src="/images/link_right_small.png" alt=""/>
     </div>
+		
     <div class="info_wrap" id="length_stats_div" style="">
       <img src="/images/table_icon_place.png" alt=""/>
       <div class="description">
@@ -21,6 +82,8 @@ $(document).ready(function() {
       </div>
     </div>
   </span>
+	
+	
   <div class="single_situation" id="place" >
 
 
@@ -66,22 +129,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -134,22 +197,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -202,22 +265,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -270,22 +333,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -339,22 +402,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -408,22 +471,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -479,22 +542,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -550,22 +613,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -623,22 +686,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -691,22 +754,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -760,22 +823,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -860,22 +923,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -930,22 +993,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1000,22 +1063,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1067,22 +1130,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1135,22 +1198,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1232,22 +1295,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1299,22 +1362,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1366,22 +1429,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1438,22 +1501,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1509,22 +1572,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1579,22 +1642,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1649,22 +1712,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1746,22 +1809,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1813,22 +1876,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1880,22 +1943,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -1952,22 +2015,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2023,22 +2086,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2093,22 +2156,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2163,22 +2226,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2267,22 +2330,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2334,22 +2397,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2401,22 +2464,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2496,22 +2559,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2563,22 +2626,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2629,22 +2692,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2696,22 +2759,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2818,22 +2881,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2887,22 +2950,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -2954,22 +3017,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -3022,22 +3085,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -3090,22 +3153,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -3160,22 +3223,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -3229,22 +3292,22 @@ $(document).ready(function() {
 			Too far : <%=failed_strokes.long_strokes%> %
 		</div>
 		<div class="single_item">
-			Left : <%=failed_strokes.left_strokes%> %
+			Straight left : <%=failed_strokes.left_strokes%> %
 		</div>
 		<div class="single_item">
-			Very left : <%=failed_strokes.more_left_strokes%> %
+			Spin left : <%=failed_strokes.more_left_strokes%> %
 		</div>
 		<div class="single_item">
-			Right : <%=failed_strokes.right_strokes%> %
+			Straight right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
-			Very right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %
 		</div>
 		<div class="single_item">
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 		<div class="single_item">
-			OK : <%=failed_strokes.ok_strokes%> %
+			Straight : <%=failed_strokes.ok_strokes%> %
 		</div>
 	</div>	  
 <% end %>
@@ -3276,3 +3339,4 @@ $(document).ready(function() {
 
 
 </div>
+

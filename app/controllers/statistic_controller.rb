@@ -88,7 +88,7 @@ class StatisticController < ApplicationController
 			#@coach_hint = current_user.hints.where(:stick_id => params[:stick_id]).first || Hint.create({:user_id => current_user.id, :stick_id => params[:stick_id]})
 			@statistic = @user_params.statistics.where(:stick_id => params[:stick_id]).first
 			@failed_strokes = @user_params.failed_strokes.where(:statistic_id => @statistic.id)
-			@stick = Stick.find(params[:stick_id])
+			@stick = Stick.find(params[:stick_id]) unless params[:stick_id].to_i == 999
 			respond_to :js
 		end
   
