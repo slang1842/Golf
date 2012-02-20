@@ -39,21 +39,21 @@
           </div>
         </div>
        <%end%>
-			<div class="line">
-				<div class="row" style="width:90px">
+			<div class="line" style="margin-left:202px">
+				<div class="row" style="width:90px; height:25px; border-left: 1px solid #D0D0D0">
           <p>Total strokes</p>
         </div> 
-				<div class="row" style="width:90px">
-          <p>Rank in field</p>
-        </div> 
-			</div>
-			<div class="line">
-				<div class="row1" style="width:90px">
+				<div class="row" style="width:90px; height:25px">
           <p><%= i %></p>
         </div> 
-				<div class="row" style="width:90px">
+			</div>
+			<div class="line" style="margin-left:202px">
+				<div class="row" style="width:90px; height:46px; border-left: 1px solid #D0D0D0">
+          <p>Rank in field</p>
+        </div> 
+				<div class="row" style="width:90px; height:46px">
           <p><%= field_stats.rank %></p>
-					<p><a href="/get_total_stats_by_field/<%=stats_by_sticks.first.single_field_statistic.user_id%>/<%=stats_by_sticks.first.field_id%>" data-remote="true">View in club context</a></p>
+					<a href="/get_total_stats_by_field/<%=stats_by_sticks.first.single_field_statistic.user_id%>/<%=stats_by_sticks.first.field_id%>" data-remote="true">View in club context</a>
         </div> 
 			</div>
 	</div>
