@@ -153,6 +153,7 @@ a {
 
 .gray_button {
   background-color:#dcdcdc;
+  background-image:url(/images/gray_button_backgr.jpg);
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -166,11 +167,13 @@ a {
   font-family:"Trebuchet MS";
   height:31px;
   display:inline-block;
+  border:1px solid #a1a1a1;
 }
 
 .green_button {
   border:none;
   background-color:#b6d051;
+  background-image:url(/images/green_button_backgr.jpg);
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -183,6 +186,7 @@ a {
   font-family:"Trebuchet MS";
   height:31px;
   display:inline-block;
+  border:1px solid #84aa21;
 }
 
 .yellow_button {
@@ -200,6 +204,8 @@ a {
   font-family:"Trebuchet MS";
   height:31px;
   display:inline-block;
+  background-image:url(/images/yellow_button_backgr.jpg);
+  border:1px solid #b89f00;
 }
 
 .site_wrapper {
@@ -238,7 +244,6 @@ a {
   margin-left:5px;
   margin-bottom:5px;
   position:relative;
-  bottom:3px;
 }
 
 .header_wrap .login_wrap .input_wrap input {
@@ -449,9 +454,10 @@ a {
 */
 .short_statistics_wrap {
   margin-top:25px;
-  height:86px;
+  height:31px;
   width:900px;
   background-image:url(/images/bg_stripes.png);
+  padding:20px;
 }
 
 .short_statistics_wrap .top_three {
@@ -573,12 +579,12 @@ a {
 }
 
 .main_stats_table_wrap .bottom_line {
-  width:812px;
+  width:627px;
   border-bottom:1px solid #cacaca;
 }
 
 .main_stats_table_wrap .clubs_wrap{
-  margin-left:127px;
+  margin-left:12px;
 }
 
 .main_stats_table_wrap .clubs_wrap .page_left {
@@ -587,12 +593,17 @@ a {
   margin-top:18px;
 }
 
-.club_active {
-  background-image:url(/images/single_club_bg_active.png) !important;
+
+
+
+.main_stats_table_wrap #sticks_row_ {
+	margin-bottom:20px;
 }
 
-.club_in_bag {
-  background-image:url(/images/single_club_bg_in_bag.png) !important;
+
+
+.main_stats_table_wrap #whole_table {
+	
 }
 
 .main_stats_table_wrap .clubs_wrap .single_club_wrap {
@@ -609,6 +620,15 @@ a {
   -moz-border-radius-topright: 9px;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
+}
+
+.main_stats_table_wrap .clubs_wrap .club_in_bag {
+  background-image:url(/images/single_club_bg_in_bag.png);
+}
+
+
+.main_stats_table_wrap .clubs_wrap .club_active {
+  background-image:url(/images/single_club_bg_active.png);
 }
 
 
@@ -662,8 +682,11 @@ a {
   line-height:10px;
 }
 
+.main_stats_table_wrap #stats_div_inner {
+	width:650px;
+}
 .main_stats_table_wrap .situation_type {
-	margin-left:160px
+	margin-left:20px
 }
 
 .main_stats_table_wrap .situation_type span {
@@ -1295,4 +1318,15 @@ a {
 }
 
 /* ==== error, info messages ==== */
+
+.game_input_wrap {
+	float:left;
+	width:900px;
+}
+
+
+.club_box_wrapper {
+	float:left;
+
+}
 

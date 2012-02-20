@@ -1,7 +1,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
-	$.get("/render_single_stats/<%=@user_params.id%>/999");
-
+	var timestamp = new Date();
+	$.ajax({type : 'GET', url : '/render_single_stats/<%=@user_params.id%>/999' + '&timestamp=' + timestamp.getTime(), cache : false, dataType : "script"});
 });
 </script>
 
@@ -48,16 +48,14 @@ $(document).ready(function(){
       <%#= if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil%>
 
             <div class="clubs_wrap">
-              <div class="page_left">
-                <a href="#" id="triangle_left" style="visibility:hidden"><img src="/images/link_left_big.png" alt=""/></a>
-              </div>
+              
 						<div id="sticks_row_" style="width:660px; float:left">
 							<div style="">
               <% @user_sticks.each do |stick| %>
 
                 <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => @user_params.id})%>
 
-                <div id="stick_box_<%=stick.stick.id%>" class="single_club_wrap <%= 'club_in_bag' if stick.is_in_bag %>" style="margin-top:5px" onclick="$.get('/render_single_stats/<%=@user_params.id%>/<%=stick.stick_id%>'); return false;">
+                <div id="stick_box_<%=stick.stick.id%>" class="single_club_wrap <%= 'club_in_bag' if stick.is_in_bag %>" style="margin-top:5px" onclick="$.ajax('/render_single_stats/<%=@user_params.id%>/<%=stick.stick_id%>'); return false;">
 
                   <div class="club_name">
                     <p><%=  stick.stick.stick_type %></p>
@@ -100,23 +98,19 @@ $(document).ready(function(){
 						</div>
 					</div>
 
-						<% if @user_sticks.count > 6 %>
-              <div class="page_left">
-                <a href="#" id="triangle_right" style="display:none"><img src="/images/link_right_big.png" alt=""/></a>
-              </div>
-            <% end %>
+					
 				</div>
             <!-- ============================ sticks ============================ -->
 
 
 <div id="whole_table" style="display:none">
-						<div id="stats_div" style="width:812px; overflow-x:hidden; overflow-y:visible; position:relative; left:0px; top:10px">
+				
             <!-- ============================ main stats ============================ -->
-            <div id="stats_div_inner" style="position:relative; left:0px">
-							<%#= render :partial => 'statistic/main_statistic_short' %>
+            <div id="stats_div_inner" >
+							
 						</div>
             <!-- ============================ main stats ============================ -->
-						</div>
+						
 </div>
 						<br/>
             <div class="clear"></div>
@@ -194,6 +188,7 @@ $(document).ready(function(){
   <%# rescue  %>
     <%# @main_statistic_has_errors = 1 %>
   <%# end %>
+
 
   <script>
     $(document).ready(function(){

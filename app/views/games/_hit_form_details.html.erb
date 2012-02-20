@@ -150,9 +150,9 @@ Putts : <%= status_hole.putts_count%>
       </div>
 
      
-      <div class="input_wrap" style="height:150px">
+      <div class="input_wrap" style="height:85px">
 
-        <div class="heading_result"><p>Note:</p></div>
+        <div class="heading_result"><p></p></div>
       
 
         <div class="single_dropdown">
@@ -186,69 +186,27 @@ Putts : <%= status_hole.putts_count%>
     <% elsif game1 == 1%>
       <% last_hole_number = 9 %>
     <% end %>
+		<div class="navigation_buttons">
 		<% if active_hit.to_i != 1 %>
-			<div class="navigation_buttons" style="margin-top:20px">
-				<div class="save_switch" style="margin:0px">
-      	  <div class="single_dropdown" style="height:35px">
-      	    <div class="element">
+	
 							<a href="#" rel="prev" class="hit_switch gray_button" > Previous&nbsp;stroke </a>
-      	    </div>
-      	  </div>
-     	 </div>
-			</div>
-			<div class="navigation_buttons" style="margin-top:5px">
-				<div class="save_switch" style="margin:0px">
-      	  <div class="single_dropdown" style="height:35px">
-      	    <div class="element">
-							<a href="#" rel="delete" class="hit_switch gray_button" >Remove&nbsp;stroke </a>
-      	    </div>
-      	  </div>
-     	 </div>
-			</div>
-			<div class="navigation_buttons">
+      	    
 		<% else %>
-			<div class="navigation_buttons" style="margin-top:20px">
+			
 		<% end %>
 		<% if hit_r_final.land_place != 11 && hit_r_final.hit_number < (status_hole.total_strokes_count.to_i)%>
-		<div class="save_switch next_stroke_switch" style="margin:0px">
-        <div class="single_dropdown" style="height:35px">
-          <div class="element">
-						<a href="#" rel="next" class="hit_switch green_button" > Next&nbsp;stroke </a>
-          </div>
-        </div>
-      </div>
-		</div>
+		
+						<a href="#" rel="next" class="hit_switch green_button next_stroke_switch" > Next&nbsp;stroke </a>
+         
 		<% end %>
-		<% if hit_r_final.hit_number != 1%>
-		<div class="navigation_buttons" style="margin-top:5px">
-				<div class="save_switch" style="margin:0px">
-      	  <div class="single_dropdown" style="height:35px">
-      	    <div class="element">
-							<a href="#" rel="penalty" class="hit_switch gray_button" >Mark&nbsp;penalty </a>
-      	    </div>
-      	  </div>
-     	 </div>
-			</div>
-		<% end %>
+		
     <% if active_hole.to_i != last_hole_number.to_i%>
-		<div class="navigation_buttons">
-      <div class="save_switch" style="margin:0px">
-        <div class="single_dropdown" style="height:35px">
-          <div class="element">
+		
             <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" >Next&nbsp;hole</a>
-          </div>
-        </div>
-      </div>
-		</div>
+          
     <%end%>
-		<div class="navigation_buttons" style="padding-bottom:15px; height:50px">
-    	<div class="save_switch" style="margin:0px">
-      	<div class="single_dropdown " style="height:35px">
-      	  <div class="element" >
+		
       	    <div class="save_gif">
       	      <a href="#" rel="save" class="gray_button saveswitch" >Save&nbsp;game</a>
       	    </div>
       	  </div>
-     	 </div>
-    	</div>
-		</div> 	

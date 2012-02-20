@@ -1,0 +1,2 @@
+		$("#whole_table").hide();
+		$("#stats_div_inner").html("<%= escape_javascript(render (:partial => 'statistic/main_statistic_short', :locals => {:stats_owner => @user_params, :owner_hint => @user_params_hint, :is_admin => @is_admin, :is_coach => @is_coach, :has_couch => @has_couch, :coach_hint => @coach_hint, :statistic => @statistic, :stick => @stick, :all_failed_strokes => @failed_strokes}))%>"); 

@@ -1,6 +1,6 @@
 class StatisticController < ApplicationController
   skip_before_filter :require_user
-  respond_to :json, :html, :js
+  respond_to :html, :js, :json
 
   def statistics
     redirect_to view_statistic_path if Statistic.check_golf_club_pay_banner_time_limit && 
@@ -89,7 +89,12 @@ class StatisticController < ApplicationController
 			@statistic = @user_params.statistics.where(:stick_id => params[:stick_id]).first
 			@failed_strokes = @user_params.failed_strokes.where(:statistic_id => @statistic.id)
 			@stick = Stick.find(params[:stick_id]) unless params[:stick_id].to_i == 999
-			respond_to :js
+			response['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0'
+			response['Pragma'] = 'no-cache'
+			response['Expires'] = 'Sun, 19 Nov 1978 05:00:00 GMT'
+			respond_to do |format|
+				format.js { render :layout => false, :content_type => "text/javascript; charset=UTF-8" }
+			end
 		end
   
 	def update

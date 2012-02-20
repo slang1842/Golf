@@ -3,7 +3,7 @@
 <div class="messages_error" style="display: none;">Please, fill in all the information!</div>
 
 <div class="game_input_wrap">
-  <div class="holes_wrap">
+  <div class="holes_wrap" style="width:900px">
 		
   <div class="heading_wrap">
     <p>Please, fill in the relevant information on holes!</p>
@@ -11,24 +11,34 @@
 <br/>
 <br/>
 <br/>
-<%=form_for( @game, :url => ('/game_details/update_holes/' + @game.id.to_s + '/'), :html => {:onsubmit => "return checkStrokeValues();"}) do |game|%>
-	<div style="float:left">
+<%=form_for( @game, :url => ('/game_details/update_holes/' + @game.id.to_s + '/'), :html => {:onsubmit => "return checkStrokeValues();", :id => "hole_starter_form"}) do |game|%>
+	<div class="all_holes_labels">
+		<p>Strokes:</p>
+		<p>Putts:</p>
+	</div>	
+	<div class="all_holes">
   <% @statusholes.each do |hole|%>
-		<div class="clear"></div>
-		<div style="width:200px">
+		
+		<div class="hole_input_wrapper">
    	<%= game.fields_for :status_holes, hole do |f|%>
 		
       <div class="single_hole done"><p><%=hole.hole_number%></p></div>
-					<p>Strokes : <%= f.text_field :total_strokes_count, :class => "hole_text_field"%></p>
-					<p>Putts : <%= f.text_field :putts_count, :class => "hole_text_field" %></p>
+			<div class="clear"></div>
+					<%= f.text_field :total_strokes_count, :class => "hole_text_field"%>
+					<%= f.text_field :putts_count, :class => "hole_text_field" %>
 			
 		<% end %></div>
    <% end %></div>
-
-<p>	<%= game.submit %></p>
   <% end %>
+
 
  
 
 	</div>
 </div>
+
+<div class="clear"></div>
+<div class="generic_button_padding">
+	<a href="#" class="green_button" onclick="$('#hole_starter_form').submit();" > Done </a> 
+</div>
+

@@ -21,6 +21,7 @@
 	height:51px;
 	float:left;
 	margin-right:5px;
+	overflow:hidden;
 }
 
 .splash_page_header .comments_wrap .single_comment_wrap .text {
@@ -52,6 +53,10 @@
 	color:#363636;
 	line-height:21px;
 	font-weight:normal;
+}
+
+.splash_page_header .contents_wrap a {
+	color:#00AEEF;
 }
 
 .splash_page_header .contents_wrap .button {

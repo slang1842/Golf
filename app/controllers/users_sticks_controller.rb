@@ -11,13 +11,15 @@ class UsersSticksController < ApplicationController
 
 	def create
 		@users_stick = UsersStick.new({:user_id => params[:user_id], :distance => 0, :shaft => 0, :degrees => 0, :shaft_strength => 0})
-		@users_stick.save(false)
+		UsersStick.skip_callbacks = true
+		@users_stick.save
+		UsersStick.skip_callbacks = false
 		respond_to :js
 	end
   
   def show
      @sticks = Sticks.find(params[:id])
-     Respond_with @sticks  
+     respond_with @sticks  
   end
 
 /

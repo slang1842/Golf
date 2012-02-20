@@ -13,16 +13,16 @@ class FailedStroke < ActiveRecord::Base
 		end
 		if current_strokes[:total_strokes] != 0
 			total = current_strokes[:total_strokes]
-			current_strokes[:top_strokes] = calculate_avg(current_strokes[:top_strokes], total)
-			current_strokes[:under_strokes] = calculate_avg(current_strokes[:under_strokes], total)
-			current_strokes[:long_strokes] = calculate_avg(current_strokes[:long_strokes], total) 
-			current_strokes[:short_strokes] = calculate_avg(current_strokes[:short_strokes], total)
-			current_strokes[:left_strokes] = calculate_avg(current_strokes[:left_strokes], total)
-			current_strokes[:more_left_strokes] = calculate_avg(current_strokes[:more_left_strokes], total)
-			current_strokes[:right_strokes] = calculate_avg(current_strokes[:right_strokes], total)
-			current_strokes[:more_right_strokes] = calculate_avg(current_strokes[:more_right_strokes], total)
-			current_strokes[:ok_strokes] = calculate_avg(current_strokes[:ok_strokes], total)
-			current_strokes[:penalty_strokes] = calculate_avg(current_strokes[:penalty_strokes], total)
+			#current_strokes[:top_strokes] = calculate_avg(current_strokes[:top_strokes], total)
+			#current_strokes[:under_strokes] = calculate_avg(current_strokes[:under_strokes], total)
+			#current_strokes[:long_strokes] = calculate_avg(current_strokes[:long_strokes], total) 
+			#current_strokes[:short_strokes] = calculate_avg(current_strokes[:short_strokes], total)
+			#current_strokes[:left_strokes] = calculate_avg(current_strokes[:left_strokes], total)
+			#current_strokes[:more_left_strokes] = calculate_avg(current_strokes[:more_left_strokes], total)
+			#current_strokes[:right_strokes] = calculate_avg(current_strokes[:right_strokes], total)
+			#current_strokes[:more_right_strokes] = calculate_avg(current_strokes[:more_right_strokes], total)
+			#current_strokes[:ok_strokes] = calculate_avg(current_strokes[:ok_strokes], total)
+			#current_strokes[:penalty_strokes] = calculate_avg(current_strokes[:penalty_strokes], total)
 		end
 		failed_strokes.update_attributes(current_strokes)
 		failed_strokes.save!

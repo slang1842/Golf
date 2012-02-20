@@ -1,4 +1,13 @@
+<script type="text/javascript">
+$(document).ready(function() {
+	$(window).bind('beforeunload', function(e){
+		if (check_bag_form() == false){
+			return 'Please, fill all fields.'
+		}
+	});
+});
 
+</script>
 <% if current_user %>
   <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_bag"} %>
 <% else %>

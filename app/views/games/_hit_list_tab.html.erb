@@ -1,3 +1,9 @@
+<script type="text/javascript">
+$(document).ready( function() {
+$('.messages_error').fadeOut('slow');
+});
+</script>
+
 <div class="tabs_wrap">
 
   <div class="clear"></div>
@@ -6,13 +12,22 @@
 <div class="clear"></div>
 <div class="hits_wrap">
   <div class="heading_wrap">
-    <p>Strokes</p>
+    <p>Strokes:</p>
   </div>
   <% hits.each do |hit|%>
     <% if hit.hit_number.to_i != active_hit.to_i %>
-      <a href="#" class="" onclick="switchHit(<%=hit.hit_number%>, <%=game_id%>)"><div class="single_stroke <%= render_hit_color(hit.hit_number)%>"><p><%=return_stick_name(hit.hit_number)%> - <%= render_hit_color(hit.hit_number)%></p></div></a>
+      <a href="#" class="single_stroke <%= render_hit_color(hit.hit_number)%>" onclick="switchHit(<%=hit.hit_number%>, <%=game_id%>)"><%=return_stick_name(hit.hit_number)%> </a>
     <% else %>
-      <a href="#" class="" onclick="switchHit(<%=hit.hit_number%>, <%=game_id%>)"><div class="single_stroke active"><p><b><%=return_stick_name(hit.hit_number)%> - current</b></p></div></a>
+      <a href="#" class="single_stroke active" onclick="switchHit(<%=hit.hit_number%>, <%=game_id%>)"><%=return_stick_name(hit.hit_number)%> </a>
+			<% if hit.hit_number != 1%>
+				<a href="#" rel="delete" class="hit_switch gray_button remove_stroke" >Remove </a>
+				<% if hit.real_hit != "penalty" %>
+					<a href="#" rel="penalty" class="hit_switch gray_button penalty_stroke" >Mark&nbsp;penalty </a>
+				<% else %>
+					<a href="#" rel="remove_penalty" class="hit_switch gray_button remove_penalty_stroke" >Unmark&nbsp;penalty </a>
+				<% end %>	
+			<% end %>
+			
     <% end %>
 
   <% end %>

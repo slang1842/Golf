@@ -164,7 +164,8 @@ class Statistic < ActiveRecord::Base
 
     @return = false
     User.where(:is_super_admin => false).includes("statistics").includes("sticks").includes("hits").includes("failed_strokes").includes("all_stick_statistics").includes("users_sticks").each do |c_user|
-
+		c_user.users_sticks.each {|s| s.save}
+		
 			bag_statistic = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, 999)
 			bag_failed_strokes = FailedStroke.find_or_create_by_statistic_id_and_stick_id_and_user_id_and_position_name(bag_statistic.id, 999, c_user.id, 'bag_total')
 			bag_total_strokes = {:top_strokes => 0, :under_strokes => 0, :long_strokes => 0, :left_strokes => 0, :more_left_strokes => 0, :right_strokes => 0, :more_right_strokes => 0, :ok_strokes => 0, :total_strokes => 0, :short_strokes => 0, :penalty_strokes => 0}
@@ -782,7 +783,7 @@ statistic.green_trajectory_downward_right = calculate_avg(@statistic_green_traje
 			usersticks.each {|s| stick_arr << s.stick_id}
 			actual_stats = c_user.statistics.where(:stick_id => stick_arr)
 			Statistic.calculate_bag_stats(bag_statistic, actual_stats, c_user.failed_strokes)
-			FailedStroke.calculate_and_update_for_single(bag_failed_strokes, bag_total_strokes)
+			FailedStroke.calculate_and_update_for_single(bag_failed_strokes, bag_total_strokes) unless bag_total_strokes[:total_strokes] == 0
     end # end user
    
     return true

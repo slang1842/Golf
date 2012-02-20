@@ -37,6 +37,7 @@ module GamesHelper
 
 	def return_stick_name(hit_number)
 		name = session[:stick_names][:"#{hit_number.to_s}"]
+		if name == "penalty" then name = "Pen" end
 		if name == nil	
 			name = hit_number.to_s + "."
 		else

@@ -53,7 +53,7 @@
                   <p><%=user.email%></p>
                 
                 <p><%= u.check_box :admin, :onchange => "change_coach('#{user.id.to_s}')" %> <%= u.label "Give acc" %></p>
-                <p><%= u.check_box :coach, :onchange => "change_coach('#{user.id.to_s}')" %> <%= u.label "Give Hint" %></p><% end %>
+                <!--<p><%= u.check_box :coach, :onchange => "change_coach('#{user.id.to_s}')" %> <%= u.label "Give Hint" %></p>--><% end %>
                 
                
               <%end%>
@@ -65,6 +65,7 @@
 
 
             <% @sticks = user.users_sticks%>
+						<div class="club_box_wrapper">
             <% @sticks.each do |stick| %>
               <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => user.id})%>
               <div class="single_club_wrap">
@@ -114,6 +115,7 @@
 
       
       <% end %>
+		</div>
     </div>
 
 
