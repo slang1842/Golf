@@ -131,30 +131,19 @@ class Statistic < ActiveRecord::Base
     return distance_ratio
   end
  
-	def self.check_for_failed_strokes(hit, failed_strokes, bag_strokes)
-			failed_strokes[:ok_strokes] += 1 if hit.misdirection == 5 #using OK field for Misdirection "Straight" 
- 			failed_strokes[:top_strokes] += 1 if hit.hit_was == 4 && hit.hit_was == 2
-			failed_strokes[:under_strokes] += 1 if hit.hit_was == 1
-			failed_strokes[:right_strokes] += 1 if hit.misdirection == 3
-			failed_strokes[:more_right_strokes] += 1 if hit.misdirection == 4
-			failed_strokes[:left_strokes] += 1 if hit.misdirection == 1
-			failed_strokes[:more_left_strokes] += 1 if hit.misdirection == 0
-			failed_strokes[:long_strokes] += 1 if hit.mistake == 3
-			failed_strokes[:short_strokes] += 1 if hit.mistake == 1
-			failed_strokes[:penalty_strokes] += 1 if hit.real_hit == 'penalty_r'		
-		failed_strokes[:total_strokes] += 1
-			bag_strokes[:ok_strokes] += 1 if hit.misdirection == 5 #using OK field for Misdirection "Straight" 
- 			bag_strokes[:top_strokes] += 1 if hit.hit_was == 4 && hit.hit_was == 2
-			bag_strokes[:under_strokes] += 1 if hit.hit_was == 1
-			bag_strokes[:right_strokes] += 1 if hit.misdirection == 3
-			bag_strokes[:more_right_strokes] += 1 if hit.misdirection == 4
-			bag_strokes[:left_strokes] += 1 if hit.misdirection == 1
-			bag_strokes[:more_left_strokes] += 1 if hit.misdirection == 0
-			bag_strokes[:long_strokes] += 1 if hit.mistake == 3
-			bag_strokes[:short_strokes] += 1 if hit.mistake == 1
-			bag_strokes[:penalty_strokes] += 1 if hit.real_hit == 'penalty_r'		
-		bag_strokes[:total_strokes] += 1
-		return failed_strokes
+	def self.check_for_failed_strokes(hit, failed)
+				failed[:ok_strokes] += 1 if hit.misdirection == 5 #using OK field for Misdirection "Straight" 
+ 				failed[:top_strokes] += 1 if hit.hit_was == 4 && hit.hit_was == 2
+				failed[:under_strokes] += 1 if hit.hit_was == 1
+				failed[:right_strokes] += 1 if hit.misdirection == 3
+				failed[:more_right_strokes] += 1 if hit.misdirection == 4
+				failed[:left_strokes] += 1 if hit.misdirection == 1
+				failed[:more_left_strokes] += 1 if hit.misdirection == 0
+				failed[:long_strokes] += 1 if hit.mistake == 3
+				failed[:short_strokes] += 1 if hit.mistake == 1
+				failed[:penalty_strokes] += 1 if hit.real_hit == 'penalty_r'		
+				failed[:total_strokes] += 1
+		return failed
 	end
 
 
@@ -164,19 +153,38 @@ class Statistic < ActiveRecord::Base
 
     @return = false
     User.where(:is_super_admin => false).includes("statistics").includes("sticks").includes("hits").includes("failed_strokes").includes("all_stick_statistics").includes("users_sticks").each do |c_user|
-		c_user.users_sticks.each {|s| s.save}
-		
+			c_user.users_sticks.each {|s| s.save}
+			@all_pairs = PairHit.where(:user_id => c_user.id).includes([:hit_planed, :hit_real])
+
+		#calculating total statistics for whole bag
 			bag_statistic = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, 999)
 			bag_failed_strokes = FailedStroke.find_or_create_by_statistic_id_and_stick_id_and_user_id_and_position_name(bag_statistic.id, 999, c_user.id, 'bag_total')
 			bag_total_strokes = {:top_strokes => 0, :under_strokes => 0, :long_strokes => 0, :left_strokes => 0, :more_left_strokes => 0, :right_strokes => 0, :more_right_strokes => 0, :ok_strokes => 0, :total_strokes => 0, :short_strokes => 0, :penalty_strokes => 0}
-
+			@all_pairs.each do |pair|
+				bag_total_strokes = check_for_failed_strokes(pair.hit_real, bag_total_strokes)
+			end
+			FailedStroke.calculate_and_update_for_single(bag_failed_strokes, bag_total_strokes) unless bag_total_strokes[:total_strokes] == 0
+		#on to the sticks..
 
 			c_user.users_sticks.each do |user_stick|
-			statistic = c_user.statistics.detect {|s| s.user_id == c_user.id && s.stick_id == user_stick.stick_id}
-			if statistic == nil
-				statistic = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, user_stick.stick_id)
-			end
-			if statistic.calculated == false || statistic.calculated == nil
+				statistic = c_user.statistics.detect {|s| s.user_id == c_user.id && s.stick_id == user_stick.stick_id}
+
+				if statistic == nil
+					statistic = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, user_stick.stick_id)
+				end
+
+				if statistic.calculated == false || statistic.calculated == nil
+			#calculating for whole stick
+					stick_failed_strokes = FailedStroke.find_or_create_by_statistic_id_and_stick_id_and_user_id_and_position_name(statistic.id, user_stick.stick_id, c_user.id, 'stick_total')
+					stick_total_strokes = {:top_strokes => 0, :under_strokes => 0, :long_strokes => 0, :left_strokes => 0, :more_left_strokes => 0, :right_strokes => 0, :more_right_strokes => 0, :ok_strokes => 0, :total_strokes => 0, :short_strokes => 0, :penalty_strokes => 0}
+					@all_pairs.each do |pair|
+						if pair.hit_planed.stick_id == user_stick.stick.id
+							stick_total_strokes = check_for_failed_strokes(pair.hit_real, stick_total_strokes)
+						end
+					end
+					FailedStroke.calculate_and_update_for_single(stick_failed_strokes, stick_total_strokes) unless stick_total_strokes[:total_strokes] == 0
+			#done
+
 				#these variables have to be defined somewhere, hence the mess                       
 									@statistic_place_teebox = 0
 									@statistic_place_teebox_count = 1        
@@ -271,7 +279,7 @@ class Statistic < ActiveRecord::Base
 			
 			      #statistic.game_id = c_game.id
             #statistic.field_id = c_field.id
-						@all_pairs = PairHit.where(:user_id => c_user.id).includes([:hit_planed, :hit_real])
+						
 						
             #CALCULATE PLACE_FROM
             # ==========================================
@@ -284,7 +292,7 @@ class Statistic < ActiveRecord::Base
                 if each_pair.hit_planed.place_from == place_from_num && each_pair.hit_planed.stick_id == user_stick.stick_id 
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes, bag_total_strokes)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
 
@@ -382,7 +390,7 @@ class Statistic < ActiveRecord::Base
                 if each_pair.hit_planed.stance == stance_num && each_pair.hit_planed.stick_id == user_stick.stick_id 
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes, bag_total_strokes)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
 
@@ -441,7 +449,7 @@ class Statistic < ActiveRecord::Base
                 if each_pair.hit_planed.game.temperature == temperature_num && each_pair.hit_planed.stick_id == user_stick.stick_id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes, bag_total_strokes)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
 
@@ -484,7 +492,7 @@ class Statistic < ActiveRecord::Base
                 if each_pair.hit_planed.game.weather == weather_num && each_pair.hit_planed.stick_id == user_stick.stick_id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes, bag_total_strokes)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
 
@@ -533,7 +541,7 @@ class Statistic < ActiveRecord::Base
                 if each_pair.hit_planed.trajectory == trajectory_num && each_pair.hit_planed.stick_id == user_stick.stick_id
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes, bag_total_strokes)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
 
@@ -661,7 +669,7 @@ class Statistic < ActiveRecord::Base
 
                   @add_to_arr = calculate_current_statistics(each_pair.hit_planed, each_pair.hit_real)
                   @result_arr.push(@add_to_arr) unless (@add_to_arr == false || @add_to_arr == nil)
-									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes, bag_total_strokes)
+									failed_strokes = check_for_failed_strokes(each_pair.hit_real, failed_strokes)
                 end
               end
               case direction_num
@@ -775,15 +783,17 @@ statistic.green_trajectory_downward_right = calculate_avg(@statistic_green_traje
 				Statistic.user_progres(statistic)			
 				SingleFieldStatistic.calculate_stats(c_user)
 				StandardStatistic.calculate_user_stats(c_user.id)
+				
 			 end
 				Statistic.all_stick_statistics(statistic, c_user)	
+	
       end # end stick
 			usersticks = c_user.users_sticks.select {|s| s.is_in_bag == true }
 			stick_arr = []
 			usersticks.each {|s| stick_arr << s.stick_id}
 			actual_stats = c_user.statistics.where(:stick_id => stick_arr)
 			Statistic.calculate_bag_stats(bag_statistic, actual_stats, c_user.failed_strokes)
-			FailedStroke.calculate_and_update_for_single(bag_failed_strokes, bag_total_strokes) unless bag_total_strokes[:total_strokes] == 0
+			
     end # end user
    
     return true

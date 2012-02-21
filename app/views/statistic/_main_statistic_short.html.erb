@@ -54,6 +54,38 @@ $(document).ready(function() {
 	</div>	  
 		</div>
 	</div>
+	<% else %>
+			<% failed_strokes = stats_owner.failed_strokes.detect {|stroke| stroke.position_name == 'stick_total' && stroke.statistic_id == statistic.id}%>
+	<div class="single_situation" id="whole_bag">
+		<div class="clear"></div>
+		<div class="name">
+			<p> </p>
+		</div>
+		<div class="progress_block">
+			<div class="stroke_stats" style="">
+		<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> %
+			Under ball: <%=failed_strokes.under_strokes%> %
+		</div>
+		<div class="single_item">
+			Too close : <%=failed_strokes.short_strokes %> <br/> 
+			Too far : <%=failed_strokes.long_strokes%> %
+		</div>
+		<div class="single_item">
+			Str left : <%=failed_strokes.left_strokes%> %<br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%> %  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%> %
+		</div>
+		<div class="single_item">
+			Straight : <%=failed_strokes.ok_strokes%> % <br/> 
+			Penalties : <%=failed_strokes.penalty_strokes%> %
+		</div>
+	</div>	  
+		</div>
+	</div>
 	<% end %>
   <div onclick= "showHideElement('#place')">
 		 
