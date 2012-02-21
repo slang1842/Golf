@@ -5,6 +5,7 @@ class GolfClub < ActiveRecord::Base
 	validates :name, :region, :city, :web_page, :presence => true
   validates :name, :web_page, :uniqueness => true
   belongs_to :golf_club_pay_banner
+	accepts_nested_attributes_for :fields
   
   def to_s
     self.name

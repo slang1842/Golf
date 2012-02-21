@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208173909) do
+ActiveRecord::Schema.define(:version => 20120221170202) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20120208173909) do
     t.string   "long_distance"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "short_name"
   end
 
   create_table "game_filter_statistics", :force => true do |t|
@@ -232,6 +233,7 @@ ActiveRecord::Schema.define(:version => 20120208173909) do
     t.integer  "image_t_file_size"
     t.datetime "image_t_updated_at"
     t.boolean  "is_t_banner_disabled"
+    t.string   "short_name"
   end
 
   create_table "green_fees", :force => true do |t|

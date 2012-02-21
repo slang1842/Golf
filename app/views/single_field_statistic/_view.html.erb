@@ -2,7 +2,7 @@
 <div class="single_stats_wrap" style="margin-bottom:60px">
 	<div class="table_wrap">
 			<div class="line">
-        <div class="row" style="width:20px">
+        <div class="row" style="width:30px">
           <p></p>
         </div>
 				 <div class="row" style="width:90px">
@@ -18,11 +18,11 @@
           <p>Rank</p>
         </div>        
 			</div>
-				<% i = 0 %>
+				<% i = 0 %><% z = 0%>
 				<% stats_by_holes.each do |stat|%>
         <div class="clear"></div>
 					<div class="line">
-					<div class="row1" style="width:20px;">
+					<div class="row1" style="width:30px;">
             <p><%= stat.hole_number%>.</p>
           </div>
 					<div class="row1" style="width:90px;">
@@ -38,16 +38,39 @@
             <p><%= stat.rank %></p>
           </div>
         </div>
+				<% if stat.hole_number == 9 %>
+					<div class="line" style="">
+						<div class="row" style="width:212px; height:25px; border-right: none;">
+          		<p></p>
+        		</div> 
+						<div class="row" style="width:90px; height:25px; border-left: 1px solid #D0D0D0">
+          		<p>Out</p>
+        		</div> 
+						<div class="row" style="width:90px; height:25px">
+          		<p><%= i %></p><% if i != 0 then z = i else z = 0 end %>
+        		</div> 
+					</div>
+				<% end %>
+				<% if stat.hole_number == 18 %>
+					<div class="line" style="margin-left:212px">
+						<div class="row" style="width:90px; height:25px; border-left: 1px solid #D0D0D0">
+          		<p>In</p>
+        		</div> 
+						<div class="row" style="width:90px; height:25px">
+          		<p><% if i != 0 %><%= i - z %><%else%> 0 <%end%></p>
+        		</div> 
+					</div>
+				<% end %>
        <%end%>
-			<div class="line" style="margin-left:202px">
+			<div class="line" style="margin-left:212px">
 				<div class="row" style="width:90px; height:25px; border-left: 1px solid #D0D0D0">
-          <p>Total strokes</p>
+          <p>Tot</p>
         </div> 
 				<div class="row" style="width:90px; height:25px">
           <p><%= i %></p>
         </div> 
 			</div>
-			<div class="line" style="margin-left:202px">
+			<div class="line" style="margin-left:212px">
 				<div class="row" style="width:90px; height:46px; border-left: 1px solid #D0D0D0">
           <p>Rank in field</p>
         </div> 

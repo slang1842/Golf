@@ -7,8 +7,9 @@
 
 
     <div class="column">
-      <div class="item">Pievienoja:</div>
+      <div class="item">Added:</div>
       <div class="item">Name:</div>
+			<div class="item">Short name:</div>
       <div class="item">Country:</div>
       <div class="item">Region:</div>
       <div class="item">City:</div>
@@ -23,13 +24,31 @@
       <% @user = User.find(@golf_club.user_id) %>
       <div class="item"><%= @user.first_name %> <%= @user.last_name %></div>
       <div class="item"><%= @golf_club.name%></div>
+			<div class="item"><%= f.text_field :short_name %></div>
       <div class="item"><%= @golf_club.country.name%></div>
       <div class="item"><%= @golf_club.region%></div>
       <div class="item"><%= @golf_club.city%></div>
       <div class="item"><%= @golf_club.web_page%></div>
       <div class="item"><%= f.submit "Save"%></div>
     </div>
-
+		<div class="clear"></div>
+		<div class="column">
+      <div class="item">Fields:</div>
+			<div class="item">Name</div>
+      <% @golf_club.fields.each do |field| %>
+				<div class="item"><%= field.name %></div>
+			<% end %>
+      
+    </div>
+		<div class="column">
+			<div class="item"></div>
+			<div class="item">Short name</div>
+				<% @golf_club.fields.each do |field| %>
+					<%= f.fields_for :fields, field do |k| %>
+						<div class="item"><%= k.text_field :short_name %></div>
+					<% end %>
+				<% end %>
+		</div>
 
     <div class="banner_box">
       <div class="banner_title" onclick="">Golf Club banner</div>

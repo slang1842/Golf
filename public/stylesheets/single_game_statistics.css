@@ -124,12 +124,15 @@
 }
 
 .single_stats_wrap .table_wrap .line .row p {
-	
+	margin-left:3px;
+	margin-right:3px;
 	margin-top:5px;
 	color:#898989;
 }
 
 .single_stats_wrap .table_wrap .line .row1 p {
+	margin-left:3px;
+	margin-right:3px;
 	margin-top:10px;
 }
 
