@@ -10,9 +10,9 @@ gem "rake", "0.9.2"
 gem "authlogic", "3.0.2"
 gem "rails3-generators"
 gem "jquery-rails", "~>0.2"
-gem "mysql", :require => "mysql", :group => [:development, :test]
+#gem "mysql", :require => "mysql", :group => [:development, :test]
 gem 'paperclip'
-
+gem 'pg'
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -26,7 +26,7 @@ gem 'paperclip'
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
+# gem 'pg'
 # gem 'aws-s3', :require => 'aws/s3'
 
 # Bundle gems for the local environment. Make sure to

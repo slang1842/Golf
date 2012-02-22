@@ -41,7 +41,7 @@ STICK_SHAFT_rev = {1 => "Wood", 2 => "Metal", 3 => "Plastic"}
 STICK_SHAFT_STRENGTH_rev = { 1 => "Strong", 2 => "Very Strong", 3 => "Medium"}
 
 BALL_MANUFACTURER = {"ADIDAS" => 1, "Balls Masters" => 2, "Other" => 3}
-BALL_TYPE = {"apaļa" => 1, "zaļa" => 2, "oranža" => 3}
+BALL_TYPE = {"Green" => 1, "Yellow" => 2, "Metallic" => 3}
 
 # !!! WARNING !!!
 # ========================================================
