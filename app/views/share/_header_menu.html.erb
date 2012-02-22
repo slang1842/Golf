@@ -37,6 +37,11 @@
       <% end %>
 
     </div>
+		<div class="link_wrap">
+			<% if current_user.single_field_statistics.any?%>
+      <a href="/competition/<%= current_user.id.to_s %>"><div class="icon_results_input <%= "active" if header_menu_active_class == "competition" %>" ></div><p>Competition</p></a>
+			<% end %>
+    </div>
     <% if current_user.get_administrate_golf_club  %>
       <div class="link_wrap">
         <a href="<%= golf_club_path %>"><div class="icon_club <%= "active" if header_menu_active_class == "my_club" %>" ></div><p>My Club</p></a>

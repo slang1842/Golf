@@ -3,10 +3,9 @@
 }
 
 .club_wrap .club_info_wrap {
-	background:url(img/bg_stripes.png);
-	width:890px;
 	padding-left:10px;
 	padding-bottom:10px;
+	float:left;
 }
 
 .club_wrap  h1 {
@@ -21,6 +20,12 @@
 
 .club_wrap .club_info_wrap a {
 	color:#363636;
+}
+
+.club_wrap .club_links {
+	float:left;
+	margin-top:31px;
+	margin-left:110px;
 }
 
 .club_wrap .club_players_wrap {

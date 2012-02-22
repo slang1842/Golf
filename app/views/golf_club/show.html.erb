@@ -22,10 +22,16 @@
   <div class="club_wrap">
     <div class="club_info_wrap">
       <h1><%=@club.name%></h1>
-      <p><span class="gray"><%=@club.city%>, <%=@club.region%></span></p>
-      <p><span class="gray"><%=@club.web_page%></span></p>
-      <p><a href="/club/edit">Edit club info</a> | <a href="<%=new_golf_club_field_path%>">Add field</a> | <a href="/club/edit_fields">Edit fields</a> | <a href="/announcements/new" data-remote="true"> Add article </a> | <a href="/side_ad" data-remote="true"> Manage ads </a></p> 
+			<div class="club_info">
+      	<p><span class="gray"><%=@club.city%>, <%=@club.region%></span></p>
+      	<p><span class="gray"><%=@club.web_page%></span></p>
+			</div>
+
     </div>
+				<div class="club_links">
+      	<a href="/club/edit" class="green_button">Edit club info</a>  <a href="<%=new_golf_club_field_path%>" class="green_button">Add field</a> <a href="/club/edit_fields" class="green_button">Edit fields</a>  <a href="/announcements/new" data-remote="true" class="green_button"> Add article </a>  <a href="/side_ad" data-remote="true" class="green_button"> Manage ads </a>
+			</div>
+			<div class="clear"></div>
 
 		<div class="announcement_form_wrap"></div>
 		<div class="side_ad_wrap" style="margin:10px"></div>

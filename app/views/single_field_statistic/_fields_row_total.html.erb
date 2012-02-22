@@ -11,7 +11,7 @@
         <ul>
           <% @user_params_fields_limited.each do |user_params_fields| %>
             <li>
-              <a href="<%= get_stats_remote_path(user_params_fields.id) %>" data-remote="true">
+              <a href="/get_total_stats_by_field/<%= @user_params.id%>/<%= user_params_fields.field.id%>" data-remote="true">
                 <div class="single_game_field">
                 
                     <div class="date"><p><%= if user_params_fields.field.short_name != (nil || "") then  user_params_fields.field.short_name else user_params_fields.field.name end%> in "<%=if  user_params_fields.field.golf_club.short_name != (nil || "")  then user_params_fields.field.golf_club.short_name else user_params_fields.field.golf_club.name end%>"</p></div>
@@ -34,7 +34,7 @@
 <% if @user_params_fields_limited.first != nil %>
 <script type="text/javascript">
 $(document).ready(function() {
-	$.get("<%= get_stats_remote_path(@user_params_fields_limited.first.id) %>");
+	$.get("/get_total_stats_by_field/<%= @user_params.id%>/<%= @user_params_fields_limited.first.id %>");
 });
 </script>
 <% end %>

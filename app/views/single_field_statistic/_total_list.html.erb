@@ -1,4 +1,4 @@
-
+<p><span style="padding-left:30px">Showing everyone's score on field "<%= field_stats.first.field.name%>"</span></p>
 <div class="single_stats_wrap" style="margin-bottom:60px">
 	<div class="table_wrap">
 			<div class="line">
@@ -8,7 +8,7 @@
         <div class="row" style="width:100px">
           <p></p>
         </div>
-				 <div class="row" style="width:377px">
+				 <div class="row" style="width:454px">
           <p>Holes</p>
         </div>
         <div class="row" style="width:90px">
@@ -32,6 +32,19 @@
            	<p><%= z %></p>
 						<%z += 1%>
          	</div>
+					<% if z == 9%>
+						<div class="row" style="width:25px;">
+           		<p>Out</p>
+         		</div>
+					<% end %>
+					<% if z == 18%>
+						<div class="row" style="width:25px;">
+           		<p>In</p>
+         		</div>
+						<div class="row" style="width:25px;">
+           		<p>Tot</p>
+         		</div>
+					<% end %>
 				<% end %>
         <div class="row" style="width:90px">
           <p></p>
@@ -52,18 +65,38 @@
             	<p><%= stat.user.first_name%> <%= stat.user.last_name%></p>
           	</div>
 						<% z = 1%>
+						<% k = 0%>
+						<% c = 0%>
 						<% while z < 19 %>
           	<div class="row1" style="width:20px;<%=style%>">
-            	<p><%= stat.send("best_score_hole_" + z.to_s) %></p>
-							<%z += 1%>
+							<% x = stat.send("best_score_hole_" + z.to_s) %>
+							<% if x != nil then k += x else k += 0 end%>							
+            	<p><%= x %></p>
+							<% z += 1%>							
           	</div>
+							<% if z == 9%>
+								<div class="row1" style="width:25px;<%=style%>">
+            			<p><%= k %></p>
+									<% c = k%>
+          			</div>
+							<% end %>
+							<% if z == 18 %>
+								<div class="row1" style="width:25px;<%=style%>">
+            			<p><%= k - c %></p>
+          			</div>
+								<div class="row1" style="width:25px;<%=style%>">
+            			<p><%= c %></p>
+          			</div>
+							<% end %>
 						<% end %>
 						<div class="row1" style="width:90px;<%=style%>">
           		<p><%= stat.best_total_score%></p>
         		</div>
 						<div class="row1" style="width:90px;<%=style%>">
           		<p><%= stat.rank %></p>
-        		</div>  
+        		</div> 
+				
         	</div>
+				 
        <%end%>
 </div>

@@ -29,6 +29,7 @@ Golf::Application.routes.draw do
 	match '/statistic/by_fields/:user_id' => "statistic#by_fields"
 	match '/render_single_stats/:user_id/:stick_id' => 'statistic#render_single_stats'
 	match '/get_total_stats_by_field/:user_id/:field_id' => 'single_field_statistic#view_total_stats'
+	match '/competition/:user_id' => 'single_field_statistic#competition'
   resource :statistic, :controller => "statistic" do
     member do
       match 'user/:user_id/' => 'statistic#edit', :as => "main"

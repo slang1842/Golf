@@ -16,4 +16,9 @@ class SingleFieldStatisticController < ApplicationController
 		respond_to :js
 	end
 
+	def competition
+		@user_params = User.find(params[:user_id])
+		@user_params_fields_limited = SingleFieldStatistic.where(:user_id => params[:user_id]).order("updated_at desc").limit(100)
+	end
+
 end
