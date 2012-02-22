@@ -10,7 +10,7 @@
 
 .game_input_image_wrap {
     float:right;
-    margin-left:16px;
+		padding:45px;
     width:228px;
     overflow:hidden;
 }
@@ -26,9 +26,10 @@
 }
 
 .game_input_wrap .holes_wrap {
-    width:656px;
+    width:900px;
     height:47px;
     background-image:url(img/bg_stripes.png);
+		border-bottom:1px dashed #D0D0D0;
 }
 
 .game_input_wrap .holes_wrap .heading_wrap {
@@ -68,6 +69,11 @@
 
 .game_input_wrap .holes_wrap .empty {
     background-image:url(img/circle_empty.png);
+}
+
+.game_input_wrap .hits_wrap .heading_wrap {
+	float:left;
+	margin-right:11px;
 }
 
 
@@ -155,7 +161,7 @@
 }
 
 .game_input_wrap .plan_input_wrap {
-    width:656px;
+    width:580px;
     float:left;
     background-image:url(img/bg_stripes.png);
 	oveflow:hidden;
@@ -163,11 +169,14 @@
 }
 
 .game_input_wrap .plan_input_wrap .input_wrap {
-    width:656px;
+    width:554px;
     height:60px;
-    background-image:url(img/bg_stripes.png);
     /*margin-top:6px;*/
 clear:both;
+		padding-top:10px;
+		padding-bottom:10px;
+		border-bottom:1px dashed #D0D0D0;
+		border-right:1px dashed #D0D0D0;
 }
 
 .game_input_wrap .plan_input_wrap .input_wrap .stroke_switcher {
@@ -337,19 +346,18 @@ clear:both;
 }
 
 .navigation_buttons {
-
-	
 	height:40px;
-	padding-left:35px;
+	padding-left:131px;
+	margin-top:20px;
 	float:left;
 }
 
 .hole_info_wrapper {
-	margin-left:20px;
-	width:638px;
+	padding-left:20px;
+	width:880px;
 	overflow:hidden;
 	clear:both;
-	margin-bottom:10px;
+	border-bottom:1px dashed #D0D0D0;
 }
 
 .hole_info_wrapper a {
@@ -368,7 +376,7 @@ margin-bottom:7px;
 
 .hole_info_wrapper a:hover {
 	color:#000000;
-		 -moz-box-shadow:    0px 0px 0px 6px #ccc;
+		 -moz-box-shadow:    0px 0px 3px 2px #ccc;
   -webkit-box-shadow: 0px 0px 3px 2px #ccc;
   box-shadow:         0px 0px 3px 2px #ccc;
 }
@@ -469,4 +477,8 @@ margin-right:10px;
 .generic_button_padding {
 	padding:20px;
 }
+
+.game_date {
+	font-size:19px;
+	padding:10px;
 }

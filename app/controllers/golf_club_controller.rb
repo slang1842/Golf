@@ -15,11 +15,13 @@ class GolfClubController < ApplicationController
   def edit
     store_location
     @golf_club = GolfClub.find(current_user.golf_club.id)
+		@link_id = "edit_info"
   end
 
   def edit_fields
     store_location
     @golf_club = GolfClub.find(current_user.golf_club.id)
+		@link_id = "edit_fields"
     render '/fields/index'
   end
   

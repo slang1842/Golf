@@ -6,6 +6,7 @@ class FieldsController < ApplicationController
     @new_hole_attributes_name = "holes_attributes[]"
     @new_hit_place_attributes_name = "hit_places_attributes[]"
     @new_green_fee_attributes_name = "green_fees_attributes[]"
+		@link_id = "add_field"
   end
 
   def edit
@@ -16,6 +17,7 @@ class FieldsController < ApplicationController
     @new_hit_place_attributes_name = (@field.hit_places.count > 0) ?  "new_hit_places_attributes[]" : @hit_place_attributes_name
     @green_fee_attributes_name = "green_fees_attributes[]"
     @new_green_fee_attributes_name = (@field.green_fees.count > 0) ?  "new_green_fees_attributes[]" : @green_fee_attributes_name
+		@link_id = "edit_fields"
     
     respond_to do |format|
       format.html

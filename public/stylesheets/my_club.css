@@ -57,7 +57,7 @@
 
 .club_wrap .club_players_wrap .single_player_wrap .profile_info .text {
 	float:left;
-	padding-left:5px;
+	padding-left:10px;
 	position:relative;
 	bottom:2px;
 }
@@ -83,6 +83,7 @@
 	height:60px;
 	margin-left:8px;
 	margin-right:9px;
+	margin-bottom:10px;
 	-webkit-border-radius: 9px;
 	-moz-border-radius: 9px;
 	border-radius: 9px;

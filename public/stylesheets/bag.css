@@ -89,3 +89,17 @@
 	font-weight: bold;
 	line-height: 14px;
 }
+
+.heading2 {
+	padding:10px 0px 0px 0px;
+	margin-left:30px;
+}
+
+.heading2 p {
+	font-size:19px;
+}
+
+.heading2 .gray_heading p {
+	font-size:14px;
+	color:#898989;
+}

@@ -1,0 +1,16 @@
+<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_club"} %>
+
+
+<%= render 'golf_club/links_menu'%>
+
+<div class="side_ad_wrap" style="margin:10px">
+	<p><a href="/side_ad/new"  class="green_button"> New ad </a></p>
+
+	<h1> List of advertisements </h1>
+	<div class="adlist">
+		<% @side_ads.each do |ad| %>
+			<p><%=ad.header%> | <%= link_to "Delete", "/side_ad/#{ad.id}", :confirm => 'Are you sure you want to delete this ad?', :method => 'delete', :class => "side_ad_delete_link" %> | <%= link_to "Edit", edit_side_ad_path(ad.id), :class => "side_ad_edit_link" %> </p>
+		<% end %>
+	</div>
+
+</div>

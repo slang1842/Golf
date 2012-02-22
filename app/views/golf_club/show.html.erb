@@ -17,21 +17,9 @@
     $(form).submit();
   }
 </script>
-
+<%= render :partial => 'golf_club/links_menu'%>
+<div class="club_wrap">
 <% if current_user.golf_club.accepted == "yes" %>
-  <div class="club_wrap">
-    <div class="club_info_wrap">
-      <h1><%=@club.name%></h1>
-			<div class="club_info">
-      	<p><span class="gray"><%=@club.city%>, <%=@club.region%></span></p>
-      	<p><span class="gray"><%=@club.web_page%></span></p>
-			</div>
-
-    </div>
-				<div class="club_links">
-      	<a href="/club/edit" class="green_button">Edit club info</a>  <a href="<%=new_golf_club_field_path%>" class="green_button">Add field</a> <a href="/club/edit_fields" class="green_button">Edit fields</a>  <a href="/announcements/new" data-remote="true" class="green_button"> Add article </a>  <a href="/side_ad" data-remote="true" class="green_button"> Manage ads </a>
-			</div>
-			<div class="clear"></div>
 
 		<div class="announcement_form_wrap"></div>
 		<div class="side_ad_wrap" style="margin:10px"></div>
@@ -58,7 +46,7 @@
                   <%= u.hidden_field(:admin, {:id => "a_value_#{user.id.to_s}"})%>
                   <p><%=user.email%></p>
                 
-                <p><%= u.check_box :admin, :onchange => "change_coach('#{user.id.to_s}')" %> <%= u.label "Give acc" %></p>
+                <!--<p><%= u.check_box :admin, :onchange => "change_coach('#{user.id.to_s}')" %> <%= u.label "Give acc" %></p>-->
                 <!--<p><%= u.check_box :coach, :onchange => "change_coach('#{user.id.to_s}')" %> <%= u.label "Give Hint" %></p>--><% end %>
                 
                

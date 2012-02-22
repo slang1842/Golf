@@ -77,6 +77,7 @@ class StatisticController < ApplicationController
 
   	  @user_sticks = UsersStick.where(:user_id => @user_params.id).includes(:stick)
   	  @statistic = Statistic.where(:user_id => @user_params.id)
+			@link_id = "by_clubs"
 		end
 
 		def render_single_stats
@@ -95,6 +96,7 @@ class StatisticController < ApplicationController
 			respond_to do |format|
 				format.js { render :layout => false, :content_type => "text/javascript; charset=UTF-8" }
 			end
+			
 		end
   
 	def update
@@ -160,6 +162,7 @@ class StatisticController < ApplicationController
 	def by_fields
 		@user_params = User.find(params[:user_id])
 		@user_params_fields_limited = SingleFieldStatistic.where(:user_id => params[:user_id]).order("updated_at desc").limit(100)
+		@link_id = "by_fields"
 	end
   
 end

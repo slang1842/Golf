@@ -14,7 +14,9 @@ $(document).ready(function() {
 <% end %>
 
 <%= form_for @user, :html => { :onsubmit=> "return check_bag_form();"}, :url => update_bag_user_path do |f|  %>
-
+ <div class="heading2"><p>Clubs</p></div>
+			
+			<div class="heading2"><div class="gray_heading"><p> Your current measurement preference is <%= return_distance_name(@user.measurement)%>.</p></div></div>
   <div class="bag_wrap">
 
 
@@ -25,9 +27,7 @@ $(document).ready(function() {
         <div class="messages_error" style="display: none;">All fields are required</div>
       </div>
 
-      <div class="heading"><p>Clubs</p></div>
-			
-			<div class="heading"><div class="gray_heading"><p> Your current measurement preference is <%= return_distance_name(@user.measurement)%>.</p></div></div>
+     
 
       <div id="sticks">
         <% @users_sticks.each do |users_stick| %>
@@ -42,10 +42,12 @@ $(document).ready(function() {
       </div>
 
     </div>
-
+		</div>
+<div class="heading2"><p>Balls</p></div>
+		<div class="bag_wrap">
     <div class="clubs">
-      <div class="heading"><p>Balls</p></div>
-
+      
+	
       <div id="balls">
         <% @balls.each do |ball| %>
           <%= render :partial => 'user/ball_form', :locals => {:f => f, :ball => ball, :balls_attributes => @balls_attributes} %>

@@ -2,6 +2,7 @@
   <div class="game_list_percentage_wrap">
     
     <div id="screen">
+			<div class="fields_slideshow">
 			<% if @user_params_fields_limited.count > 5%>
       	<div class="link_left_wrap carousel-control previous carousel-previous">
         	<a href="#" class="prev"><img src="/images/link_left_big.png" alt=""/></a>
@@ -27,6 +28,7 @@
         	<a href="#" class="next"><img src="/images/link_right_big.png" alt=""/></a>
       	</div>
 			<% end %>
+			</div>
     </div>
   </div>
 <div id="field_stats"></div>

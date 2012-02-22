@@ -6,7 +6,7 @@ class AnnouncementController < ApplicationController
 
 	def new
 		@announcement = Announcement.new(:user_id => current_user.id, :golf_club_id => current_user.golf_club_id)
-		respond_to :js
+		@link_id = "add_article"
 	end
 
 	def edit

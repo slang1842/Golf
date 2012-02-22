@@ -1,5 +1,8 @@
+<%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_club"} %>
 
-<%= form_for :side_ad, side_ad, :url => "/side_ad", :method => 'post', :html => {:class => "ad_form", :remote => true} do |a| %>
+
+<%= render 'golf_club/links_menu'%>
+<%= form_for :side_ad, @side_ad, :url => "/side_ad/#{@side_ad.id.to_s}/update", :method => 'put', :html => {:class => "ad_form"} do |a| %>
 	<div class="add_article">
 		
 		<label>Heading:</label>
@@ -8,11 +11,11 @@
 		<div class="clear"></div>
 		<label>Text:</label>
 		<%= a.text_field :body, :class => "announcement_body_field", :maxlen => 60, :onkeyup => "maxlen('chars_left_body', 'announcement_body_field')"%>
-		<span class="counter chars_left_body"></span>
+		<span class="counter body_counter chars_left_body"></span>
 		<div class="clear"></div>
 		<label>Link:</label>
 		<%= a.text_field :link, :class => "announcement_link_field", :maxlen => 100, :onkeyup => "check_link('chars_left_link', 'announcement_link_field')"%>
-		<span class="counter chars_left_link"></span>
+		<span class="counter body_counter chars_left_link"></span>
 		<div class="clear"></div>
 		<label style="width:200px">Show on first page?:</label>
 		<div class="clear"></div>

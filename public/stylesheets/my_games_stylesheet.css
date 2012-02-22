@@ -104,3 +104,20 @@
 	margin-right:20px;
 	margin-bottom:10px;
 }
+
+.games_menu_links {
+	clear:both;
+	overflow:hidden;
+	padding:20px 0px 20px 20px;
+}
+
+.games_menu_links h1 {
+	float:left;
+	display:block;
+	font-size:19px;
+}
+
+.games_menu_links a {
+	margin-top:10px;
+	margin-left:20px;
+}

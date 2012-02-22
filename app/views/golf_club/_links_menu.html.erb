@@ -1,0 +1,22 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#<%=@link_id%>").attr("class", "green_button");
+	});
+</script>
+<% if current_user.golf_club.accepted == "yes" %>
+		<% @club = current_user.golf_club%>
+  <div class="club_wrap">
+    <div class="club_info_wrap">
+      <h1><%=@club.name%></h1>
+			<div class="club_info">
+      	<p><span class="gray"><%=@club.city%>, <%=@club.region%></span></p>
+      	<p><span class="gray"><%=@club.web_page%></span></p>
+			</div>
+
+    </div>
+				<div class="club_links">
+      	<a href="/club/edit" class="gray_button" id="edit_info">Edit club info</a>  <a href="<%=new_golf_club_field_path%>" class="gray_button" id="add_field">Add field</a> <a href="/club/edit_fields" class="gray_button" id="edit_fields">Edit fields</a>  <a href="/announcements/new"  class="gray_button" id="add_article"> Add article </a>  <a href="/side_ad"  class="gray_button" id="manage_ads"> Manage ads </a>
+				</div>
+	</div>
+		<div class="clear"></div>
+<% end %>

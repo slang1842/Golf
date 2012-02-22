@@ -64,8 +64,23 @@
       <div class="header_wrap">
 			<% if current_user %>	
 					<% if current_user.golf_club && current_user.golf_club.is_t_banner_disabled == false %>
-						<div class="header_banner">
+						<div class="header_banner_left">
 							<%= image_tag(current_user.golf_club.image_t.url)%>
+						</div>
+						<div class="header_banner_right">
+				
+						<% if current_user.golf_club %>
+  						<%  if current_user.golf_club.is_p_banner_disabled == false%>
+    						
+      						<img src="<%=current_user.golf_club.image_p.url%>" alt=""  width="900px" height="100px"/>
+    						
+  						<%  elsif current_user.golf_club.is_f_banner_disabled == false %>
+    						
+      						<img src="<%=current_user.golf_club.image_f.url%>" alt=""  width="900px" height="100px"/>
+    						
+  						<% elsif current_user.golf_club.is_f_banner_disabled == true && current_user.golf_club.is_p_banner_disabled == true %>
+  						<%  end %>
+						<%  end %>
 						</div>
 					<% else %>
 						<div class="logo_wrap"></div>				
@@ -77,7 +92,7 @@
           <% end %>
         </div>
       </div>
-
+<div class="clear"></div>
       <%= yield %>
 
 

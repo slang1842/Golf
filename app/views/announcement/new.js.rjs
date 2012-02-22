@@ -1,2 +1,0 @@
-page[".club_players_wrap"].remove()
-page[".announcement_form_wrap"].html render(:partial => "/announcement/form", :locals => {:announcement => @announcement})

@@ -1,9 +1,8 @@
 <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_club"} %>
-
-<div class="background_fix2" style="overflow:hidden">
+<%= render 'golf_club/links_menu'%>
+<div class="background_fix3">
   <div class="profile_info_input" style="padding-bottom:1px; float:left; width:400px">
 
-    <h1>Edit golf club</h1>
     <div class="left_wrap profile_info_input" style="margin-top:0px; float:none ">
       <%= form_for(@golf_club, :url => golf_club_path)  do |f| %>
         <% if @golf_club.errors.any? %>

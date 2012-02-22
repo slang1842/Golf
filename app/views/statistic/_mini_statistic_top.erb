@@ -1,11 +1,15 @@
-
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#<%=@link_id%>").attr("class", "green_button");
+});
+</script>
 <div class="short_statistics_wrap">
-<a href="/statistic/by_fields/<%=@user_params.id%>" class="green_button"> By fields</a> 
-<a href="/statistic/user/<%=@user_params.id%>" class="green_button"> By clubs</a>
-<a href="/standard_statistic/stableford/<%=@user_params.id%>" class="green_button" > Stableford</a> 
-<a href="/standard_statistic/gir/<%=@user_params.id%>" class="green_button" > GIR</a>
-<a href="/standard_statistic/putts/<%=@user_params.id%>" class="green_button" > Puttering</a>
-<a href="/standard_statistic/gir_putts/<%=@user_params.id%>" class="green_button" > Gir/Putts</a>
+<a href="/statistic/by_fields/<%=@user_params.id%>" class="gray_button" id="by_fields"> By fields</a> 
+<a href="/statistic/user/<%=@user_params.id%>" class="gray_button" id="by_clubs"> By clubs</a>
+<a href="/standard_statistic/stableford/<%=@user_params.id%>" class="gray_button" id="stableford"> Stableford</a> 
+<a href="/standard_statistic/gir/<%=@user_params.id%>" class="gray_button" id="gir"> GIR</a>
+<a href="/standard_statistic/putts/<%=@user_params.id%>" class="gray_button" id="puttering"> Puttering</a>
+<a href="/standard_statistic/gir_putts/<%=@user_params.id%>" class="gray_button" id="girputts"> Gir/Putts</a>
  <!-- <div id="mini_statistics_wrap_render">
     <div class="top_three">
       <div class="left_text">

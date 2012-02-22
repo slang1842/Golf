@@ -40,6 +40,7 @@
 
 .new_field_green_fees_wrap {
 	width:500px;
+	margin-left:10px;
 }
 
 .new_field .green_fee .txt {
@@ -235,10 +236,11 @@
     margin-top :10px;
     margin-left :0px;
     padding-left :10px !important; 
+		padding-top:20px;
 }
 
 .background_fix2 {
-    background-image:url(img/bg_stripes.png);
+    /*background-image:url(img/bg_stripes.png);*/
 }
 
 .background_fix h1 {
@@ -313,8 +315,9 @@
 .edit_field .holes {
     padding-left:10px;
     background-image:url(img/bg_stripes.png);
-    width:480px;
+    width:900px;
     margin-top:0px;
+		margin-bottom:20px;
     float:left;
     position:relative;
     right:10px;
@@ -402,18 +405,17 @@
 }
 
 .edit_field .hit_places_wrap h1 {
-    padding-left:10px;
+    /*padding-left:10px;*/
 }
 
 .edit_field .hit_places_wrap .single_wrap {
-    margin-left:20px;
     margin-top:10px;
     height:30px;
 	float:left;
 }
 
 .edit_field .hit_places_wrap .heading_places {
-	width:245px;
+	width:224px;
 	float:left;
 }
 
@@ -525,3 +527,9 @@ left: 368px;
 bottom: 28px;
 
 }
+
+.new_field_h {
+	margin:20px;
+	font-size:19px;
+}
+

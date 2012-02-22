@@ -1,14 +1,7 @@
 <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_club"} %>
 
 
-<div class="club_wrap">
-  <div class="club_info_wrap">
-    <h1><%=@golf_club.name%></h1>
-    <p><span class="gray"><%=@golf_club.city%>, <%=@golf_club.region%></span></p>
-    <p><span class="gray"><%=@golf_club.web_page%></span></p>
-    <p><a href="/club/edit">Edit club info</a>   </p>
-  </div>
-</div>
+<%= render 'golf_club/links_menu'%>
 
 <% if flash.count > 0 %>
  
