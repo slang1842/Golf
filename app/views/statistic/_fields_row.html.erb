@@ -13,7 +13,7 @@
               <a href="<%= get_stats_remote_path(user_params_fields.id) %>" data-remote="true">
                 <div class="single_game_field">
                 
-                    <div class="date"><p><%= user_params_fields.field.name %> in "<%= user_params_fields.field.golf_club.name%>"</p></div>
+                    <div class="date"><p><%= if user_params_fields.field.short_name != (nil || "") then  user_params_fields.field.short_name else user_params_fields.field.name end%> in "<%=if  user_params_fields.field.golf_club.short_name != (nil || "")  then user_params_fields.field.golf_club.short_name else user_params_fields.field.golf_club.name end%>"</p></div>
 
                 </div>
               </a>

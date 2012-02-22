@@ -34,8 +34,13 @@
       <div class="field_name">
         <div class="txt"><p>Field name</p></div>
         <div class="input"><%= f.text_field (:name, {:class => "field_name_field"} )%><br /><br /></div>
-
       </div>
+			<div class="clear"></div>
+			<div class="field_name">
+				<div class="txt"><p>Short name</p></div>
+				<div class="input"><%= f.text_field (:short_name, {:class => "short_name_field", :maxlen => 10, :onkeyup => "maxlen('chars_left_short_name', 'short_name_field');"} )%><br /><br /></div>
+				<div class="txt" style="margin-left:5px"><p><span class="chars_left_short_name"></span></p></div>
+			</div>
       <div class="clear"></div>
       <div class="txt"><p>Green fees</p></div>
       <div id="green_fees">

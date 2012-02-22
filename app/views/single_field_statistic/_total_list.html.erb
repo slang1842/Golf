@@ -2,13 +2,13 @@
 <div class="single_stats_wrap" style="margin-bottom:60px">
 	<div class="table_wrap">
 			<div class="line">
-				<div class="row" style="width:10px">
+				<div class="row" style="width:25px">
           <p></p>
         </div>
         <div class="row" style="width:100px">
           <p></p>
         </div>
-				 <div class="row" style="width:270px">
+				 <div class="row" style="width:377px">
           <p>Holes</p>
         </div>
         <div class="row" style="width:90px">
@@ -20,7 +20,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="line">
-				<div class="row" style="width:10px">
+				<div class="row" style="width:25px">
           <p></p>
         </div>
         <div class="row" style="width:100px">
@@ -28,7 +28,7 @@
         </div>
 				<% z = 1%>
 				<% while z < 19 %>
-        	<div class="row" style="width:14px;">
+        	<div class="row" style="width:20px;">
            	<p><%= z %></p>
 						<%z += 1%>
          	</div>
@@ -45,7 +45,7 @@
 				<% if stat.user == user then style = "background-color:yellow" end%>
         <div class="clear"></div>
 					<div class="line" style="<%=style%>">
-						<div class="row1" style="width:10px;<%=style%>">
+						<div class="row1" style="width:25px;<%=style%>">
           	  <p><%= i %>.</p> <% i += 1%>
          		</div>
 						<div class="row1" style="width:100px;<%=style%>">
@@ -53,7 +53,7 @@
           	</div>
 						<% z = 1%>
 						<% while z < 19 %>
-          	<div class="row1" style="width:14px;<%=style%>">
+          	<div class="row1" style="width:20px;<%=style%>">
             	<p><%= stat.send("best_score_hole_" + z.to_s) %></p>
 							<%z += 1%>
           	</div>

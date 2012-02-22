@@ -63,7 +63,7 @@
     <div class="site_wrapper">
       <div class="header_wrap">
 			<% if current_user %>	
-					<% if current_user.golf_club.is_t_banner_disabled == false %>
+					<% if current_user.golf_club && current_user.golf_club.is_t_banner_disabled == false %>
 						<div class="header_banner">
 							<%= image_tag(current_user.golf_club.image_t.url)%>
 						</div>

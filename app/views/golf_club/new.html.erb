@@ -20,6 +20,18 @@
         </div>
       </div>
 
+			
+     	<div class="single_element" style="width:400px;">
+        <div class="text">
+          <p><%= f.label :short_name %></p>
+        </div>
+        <div class="input">
+					<%= f.text_field :short_name, :class => "short_name_field", :maxlen => 10, :onkeyup => "maxlen('chars_left_short_name', 'short_name_field');" %>
+				 </div>
+					<div class="text" style="width:100px;margin-right:0px;text-align:left"><p><span class="chars_left_short_name"></span></p></div>
+       
+      </div>
+
 
       <div class="single_element">
         <div class="text">
