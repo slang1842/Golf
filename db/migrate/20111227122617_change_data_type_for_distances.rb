@@ -3,17 +3,17 @@ class ChangeDataTypeForDistances < ActiveRecord::Migration
     change_table :hits do |t|
 			t.remove :distance_to_hole
       t.remove :hit_distance
-			t.add :distance_to_hole, :float
-      t.add :hit_distance, :float
+			t.column :distance_to_hole, :float
+      t.column :hit_distance, :float
     end
 		change_table :sticks do |t|
 			t.remove :distance
-			t.add :distance, :float
+			t.column :distance, :float
 		end
 		
 		change_table :holes do |t|
 			t.remove :distance
-			t.add :distance, :float
+			t.column :distance, :float
 		end
 
 		change_table :fields do |t|
@@ -21,15 +21,15 @@ class ChangeDataTypeForDistances < ActiveRecord::Migration
       t.remove :short_distance
      	t.remove :normal_distance
    		t.remove :long_distance
-			t.add :very_short_distance, :string
-      t.add :short_distance, :string
-     	t.add :normal_distance, :string
-   		t.add :long_distance, :string
+			t.column :very_short_distance, :string
+      t.column :short_distance, :string
+     	t.column :normal_distance, :string
+   		t.column :long_distance, :string
 		end
 
 		change_table :users_sticks do |t|
 			t.remove :distance
-			t.add :distance, :float
+			t.column :distance, :float
 		end
   end
 
