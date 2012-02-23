@@ -20,9 +20,9 @@
     host: localhost
 
   production:
-    adapter: mysql
+    adapter: postgresql
     encoding: utf8
     database: golfcreo_main
     username: golfcreo_main
-    password: h.4SUWuSHHMy
-    host: localhost
+   # password: h.4SUWuSHHMy
+   # host: localhost
