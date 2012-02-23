@@ -1,11 +1,13 @@
 class ChangeStickDegreeColumn < ActiveRecord::Migration
   def self.up
-		change_column :sticks, :degrees, :integer
-		change_column :users_sticks, :degrees, :integer
+		remove_column :sticks, :degrees
+		remove_column :users_sticks, :degrees
+		add_column :sticks, :degrees, :integer
+		add_column :users_sticks, :degrees, :integer
   end
 
   def self.down
-		change_column :sticks, :degrees, :integer, :null => false
-		change_column :users_sticks, :degrees, :integer, :null => false
+		remove_column :sticks, :degrees
+		remove_column :users_sticks, :degrees
   end
 end

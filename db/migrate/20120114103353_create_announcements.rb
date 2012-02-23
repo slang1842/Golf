@@ -5,7 +5,7 @@ class CreateAnnouncements < ActiveRecord::Migration
 			t.references :user
 			t.references :golf_club
 	
- 			t.string :body
+ 			t.text :body
 			t.string :header
 			
 			t.string      :image_file_name
