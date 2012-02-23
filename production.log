@@ -1,0 +1,510 @@
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+Errno::ENOENT (No such file or directory - /tmp/mysql.sock):
+  
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(50 != 91(expected)): SELECT `statistics`.* FROM `statistics` WHERE (`statistics`.user_id IN (2,3,4,5,6,7,8,9,10,11,12))):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(50 != 91(expected)): SELECT `statistics`.* FROM `statistics` WHERE (`statistics`.user_id IN (2,3,4,5,6,7,8,9,10,11,12))):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(50 != 91(expected)): SELECT `statistics`.* FROM `statistics` WHERE (`statistics`.user_id IN (2,3,4,5,6,7,8,9,10,11,12))):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(50 != 91(expected)): SELECT `statistics`.* FROM `statistics` WHERE (`statistics`.user_id IN (2,3,4,5,6,7,8,9,10,11,12))):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(50 != 91(expected)): SELECT `statistics`.* FROM `statistics` WHERE (`statistics`.user_id IN (2,3,4,5,6,7,8,9,10,11,12))):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(50 != 91(expected)): SELECT `statistics`.* FROM `statistics` WHERE (`statistics`.user_id IN (2,3,4,5,6,7,8,9,10,11,12))):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(51 != 45(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(50 != 91(expected)): SELECT `statistics`.* FROM `statistics` WHERE (`statistics`.user_id IN (2,3,4,5,6,7,8,9,10,11,12))):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+NoMethodError (undefined method `each' for nil:NilClass):
+  app/controllers/announcement_controller.rb:60:in `load_more'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(57 != 180(expected)): SELECT `hits`.* FROM `hits` WHERE (`hits`.user_id IN (2,3,4,5,6,7,8,9,10,11,12))):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(57 != 180(expected)): SELECT `hits`.* FROM `hits` WHERE (`hits`.user_id IN (2,3,4,5,6,7,8,9,10,11,12))):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(50 != 44(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:166:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+NoMethodError (undefined method `admin' for nil:NilClass):
+  app/controllers/statistic_controller.rb:72:in `edit'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/image_ts/original/missing.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/image_ts/original/missing.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/image_ts/original/missing.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/image_ts/original/missing.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(98 != 44(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(98 != 44(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(98 != 44(expected)): SELECT `users`.* FROM `users` WHERE `users`.`is_super_admin` = 0):
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActionController::RoutingError (No route matches "/image_ts/original/missing.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionView::Template::Error (undefined method `field' for nil:NilClass):
+    1: <p><span style="padding-left:30px">Showing everyone's score on field "<%= field_stats.first.field.name%>"</span></p>
+    2: <div class="single_stats_wrap" style="margin-bottom:60px">
+    3: 	<div class="table_wrap">
+    4: 			<div class="line">
+  app/views/single_field_statistic/_total_list.html.erb:1:in `_app_views_single_field_statistic__total_list_html_erb___1521254441_23466370147040_10830828'
+  app/views/single_field_statistic/view_total_stats.js.rjs:1:in `_app_views_single_field_statistic_view_total_stats_js_rjs___921136542_23466370163180_0'
+  app/views/single_field_statistic/view_total_stats.js.rjs:1:in `_app_views_single_field_statistic_view_total_stats_js_rjs___921136542_23466370163180_0'
+  app/controllers/single_field_statistic_controller.rb:16:in `view_total_stats'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionView::Template::Error (undefined method `field' for nil:NilClass):
+    1: <p><span style="padding-left:30px">Showing everyone's score on field "<%= field_stats.first.field.name%>"</span></p>
+    2: <div class="single_stats_wrap" style="margin-bottom:60px">
+    3: 	<div class="table_wrap">
+    4: 			<div class="line">
+  app/views/single_field_statistic/_total_list.html.erb:1:in `_app_views_single_field_statistic__total_list_html_erb___1521254441_23466370811620_16662892'
+  app/views/single_field_statistic/view_total_stats.js.rjs:1:in `_app_views_single_field_statistic_view_total_stats_js_rjs___921136542_23466370861680_0'
+  app/views/single_field_statistic/view_total_stats.js.rjs:1:in `_app_views_single_field_statistic_view_total_stats_js_rjs___921136542_23466370861680_0'
+  app/controllers/single_field_statistic_controller.rb:16:in `view_total_stats'
+
+
+ActionView::Template::Error (undefined method `field' for nil:NilClass):
+    1: <p><span style="padding-left:30px">Showing everyone's score on field "<%= field_stats.first.field.name%>"</span></p>
+    2: <div class="single_stats_wrap" style="margin-bottom:60px">
+    3: 	<div class="table_wrap">
+    4: 			<div class="line">
+  app/views/single_field_statistic/_total_list.html.erb:1:in `_app_views_single_field_statistic__total_list_html_erb___1521254441_23466370147040_10830828'
+  app/views/single_field_statistic/view_total_stats.js.rjs:1:in `_app_views_single_field_statistic_view_total_stats_js_rjs___921136542_23466370163180_0'
+  app/views/single_field_statistic/view_total_stats.js.rjs:1:in `_app_views_single_field_statistic_view_total_stats_js_rjs___921136542_23466370163180_0'
+  app/controllers/single_field_statistic_controller.rb:16:in `view_total_stats'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActiveRecord::StatementInvalid (Mysql::ProtocolError: invalid packet: sequence number mismatch(57 != 180(expected)): SELECT `hits`.* FROM `hits` WHERE (`hits`.user_id IN (2,3,4,5,6,7,8,9,10,11,12))):
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/image_ts/original/missing.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/image_ts/original/missing.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/image_ts/original/missing.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/image_ts/original/missing.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/image_ts/original/missing.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionView::Template::Error (undefined method `short_name' for #<GolfClub:0x2b96c7a25790>):
+    26:           <p><%= f.label :short_name %></p>
+    27:         </div>
+    28:         <div class="input">
+    29: 					<%= f.text_field :short_name, :class => "short_name_field", :maxlen => 10, :onkeyup => "maxlen('chars_left_short_name', 'short_name_field');" %>
+    30: 				 </div>
+    31: 					<div class="text" style="width:100px;margin-right:0px;text-align:left"><p><span class="chars_left_short_name"></span></p></div>
+    32:        
+  app/views/golf_club/new.html.erb:29:in `_app_views_golf_club_new_html_erb___411822531_23963298222560_0'
+  app/views/golf_club/new.html.erb:10:in `_app_views_golf_club_new_html_erb___411822531_23963298222560_0'
+  app/controllers/golf_club_controller.rb:9:in `new'
+
+
+ActiveRecord::UnknownAttributeError (unknown attribute: trajectory_fade):
+  app/models/statistic.rb:1073:in `calculate_bag_stats'
+  app/models/statistic.rb:795:in `main_statistics'
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::UnknownAttributeError (unknown attribute: trajectory_fade):
+  app/models/statistic.rb:1073:in `calculate_bag_stats'
+  app/models/statistic.rb:795:in `main_statistics'
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::UnknownAttributeError (unknown attribute: trajectory_fade):
+  app/models/statistic.rb:1073:in `calculate_bag_stats'
+  app/models/statistic.rb:795:in `main_statistics'
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::UnknownAttributeError (unknown attribute: trajectory_fade):
+  app/models/statistic.rb:1073:in `calculate_bag_stats'
+  app/models/statistic.rb:795:in `main_statistics'
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::UnknownAttributeError (unknown attribute: trajectory_fade):
+  app/models/statistic.rb:1073:in `calculate_bag_stats'
+  app/models/statistic.rb:795:in `main_statistics'
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActiveRecord::UnknownAttributeError (unknown attribute: trajectory_fade):
+  app/models/statistic.rb:1073:in `calculate_bag_stats'
+  app/models/statistic.rb:795:in `main_statistics'
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionView::Template::Error (undefined method `short_name' for #<GolfClub:0x2b8d4c80de00>):
+    26:           <p><%= f.label :short_name %></p>
+    27:         </div>
+    28:         <div class="input">
+    29: 					<%= f.text_field :short_name, :class => "short_name_field", :maxlen => 10, :onkeyup => "maxlen('chars_left_short_name', 'short_name_field');" %>
+    30: 				 </div>
+    31: 					<div class="text" style="width:100px;margin-right:0px;text-align:left"><p><span class="chars_left_short_name"></span></p></div>
+    32:        
+  app/views/golf_club/new.html.erb:29:in `_app_views_golf_club_new_html_erb___411822531_23942936806080_0'
+  app/views/golf_club/new.html.erb:10:in `_app_views_golf_club_new_html_erb___411822531_23942936806080_0'
+  app/controllers/golf_club_controller.rb:9:in `new'
+
+
+ActiveRecord::UnknownAttributeError (unknown attribute: trajectory_fade):
+  app/models/statistic.rb:1073:in `calculate_bag_stats'
+  app/models/statistic.rb:795:in `main_statistics'
+  app/models/statistic.rb:155:in `main_statistics'
+  app/controllers/statistic_controller.rb:7:in `statistics'
+
+
+ActionView::Template::Error (undefined method `short_name' for #<GolfClub:0x2b8d4c6069b8>):
+    26:           <p><%= f.label :short_name %></p>
+    27:         </div>
+    28:         <div class="input">
+    29: 					<%= f.text_field :short_name, :class => "short_name_field", :maxlen => 10, :onkeyup => "maxlen('chars_left_short_name', 'short_name_field');" %>
+    30: 				 </div>
+    31: 					<div class="text" style="width:100px;margin-right:0px;text-align:left"><p><span class="chars_left_short_name"></span></p></div>
+    32:        
+  app/views/golf_club/new.html.erb:29:in `_app_views_golf_club_new_html_erb___411822531_23942936806080_0'
+  app/views/golf_club/new.html.erb:10:in `_app_views_golf_club_new_html_erb___411822531_23942936806080_0'
+  app/controllers/golf_club_controller.rb:9:in `new'
+
+
+ActionController::RoutingError (No route matches "/stylesheets/bg_stripes.png"):
+  
+
+
+ActionController::RoutingError (No route matches "/golf_club/new"):
+  
+
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=6):
+  app/controllers/statistic_controller.rb:70:in `edit'
+
