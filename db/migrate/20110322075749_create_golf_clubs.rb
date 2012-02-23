@@ -3,7 +3,7 @@ class CreateGolfClubs < ActiveRecord::Migration
     create_table :golf_clubs do |t|
       t.references   :user
       t.string       :name,                        :null => false
-			t.string			 :short_name
+			#t.string			 :short_name
       t.references   :country,                     :null => false
       t.string 		   :region,                      :null => false
       t.string		   :city,                        :null => false

@@ -3,7 +3,7 @@ class CreateFields < ActiveRecord::Migration
     create_table :fields do |t|
       t.references :golf_club
       t.string     :name,        :null => false
-			t.string		 :short_name
+			#t.string		 :short_name
       t.integer :very_short_distance
       t.integer :short_distance
       t.integer :normal_distance
