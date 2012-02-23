@@ -1,34 +1,34 @@
 class ChangeDataTypeForDistances < ActiveRecord::Migration
    def self.up
     change_table :hits do |t|
-			t.remove_column :distance_to_hole
-      t.remove_column :hit_distance
-			t.add_column :distance_to_hole, :float
-      t.add_column :hit_distance, :float
+			t.remove :distance_to_hole
+      t.remove :hit_distance
+			t.add :distance_to_hole, :float
+      t.add :hit_distance, :float
     end
 		change_table :sticks do |t|
-			t.remove_column :distance
-			t.add_column :distance, :float
+			t.remove :distance
+			t.add :distance, :float
 		end
 		
 		change_table :holes do |t|
-			t.remove_column :distance
-			t.add_column :distance, :float
+			t.remove :distance
+			t.add :distance, :float
 		end
 
 		change_table :fields do |t|
-			t.remove_column :very_short_distance
-      t.remove_column :short_distance
-     	t.remove_column :normal_distance
-   		t.remove_column :long_distance
-			t.add_column :very_short_distance, :string
-      t.add_column :short_distance, :string
-     	t.add_column :normal_distance, :string
-   		t.add_column :long_distance, :string
+			t.remove :very_short_distance
+      t.remove :short_distance
+     	t.remove :normal_distance
+   		t.remove :long_distance
+			t.add :very_short_distance, :string
+      t.add :short_distance, :string
+     	t.add :normal_distance, :string
+   		t.add :long_distance, :string
 		end
 
 		change_table :users_sticks do |t|
-			t.remove_column :distance
+			t.remove :distance
 			t.add :distance, :float
 		end
   end
