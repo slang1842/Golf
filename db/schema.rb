@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
   create_table "fields", :force => true do |t|
     t.integer  "golf_club_id"
     t.string   "name",                :null => false
+		t.string   "short_name"
     t.string   "very_short_distance"
     t.string   "short_distance"
     t.string   "normal_distance"
@@ -201,6 +202,7 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
   create_table "golf_clubs", :force => true do |t|
     t.integer  "user_id"
     t.string   "name",                                               :null => false
+		t.string   "short_name"
     t.integer  "country_id",                                         :null => false
     t.string   "region",                                             :null => false
     t.string   "city",                                               :null => false
