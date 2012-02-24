@@ -364,7 +364,7 @@ function swapDistanceColor(color_no, distance_type){
 	if (color_no == 3){ $(header).text('Black'); 
 										 $(header + "," + textfield).show();}
 	if (color_no == 4){ $(header).text('Yellow');
-										 $(header).show();}
+										 $(header + "," + textfield).show();}
 	if (color_no == 0){ $(header + "," +  textfield).hide(); }
 		
 }
@@ -485,6 +485,20 @@ function checkStrokeValues() {
 	return has_input
 }
 
+function showNewHoleFields(){
+	if ($(".short_distance_header").is(":visible")){
+		$(".short_distance").show();
+	}
+	if ($(".very_short_distance_header").is(":visible")){
+		$(".very_short_distance").show();
+	}
+	if ($(".normal_distance_header").is(":visible")){
+		$(".normal_distance").show();
+	}
+	if ($(".long_distance_header").is(":visible")){
+		$(".long_distance").show();
+	}
+}
 
 
 

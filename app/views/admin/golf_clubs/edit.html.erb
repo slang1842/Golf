@@ -14,10 +14,13 @@
       <div class="item">Region:</div>
       <div class="item">City:</div>
       <div class="item">Web Page:</div>
+			<div class="item">Display top banners?</div>
+			<div class="item">Display side banner?</div>
       <div class="item">
         <%= f.label "Accept club?" %>
         <%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %>
       </div>
+			
     </div>
 
     <div class="column">
@@ -29,6 +32,8 @@
       <div class="item"><%= @golf_club.region%></div>
       <div class="item"><%= @golf_club.city%></div>
       <div class="item"><%= @golf_club.web_page%></div>
+			<div class="item"><%= f.radio_button :is_f_banner_disabled, true %> No <%= f.radio_button :is_f_banner_disabled, false %> Yes</div>
+			<div class="item"><%= f.radio_button :is_v_banner_disabled, true %> No <%= f.radio_button :is_v_banner_disabled, false %> Yes</div>
       <div class="item"><%= f.submit "Save"%></div>
     </div>
 		<div class="clear"></div>
@@ -51,11 +56,10 @@
 		</div>
 
     <div class="banner_box">
-      <div class="banner_title" onclick="">Golf Club banner</div>
+      <div class="banner_title" onclick="">Left top banner(700*100px)</div>
       <div class="banner_wrap">
         <%= image_tag(@golf_club.image_f.url) %>
         <%= f.file_field :image_f %>
-        <%=  f.check_box :is_f_banner_disabled %> Disable
       </div>
     </div>
 
@@ -63,34 +67,24 @@
 
 
     <div class="banner_box">
-      <div class="banner_title" onclick="">Golf Club pay banner</div>
+      <div class="banner_title" onclick="">Right top banner(200*100px)</div>
       <div class="banner_wrap">
         <%= image_tag(@golf_club.image_p.url) %>
         <%= f.file_field :image_p %>
-        <%=  f.check_box :is_p_banner_disabled %> Disable
-        <%= f.text_field :pay_banner_end_date, :id=> "admintimepicker", :class => "user_text_field" %>
       </div>
     </div>
 
 
 
     <div class="banner_box">
-      <div class="banner_title" onclick="">Golf Club vertical banner</div>
+      <div class="banner_title" onclick="">Side banner(160*470px)</div>
       <div class="banner_wrap">
         <%= image_tag(@golf_club.image_v.url) %>
         <%= f.file_field :image_v %>
-        <%=  f.check_box :is_v_banner_disabled %> Disable
       </div>
     </div>
 
-		<div class="banner_box">
-      <div class="banner_title" onclick="">Golf Club header banner</div>
-      <div class="banner_wrap">
-        <%= image_tag(@golf_club.image_t.url) %>
-        <%= f.file_field :image_t %>
-        <%= f.check_box :is_t_banner_disabled %> Disable
-      </div>
-    </div>
+		
 
 
   </div>

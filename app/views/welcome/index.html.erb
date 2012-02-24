@@ -29,16 +29,7 @@
     <%else%>
       <img src="/images/ad_blank.png" width="160px" height="469px" alt=""/>
     <%end%>
-	<% if @side_ads %>
-		<% @side_ads.each do |ad| %>
-		<div onclick="window.open ('<%=ad.link%>')" style="cursor:pointer">
-	 	<div class="single_ad">
-    	  <p><b><%=ad.header%></b>
-			<span class="gray"><%=ad.body%></span></p>
-   	 </div>
-		</div>
-		<% end %>
-   <% end %>
+	
 
   </div>
 
@@ -46,7 +37,7 @@
   <div class="main_content_wrap">
 
 
-    <% if current_user.admin == 0%>
+    <!--<% if current_user.admin == 0%>
       <% if current_user.sticks.count > 0 && Statistic.where(:user_id == current_user.id).count > 0  && current_user.golf_club != nil %>
 
         <% if current_user.coach != nil  %>
@@ -123,7 +114,7 @@
 
       <% end %>
 
-    <% end %>
+    <% end %>-->
 
     <div class="clear"></div>
     <div class="news_wrap">
@@ -151,24 +142,19 @@
     </div>
   </div>
 
-  <div class="top_wrap">
-    <% if @top_users_progress.count != 0 %>
-      <h1>Top spēlētāji</h1>
-      <% @num1 = 1 %>
-      <% @top_users_progress.each do |top| %>
-        <p><%= @num1 %>. <%= User.find(top.user_id).first_name %> <%= User.find(top.user_id).last_name %></p>
-        <% @num1 = @num1 + 1%>
-      <% end %>
-    <% end %>
+  <div class="ads_wrap">
+   
+	<% if @side_ads %>
+		<% @side_ads.each do |ad| %>
+		<div onclick="window.open ('<%=ad.link%>')" style="cursor:pointer">
+	 	<div class="single_ad">
+    	  <p><b><%=ad.header%></b></p>
+			<p><span class="gray"><%=ad.body%></span></p>
+   	 </div>
+		</div>
+		<% end %>
+   <% end %>
 
-    <% if @max_hit.count != 0  %>
-      <h1>Top distance</h1>
-      <% @num2 = 1 %>
-      <% @max_hit.each do |distance| %>
-        <p><%= @num2 %>. <%= User.find(distance.user_id).first_name %> <%= User.find(distance.user_id).last_name %></p>
-        <% @num2 = @num2 + 1%>
-      <% end %>
-    <% end %>
   </div>
 
 </div>

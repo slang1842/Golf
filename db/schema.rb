@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "usage"
     t.integer  "avg_distance"
     t.integer  "stick_progres"
-    t.integer  "penalties"
-		t.datetime "created_at"
+    t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "penalties"
   end
 
   create_table "announcements", :force => true do |t|
@@ -73,13 +73,13 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
   create_table "fields", :force => true do |t|
     t.integer  "golf_club_id"
     t.string   "name",                :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "very_short_distance"
     t.string   "short_distance"
     t.string   "normal_distance"
-    t.string   "long_distance"    
+    t.string   "long_distance"
     t.string   "short_name"
-		t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "game_filter_statistics", :force => true do |t|
@@ -120,6 +120,8 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.boolean  "wind_from_front",                    :default => false
     t.boolean  "wind_from_left",                     :default => false
     t.boolean  "wind_from_right",                    :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "trajectory_fade"
     t.boolean  "trajectory_drow"
     t.boolean  "trajectory_slice"
@@ -131,8 +133,6 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.boolean  "green_trajectory_upward_right"
     t.boolean  "green_trajectory_downward_left"
     t.boolean  "green_trajectory_downward_right"
-		t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "game_statistic_generals", :force => true do |t|
@@ -193,9 +193,9 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "next_hole"
     t.integer  "active_hit"
     t.string   "form"
-    t.boolean  "complete"
-		t.datetime "created_at"
+    t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "complete"
   end
 
   create_table "golf_clubs", :force => true do |t|
@@ -225,15 +225,15 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.string   "image_p_file_name"
     t.string   "image_p_content_type"
     t.integer  "image_p_file_size"
-    t.datetime "image_p_updated_at"    
+    t.datetime "image_p_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "image_t_file_name"
     t.string   "image_t_content_type"
     t.integer  "image_t_file_size"
     t.datetime "image_t_updated_at"
     t.boolean  "is_t_banner_disabled"
     t.string   "short_name"
-		t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "green_fees", :force => true do |t|
@@ -287,6 +287,8 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "green_direction_more_to_right_hint"
     t.integer  "green_direction_more_to_left_hint"
     t.integer  "green_tilt_straight_hint"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "trajectory_fade_hint"
     t.string   "trajectory_drow_hint"
     t.string   "trajectory_slice_hint"
@@ -304,8 +306,6 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.string   "green_trajectory_upward_left_hint"
     t.string   "green_trajectory_downward_straight_hint"
     t.string   "green_trajectory_straight_hint"
-		t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "hit_places", :force => true do |t|
@@ -328,11 +328,9 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "land_place"
     t.integer  "stance"
     t.integer  "trajectory"
-    t.integer  "luck_factor"
+    t.boolean  "luck_factor"
     t.string   "comment"
     t.integer  "following_action"
-    t.float    "distance_to_hole"
-    t.float    "hit_distance"
     t.integer  "wind"
     t.integer  "hit_was"
     t.integer  "motion_was"
@@ -347,6 +345,8 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "mistake"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "distance_to_hole"
+    t.float    "hit_distance"
   end
 
   create_table "holes", :force => true do |t|
@@ -354,17 +354,17 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "par",                 :null => false
     t.integer  "hcp",                 :null => false
     t.integer  "hole_number",         :null => false
-    t.float    "distance"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
-    t.datetime "image_updated_at"    
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "distance"
     t.float    "very_short_distance"
     t.float    "short_distance"
     t.float    "normal_distance"
     t.float    "long_distance"
-		t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "pair_hits", :force => true do |t|
@@ -401,6 +401,8 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
   create_table "single_field_statistics", :force => true do |t|
     t.integer  "user_id"
     t.integer  "field_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "rank"
     t.integer  "best_score_hole_1"
     t.integer  "best_score_hole_2"
@@ -421,8 +423,6 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "best_score_hole_17"
     t.integer  "best_score_hole_18"
     t.integer  "best_total_score"
-		t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "single_field_statistics_by_holes", :force => true do |t|
@@ -437,9 +437,9 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "worst_putts"
     t.decimal  "avg_strokes",               :precision => 6, :scale => 3
     t.decimal  "avg_putts",                 :precision => 6, :scale => 3
-    t.integer  "rank"
-		 t.datetime "created_at"
+    t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rank"
   end
 
   create_table "standard_statistics", :force => true do |t|
@@ -521,6 +521,8 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "green_direction_to_left"
     t.integer  "green_direction_more_to_right"
     t.integer  "green_direction_more_to_left"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "trajectory_fade"
     t.integer  "trajectory_drow"
     t.integer  "trajectory_slice"
@@ -539,29 +541,27 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "green_trajectory_downward_straight"
     t.integer  "green_trajectory_straight"
     t.boolean  "calculated"
-		t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "status_holes", :force => true do |t|
     t.integer  "game_id"
     t.integer  "hole_number"
-    t.integer  "completeness"    
+    t.integer  "completeness"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "putts_count"
     t.integer  "total_strokes_count"
-		t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "sticks", :force => true do |t|
     t.string   "stick_type",     :null => false
-    t.float    "distance",       :null => false
-    t.integer  "degrees",        :null => false
     t.string   "shaft",          :null => false
     t.string   "shaft_strength", :null => false
     t.string   "short_name",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "distance"
+    t.integer  "degrees"
   end
 
   create_table "users", :force => true do |t|
@@ -569,6 +569,7 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.string   "crypted_password",                      :null => false
     t.string   "password_salt",                         :null => false
     t.string   "persistence_token",                     :null => false
+    t.boolean  "new_user",           :default => true
     t.boolean  "add_club",           :default => false
     t.boolean  "admin",              :default => false
     t.boolean  "is_super_admin",     :default => false
@@ -597,9 +598,9 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.string   "perishable_token",   :default => "",    :null => false
-		 t.datetime "created_at"
+    t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "perishable_token",   :default => "",    :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -609,14 +610,13 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "user_id"
     t.integer  "stick_id"
     t.integer  "pair_hit_id"
-    t.float    "distance",       :null => false
-    t.integer  "degrees",        :null => false
     t.string   "shaft",          :null => false
     t.string   "shaft_strength", :null => false
-    
-    t.boolean  "is_in_bag"
-		t.datetime "created_at"
+    t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "distance"
+    t.integer  "degrees"
+    t.boolean  "is_in_bag"
   end
 
 end

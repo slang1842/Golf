@@ -10,9 +10,9 @@ gem "rake", "0.9.2"
 gem "authlogic", "3.0.2"
 gem "rails3-generators"
 gem "jquery-rails", "~>0.2"
-#gem "mysql", :require => "mysql", :group => [:development, :test]
+gem "mysql", :require => "mysql", :group => [:development, :test]
 gem 'paperclip'
-gem 'pg'
+#gem 'pg'
 # Use unicorn as the web server
 # gem 'unicorn'
 

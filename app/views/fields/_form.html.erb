@@ -143,17 +143,21 @@
                 i = 0;
                 i = parseInt(i);
               }
-
+						
               i = parseInt(i) + 1;
               $('#holes').append(x);
+							showNewHoleFields();
               $('.current_hole_number:last').val(i);
               $('.hole_number_text:last').replaceWith(i+'.');
+							if ( i == 18){
+								$("#add_hole_button").hide();							
+							}
             }
-
+						
           </script>
-
-          <div onClick="append_new_hole(<%=render(:partial => '/fields/new_hole', :locals => {:field => @field, :f => f, :hole_attributes_name => @new_hole_attributes_name, :hole => Hole.new}).to_json %>)" class="green_button" style="margin-left:13px; cursor: pointer;">+ add another</div>
-
+					<% if hole_number != 18 %>
+          <div onClick="append_new_hole(<%=render(:partial => '/fields/new_hole', :locals => {:field => @field, :f => f, :hole_attributes_name => @new_hole_attributes_name, :hole => Hole.new}).to_json %>)" class="green_button" style="margin-left:13px; cursor: pointer;" id="add_hole_button">+ add another</div>
+					<% end %>
         </div>
       </div>
     </div>

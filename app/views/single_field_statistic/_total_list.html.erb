@@ -30,7 +30,7 @@
 				<% while z < 19 %>
         	<div class="row" style="width:20px;">
            	<p><%= z %></p>
-						<%z += 1%>
+						
          	</div>
 					<% if z == 9%>
 						<div class="row" style="width:25px;">
@@ -45,6 +45,7 @@
            		<p>Tot</p>
          		</div>
 					<% end %>
+					<%z += 1%>
 				<% end %>
         <div class="row" style="width:90px">
           <p></p>
@@ -72,7 +73,7 @@
 							<% x = stat.send("best_score_hole_" + z.to_s) %>
 							<% if x != nil then k += x else k += 0 end%>							
             	<p><%= x %></p>
-							<% z += 1%>							
+													
           	</div>
 							<% if z == 9%>
 								<div class="row1" style="width:25px;<%=style%>">
@@ -88,6 +89,7 @@
             			<p><%= c %></p>
           			</div>
 							<% end %>
+							<% z += 1%>	
 						<% end %>
 						<div class="row1" style="width:90px;<%=style%>">
           		<p><%= stat.best_total_score%></p>
