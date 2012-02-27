@@ -188,15 +188,15 @@
     <% elsif game1 == 1%>
       <% last_hole_number = 9 %>
     <% end %>
-		<div class="navigation_buttons">
+		
 		<% if active_hit.to_i != 1 %>
-			
+			<div class="navigation_buttons" style="padding-left:40px">
 							<a href="#" rel="prev" class="hit_switch gray_button" > Previous&nbsp;stroke </a>
       	    
 			
 			
 		<% else %>
-			
+			<div class="navigation_buttons">
 		<% end %>
 		<% if  hit_r_final.hit_number < (status_hole.total_strokes_count.to_i)%>
 		
