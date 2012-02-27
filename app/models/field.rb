@@ -14,19 +14,18 @@ class Field < ActiveRecord::Base
 
 	def self.get_hit_place_colors field_id
 		field = self.find_by_id(field_id)
-		a = field.very_short_distance
-		b = field.short_distance
-		c = field.long_distance
-		d = field.normal_distance
+		a = field.very_short_distance unless field.very_short_distance == nil
+		b = field.short_distance unless field.short_distance == nil
+		c = field.long_distance unless field.long_distance == nil
+		d = field.normal_distance unless field.normal_distance == nil
 		arr =[a, b, c, d]
 		arr = arr.uniq
 		hash_final = []
 		arr.each do |h|
-			if h.to_i != 0
-				hash_final << HitPlace.find_by_id(h)
+			START_PLACE_ARRAY.each do |i|
+				if h.to_i == i[:id] then hash_final << i end
 			end
 		end
-		puts hash_final
 		return hash_final
 	end
 end

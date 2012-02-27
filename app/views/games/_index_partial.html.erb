@@ -4,7 +4,7 @@ $(document).ready(function(){
 }
 </script>
 
-
+<div id="games_index_tab">
 <% @games.each do |game| %>
   
     <div class="single_game_wrap" id="game_<%= game.id%>">
@@ -16,17 +16,22 @@ $(document).ready(function(){
         <p><%=field.name%></p>
       </div>
       <div class="links">
-        <a href="<%='/game_plan/' + game.id.to_s + '/1/1/new'%>" class="<%= fetch_color_for_plan_button(game.id)%>">Game plan</a>
+        <a href="<%='/game_plan/' + game.id.to_s + '/1/1/new'%>" class="<%= fetch_color_for_plan_button(game.id)%>">Plan</a>
        <!-- <% hit_real = Hit.find(:first, :conditions => {:game_id => game.id, :real_hit => 'r'})%>
         <% if hit_real %>
         <a href="<%='/game_results/' + game.id.to_s + '/1/results/new/0'%>" class="green_button">Results</a>
                <% else %>
         <a href="<%='/game_results/' + game.id.to_s + '/1/results/new/0'%>" class="gray_button">Results</a>
         <% end %> -->
-        <a href="<%='/game_details/' + game.id.to_s + '/1/1/new/0'%>" class="<%=fetch_color_for_details_button(game)%>">Detailed results</a>
+				<a href="<%='/game_details/edit_holes/details/' + game.id.to_s%>" data-remote="true" class="<%=fetch_color_for_details_button(game)%>">Score</a>
+        <a href="<%='/game_details/' + game.id.to_s + '/1/1/new/0'%>" class="<%=fetch_color_for_details_button(game)%>">Analytics</a>
 				<a href="/delete_game/<%=game.id%>" class="gray_button" onclick="return confirm('Do you really want to delete this game?')" data-remote="true"> Delete</a>           
        
       </div>
       <div class="clear"></div>
     </div>
     <%end%>
+</div>
+
+<div class="clear"></div>
+<div id="hole_starter_tab"></div>

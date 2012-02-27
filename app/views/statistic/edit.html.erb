@@ -27,6 +27,7 @@ $(document).ready(function(){
  
 
 
+
   <div id="main_stats_table_error_message" style='display: none;'>
     <div class='messages'>
       <div class='messages_error' style='display: block; margin-top: 25px; margin-bottom: 30px;'>Statistic is not available for a moment. Please wait.</div>
@@ -52,7 +53,7 @@ $(document).ready(function(){
 						<div id="sticks_row_" style="width:660px; float:left">
 							<div style="">
               <% @user_sticks.each do |stick| %>
-
+								
                 <% @stats = AllStickStatistic.find(:first, :conditions => {:stick_id => stick.stick_id, :user_id => @user_params.id})%>
 
                 <div id="stick_box_<%=stick.stick.id%>" class="single_club_wrap <%= 'club_in_bag' if stick.is_in_bag %>" style="margin-top:5px" onclick="$.ajax('/render_single_stats/<%=@user_params.id%>/<%=stick.stick_id%>'); return false;">
@@ -95,6 +96,7 @@ $(document).ready(function(){
 
 
               <% end %>
+					
 						</div>
 					</div>
 
@@ -102,9 +104,17 @@ $(document).ready(function(){
 				</div>
             <!-- ============================ sticks ============================ -->
 
-
+	<div class="statistic_ads_wrap">
+    <% if current_user && current_user.golf_club %>
+      <% if current_user.golf_club.is_v_banner_disabled == false %>
+        <img src="<%=current_user.golf_club.image_v.url%>" width="160px" height="469px" alt=""/>
+      <%end%>
+    <%else%>
+      <img src="/images/ad_blank.png" width="160px" height="469px" alt=""/>
+    <%end%>
+  </div>	
 <div id="whole_table" style="display:none">
-				
+		
             <!-- ============================ main stats ============================ -->
             <div id="stats_div_inner" >
 							
@@ -181,7 +191,7 @@ $(document).ready(function(){
 
       </div>
     </div>
-
+ 
 
 
     <% @main_statistic_has_errors = 0 %>

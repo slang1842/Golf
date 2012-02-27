@@ -1,5 +1,7 @@
 <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_games"} %>
 <div class="game_date"><%= game_header(@game.field.name, @game.date) %></div>
+<div id="hole_starter_tab"></div>
+<div id="game_fields_wrap">
 <div class="game_input_wrap">
    <div class="holes_wrap">
      <div id="hole_tab">
@@ -41,5 +43,5 @@
 </div>
 </div>
 </div>
-
+</div>
 

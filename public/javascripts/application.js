@@ -7,9 +7,6 @@ $(document).ready(function() {
   bindAddSwitch();
   bindRemoveSwitch();
   bindDistanceFields();
-  //$("#sticks_row").jScrollPane({hideFocus: true});
-//	$("#stats_div").jScrollPane({hideFocus: true});
-  bindScrollTriangles();
 	bindBagCheckboxes();
   });
 
@@ -66,31 +63,6 @@ function bindDistanceFields() {
 		});
 }
 
-function bindScrollTriangles() {
-	$("#triangle_left").live('click', function(){
-		var diff = $("#stats_div_inner").css("left");
-		diff = parseInt(diff.substr(0, diff.length - 2)) + 111 + "px";
-		if (diff != "111px"){
-			$("#stats_div_inner").css("left", diff);
-			var api1 = $("#sticks_row").data('jsp');
-			api1.scrollByX(-111);
-			$("#triangle_right").css("visibility", "visible");
-		}	else { $("#triangle_left").css("visibility", "hidden");}	
-		return false;
-		});
-	$("#triangle_right").live('click', function(){
-		var total_length = "-" + (parseInt($("#length_stats_div").css("width")) - 666 ) + "px";
-		var diff = $("#stats_div_inner").css("left");
-		diff = parseInt(diff.substr(0, diff.length - 2)) - 111 + "px";
-		if (parseInt(diff) > parseInt(total_length)){
-			$("#stats_div_inner").css("left", diff);
-			var api1 = $("#sticks_row").data('jsp');
-			api1.scrollByX(111);
-			$("#triangle_left").css("visibility", "visible");
-		}	else { $("#triangle_right").css("visibility", "hidden");}			
-		return false;
-		});
-}
 
 function bindAddSwitch(){
 	$("#add_hit").live('click', function() {
@@ -112,7 +84,7 @@ function bindHitFormPlan() {
     textEntered = true
     $(".checkable_dropdowns").each(function() {
         if (textEntered && $(this).val() == "") {
-            textEntered = false;
+            textEntered = true;
        }
     });
                 
@@ -145,7 +117,7 @@ function bindHitSwitch() {
     textEntered = true
     $(".checkable_dropdowns").each(function() {
        if (textEntered && $(this).val() == "") {
-          textEntered = false;
+          textEntered = true;
        }
     });
 		var rel_var = $(this).attr('rel');
@@ -190,7 +162,7 @@ function bindSaveSwitch() {
     textEntered = true
      $(".checkable_dropdowns").each(function() {
         if (textEntered && $(this).val() == "") {
-             textEntered = false;
+             textEntered = true;
        }
     });
                 

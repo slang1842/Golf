@@ -650,8 +650,8 @@ a {
   background-image:url(/images/single_club_bg.png);
   width:93px;
   height:60px;
-  margin-left:8px;
-  margin-right:9px;
+  margin-left:6px;
+  margin-right:8px;
   -webkit-border-top-left-radius: 9px;
   -webkit-border-top-right-radius: 9px;
   -moz-border-radius-topleft: 9px;
@@ -782,7 +782,7 @@ a {
 
 .main_stats_table_wrap .situation_type .name {
   float:left;
-  height:37px;
+  height:53px;
   width:144px;
   background-image:url(/images/bg_stripes.png);
   border:1px solid #cacaca;
@@ -802,7 +802,7 @@ a {
 
 .main_stats_table_wrap .situation_type .single_situation .progress_block {
   width:480px;
-  height:37px;
+  height:53px;
   border:1px solid #cacaca;
   border-left:none;
   border-bottom:none;
@@ -1304,10 +1304,21 @@ a {
 }
 .stroke_stats .single_item {
 	float:left;
-	font-size:9px;
-	width:75px;
+	font-size:11px;
+	width:95px;
 }
 
+.statistic_ads_wrap {
+	width:160px;
+	float:right;
+	margin-right:10px;
+	margin-top:25px;
+	padding-bottom:20px;
+}
+
+#whole_table {
+	float:left;
+}
 
 /* ==== error, info messages ==== */
 

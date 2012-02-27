@@ -142,14 +142,14 @@
         </div>
       </div>
 
-      <div class="single_element">
+      <!--<div class="single_element">
         <div class="text">
           <p><%= f.label t "form.temperature" %></p>
         </div>
         <div class="input">
           <%= f.select(:temp_preference, TEMPERATURE,{}, { :class => 'dropdown8'}) %>
         </div>
-      </div>
+      </div>-->
 
       <div id="golf_club_control"> <!-- SIS DIVS IR VAIDZIGS, LAI VARTU DISABLE/ENABLE GOLFA IZVELNI, KAD CHECKBOXIS IECEKSETS/IZCEKSETS -->
         <div class="input" >
@@ -244,9 +244,9 @@
       <div class="clear"></div>
 
       <% if current_user %>
-        <%= f.submit "Save", :class => "green_button" %>
+				<a href="#" class="green_button" onclick="$('#edit_user_<%=current_user.id%>').submit();"> Save </a>
       <% else %>
-        <%= f.submit "Create", :class => "green_button" %>
+				<a href="#" class="green_button" onclick="$('#new_user').submit();"> Create </a>
       <% end %>
 
       <% unless current_user %>

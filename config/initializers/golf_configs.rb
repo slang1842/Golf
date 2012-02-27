@@ -11,6 +11,7 @@ RIGHT_HANDED = { "Righthander" => true, "Lefthander" => false }
 MEASUREMENT = { "Meters" => "m", "Feet" => "ft", "Yards" => "yd" }
 TEMPERATURE = { "Celsium" => "celsium", "Fahrenheit" => "fahrenheit"}
 START_PLACE_COLORS = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4, "None" => 0 }
+START_PLACE_ARRAY = [{:id => 1, :name => "Red"}, {:id => 2, :name => "Green"}, {:id => 3, :name => "Black"}, {:id => 4, :name => "Yellow"}]
 START_PLACE_COLORS_USER = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4}
 GREEN_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 FIELD_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}

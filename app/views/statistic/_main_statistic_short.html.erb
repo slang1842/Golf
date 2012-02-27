@@ -32,23 +32,21 @@ $(document).ready(function() {
 		<div class="progress_block">
 			<div class="stroke_stats" style="">
 		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%> %
-			Under ball: <%=failed_strokes.under_strokes%> %
+			Top ball: <%=failed_strokes.top_strokes%> %<br/> 
+			Under ball: <%=failed_strokes.under_strokes%> %<br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
 		</div>
 		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes %> <br/> 
-			Too far : <%=failed_strokes.long_strokes%> %
-		</div>
-		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> %<br/>
 			Str left : <%=failed_strokes.left_strokes%> %<br/> 
 			Str right : <%=failed_strokes.right_strokes%> %
 		</div>
 		<div class="single_item">
 			Spin left : <%=failed_strokes.more_left_strokes%> %  <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%> %
+			Spin right : <%=failed_strokes.more_right_strokes%> %<br/>
+			Straight : <%=failed_strokes.ok_strokes%> % <br/> 
 		</div>
 		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> % <br/> 
 			Penalties : <%=failed_strokes.penalty_strokes%> %
 		</div>
 	</div>	  
@@ -65,7 +63,7 @@ $(document).ready(function() {
 			<div class="stroke_stats" style="">
 		<div class="single_item">
 			Top ball: <%=failed_strokes.top_strokes%> %
-			Under ball: <%=failed_strokes.under_strokes%> %
+			Under ball: <%=failed_strokes.under_strokes%> % 
 		</div>
 		<div class="single_item">
 			Too close : <%=failed_strokes.short_strokes %> <br/> 
@@ -135,25 +133,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -193,25 +189,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -251,25 +245,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -309,25 +301,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -368,25 +358,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -427,25 +415,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -488,25 +474,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -549,25 +533,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -612,25 +594,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -670,25 +650,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -729,25 +707,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -819,25 +795,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -879,25 +853,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -939,25 +911,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -996,25 +966,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1054,25 +1022,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1141,25 +1107,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1198,25 +1162,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1255,25 +1217,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1317,25 +1277,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1378,25 +1336,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1438,25 +1394,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1498,25 +1452,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1585,25 +1537,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1642,25 +1592,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1699,25 +1647,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1761,25 +1707,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1822,25 +1766,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1882,25 +1824,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -1942,25 +1882,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -2036,25 +1974,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -2093,25 +2029,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -2150,25 +2084,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -2235,25 +2167,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -2292,25 +2222,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -2348,25 +2276,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>
@@ -2403,25 +2329,23 @@ $(document).ready(function() {
   	<% end %>
 	<% if failed_strokes != nil && curr_stats != 0 %> 
 	<div class="stroke_stats">
-		<div class="single_item">
-			Top ball: <%=failed_strokes.top_strokes%>  <br/> 
-			Under ball: <%=failed_strokes.under_strokes%> 
-		</div>
-		<div class="single_item">
-			Too close : <%=failed_strokes.short_strokes%> <br/> 
-			Too far : <%=failed_strokes.long_strokes%>
-		</div>
-		<div class="single_item">
-			Str left : <%=failed_strokes.left_strokes%> <br/> 
-			Str right : <%=failed_strokes.right_strokes%>
-		</div>
-		<div class="single_item">
-			Spin left : <%=failed_strokes.more_left_strokes%>   <br/> 
-			Spin right : <%=failed_strokes.more_right_strokes%>
-		</div>
-		<div class="single_item">
-			Straight : <%=failed_strokes.ok_strokes%> <br/> 
+		<div class="single_item" style="margin-top:4px">
 			Penalties : <%=failed_strokes.penalty_strokes%>
+		</div>
+<div class="single_item">
+			Top ball: <%=failed_strokes.top_strokes%> <br/> 
+			Under ball: <%=failed_strokes.under_strokes%> <br/> 
+			Too close : <%=failed_strokes.short_strokes %> 
+		</div>
+		<div class="single_item">
+			Too far : <%=failed_strokes.long_strokes%> <br/>
+			Str left : <%=failed_strokes.left_strokes%> <br/> 
+			Str right : <%=failed_strokes.right_strokes%> %
+		</div>
+		<div class="single_item">
+			Spin left : <%=failed_strokes.more_left_strokes%>  <br/> 
+			Spin right : <%=failed_strokes.more_right_strokes%><br/>
+			Straight : <%=failed_strokes.ok_strokes%> <br/> 
 		</div>
 	</div>	  
 <% end %>

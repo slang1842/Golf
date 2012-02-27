@@ -1,6 +1,10 @@
- <div class="single_element start_place_colors">
+<div class="single_element start_place_colors">
           <div class="text">
             <p>Start place</p>
           </div>
-					<%= select_tag "game[start_place_colors]", options_from_collection_for_select(hit_places, "id", "name"), :class => "dropdown3"%>
+          <select class="dropdown3" id="game_start_place_colors" name="game[start_place_colors]">
+						<% hit_places.each do |s|%>					
+							<option value="<%=s[:id]%>"><%=s[:name]%></option>
+						<% end %>
+					</select>
         </div>

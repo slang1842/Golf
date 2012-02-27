@@ -73,6 +73,9 @@ Golf::Application.routes.draw do
   match '/user/update_hints/:id' => 'user#update_hints'
 
   #game
+	match '/game_details/edit_holes/:direction/:game_id' => 'games#edit_hole_information_from_index'
+	match '/game_details/fill_holes/:direction/:game_id' => 'games#fill_hole_information'
+	match '/game_details/update_holes/:direction/:game_id' => 'games#update_holes'
   match '/edit_field_by_id/:id' => 'fields#edit'
   match '/hole_switch/:game_id/:active_hole/:direction/:form_id/:hits/:puts' => 'games#hole_switch', :as => 'hole_switch'
   match '/hit_switch/:game_id/:active_hole/:direction/:active_hit/:form_id' => 'games#hit_switch', :as => 'hit_switch'
@@ -83,8 +86,7 @@ Golf::Application.routes.draw do
   match '/game_res/:game_id/:active_hole/:active_hit/:hits' => 'games#res', :as => 'res'
   match '/game_details/:game_id/:active_hole/:active_hit' => 'games#details', :as => 'details'
   match '/game_details/:game_id/:active_hole/:active_hit/:hits/:puts' => 'games#details', :as => 'details'
-	match '/game_details/fill_holes/:game_id' => 'games#fill_hole_information'
-	match '/game_details/update_holes/:game_id' => 'games#update_holes'
+	
   match '/more_games/:count' => 'games#more_games', :as => 'more_games'
   match '/games/' => 'games#index', :as => 'game_index'
   match '/hit_update/:game_id/' => 'games#hit_update'

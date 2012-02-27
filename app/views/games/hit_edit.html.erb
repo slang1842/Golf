@@ -1,6 +1,8 @@
 
 <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_games"} %>
-
+<div class="game_date"><%= game_header(@game.field.name, @game.date) %></div>
+<div id="hole_starter_tab"></div>
+<div id="game_fields_wrap">
 <div class="game_input_wrap">
     
     <div class="results_input_wrap">
@@ -32,5 +34,4 @@
 <div id="hole_picture" class="game_input_image_wrap">
   <%= render :partial => 'games/hole_picture', :locals => {:hole => @hole} %>
 </div>
-
-<%#= link_to 'Done', game_index_path, :remote => true%>
+</div>

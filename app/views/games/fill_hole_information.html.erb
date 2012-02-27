@@ -11,7 +11,7 @@
 <br/>
 <br/>
 <br/>
-<%=form_for( @game, :url => ('/game_details/update_holes/' + @game.id.to_s + '/'), :html => {:onsubmit => "return checkStrokeValues();", :id => "hole_starter_form"}) do |game|%>
+<%=form_for( @game, :url => ('/game_details/update_holes/' + @direction + '/' + @game.id.to_s + '/'), :html => {:onsubmit => "return checkStrokeValues();", :id => "hole_starter_form"}) do |game|%>
 	<div class="all_holes_labels">
 		<p>Strokes:</p>
 		<p>Putts:</p>

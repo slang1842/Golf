@@ -1,3 +1,11 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#user_session_password").keydown(function(e) {
+			if(e.keyCode == 13)
+			{document.new_user_session_login.submit();}		
+		});
+	});
+</script>
 <div id="login_fields">
 <%= form_for user_session, :url => { :action => "create", :controller => "user_sessions"  }, :html => {:name => "new_user_session_login" } do |f| %>
 

@@ -1,0 +1,4 @@
+page["#games_index_tab"].hide('slow')
+page["#game_fields_wrap"].hide('slow')
+page["#hole_starter_tab"].html render(:partial => ('games/edit_hole_information'), :locals => {:statusholes => @statusholes, :game => @game, :direction => @direction, :active_hit => @active_hit, :active_hole => @active_hole})
+page["#hole_starter_tab"].show()

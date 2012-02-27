@@ -1,0 +1,48 @@
+<% if direction == 'index'%>
+	<div style="margin-left:20px;margin-top:5px"><%= game_header(game.field.name, game.date) %></div>
+<% end %>
+<div class="game_input_wrap">
+  <div class="holes_wrap" style="width:900px">
+		
+  <div class="heading_wrap">
+    <p>Note that changes made here will alter the strokes you've entered in Analytics or Plan for particular hole!</p>
+  </div>
+<br/>
+<br/>
+<br/>
+<%game_id = game.id%>
+<%=form_for( game, :url => ('/game_details/update_holes/' + direction + '/' + game.id.to_s + '/'), :html => {:onsubmit => "return checkStrokeValues();", :id => "hole_starter_form"}) do |game|%>
+	<div class="all_holes_labels">
+		<p>Strokes:</p>
+		<p>Putts:</p>
+	</div>	
+	<div class="all_holes">
+  <% statusholes.each do |hole|%>
+		
+		<div class="hole_input_wrapper">
+   	<%= game.fields_for :status_holes, hole do |f|%>
+		
+      <div class="single_hole done"><p><%=hole.hole_number%></p></div>
+			<div class="clear"></div>
+					<%= f.text_field :total_strokes_count, :class => "hole_text_field"%>
+					<%= f.text_field :putts_count, :class => "hole_text_field" %>
+			
+		<% end %></div>
+   <% end %></div>
+  <% end %>
+
+
+ </div>
+
+	</div>
+
+
+<div class="clear"></div>
+<div class="generic_button_padding">
+	<%if direction == 'index' %>
+		<a href="/games" class="gray_button" style="color:black"> Back </a>
+	<% else %>
+	<a href="/game_details/<%= game_id%>/<%=active_hole%>/<%=active_hit%>" data-remote="true" class="gray_button"> Back </a>
+	<% end %>
+	<a href="#" class="green_button" style="color:black" onclick="$('#hole_starter_form').submit();" > Done </a> 
+</div>
