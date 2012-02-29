@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   before_filter :is_blocked, :only => :current_user
   before_filter :require_no_super_admin
   before_filter :is_blocked
-  
+
+  def help
+		render 'share/help'
+	end
+    
   private
 
   def self.do_i_have_main_statistic(user)
@@ -22,7 +26,8 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-    
+
+	
   def store_location
     session[:return_to] = request.fullpath
   end

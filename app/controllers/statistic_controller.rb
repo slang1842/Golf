@@ -17,55 +17,9 @@ class StatisticController < ApplicationController
     #@GameStatisticsBySticks = GameStatisticsBySticks.all
   end
 
-  def edit_old
-    @user_params = User.find(params[:user_id])
-		
-		@user_params_hints = @user_params.hints
-    
-    @is_admin = true if current_user.admin == true
-    @is_coach = true if @user_params.coach == current_user.id
-    @has_couch = true unless (@user_params.coach == false || @user_params.coach == nil)
-    @coach_hints = current_user.hints
-    @current_club_trainer = User.find(@user_params.golf_club.user_id)
-    @user_sticks = UsersStick.where(:user_id => @user_params.id).includes(:stick)
-    @statistic = Statistic.where(:user_id => @user_params.id)
-		@combined_hash = []
-		@user_sticks.each do |stick|
-			inner_arr = []
-			inner_arr << stick
-			inner_arr << @statistic.find_by_stick_id(stick.stick_id)
-			user_hint = @user_params_hints.find_by_stick_id(stick.stick_id) 
-			user_hint = Hint.create(:user_id => params[:user_id], :stick_id => stick.stick_id) if user_hint == nil
-			inner_arr << user_hint
-			adm_hint = @coach_hints.find_by_stick_id(stick.stick_id)
-			adm_hint = Hint.create(:user_id => current_user.id, :stick_id => stick.stick_id) if adm_hint == nil
-			inner_arr << adm_hint
-			@combined_hash << inner_arr
-			end
-		end
 	
 		
-    # ======== mini stats menu
-   # @GameStatisticsByHoles = GameStatisticsByHoles.where(:user_id => params[:user_id]) #.order("field_id ASC")
-    
-   # @gir = @GameStatisticsByHoles.sum(:gir_sum)
-   # @puts = @GameStatisticsByHoles.sum(:put_sum)
-   # @strokes = @GameStatisticsByHoles.sum(:hit_sum)
-
-   # @top_good = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres DESC').limit(3)
-   # @top_fail = AllStickStatistic.where(:user_id => params[:user_id]).order('stick_progres').limit(3)
-   # @top_sticks = GameStatisticsBySticks.where(:user_id => params[:user_id]).order('hits_r').limit(3) 
-    # ======== mini stats menu
-      
-   # store_location
-
-   # unless @is_admin
-    #  if @user_params.id != current_user.id
-     #   render_404
-     # end
-      
-   # end
-  # end
+   
 		def edit
 			@user_params = User.find(params[:user_id])
 			#@user_params_hints = @user_params.hints

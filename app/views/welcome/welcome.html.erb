@@ -65,17 +65,30 @@
       <div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>
     </div>
 
-    <div class="news_wrap">
+    <!--<div class="news_wrap">
       <p>Golf news</p>
-			<% @announcements.each do |ann| %>
+			<%# @announcements.each do |ann| %>
 				<div class="single_news" onclick="window.location.href='/user/new';" style="cursor:pointer">
-        <p><%=ann.header%><br><span class="gray">
-				<%= chars_for_heading(ann.body, 250)%></span></p>
+        <p><%#=ann.header%><br><span class="gray">
+				<%#= chars_for_heading(ann.body, 250)%></span></p>
       </div>
-			<% end %>
-      
+			<%# end %>-->
+      <div class="ads_wrap">
+   
+	<% if @announcements != nil %>
+		<% @announcements.each do |ad| %>
+		<div onclick="window.location.href='/user/new';" style="cursor:pointer">
+	 	<div class="single_ad">
+    	  <p><b><%=ad.header.truncate(20)%></b></p>
+			<p><span class="gray"><%=ad.body.truncate(60)%></span></p>
+   	 </div>
+		</div>
+		<% end %>
+   <% end %>
 
-    </div>
+  </div>
+
+
     <div class="clear"></div>
 
     <div class="bg_image"></div>

@@ -1438,3 +1438,17 @@ background-repeat: no-repeat;
 	font-size:14px;
 }
 
+.row1 .tooltip {
+	display:none;
+}
+
+.row1:hover .tooltip{
+	display:block;
+	position:relative;
+	font-size:12px;
+    top:2px; left:2px; width:60px;
+    border:1px solid #CC6600;
+    background-color:#FFFF99;
+    text-align: center;
+		z-index:5;
+}

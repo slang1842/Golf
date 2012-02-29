@@ -197,12 +197,12 @@
 			
 		<% else %>
 			
-		<% end %>
+		<% end %>-->
 		<% if  hit_r_final.hit_number < (status_hole.total_strokes_count.to_i)%>
 		
 						<a href="#" rel="next" class="hit_switch green_button next_stroke_switch" > Next&nbsp;stroke </a>
           
-		<% end %>-->
+		<% end %>
     <% if active_hole.to_i != last_hole_number.to_i%>
 		
             <a href="#" rel="<%=active_hole.to_i + 1%>" class="hole_switch green_button" >Next&nbsp;hole</a>

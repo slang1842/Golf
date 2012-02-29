@@ -8,7 +8,7 @@
         <div class="row" style="width:100px">
           <p></p>
         </div>
-				 <div class="row" style="width:454px">
+				 <div class="row" style="width:479px">
           <p>Holes</p>
         </div>
         <div class="row" style="width:90px">
@@ -42,6 +42,9 @@
            		<p>In</p>
          		</div>
 						<div class="row" style="width:25px;">
+           		<p>Out</p>
+         		</div>
+						<div class="row" style="width:25px;">
            		<p>Tot</p>
          		</div>
 					<% end %>
@@ -73,7 +76,7 @@
 							<% x = stat.send("best_score_hole_" + z.to_s) %>
 							<% if x != nil then k += x else k += 0 end%>							
             	<p><%= x %></p>
-													
+							<span class="tooltip"><%=stat.send("best_game_hole_" + z.to_s)%>
           	</div>
 							<% if z == 9%>
 								<div class="row1" style="width:25px;<%=style%>">
@@ -87,6 +90,9 @@
           			</div>
 								<div class="row1" style="width:25px;<%=style%>">
             			<p><%= c %></p>
+          			</div>
+								<div class="row1" style="width:25px;<%=style%>">
+            			<p><%= k %></p>
           			</div>
 							<% end %>
 							<% z += 1%>	

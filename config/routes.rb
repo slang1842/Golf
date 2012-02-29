@@ -21,6 +21,7 @@ Golf::Application.routes.draw do
   #match '/statistic/:user_id/:field_id' => 'statistic#edit', :as => 'main_statistic'
   #match '/statistic/:user_id/:field_id' => 'statistic#edit', :as => 'main_statistic'
   #end
+	match '/help' => 'application#help'
   match '/filter_statistic' => 'statistic#filter_statistic'
   match '/user_place_in_golf_club' => 'statistic#user_place_in_golf_club'
 	match '/remove_user_stick/:id' => "users_sticks#destroy"

@@ -47,12 +47,20 @@
     margin-top:12px;
 }
 
+.for_word p {
+    font-size:12px !important;
+}
+
 .game_input_wrap .holes_wrap .single_hole p {
     font-size:14px;
     color:#ffffff;
     width:23px;
     height:22px;
     line-height:22px;
+}
+
+.game_input_wrap .holes_wrap .single_hole .for_word p {
+    font-size:12px;
 }
 
 .game_input_wrap .holes_wrap .done {

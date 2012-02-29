@@ -131,40 +131,6 @@ function check_bag_form() {
   }
    
 }
-/*
-function check_user_form() {
-  textEntered = true
-
-  $(".user_text_field").each(function() {
-    if ($(this).val().length == 0) {
-      textEntered = false;
-    }
-    else {
-      textEntered = true
-    }
-
-    $(".user_select_field").each(function() {
-      if ($(this).val() == "") {
-        textEntered = false;
-      }
-      else {
-        textEntered = true
-      }
-    
-    });
-
-    if (textEntered) {
-      return true
-    } else {
-      $(".messages_error").slideDown('slow', function(){
-        $sleep(3, function(){
-          $(".messages_error").sideUp('slow')
-        })
-      });
-      return false
-    }
-  }
- */
 
 function check_user_form() {
   var textEntered = true
@@ -243,11 +209,7 @@ function golf_club_checkbox(){
 
 
 function showHideElement(whichLayer){
-	//var api = $("#stats_div").data('jsp');
-	//	api.destroy();
     $(whichLayer).toggle();
-	//$("#stats_div").jScrollPane({hideFocus: true});
-	//scrollpane.reinitialise({contentWidth: 812});
 		return false;
 }
     
@@ -264,10 +226,56 @@ function hint_delete_text_field(x) {
 
 
 function user_place_in_golf_club() {
-  //$("#table_result_wrap_box").hide();
   $("#user_place_in_golf_club").submit();
 };
 
+function bindHoleTextBoxes(){
+	for (i=1;i<=9;i++){
+		var fieldname = '.hole_num_' + i;
+		$(fieldname).live('keyup', function() {
+			var outSum = collectOutSum();
+			$('.out_field').val(outSum);
+			alterTotalSum();		
+		});
+	}
+	for (i=10;i<=18;i++){
+		var fieldname = '.hole_num_' + i;
+		$(fieldname).live('keyup', function() {
+			var inSum = collectInSum();
+			$('.in_field').val(inSum);
+			alterTotalSum();		
+		});
+	}
+};
+
+function collectInSum(){
+	var total_sum = 0;
+	for (i=10;i<=18;i++){
+		var field_val = $('.hole_num_' + i).val();
+		if (field_val == ''){field_val = 0;}
+		total_sum = total_sum + parseInt(field_val);	
+	}
+	return total_sum
+}
+
+function collectOutSum(){
+	var total_sum = 0;
+	for (i=1;i<=9;i++){
+		var field_val = $('.hole_num_' + i).val();
+		if (field_val == ''){field_val = 0;}
+		total_sum = total_sum + parseInt(field_val);	
+	}
+	return total_sum
+}
+
+function alterTotalSum(){
+	var out_sum = $('.out_field').val();
+	var in_sum = $('.in_field').val();
+	if (out_sum == "" || out_sum == null){ out_sum = 0;}
+	if (in_sum == "" || in_sum == null){ in_sum = 0;}
+	$('.tot_field').val(parseInt(out_sum) + parseInt(in_sum));
+	return true
+}
 
 
 /* === custom methodes ===*/

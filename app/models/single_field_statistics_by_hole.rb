@@ -24,7 +24,9 @@ class SingleFieldStatisticsByHole < ActiveRecord::Base
 			stats.rank = SingleFieldStatisticsByHole.where("hole_number = ? AND field_id = ? AND best_strokes < ?", stats.hole_number, stats.field_id, stats.best_strokes).count.to_i + 1
 			stats.save!
 			string = "best_score_hole_" + stats.hole_number.to_s
+			string_game = "best_game_hole_" + stats.hole_number.to_s
 			parent_stats.update_attributes(string.to_sym => stats.best_strokes)
+			parent_stats.update_attributes(string_game.to_sym => stats.best_game)
 		end
 
 		def self.calculate_stats(stats, statusholes)
@@ -32,11 +34,21 @@ class SingleFieldStatisticsByHole < ActiveRecord::Base
 			stats.worst_strokes = 0
 			stats.total_strokes = 0 
 			stats.avg_strokes = 0
+			best_id = 0
 			statusholes.each do |hole|
 				hits = hole.total_strokes_count
-				stats.best_strokes = hits if  hits != nil && stats.best_strokes > hits
+				if  hits != nil && stats.best_strokes > hits
+					stats.best_strokes = hits
+					best_id = hole.id
+				end
 				stats.worst_strokes = hits if hits != nil && stats.worst_strokes < hits
 				stats.total_strokes += hits if hits !=  nil
+			end
+			if best_id != nil
+				statushole = StatusHole.find(best_id)
+				game = Game.find(statushole.game_id)
+				best_string = game.date.strftime("%d.%m.%y.") 
+				stats.best_game = best_string
 			end
 			if stats.best_strokes == 999 then stats.best_strokes = nil end
 			stats.avg_strokes = stats.total_strokes.to_f / statusholes.count unless statusholes.count == 0

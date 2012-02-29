@@ -130,3 +130,24 @@
 	bottom:-25px;
 	right:0px;
 }
+
+.splash_page_header .ads_wrap {
+	width:160px;
+	float:left;
+	margin-left:10px;
+	padding-bottom:20px;
+	position:relative;
+	top:130px;
+	left:50px;
+}
+
+.splash_page_header .ads_wrap .single_ad {
+	margin-top:20px;
+	width:160px;
+}
+
+.splash_page_header .ads_wrap .single_ad p {
+	font-size:12px;
+	font-family:"Tahoma";
+	font-weight:normal;
+}

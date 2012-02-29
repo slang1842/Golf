@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221170202) do
+ActiveRecord::Schema.define(:version => 20120229102950) do
 
   create_table "all_stick_statistics", :force => true do |t|
     t.integer  "user_id"
@@ -423,6 +423,24 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.integer  "best_score_hole_17"
     t.integer  "best_score_hole_18"
     t.integer  "best_total_score"
+    t.string   "best_game_hole_1"
+    t.string   "best_game_hole_2"
+    t.string   "best_game_hole_3"
+    t.string   "best_game_hole_4"
+    t.string   "best_game_hole_5"
+    t.string   "best_game_hole_6"
+    t.string   "best_game_hole_7"
+    t.string   "best_game_hole_8"
+    t.string   "best_game_hole_9"
+    t.string   "best_game_hole_10"
+    t.string   "best_game_hole_11"
+    t.string   "best_game_hole_12"
+    t.string   "best_game_hole_13"
+    t.string   "best_game_hole_14"
+    t.string   "best_game_hole_15"
+    t.string   "best_game_hole_16"
+    t.string   "best_game_hole_17"
+    t.string   "best_game_hole_18"
   end
 
   create_table "single_field_statistics_by_holes", :force => true do |t|
@@ -440,6 +458,7 @@ ActiveRecord::Schema.define(:version => 20120221170202) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rank"
+    t.string   "best_game"
   end
 
   create_table "standard_statistics", :force => true do |t|

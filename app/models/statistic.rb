@@ -173,7 +173,7 @@ class Statistic < ActiveRecord::Base
 					statistic = Statistic.find_or_create_by_user_id_and_stick_id(c_user.id, user_stick.stick_id)
 				end
 
-				if statistic.calculated == false || statistic.calculated == nil
+				if statistic.calculated == nil || statistic.calculated == false
 			#calculating for whole stick
 					stick_failed_strokes = FailedStroke.find_or_create_by_statistic_id_and_stick_id_and_user_id_and_position_name(statistic.id, user_stick.stick_id, c_user.id, 'stick_total')
 					stick_total_strokes = {:top_strokes => 0, :under_strokes => 0, :long_strokes => 0, :left_strokes => 0, :more_left_strokes => 0, :right_strokes => 0, :more_right_strokes => 0, :ok_strokes => 0, :total_strokes => 0, :short_strokes => 0, :penalty_strokes => 0}

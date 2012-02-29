@@ -37,6 +37,7 @@
           </div>
 					<div class="row1" style="width:90px;">
             <p><%= stat.best_strokes%></p><% i += stat.best_strokes.to_i %>
+						<span class="tooltip"><%= stat.best_game %></span>
           </div>
           <div class="row1" style="width:90px;">
             <p><%= stat.avg_strokes %></p>
@@ -72,6 +73,14 @@
 					</div>
 				<% end %>
        <%end%>
+			<div class="line" style="margin-left:212px">
+				<div class="row" style="width:90px; height:25px; border-left: 1px solid #D0D0D0">
+          <p>Out</p>
+        </div> 
+				<div class="row" style="width:90px; height:25px">
+          <p><%= z %></p>
+        </div> 
+			</div>
 			<div class="line" style="margin-left:212px">
 				<div class="row" style="width:90px; height:25px; border-left: 1px solid #D0D0D0">
           <p>Tot</p>

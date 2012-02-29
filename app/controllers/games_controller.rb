@@ -518,8 +518,8 @@ private
 	end
 
 	def reset_stats
-		stats = Statistic.find_by_user_id(current_user.id)
-		stats.update_attributes(:calculated => false) if stats != nil
+		stats = Statistic.where(:user_id => current_user.id)
+		stats.each {|s| s.update_attributes(:calculated => false)} if stats != nil
 	end
  
 	def fetch_proper_clubs(sticks, usersticks, id_to_be_added)
