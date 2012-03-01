@@ -1452,3 +1452,15 @@ background-repeat: no-repeat;
     text-align: center;
 		z-index:5;
 }
+
+.help {
+	padding:20px;
+}
+.help .actual_contents .help_paragraph {
+	color:#363636;
+  font-size:12px;
+  font-family:"Trebuchet MS";
+  line-height:14px;
+  margin:0px;
+  font-weight:bold;
+}

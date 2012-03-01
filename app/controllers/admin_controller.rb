@@ -13,4 +13,22 @@ class AdminController < ApplicationController
       end
     end
   end
+
+	def edit_help
+		@help_text = ""
+		@help_file = File.open("app/views/share/_help_text.html.erb", "r") do |f|
+			while (line = f.gets)
+				@help_text += line
+			end
+		end
+	end
+
+	def save_help
+		puts params[:help_text]
+		@help_file = File.open("app/views/share/_help_text.html.erb", "r+") do |f|
+			@help_text = f.syswrite(params[:help_text])
+		end
+		redirect_to admin_path
+	end
+
 end

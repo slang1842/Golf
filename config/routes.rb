@@ -128,6 +128,8 @@ Golf::Application.routes.draw do
     match "admin/users/acc/:id" => "users#give_admin_rights", :as => 'give_admin_rights'
 		match "/sanitize_pairs" => "sticks#sanitize_pairs"
 		match "/reset_stats" => "sticks#reset_stats"
+		match "/edit_help" => "admin#edit_help"
+		match "/save_help" => "admin#save_help"
   end
   
  match "reset_password" => "password_resets#update"

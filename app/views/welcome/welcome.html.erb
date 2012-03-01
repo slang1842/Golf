@@ -79,8 +79,8 @@
 		<% @announcements.each do |ad| %>
 		<div onclick="window.location.href='/user/new';" style="cursor:pointer">
 	 	<div class="single_ad">
-    	  <p><b><%=ad.header.truncate(20)%></b></p>
-			<p><span class="gray"><%=ad.body.truncate(60)%></span></p>
+    	  <p><b><%=ad.header.truncate(35)%></b></p>
+			<p><span class="gray"><%=ad.body.truncate(100)%></span></p>
    	 </div>
 		</div>
 		<% end %>
