@@ -1,0 +1,9 @@
+<%= form_tag('/admin/save_text', :method => 'post') do %>
+	<p>Header: <%= text_area_tag :header_text, @header_text, :cols => 80, :rows => 5 %></p>
+	<p>More Text: <%= text_area_tag :more_text, @more_text, :cols => 80, :rows => 5 %></p>
+	<p>Icon 1: <%= text_area_tag :icon_1_text, @icon_1_text, :cols => 80, :rows => 5 %></p>
+	<p>Icon 2: <%= text_area_tag :icon_2_text, @icon_2_text, :cols => 80, :rows => 5 %></p>
+	<p>Icon 3: <%= text_area_tag :icon_3_text, @icon_3_text, :cols => 80, :rows => 5 %></p>
+		
+	<%= submit_tag 'Save'%>
+<% end %>

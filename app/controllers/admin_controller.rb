@@ -24,11 +24,69 @@ class AdminController < ApplicationController
 	end
 
 	def save_help
-		puts params[:help_text]
 		@help_file = File.open("app/views/share/_help_text.html.erb", "r+") do |f|
 			@help_text = f.syswrite(params[:help_text])
 		end
 		redirect_to admin_path
 	end
+
+	def edit_text
+		fetch_texts
+	end
+
+	def save_text
+		@help_file = File.open("more_text.txt", "r+") do |f|
+			@help_text = f.syswrite(params[:more_text])
+		end
+		@help_file = File.open("header_text.txt", "r+") do |f|
+			@help_text = f.syswrite(params[:header_text])
+		end
+		@help_file = File.open("icon_1_text.txt", "r+") do |f|
+			@help_text = f.syswrite(params[:icon_1_text])
+		end
+		@help_file = File.open("icon_2_text.txt", "r+") do |f|
+			@help_text = f.syswrite(params[:icon_2_text])
+		end
+		@help_file = File.open("icon_3_text.txt", "r+") do |f|
+			@help_text = f.syswrite(params[:icon_3_text])
+		end
+		redirect_to admin_path
+		
+	end
+
+	private
+	
+	def fetch_texts
+			@more_text = ""
+			@header_text = ""
+			@icon_1_text = ""
+			@icon_2_text = ""
+			@icon_3_text = ""
+			@text = File.open("more_text.txt", "r") do |f|
+				while (line = f.gets)
+					@more_text += line
+				end
+			end
+			@text = File.open("header_text.txt", "r") do |f|
+				while (line = f.gets)
+					@header_text += line
+				end
+			end
+			@text = File.open("icon_1_text.txt", "r") do |f|
+				while (line = f.gets)
+					@icon_1_text += line
+				end
+			end
+			@text = File.open("icon_2_text.txt", "r") do |f|
+				while (line = f.gets)
+					@icon_2_text += line
+				end
+			end
+			@text = File.open("icon_3_text.txt", "r") do |f|
+				while (line = f.gets)
+					@icon_3_text += line
+				end
+			end
+		end
 
 end

@@ -20,6 +20,8 @@ class WelcomeController < ApplicationController
 	end
 
 	def welcome
+		fetch_texts
+		
 		@announcements = Announcement.by_admin(4,0)
 		@users = User.latest
     store_location
@@ -41,6 +43,39 @@ class WelcomeController < ApplicationController
 
 		def fetch_side_ads
 			@side_ads = SideAd.where(:golf_club_id => current_user.golf_club_id, :to_be_shown => true).limit(3).order("created_at desc")
+		end
+
+		def fetch_texts
+			@more_text = ""
+			@header_text = ""
+			@icon_1_text = ""
+			@icon_2_text = ""
+			@icon_3_text = ""
+			@text = File.open("more_text.txt", "r") do |f|
+				while (line = f.gets)
+					@more_text += line
+				end
+			end
+			@text = File.open("header_text.txt", "r") do |f|
+				while (line = f.gets)
+					@header_text += line
+				end
+			end
+			@text = File.open("icon_1_text.txt", "r") do |f|
+				while (line = f.gets)
+					@icon_1_text += line
+				end
+			end
+			@text = File.open("icon_2_text.txt", "r") do |f|
+				while (line = f.gets)
+					@icon_2_text += line
+				end
+			end
+			@text = File.open("icon_3_text.txt", "r") do |f|
+				while (line = f.gets)
+					@icon_3_text += line
+				end
+			end
 		end
 
 end

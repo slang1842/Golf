@@ -20,7 +20,9 @@
       <div class="single_comment_wrap">	
         <div class="image"><img src="<%= user.image.url %>" width="61px" alt=""/></div>
         <div class="text">
-          <p><%= user.first_name %>: <span class="gray">| Country : <%= user.country.name%>  <% if user.golf_club%> | Golf club : <%= user.golf_club.name%> <% end %> | HCP : <%= user.hcp%></span></p>
+          <p><%= user.first_name %> <span class="gray"> : <%= user.country.name%></span> </p>
+					<p> <% if user.golf_club%> Club <span class="gray"> : <%= user.golf_club.name%> </span><% end %> </p>
+					<p> HCP <span class="gray">: <%= user.hcp%></span></p>
         </div>
       </div>
 		<% end %>
@@ -43,12 +45,12 @@
         </div>
       <% end %>
 
+			<%= raw @header_text %>
 
-
-      <h1>Dolor sit. Lorem ipsum.</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit? Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris! <a href="#" onclick="$(this).fadeOut('slow'); $('#moretext').fadeIn('slow');  return false;">Tell me more!</a></p>
+       <p><a href="#" id="show_stuff" onclick="$(this).fadeOut('slow'); $('#moretext').fadeIn('slow');  return false;">Tell me more!</a></p>
 			<div id="moretext" style="display:none">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit? Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris! </p>
+				<%=raw  @more_text %>
+				<a href="#" id="hide_stuff" onclick="$('#show_stuff').fadeIn('slow'); $('#moretext').fadeOut('slow');  return false;">Hide</a>
 			</div>
       <div class="button">
         <a href="<%= new_user_path %>"><p>Start Now!</p></a>
@@ -56,13 +58,13 @@
 <%#=  link_to "create golf club", new_golf_club_path %>
       <img src="/images/promo_image.png" alt=""/>
       <div class="image"><img src="/images/games_icon.png" alt=""/></div>
-      <div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>
+      <div class="text"><p><%= @icon_1_text %></p></div>
       <div class="clear"></div>
       <div class="image"><img src="/images/results_icon.png" alt=""/></div>
-      <div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>
+      <div class="text"><p><%= @icon_1_text %></p></div>
       <div class="clear"></div>
       <div class="image"><img src="/images/club_icon.png" alt=""/></div>
-      <div class="text"><p>At vero eos! Et accusamus et iusto odio ducimus.</p></div>
+      <div class="text"><p><%= @icon_1_text %></p></div>
     </div>
 
     <!--<div class="news_wrap">
