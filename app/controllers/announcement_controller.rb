@@ -48,6 +48,7 @@ class AnnouncementController < ApplicationController
 	end
 
 	def load_more
+		session[:announcement_offset] = params[:ann_offset].to_i
 		case session[:newsfeed_filter]
 			when 'all'
 				@announcements = Announcement.for_newsfeed(5, session[:announcement_offset], GolfClub.club_id_array_by_country(current_user.country_id))
@@ -61,6 +62,8 @@ class AnnouncementController < ApplicationController
 			@i += 1
 		end
 		session[:announcement_offset] += @i
+		@ann_offset = session[:announcement_offset] #ugly fix for ugly IE
+		session.save!
 		respond_to :js
 	end
 

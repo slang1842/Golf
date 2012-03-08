@@ -47,7 +47,11 @@ class SingleFieldStatisticsByHole < ActiveRecord::Base
 			if best_id != nil
 				statushole = StatusHole.find(best_id)
 				game = Game.find(statushole.game_id)
-				best_string = game.date.strftime("%d.%m.%y.") 
+				if game.coplayer_name != nil
+					best_string = game.coplayer_name + ', ' + game.date.strftime("%d.%m.%y.")
+				else
+					best_string = game.date.strftime("%d.%m.%y.")
+				end 
 				stats.best_game = best_string
 			end
 			if stats.best_strokes == 999 then stats.best_strokes = nil end

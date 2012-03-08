@@ -10,9 +10,9 @@ FORM_SEX = { "female" => "f", "male" => "m" }
 RIGHT_HANDED = { "Righthander" => true, "Lefthander" => false }
 MEASUREMENT = { "Meters" => "m", "Feet" => "ft", "Yards" => "yd" }
 TEMPERATURE = { "Celsium" => "celsium", "Fahrenheit" => "fahrenheit"}
-START_PLACE_COLORS = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4, "None" => 0 }
-START_PLACE_ARRAY = [{:id => 1, :name => "Red"}, {:id => 2, :name => "Green"}, {:id => 3, :name => "Black"}, {:id => 4, :name => "Yellow"}]
-START_PLACE_COLORS_USER = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4}
+START_PLACE_COLORS = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4, "Blue" => 5, "White" => 6, "None" => 0 }
+START_PLACE_ARRAY = [{:id => 1, :name => "Red"}, {:id => 2, :name => "Green"}, {:id => 3, :name => "Black"}, {:id => 4, :name => "Yellow"}, {:id => 5, :name => "Blue"}, {:id => 6, :name => "White"}]
+START_PLACE_COLORS_USER = { "Red" => 1, "Green" => 2, "Black" => 3, "Yellow" => 4, "Blue" => 5, "White" => 6}
 GREEN_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 FIELD_QUALITY = { "Bad" => 1, "Medium" => 2, "Uber" =>3}
 WEATHER = { "Normal" => 1, "Wind" => 2, "Rain" => 3, "Wind and Rain" => 4}
@@ -34,11 +34,11 @@ MISTAKE = {"Good distance" => 2, "Too close" => 1, "Too far" => 3}
 
 
 STICK_DEGREES = {"10x" => 1, "15x" => 2, "20x" => 3, "25x" => 4}
-STICK_SHAFT = {"Wood" => 1, "Metal" => 2, "Plastic" => 3}
+STICK_SHAFT = { "Steel" => 2, "Graphite" => 3}
 STICK_SHAFT_STRENGTH = {"Strong" => 1, "Very Strong" => 2, "Medium" => 3}
 
 STICK_DEGREES_rev = {1 => "10x", 2 => "15x", 3 => "20x", 4 => "25x"}
-STICK_SHAFT_rev = {1 => "Wood", 2 => "Metal", 3 => "Plastic"}
+STICK_SHAFT_rev = { 2 => "Steel", 3 => "Graphite"}
 STICK_SHAFT_STRENGTH_rev = { 1 => "Strong", 2 => "Very Strong", 3 => "Medium"}
 
 BALL_MANUFACTURER = {"ADIDAS" => 1, "Balls Masters" => 2, "Other" => 3}

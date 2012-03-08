@@ -93,7 +93,7 @@ p
 
 
 /* ---- .styled_select ---- */
-.dropdown1, .dropdown2, .dropdown3, .dropdown4, .dropdown5, .dropdown6, .dropdown7, .dropdown8  {
+.dropdown1, .dropdown2, .dropdown3, .dropdown4, .dropdown5, .dropdown6, .dropdown7, .dropdown8, .dropdown9  {
   border: solid 2px #D3D3D3;
   font-size: 12px;
   height: 24px;
@@ -107,7 +107,7 @@ p
 
 /*.dropdown1:hover, .dropdown2:hover, .dropdown3:hover, .dropdown4:hover, .dropdown5:hover, .dropdown6:hover {background: #EDEDED; border: solid 2px #F5F5F5;}
 */
-.dropdown1 option, .dropdown2 option, .dropdown3 option, .dropdown4 option, .dropdown5 option, .dropdown6 option, .dropdown7 option, .dropdown8 option {
+.dropdown1 option, .dropdown2 option, .dropdown3 option, .dropdown4 option, .dropdown5 option, .dropdown6 option, .dropdown7 option, .dropdown8 option, .dropdown9 option {
   display: block;
   padding: 6px;
   border: solid 1px #DEDEDE;
@@ -143,6 +143,10 @@ p
 
 .dropdown8 {
   width: 110px;
+}
+
+.dropdown9 {
+	width: 35px;
 }
 
 /* ---- .styled_select ---- */

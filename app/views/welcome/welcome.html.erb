@@ -15,13 +15,15 @@
 
   <div class="splash_page_header">
 		<% if @users %>
+		
     <div class="comments_wrap">
+		<p style="font-size:12px;font-family:'Tahoma';margin-bottom:20px"><b>	Latest players</b></p>
 		 <% @users.each do |user| %>
       <div class="single_comment_wrap">	
         <div class="image"><img src="<%= user.image.url %>" width="61px" alt=""/></div>
         <div class="text">
           <p><%= user.first_name %> <span class="gray"> : <%= user.country.name%></span> </p>
-					<p> <% if user.golf_club%> Club <span class="gray"> : <%= user.golf_club.name%> </span><% end %> </p>
+					<p> <% if user.golf_club%> Club <span class="gray"> :<a href="<%='http://' + user.golf_club.web_page%>" target="_blank"> <%= if user.golf_club.short_name != nil then user.golf_club.short_name else user.golf_club.name end%> </a></span><% end %> </p>
 					<p> HCP <span class="gray">: <%= user.hcp%></span></p>
         </div>
       </div>
@@ -61,10 +63,10 @@
       <div class="text"><p><%= @icon_1_text %></p></div>
       <div class="clear"></div>
       <div class="image"><img src="/images/results_icon.png" alt=""/></div>
-      <div class="text"><p><%= @icon_1_text %></p></div>
+      <div class="text"><p><%= @icon_2_text %></p></div>
       <div class="clear"></div>
       <div class="image"><img src="/images/club_icon.png" alt=""/></div>
-      <div class="text"><p><%= @icon_1_text %></p></div>
+      <div class="text"><p><%= @icon_3_text %></p></div>
     </div>
 
     <!--<div class="news_wrap">

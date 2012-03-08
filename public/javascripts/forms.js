@@ -232,7 +232,7 @@ function user_place_in_golf_club() {
 function bindHoleTextBoxes(){
 	for (i=1;i<=9;i++){
 		var fieldname = '.hole_num_' + i;
-		$(fieldname).live('keyup', function() {
+		$(fieldname).live('change', function() {
 			var outSum = collectOutSum();
 			$('.out_field').val(outSum);
 			alterTotalSum();		
@@ -240,7 +240,7 @@ function bindHoleTextBoxes(){
 	}
 	for (i=10;i<=18;i++){
 		var fieldname = '.hole_num_' + i;
-		$(fieldname).live('keyup', function() {
+		$(fieldname).live('change', function() {
 			var inSum = collectInSum();
 			$('.in_field').val(inSum);
 			alterTotalSum();		

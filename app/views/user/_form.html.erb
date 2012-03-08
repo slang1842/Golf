@@ -130,6 +130,7 @@
         </div>
         <div class="input">
           <%= f.select(:measurement, MEASUREMENT,{}, { :class => 'dropdown8'}) %>
+					<%= f.hidden_field(:temp_preference, :value => 'c')%>
         </div>
       </div>
 

@@ -38,6 +38,14 @@
 	/*margin-bottom:20px;*/
 }
 
+.splash_page_header .comments_wrap .single_comment_wrap .text p a {
+	color:#898989;
+	font-family:"Tahoma";
+	font-size:12px;
+	font-weight:normal;
+	line-height:14px;
+}
+
 .splash_page_header .contents_wrap {
 	width:430px;
 	padding-top:122px;

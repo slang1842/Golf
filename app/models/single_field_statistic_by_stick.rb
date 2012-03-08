@@ -8,7 +8,7 @@ class SingleFieldStatisticByStick < ActiveRecord::Base
 		all_stick_stats = stats.single_field_statistic_by_sticks
 		user.users_sticks.each do |stick|
 			conditions = {:single_field_statistic_id => stats.id, :field_id => stats.field_id, :users_stick_id => stick.id}
-			stick_stats = all_stick_stats.detect {|k| k.single_field_statistic_id == stats.id && k.field_id == stats.field_id} || SingleFieldStatisticByStick.create(conditions)
+			stick_stats = all_stick_stats.detect {|k| k.single_field_statistic_id == stats.id && k.field_id == stats.field_id && k.users_stick_id == stick.id} || SingleFieldStatisticByStick.create(conditions)
 			SingleFieldStatisticByStick.check_stats(stick_stats, user)
 			stick_stats.save!
 		end

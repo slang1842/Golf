@@ -25,6 +25,7 @@ class AdminController < ApplicationController
 
 	def save_help
 		@help_file = File.open("app/views/share/_help_text.html.erb", "r+") do |f|
+			f.truncate(0)
 			@help_text = f.syswrite(params[:help_text])
 		end
 		redirect_to admin_path
@@ -36,18 +37,23 @@ class AdminController < ApplicationController
 
 	def save_text
 		@help_file = File.open("more_text.txt", "r+") do |f|
+			f.truncate(0)
 			@help_text = f.syswrite(params[:more_text])
 		end
 		@help_file = File.open("header_text.txt", "r+") do |f|
+			f.truncate(0)
 			@help_text = f.syswrite(params[:header_text])
 		end
 		@help_file = File.open("icon_1_text.txt", "r+") do |f|
+			f.truncate(0)
 			@help_text = f.syswrite(params[:icon_1_text])
 		end
 		@help_file = File.open("icon_2_text.txt", "r+") do |f|
+			f.truncate(0)
 			@help_text = f.syswrite(params[:icon_2_text])
 		end
 		@help_file = File.open("icon_3_text.txt", "r+") do |f|
+			f.truncate(0)
 			@help_text = f.syswrite(params[:icon_3_text])
 		end
 		redirect_to admin_path

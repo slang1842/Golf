@@ -1,6 +1,7 @@
-if @i != 0
+if @announcements != nil
 	page["#announcements"].append render(:partial => "announcement/loop", :locals => {:announcements => @announcements})
-	page["#autoload_params"].html("true")
+	page["#ann_offset"].text(@ann_offset)
+	page["#autoload_params"].html("true")		
 else
-	page["#autoload_params"].html("")
+	page["#autoload_params"].text("false")
 end

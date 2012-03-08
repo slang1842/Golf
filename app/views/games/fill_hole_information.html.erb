@@ -27,20 +27,20 @@
    		<%= game.fields_for :status_holes, hole do |f|%>
   		  <div class="single_hole done "><p><%=hole.hole_number%></p></div>
 				<div class="clear"></div>
-				<% text_field_name = 'hole_text_field hole_num_' + hole.hole_number.to_s %>
-				<%= f.text_field :total_strokes_count, :class => text_field_name%>
-				<%= f.text_field :putts_count, :class => "hole_text_field" %>
+				<% text_field_name = 'dropdown9 hole_text_field hole_num_' + hole.hole_number.to_s %>
+				<%= f.select( :total_strokes_count, (1..30), {:selected => 1}, {:class => text_field_name})%>
+				<%= f.select( :putts_count, (0..30), {:selected => 0}, {:class => "dropdown9 hole_text_field"}) %>
 				<% tot += hole.total_strokes_count.to_i %>
 		  <% end %>
 		</div>
 		<% if hole.hole_number == 9 %>
-			<div class="hole_input_wrapper">
+			<div class="hole_input_wrapper" style="margin-right:3px">
 				<div class="for_word single_hole done "><p>Out</p></div>				
 				<div class="clear"></div>
 				<%= text_field_tag :out_field, tot, :disabled => true, :class => "out_field" %>
 			</div>
 			<% if @statusholes.count == 9 %>
-			<div class="hole_input_wrapper">
+			<div class="hole_input_wrapper" style="margin-right:3px">
 				<div class="single_hole done for_word"><p>Tot</p></div>
 				<%= text_field_tag :tot_field, tot, :disabled => true, :class => "tot_field", :style => "width:28px"  %>
 				<div class="clear"></div>
@@ -48,19 +48,19 @@
 			<% end %>
 			<% out_ = tot %>
 		<% elsif hole.hole_number == 18 %>
-			<div class="hole_input_wrapper">
+			<div class="hole_input_wrapper" style="margin-right:3px">
 				<div class="single_hole done for_word"><p>In</p></div>
 				<% in_ = tot - out_%>
 				<%= text_field_tag :in_field, in_, :disabled => true, :class => "in_field" %>
 				<div class="clear"></div>
 			</div>
-			<div class="hole_input_wrapper">
-				<div class="single_hole done for_word"><p>Out</p></div>
+			<div class="hole_input_wrapper" style="margin-right:3px">
+				<div class="single_hole done for_word" ><p>Out</p></div>
 				
 				<%= text_field_tag :out_field, out_, :disabled => true, :class => "out_field" %>
 				<div class="clear"></div>
 			</div>
-			<div class="hole_input_wrapper">
+			<div class="hole_input_wrapper" style="margin-right:5px">
 				<div class="single_hole done for_word"><p>Tot</p></div>
 				<%= text_field_tag :tot_field, tot, :disabled => true, :class => "tot_field", :style => "width:28px"  %>
 				<div class="clear"></div>

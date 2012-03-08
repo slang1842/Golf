@@ -76,11 +76,11 @@
 						<div class="logo_wrap"></div>				
 					<% end %>
 			<% end %>  
-        <div class="login_wrap">
+
           <% unless current_user %>
-            <%= render :partial=> 'user_sessions/form', :locals => {:user_session => UserSession.new} %>
-          <% end %>
-        </div>
+						       
+				  <% end %>
+        
       </div>
 <div class="clear"></div>
       <%= yield %>
@@ -90,7 +90,7 @@
       <div class="clear"></div>
     </div>
     <div class="footer_wrap">
-      <p>Lorem ipsum 2011</p>
+      <p>Golf Assistant 2012</p>
     </div>
   </body>
 </html>

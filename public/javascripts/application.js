@@ -337,6 +337,10 @@ function swapDistanceColor(color_no, distance_type){
 										 $(header + "," + textfield).show();}
 	if (color_no == 4){ $(header).text('Yellow');
 										 $(header + "," + textfield).show();}
+	if (color_no == 5){ $(header).text('Blue');
+										 $(header + "," + textfield).show();}
+	if (color_no == 6){ $(header).text('White');
+										 $(header + "," + textfield).show();}
 	if (color_no == 0){ $(header + "," +  textfield).hide(); }
 		
 }

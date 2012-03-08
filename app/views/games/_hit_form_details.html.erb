@@ -54,7 +54,7 @@
         <p>Plan:</p>
       </div>
       <div class="single_dropdown">
-        <p>Actual place</p>
+        <p>Planned place</p>
         <div class="element" style="heigth:60px">
 					 <%= f.select( :land_place, PLANNED_LAND_PLACES_SHORT, {:prompt => "Select"}, {:class => "dropdown6 land_place_dropdown"}) %>         
  					
@@ -62,7 +62,7 @@
         </div>
       </div>
       <div class="single_dropdown" style="width:100px">
-        <p>Actual distance </p>
+        <p>Planned distance </p>
         <div class="element" style="heigth:60px">
           <%= f.text_field :hit_distance, {:class => "distance_plan", :value => shorten_2(hit_p_final.hit_distance)} %>
         </div>
@@ -88,10 +88,10 @@
         </div>
       </div>
       
-    </div>
+
     <%= f.hidden_field :hole_number, :value => active_hole %>
     <%= f.hidden_field :hit_number, :value => active_hit %>
-    </div>
+  
   <% end %>
 
   <%= game.fields_for :hits, hit_r_final do |f|%>

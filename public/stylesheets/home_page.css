@@ -73,6 +73,8 @@
 	margin-top:20px;
 	margin-bottom:20px;
 	padding-right:10px;
+	width:450px;
+	overflow:hidden;
 }
 
 .user_home_wrap .main_content_wrap .news_wrap .single_news_article .heading {
@@ -89,6 +91,11 @@
 	font-weight:normal;
 	color:#898989;
 	margin-top:10px;
+}
+
+.user_home_wrap .main_content_wrap .news_wrap .single_news_article .read_more_link {
+	position:absolute;
+	right:665px;
 }
 
 .user_home_wrap .main_content_wrap .news_wrap .single_news_article .small {
