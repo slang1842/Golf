@@ -31,10 +31,12 @@ Golf::Application.routes.draw do
 	match '/remove_user_stick/:id' => "users_sticks#destroy"
 	match '/create_new_stick/:user_id' => "users_sticks#create"	
   match 'statistic/get_mini_statistic_by_field/:field_id/:user_id' => 'statistic#get_statistic_by_field'
+	match '/update_my_statistics/:user_id' => "statistic#update_my_stats"
 	match '/statistic/by_fields/:user_id' => "statistic#by_fields"
 	match '/render_single_stats/:user_id/:stick_id' => 'statistic#render_single_stats'
 	match '/get_total_stats_by_field/:user_id/:field_id' => 'single_field_statistic#view_total_stats'
 	match '/competition/:user_id' => 'single_field_statistic#competition'
+	match '/golf_club/update_banner' => 'golf_club#update_banner'
   resource :statistic, :controller => "statistic" do
     member do
       match 'user/:user_id/' => 'statistic#edit', :as => "main"

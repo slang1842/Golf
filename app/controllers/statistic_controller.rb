@@ -17,7 +17,14 @@ class StatisticController < ApplicationController
     #@GameStatisticsBySticks = GameStatisticsBySticks.all
   end
 
-	
+	def update_my_stats
+		if Statistic.main_statistics(params[:user_id])
+			redirect_to main_statistic_path(params[:user_id])
+		else 
+			redirect_to main_statistic_path(params[:user_id])
+		end		
+
+	end
 		
    
 		def edit

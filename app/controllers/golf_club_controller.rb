@@ -67,7 +67,13 @@ class GolfClubController < ApplicationController
   #   end
   #   /
   
-  
+  def update_banner
+		@golf_club = GolfClub.find(params[:id])
+		if @golf_club.update_attributes
+		end
+			redirect_to "/side_ad"
+  end
+
   private
   def countries
     @contries = Country.all

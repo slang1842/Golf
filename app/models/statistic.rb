@@ -149,10 +149,15 @@ class Statistic < ActiveRecord::Base
 
 
  
-  def self.main_statistics
+  def self.main_statistics(user_id)
 
     @return = false
-    User.where(:is_super_admin => false).includes("statistics").includes("sticks").includes("hits").includes("failed_strokes").includes("all_stick_statistics").includes("users_sticks").each do |c_user|
+		if user_id != nil
+			@all_users = User.where(:id => user_id).includes("statistics").includes("sticks").includes("hits").includes("failed_strokes").includes("all_stick_statistics").includes("users_sticks")
+		else
+    	@all_users = User.where(:is_super_admin => false).includes("statistics").includes("sticks").includes("hits").includes("failed_strokes").includes("all_stick_statistics").includes("users_sticks")
+		end
+		@all_users.each do |c_user|
 			c_user.users_sticks.each {|s| s.save}
 			@all_pairs = PairHit.where(:user_id => c_user.id).includes([:hit_planed, :hit_real])
 

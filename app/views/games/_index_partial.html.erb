@@ -7,7 +7,7 @@ $(document).ready(function(){
 <div id="games_index_tab">
 <% @games.each do |game| %>
   
-    <div class="single_game_wrap" id="game_<%= game.id%>">
+    <div class="single_game_wrap" id="game_<%= game.id%>" style="width:700px">
       <div class="date_wrap">
         <p><%=l game.date, :format => :game %></p>
       </div>

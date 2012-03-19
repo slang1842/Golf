@@ -14,3 +14,22 @@
 	</div>
 
 </div>
+
+<% if current_user.golf_club.is_v_banner_disabled == false %>
+
+<div class="side_ad_wrap" style="margin:10px">
+	<h1> Golf club side banner </h1>
+	<div class="side_banner_edit" style="margin:10px;float:left;width:200px">
+		<img src="<%=current_user.golf_club.image_v.url%>" width="160px" height="469px" alt=""/>
+	</div>
+	<div style="width:600px;margin:10px;float:right">
+	<%= form_for current_user.golf_club, :html => {:url => '/golf_club/update_banner', :multipart => true} do |c|%>
+		<p> Bear in mind that banner dimensions have to be 169px x 469px ! </p>
+		<%= c.file_field :image_v %>
+		<%= c.submit "Update Banner"%>
+	<% end %>
+	</div>
+
+</div>
+
+<% end %>

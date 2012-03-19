@@ -23,7 +23,7 @@
 <div class="user_home_wrap">
   <div class="ads_wrap">
     <% if current_user && current_user.golf_club %>
-      <% if current_user.golf_club.is_v_banner_disabled == false %>
+      <% if current_user.golf_club.image_v != nil %>
         <img src="<%=current_user.golf_club.image_v.url%>" width="160px" height="469px" alt=""/>
       <%end%>
     <%else%>

@@ -1,7 +1,9 @@
 .my_games_wrap {
-	width:900px;
+	width:720px;
 	background-image:url(img/bg_stripes.png);
 	margin-top:10px;
+	overflow:hidden;
+	float:left;
 }
 
 .my_games_wrap a {
@@ -120,4 +122,10 @@
 .games_menu_links a {
 	margin-top:10px;
 	margin-left:20px;
+}
+
+.my_games_banner_image {
+	float:right;
+	margin:10px;
+	
 }

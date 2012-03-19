@@ -1,5 +1,5 @@
 class GolfMailer < ActionMailer::Base
-  default :from => "zapte7@gmail.com"
+  default :from => "vilnis@maja.lv"
   
   def send_hint(recipient, subject, message, sent_at = Time.now)
       @subject = subject

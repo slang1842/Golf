@@ -15,7 +15,7 @@
       <div class="item">City:</div>
       <div class="item">Web Page:</div>
 			<div class="item">Display top banners?</div>
-			<div class="item">Display side banner?</div>
+			<div class="item">Custom side banner?</div>
       <div class="item">
         <%= f.label "Accept club?" %>
         <%= select_tag "status", options_for_select([ "unknown", "yes", "no"],@golf_club.accepted) %>
@@ -33,7 +33,7 @@
       <div class="item"><%= @golf_club.city%></div>
       <div class="item"><%= @golf_club.web_page%></div>
 			<div class="item"><%= f.radio_button :is_f_banner_disabled, true %> No <%= f.radio_button :is_f_banner_disabled, false %> Yes</div>
-			<div class="item"><%= f.radio_button :is_v_banner_disabled, true %> No <%= f.radio_button :is_v_banner_disabled, false %> Yes</div>
+			<div class="item"><%= f.radio_button :is_v_banner_disabled, true, :onclick => "$('.vertical_banner').toggle();" %> No <%= f.radio_button :is_v_banner_disabled, false, :onclick => "$('.vertical_banner').toggle();" %> Yes</div>
       <div class="item"><%= f.submit "Save"%></div>
     </div>
 		<div class="clear"></div>
@@ -75,14 +75,18 @@
     </div>
 
 
-
-    <div class="banner_box">
+		<% if @golf_club.is_v_banner_disabled == true %> 
+    	<div class="banner_box vertical_banner" style="">
+		<% else %>
+			<div class="banner_box vertical_banner" style="display:none">
+		<% end %>
       <div class="banner_title" onclick="">Side banner(160*470px)</div>
       <div class="banner_wrap">
         <%= image_tag(@golf_club.image_v.url) %>
         <%= f.file_field :image_v %>
       </div>
     </div>
+		
 
 		
 

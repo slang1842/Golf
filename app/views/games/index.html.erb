@@ -4,7 +4,7 @@
 <div class="games_menu_links">
 	<a href="/games" class="green_button">Your games</a> <a href="/game_new/res/" class="gray_button"> Add game result</a> <a href="/game_new/plan/" class="gray_button"> Add game plan</a></div>
 
-<div class="my_games_wrap">
+<div class="my_games_wrap" >
   
 
 
@@ -33,6 +33,19 @@
     <% end %>
 
   <% end %>
+	
 </div>
+<div class="my_games_banner_image">
+    <% if current_user && current_user.golf_club %>
+      <% if current_user.golf_club.is_v_banner_disabled == false %>
+        <img src="<%=current_user.golf_club.image_v.url%>" width="160px" height="469px" alt=""/>
+      <%end%>
+    <%else%>
+      <img src="/images/ad_blank.png" width="160px" height="469px" alt=""/>
+    <%end%>
+</div>
+
+
+
 
 
