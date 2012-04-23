@@ -1,11 +1,12 @@
-
-development: 
-  adapter: mysql
-  database: golfcre_development
+# PostgreSQL
+development:
+  adapter: postgresql
   encoding: utf8
-  host: localhost
-  password: "G#s@8tZcU1#I"
-  username: golfcre_root
+  database: golf_development
+  pool: 5
+  username: postgres
+  password: postgres
+  
 production: 
   adapter: mysql
   database: golfcreo_main
@@ -13,11 +14,12 @@ production:
   host: localhost
   password: h.4SUWuSHHMy
   username: golfcreo_main
+  
 test: 
-  adapter: mysql
-  database: golfcre_test
+  adapter: postgresql
   encoding: utf8
-  host: localhost
-  password: "G#s@8tZcU1#I"
-  username: golfcre_root
+  database: golf_test
+  pool: 5
+  username: postgres
+  password: postgres
 

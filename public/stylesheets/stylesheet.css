@@ -1,6 +1,6 @@
 html 
 {
-  font-family: "Trebuchet MS", "Tahoma";
+  font-family: "Trebuchet MS", "Tahoma", sans-serif;
   outline:none;
 }
 
@@ -8,21 +8,18 @@ input {
   outline:none;
 }
 
-body 
-{
+body {
   margin: 0px;
   padding: 0px;
   background-color:#4a4a4a;
 }
 
-img 
-{
-  border: 0;
+img {
+    border: 0;
 }
 
-h1
-{
-
+h1 {
+    margin-top: 0;
 }
 
 h3 {
@@ -40,8 +37,7 @@ h3 {
   clear:both;
 }
 
-p
-{
+p {
   color:#363636;
   font-size:12px;
   font-family:"Trebuchet MS";
@@ -485,12 +481,15 @@ a {
   line-height:14px;
 }
 */
-.short_statistics_wrap {
 
-  height:31px;
-  width:900px;
-  /*background-image:url(/images/bg_stripes.png);*/
-  padding:20px;
+.short_statistics_wrap {
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.short_statistics_wrap a {
+    float: left;
+    margin: 20px 10px 20px 0;
 }
 
 .short_statistics_wrap .top_three {
@@ -614,9 +613,7 @@ a {
 }
 
 .main_stats_table_wrap {
-  margin-top:25px;
 	background-image: url(/images/bg_stripes.png);
-	padding-top:5px;
 }
 
 .main_stats_table_wrap .bottom_line {
@@ -624,9 +621,8 @@ a {
   border-bottom:1px solid #cacaca;
 }
 
-.main_stats_table_wrap .clubs_wrap{
-  margin-left:12px;
-	margin-top:10px;
+.main_stats_table_wrap .clubs_wrap {
+    padding: 15px 14px 0;
 }
 
 .main_stats_table_wrap .clubs_wrap .page_left {
@@ -635,14 +631,9 @@ a {
   margin-top:18px;
 }
 
-
-
-
 .main_stats_table_wrap #sticks_row_ {
 	margin-bottom:20px;
 }
-
-
 
 .main_stats_table_wrap #whole_table {
 
@@ -1330,14 +1321,14 @@ a {
 }
 
 .messages_info, .messages_success, .messages_warning, .messages_error, .messages_validation {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid;
-  padding: 15px 10px 15px 50px;
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  margin: 20px;
+    margin: 0 20px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid;
 }
 
 .messages_info {
@@ -1380,7 +1371,6 @@ a {
 
 .club_box_wrapper {
 	float:left;
-	width:690px;
 }
 
 .competition {

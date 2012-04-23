@@ -1,7 +1,7 @@
 .my_games_wrap {
 	width:720px;
 	background-image:url(img/bg_stripes.png);
-	margin-top:10px;
+	/*margin-top:10px;*/
 	overflow:hidden;
 	float:left;
 }
@@ -108,24 +108,24 @@
 }
 
 .games_menu_links {
-	clear:both;
-	overflow:hidden;
-	padding:20px 0px 20px 20px;
+    padding: 0 20px;
+	clear: both;
+	overflow: hidden;
 }
 
 .games_menu_links h1 {
-	float:left;
-	display:block;
-	font-size:19px;
+	float: left;
+	display: block;
+	font-size: 19px;
 }
 
 .games_menu_links a {
-	margin-top:10px;
-	margin-left:20px;
+    float: left;
+	margin: 20px 10px 20px 0;
 }
 
 .my_games_banner_image {
 	float:right;
-	margin:10px;
+	margin: 0 10px 10px 10px;
 	
 }

@@ -1,17 +1,20 @@
 .club_wrap {
-	margin-top:20px;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.club_wrap.bottom {
+    padding: 0;
 }
 
 .club_wrap .club_info_wrap {
-	padding-left:10px;
-	padding-bottom:10px;
-	float:left;
+	float: left;
+	margin: 20px 40px 20px 0;
 }
 
-.club_wrap  h1 {
+.club_wrap .club_info_wrap h1 {
 	font-size:19px;
-	margin-bottom:4px;
-	padding-top:7px;
+	margin: 0 0 5px 0;
 }
 
 .club_wrap .club_info_wrap p {
@@ -24,17 +27,17 @@
 
 .club_wrap .club_links {
 	float:left;
-	margin-top:31px;
-	margin-left:110px;
+	margin: 25px 0 0;
+}
+
+.club_wrap .club_links a {
+    float: left;
+    margin-right: 10px;
 }
 
 .club_wrap .club_players_wrap {
+    padding: 20px;
 	background:url(img/bg_stripes.png);
-	width:890px;
-	padding-left:10px;
-	padding-bottom:10px;
-	padding-top:10px;
-	margin-top:20px;
 }
 
 .club_wrap .club_players_wrap .single_player_wrap {

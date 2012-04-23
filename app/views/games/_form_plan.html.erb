@@ -1,6 +1,9 @@
 <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_games"} %>
 <div class="games_menu_links">
-	<a href="/games" class="gray_button">Your games</a> <a href="/game_new/res/" class="gray_button"> Add game result</a> <a href="/game_new/plan/" class="green_button"> Add game plan</a></div>
+	<a href="/games" class="gray_button">Your games</a>
+	<a href="/game_new/res/" class="gray_button">Add game result</a>
+	<a href="/game_new/plan/" class="green_button">Add game plan</a>
+</div>
 <div class="mesages">
 <div class="messages_error" style="display: none;">Please, insert date, field, and holes!</div>
 </div>
@@ -62,7 +65,7 @@
           <p>Start place</p>
         </div>
         <div class="input">
-          <%= f.select( :start_place_colors, START_PLACE_COLORS,{:prompt => "Select"}, {:class => "dropdown3"}) %>
+          <%= f.select( :start_place_colors, START_PLACE_COLORS, {:prompt => "Select"}, {:class => "dropdown3"}) %>
         </div>
       </div>
       <div class="single_element">
@@ -79,8 +82,8 @@
           <p>Date</p>
         </div>
         <div class="input">
-          <%= f.text_field (:date, {:id => "timepicker", :class => "game_input_select gamedatepicker"} )%>
-  <%#= f.datetime_select :date %>
+          <%#= f.text_field (:date, {:id => "timepicker", :class => "game_input_select gamedatepicker"} ) %>
+          <%= f.datetime_select :date %>
         </div>
       </div>
       <div class="clear"></div>

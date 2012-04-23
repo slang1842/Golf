@@ -149,7 +149,7 @@ class Statistic < ActiveRecord::Base
 
 
  
-  def self.main_statistics(user_id)
+  def self.main_statistics(user_id = nil)
 
     @return = false
 		if user_id != nil

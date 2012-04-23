@@ -2,19 +2,17 @@
   <%= render :partial => 'share/header_menu', :locals => {:header_menu_active_class => "my_games"} %>
 </div>
 <div class="games_menu_links">
-	<a href="/games" class="green_button">Your games</a> <a href="/game_new/res/" class="gray_button"> Add game result</a> <a href="/game_new/plan/" class="gray_button"> Add game plan</a></div>
-
+	<a href="/games" class="green_button">Your games</a>
+	<a href="/game_new/res/" class="gray_button"> Add game result</a>
+	<a href="/game_new/plan/" class="gray_button"> Add game plan</a>
+</div>
 <div class="my_games_wrap" >
-  
-
-
-
-  <% @my_games_for_count = Game.where(:user_id => current_user.id) %>
+      <% @my_games_for_count = Game.where(:user_id => current_user.id) %>
   <% if @my_games_for_count.count.to_i == 0 %>
 
     <div id="main_stats_table_error_message" style='display: block;'>
-      <div class='messages'>
-        <div class='messages_error' style='display: block; margin-top: 25px; margin-bottom: 30px;'>
+      <div class="messages">
+        <div class="messages_error">
           You have no games to display.<br/>
           You can add games <a href="<%= new_game_path('plan')%>"><span style="text-decoration: underline; color: red;">here</span></a>
         </div>
