@@ -166,12 +166,9 @@ a {
   font-size:19px;
   color:#363636;
   line-height:29px;
-  padding-left:5px;
-  padding-right:5px;
-
+  padding: 2px 10px;
   font-weight:bold;
   font-family:"Trebuchet MS";
-  height:31px;
   display:inline-block;
   border:1px solid #a1a1a1;
 	border-bottom:3px solid #a1a1a1;
@@ -193,20 +190,18 @@ a {
   font-size:19px;
   color:#363636;
   line-height:29px;
-  padding-left:5px;
-  padding-right:5px;
+  padding: 2px 10px;
   font-weight:bold;
   font-family:"Trebuchet MS";
-  height:31px;
   display:inline-block;
   border:1px solid #84aa21;
 	border-bottom:3px solid #84aa21;
 }
 
 .green_button:hover {
-		 -moz-box-shadow:    0px 0px 3px 2px #ccc;
-  -webkit-box-shadow: 0px 0px 3px 2px #ccc;
-  box-shadow:         0px 0px 3px 2px #ccc;
+    -moz-box-shadow:    0px 0px 3px 2px #ccc;
+    -webkit-box-shadow: 0px 0px 3px 2px #ccc;
+    box-shadow:         0px 0px 3px 2px #ccc;
 }
 
 .yellow_button {
@@ -218,11 +213,9 @@ a {
   font-size:19px;
   color:#363636;
   line-height:29px;
-  padding-left:5px;
-  padding-right:5px;
+  padding: 2px 10px;
   font-weight:bold;
   font-family:"Trebuchet MS";
-  height:31px;
   display:inline-block;
   background-image:url(/images/yellow_button_backgr.jpg);
   border:1px solid #b89f00;

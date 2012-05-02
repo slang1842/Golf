@@ -103,8 +103,8 @@
 .my_games_wrap .single_game_wrap .links a {
 	float:left;
 	width:auto;
-	margin-right:20px;
-	margin-bottom:10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
 
 .games_menu_links {
