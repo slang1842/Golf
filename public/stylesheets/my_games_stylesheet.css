@@ -20,6 +20,10 @@
 	font-size:17px;
 }
 
+.holes_wrap .heading_wrap p.info {
+    width: 700px;
+}
+
 .my_games_wrap .single_game_wrap {
 	border-bottom:1px solid #cecece;
 	width:900px;

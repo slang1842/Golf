@@ -27,17 +27,15 @@
 
 .game_input_wrap .holes_wrap {
     width:900px;
-    height:47px;
     background-image:url(img/bg_stripes.png);
-		border-bottom:1px dashed #D0D0D0;
+    border-bottom:1px dashed #D0D0D0;
 }
 
 .game_input_wrap .holes_wrap .heading_wrap {
+    float:left;
     margin-left:20px;
     margin-right:20px;
     margin-top:15px;
-    float:left;
-    line-height:47px;
 }
 
 .game_input_wrap .holes_wrap .single_hole {

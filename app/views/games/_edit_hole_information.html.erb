@@ -5,7 +5,7 @@
   <div class="holes_wrap" style="width:900px">
 		
   <div class="heading_wrap">
-    <p>Note that changes made here will alter the strokes you've entered in Analytics or Plan for particular hole!</p>
+    <p class="info">Note that changes made here will alter the strokes you've entered in Analytics or Plan for particular hole!</p>
   </div>
 <br/>
 <br/>
@@ -28,8 +28,8 @@
   		  <div class="single_hole done "><p><%=hole.hole_number%></p></div>
 				<div class="clear"></div>
 				<% text_field_name = 'dropdown9 hole_text_field hole_num_' + hole.hole_number.to_s %>
-				<%= f.select (:total_strokes_count, (1..30), {:prompt => 1},  {:class => text_field_name})%>
-				<%= f.select (:putts_count, (0..30), {:prompt => 0}, {:class => "dropdown9 hole_text_field"} )%>
+				<%= f.select(:total_strokes_count, (1..30), {:prompt => 1},  {:class => text_field_name})%>
+				<%= f.select(:putts_count, (0..30), {:prompt => 0}, {:class => "dropdown9 hole_text_field"} )%>
 				<% tot += hole.total_strokes_count.to_i %>
 		  <% end %>
 		</div>
